@@ -1,0 +1,18 @@
+site_name: RaspAP Documentation
+repo_url: https://github.com/billz/raspap-webgui
+google_analytics:
+  - UA-187566692-1
+  - auto
+theme:
+  name: material
+  logo: images/favicon-32x32.png
+  features:
+    - header.autohide
+    - navigation.instant
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/rasp_ap
+    - icon: fontawesome/brands/github
+      link: https://github.com/billz/raspap-webgui
+copyright: Copyright &copy; 2017 - 2021 <a href="https://github.com/billz">billz</a>
