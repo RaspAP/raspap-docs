@@ -23,7 +23,7 @@ Install RaspAP from your device's shell prompt:
 ```sh
 curl -sL https://install.raspap.com | bash
 ```
-The [Quick installer](/quick) will complete the steps in the manual installation (below) for you.
+The [Quick installer](/quick/) will complete the steps in the [manual installation](/manual/) for you.
 
 After the reboot at the end of the installation the wireless network will be
 configured as an access point as follows:
@@ -48,7 +48,7 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
 ## Get involved
-We we welcome all users of RaspAP to contribute to the project. This can take the form of [issue reports](https://github.com/billz/raspap-webgui/issues), [discussions](https://github.com/billz/raspap-webgui/discussions), or [pull requests](https://github.com/billz/raspap-webgui/pulls).
+We welcome all users of RaspAP to contribute to the project. This can take the form of [issue reports](https://github.com/billz/raspap-webgui/issues), [discussions](https://github.com/billz/raspap-webgui/discussions), or [pull requests](https://github.com/billz/raspap-webgui/pulls).
 Developers can get started by following these steps:
 
 1. Fork the project in your account and create a new branch: `your-great-feature`.
