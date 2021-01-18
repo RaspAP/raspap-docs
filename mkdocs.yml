@@ -6,6 +6,8 @@ google_analytics:
 theme:
   name: material
   logo: images/favicon-32x32.png
+  palette:
+    primary: blue grey
   features:
     - header.autohide
     - navigation.instant
