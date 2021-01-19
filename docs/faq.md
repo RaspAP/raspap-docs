@@ -27,7 +27,7 @@ This was written to address frequently asked questions (FAQ) among users of Rasp
 * [How do I create an AP activation schedule?](#schedule)
 
 ## OpenVPN
-* [OpenVPN fails to start and/or I have no internet. Help!](#openvpn)
+* [OpenVPN fails to start and/or I have no internet. Help!](#openvpn-fails)
 * [OpenVPN works but I have partial or no internet access. Help!](#partial)
 * [OpenVPN is enabled but I am still blocked from country restricted websites. Help!](#restricted)  
 
@@ -290,7 +290,7 @@ conf-dir=/etc/dnsmasq.d
 
 Configuration files placed in this directory will be used by the dnsmasq service and are untouched by the UI. 
 
-## <a name="openvpn"></a> OpenVPN fails to start and/or I have no internet. Help!
+## <a name="openvpn-fails"></a> OpenVPN fails to start and/or I have no internet. Help!
 RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](https://github.com/billz/raspap-webgui/wiki/Reporting-issues#default-settings), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
 
 ```
