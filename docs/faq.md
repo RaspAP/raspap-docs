@@ -98,14 +98,14 @@ Configuration files placed in this directory will be used by the dnsmasq service
 ## <a name="access"></a>My wifi network disappeared and I can't access the webgui. Help!
 If you're running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
 
-1. Be sure your browser isn't forcing SSL by appending https:// to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](https://github.com/billz/raspap-webgui/wiki/SSL-certificates-(Quick-Installer)))
+1. Be sure your browser isn't forcing SSL by appending https:// to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](https://docs.raspap.com/ssl-quick/))
 2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. Check the logs for hostapd errors and reconfigure the service, or run the installer again to restore the default configuration.
 3. There are [several methods](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on `wlan0`. If the AP has entered a failed state, you may still be able to connect on an alternate interface.
 4. Recent versions of the RPi OS kernel include the `avahi-daemon` which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering [http://raspberrypi.local/](http://raspberrypi.local/) in the browser or via SSH with `ssh pi@raspberrypi.local`.
 5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, aka 'on-the-go' or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
 ## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone. Help!
-The [installer](https://github.com/billz/raspap-webgui/wiki/Quick-Installer-usage) applies a "known good" default configuration to some services, including `hostapd`. It will also, optionally, optimize php by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
+The [installer](https://docs.raspap.com/quick/) applies a "known good" default configuration to some services, including `hostapd`. It will also, optionally, optimize php by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
 
 You are free to SSH in to restore those files to their rightful position. However, you may need to ensure that the RaspAP modifications are applied to your own custom configurations.
 
@@ -122,7 +122,7 @@ sudo systemctl status raspapd.service
 The `raspapd.service` is optionally installed and enabled by the Quick Installer. It is also included in the manual setup steps.
 
 ## <a name="bridged"></a>Bridged AP mode is unstable or clients can't connect. Help!
-RaspAP [delegates all DHCP control to your router](https://github.com/billz/raspap-webgui/wiki/Bridged-AP-mode) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](https://github.com/billz/raspap-webgui/wiki/Reporting-issues#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
+RaspAP [delegates all DHCP control to your router](https://docs.raspap.com/bridged/) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](https://docs.raspap.com/issues/#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
 
 If clients disconnect intermittently, this often indicates an undervoltage issue with your RPi. Check the kernel log for any `Under-voltage detected!` errors. Be sure you are using an official 5.1V power supply (each model has [different power requirements](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md)) and detach any USB devices. Executing `dmesg | grep br0` can also offer clues. Execute `sudo dhclient -v` to gain insights into DHCP requests between your device and router. A typical DHCP exchange follows this pattern:
 
@@ -170,7 +170,7 @@ One option is to configure RaspAP to use a Pi-Hole installation on a separate de
 
 Alternatively, you can run Pi-Hole and RaspAP on the same device by operating RaspAP in bridged mode. Go to RaspAP's **Hotspot** > **Advanced settings** page, enable the "Bridged AP mode" option and restart your hotspot. 
 
-Finally, and by popular demand, RaspAP has released its own [ad blocking facility](https://github.com/billz/raspap-webgui/wiki/Ad-blocking) with support for custom blocklists. 
+Finally, and by popular demand, RaspAP has released its own [ad blocking facility](https://docs.raspap.com/adblock/) with support for custom blocklists. 
 
 ## <a name="adguard"></a>Can I integrate RaspAP with Adguard Home?
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/billz/raspap-webgui/issues/542#issuecomment-609078400)
@@ -218,7 +218,7 @@ sudo systemctl restart lighttpd.service
 You can then access RaspAP as before with the new port number in the URI, for example, http://raspberrypi.local:8080. This will allow you run another web server alongside lighttpd, if that is your goal. 
 
 ## <a name="openvpn-fails"></a> OpenVPN fails to start and/or I have no internet. Help!
-RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](https://github.com/billz/raspap-webgui/wiki/Reporting-issues#default-settings), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
+RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](https://docs.raspap.com/issues/#default-settings), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
 
 ```
 -A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
@@ -337,7 +337,7 @@ hostapd: Could not set channel for kernel driver
 In testing, stable AP's on the RPi's supported AC channels were only reliably obtained with 'US' as the regulatory domain. To get a list of the supported channels on your RPi for the 2.4 and 5 GHz bands, use `iw phy phy0 channels`. Refer to [this issue](https://github.com/billz/raspap-webgui/issues/450#issuecomment-569343686).
 
 ## <a name="wificountries"></a>I think my country allows 5 GHz AP channels. Can I test this?
-Yes, you can. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](https://github.com/billz/raspap-webgui/wiki/Reporting-issues#default-settings). The file [wireless.json](https://github.com/billz/raspap-webgui/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
+Yes, you can. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](https://docs.raspap.com/issues/#default-settings). The file [wireless.json](https://github.com/billz/raspap-webgui/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
 
 ```
 // Constant for the 5GHz wireless regulatory domain
@@ -419,7 +419,7 @@ sudo systemctl disable raspapd.service
 ```
 
 ## <a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?
-Yes, the [Quick Installer](https://github.com/billz/raspap-webgui/wiki/Quick-Installer-usage) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command-line option, like so:
+Yes, the [Quick Installer](https://docs.raspap.com/quick/) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command-line option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --yes
