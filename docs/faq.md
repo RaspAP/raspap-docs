@@ -25,6 +25,7 @@ This guide was written to address some frequently asked questions among users of
 * [How do I create an AP activation schedule?](#schedule)
 * [Can I configure a managed mode AP without using the UI?](#managed)
 * [Can I configure an alternate port for RaspAP's web service?](#webport)
+* [What breaks RaspAP when Docker is installed on the same system and how I can fix it?](#docker)
 
 ## OpenVPN
 * [OpenVPN fails to start and/or I have no internet. Help!](#openvpn-fails)
@@ -37,7 +38,6 @@ This guide was written to address some frequently asked questions among users of
 * [Why is the 802.11ac 5GHz option disabled in Configure hotspot?](#80211ac)
 * [I think my country allows 5 GHz AP channels. Can I test this?](#wificountries)
 * [Why is the maximum throughput of my 802.11n AP reduced by half?](#wirelessn)
-* [What breaks RaspAP when Docker is installed on the same system and how I can fix it?](#docker)
 
 ## Install & upgrade
 * [How do I upgrade RaspAP?](#upgrade)
@@ -217,6 +217,15 @@ sudo systemctl restart lighttpd.service
 ```
 You can then access RaspAP as before with the new port number in the URI, for example, http://raspberrypi.local:8080. This will allow you run another web server alongside lighttpd, if that is your goal. 
 
+## <a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?
+Installing RaspAP after installing Docker often results in connected clients not having internet access from the AP. The reason for this is Docker manipulates `iptables` rules to provide network isolation. Docker installs two custom iptables chains named `DOCKER-USER` and `DOCKER`, and it ensures that incoming packets are always checked by these two chains first. Docker also sets the policy for the `FORWARD` chain to `DROP`.
+
+When RaspAP is started in its default router mode, this will result in the AP not forwarding any traffic anymore. If you want RaspAP to continue functioning as a router, you can add explicit `ACCEPT` rules to the `DOCKER-USER` chain to allow it:
+
+`sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT`
+
+Additional info [here](https://docs.docker.com/network/iptables/). 
+
 ## <a name="openvpn-fails"></a> OpenVPN fails to start and/or I have no internet. Help!
 RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](https://docs.raspap.com/issues/#default-settings), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
 
@@ -360,13 +369,6 @@ In practice, this can be quite difficult due to interference on the 2.4 GHz band
 For more information on optimizing 802.11n, refer to this [resource](https://www.lmi.net/wp-content/uploads/Optimizing_802.11n.pdf).
 
 Generally speaking, the 5 GHz band has substantially greater capacity due to more non-overlapping radio channels and less radio interference as compared to the 2.4 GHz band. 
-
-## <a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?
-Installing RaspAP after installing Docker often results in connected clients not having internet access from the AP. The reason for this is Docker manipulates `iptables` rules to provide network isolation. Docker installs two custom iptables chains named `DOCKER-USER` and `DOCKER`, and it ensures that incoming packets are always checked by these two chains first. Docker also sets the policy for the `FORWARD` chain to `DROP`. When RaspAP is started in its default router mode, this will result in the AP not forwarding any traffic anymore. If you want RaspAP to continue functioning as a router, you can add explicit `ACCEPT` rules to the `DOCKER-USER` chain to allow it:
-
-`sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT`
-
-Additional info [here](https://docs.docker.com/network/iptables/). 
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
 Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/billz/raspap-webgui/releases/latest) version, simply run the [Quick Installer](https://docs.raspap.com/quick/) with the `--upgrade` option:
