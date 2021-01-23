@@ -19,10 +19,28 @@ In bridged AP mode, you will no longer be able to access RaspAP's web interface 
 
 Some browsers have trouble resolving `.local` addresses. You might have to modify the address depending on your browser: `http://raspberrypi.local` or `raspberrypi.local/`.
 
-If none of the above work, use your RPi's local IP address. Find it by checking your router's web interface or by entering the following command from your RPi terminal.
+If the above methods don't work, the `nmap` command (Network Mapper) can be used to scan your subnet for devices connected to your network. For example, invoke `namp` with the `-sn` flag (ping scan) 
+on your subnet range:
 
 ```
-ifconfig br0 | grep 'inet ' | awk '{print $2}'
+nmap -sn 192.168.1.0/24
 ```
+
+This scan pings all the IP addresses in a subnet to see if they respond. For each device that responds to the ping, the output will show the hostname and IP address like so:
+
+```
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-01-23 10:04 CET
+Nmap scan report for iPhone 192.168.1.31
+Host is up (0.037s latency).
+Nmap scan report for raspberrypi 192.168.1.8
+Host is up (0.031s latency).
+Nmap scan report for Chromecast 192.168.1.45
+Host is up (0.0015s latency).
+Nmap scan report for mbp15 192.168.1.48
+Host is up (0.074s latency).
+Nmap done: 256 IP addresses (4 hosts up) scanned in 6.08 seconds
+```
+
+More information on finding your RPi's IP address can be found [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 Contributed by [@Taikuh](https://github.com/Taikuh)
