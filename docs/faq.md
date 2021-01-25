@@ -124,7 +124,10 @@ dnsmasq-dhcp[2516]: DHCPREQUEST(wlan0) 10.3.141.249 [MAC address]
 dnsmasq-dhcp[2516]: DHCPACK(wlan0) 10.3.141.249 [MAC address] iPhone
 ```
 
-If one or more steps in this exchange are missing, either your device is unable to respond to the server's `DHCPOFFER` or the AP itself is misconfigured. 
+If one or more steps in this exchange are missing, either your device is unable to respond to the server's `DHCPOFFER` or the AP itself is misconfigured.
+
+> ℹ️  **Important**: By default, the `dnsmasq` service listens on TCP/UDP port 53 and UDP port 67. If you have configured firewall software such as `ufw` or `iptables` to filter traffic on these ports, the service may not be
+able to respond to DHCP requests.
 
 As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
 Save settings, restart `dnsmasq` and try connecting your client again.
