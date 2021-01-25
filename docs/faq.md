@@ -10,6 +10,7 @@ This guide was written to address some frequently asked questions among users of
 * [Can I use RaspAP with my custom dnsmasq configuration?](#dnsmasq)
 
 ## Troubleshooting
+* [Clients cannot obtain an IP address from the hotspot.](#noip)
 * [My wifi network disappeared and I can't access the webgui. Help!](#access)
 * [My custom `hostapd.conf` / `php.ini` is gone. Help!](#custom)
 * [I changed the admin password and forgot what it was. Help!](#password)
@@ -43,7 +44,7 @@ This guide was written to address some frequently asked questions among users of
 * [How do I upgrade RaspAP?](#upgrade)
 * [Do I need the RaspAP service to run at boot?](#raspap-service)
 * [Can the Quick Installer accept the default options without prompting me?](#unattended)
-* [How do I remove RaspAP?](#uninstall)
+* [How do I uninstall RaspAP?](#uninstall)
 
 ## <a name="settings"></a>What do all these settings in the UI do? Changing them seems to have no effect.
 RaspAP manipulates several daemons, services and helper programs behind the scenes for you. In the footer of each management panel is a helpful "Information provided by..." label. These indicate which Linux daemon and/or program is being modified by the UI. Learning what these services are and how they work will go a long way toward demystifying things.
@@ -94,6 +95,39 @@ conf-dir=/etc/dnsmasq.d
 ```
 
 Configuration files placed in this directory will be used by the dnsmasq service and are untouched by the UI. 
+
+## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
+Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
+
+1. A poor Wi-Fi signal from the access point. In this event, reduce the distance between your device and the AP.
+2. Your device does not operate properly with the encryption method set by the AP. 
+3. The access point is misconfigured.
+
+The first and simplest fix is to reconnect the client to your Wi-Fi network. When you do this, the AP forgets the previous attempt and initiates a new process to assign an IP address to your device.
+Exact methods vary between devices, however most will have a 'Forget this network' option or similar in the Wi-Fi settings. This is shown in iOS, below:
+ 
+![](https://i.imgur.com/Lir4cnq.jpg)
+
+If clients still fail to connect, restart the AP. You may do this by choosing **Restart hotspot** from RaspAP. This reinitializes several related services in a predictable order and timing.
+Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.
+
+RaspAP gives you control over many aspects of your Wi-Fi network, including DHCP. With its [default settings](https://docs.raspap.com/issues/#default-settings), RaspAP has been rigorously
+tested and validated to provide connectivity in routed AP mode. If you suspect that RaspAP is misconfigured and not providing IP addresses to clients, you may troubleshoot this yourself.
+
+Clients connecting to your AP are assigned, or leased, an IP address with `dnsmasq`. You can see how this proces works by enabling the **Log DHCP requests** option in the **DHCP Server > Logging** tab. 
+When a client connects to your AP, a typical `dnsmasq-dhcp` exchange follows this pattern:
+
+```
+dnsmasq-dhcp[2516]: DHCPDISCOVER(wlan0) [MAC address] 
+dnsmasq-dhcp[2516]: DHCPOFFER(wlan0) 10.3.141.249 [MAC address] 
+dnsmasq-dhcp[2516]: DHCPREQUEST(wlan0) 10.3.141.249 [MAC address] 
+dnsmasq-dhcp[2516]: DHCPACK(wlan0) 10.3.141.249 [MAC address] iPhone
+```
+
+If one or more steps in this exchange are missing, either your device is unable to respond to the server's `DHCPOFFER` or the AP itself is misconfigured. 
+
+As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
+Save settings, restart `dnsmasq` and try connecting your client again.
 
 ## <a name="access"></a>My wifi network disappeared and I can't access the webgui. Help!
 If you're running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
@@ -429,7 +463,7 @@ curl -sL https://install.raspap.com | bash -s -- --yes
 
 The options `-y` or `--assume-yes` are also accepted and have the same result. 
 
-## <a name="uninstall"></a>How do I remove RaspAP?
+## <a name="uninstall"></a>How do I uninstall RaspAP?
 We have provided an uninstall script to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. The uninstall script is located in `installers/uninstall.sh`. To start the uninstaller, simply run the following from the project root folder (default location is `/var/www/html`):
 
 ```
