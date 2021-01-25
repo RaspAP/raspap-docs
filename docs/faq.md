@@ -106,7 +106,7 @@ Clients may receive a "failed to obtain IP address" or similar error message whe
 The first and simplest fix is to reconnect the client to your Wi-Fi network. When you do this, the AP forgets the previous attempt and initiates a new process to assign an IP address to your device.
 Exact methods vary between devices, however most will have a 'Forget this network' option or similar in the Wi-Fi settings. This is shown in iOS, below:
  
-![](https://i.imgur.com/Lir4cnq.jpg)
+![](https://i.imgur.com/7xvx5JT.png)
 
 If clients still fail to connect, restart the AP. You may do this by choosing **Restart hotspot** from RaspAP. This reinitializes several related services in a predictable order and timing.
 Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.
