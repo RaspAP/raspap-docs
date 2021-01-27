@@ -1,8 +1,9 @@
 # Manual installation
 
-These steps apply to the latest release of Raspbian (currently [Buster](https://www.raspberrypi.org/downloads/raspbian/)), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable. Please refer to [this](https://github.com/billz/raspap-webgui#supported-operating-systems) regarding operating systems support.
+These steps apply to the [latest release of RaspAP](https://github.com/billz/raspap-webgui/releases/), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
+Please refer to [this](/#compatible-operating-systems) regarding operating systems support.
 
-Start off by following the [project prerequisites](https://github.com/billz/raspap-webgui#prerequisites), updating your kernel, firmware and packages to their latest versions:
+Start off by following the [project prerequisites](/#quick-start), updating your kernel, firmware and packages to their latest versions:
 
 ```
 sudo apt-get update
@@ -17,7 +18,7 @@ sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 ```
 
-On Debian, Armbian and Ubuntu, install `dhcpcd5`. **Note:** skip this step if using Raspbian.
+On Debian, Armbian and Ubuntu, install `dhcpcd5`. **Note:** skip this step if using RPi OS.
 
 ```
 sudo apt-get install dhcpcd5
@@ -37,19 +38,23 @@ sudo systemctl restart lighttpd.service
 ```
 
 Prepare the web destination and git clone the files to `/var/www/html`.
+
+> ⚠️  **Caution:** If this is _not_ a clean installation, be sure you do not have existing files or directories in the web root before executing the `rm -rf` command.
+
 ```
 sudo rm -rf /var/www/html
 sudo git clone https://github.com/billz/raspap-webgui /var/www/html
 ```
 
-Now comes the fun part. For security reasons, the `www-data` user which lighttpd runs under is not allowed to start or stop daemons, or run commands like ifdown and ifup, all of which we want RaspAP to do. So we will add the `www-data` user to sudoers, but with restrictions on what commands the user can run. Copy the sudoers rules to their destination:
+Now comes the fun part. For security reasons, the `www-data` user which `lighttpd` runs under is not allowed to start or stop daemons, or run commands like `ip link`,
+all of which we want RaspAP to do. So we will add the `www-data` user to sudoers, but with restrictions on what commands the user can run. Copy the sudoers rules to their destination:
 
 ```
 cd /var/www/html
 sudo cp installers/raspap.sudoers /etc/sudoers.d/090_raspap
 ```
 
-Create the RaspAP configuration directories. Add `/etc/dhcpcd.conf` as a base config:
+Create the RaspAP configuration directories:
 
 ```
 sudo mkdir /etc/raspap/
@@ -57,7 +62,6 @@ sudo mkdir /etc/raspap/backups
 sudo mkdir /etc/raspap/networking
 sudo mkdir /etc/raspap/hostapd
 sudo mkdir /etc/raspap/lighttpd
-cat /etc/dhcpcd.conf | sudo tee -a /etc/raspap/networking/defaults > /dev/null
 ```
 
 Move RaspAP's auth control file to the correct location.
@@ -101,17 +105,21 @@ sudo systemctl daemon-reload
 sudo systemctl enable raspapd.service
 ```
 
-Copy the configuration files for dhcpcd, dnsmasq, and hostapd. Optionally, backup your existing hostapd.conf.
+Copy the configuration files for dhcpcd, dnsmasq, hostapd and `defaults.json`. Optionally, backup your existing `hostapd.conf`.
 
 ```
 sudo mv /etc/default/hostapd ~/default_hostapd.old
 sudo cp /etc/hostapd/hostapd.conf ~/hostapd.conf.old
 sudo cp config/default_hostapd /etc/default/hostapd
 sudo cp config/hostapd.conf /etc/hostapd/hostapd.conf
-sudo cp config/dnsmasq.conf /etc/dnsmasq.d/090_raspap.conf
+sudo cp config/090_raspap.conf /etc/dnsmasq.d/090_raspap.conf
+sudo cp config/090_wlan0.conf /etc/dnsmasq.d/090_wlan0.conf
 sudo cp config/dhcpcd.conf /etc/dhcpcd.conf
 sudo cp config/config.php /var/www/html/includes/
+sudo cp config/defaults.json /etc/raspap/networking/
 ```
+
+> :information_source: **Note:** If you wish to modify RaspAP's default configuration for dnsmasq and dhcp, you may do so by editing `config/defaults.json`.
 
 Disable `systemd-networkd` and copy the bridge configuration.
 
@@ -194,6 +202,6 @@ Reboot and it should be up and running.
 sudo reboot
 ```
 
-The default username is 'admin' and the default password is 'secret'.
+The default username is "admin" and the default password is "secret". It is recommended that you change this in RaspAP's **Authentication** panel.
 
 
