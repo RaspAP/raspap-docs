@@ -9,7 +9,7 @@ To configure an OpenVPN client, upload a valid `.ovpn` file from your provider a
 1. Enter your credentials, if needed, into the **Username** and **Password** fields.
 2. Browse to your provider's `.ovpn` file and choose **Save settings**.
 3. Confirm that the OpenVPN client.conf uploaded successfully.
-4. Choose Start OpenVPN.
+4. Choose **Start OpenVPN**.
 
 The video walkthrough below illustrates the steps of configuring an OpenVPN client from start to finish.
 
@@ -38,6 +38,8 @@ public IP.
 
 Remote hosts use a variety of methods to defeat VPNs, some more aggressively than others. Some VPN providers will advise you to configure custom DNS servers to mitigate DNS leaks,
 which you can do from RaspAP's **DHCP > Advanced** tab. You can also test for this with [https://dnsleaktest.com/](https://dnsleaktest.com/).
+
+![](https://i.imgur.com/eWOVjoS.png)
 
 Other providers have specific VPN nodes to use with popular streaming services. It's recommended to check with your provider and follow their suggestions.
 
