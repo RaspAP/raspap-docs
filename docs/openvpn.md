@@ -36,10 +36,8 @@ public IP.
 
 ## Mitigating DNS leaks
 
-Remote hosts use a variety of methods to defeat VPNs, some more aggressively than others. Some VPN providers will advise you to configure custom DNS servers to mitigate DNS leaks,
+Remote hosts use a variety of methods to defeat VPNs, some more aggressively than others. Many VPN providers will advise you to configure custom DNS servers to mitigate DNS leaks,
 which you can do from RaspAP's **DHCP > Advanced** tab. You can also test for this with [https://dnsleaktest.com/](https://dnsleaktest.com/).
-
-![](https://i.imgur.com/eWOVjoS.png)
 
 Other providers have specific VPN nodes to use with popular streaming services. It's recommended to check with your provider and follow their suggestions.
 
