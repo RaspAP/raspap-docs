@@ -2,12 +2,24 @@
 
 ## Overview
 
-Creating a software routed access point (AP) requires the installation and setup of several Linux services. While this project handles every facet of this process for you, it's still
-recommended that users of RaspAP familiarize themselves with the [steps involved](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md).
-
+Creating a software routed access point (AP) requires the installation and setup of several Linux services.
 RaspAP uses a "known-good" default configuration as a starting point. This facilitates a faster setup by not prompting the user for various network 
 settings during the installation. More importantly, it eliminates guesswork that can lead to conflicts down the road. When the [manual](/manual/) or [quick installation](/quick/) is completed,
 the user will have a functional AP that they can then administer with RaspAP's web interface.
+
+While this project handles every facet of this process for you, it's still
+recommended that users of RaspAP familiarize themselves with the [steps involved](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md).
+
+## Configuration directory
+
+To every extent possible, RaspAP's default settings are contained within the project's `/config` folder. The networking defaults, DNS servers, wireless regulatory data and so on are found here.
+In this way, the user may modify RaspAP's baseline application settings without touching code.
+
+The exception to this is `hostapd.conf` which is managed by `includes/hostapd.php` and effectively rewritten depending on user input. This is due to the complexity of this configuration relative
+to other services managed by the project.
+
+Baseline configurations for `dhcpcd`, `dnsmasq` (described below) and bridged AP configurations are contained here.
+ 
 
 ## Managing config values
 
@@ -39,7 +51,7 @@ The constants defined for Linux configuration file paths are typical and needn't
 ## Networking defaults
 
 Default values for the `dnsmasq` and `dhcpcd` services can be modified as well. The file `config/defaults.json` was introduced with the [version 2.6 release](https://github.com/billz/raspap-webgui/releases/tag/2.6).
-This file is copied during the installation to `/etc/raspap/networking/`, so any changes to it must be done here.
+This file is copied during the installation to `/etc/raspap/networking/`, so any changes to it must be made here.
 
 The `defaults.json` file uses the standard JSON data-interchange format. For example, the default `dhcp` settings for `wlan0` are displayed below:
 
@@ -90,6 +102,6 @@ Edits to this file in place will immediately be reflected in the user interface.
 
 ## Restoring settings
 
-If you've modified RaspAP's default configuration and the AP no longer works as expected, the defaults may be restored by simply running the [Quick installer](/quick/) again or by following
+If you've modified RaspAP's default configuration and the AP no longer works as expected, the defaults may be restored simply by running the [Quick installer](/quick/) again or by following
 the steps described in the [manual installation](/manual/).
   

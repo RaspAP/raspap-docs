@@ -24,7 +24,7 @@ RaspAP functions very well "out of the box" on fresh installs of the latest Rasp
 If you have installed other software packages on top of RaspAP, particularly those related to networking such as TOR or Pi-hole, please test RaspAP first on a clean install before reporting an issue.
 
 ## Default settings
-One of RaspAP's most popular features is the Quick Installer, which gets an AP up and running quickly and with a minimum of hassle. This works by applying a known-good [default configuration](https://github.com/billz/raspap-webgui/tree/master/config) that has been validated in testing with the project's supported devices. When the project [prerequisites](/#quick-start) are followed, an AP with wired ethernet (eth0) or managed mode (wlan0) Wifi client AP will be functional with the default settings.
+One of RaspAP's most popular features is the Quick Installer, which gets an AP up and running quickly and with a minimum of hassle. This works by applying a known-good [default configuration](/defaults/) that has been validated in testing with the project's supported devices. When the project [prerequisites](/#quick-start) are followed, an AP with wired ethernet (eth0) or managed mode (wlan0) Wifi client AP will be functional with the default settings.
 
 **Important:** RaspAP gives you control over many of the settings for `hostapd`, `dhcpcd` and `dnsmasq`. Once these default settings are changed, it's possible that one or all of the above services will enter a failed state. 
 
