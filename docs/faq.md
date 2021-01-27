@@ -1,6 +1,9 @@
 # FAQ
 
 This guide was written to address some frequently asked questions among users of RaspAP.
+FAQ items are organized into thematic sections, below, for easier reference.
+
+If you would like to see a new FAQ that you feel would assist other users, [start a discussion](https://github.com/billz/raspap-webgui/discussions) or [open an issue](https://github.com/billz/raspap-docs/issues).
 
 ## General
 * [What do all these settings in the UI do? Changing them seems to have no effect.](#settings)
