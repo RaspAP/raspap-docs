@@ -99,6 +99,27 @@ a JSON formatted collection of hostnames and IPv4 addresses, like so:
 
 Edits to this file in place will immediately be reflected in the user interface.
 
+## Wireless regulatory data
+
+802.11 wirelss AC support is not simply a function of your device's hardware capabilities. It must also take into account regulatory restrictions of the wireless spectrum.
+The regulatory info for `brcmfmac`, the kernel driver that supports the Broadcom wireless chipset, is embedded in the firmware of RPi models 3B+ and 4.
+
+There are lots of international issues with Wi-Fi that restrict channel use, transmission power, etc. on a regional and per-country basis.
+As a result, only combinations of certain frequencies (channels) and countries are capable of hosting an AC access point with the RPi's wireless adapter.
+
+Based on [rigorous testing](https://github.com/billz/raspap-webgui/issues/450#issuecomment-569343686) of RaspAP's AC wireless mode with supported RPi hardware, the file `config/wireless.json`
+was developed to capture regulatory data as it applies here. For example, the countries that permit 5 GHz low-power AC channels (according to `brcmfmac`) are defined below:
+
+```
+"5Ghz_max48ch": {
+        "countries": [ "NL","US" ],
+        "channels": [ 36, 40, 44, 48 ]
+    }
+```
+
+If you think your country might support AC wireless, this file may be modified in place and the options reflected in the **Hotspot > Basic** panel.
+See [this FAQ](/faq/#wificountries) for more information.
+
 ## Restoring settings
 
 If you've modified RaspAP's default configuration and the AP no longer works as expected, the defaults may be restored simply by running the [Quick installer](/quick/) again or by following
