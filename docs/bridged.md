@@ -1,6 +1,9 @@
 # Bridged AP mode
 
-By default RaspAP configures a routed AP as its hotspot, where your RPi creates a subnet and assigns IP addresses to its hotspot clients. If you would rather have your upstream router assign IP addresses, RaspAP lets you easily change the hotspot configuration to an alternative bridged AP. This is also useful if you want your RPi and its hotspot clients to be visible to other devices in your router's network.
+## Overview
+
+By default RaspAP configures a routed AP as its hotspot, where your RPi creates a subnet and assigns IP addresses to its hotspot clients.
+If you would rather have your upstream router assign IP addresses, RaspAP lets you change the hotspot configuration to an alternative bridged AP. This is also useful if you want your RPi and its hotspot clients to be visible to other devices in your router's network.
 
 ## Toggling bridged AP mode
 In the RaspAP web interface, go to **Hotspot** > **Advanced** tab, then slide the **Bridged AP mode** toggle. **Save settings** then **Restart hotspot**.

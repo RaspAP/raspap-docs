@@ -1,5 +1,6 @@
 # Developer tips
 
+## Overview
 There are as many different ways of developing software for single-board computers, such as the Raspberry Pi, as there are developers who do it. Likewise, opinions vary as to which approach is best. Ultimately it's the process that works for best for _you_ that prevails. This briefly describes two approaches used by contributors to RaspAP. 
 
 ## Remote host update

@@ -1,13 +1,11 @@
 # SSL certificates (manual)
 
-_Cette page est disponible [en français](https://static.cinay.xyz/2019/08/RaspAP-support-HTTPS-pour-un-serveur-local.html)._
+**Update:** this process is now [automated by the Quick Installer](/ssl-quick/).
 
-**Update:** this process is now [automated by the Quick Installer](https://github.com/billz/raspap-webgui/wiki/SSL-certificates-(Quick-Installer)).
-
-### Preamble 
+## Overview
 HTTPS prevents network attackers from observing or injecting page contents. Clearly, this is a _good thing_ for RaspAP — given its function for creating and managing wireless networks. But HTTPS needs TLS certificates, and while deploying public websites is largely a [solved issue thanks to the ACME protocol and Let's Encrypt](https://www.leebutterman.com/2019/08/05/analyzing-hundreds-of-millions-of-ssl-connections.html), local web servers still mostly use HTTP because no one can get a universally valid certificate for localhost.
 
-### Locally trusted certificates 
+## Locally trusted certificates 
 Managing your own Certificate Authority (CA) is the best solution, but this usually requires an involved manual setup routine. An excellent solution for local websites is [mkcert](https://github.com/FiloSottile/mkcert). This is a zero-config tool for making locally-trusted certificates with any name you like. mkcert automatically creates and installs a local CA in the system root store and generates locally-trusted certificates. It also works perfectly well with RaspAP. This allows you to generate a trusted certificate for a hostname (eg., raspap.local) or IP address because it only works for you. 
 
 ![raspap.local](https://i.imgur.com/kQoeh0S.png)
@@ -16,7 +14,7 @@ Here's the twist: it doesn't generate self-signed certificates, but certificates
 
 Read more about mkcert [here](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/) and [follow the project on GitHub](https://github.com/FiloSottile/mkcert).
 
-### How-To
+## How-To
 Follow the steps below to generate and install a locally-trusted certificate for RaspAP. The local domain `raspap.local` is used in the examples below. You may substitute this with the default `raspberrypi.local` or your own hostname. 
 
 1. Start by installing the pre-built binary for Arch Linux ARM on your Raspberry Pi:
@@ -123,9 +121,9 @@ Be sure to set this certificate to "Always trust" to avoid browser warnings.
 
 ![](https://i.imgur.com/Lx8Plqi.png)
 
-Finally, enter the address https://raspap.local in your browser. Enjoy an encrypted SSL connection to RaspAP 😎   
+Finally, enter the address https://raspap.local in your browser. Enjoy an encrypted SSL connection to RaspAP.
 
-### Mobile devices
+## Mobile devices
 For the certificates to be trusted on mobile devices and remote clients, you will have to install the root CA using the method described above. Alternatively, on iOS, you can either use AirDrop or email the CA to yourself. After installing it, be sure to enable full trust. 
 
 For Android, you will have to install the CA and then enable user roots. See [this StackOverflow answer](https://stackoverflow.com/a/22040887/749014).
