@@ -1,7 +1,11 @@
 # Quick installer
 
+## Overview
+The installer has been designed to assist users with creating an instance of RaspAP both quickly and with a great deal of flexibility.
+The install loader will respond to several command line arguments, or switches, enabling various features, upgrades or even installing from a forked version of RaspAP in another GitHub repository. 
+
 ## Usage
-The [Quick Installer](https://github.com/billz/raspap-webgui/blob/master/installers/raspbian.sh) has several options for configuring a RaspAP installation. You can get usage notes from your command shell by requesting the installer like so:
+The [Quick installer](https://github.com/billz/raspap-webgui/blob/master/installers/raspbian.sh) has several options for configuring a RaspAP installation. You can get usage notes from your command shell by requesting the installer like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --help
