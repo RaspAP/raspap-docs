@@ -7,8 +7,7 @@ RaspAP uses a "known-good" default configuration as a starting point. This facil
 settings during the installation. More importantly, it eliminates guesswork that can lead to conflicts down the road. When the [manual](/manual/) or [quick installation](/quick/) is completed,
 the user will have a functional AP that they can then administer with RaspAP's web interface.
 
-While this project handles every facet of this process for you, it's still
-recommended that users of RaspAP familiarize themselves with the [steps involved](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md).
+While this project handles every facet of this process for you, it's still recommended that users familiarize themselves with the [steps involved](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md) in building an AP from start to finish.
 
 ## Configuration directory
 
@@ -16,7 +15,7 @@ To every extent possible, RaspAP's default settings are contained within the pro
 In this way, the user may modify RaspAP's baseline application settings without touching code.
 
 The exception to this is `hostapd.conf` which is managed by `includes/hostapd.php` and effectively rewritten depending on user input. This is due to the complexity of this configuration relative
-to other services managed by the project.
+to other services managed by the project. For this reason, manual edits to this file will not be preserved.
 
 Baseline configurations for `dhcpcd`, `dnsmasq` (described below) and bridged AP configurations are contained here.
  
@@ -26,7 +25,7 @@ Baseline configurations for `dhcpcd`, `dnsmasq` (described below) and bridged AP
 The interface itself, default Linux file paths and so on may be changed by modifying the project's configuration file `config.php`. 
 
 > :information_source: **Note:** The file `config/config.php` is copied during the installation to `includes/config.php` and ignored by Git. This way, users can modify `includes/config.php`
-without upgrades or `git pull` complaining about local changes. The file `includes/defaults.php` loads corresponding default values if they are not set.
+without `git pull` or upgrades complaining about local changes. The file `includes/defaults.php` loads corresponding default values if they are not set.
 
 For example, RaspAP's interface may be customized simply by changing the following values:
 
