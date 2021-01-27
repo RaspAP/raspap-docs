@@ -101,7 +101,7 @@ Edits to this file in place will immediately be reflected in the user interface.
 
 ## Wireless regulatory data
 
-802.11 wirelss AC support is not simply a function of your device's hardware capabilities. It must also take into account regulatory restrictions of the wireless spectrum.
+802.11 wireless AC support is not simply a function of your device's hardware capabilities. It must also take into account regulatory restrictions of the wireless spectrum.
 The regulatory info for `brcmfmac`, the kernel driver that supports the Broadcom wireless chipset, is embedded in the firmware of RPi models 3B+ and 4.
 
 There are lots of international issues with Wi-Fi that restrict channel use, transmission power, etc. on a regional and per-country basis.
