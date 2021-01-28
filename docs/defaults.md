@@ -49,6 +49,17 @@ The constants defined for Linux configuration file paths are typical and needn't
 
 ## Networking defaults
 
+The default AP interface used by RaspAP is `wlan0`. This is a typical setting if you are using the RPi's onboard wireless adapter. You can change this to a different interface by modifying
+the following value in `config.php`:
+
+```
+define('RASPI_WIFI_AP_INTERFACE', 'wlan0');
+```
+
+ > :information_source: **Note:** If a second wireless adapter is configured for your device, for example bound to the `wlan1` interface, RaspAP will automatically detect it and assign it as the default
+wireless client interface. You may change this setting simply by selecting `wlan1` as the AP interface in the **Hotspot > Basic** panel. After restarting the hotspot, RaspAP will use `wlan0`
+as the client interface.
+
 Default values for the `dnsmasq` and `dhcpcd` services can be modified as well. The file `config/defaults.json` was introduced with the [version 2.6 release](https://github.com/billz/raspap-webgui/releases/tag/2.6).
 This file is copied during the installation to `/etc/raspap/networking/`, so any changes to it must be made here.
 
