@@ -3,7 +3,7 @@
 ## Overview
 The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) is a lightweight, highly configurable captive portal solution. It integrates nicely with RaspAP and is recommended over other methods. No configuration changes are needed with RaspAP, however you will need to modify some default settings in the nodogsplash config. This step-by-step guide assumes you have already installed RaspAP, either with the [Quick Installer](/quick/) or [manual setup instructions](/manual/). 
 
-> ℹ️  **Note:** This walkthrough is provided as a courtesy only; there is no support for NDS or any integration with this project.
+> :information_source: **Note:** This walkthrough is provided as a courtesy only; there is no support for NDS or any integration with this project.
 
 ## Installing the software
 

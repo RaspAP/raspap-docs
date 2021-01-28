@@ -56,7 +56,7 @@ RaspAP manipulates several daemons, services and helper programs behind the scen
 
 For example, two of the best starting points for understanding `hostapd` (the service that implements 802.11 AP management) include the [hostapd Linux documentation page](https://wireless.wiki.kernel.org/en/users/Documentation/hostapd) and [hostapd Wifi homepage](https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf).
 
-**Important:** After you choose **Save settings** for `hostapd` or `dhcpcd`, these services _must_ be stopped and restarted for your changes to take effect. If you're not sure if your AP is behaving as expected, enable logging in the **Advanced** options of **Configure hotspot** and check the output.
+> :information_source: **Important:** After you choose **Save settings** for `hostapd` or `dhcpcd`, these services _must_ be restarted for your changes to take effect. If you're not sure if your AP is behaving as expected, enable logging in the **Logging** tab of **Hotspot** and check the output.
 
 ## <a name="headless"></a>How do I prepare the SD card to connect to WiFi in headless mode?
 Since [May 2016](https://www.raspberrypi.org/blog/another-update-raspbian/), Raspbian has been able to copy wifi details from `/boot/wpa_supplicant.conf` into `/etc/wpa_supplicant/wpa_supplicant.conf` to automatically configure wireless network access. 
@@ -83,12 +83,12 @@ Yes, this is supported by RaspAP. In this scenario, you may wish to use the `wla
 3. Do not enable the Wifi AP (AP-STA) mode option. This is only needed when the client and AP are utilizing the same wlan adapter.
 4. (Re)start the hotspot.
 
-> ℹ️ **Important:** Be aware that external WiFi adapters (ie, USB "dongles") vary greatly in terms of hardware capabilities and driver support. Many do not have support for AP mode, require a powered USB hub, manual driver and/or firmware installation or are otherwise not well suited for this application.
+> :information_source: **Important:** Be aware that external WiFi adapters (ie, USB "dongles") vary greatly in terms of hardware capabilities and driver support. Many do not have support for AP mode, require a powered USB hub, manual driver and/or firmware installation or are otherwise not well suited for this application.
 
 Recommended adapters such as the Edimax 7811Un and Ralink RT5370 work out of the box with Raspberry OS (32-bit) Buster Lite. Adapters that require compiling of third-party drivers or other workarounds can be problematic. For this reason, you must verify your adapter _before_ reporting an issue with this feature.
 
 ## <a name="monitor"></a>Can I use RaspAP as a monitor only, without changing my configuration?
-Yes, RaspAP has support for a so-called "monitor mode". In `config.php` change the setting `RASPI_MONITOR_ENABLED` to `true`. This disables the ability to modify settings, start/stop daemons, shutdown or reboot the RPi. RaspAP will continue to report interface statistics, service settings and data usage as normal. 
+Yes, RaspAP has support for a so-called "monitor mode". In `config.php` change the setting `RASPI_MONITOR_ENABLED` to `true`. This disables the ability to modify settings, start/stop daemons, shutdown or reboot the RPi. RaspAP will continue to report interface statistics, service settings and data usage as normal. See [this](/defaults/#managing-config-values) for more information. 
 
 ## <a name="dnsmasq"></a> Can I use RaspAP with my custom dnsmasq configuration?
 Yes, RaspAP supports this through the use of `dnsmasq.d`. The primary `/etc/dnsmasq.d/090_raspap.conf` managed by the UI includes the following directive to enable your custom .conf files:
@@ -129,7 +129,7 @@ dnsmasq-dhcp[2516]: DHCPACK(wlan0) 10.3.141.249 [MAC address] iPhone
 
 If one or more steps in this exchange are missing, either your device is unable to respond to the server's `DHCPOFFER` or the AP itself is misconfigured.
 
-> ℹ️  **Important**: By default, the `dnsmasq` service listens on TCP/UDP port 53 and UDP port 67. If you have configured firewall software such as `ufw` or `iptables` to filter traffic on these ports, the service may not be
+> :information_source: **Important**: By default, the `dnsmasq` service listens on TCP/UDP port 53 and UDP port 67. If you have configured firewall software such as `ufw` or `iptables` to filter traffic on these ports, the service may not be
 able to respond to DHCP requests.
 
 As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
