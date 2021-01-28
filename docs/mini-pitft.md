@@ -26,7 +26,7 @@ curl -sL https://install.raspap.com | bash
 ```  
 Alternatively, you can follow the [manual setup](/manual/) instructions.
 
-With the preliminary setup done, execute RaspAP's [stats.py](https://github.com/billz/raspap-webgui/blob/master/app/pitft/stats.py) with: `sudo python3 stats.py`. Your Mini PiTFT should output a summary of RaspAP's status, like so:
+With the preliminary setup done, execute RaspAP's [stats.py](https://github.com/billz/raspap/blob/master/app/pitft/stats.py) with: `sudo python3 stats.py`. Your Mini PiTFT should output a summary of RaspAP's status, like so:
 
 ![](https://i.imgur.com/7Bfz6jL.jpg)
 

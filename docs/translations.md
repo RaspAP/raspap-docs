@@ -1,7 +1,7 @@
 # Translations
 
 ## Overview
-Owing to its utility and low cost, the Raspberry Pi's reach extends to all corners of the globe. As our way of honoring this, we've made an effort to support internationalization (often abbreviated **i18n**) with RaspAP. Given the response from [this issue](https://github.com/billz/raspap-webgui/issues/121) it became obvious that translations are something that the community both wanted and were willing to contribute to.
+Owing to its utility and low cost, the Raspberry Pi's reach extends to all corners of the globe. As our way of honoring this, we've made an effort to support internationalization (often abbreviated **i18n**) with RaspAP. Given the response from [this issue](https://github.com/billz/raspap/issues/121) it became obvious that translations are something that the community both wanted and were willing to contribute to.
 
 ## About locales
 On Linux systems, [GNU's Gettext](https://www.gnu.org/software/gettext/) provides a standardized way of managing multi-lingual messages. In order for Gettext to work with different languages, you must configure a language package on your RPi corresponding to one of our supported translations.

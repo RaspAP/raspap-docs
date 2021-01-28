@@ -48,7 +48,7 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
 ## Get involved
-We welcome all users of RaspAP to contribute to the project. This can take the form of [issue reports](https://github.com/billz/raspap-webgui/issues), [discussions](https://github.com/billz/raspap-webgui/discussions), or [pull requests](https://github.com/billz/raspap-webgui/pulls).
+We welcome all users of RaspAP to contribute to the project. This can take the form of [issue reports](https://github.com/billz/raspap/issues), [discussions](https://github.com/billz/raspap/discussions), or [pull requests](https://github.com/billz/raspap/pulls).
 Developers can get started by following these steps:
 
 1. Fork the project in your account and create a new branch: `your-great-feature`.
@@ -56,7 +56,7 @@ Developers can get started by following these steps:
 3. Commit changes in your feature branch.
 4. Open a pull request and reference the initial issue in the pull request message.
 
-Find out more about our [coding style guidelines and recommended tools](https://github.com/billz/raspap-webgui/blob/master/CONTRIBUTING.md). 
+Find out more about our [coding style guidelines and recommended tools](https://github.com/billz/raspap/blob/master/CONTRIBUTING.md).
 
 ## Support us
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, please [become a GitHub sponsor](https://github.com/sponsors/billz), join the project on [Open Collective](https://opencollective.com/raspap) or make a one-time donation with [PayPal](https://www.paypal.com/paypalme2/billzgithub). Any of these options makes a big difference!

@@ -60,7 +60,7 @@ define('RASPI_WIFI_AP_INTERFACE', 'wlan0');
 wireless client interface. You may change this setting simply by selecting `wlan1` as the AP interface in the **Hotspot > Basic** panel. After restarting the hotspot, RaspAP will use `wlan0`
 as the client interface.
 
-Default values for the `dnsmasq` and `dhcpcd` services can be modified as well. The file `config/defaults.json` was introduced with the [version 2.6 release](https://github.com/billz/raspap-webgui/releases/tag/2.6).
+Default values for the `dnsmasq` and `dhcpcd` services can be modified as well. The file `config/defaults.json` was introduced with the [version 2.6 release](https://github.com/billz/raspap/releases/tag/2.6).
 This file is copied during the installation to `/etc/raspap/networking/`, so any changes to it must be made here.
 
 The `defaults.json` file uses the standard JSON data-interchange format. For example, the default `dhcp` settings for `wlan0` are displayed below:
@@ -118,7 +118,7 @@ The regulatory info for `brcmfmac`, the kernel driver that supports the Broadcom
 There are lots of international issues with Wi-Fi that restrict channel use, transmission power, etc. on a regional and per-country basis.
 As a result, only combinations of certain frequencies (channels) and countries are capable of hosting an AC access point with the RPi's wireless adapter.
 
-Based on [rigorous testing](https://github.com/billz/raspap-webgui/issues/450#issuecomment-569343686) of RaspAP's AC wireless mode with supported RPi hardware, the file `config/wireless.json`
+Based on [rigorous testing](https://github.com/billz/raspap/issues/450#issuecomment-569343686) of RaspAP's AC wireless mode with supported RPi hardware, the file `config/wireless.json`
 was developed to capture regulatory data as it applies here. For example, the countries that permit 5 GHz low-power AC channels (according to `brcmfmac`) are defined below:
 
 ```

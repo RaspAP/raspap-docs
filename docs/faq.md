@@ -3,7 +3,7 @@
 This guide was written to address some frequently asked questions among users of RaspAP.
 FAQ items are organized into thematic sections, below, for easier reference.
 
-If you would like to see a new FAQ that you feel would assist other users, [start a discussion](https://github.com/billz/raspap-webgui/discussions) or [open an issue](https://github.com/billz/raspap-docs/issues).
+If you would like to see a new FAQ that you feel would assist other users, [start a discussion](https://github.com/billz/raspap/discussions) or [open an issue](https://github.com/billz/raspap-docs/issues).
 
 ## General
 * [What do all these settings in the UI do? Changing them seems to have no effect.](#settings)
@@ -213,7 +213,7 @@ Alternatively, you can run Pi-Hole and RaspAP on the same device by operating Ra
 Finally, and by popular demand, RaspAP has released its own [ad blocking facility](https://docs.raspap.com/adblock/) with support for custom blocklists. 
 
 ## <a name="adguard"></a>Can I integrate RaspAP with Adguard Home?
-Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/billz/raspap-webgui/issues/542#issuecomment-609078400)
+Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/billz/raspap/issues/542#issuecomment-609078400)
 
 ## <a name="captive"></a>Can I configure RaspAP to work with a captive portal?
 Yes, the [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](https://docs.raspap.com/captive/). 
@@ -277,7 +277,7 @@ RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn
 It is your responsibility to provide a valid .ovpn file; RaspAP does not attempt to validate the settings or RSA keys contained in this file. If OpenVPN fails to start, check for errors with `sudo systemctl status openvpn-client@client` and `journalctl --identifier openvpn`.
 
 ## <a name="partial"></a>OpenVPN works but I have partial or no internet access. Help!
-Issues [like this](https://github.com/billz/raspap-webgui/issues/612) are frequently reported. Begin by confirming the status of your connection:
+Issues [like this](https://github.com/billz/raspap/issues/612) are frequently reported. Begin by confirming the status of your connection:
 
 ```
 $ sudo systemctl status openvpn-client@client
@@ -365,7 +365,7 @@ Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
    17 999 ACCEPT all -- * * 0.0.0.0/0 127.0.0.0/8
    2422 158K MASQUERADE all -- * * 0.0.0.0/0 0.0.0.0/0
 ```
-Refer to [this issue](https://github.com/billz/raspap-webgui/issues/333#issue-454352554).
+Refer to [this issue](https://github.com/billz/raspap/issues/333#issue-454352554).
 
 ## <a name="80211ac"></a> Why is the 802.11ac 5GHz wireless mode option disabled in Configure hotspot?
 **Short answer:** because of wireless regulatory restrictions for your country. If the AC option is disabled on your RPi, there are two small configuration changes you can make to enable it. First, configure your RPi's wireless regulatory domain with `sudo iw reg set US`. Next, on the **Advanced** tab of **Configure hotspot**, choose "United States" as the country code and save settings. You can now choose 802.11ac from the wireless mode select on the **Basic** tab.
@@ -383,17 +383,17 @@ nl80211: Failed to set channel (freq=5180): -22 (Invalid argument)
 hostapd: Could not set channel for kernel driver
 ```
 
-In testing, stable AP's on the RPi's supported AC channels were only reliably obtained with 'US' as the regulatory domain. To get a list of the supported channels on your RPi for the 2.4 and 5 GHz bands, use `iw phy phy0 channels`. Refer to [this issue](https://github.com/billz/raspap-webgui/issues/450#issuecomment-569343686).
+In testing, stable AP's on the RPi's supported AC channels were only reliably obtained with 'US' as the regulatory domain. To get a list of the supported channels on your RPi for the 2.4 and 5 GHz bands, use `iw phy phy0 channels`. Refer to [this issue](https://github.com/billz/raspap/issues/450#issuecomment-569343686).
 
 ## <a name="wificountries"></a>I think my country allows 5 GHz AP channels. Can I test this?
-Yes, you can. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](/defaults/). The file [wireless.json](https://github.com/billz/raspap-webgui/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
+Yes, you can. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](/defaults/). The file [wireless.json](https://github.com/billz/raspap/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
 
 ```
 // Constant for the 5GHz wireless regulatory domain
 define('RASPI_5GHZ_ISO_ALPHA2', array('US'));
 ``` 
 
-The **Configure hotspot** page will now let you select AC as a wireless mode option for your country. If you succeed in creating a stable AP, feel free to share your results in [this issue](https://github.com/billz/raspap-webgui/issues/450).
+The **Configure hotspot** page will now let you select AC as a wireless mode option for your country. If you succeed in creating a stable AP, feel free to share your results in [this issue](https://github.com/billz/raspap/issues/450).
 
 **Note:** it is recommended to monitor logs such as `dmesg` and the hostapd error log (available in the **Logfile output** tab of RaspAP) while doing this. Bug reports like "AC doesn't work" and/or troubleshooting requests will not be considered. No hard feelings.
 
@@ -411,7 +411,7 @@ For more information on optimizing 802.11n, refer to this [resource](https://www
 Generally speaking, the 5 GHz band has substantially greater capacity due to more non-overlapping radio channels and less radio interference as compared to the 2.4 GHz band. 
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
-Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/billz/raspap-webgui/releases/latest) version, simply run the [Quick Installer](https://docs.raspap.com/quick/) with the `--upgrade` option:
+Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/billz/raspap/releases/latest) version, simply run the [Quick Installer](https://docs.raspap.com/quick/) with the `--upgrade` option:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade

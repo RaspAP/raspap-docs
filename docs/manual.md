@@ -1,6 +1,6 @@
 # Manual installation
 
-These steps apply to the [latest release of RaspAP](https://github.com/billz/raspap-webgui/releases/), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
+These steps apply to the [latest release of RaspAP](https://github.com/billz/raspap/releases/), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
 Please refer to [this](/#compatible-operating-systems) regarding operating systems support.
 
 Start off by following the [project prerequisites](/#quick-start), updating your kernel, firmware and packages to their latest versions:
@@ -43,7 +43,7 @@ Prepare the web destination and git clone the files to `/var/www/html`.
 
 ```
 sudo rm -rf /var/www/html
-sudo git clone https://github.com/billz/raspap-webgui /var/www/html
+sudo git clone https://github.com/billz/raspap /var/www/html
 ```
 
 Now comes the fun part. For security reasons, the `www-data` user which `lighttpd` runs under is not allowed to start or stop daemons, or run commands like `ip link`,
