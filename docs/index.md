@@ -11,10 +11,11 @@ Our popular Quick installer creates a known-good default configuration that "jus
 ## Quick start
 Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/downloads/raspbian/). The Raspberry Pi OS desktop and 64-bit beta distros are unsupported.
 
-Update Raspbian, including the kernel and firmware, followed by a reboot:
+Update RPi OS to its latest version, including the kernel and firmware, followed by a reboot:
+
 ```
 sudo apt-get update
-sudo apt-get dist-upgrade
+sudo apt-get full-upgrade
 sudo reboot
 ```
 Set the WiFi country in raspi-config's **Localisation Options**: `sudo raspi-config`.
@@ -25,8 +26,7 @@ curl -sL https://install.raspap.com | bash
 ```
 The [Quick installer](/quick/) will complete the steps in the [manual installation](/manual/) for you.
 
-After the reboot at the end of the installation the wireless network will be
-configured as an access point as follows:
+After the reboot at the end of the installation the wireless AP network will be configured as follows:
 
   IP address: 10.3.141.1  
   Username: admin  
