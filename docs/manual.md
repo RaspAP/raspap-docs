@@ -6,7 +6,7 @@ Please refer to [this](/#compatible-operating-systems) regarding operating syste
 
 ## Prerequisites
 
-Start off by updating your system's package list, then **upgrade** the kernel, firmware and installed packages to their latest versions:
+Start off by updating your system's package list, then upgrade the kernel, firmware and installed packages to their latest versions:
 
 ```
 sudo apt-get update
@@ -33,14 +33,14 @@ sudo rfkill unblock wlan
 ```
 
 ## Non-RPi OS dependencies
-Operating systems other than RPi OS have some additional dependencies. If you are using RPi OS Lite, skip this section. On Ubuntu Server, add a dependency and the `ppa:ondrej/php` apt package.
+Operating systems other than RPi OS have some additional dependencies. If you are using RPi OS Lite, skip this section. On Ubuntu Server, add a dependency and the `ppa:ondrej/php` apt package:
 
 ```
 sudo apt-get install software-properties-common 
 sudo add-apt-repository ppa:ondrej/php
 ```
 
-On Debian, Armbian and Ubuntu, install `dhcpcd5`.
+On Debian, Armbian and Ubuntu, install `dhcpcd5` with the following:
 
 ```
 sudo apt-get install dhcpcd5
@@ -52,7 +52,7 @@ Install git, lighttpd, php7, hostapd, dnsmasq and some extra packages with the f
 ```
 sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php7.3-cgi
 ```
-> :information_source: **Note:** for Ubuntu, you may replace `php7.3-cgi` with `php7.4-cgi`. For the latest release of RPi OS Lite, replace `php7.3-cgi` with `php7.0-cgi`. php5 is no longer supported.
+> :information_source: **Note:** for Ubuntu, you may replace `php7.3-cgi` with `php7.4-cgi`. `php5` is no longer supported.
 
 ## Enable PHP
 Next, enable PHP for `lighttpd` and restart the service for the settings to take effect:
@@ -73,7 +73,7 @@ sudo git clone https://github.com/billz/raspap /var/www/html
 ```
 
 Now comes the fun part. For security reasons, the `www-data` user which `lighttpd` runs under is not allowed to start or stop daemons, or run commands like `ip link`,
-all of which we want RaspAP to do. So we will add the `www-data` user to sudoers, but with restrictions on what commands the user can run. Copy the sudoers rules to their destination:
+all of which we want our app to do. So we will add the `www-data` user to sudoers, but with restrictions on what commands the user can run. Copy the sudoers rules to their destination:
 
 ```
 cd /var/www/html
@@ -106,8 +106,7 @@ sudo chown -R www-data:www-data /etc/raspap
 ```
 
 ## Control scripts
-RaspAP uses several shell scripts to manage various aspects of the application, including `hostapd` logging and `raspapd`, the RaspAP control service. Move these scripts to their correct locations
-with the following:
+RaspAP uses several shell scripts to manage various aspects of the application, including `hostapd` logging and `raspapd`, the RaspAP control service. Move these scripts to their destinations with the following:
 
 ```
 sudo mv installers/*log.sh /etc/raspap/hostapd 
@@ -127,7 +126,7 @@ sudo cp installers/configport.sh /etc/raspap/lighttpd
 sudo chown -c root:www-data /etc/raspap/lighttpd/*.sh
 ```
 
-Next, move the `raspapd` service to the correct location and enable it:
+Next, move the `raspapd` service file to the correct location and enable it:
 
 ```
 sudo mv installers/raspapd.service /lib/systemd/system
@@ -151,7 +150,7 @@ sudo cp config/config.php /var/www/html/includes/
 sudo cp config/defaults.json /etc/raspap/networking/
 ```
 
-> :information_source: **Note:** If you wish to modify RaspAP's default configuration for dnsmasq and dhcp, you may do so by changing these files and editing `config/defaults.json`.
+> :information_source: **Note:** If you wish to modify RaspAP's default configuration for `dnsmasq` and `dhcp`, you may do so by changing these files and editing `config/defaults.json`.
 
 Next, disable `systemd-networkd` and copy the bridge configuration with the following:
 
@@ -172,7 +171,7 @@ sudo phpenmod opcache
 ```
 
 ## Routing and IP masquerading
-These steps allow WLAN clients to access computers on the main wired (`eth0`) network, and from there the internet. 
+These steps allow WLAN clients to access computers on the main wired `eth0` network, and from there the internet. 
 Begin by enabling IP forwarding with the following commands:
 
 ```
@@ -208,7 +207,7 @@ sudo systemctl enable openvpn-client@client
 ```
 
 
-Create the OpenVPN auth control scripts, setting ownership and permissions with the following:
+Copy the OpenVPN auth control script to its destination, setting ownership and permissions with the following:
 
 ```
 sudo mkdir /etc/raspap/openvpn/
@@ -218,7 +217,7 @@ sudo chmod 750 /etc/raspap/openvpn/*.sh
 ```
 
 ## Ad blocking
-Optionally, install Ad blocking, enabling the option in RaspAP's config. There are several steps involved here, including downloading the blocklists:
+Optionally, you may install Ad blocking, enabling the option in RaspAP's config. There are several steps involved here, including downloading the blocklists:
 
 ```
 sudo mkdir /etc/raspap/adblock
@@ -244,6 +243,11 @@ sudo systemctl reboot
 ```
 
 After your device has restarted, search for wireless networks with your wireless client. The default SSID is `raspi-webgui`. 
-The default username is "admin" and the default password is "secret". It is recommended that you change this in RaspAP's **Authentication** panel.
+The default username is "admin" and the default password is "secret".
+
+> :information_source: **Note:** It is strongly recommended that you change these default login credentials in RaspAP's **Authentication** panel.
+APs managed by RaspAP in the wild have been administered by third parties with the default login.
+
+If you have any difficulties with the manual install steps, [start a discussion](https://github.com/billz/raspap/discussions) and refer to this page.
 
 
