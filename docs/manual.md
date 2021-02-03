@@ -1,7 +1,7 @@
 # Manual installation
 
 ## Overview
-These steps apply to the [latest release of RaspAP](https://github.com/billz/raspap/releases/), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
+These steps apply to the [latest release of RaspAP](https://github.com/RaspAP/raspap-webgui/releases/), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
 Please refer to [this](/#compatible-operating-systems) regarding operating systems support.
 
 ## Prerequisites
@@ -69,7 +69,7 @@ In these steps we will prepare the web destination and git clone the files to `/
 
 ```
 sudo rm -rf /var/www/html
-sudo git clone https://github.com/billz/raspap /var/www/html
+sudo git clone https://github.com/RaspAP/raspap-webgui /var/www/html
 ```
 
 Now comes the fun part. For security reasons, the `www-data` user which `lighttpd` runs under is not allowed to start or stop daemons, or run commands like `ip link`,
@@ -248,6 +248,6 @@ The default username is "admin" and the default password is "secret".
 > :information_source: **Note:** It is strongly recommended that you change these default login credentials in RaspAP's **Authentication** panel.
 APs managed by RaspAP in the wild have been administered by third parties with the default login.
 
-If you have any difficulties with the manual install steps, [start a discussion](https://github.com/billz/raspap/discussions) and refer to this page.
+If you have any difficulties with the manual install steps, [start a discussion](https://github.com/RaspAP/raspap-webgui/discussions) and refer to this page.
 
 

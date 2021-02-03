@@ -48,7 +48,7 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
 ## Get involved
-We welcome all users of RaspAP to contribute to the project. This can take the form of [issue reports](https://github.com/billz/raspap/issues), [discussions](https://github.com/billz/raspap/discussions), or [pull requests](https://github.com/billz/raspap/pulls).
+We welcome all users of RaspAP to contribute to the project. This can take the form of [issue reports](https://github.com/RaspAP/raspap-webgui/issues), [discussions](https://github.com/RaspAP/raspap-webgui/discussions), or [pull requests](https://github.com/RaspAP/raspap-webgui/pulls).
 Developers can get started by following these steps:
 
 1. Fork the project in your account and create a new branch: `your-great-feature`.
@@ -56,7 +56,7 @@ Developers can get started by following these steps:
 3. Commit changes in your feature branch.
 4. Open a pull request and reference the initial issue in the pull request message.
 
-Find out more about our [coding style guidelines and recommended tools](https://github.com/billz/raspap/blob/master/CONTRIBUTING.md).
+Find out more about our [coding style guidelines and recommended tools](https://github.com/RaspAP/raspap-webgui/blob/master/CONTRIBUTING.md).
 
 ## Support us
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a GitHub sponsor](https://github.com/sponsors/RaspAP) or join the project on [Open Collective](https://opencollective.com/raspap). 100% of financial contributions go to activities directly related to this project.
