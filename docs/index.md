@@ -59,6 +59,5 @@ Developers can get started by following these steps:
 Find out more about our [coding style guidelines and recommended tools](https://github.com/billz/raspap/blob/master/CONTRIBUTING.md).
 
 ## Support us
-RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, please [become a GitHub sponsor](https://github.com/sponsors/billz), join the project on [Open Collective](https://opencollective.com/raspap) or make a one-time donation with [PayPal](https://www.paypal.com/paypalme2/billzgithub). Any of these options makes a big difference!
+RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a GitHub sponsor](https://github.com/sponsors/RaspAP) or join the project on [Open Collective](https://opencollective.com/raspap). 100% of financial contributions go to activities directly related to this project.
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=for-the-badge&logo=paypal&link=https://www.paypal.com/paypalme2/billzgithub)](https://www.paypal.com/paypalme2/billzgithub)
