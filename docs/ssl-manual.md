@@ -17,7 +17,7 @@ Read more about mkcert [here](https://blog.filippo.io/mkcert-valid-https-certifi
 ## How-To
 Follow the steps below to generate and install a locally-trusted certificate for RaspAP. The local domain `raspap.local` is used in the examples below. You may substitute this with the default `raspberrypi.local` or your own hostname. 
 
-1. Start by installing the pre-built binary for Arch Linux ARM on your Raspberry Pi:
+Start by installing the pre-built binary for Arch Linux ARM on your Raspberry Pi:
 ```
 sudo wget https://github.com/FiloSottile/mkcert/releases/download/v1.3.0/mkcert-v1.3.0-linux-arm -O /usr/local/bin/mkcert
 sudo chmod +x /usr/local/bin/mkcert
@@ -28,7 +28,7 @@ You should see output like the following:
 Using the local CA at "/home/pi/.local/share/mkcert" ✨
 The local CA is now installed in the system trust store! ⚡️
 ```
-2. Generate a certificate for `raspap.local`:
+Generate a certificate for `raspap.local`:
 ```
 cd /home/pi
 mkcert raspap.local "*.raspap.local" raspap.local
@@ -45,20 +45,20 @@ Created a new certificate valid for the following names 📜
 Reminder: X.509 wildcards only go one level deep, so this won't match a.b.raspap.local ℹ️
 The certificate is at "./raspap.local+2.pem" and the key at "./raspap.local+2-key.pem" ✅
 ```
-3. Next, combine the private key and certificate:
+Next, combine the private key and certificate:
 ```
 cat raspap.local+2-key.pem raspap.local+2.pem > raspap.local.pem
 ```
-4. Create a directory for the combined `.pem` file in lighttpd:
+Create a directory for the combined `.pem` file in lighttpd:
 ```
 sudo mkdir /etc/lighttpd/ssl
 ```
-5. Set permissions and move the `.pem` file:
+Set permissions and move the `.pem` file:
 ```
 chmod 400 /home/pi/raspap.local.pem
 sudo mv /home/pi/raspap.local.pem /etc/lighttpd/ssl
 ```
-6. Edit the lighttpd configuration:
+Edit the lighttpd configuration:
 ```
 sudo nano /etc/lighttpd/lighttpd.conf
 ```
@@ -83,11 +83,11 @@ $SERVER["socket"] == ":80" {
 }
 ```
 
-7. Restart the lighttpd service:
+Restart the lighttpd service:
 ```
 sudo systemctl restart lighttpd
 ```
-8. Verify that lighttpd has restarted without errors:
+Verify that lighttpd has restarted without errors:
 ```
 sudo systemctl status lighttpd
 ```
@@ -109,11 +109,11 @@ You should see a response like the following:
 Jul 01 11:56:15 raspap lighttpd[1433]: Syntax OK
 Jul 01 11:56:15 raspap systemd[1]: Started Lighttpd Daemon.
 ```
-9. Now, copy `rootCA.pem` to your lighttpd web root (**important:** do *NOT* share `rootCA-key.pem`):
+Now, copy `rootCA.pem` to your lighttpd web root (**important:** do *NOT* share `rootCA-key.pem`):
 ```
 sudo cp /home/pi/.local/share/mkcert/rootCA.pem /var/www/html
 ```
-10. Open a browser and enter the address: http://raspap.local/rootCA.pem. Download the root certificate to your client and add it to your system keychain. Examples below illustrate this process on OSX:
+Open a browser and enter the address: http://raspap.local/rootCA.pem. Download the root certificate to your client and add it to your system keychain. Examples below illustrate this process on OSX:
 
 ![](https://i.imgur.com/RCJJPYL.png)
 
