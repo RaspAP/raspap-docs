@@ -72,6 +72,14 @@ sudo rm -rf /var/www/html
 sudo git clone https://github.com/RaspAP/raspap-webgui /var/www/html
 ```
 
+Copy an extra `lighttpd` config file to support application routing. Link it into `conf-enabled` and restart the web service:
+
+```
+sudo cp /var/www/html/config/50-raspap-router.conf /etc/lighttpd/conf-available
+sudo ln -s /etc/lighttpd/conf-available/50-raspap-router.conf /etc/lighttpd/conf-enabled/50-raspap-router.conf
+sudo systemctl restart lighttpd.service
+```
+
 Now comes the fun part. For security reasons, the `www-data` user which `lighttpd` runs under is not allowed to start or stop daemons, or run commands like `ip link`,
 all of which we want our app to do. So we will add the `www-data` user to sudoers, but with restrictions on what commands the user can run. Copy the sudoers rules to their destination:
 
