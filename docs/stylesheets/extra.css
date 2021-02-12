@@ -11,7 +11,7 @@
   animation: heart 1000ms infinite;
 }
 .check {
-  color: #7CFC00;
+  color: #32cd32;
 }
 
 :octicons-heart-fill-24:{: .heart }
