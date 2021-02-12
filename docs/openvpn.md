@@ -36,7 +36,7 @@ iptables -A FORWARD -i wlan0 -o tun0 -j ACCEPT
 After a page reload, your new public IPv4 address will be indicated. Click or tap the :fontawesome-solid-external-link-alt: icon to open a new window with details about your 
 public IP.
 
-## Multiple OpenVPN client configs
+## Multiple client configs
 :fontawesome-solid-flask: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
 
 [Insiders](/insiders/) are able to manage multiple OpenVPN configurations. This includes the ability to upload, activate and delete any number of valid `.ovpn` files and
