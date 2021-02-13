@@ -35,6 +35,10 @@ After the reboot at the end of the installation the wireless AP network will be 
   SSID: `raspi-webgui`  
   Password: ChangeMe  
 
+## Support us
+RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](/insiders/#how-to-become-a-sponsor)
+and get access to [exclusive features](/insiders/#exclusive-features) in the :octicons-heart-fill-24:{: .heart } [Insiders Edition](/insiders/).
+
 ## Compatible operating systems
 RaspAP was originally made for Raspbian, but now also installs on the following Debian-based distros.
 
@@ -57,7 +61,4 @@ Developers can get started by following these steps:
 4. Open a pull request and reference the initial issue in the pull request message.
 
 Find out more about our [coding style guidelines and recommended tools](https://github.com/RaspAP/raspap-webgui/blob/master/CONTRIBUTING.md).
-
-## Support us
-RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a GitHub sponsor](https://github.com/sponsors/RaspAP) or join the project on [Open Collective](https://opencollective.com/raspap). 100% of financial contributions go to activities directly related to this project.
 
