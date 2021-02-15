@@ -22,6 +22,7 @@ access to **Insiders**.
 
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)    
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
+:octicons-check-circle-fill-24:{: .check } Night mode toggle  
 :gear: Traffic shaping (in progress)  
 
 Look for the list above to grow as we add more exclusive features. 
@@ -33,6 +34,7 @@ Below is a list of funding targets. When a funding target is reached, the featur
 #### **$500** - First Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)  
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
+:octicons-check-circle-fill-24:{: .check } Night mode toggle  
 :gear: Traffic shaping (in progress)  
 
 ## Frequently asked questions
