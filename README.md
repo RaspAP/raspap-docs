@@ -9,7 +9,7 @@ RaspAP lets you quickly get a WiFi access point up and running to share the conn
 Our popular Quick installer creates a known-good default configuration that "just works" on all current Raspberry Pis with onboard wireless.
 
 ## Quick start
-Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/downloads/raspbian/). The Raspberry Pi OS desktop and 64-bit beta distros are unsupported.
+Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit). The Raspberry Pi OS desktop and 64-bit beta distros are unsupported.
 
 Update RPi OS to its latest version, including the kernel and firmware, followed by a reboot:
 
