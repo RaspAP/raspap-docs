@@ -23,9 +23,18 @@ For the public beta release, blocklists are sourced from the [notracking project
 ## Updating lists 
 The notracking project maintains two blocklists; hostnames and domains. These are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose 'Update now'. 
 
-![Manage blocklists](https://i.imgur.com/8DP1Vnw.gif)
+![Manage blocklists](https://i.imgur.com/9R0zZRg.gif)
 
 **Note:** to apply the latest blocklists, be sure to **Restart Ad Blocking**.
+
+## Custom blocklist
+In addition to the notracking blocklists, you may create your own host blocklist by adding entries on the **Custom blocklist** tab. 
+Define custom hosts to be blocked by entering an IPv4 or IPv6 address followed by any whitespace (spaces or tabs) and the host name. An IPv4 example would take the form `0.0.0.0 badhost.com`.
+Choose **Save settings** and **Restart Ad Blocking**.
+
+> :information_source: **Note:** As the name suggests, this is effective at blocking individual hosts, but not entire domains (or subdomains). 
+
+
 
 ## Enabling logging
 By default, DNS logging is disabled. If you'd like to see which hosts are being blocked, enable it on the **DHCP Server > Logging** tab by selecting the **Log DNS queries** toggle. **Save settings** and **Restart Ad Blocking**. The **Logging** tab on the **Ad Blocking** page will display blacklisted DNS queries with host addresses of `0.0.0.0`. A sample of blocked ad/tracker requests is below.
