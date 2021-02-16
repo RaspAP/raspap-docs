@@ -38,6 +38,11 @@ Below is a list of funding targets. When a funding target is reached, the featur
 :octicons-check-circle-fill-24:{: .check } Night mode toggle  
 :gear: Traffic shaping (in progress)  
 
+## Transparency
+We've chosen [OpenCollective](https://opencollective.com/raspap) as the fiscal host for our [GitHub sponsors organization](https://github.com/sponsors/RaspAP). This means that our budget is completely transparent—
+financial contributions, expenses and payouts to project team members are automatically reported. Everyone can see where money comes from and what it's spent on. This committent to full transparency
+was central in our decision to implement Insiders.
+
 ## Frequently asked questions
 
 ### Upgrading
