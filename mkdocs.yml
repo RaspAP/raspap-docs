@@ -13,6 +13,11 @@ theme:
     - navigation.instant
 markdown_extensions:
   - attr_list
+  - footnotes
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
