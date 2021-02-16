@@ -19,8 +19,7 @@ You can cancel your sponsorship anytime.[^3]
 
 ## Exclusive features
 When backers were asked which feature they'd most like to see added to RaspAP, the ability to manage multiple OpenVPN client configurations topped the list of requests.
-We think this is a great idea, so we're adding this as the first feature exclusive to Insiders. As a token of gratitude, we're giving all previous backers and one-time donors unlimited 
-access to **Insiders**.
+We think this is a great idea, so we've added this as the first feature exclusive to Insiders. 
 
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)    
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
