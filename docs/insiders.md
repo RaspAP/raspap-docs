@@ -24,6 +24,7 @@ We think this is a great idea, so we've added this as the first feature exclusiv
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)    
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle  
+:gear: Restrict network to static clients (in progress)  
 :gear: Traffic shaping (in progress)  
 
 Look for the list above to grow as we add more exclusive features. 
@@ -36,6 +37,7 @@ Below is a list of funding targets. When a funding target is reached, the featur
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)  
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle  
+:gear: Restrict network to static clients (in progress)  
 :gear: Traffic shaping (in progress)  
 
 ## Transparency
