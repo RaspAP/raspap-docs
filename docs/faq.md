@@ -393,9 +393,9 @@ Yes, you can. In the spirit of experimentation, this project allows you to overr
 define('RASPI_5GHZ_ISO_ALPHA2', array('US'));
 ``` 
 
-The **Configure hotspot** page will now let you select AC as a wireless mode option for your country. If you succeed in creating a stable AP, feel free to share your results in [this issue](https://github.com/RaspAP/raspap-webgui/issues/450).
+The **Configure hotspot** page will now let you select AC as a wireless mode option for your country. If you succeed in creating a stable AP, feel free to share your results in a [discussion](https://github.com/RaspAP/raspap-webgui/discussions/).
 
-**Note:** it is recommended to monitor logs such as `dmesg` and the hostapd error log (available in the **Logfile output** tab of RaspAP) while doing this. Bug reports like "AC doesn't work" and/or troubleshooting requests will not be considered. No hard feelings.
+> :information_source: **Note:** it is recommended to monitor logs such as `dmesg` and the hostapd error log (available in the **Logfile output** tab of RaspAP) while doing this. Bug reports like "AC doesn't work" and/or troubleshooting requests will not be considered. No hard feelings.
 
 ## <a name="wirelessn"></a>Why is the maximum throughput of my 802.11n AP reduced by half? 
 In order to achieve optimal throughput with 802.11n, the wireless stream must operate at a 40 MHz wide channel on the 2.4 GHz band. A 20 MHz channel will restrict you to 72 Mbps. Your `hostapd.conf` might have  the required settings, but this is no guarantee of a 40 MHz channel.
@@ -439,7 +439,9 @@ If you've customized your installation by editing `config.php`, update the relea
 ```
 sudo nano /var/www/html/includes/config.php
 ```
-Change the first line to the release version, save the file and exit. **Note:** `RASPI_VERSION` is only used on the About page; it does not affect any other functionality.
+Change the first line to the release version, save the file and exit.
+
+> :information_source: **Note:** `RASPI_VERSION` is only used on the About page; it does not affect any other functionality.
 ```
 define('RASPI_VERSION', '2.5');
 ```
