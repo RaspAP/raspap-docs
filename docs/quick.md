@@ -13,6 +13,29 @@ curl -sL https://install.raspap.com | bash -s -- --help
 
 Appending `-s -- [OPTION]` to the Quick Install directive will activate one or more options. These are described below.
 
+## Examples
+The installer may be invoked locally or remotely via `curl`. Examples with both cases and various options are given below.
+
+Invoke installer remotely, run non-interactively with option flags:
+```
+curl -sL https://install.raspap.com | bash -s -- --yes --openvpn 1 --adblock 0
+```
+
+Invoke remotely, uprgrade an existing install to the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](/insiders/):
+```
+curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
+```
+
+Run locally specifying GitHub repo and branch:
+```
+raspbian.sh --repo foo/bar --branch my/branch
+```
+
+Run locally requesting release info:
+```
+raspbian.sh --version
+```
+
 ## Switches
 
 #### -y, --yes, --assume-yes
@@ -38,11 +61,16 @@ An example combining the `repo` and `branch` options is given below:
 curl -sL https://install.raspap.com | bash -s -- --repo foo/bar --branch my-feature
 ```
 
-#### -h, --help
-Outputs these usage notes and exits.
-
 #### -u, --upgrade
 Upgrades an existing installation to the latest release version.
 
+#### -i, --insiders
+Installs from the [Insiders Edition](/insiders/) (`RaspAP/raspap-insiders`)
+
 #### -v, --version
 Queries the Github API, outputs the latest RaspAP release version and exits.
+
+#### -h, --help
+Outputs these usage notes and exits.
+
+
