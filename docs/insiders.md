@@ -1,6 +1,6 @@
 ![](https://i.imgur.com/eEXpMlO.png)
 
-RaspAP is rolling out a [sponsorware release model](https://github.com/sponsors/RaspAP), which means that new features are first exclusively released to sponsors as part of **Insiders**. Read on to learn how sponsorship works, and how easy it is to get access to Insiders.
+Development of RaspAP is made possible thanks to a sponsorware release model. This means that new features are first exclusively released to sponsors as part of **Insiders**. Read on to learn how sponsorship works, and how easy it is to get access to Insiders.
 
 ## How sponsorship works
 New features first land in [**Insiders**](https://github.com/sponsors/RaspAP), which means that *sponsors will have access to them immediately*. Every feature is tied to a funding goal in monthly subscriptions. When a funding goal is hit, the features that are tied to it are merged back into the [public RaspAP repository](https://github.com/RaspAP/raspap-webgui) and released for general availability.
