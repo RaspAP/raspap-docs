@@ -43,9 +43,9 @@ RaspAP uses WireGuard's `PostUp` and `PostDown` firewall rules to forward traffi
 In the example below, the default AP interface `wlan0` is used: 
 
 ```
-iptables -A POSTROUTING -o tun0 -j MASQUERADE
+iptables -A FORWARD -i wlan0 -o wg0 -j ACCEPT
 iptables -A FORWARD -i wg0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-iptables -t nat -D  POSTROUTING -o wg0 -j MASQUERADE
+iptables -t nat -A  POSTROUTING -o wg0 -j MASQUERADE
 ```
 
 These `iptables` rules are defined in WireGuard's [default settings](/defaults/) and may be modified if you wish.
