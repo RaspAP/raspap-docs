@@ -1,5 +1,7 @@
 # WireGuard
 
+![](https://i.imgur.com/5YDv37e.png)
+
 ## Overview
 :fontawesome-solid-flask: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
 
