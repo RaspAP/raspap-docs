@@ -22,14 +22,16 @@ After the keypairs are generated, simply choose **Save settings** followed by **
 The video walkthrough below illustrates the steps of configuring a WireGuard tunnel from start to finish.
 
 <video width="640" height="480" controls>
-  <source src="https://user-images.githubusercontent.com/229399/110251359-63182400-7f80-11eb-98d0-2055a38fccbc.mov" type="video/mp4">
+  <source src="https://user-images.githubusercontent.com/229399/110525356-c89d1980-8114-11eb-81f5-8cb5558cb664.mov" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 Due to WireGuard’s design, both computers on either end of the VPN tunnel will need to have each other's public key. This is discussed below.
 
 > :information_source: **Note:** For security reasons, the local (server) private key is not displayed in the UI. The peer private key is encoded in the QR code and available to download in the `client.conf` file.
-If you wish to regenerate local or peer keypairs (or both), simply tap or click the magic button :fontawesome-solid-magic: and choose **Save settings**.
+
+If you wish to regenerate local or peer keypairs (or both), simply tap or click the magic button :fontawesome-solid-magic: and choose **Save settings**. Alternatively, to 
+remove a server or peer configuration entirely, disable the desired toggle and **Save settings**. This will delete the public/private keypair and the associated configuration.
 
 ## Peer configuration
 RaspAP processes the values in the WireGuard **Settings** and **Peer** tabs and creates two configurations for you: `wg0.conf` and `client.conf`.
