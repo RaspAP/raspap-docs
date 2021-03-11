@@ -2,6 +2,8 @@
 
 ## Overview
 
+![](https://i.imgur.com/ta7tCon.png)
+
 OpenVPN may be optionally installed by the [Quick Installer](/quick/). Once this is done, you can create a client configuration and manage the `openvpn-client` service with RaspAP.
 
 ## Enabling OpenVPN
