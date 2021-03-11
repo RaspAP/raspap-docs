@@ -40,7 +40,12 @@ public IP.
 :fontawesome-solid-flask: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
 
 [Insiders](/insiders/) are able to manage multiple OpenVPN configurations. This includes the ability to upload, activate and delete any number of valid `.ovpn` files and
-associated login credentials. Additionally, `openvpn-service` activity may be tracked in the **Logging** tab. 
+associated login credentials. Thereafter, switching between them is done by simply activating the desired profile. 
+
+![](https://user-images.githubusercontent.com/229399/110756490-8fff5c00-824a-11eb-852b-858759b5dacb.png){: style="width:450px"}
+
+Activating a profile will restart the `openvpn-client` service automatically. Additionally, `openvpn-service` activity may be tracked in the **Logging** tab. 
+
 
 ## Mitigating DNS leaks
 
