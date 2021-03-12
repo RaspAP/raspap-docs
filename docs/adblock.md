@@ -13,19 +13,20 @@ Install ad blocking and enable list management? [Y/n]
 
 The installer will download the blocklists, configure RaspAP to use them and enable the **Ad blocking** management page.
 
-![Ad block install option](https://i.imgur.com/vzbQKnC.gif)
+![Ad block install option](https://i.imgur.com/vzbQKnC.gif){: style="width:640px"}
 
-Manual installation steps will be forthcoming.
+## Manual installation
+Ad blocking may also be installed manually. Refer to the detailed [installation steps](https://docs.raspap.com/manual/#ad-blocking).
 
 ## Blocklist source
 For the public beta release, blocklists are sourced from the [notracking project](https://github.com/notracking/hosts-blocklists) on GitHub. This "list of lists" is gathered from multiple, actively maintained sources and automatically updated, cleaned, optimized and moderated on a daily basis. A complete list of sources is available [here](https://github.com/notracking/hosts-blocklists/blob/master/SOURCES.md).
 
 ## Updating lists 
-The notracking project maintains two blocklists; hostnames and domains. These are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose 'Update now'. 
+The notracking project maintains two blocklists; hostnames and domains. These are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
 
-![Manage blocklists](https://i.imgur.com/9R0zZRg.gif)
+![Manage blocklists](https://i.imgur.com/7enu97T.png){: style="width:640px"}
 
-**Note:** to apply the latest blocklists, be sure to **Restart Ad Blocking**.
+> :information_source: **Note:** to apply the latest blocklists, be sure to **Restart Ad Blocking**.
 
 ## Custom blocklist
 In addition to the notracking blocklists, you may create your own host blocklist by adding entries on the **Custom blocklist** tab. 
