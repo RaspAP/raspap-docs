@@ -61,6 +61,9 @@ An example combining the `repo` and `branch` options is given below:
 curl -sL https://install.raspap.com | bash -s -- --repo foo/bar --branch my-feature
 ```
 
+#### -t, --token `<accesstoken>`
+Specify a [GitHub token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to access a private repository.
+
 #### -u, --upgrade
 Upgrades an existing installation to the latest release version.
 
