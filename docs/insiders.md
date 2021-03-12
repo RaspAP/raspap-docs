@@ -18,8 +18,8 @@ In addition, you get access to Insiders-only team discussions and content.
 You can cancel your sponsorship anytime.[^3]
 
 ## Exclusive features
-When backers were asked which feature they'd most like to see added to RaspAP, the ability to manage multiple OpenVPN client configurations topped the list of requests.
-We think this is a great idea, so we've added this as the first feature exclusive to Insiders. 
+The following features are currently available exclusively to sponsors. A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP.
+This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)    
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
@@ -28,7 +28,7 @@ We think this is a great idea, so we've added this as the first feature exclusiv
 :octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/)  
 :gear: Traffic shaping (in progress)  
 
-Look for the list above to grow as we add more exclusive features. 
+Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
 
 ## Funding targets
 Below is a list of funding targets. When a funding target is reached, the features that are tied to it are merged back into RaspAP and released to the public for general availability.
