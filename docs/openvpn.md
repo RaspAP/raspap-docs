@@ -2,7 +2,7 @@
 
 ## Overview
 
-![](https://i.imgur.com/ta7tCon.png)
+![](https://i.imgur.com/ta7tCon.png){: style="width:450px"}
 
 OpenVPN may be optionally installed by the [Quick Installer](/quick/). Once this is done, you can create a client configuration and manage the `openvpn-client` service with RaspAP.
 
@@ -39,7 +39,7 @@ After a page reload, your new public IPv4 address will be indicated. Click or ta
 public IP.
 
 ## Multiple client configs
-:fontawesome-solid-flask: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
 
 [Insiders](/insiders/) are able to manage multiple OpenVPN configurations. This includes the ability to upload, activate and delete any number of valid `.ovpn` files and
 associated login credentials. Thereafter, switching between them is done by simply activating the desired profile. 
