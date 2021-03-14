@@ -13,7 +13,7 @@ Install ad blocking and enable list management? [Y/n]
 
 The installer will download the blocklists, configure RaspAP to use them and enable the **Ad blocking** management page.
 
-![Ad block install option](https://i.imgur.com/vzbQKnC.gif){: style="width:640px"}
+![Ad block install option](https://i.imgur.com/vzbQKnC.gif){: style="width:450px"}
 
 ## Manual installation
 Ad blocking may also be installed manually. Refer to the detailed [installation steps](https://docs.raspap.com/manual/#ad-blocking).
@@ -24,7 +24,7 @@ For the public beta release, blocklists are sourced from the [notracking project
 ## Updating lists 
 The notracking project maintains two blocklists; hostnames and domains. These are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
 
-![Manage blocklists](https://i.imgur.com/7enu97T.png){: style="width:640px"}
+![Manage blocklists](https://i.imgur.com/7enu97T.png){: style="width:550px"}
 
 > :information_source: **Note:** to apply the latest blocklists, be sure to **Restart Ad Blocking**.
 
