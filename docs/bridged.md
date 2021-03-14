@@ -8,6 +8,8 @@ If you would rather have your upstream router assign IP addresses, RaspAP lets y
 ## Toggling bridged AP mode
 In the RaspAP web interface, go to **Hotspot** > **Advanced** tab, then slide the **Bridged AP mode** toggle. **Save settings** then **Restart hotspot**.
 
+![](https://i.imgur.com/rcNuist.png){: style="width:450px"}
+
 ## Bridged AP mode limitations
 Bridged AP mode has some limitations compared to RaspAP's default routed AP.
 
