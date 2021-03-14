@@ -388,7 +388,8 @@ Refer to [this issue](https://github.com/RaspAP/raspap-webgui/issues/333#issue-4
 
 Choosing the AC wireless mode will populate the supported 5 GHz channels for you.
 
-![](https://i.imgur.com/ZAxB8Wf.png)
+![](https://i.imgur.com/ZAxB8Wf.png){: style="width:350px"}
+
 
 **Longer answer:** AC support is not simply a function of your device's hardware capabilities. It must also take into account regulatory restrictions of the wireless spectrum. The regulatory info for `brcmfmac`, the kernel driver that supports the Broadcom wireless chipset, is embedded in the firmware of RPi models 3B+ and 4. There are lots of [international issues with WiFi](https://en.wikipedia.org/wiki/List_of_WLAN_channels#5_GHz_or_5.8_GHz_(802.11a/h/j/n/ac/ax)) that restrict channel use, transmission power, etc. on a regional and per-country basis. As a result, only combinations of certain frequencies (channels) and countries are capable of hosting an AC access point with the RPi's wireless adapter. 
 
