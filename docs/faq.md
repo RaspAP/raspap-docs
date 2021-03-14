@@ -260,11 +260,27 @@ You can then access RaspAP as before with the new port number in the URI, for ex
 ## <a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?
 Installing RaspAP after installing Docker often results in connected clients not having internet access from the AP. The reason for this is Docker manipulates `iptables` rules to provide network isolation. Docker installs two custom iptables chains named `DOCKER-USER` and `DOCKER`, and it ensures that incoming packets are always checked by these two chains first. Docker also sets the policy for the `FORWARD` chain to `DROP`.
 
-When RaspAP is started in its default router mode, this will result in the AP not forwarding any traffic anymore. If you want RaspAP to continue functioning as a router, you can add explicit `ACCEPT` rules to the `DOCKER-USER` chain to allow it:
+When RaspAP is started in its default router mode, this will result in the AP not forwarding traffic anymore. If you want RaspAP to continue functioning as a router, you can add explicit `ACCEPT` rules to the `DOCKER-USER` chain to allow it:
 
 `sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT`
 
-Additional info [here](https://docs.docker.com/network/iptables/). 
+When Docker is correctly installed _after_ RaspAP, the following `iptables` chain should be present:
+
+```
+Chain INPUT (policy ACCEPT) target prot opt source destination
+Chain FORWARD (policy ACCEPT)
+target prot opt source destination DOCKER-USER all -- anywhere anywhere
+DOCKER-ISOLATION-STAGE-1 all -- anywhere anywhere
+ACCEPT all -- anywhere anywhere ctstate RELATED,ESTABLISHED DOCKER all -- anywhere anywhere
+ACCEPT all -- anywhere anywhere ACCEPT all -- anywhere anywhere
+Chain OUTPUT (policy ACCEPT) target prot opt source destination
+Chain DOCKER (1 references) target prot opt source destination
+```
+
+Additional info [here](https://github.com/RaspAP/raspap-webgui/issues/458#issuecomment-643425658) and [here](https://docs.docker.com/network/iptables/). 
+
+**tl;dr:** Install RaspAP _first_, followed by Docker, adding the explicit `iptables` rule `sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT` if needed.
+
 
 ## <a name="openvpn-fails"></a> OpenVPN fails to start and/or I have no internet. Help!
 RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](/defaults/), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
