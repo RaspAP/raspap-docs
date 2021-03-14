@@ -81,7 +81,7 @@ With a basic understanding of AP-STA mode, we can proceed with the installation.
 7. Invoke the [Quick Installer](/quick/) as normal: `curl -sL https://install.raspap.com | bash`.
 8. The installer automatically detects a Pi (or other device) without an active `eth0` interface. In this case, you will _not_ be prompted to reboot your Pi.
 
-> ![](https://i.imgur.com/mwKYBKF.png)
+> ![](https://i.imgur.com/mwKYBKF.png){: style="width:450px"}
 
 9. Open the RaspAP admin interface in your browser, usually http://raspberrypi.local.
 10. The status widget should indicate that hostapd is inactive. This is expected.
@@ -91,6 +91,7 @@ With a basic understanding of AP-STA mode, we can proceed with the installation.
 14. Choose **Save settings** and **Start hotspot**.
 15. Wait a few moments and confirm that your AP has started. 
 
+![](https://i.imgur.com/t5p53zP.png){: style="width:450px"}
 ## When to reboot?
 Rebooting _before_ configuring AP-STA mode is likely the main cause of problems for users with the Pi Zero W. The reason is the [default configuration](/defaults/) is designed for a wired (ethernet) AP. 
 

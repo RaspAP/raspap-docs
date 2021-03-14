@@ -35,7 +35,7 @@ POSIX			# fall-back, ASCII encoding, same as C
 
 Once you've configured a locale on your system, RaspAP will read the `HTTP_ACCEPT_LANGUAGE` string and use this to load your desired language in the UI. Alternatively, you can also select a different language from the  **Language** tab in the **System** menu.
 
-![](https://i.imgur.com/mvB1lXf.png)
+![](https://i.imgur.com/M3CkHoW.png){: style="width:450px"}
 
 **Important**: If you configured a new locale after installing RaspAP, you must restart lighttpd for the changes to take effect:
 
@@ -78,7 +78,7 @@ RaspAP now has a translation [project home at Crowdin](https://crowdin.com/proje
 ### How to become a translator
 The process is very straightforward. Start by signing up for a free account at [Crowdin](https://crowdin.com/). Once you are logged in, head over to our [project home](https://crowdin.com/project/raspap). 
 
-![Crowdin](https://i.imgur.com/pDUIXm6.jpg)
+![Crowdin](https://i.imgur.com/pDUIXm6.jpg){: style="width:640px"}
 
 Here you will find our supported translations, recent activity, discussions and so on. You can get started by simply choosing the language you'd like to contribute to. For more info, see Crowdin's [detailed walkthrough](https://support.crowdin.com/crowdin-intro/#translation-process) of the translation process.
 

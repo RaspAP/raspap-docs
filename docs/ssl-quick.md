@@ -10,18 +10,18 @@ Simply append the `-c` or `--cert` option to the Quick Installer, like so:
 
 **Note:** this only installs `mkcert` and generates an SSL certificate with the input you provide. It does _not_ (re)install RaspAP. 
 
-![](https://i.imgur.com/980pfUG.gif)
+![](https://i.imgur.com/980pfUG.gif){: style="width:450px"}
 
 The advantage with this method is it generates valid certificates signed by your own private CA, rather than self-signed certificates. The Quick Installer does not automatically configure clients to trust the certificates, however — that's up to you. See the steps below.
 
 ## Client configuration
 Open a browser and enter the address: http://raspberrypi.local/rootCA.pem (this URL may be your IP address or a different hostname, depending on your unique setup). Download the root certificate to your client and add it to your system keychain. Examples below illustrate this process on OSX:
 
-![](https://i.imgur.com/RCJJPYL.png)
+![](https://i.imgur.com/RCJJPYL.png){: style="width:450px"}
 
 Be sure to set this certificate to "Always trust" to avoid browser warnings. 
 
-![](https://i.imgur.com/Lx8Plqi.png)
+![](https://i.imgur.com/Lx8Plqi.png){: style="width:450px"}
 
 Finally, enter the address https://raspberrypi.local in your browser. Enjoy an encrypted SSL connection to RaspAP.  
 
