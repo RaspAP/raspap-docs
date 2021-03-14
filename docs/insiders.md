@@ -23,10 +23,10 @@ This is done through Insiders' access to discussions, feature requests, issues a
 
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)    
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
-:octicons-check-circle-fill-24:{: .check } Night mode toggle  
-:octicons-check-circle-fill-24:{: .check } Restrict network to static clients  
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/)  
-:gear: Traffic shaping (in progress)  
+:octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:   
+:octicons-gear-24: Traffic shaping (in progress)  
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
 
@@ -37,10 +37,10 @@ Below is a list of funding targets. When a funding target is reached, the featur
 #### **$500** - First Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)  
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
-:octicons-check-circle-fill-24:{: .check } Night mode toggle  
-:octicons-check-circle-fill-24:{: .check } Restrict network to static clients  
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/)  
-:gear: Traffic shaping (in progress)  
+:octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:  
+:octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:  
+:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:  
+:octicons-gear-24: Traffic shaping (in progress)  
 
 ## Transparency
 We've chosen [OpenCollective](https://opencollective.com/raspap) as the fiscal host for our [GitHub sponsors organization](https://github.com/sponsors/RaspAP). This means that our budget is completely transparent—
