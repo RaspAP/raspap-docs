@@ -52,7 +52,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 ## <a name="settings"></a>What do all these settings in the UI do? Changing them seems to have no effect.
 RaspAP manipulates several daemons, services and helper programs behind the scenes for you. In the footer of each management panel is a helpful "Information provided by..." label. These indicate which Linux daemon and/or program is being modified by the UI. Learning what these services are and how they work will go a long way toward demystifying things.
 
-![](https://i.imgur.com/q1RflMy.png)
+![](https://i.imgur.com/q1RflMy.png){: style="width:350px"}
 
 For example, two of the best starting points for understanding `hostapd` (the service that implements 802.11 AP management) include the [hostapd Linux documentation page](https://wireless.wiki.kernel.org/en/users/Documentation/hostapd) and [hostapd Wifi homepage](https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf).
 
@@ -109,7 +109,7 @@ Clients may receive a "failed to obtain IP address" or similar error message whe
 The first and simplest fix is to reconnect the client to your Wi-Fi network. When you do this, the AP forgets the previous attempt and initiates a new process to assign an IP address to your device.
 Exact methods vary between devices, however most will have a 'Forget this network' option or similar in the Wi-Fi settings. This is shown in iOS, below:
  
-![](https://i.imgur.com/7xvx5JT.png)
+![](https://i.imgur.com/7xvx5JT.png){: style="width:350px"}
 
 If clients still fail to connect, restart the AP. You may do this by choosing **Restart hotspot** from RaspAP. This reinitializes several related services in a predictable order and timing.
 Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.
@@ -279,7 +279,7 @@ Chain DOCKER (1 references) target prot opt source destination
 
 Additional info [here](https://github.com/RaspAP/raspap-webgui/issues/458#issuecomment-643425658) and [here](https://docs.docker.com/network/iptables/). 
 
-**tl;dr:** Install RaspAP _first_, followed by Docker, adding the explicit `iptables` rule `sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT` if needed.
+**tl;dr:** Install RaspAP _first_, followed by Docker, adding the explicit `iptables` rule `sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT`.
 
 
 ## <a name="openvpn-fails"></a> OpenVPN fails to start and/or I have no internet. Help!
