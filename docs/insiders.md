@@ -1,4 +1,4 @@
-![](https://i.imgur.com/eEXpMlO.png)
+![](https://i.imgur.com/uET1qJ7.png){: style="width:650px"}
 
 Development of RaspAP is made possible thanks to a sponsorware release model. This means that new features are first exclusively released to sponsors as part of **Insiders**. Read on to learn how sponsorship works, and how easy it is to get access to Insiders.
 
