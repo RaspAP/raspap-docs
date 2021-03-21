@@ -2,12 +2,12 @@
 
 ## Overview
 
-Creating a software routed access point (AP) requires the installation and setup of several Linux services.
-RaspAP uses a "known-good" default configuration as a starting point. This facilitates a faster setup by not prompting the user for various network 
+Creating a software routed access point (AP) requires the installation and setup of several related Linux services.
+RaspAP uses a known-good default configuration as a starting point. This facilitates a faster setup by not prompting the user for various network 
 settings during the installation. More importantly, it eliminates guesswork that can lead to conflicts down the road. When the [manual](/manual/) or [quick installation](/quick/) is completed,
-the user will have a functional AP that they can then administer with RaspAP's web interface.
+you will have a functional AP that you may then administer with RaspAP's web interface.
 
-While this project handles every facet of this process for you, it's still recommended that users familiarize themselves with the [steps involved](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md) in building an AP from start to finish.
+While this project handles every facet of this process for you, it's still recommended that users familiarize themselves with the [steps involved](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md) in building a software AP from start to finish.
 
 ## Configuration directory
 
@@ -27,7 +27,13 @@ The interface itself, default Linux file paths and so on may be changed by modif
 > :information_source: **Note:** The file `config/config.php` is copied during the installation to `includes/config.php` and ignored by Git. This way, users can modify `includes/config.php`
 without `git pull` or upgrades complaining about local changes. The file `includes/defaults.php` loads corresponding default values if they are not set.
 
-For example, RaspAP's interface may be customized simply by changing the following values:
+For example, you can change the brand text that appears in the interface header simply by modifying the value of this constant:
+
+```
+define('RASPI_BRAND_TEXT', 'RaspAP');
+```
+
+RaspAP's interface may be further customized by changing the following values:
 
 ```
 // Optional services, set to true to enable.
@@ -37,6 +43,7 @@ define('RASPI_NETWORK_ENABLED', true);
 define('RASPI_DHCP_ENABLED', true);
 define('RASPI_ADBLOCK_ENABLED', false);
 define('RASPI_OPENVPN_ENABLED', false);
+define('RASPI_WIREGUARD_ENABLED', false);
 define('RASPI_TORPROXY_ENABLED', false);
 define('RASPI_CONFAUTH_ENABLED', true);
 define('RASPI_CHANGETHEME_ENABLED', true);
