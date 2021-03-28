@@ -11,6 +11,8 @@ Our popular Quick installer creates a known-good default configuration that "jus
 ## Quick start
 Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit). The Raspberry Pi OS desktop and 64-bit beta distros are unsupported.
 
+> :information_source: **Note**: Be sure to use an official power supply with your device. Power supply requirements [differ by Raspberry Pi model](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md). Inadequate voltage is the source of many WiFi issues.
+
 Update RPi OS to its latest version, including the kernel and firmware, followed by a reboot:
 
 ```
@@ -35,7 +37,7 @@ After the reboot at the end of the installation the wireless AP network will be 
   SSID: `raspi-webgui`  
   Password: ChangeMe  
 
-## Support us
+## Get Insiders
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](/insiders/#how-to-become-a-sponsor)
 and get access to [exclusive features](/insiders/#exclusive-features) in the :octicons-heart-fill-24:{: .heart } [Insiders Edition](/insiders/).
 
