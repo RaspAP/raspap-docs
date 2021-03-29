@@ -11,10 +11,11 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I use wlan0 and wlan1 rather than eth0 for my AP?](#interfaces)
 * [Can I use RaspAP as a monitor only, without changing my configuration?](#monitor)
 * [Can I use RaspAP with my custom dnsmasq configuration?](#dnsmasq)
+* [What is the maximum number of simultaneous clients that I can connect to my AP?](#maxclients)
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
-* [My wifi network disappeared and I can't access the webgui. Help!](#access)
+* [My WiFi network disappeared and I can't access the webgui. Help!](#access)
 * [My custom `hostapd.conf` / `php.ini` is gone. Help!](#custom)
 * [I changed the admin password and forgot what it was. Help!](#password)
 * [RaspAP control panel works but there is no WiFi after reboot.](#nowifi)
@@ -99,6 +100,20 @@ conf-dir=/etc/dnsmasq.d
 
 Configuration files placed in this directory will be used by the dnsmasq service and are untouched by the UI. 
 
+## <a name="maxclients"></a>What is the maximum number of simultaneous clients that I can connect to my AP?
+**Short answer:** it depends.
+
+**Longer answer:** there are several factors that come into play including, but not limited to, the specific RPi model, firmware version, available RAM and so on. 
+
+Every update to the RPi's firmware takes up more of the limited RAM reserved for WiFi, resulting in less space to host AP clients. Users of RaspAP have reported
+up to [19 simultaneous clients](https://github.com/billz/raspap-webgui/issues/462#issuecomment-588367233) with a RPi 3B, but a smaller number with a newer RPi model.
+If you are willing to modify your device's firmware and replace the `brcmfmac` driver [with a specific version](https://github.com/raspberrypi/linux/issues/3010#issuecomment-788323744), a
+maximum of 20 simultaneous WiFi clients is theoretically possible.
+
+**Bottom line:** if maximizing AP clients is your primary goal, you will have to either use a specific firmware version or purchase an external wireless adapter.
+
+See also: [https://github.com/raspberrypi/linux/issues/3010](https://github.com/raspberrypi/linux/issues/3010).
+
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
 
@@ -135,7 +150,7 @@ able to respond to DHCP requests.
 As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
 Save settings, restart `dnsmasq` and try connecting your client again.
 
-## <a name="access"></a>My wifi network disappeared and I can't access the webgui. Help!
+## <a name="access"></a>My WiFi network disappeared and I can't access the webgui. Help!
 If you're running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
 
 1. Be sure your browser isn't forcing SSL by appending https:// to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](https://docs.raspap.com/ssl-quick/))
@@ -392,8 +407,12 @@ Choosing the AC wireless mode will populate the supported 5 GHz channels for you
 
 ![](https://i.imgur.com/ZAxB8Wf.png){: style="width:350px"}
 
-
 **Longer answer:** AC support is not simply a function of your device's hardware capabilities. It must also take into account regulatory restrictions of the wireless spectrum. The regulatory info for `brcmfmac`, the kernel driver that supports the Broadcom wireless chipset, is embedded in the firmware of RPi models 3B+ and 4. There are lots of [international issues with WiFi](https://en.wikipedia.org/wiki/List_of_WLAN_channels#5_GHz_or_5.8_GHz_(802.11a/h/j/n/ac/ax)) that restrict channel use, transmission power, etc. on a regional and per-country basis. As a result, only combinations of certain frequencies (channels) and countries are capable of hosting an AC access point with the RPi's wireless adapter. 
+
+![](https://user-images.githubusercontent.com/229399/112802618-aee75600-9072-11eb-98ca-c55084964a0d.gif){: style="width:550px"}
+
+RaspAP uses an [extensively tested](https://github.com/RaspAP/raspap-webgui/issues/450#issuecomment-569343686) internal database of [permitted wireless channels](https://github.com/RaspAP/raspap-webgui/blob/master/config/wireless.json) for each country to populate
+the **Hotspot > Basic** settings tab. The page logic for loading the **Channel** select is displayed above.
 
 If the country configured on your RPi does not allow use of a particular segment of the 5 GHz wireless spectrum, an AC configured AP will fail to start. Errors like these are common:
 
