@@ -117,22 +117,22 @@ See also: [https://github.com/raspberrypi/linux/issues/3010](https://github.com/
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
 
-1. A poor Wi-Fi signal from the access point. In this event, reduce the distance between your device and the AP.
+1. A poor WiFi signal from the access point. In this event, reduce the distance between your device and the AP.
 2. Your device does not operate properly with the encryption method set by the AP. 
 3. The access point is misconfigured.
 
-The first and simplest fix is to reconnect the client to your Wi-Fi network. When you do this, the AP forgets the previous attempt and initiates a new process to assign an IP address to your device.
-Exact methods vary between devices, however most will have a 'Forget this network' option or similar in the Wi-Fi settings. This is shown in iOS, below:
+The first and simplest fix is to reconnect the client to your WiFi network. When you do this, the AP forgets the previous attempt and initiates a new process to assign an IP address to your device.
+Exact methods vary between devices, however most will have a 'Forget this network' option or similar in the WiFi settings. This is shown in iOS, below:
  
 ![](https://i.imgur.com/7xvx5JT.png){: style="width:350px"}
 
 If clients still fail to connect, restart the AP. You may do this by choosing **Restart hotspot** from RaspAP. This reinitializes several related services in a predictable order and timing.
 Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.
 
-RaspAP gives you control over many aspects of your Wi-Fi network, including DHCP. With its [default settings](https://docs.raspap.com/issues/#default-settings), RaspAP has been rigorously
+RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its [default settings](https://docs.raspap.com/issues/#default-settings), RaspAP has been rigorously
 tested and validated to provide connectivity in routed AP mode. If you suspect that RaspAP is misconfigured and not providing IP addresses to clients, you may troubleshoot this yourself.
 
-Clients connecting to your AP are assigned, or leased, an IP address with `dnsmasq`. You can see how this proces works by enabling the **Log DHCP requests** option in the **DHCP Server > Logging** tab. 
+Clients connecting to your AP are assigned, or leased, an IP address with `dnsmasq`. You can see how this process works by enabling the **Log DHCP requests** option in the **DHCP Server > Logging** tab. 
 When a client connects to your AP, a typical `dnsmasq-dhcp` exchange follows this pattern:
 
 ```
@@ -249,7 +249,7 @@ This is a common function in consumer wireless routers. For example, let's assum
 For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
 
 ## <a name="managed"></a> Can I configure a managed mode AP without using the UI?
-Let's assume you are creating a Raspbian image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have [wpa_supplicant.conf fully populated](https://docs.raspap.com/faq/#headless), set the following values in `/etc/raspap/hostapd.ini`:
+Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have [wpa_supplicant.conf fully populated](https://docs.raspap.com/faq/#headless), set the following values in `/etc/raspap/hostapd.ini`:
 
 ```
 LogEnable = 0
