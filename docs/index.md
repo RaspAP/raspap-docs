@@ -5,8 +5,8 @@
 Simple AP setup & WiFi management for Debian-based devices
 
 ## About
-RaspAP lets you quickly get a WiFi access point up and running to share the connectivity of many popular Debian-based devices, including the Raspberry Pi.
-Our popular Quick installer creates a known-good default configuration that "just works" on all current Raspberry Pis with onboard wireless.
+RaspAP is feature-rich wireless router software that _just works_ on many popular [Debian-based devices](/#compatible-operating-systems), including the Raspberry Pi.
+Our popular Quick installer creates a known-good default configuration in minutes on all current Raspberry Pis with onboard wireless.
 
 ## Quick start
 Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit). The Raspberry Pi OS desktop and 64-bit beta distros are unsupported.
