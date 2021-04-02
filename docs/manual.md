@@ -72,10 +72,22 @@ sudo rm -rf /var/www/html
 sudo git clone https://github.com/RaspAP/raspap-webgui /var/www/html
 ```
 
-Copy an extra `lighttpd` config file to support application routing. Link it into `conf-enabled` and restart the web service:
+Copy an extra `lighttpd` config file to support application routing. This step requires some text substitutions to support user changes to lighttpd's `server.document-root` setting:
 
 ```
-sudo cp /var/www/html/config/50-raspap-router.conf /etc/lighttpd/conf-available
+WEBROOT="/var/www/html"
+CONFSRC="$WEBROOT/config/50-raspap-router.conf"
+LTROOT=$(grep "server.document-root" /etc/lighttpd/lighttpd.conf | awk -F '=' '{print $2}' | tr -d " \"")
+
+HTROOT=${WEBROOT/$LTROOT}
+HTROOT=$(echo "$HTROOT" | sed -e 's/\/$//')
+awk "{gsub(\"/REPLACE_ME\",\"$HTROOT\")}1" $CONFSRC > /tmp/50-raspap-router.conf
+sudo cp /tmp/50-raspap-router.conf /etc/lighttpd/conf-available/
+```
+
+Link it into `conf-enabled` and restart the web service:
+
+```
 sudo ln -s /etc/lighttpd/conf-available/50-raspap-router.conf /etc/lighttpd/conf-enabled/50-raspap-router.conf
 sudo systemctl restart lighttpd.service
 ```
