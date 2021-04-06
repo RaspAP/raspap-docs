@@ -44,7 +44,7 @@ public IP.
 [Insiders](/insiders/) are able to manage multiple OpenVPN configurations. This includes the ability to upload, activate and delete any number of valid `.ovpn` files and
 associated login credentials. Thereafter, switching between them is done by simply activating the desired profile. 
 
-![](https://user-images.githubusercontent.com/229399/113707998-fe67fa80-96e0-11eb-91b3-ad18dc871f8e.png){: style="width:450px"}
+![](https://user-images.githubusercontent.com/229399/113760259-52410680-9716-11eb-9b44-21ed27b9a8bb.png){: style="width:450px"}
 
 Activating a profile will restart the `openvpn-client` service automatically. Additionally, `openvpn-service` activity may be tracked in the **Logging** tab. 
 
@@ -54,7 +54,7 @@ Activating a profile will restart the `openvpn-client` service automatically. Ad
 [Insiders](/insiders/) are able to authenticate with a signing **certification authority (CA) certificate**. This is an alternative to the default username and password authentication, and is
 often used with a private or self-hosted OpenVPN server.
  
-![](https://user-images.githubusercontent.com/229399/113707471-3de21700-96e0-11eb-9d68-b13501db0f18.png){: style="width:450px"}
+![](https://user-images.githubusercontent.com/229399/113760359-68e75d80-9716-11eb-82ea-5ed1307e8496.png){: style="width:450px"}
 
 To use this method, upload an OpenVPN configuration file (.ovpn) with the certificate authority (CA) certficate, client certificate and client private key enclosed in tags as described above.
 
