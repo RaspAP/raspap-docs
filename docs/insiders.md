@@ -22,6 +22,7 @@ The following features are currently available exclusively to sponsors. A tangib
 This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)    
+:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn/#certificate-authentication)    
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:   
@@ -36,6 +37,7 @@ Below is a list of funding targets. When a funding target is reached, the featur
 ### Goals
 #### **$500** - First Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)  
+:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn/#certificate-authentication)    
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:  
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:  
