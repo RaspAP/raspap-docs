@@ -249,7 +249,8 @@ This is a common function in consumer wireless routers. For example, let's assum
 For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
 
 ## <a name="managed"></a> Can I configure a managed mode AP without using the UI?
-Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have [wpa_supplicant.conf fully populated](https://docs.raspap.com/faq/#headless), set the following values in `/etc/raspap/hostapd.ini`:
+Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings.
+This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](https://docs.raspap.com/faq/#headless) and a valid [`hostapd.conf`](https://docs.raspap.com/ap-sta/#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
 
 ```
 LogEnable = 0
