@@ -28,6 +28,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I integrate RaspAP with Adguard Home?](#adguard)
 * [Can I configure RaspAP to work with a captive portal?](#captive)
 * [How do I create an AP activation schedule?](#schedule)
+* [Can I schedule the WiFi password to change automatically?](#genpassword)
 * [Can I configure a managed mode AP without using the UI?](#managed)
 * [Can I configure an alternate port for RaspAP's web service?](#webport)
 * [What breaks RaspAP when Docker is installed on the same system and how I can fix it?](#docker)
@@ -236,7 +237,7 @@ Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuar
 Yes, the [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](https://docs.raspap.com/captive/). 
 
 ## <a name="schedule"></a>How do I create an AP activation schedule?
-This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with cron to stop/start RaspAP's service control script at certain times. Run `sudo crontab -e` and add entries like so:
+This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with `cron` to stop/start RaspAP's service control script at certain times. Run `sudo crontab -e` and add entries like so:
 
 ```
 # Stop RaspAP services at 02:00 on Monday through Friday
@@ -244,6 +245,21 @@ This is a common function in consumer wireless routers. For example, let's assum
 
 # Start RaspAP services at 08:00 on Monday through Friday
 0 8 * * 1-5 sudo /etc/raspap/hostapd/servicestart.sh --seconds 3
+```
+
+For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
+
+## <a name="genpassword"></a> Can I schedule the WiFi password to change automatically?
+Here's [one way to do it](https://gist.github.com/billz/2cc43e96563293d650e313e068d52dfb) using bash. Save the script to your home directory (`/home/pi` for example) and set the execution
+bit with `sudo chmod +x genpassphrase.sh`. When it's executed, the script will automatically generate a strong password (or a weaker, pronounceable one), update the `wpa_passphrase` setting in `hostapd.conf` and finally restart
+the `raspapd.service`. The new passphrase and QR code will be visible on the **Hotspot > Security** tab.
+
+This can be useful if you're using RaspAP to serve WiFi to clients in a public place, and need to update the passphrase regularly. Similar to creating an [AP activation schedule](#schedule),
+you can have this execute at specific intervals by using `cron`. Run `sudo crontab -e` and add an entry like so:
+
+```
+# Generate a new passphrase and restart RaspAP everyday at midnight
+@midnight /home/pi/genpassphrase.sh
 ```
 
 For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
