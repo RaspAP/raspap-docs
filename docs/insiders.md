@@ -72,6 +72,9 @@ Password for 'https://octocat@github.com':
 
 > :information_source: **Note**: your password is sent securely via SSH to GitHub. The above prompt is actually from GitHub, so the installer does _not_ know your credentials.
 
+Using GitHub with 2FA enabled? Create a [personal access token](https://docs.github.com/en/github/authenticating-to-github/accessing-github-using-two-factor-authentication#using-two-factor-authentication-with-the-command-line) and pass it to the installer with the [--token](https://docs.raspap.com/quick/#-t-token-accesstoken) option.
+Adding SSH keys to your GitHub account achieves the same result.
+
 ### Terms
 *We're using RaspAP for a commercial project. Can we use Insiders under the same terms and conditions?*
 
