@@ -55,6 +55,17 @@ was central in our decision to implement Insiders.
 
 ## Frequently asked questions
 
+### Installing
+*How do I install Insiders?*
+
+Invoke the [Quick Installer](https://docs.raspap.com/quick/) with the `--insiders` switch, like so:
+
+```
+curl -sL https://install.raspap.com | bash -s -- --insiders
+```
+
+This will automatically pull from the private Insiders repo during the installation process.
+
 ### Upgrading
 *I have an existing RaspAP installation. How do I upgrade to Insiders?*
 
@@ -64,8 +75,9 @@ Upgrading is easy. Simply invoke the [Quick Installer](https://docs.raspap.com/q
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
 ```
 
-If you haven't [added SSH keys to your GitHub account](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) you will be prompted to authenticate.
-In this case, just enter your GitHub credentials during the install. For example:
+### Authentication
+If you haven't [added SSH keys to your GitHub account](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) you will be prompted to authenticate when the
+installer clones the private Insiders repository. In this case, just enter your GitHub credentials during the install. For example:
 
 ```
 RaspAP Install: Cloning latest files from github
