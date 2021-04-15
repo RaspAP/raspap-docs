@@ -35,13 +35,16 @@ Look for the list above to grow as we add more exclusive features. Be sure to vi
 Below is a list of funding targets. When a funding target is reached, the features that are tied to it are merged back into RaspAP and released to the public for general availability.
 
 ### Goals
-#### **$500** - First Insiders Edition
+#### **$500** - 1st Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)  
 :octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn/#certificate-authentication) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:  
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:  
 :octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:  
+
+#### **$1000** - 2nd Insiders Edition
+:octicons-gear-24: Mobile data client support (in progress)  
 :octicons-gear-24: Traffic shaping (in progress)  
 
 ## Transparency
