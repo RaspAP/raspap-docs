@@ -27,6 +27,7 @@ This is done through Insiders' access to discussions, feature requests, issues a
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } Set AP transmit power :material-new-box:   
 :octicons-gear-24: Mobile data client support (in progress)  
 :octicons-gear-24: Traffic shaping (in progress)  
 
@@ -43,6 +44,7 @@ Below is a list of funding targets. When a funding target is reached, the featur
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:  
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:  
 :octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:  
+:octicons-check-circle-fill-24:{: .check } Set AP transmit power :material-new-box:   
 
 #### **$1000** - 2nd Insiders Edition
 :octicons-gear-24: Mobile data client support (in progress)  
