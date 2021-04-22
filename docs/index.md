@@ -30,12 +30,14 @@ The [Quick installer](/quick/) will complete the steps in the [manual installati
 
 After the reboot at the end of the installation the wireless AP network will be configured as follows:
 
-  IP address: 10.3.141.1  
-  Username: admin  
-  Password: secret  
-  DHCP range: 10.3.141.50 to 10.3.141.255  
-  SSID: `raspi-webgui`  
-  Password: ChangeMe  
+  **IP address:** 10.3.141.1  
+  **Username:** admin  
+  **Password:** secret  
+  **DHCP range:** 10.3.141.50 to 10.3.141.255  
+  **SSID:** `raspi-webgui`  
+  **Password:** ChangeMe  
+
+Your AP's [basic settings](/ap-basics/) and many [advanced options](/ap-basics/#advanced-options) may be modified directly by RaspAP.
 
 ## Get Insiders
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](/insiders/#how-to-become-a-sponsor)
