@@ -64,7 +64,7 @@ a variety of reasons, so this is not a silver bullet.
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
 
 [Insiders](/insiders/) are able to control the transmit power of the configured AP interface. The default "auto" setting will suffice for the vast majority of APs. A lower `txpower` value
-can be useful to prevent WiFi radio interference, for example if you are hosting multiple APs in a given area. It can also be advantageous to set `txpower` to a lower value in IoT or similar applications where reduced power consumption is needed. 
+can be useful to mitigate WiFi radio interference, for example if you are hosting multiple APs in a given area. It can also be advantageous to set `txpower` to a lower value in IoT or similar applications where reduced power consumption is needed.
  
 ![](https://user-images.githubusercontent.com/229399/115698577-0f616e80-a365-11eb-80e5-404527ca7bdb.png){: style="width:375px"}
 

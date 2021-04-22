@@ -53,6 +53,9 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 | Debian  |  Buster | ARM / x86_64  | Beta |
 | Ubuntu  |  18.04 LTS / 19.10 | ARM / x86_64  | Beta |
 
+![](https://user-images.githubusercontent.com/229399/115760318-81f03f80-a3a1-11eb-8df5-15ec4aec3e8a.png){: style="width:400px"}
+
+
 Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
 ## Get involved
