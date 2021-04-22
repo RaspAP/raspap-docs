@@ -1,4 +1,4 @@
-# Access Point settings
+# Access point settings
 
 ## Basics
 
@@ -16,12 +16,11 @@ As part of this initial setup, the `hostapd` service broadcasts an AP with the f
 Each of these settings may be changed on the **Hotspot > Basic** and **Security** tabs to any values you wish. Your changes will be applied and made visible on the broadcasted AP by choosing
 **Save settings** followed by **Restart hotspot**.
 
-> :information_source: **Note:** The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](/faq/#80211ac) for more information.
-
 ![](https://user-images.githubusercontent.com/229399/115685883-efc44900-a358-11eb-8b9b-95c1029a2cad.png)
 
 At this point, a dialog will appear to indicate the progress of the RaspAP service. This is a Linux `systemd` process that is responsible for starting up several network services in a specific order and timing.
 
+> :information_source: **Note:** The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](/faq/#80211ac) for more information.
 
 ## Connecting clients
 When the AP is operational, you may connect clients to it by using one of two methods:
@@ -29,10 +28,10 @@ When the AP is operational, you may connect clients to it by using one of two me
 1. Select the SSID from the list of available networks on your device and enter the passphrase.
 2. Scan the QR code displayed on the **Hotspot > Security** tab and enter the passphrase.
 
-By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.255`. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](/faq/#noip).
+By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.255`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](/faq/#noip).
 
 ## Advanced options
-The above sections cover everything you will need for a basic routed AP. The **Hotspot > Advanced** tab has several options that allow you to control advanced settings. These are discussed in the following sections.
+The above sections cover everything you will need for a basic routed AP. The **Hotspot > Advanced** tab has several options that allow you to control advanced settings for the Linux `hostapd` service. These are discussed in the following sections.
 
 ### Bridged AP mode
 If you wish to configure RaspAP as a [bridged AP](/bridged/), this may be done by sliding the **Bridged AP mode** toggle, saving settings and restarting the hotspot. Be aware that when the hotspot restarts
@@ -75,15 +74,15 @@ It is not necessary to restart the AP for this to take effect.
 ### Maximum number of clients
 This option sets the `max_num_sta` value for `hostapd`, and is effective for placing a limit on the number of clients (stations) that can connect to your AP. When the limit is reached, new client connections will be rejected.
 
-> :information_source: **Note:** The default setting is 2007, but this is merely the value set by `hostapd` from the IEEE 802.11 specification. It should _not_ be interpreted as a guarantee that RaspAP can support this number of simultaneous clients.
+> :information_source: **Note:** The default setting is 2007, but this is merely the value set by `hostapd` from the IEEE 802.11 specification. It should _not_ be interpreted as a guarantee that RaspAP can support this many simultaneous clients.
 In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](/faq/#maxclients).  
 
 ## Troubleshooting
-RaspAP gives you advanced control over several Linux networking services. As a result, your AP may fail to start for a variety of reasons. If this happens, one of the best diagnostic tools at your disposal 
+RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. If this happens, one of the best diagnostic tools at your disposal 
 is RaspAP's built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**.
 
 ![](https://user-images.githubusercontent.com/229399/115705038-56069700-a36c-11eb-8e19-9c05b1b0040f.png){: style="width:550px"}
 
-Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab.
+Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab, as shown above.
 
 

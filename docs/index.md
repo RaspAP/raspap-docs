@@ -37,7 +37,7 @@ After the reboot at the end of the installation the wireless AP network will be 
   **SSID:** `raspi-webgui`  
   **Password:** ChangeMe  
 
-Your AP's [basic settings](/ap-basics/) and many [advanced options](/ap-basics/#advanced-options) may be modified directly by RaspAP.
+Your AP's [basic settings](/ap-basics/) and many [advanced options](/ap-basics/#advanced-options) are now ready to be modified by RaspAP.
 
 ## Get Insiders
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](/insiders/#how-to-become-a-sponsor)
