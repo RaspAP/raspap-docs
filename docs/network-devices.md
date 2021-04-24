@@ -9,7 +9,7 @@ The following network devices are supported
 All devices require a driver in order to be available for RaspAP. 
 
 ## List of detected Devices
-Under Networking -> Network Devices the list of devices is available with their attributes and assumed adapter type. The adpapter type as well as the device name can be changed.
+Under Networking &rarr; Network Devices the list of devices is available with their attributes and assumed adapter type. The adpapter type as well as the device name can be changed.
 Incorrect device types might show up for devices, which advertize them to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This happens for USB connected phones and external routers.  
 The only restriction for the name is, that it contains only lowercase letters and numbers. The maximal length is limited to 10 characters. The name is automatically filtered accordingly. 
 Fixing the name helps to distinguish the different devices. This is especially important, if there is a risk, that the Access Point device is connected via USB and the automatically assigned name might change.
@@ -31,7 +31,7 @@ to search for existing driver modules.
 
 ## Mobile Data Modem
 Modems or Point-to-Point Protocol (ppp) devices require login data. A PIN number to unlock the SIM card, the Access Point Name (APN) and login data of your mobile network provider. 
-These data can be entered under Networking -> Mobile Data Settings. The data are written to the file /etc/wvdial.conf. This configuration file contains the basic configuration to unlock the SIM card and connect
+These data can be entered under Networking &rarr; Mobile Data Settings. The data are written to the file `/etc/wvdial.conf`. This configuration file contains the basic configuration to unlock the SIM card and connect
 to the network. This has been tested with a Huawei E1550. If your device requires different AT-commands, you need to manually change this configuration. 
 
 For a correctly connected modem, the connection mode, signal quality and network provider will be displayed on the dashboard.
@@ -42,10 +42,9 @@ Be aware, that the name of modems can not be changed. The reason is, that the de
 Mobile data USB devices, which provide router functionality will usually show up as a ethernet device (e.g. `eth1`). This implies, that the device has to be pre-configured
 to work without a PIN for the SIM card and without login data, This usually can be done via the browser based administration interface on any computer.
 
-A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can communicate directly with these devices. Only the administration interface should not be locked with a user/password. The PIN number entered under Networking -> Mobile Data Settings will be used to unlock the SIM card. IN addition connection information (mode, signal quality and network provider) are listed 
-on the dashboard. 
+A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can communicate directly with these devices. Only the administration interface should not be locked with a user/password. The PIN number entered under Networking &rarr; Mobile Data Settings will be used to unlock the SIM card. In addition connection information (mode, signal quality and network provider) are extracted from the device and displayed on the dashboard. 
 
 The model E3372h-320 will be detected as a Hilink device and shows up wth the name `hilink0`. Other Hilink devices require a corresponding assignment 
-under Networking -> Network Devices.
+under Networking &rarr; Network Devices.
 
 
