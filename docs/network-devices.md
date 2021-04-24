@@ -4,21 +4,20 @@ The following network devices are supported
 * Wireless adapter (wlan)
 * Mobile data Modem (ppp)
 * Mobile data adapter with build in router
-* USB conncected Smartphone (USB tethering)  
+* USB connected Smartphone (USB tethering)  
 
 All devices require a driver in order to be available for RaspAP. 
 
 ## List of detected Devices
 Under Networking &rarr; Network Devices the list of devices is available with their attributes and assumed adapter type. The adpapter type as well as the device name can be changed.
 Incorrect device types might show up for devices, which advertize them to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This happens for USB connected phones and external routers.  
-The only restriction for the name is, that it contains only lowercase letters and numbers. The maximal length is limited to 10 characters. The name is automatically filtered accordingly. 
+The only restriction for the name is, that it contains only lowercase letters and numbers. The maximal length is limited to 20 characters. The name is automatically filtered accordingly. 
 Fixing the name helps to distinguish the different devices. This is especially important, if there is a risk, that the Access Point device is connected via USB and the automatically assigned name might change.
-
-All settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
-The templates for the rules are stored in `/etc/raspap/networking/client_udev_prototypes.json`. This file contains the list of recognized device types.
 
 ![image](https://user-images.githubusercontent.com/33725910/115952457-4d39d080-a4e6-11eb-9ca5-74aacc444a7e.png)
 
+All settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
+The templates for the rules are stored in `/etc/raspap/networking/client_udev_prototypes.json`. This file contains the list of recognized device types.
 
 ## Ethernet Interface
 The build in ethernet adapter as well as USB ones are usually detected automatically and no configuration is required.
@@ -58,4 +57,8 @@ under Networking &rarr; Network Devices.
 
 ![image](https://user-images.githubusercontent.com/33725910/115952595-1ca66680-a4e7-11eb-8417-22f27b5f93eb.png)
 
+## Phone - USB Tethering
+A phone connected via USB and with enabled USB tethering, will show up as either a ethernet device (e.g. `eth1`), or as an USB network device `usb0`. Changing the device type to phone will lead to a corresponding display on the dashboard. In this case the default name is `phone0`.
+
+![image](https://user-images.githubusercontent.com/33725910/115953764-96415300-a4ed-11eb-9d5c-de4f27550874.png)
 
