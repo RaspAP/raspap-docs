@@ -13,10 +13,12 @@ All devices require a driver in order to be available for RaspAP.
 Under Networking &rarr; Network Devices the list of devices is available with their attributes and assumed adapter type. The adpapter type as well as the device name can be changed.
 Incorrect device types might show up for devices, which advertize them to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This happens for USB connected phones and external routers.  
 The only restriction for the name is, that it contains only lowercase letters and numbers. The maximal length is limited to 20 characters. The name is automatically filtered accordingly. 
-Fixing the name helps to distinguish the different devices. This is especially important, if there is a risk, that the Access Point device is connected via USB and the automatically assigned name might change.
+### Fixing the device name
+Fixing the name helps to distinguish different devices. This is especially important, if there is a risk, that the Access Point device is connected via USB and the automatically assigned name might change.
 
 ![image](https://user-images.githubusercontent.com/33725910/115952457-4d39d080-a4e6-11eb-9ca5-74aacc444a7e.png)
 
+### Configuration files
 All settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
 The templates for the rules are stored in `/etc/raspap/networking/client_udev_prototypes.json`. This file contains the list of recognized device types.
 
@@ -47,13 +49,15 @@ For a correctly connected modem, the connection mode, signal quality and network
 
 Be aware, that the name of modems can not be changed. The reason is, that the device name `ppp0` is directly coupled with the required system services.
 
-Your modem device does not show up? In this case its not recognized by Raspian, or it has not been switched into modem mode by [usb_modeswitch](https://wiki.ubuntuusers.de/USB_ModeSwitch/).   
+### Your modem device does not show up? 
+In this case its not recognized by Raspian, or it has not been switched into modem mode by [usb_modeswitch](https://wiki.ubuntuusers.de/USB_ModeSwitch/).   
 
 ## Mobile Data Adapter with build in Router
 Mobile data USB devices, which provide router functionality will usually show up as a ethernet device (e.g. `eth1`). This implies, that the device has to be pre-configured
 to work without a PIN for the SIM card and without login data, This usually can be done via the browser based administration interface on any computer.
 
-A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can communicate directly with these devices. Only the administration interface should not be locked with a user/password. The PIN number entered under Networking &rarr; Mobile Data Settings will be used to unlock the SIM card. In addition connection information (mode, signal quality and network provider) are extracted from the device and displayed on the dashboard. 
+### Huawei Hilink Device
+A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can communicate directly with these devices. Only the administration interface should not be locked with a user/password. The PIN number entered under Networking &rarr; Mobile Data Settings will be used to unlock the SIM card. In addition connection information (mode, signal quality and network provider) are extracted from the device and displayed on the dashboard. The dashboard button to stop/start the device is active and will disconnect/connect with the mobile network.
 
 ![image](https://user-images.githubusercontent.com/33725910/115952612-3a73cb80-a4e7-11eb-8998-cbb66fb108c4.png)
 
