@@ -13,10 +13,11 @@ All devices require a driver in order to be available for RaspAP.
 Under Networking &rarr; Network Devices the list of devices is available with their attributes and assumed adapter type. The adpapter type as well as the device name can be changed.
 Incorrect device types might show up for devices, which advertize them to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This happens for USB connected phones and external routers.  
 The only restriction for the name is, that it contains only lowercase letters and numbers. The maximal length is limited to 20 characters. The name is automatically filtered accordingly. 
-### Fixing the device name
-Fixing the name helps to distinguish different devices. This is especially important, if there is a risk, that the Access Point device is connected via USB and the automatically assigned name might change.
 
 ![image](https://user-images.githubusercontent.com/33725910/115952457-4d39d080-a4e6-11eb-9ca5-74aacc444a7e.png)
+
+### Fixing the device name
+Fixing the name helps to distinguish different devices. This is especially important, if there is a risk, that the Access Point device is connected via USB and the automatically assigned name might change.
 
 ### Configuration files
 All settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
@@ -50,7 +51,7 @@ For a correctly connected modem, the connection mode, signal quality and network
 Be aware, that the name of modems can not be changed. The reason is, that the device name `ppp0` is directly coupled with the required system services.
 
 ### Your modem device does not show up? 
-In this case its not recognized by Raspian, or it has not been switched into modem mode by [usb_modeswitch](https://wiki.ubuntuusers.de/USB_ModeSwitch/).   
+In this case its not recognized by Raspian, or it has not been switched into modem mode by [usb_modeswitch](https://wiki.ubuntuusers.de/USB_ModeSwitch/). Check the log file (`journalctl`) for problems with the device. 
 
 ## Mobile Data Adapter with build in Router
 Mobile data USB devices, which provide router functionality will usually show up as a ethernet device (e.g. `eth1`). This implies, that the device has to be pre-configured
