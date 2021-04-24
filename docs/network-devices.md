@@ -14,15 +14,11 @@ Under Networking &rarr; Network Devices the list of devices is available with th
 Incorrect device types might show up for devices, which advertize them to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This happens for USB connected phones and external routers.  
 The only restriction for the name is, that it contains only lowercase letters and numbers. The maximal length is limited to 20 characters. The name is automatically filtered accordingly. 
 
-![image](https://user-images.githubusercontent.com/33725910/115952457-4d39d080-a4e6-11eb-9ca5-74aacc444a7e.png)
+![Networking: tab Networking Settings](https://user-images.githubusercontent.com/33725910/115952457-4d39d080-a4e6-11eb-9ca5-74aacc444a7e.png)
 
 ### Fixing the device name
 Fixing the name helps to distinguish different devices. This is especially important, if the Access Point device is connected via USB and the automatically assigned name might 
 change. This can happen, when devices are plugged in varying order.
-
-### Configuration files
-All settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
-The templates for the rules are stored in `/etc/raspap/networking/client_udev_prototypes.json`. This file contains the list of recognized device types.
 
 ## Ethernet Interface
 The build in ethernet adapter as well as USB ones are usually detected automatically and no configuration is required.
@@ -72,4 +68,10 @@ under Networking &rarr; Network Devices.
 A phone connected via USB and with enabled USB tethering, will show up as either a ethernet device (e.g. `eth1`), or as an USB network device `usb0`. Changing the device type to phone will lead to a corresponding display on the dashboard. In this case the default name is `phone0`.
 
 ![image](https://user-images.githubusercontent.com/33725910/115953764-96415300-a4ed-11eb-9d5c-de4f27550874.png)
+
+## Configuration files
+- All device specific settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
+- The templates for the UDEV rules are stored in `/etc/raspap/networking/client_udev_prototypes.json`. This file contains the list of recognized device types.
+- Mobile data settings are stored in: `/etc/raspap/networking/mobiledata.ini`
+- Modem AT-commands and login data are stored in: `/etc/wvdial.conf`
 
