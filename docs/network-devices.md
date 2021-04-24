@@ -17,6 +17,9 @@ Fixing the name helps to distinguish the different devices. This is especially i
 All settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
 The templates for the rules are stored in `/etc/raspap/networking/client_udev_prototypes.json`. This file contains the list of recognized device types.
 
+![image](https://user-images.githubusercontent.com/33725910/115952457-4d39d080-a4e6-11eb-9ca5-74aacc444a7e.png)
+
+
 ## Ethernet Interface
 The build in ethernet adapter as well as USB ones are usually detected automatically and no configuration is required.
 Devices like USB tethered phones might show up as an ethernet device as well. The same applies to mobile data adpapters, which contain a router. In these cases the 
@@ -31,7 +34,11 @@ to search for existing driver modules.
 
 ## Mobile Data Modem
 Modems or Point-to-Point Protocol (ppp) devices require login data. A PIN number to unlock the SIM card, the Access Point Name (APN) and login data of your mobile network provider. 
-These data can be entered under Networking &rarr; Mobile Data Settings. The data are written to the file `/etc/wvdial.conf`. This configuration file contains the basic configuration to unlock the SIM card and connect
+These data can be entered under Networking &rarr; Mobile Data Settings. 
+
+![image](https://user-images.githubusercontent.com/33725910/115952501-9853e380-a4e6-11eb-9d83-7a871ab90a75.png)
+
+The data are written to the file `/etc/wvdial.conf`. This configuration file contains the basic configuration to unlock the SIM card and connect
 to the network. This has been tested with a Huawei E1550. If your device requires different AT-commands, you need to manually change this configuration. 
 
 For a correctly connected modem, the connection mode, signal quality and network provider will be displayed on the dashboard.
@@ -44,7 +51,11 @@ to work without a PIN for the SIM card and without login data, This usually can 
 
 A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can communicate directly with these devices. Only the administration interface should not be locked with a user/password. The PIN number entered under Networking &rarr; Mobile Data Settings will be used to unlock the SIM card. In addition connection information (mode, signal quality and network provider) are extracted from the device and displayed on the dashboard. 
 
+![image](https://user-images.githubusercontent.com/33725910/115952612-3a73cb80-a4e7-11eb-8998-cbb66fb108c4.png)
+
 The model E3372h-320 will be detected as a Hilink device and shows up wth the name `hilink0`. Other Hilink devices require a corresponding assignment 
 under Networking &rarr; Network Devices.
+
+![image](https://user-images.githubusercontent.com/33725910/115952595-1ca66680-a4e7-11eb-8417-22f27b5f93eb.png)
 
 
