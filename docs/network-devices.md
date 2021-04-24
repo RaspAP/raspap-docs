@@ -47,6 +47,8 @@ For a correctly connected modem, the connection mode, signal quality and network
 
 Be aware, that the name of modems can not be changed. The reason is, that the device name `ppp0` is directly coupled with the required system services.
 
+Your modem device does not show up? In this case its not recognized by Raspian, or it has not been switched into modem mode by usb_modeswitch (https://wiki.ubuntuusers.de/USB_ModeSwitch/).   
+
 ## Mobile Data Adapter with build in Router
 Mobile data USB devices, which provide router functionality will usually show up as a ethernet device (e.g. `eth1`). This implies, that the device has to be pre-configured
 to work without a PIN for the SIM card and without login data, This usually can be done via the browser based administration interface on any computer.
