@@ -17,7 +17,8 @@ The only restriction for the name is, that it contains only lowercase letters an
 ![image](https://user-images.githubusercontent.com/33725910/115952457-4d39d080-a4e6-11eb-9ca5-74aacc444a7e.png)
 
 ### Fixing the device name
-Fixing the name helps to distinguish different devices. This is especially important, if there is a risk, that the Access Point device is connected via USB and the automatically assigned name might change.
+Fixing the name helps to distinguish different devices. This is especially important, if the Access Point device is connected via USB and the automatically assigned name might 
+change. This can happen, when devices are plugged in varying order.
 
 ### Configuration files
 All settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
