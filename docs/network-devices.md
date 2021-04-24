@@ -42,6 +42,8 @@ to the network. This has been tested with a Huawei E1550. If your device require
 
 For a correctly connected modem, the connection mode, signal quality and network provider will be displayed on the dashboard.
 
+![image](https://user-images.githubusercontent.com/33725910/115954368-ec63c580-a4f0-11eb-8f4b-3a8830ee1d35.png)
+
 Be aware, that the name of modems can not be changed. The reason is, that the device name `ppp0` is directly coupled with the required system services.
 
 ## Mobile Data Adapter with build in Router
@@ -52,7 +54,7 @@ A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can co
 
 ![image](https://user-images.githubusercontent.com/33725910/115952612-3a73cb80-a4e7-11eb-8998-cbb66fb108c4.png)
 
-The model E3372h-320 will be detected as a Hilink device and shows up wth the name `hilink0`. Other Hilink devices require a corresponding assignment 
+The model E3372h-320 will be detected as a Hilink device and shows up with the name `hilink0`. Other Hilink devices require a corresponding assignment 
 under Networking &rarr; Network Devices.
 
 ![image](https://user-images.githubusercontent.com/33725910/115952595-1ca66680-a4e7-11eb-8417-22f27b5f93eb.png)
