@@ -1,10 +1,11 @@
 # Handling and Configuration of Network Devices
 The following network devices are supported 
-* Ethernet interface (eth)
-* Wireless adapter (wlan)
-* Mobile data Modem (ppp)
-* Mobile data adapter with build in router
-* USB connected Smartphone (USB tethering)  
+
+- Ethernet interface (eth)
+- Wireless adapter (wlan)
+- Mobile data Modem (ppp)
+- Mobile data adapter with build in router
+- USB connected Smartphone (USB tethering)  
 
 All devices require a driver in order to be available for RaspAP. 
 
