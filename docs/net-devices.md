@@ -1,4 +1,6 @@
-# Handling and Configuration of Network Devices
+# Network Devices
+
+
 The following network devices are supported 
 
 - Ethernet interface (eth)
