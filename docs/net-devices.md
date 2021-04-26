@@ -1,4 +1,4 @@
-# Network Devices
+# Network devices
 
 ## Overview
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
@@ -18,8 +18,8 @@ The following network devices are supported:
 All devices require a driver in order to be available for use with RaspAP. 
 
 ## Listing detected devices
-The **Networking > Network Devices** tab displays a list of available devices with their attributes and assumed adapter type. The adapter type as well as the device name can be changed.
-Incorrect device types might appear for some devices, which advertize themselves to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This often happens for USB connected phones and external routers.  
+The **Networking > Network Devices** tab displays a list of available devices with their attributes and assumed adapter type. The adapter type as well as the device name may be changed.
+Incorrect device types might appear for some devices, which advertise themselves to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This often happens for USB connected phones and external routers.  
 
 ![Networking: Network devices](https://user-images.githubusercontent.com/229399/116096642-bf0e4780-a6a9-11eb-9794-6935b0858b9b.png)
 
@@ -29,7 +29,7 @@ This can sometimes occur when devices are connected in varying order.
 
 To modify a device's name, enter a value in the **Fixed name** field and choose **Change**.
 
-The only restriction for the device name is that it must contain only lowercase letters and numbers. The maximal length is limited to 20 characters. Devices names are automatically filtered accordingly. 
+The only restriction for the device name is that it must only contain lowercase letters and numbers. The maximal length is limited to 20 characters. Devices names are automatically filtered accordingly. 
 
 ## Ethernet interfaces
 The built-in ethernet adapter as well as USB adapters are usually detected automatically. In these cases no configuration is required.
@@ -42,7 +42,7 @@ These devices are usually listed with the automatically assigned device name pre
 name to the device.
  
 Wireless devices will only appear if a supported driver exists in the currently installed OS. If your device does not appear in the list, this usually indicates that a required device driver is missing.
-The helper script [install_wlan_driver_modules.sh](https://github.com/RaspAP/raspap-tools/blob/main/install_raspap_ram_wlan.sh) in [RaspAP/raspap-tools](https://github.com/RaspAP/raspap-tools)
+The helper script [install_wlan_driver_modules.sh](https://github.com/RaspAP/raspap-tools/blob/main/install_raspap_ram_wlan.sh) available in [RaspAP/raspap-tools](https://github.com/RaspAP/raspap-tools)
 can be used to search for and install existing driver modules. 
 
 ## Mobile data modems
@@ -54,7 +54,7 @@ These values may be entered under the **Networking > Mobile Data Settings** tab.
 Values entered here are stored in the file `/etc/wvdial.conf`. This configuration file contains the basic configuration needed to unlock the SIM card and connect
 to the network. This has been tested with a Huawei E1550. If your device requires different AT-commands, you will need to manually change this configuration. 
 
-For a correctly connected modem, the connection mode, signal quality and network provider will be displayed on the dashboard.
+When a connected modem is attached, the connection mode, signal quality and network provider will be displayed on the dashboard.
 
 ![image](https://user-images.githubusercontent.com/33725910/115954368-ec63c580-a4f0-11eb-8f4b-3a8830ee1d35.png){: style="width:450px"}
 
