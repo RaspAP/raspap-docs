@@ -13,14 +13,14 @@ As part of this initial setup, the `hostapd` service broadcasts an AP with the f
 **Encryption Type:** `CCMP`  
 **Passphrase:** `ChangeMe`  
 
+> :information_source: **Note:** The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](/faq/#80211ac) for more information.
+
 Each of these settings may be changed on the **Hotspot > Basic** and **Security** tabs to any values you wish. Your changes will be applied and made visible on the broadcasted AP by choosing
 **Save settings** followed by **Restart hotspot**.
 
 ![](https://user-images.githubusercontent.com/229399/115685883-efc44900-a358-11eb-8b9b-95c1029a2cad.png)
 
 At this point, a dialog will appear to indicate the progress of the RaspAP service. This is a Linux `systemd` process that is responsible for starting up several network services in a specific order and timing.
-
-> :information_source: **Note:** The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](/faq/#80211ac) for more information.
 
 ## Connecting clients
 When the AP is operational, you may connect clients to it by using one of two methods:
@@ -81,8 +81,8 @@ In practice, this number depends on several factors and is a much lower value, a
 RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. If this happens, one of the best diagnostic tools at your disposal 
 is RaspAP's built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**.
 
-![](https://user-images.githubusercontent.com/229399/115705038-56069700-a36c-11eb-8e19-9c05b1b0040f.png){: style="width:550px"}
+![](https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png)
 
-Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab, as shown above.
+Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab.
 
 
