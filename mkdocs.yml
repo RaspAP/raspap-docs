@@ -22,9 +22,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-plugins:
-  - git-revision-date:
-      enabled_if_env: CI
 extra_css:
   - stylesheets/extra.css
 extra:
