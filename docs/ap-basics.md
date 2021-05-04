@@ -26,7 +26,7 @@ At this point, a dialog will appear to indicate the progress of the RaspAP servi
 When the AP is operational, you may connect clients to it by using one of two methods:
 
 1. Select the SSID from the list of available networks on your device and enter the passphrase.
-2. Scan the QR code displayed on the **Hotspot > Security** tab and enter the passphrase.
+2. Scan the QR code displayed on the **Hotspot > Security** tab and join the AP.
 
 By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.255`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](/faq/#noip).
 
