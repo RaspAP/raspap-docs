@@ -78,11 +78,29 @@ This option sets the `max_num_sta` value for `hostapd`, and is effective for pla
 In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](/faq/#maxclients).  
 
 ## Troubleshooting
-RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. If this happens, one of the best diagnostic tools at your disposal 
-is RaspAP's built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**.
+RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. You may also encounter errors connecting clients to 
+the AP, have no internet on AP clients, or observe clients being disconnected from the AP for no apparent reason. 
+
+If any of the above happens, one of the best diagnostic tools at your disposal is RaspAP's built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**. Finally, choose
+**Restart hotspot** and check the log output.
 
 ![](https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png)
 
 Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab.
+
+### Diagnosing problems
+Look for any reported errors logged by the `hostapd`, `dhcpcd` or `dnsmasq` services. In most cases, errors thrown by one or more of these services have been discussed in various online forums.
+Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/).
+Chances are the problems with your AP have been discussed and answered before.
+
+The RaspAP [FAQ](/faq/) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions.  
+
+### Reverting to base settings
+It is always advisable to begin with RaspAP's [default configuration](/defaults/), which has been rigorously tested and validated with the project's [supported operating systems](/#compatible-operating-systems).
+If, after modifying RaspAP's default settings, your AP no longer functions as expected, simply run the [Quick installer](/quick/#usage) again to restore these default settings.
+
+### Accessing backups
+Each time you revert to RaspAP's base settings, your existing service configuration files are automatically backed up to `/etc/raspap/backups`. In this way, you can compare the differences between your files and the default configuration, if needed.
+Similarly, the web files located in the default `/var/www/html` root are backed up to `/var/www` in a directory named with a timestamp. Therefore, any changes you've made to RaspAP's internals are preserved. 
 
 
