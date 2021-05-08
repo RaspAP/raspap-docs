@@ -93,17 +93,19 @@ Look for any reported errors logged by the `hostapd`, `dhcpcd` or `dnsmasq` serv
 Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/).
 Chances are the problems with your AP have been discussed and answered before.
 
-> :information_source: **Protip:** Capturing output from the kernel's message buffer with `dmesg` can help diagnose a failure event. Read the last 100 lines with: `dmesg | tail -100` and look 
-for any anomalies.
-
 The RaspAP [FAQ](/faq/) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions.  
+
+> :information_source: **Protip:** Capture output from the Linux kernel's message buffer with `dmesg` to help diagnose failure events. Read the last 100 lines with `dmesg | tail -100` and look 
+for any anomalies.
 
 ### Reverting to base settings
 It is always advisable to begin with RaspAP's [default configuration](/defaults/), which has been rigorously tested and validated with the project's [supported operating systems](/#compatible-operating-systems).
-If, after modifying RaspAP's default settings, your AP no longer functions as expected, simply run the [Quick installer](/quick/#usage) again to restore these default settings.
+If, after modifying RaspAP's default settings, your AP no longer functions as expected, simply run the [Quick installer](/quick/#usage) again to restore these defaults.
 
 ### Accessing backups
-Each time you revert to RaspAP's base settings, your existing service configuration files are automatically backed up to `/etc/raspap/backups`. In this way, you can compare the differences between your files and the default configuration, if needed.
-Similarly, the web files located in the default `/var/www/html` root are backed up to `/var/www` in a directory named with a timestamp. Therefore, any changes you've made to RaspAP's internals are preserved. 
+Each time you revert to RaspAP's base settings, your existing service configuration files are automatically backed up to `/etc/raspap/backups`. In this way, you can compare differences between your files and the default configuration, if needed.
+There are many ways to do this in Linux, such as using the built-in GNU `diff` tool. Another option is to install `colordiff`, a wrapper for diff that produces the same output but with colored syntax highligting.
+Install `colordiff` with `sudo apt-get install colordiff`.
 
+Similarly, the web files located in the default `/var/www/html` root are backed up to `/var/www` in a directory named with a timestamp. Therefore, any changes you've made to RaspAP's internals are preserved. 
 
