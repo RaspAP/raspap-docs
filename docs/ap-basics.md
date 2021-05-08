@@ -93,6 +93,9 @@ Look for any reported errors logged by the `hostapd`, `dhcpcd` or `dnsmasq` serv
 Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/).
 Chances are the problems with your AP have been discussed and answered before.
 
+> :information_source: **Protip:** Capturing output from the kernel's message buffer with `dmesg` can help diagnose a failure event. Read the last 100 lines with: `dmesg | tail -100` and look 
+for any anomalies.
+
 The RaspAP [FAQ](/faq/) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions.  
 
 ### Reverting to base settings
