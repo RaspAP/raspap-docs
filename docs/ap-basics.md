@@ -58,7 +58,7 @@ wlan0: STA 24:62:ab:fd:24:34 IEEE 802.11: deauthenticated due to inactivity (tim
 ``` 
 
 This option sets the `disassoc_low_ack` boolean value for `hostapd`. Be aware that this value is dependent on driver capabilities. Moreover, `hostapd` may disassociate a client (or station) for
-a variety of reasons, so this is not a silver bullet.
+
 
 ### Transmit power
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
@@ -98,6 +98,10 @@ The RaspAP [FAQ](/faq/) is a rich source of troubleshooting info that is continu
 > :information_source: **Protip:** Capture output from the Linux kernel's message buffer with `dmesg` to help diagnose failure events. Read the last 100 lines with `dmesg | tail -100` and look 
 for any anomalies.
 
+The performance of WiFi radios may be impacted by many factors, including, but not limited to: **1)** undervoltage due to inadequate power and/or too many peripherals connected to the USB bus,
+**2)** interference from a poorly shielded HDMI cable or using a [specific HDMI screen resolution](https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/),
+or **3)** RF interference from overlapping WiFi networks on a crowded 2.4 GHz band. Bear these things in mind if your AP exhibits unexpected behavior and do your best to mitigate them.
+ 
 ### Reverting to base settings
 It is always advisable to begin with RaspAP's [default configuration](/defaults/), which has been rigorously tested and validated with the project's [supported operating systems](/#compatible-operating-systems).
 If, after modifying RaspAP's default settings, your AP no longer functions as expected, simply run the [Quick installer](/quick/#usage) again to restore these defaults.
