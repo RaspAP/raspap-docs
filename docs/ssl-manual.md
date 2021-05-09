@@ -8,7 +8,7 @@ HTTPS prevents network attackers from observing or injecting page contents. Clea
 ## Locally trusted certificates 
 Managing your own Certificate Authority (CA) is the best solution, but this usually requires an involved manual setup routine. An excellent solution for local websites is [mkcert](https://github.com/FiloSottile/mkcert). This is a zero-config tool for making locally-trusted certificates with any name you like. mkcert automatically creates and installs a local CA in the system root store and generates locally-trusted certificates. It also works perfectly well with RaspAP. This allows you to generate a trusted certificate for a hostname (eg., raspap.local) or IP address because it only works for you. 
 
-![raspap.local](https://i.imgur.com/kQoeh0S.png)
+![raspap.local](https://i.imgur.com/kQoeh0S.png){: style="width:450px"}
 
 Here's the twist: it doesn't generate self-signed certificates, but certificates signed by your own private CA. This tool does not automatically configure servers or mobile clients to use the certificates, though — that's up to you (see the steps below).
 
@@ -115,11 +115,11 @@ sudo cp /home/pi/.local/share/mkcert/rootCA.pem /var/www/html
 ```
 Open a browser and enter the address: http://raspap.local/rootCA.pem. Download the root certificate to your client and add it to your system keychain. Examples below illustrate this process on OSX:
 
-![](https://i.imgur.com/RCJJPYL.png)
+![](https://i.imgur.com/RCJJPYL.png){: style="width:450px"}
 
 Be sure to set this certificate to "Always trust" to avoid browser warnings. 
 
-![](https://i.imgur.com/Lx8Plqi.png)
+![](https://i.imgur.com/Lx8Plqi.png){: style="width:450px"}
 
 Finally, enter the address https://raspap.local in your browser. Enjoy an encrypted SSL connection to RaspAP.
 
