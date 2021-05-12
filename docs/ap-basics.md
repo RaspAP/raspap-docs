@@ -57,8 +57,7 @@ wlan0: STA 24:62:ab:fd:24:34 IEEE 802.11: disassociated
 wlan0: STA 24:62:ab:fd:24:34 IEEE 802.11: deauthenticated due to inactivity (timer DEAUTH/REMOVE)
 ``` 
 
-This option sets the `disassoc_low_ack` boolean value for `hostapd`. Be aware that this value is dependent on driver capabilities. Moreover, `hostapd` may disassociate a client (or station) for
-
+This option sets the `disassoc_low_ack` boolean value for `hostapd`. Be aware that this value is dependent on driver capabilities. Moreover, `hostapd` may disassociate a client (or station) for a variety of reasons, so this is not a silver bullet.
 
 ### Transmit power
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
