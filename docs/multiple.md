@@ -96,8 +96,7 @@ static domain_name_server=9.9.9.9 1.1.1.1
 
 Finally, enable the **Log DHCP requests** toggle on RaspAP's **DHCP Server > Logging** tab. Be sure to restart the `dnsmasq` service. 
 ## Starting the hotspots
-
-Now we are ready to run `hostapd` interactively with the configurations we've created above. The debug switch `-dd` is optional but useful for troubleshooting:
+Ensure that `hostapd` is not already running before proceeding. You may stop the service with `sudo systemctl stop hostapd.service`. Now we are ready to run `hostapd` interactively with the configurations we've created above. The debug switch `-dd` is optional but useful for troubleshooting:
 
 ```
 sudo hostapd -dd /etc/hostapd/wlan0.conf /etc/hostapd/wlan1.conf
