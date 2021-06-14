@@ -3,14 +3,16 @@
 ## Overview
 :octicons-beaker-24: Experimental
 
-Many users have asked if it's possible to create a second wireless access point on the same device. The answer is "yes" with an AP-capable external wireless adapter. For example, the [Edimax EW-7811Un USB adapter](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/us/wireless_adapters_n150/ew-7811un/) works without additional drivers on many devices, including the Raspberry Pi.
+Many users have asked if it's possible to create a second wireless access point on the same device. The answer is "yes" with an AP-capable external wireless adapter and the correct settings.
+The [Edimax EW-7811Un USB adapter](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/us/wireless_adapters_n150/ew-7811un/) works without additional drivers on many devices, including the Raspberry Pi.
+For this reason it is used in this walkthrough.
 
 ## Scenario
 In this setup, we will use an external Edimax 2.4GHz USB adapter together with the onboard wireless chipset of the Raspberry Pi 4 operating on the 5GHz band. The end result is displayed in the WiFi network scan below.
 
 ![](https://user-images.githubusercontent.com/229399/121822121-a380ef80-cc9d-11eb-94a1-d404adc07b78.png){: style="width:450px"}
 
-It is not currently possible to create this configuration with RaspAP's UI, so these experimental manual steps are provided below.
+It is not currently possible to create this configuration with RaspAP's UI, so these manual steps are provided below.
 
 ## Prerequisites
 This tutorial assumes that you have followed the [Quick start](/#quick-start) or [manual installation](/manual/) instructions.
@@ -19,7 +21,7 @@ If an **802.11 AC 5GHz** wireless mode is desired with the RPi's onboard chipset
 ## Create the hostapd configs
 The simplest method to achieve this is to use RaspAP's **Hotspot > Basic** tab to create the base configurations. Configure an AP for the onboard `wlan0` interface with the settings shown below. Choose **Save settings** to write this to the filesystem. 
 
-![](https://user-images.githubusercontent.com/229399/121903773-ea67f700-cd28-11eb-8035-aa4e3ff6fb9d.png){: style="width:350px"}
+![](https://user-images.githubusercontent.com/229399/121924564-5011ae80-cd3c-11eb-81c8-114972d1a05b.png){: style="width:350px"}
 
 Open your preferred terminal program and enter the following command to copy this as a new `wlan0` configuration:
 
@@ -29,13 +31,15 @@ sudo cp /etc/hostapd/hostapd.conf /etc/hostapd/wlan0.conf
 
 Next, configure a second AP for the external `wlan1` interface with the settings shown below. Again, choose **Save settings** to write this to the filesystem.
 
-![](https://user-images.githubusercontent.com/229399/121904962-f0120c80-cd29-11eb-882a-7436f37ad63d.png){: style="width:350px"}
+![](https://user-images.githubusercontent.com/229399/121924637-63247e80-cd3c-11eb-94b1-bf4e1f848fd3.png){: style="width:350px"}
 
 Enter the following command to copy this as a new `wlan1` configuration:
 
 ```
 sudo cp /etc/hostapd/hostapd.conf /etc/hostapd/wlan1.conf
 ```
+
+> :information_source: **Note:** If you decide to create two APs on the same band, for example 802.11n 2.4GHz, be sure to select two different channels for each interface.
 
 ## Configure dnsmasq
 RaspAP's [default settings](/defaults/) includes a preconfigured `wlan0` file for the `dnsmasq` service. Execute `cat /etc/dnsmasq.d/090_wlan0.conf` to display its contents:
@@ -96,7 +100,8 @@ static domain_name_server=9.9.9.9 1.1.1.1
 
 Finally, enable the **Log DHCP requests** toggle on RaspAP's **DHCP Server > Logging** tab. Be sure to restart the `dnsmasq` service. 
 ## Starting the hotspots
-Ensure that `hostapd` is not already running before proceeding. You may stop the service with `sudo systemctl stop hostapd.service`. Now we are ready to run `hostapd` interactively with the configurations we've created above. The debug switch `-dd` is optional but useful for troubleshooting:
+Ensure that `hostapd` is not already running before proceeding. You may stop the service with `sudo systemctl stop hostapd.service` or by using the **Stop hotspot** button in RaspAP's UI.
+Now we are ready to run `hostapd` interactively with the configurations we've created above. The debug switch `-dd` is optional but useful for troubleshooting:
 
 ```
 sudo hostapd -dd /etc/hostapd/wlan0.conf /etc/hostapd/wlan1.conf
