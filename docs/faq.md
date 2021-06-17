@@ -12,6 +12,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I use RaspAP as a monitor only, without changing my configuration?](#monitor)
 * [Can I use RaspAP with my custom dnsmasq configuration?](#dnsmasq)
 * [What is the maximum number of simultaneous clients that I can connect to my AP?](#maxclients)
+* [Where can I find a list of USB WiFi adapters that use in-kernel drivers?](#adapters)
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
@@ -115,6 +116,13 @@ maximum of 20 simultaneous WiFi clients is theoretically possible.
 **Bottom line:** if maximizing AP clients is your primary goal, you will have to either use a specific firmware version or purchase an external wireless adapter.
 
 See also: [https://github.com/raspberrypi/linux/issues/3010](https://github.com/raspberrypi/linux/issues/3010).
+
+## <a name="adapters"></a>Where can I find a list of USB WiFi adapters that use in-kernel drivers?
+There are many USB WiFi adapters that work without the need to install a driver in Linux. The term "in-kernel" refers to drivers that are packaged and maintained by the Linux kernel.
+
+This [GitHub list](https://github.com/morrownr/USB-WiFi) currently has 60 links to USB WiFi adapters that work without installing drivers (ie., "plug and play") on devices like the Raspberry Pi.
+
+With adapters that use in-kernel drivers, you may simply plug the adapter in and it will work. Many people find that using adapters with in-kernel drivers is a better solution than buying an adapter that requires drivers to be found, downloaded, compiled, installed, fixed and reinstalled.
 
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
