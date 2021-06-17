@@ -32,6 +32,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I configure a managed mode AP without using the UI?](#managed)
 * [Can I configure an alternate port for RaspAP's web service?](#webport)
 * [What breaks RaspAP when Docker is installed on the same system and how I can fix it?](#docker)
+* [Can I integrate RaspAP with OpenMediaVault?](#omv)
 
 ## OpenVPN
 * [OpenVPN fails to start and/or I have no internet. Help!](#openvpn-fails)
@@ -315,8 +316,31 @@ Additional info [here](https://github.com/RaspAP/raspap-webgui/issues/458#issuec
 
 **tl;dr:** Install RaspAP _first_, followed by Docker, adding the explicit `iptables` rule `sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT`.
 
+## <a name="omv"></a>Can I integrate RaspAP with OpenMediaVault?
+Yes, you can run RaspAP alongside [OpenMediaVault](https://www.openmediavault.org/) for a complete media center and wireless hotspot on a single device. In this way, you are able to share the media storage
+in your local network via a wireless hotspot while connected to a router via ethernet. This is illustrated in the schematic below:
 
-## <a name="openvpn-fails"></a> OpenVPN fails to start and/or I have no internet. Help!
+```
+[Router] <---- eth ----> [Pi] (RaspAP + OMV5)
+   |                      |
+ WiFi 1              WiFi 2 (subnet)
+```
+
+Follow these steps to create this configuration:
+
+1. Follow RaspAP's [Quick start](/quick/) guide and set up your network as you wish.
+2. Change the default Web server port to `8080` (so that it doesn't conflict with OMV5), from RaspAP's **System > Advanced** panel.
+3. Install OMV5 skipping network configuration.
+4. Configure your OMV5 install without changing the network settings.
+5. To make your OMV5 drives accessible from the subnet (WiFi 2), add the following settings at the end of **OMV Control panel > Menu > SMB/CIFS > Settings Tab > Extra Options**:
+```
+bind interfaces only = yes
+interfaces = lo eth0
+```
+
+Source: [openmediavault forums](https://forum.openmediavault.org/index.php?thread/39060-raspap-and-omv5-media-center-wifihotspot-with-ethernet/).
+
+## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet. Help!
 RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](/defaults/), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
 
 ```
