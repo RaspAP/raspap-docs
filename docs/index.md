@@ -26,7 +26,7 @@ Install RaspAP from your device's shell prompt:
 ```sh
 curl -sL https://install.raspap.com | bash
 ```
-The [Quick installer](/quick/) will complete the steps in the [manual installation](/manual/) for you.
+The [Quick installer](quick.md) will complete the steps in the [manual installation](manual.md) for you.
 
 After the reboot at the end of the installation the wireless AP network will be configured as follows:
 
@@ -37,11 +37,11 @@ After the reboot at the end of the installation the wireless AP network will be 
   **SSID:** `raspi-webgui`  
   **Password:** ChangeMe  
 
-Your AP's [basic settings](/ap-basics/) and many [advanced options](/ap-basics/#advanced-options) are now ready to be modified by RaspAP.
+Your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.md#advanced-options) are now ready to be modified by RaspAP.
 
 ## Get Insiders
-RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](/insiders/#how-to-become-a-sponsor)
-and get access to [exclusive features](/insiders/#exclusive-features) in the :octicons-heart-fill-24:{: .heart } [Insiders Edition](/insiders/).
+RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](insiders.md#how-to-become-a-sponsor)
+and get access to [exclusive features](insiders.md#exclusive-features) in the :octicons-heart-fill-24:{: .heart } [Insiders Edition](insiders.md).
 
 ## Compatible operating systems
 RaspAP was originally made for Raspbian, but now also installs on the following Debian-based distros.
