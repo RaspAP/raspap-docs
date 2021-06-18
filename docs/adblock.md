@@ -16,7 +16,7 @@ The installer will download the blocklists, configure RaspAP to use them and ena
 ![Ad block install option](https://i.imgur.com/vzbQKnC.gif){: style="width:450px"}
 
 ## Manual installation
-Ad blocking may also be installed manually. Refer to the detailed [installation steps](https://docs.raspap.com/manual/#ad-blocking).
+Ad blocking may also be installed manually. Refer to the detailed [installation steps](manual.md#ad-blocking).
 
 ## Blocklist source
 For the public beta release, blocklists are sourced from the [notracking project](https://github.com/notracking/hosts-blocklists) on GitHub. This "list of lists" is gathered from multiple, actively maintained sources and automatically updated, cleaned, optimized and moderated on a daily basis. A complete list of sources is available [here](https://github.com/notracking/hosts-blocklists/blob/master/SOURCES.md).

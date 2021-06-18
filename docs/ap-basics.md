@@ -2,7 +2,7 @@
 
 ## Basics
 
-After running the [Quick installer](/quick/) or following the [manual installation](/manual/) steps, RaspAP will start up a routed wireless access point (AP) with a [default configuration](/defaults/).
+After running the [Quick installer](quick.md) or following the [manual installation](manual.md) steps, RaspAP will start up a routed wireless access point (AP) with a [default configuration](defaults.md).
 As part of this initial setup, the `hostapd` service broadcasts an AP with the following settings:
 
 **Interface:** `wlan0`  
@@ -13,7 +13,7 @@ As part of this initial setup, the `hostapd` service broadcasts an AP with the f
 **Encryption Type:** `CCMP`  
 **Passphrase:** `ChangeMe`  
 
-> :information_source: **Note:** The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](/faq/#80211ac) for more information.
+> :information_source: **Note:** The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](faq.md#80211ac) for more information.
 
 Each of these settings may be changed on the **Hotspot > Basic** and **Security** tabs to any values you wish. Your changes will be applied and made visible on the broadcasted AP by choosing
 **Save settings** followed by **Restart hotspot**.
@@ -34,16 +34,16 @@ By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 �
 The above sections cover everything you will need for a basic routed AP. The **Hotspot > Advanced** tab has several options that allow you to control advanced settings for the Linux `hostapd` service. These are discussed in the following sections.
 
 ### Bridged AP mode
-If you wish to configure RaspAP as a [bridged AP](/bridged/), this may be done by sliding the **Bridged AP mode** toggle, saving settings and restarting the hotspot. Be aware that when the hotspot restarts
-you will no longer be able to access the web interface from the default `10.1.141.1` address. Refer to this [explanation and tips](/bridged/#accessing-the-web-interface) for administering your bridged AP. 
+If you wish to configure RaspAP as a [bridged AP](bridged.md), this may be done by sliding the **Bridged AP mode** toggle, saving settings and restarting the hotspot. Be aware that when the hotspot restarts
+you will no longer be able to access the web interface from the default `10.1.141.1` address. Refer to this [explanation and tips](bridged.md#accessing-the-web-interface) for administering your bridged AP. 
 
 ### WiFi client AP mode
 RaspAP has support for this special mode, also known as a **micro-AP** or simply **AP-STA**. Typically this can be difficult to configure manually, but RaspAP performs most of the config work behind the scenes for you.
 
 > :information_source: **Note:** This option is disabled or "greyed out" until a wireless client is configured. This can be done via the **WiFi client** UI, or by manually [configuring a valid `wpa_supplicant.conf`](/faq/#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode).
 
-Before using this mode, it is recommended that users familiarize themselves with [how AP-STA works](/ap-sta/). Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface.
-For the latter, refer to [this FAQ](/faq/#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap). 
+Before using this mode, it is recommended that users familiarize themselves with [how AP-STA works](ap-sta.md). Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface.
+For the latter, refer to [this FAQ](faq.md#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap). 
 
 ### Beacon interval
 Wireless APs continuously send beacon frames to indicate their presence, traffic load, and capabilities. The default `hostapd` beacon interval is 100ms. If desired, you may change this to any value between 15 and 65535.
@@ -60,7 +60,7 @@ wlan0: STA 24:62:ab:fd:24:34 IEEE 802.11: deauthenticated due to inactivity (tim
 This option sets the `disassoc_low_ack` boolean value for `hostapd`. Be aware that this value is dependent on driver capabilities. Moreover, `hostapd` may disassociate a client (or station) for a variety of reasons, so this is not a silver bullet.
 
 ### Transmit power
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
 [Insiders](/insiders/) are able to control the transmit power of the configured AP interface. The default "auto" setting will suffice for the vast majority of APs. A lower `txpower` value
 can be useful to mitigate WiFi radio interference, for example if you are hosting multiple APs in a given area. It can also be advantageous to set `txpower` to a lower value in IoT or similar applications where reduced power consumption is needed.
@@ -74,7 +74,7 @@ It is not necessary to restart the AP for this to take effect.
 This option sets the `max_num_sta` value for `hostapd`, and is effective for placing a limit on the number of clients (stations) that can connect to your AP. When the limit is reached, new client connections will be rejected.
 
 > :information_source: **Note:** The default setting is 2007, but this is merely the value set by `hostapd` from the IEEE 802.11 specification. It should _not_ be interpreted as a guarantee that RaspAP can support this many simultaneous clients.
-In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](/faq/#maxclients).  
+In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](faq.md#maxclients).  
 
 ## Troubleshooting
 RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. You may also encounter errors connecting clients to 
@@ -102,8 +102,8 @@ The performance of WiFi radios may be impacted by many factors, including, but n
 or **3)** RF interference from overlapping WiFi networks on a crowded 2.4 GHz band. Bear these things in mind if your AP exhibits unexpected behavior and do your best to mitigate them.
  
 ### Reverting to base settings
-It is always advisable to begin with RaspAP's [default configuration](/defaults/), which has been rigorously tested and validated with the project's [supported operating systems](/#compatible-operating-systems).
-If, after modifying RaspAP's default settings, your AP no longer functions as expected, simply run the [Quick installer](/quick/#usage) again to restore these defaults.
+It is always advisable to begin with RaspAP's [default configuration](defaults.md), which has been rigorously tested and validated with the project's [supported operating systems](index.md#compatible-operating-systems).
+If, after modifying RaspAP's default settings, your AP no longer functions as expected, simply run the [Quick installer](quick.md#usage) again to restore these defaults.
 
 ### Accessing backups
 Each time you revert to RaspAP's base settings, your existing service configuration files are automatically backed up to `/etc/raspap/backups`. In this way, you can compare differences between your files and the default configuration, if needed.
