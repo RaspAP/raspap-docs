@@ -1,6 +1,6 @@
 # SSL certificates (manual)
 
-**Update:** this process is now [automated by the Quick Installer](/ssl-quick/).
+**Update:** this process is now [automated by the Quick Installer](ssl-quick.md).
 
 ## Overview
 HTTPS prevents network attackers from observing or injecting page contents. Clearly, this is a _good thing_ for RaspAP — given its function for creating and managing wireless networks. But HTTPS needs TLS certificates, and while deploying public websites is largely a [solved issue thanks to the ACME protocol and Let's Encrypt](https://www.leebutterman.com/2019/08/05/analyzing-hundreds-of-millions-of-ssl-connections.html), local web servers still mostly use HTTP because no one can get a universally valid certificate for localhost.

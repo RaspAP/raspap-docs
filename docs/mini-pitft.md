@@ -20,11 +20,11 @@ If you don't see the above, edit this file with `sudo nano /boot/config.txt`, ad
 
 > :information_source: **Note:** Some users have followed Adafruit's setup guide and installed the kernel module, which is useful if you want to draw to the framebuffer and output a [mini console](https://cdn-learn.adafruit.com/assets/assets/000/082/874/large1024/adafruit_products_4393_demo_ORIG_2019_10.jpg?1571860426). However, the TFT kernel driver can't be run alongside the Python install. So you should choose one method, not both.
 
-Install RaspAP using the [Quick Installer](/quick/):
+Install RaspAP using the [Quick Installer](quick.md):
 ```
 curl -sL https://install.raspap.com | bash
 ```  
-Alternatively, you can follow the [manual setup](/manual/) instructions.
+Alternatively, you can follow the [manual setup](manual.md) instructions.
 
 With the preliminary setup done, execute RaspAP's [stats.py](https://github.com/RaspAP/raspap-webgui/blob/master/app/pitft/stats.py) with: `sudo python3 stats.py`. Your Mini PiTFT should output a summary of RaspAP's status, like so:
 

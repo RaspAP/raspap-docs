@@ -15,8 +15,8 @@ In this setup, we will use an external Edimax 2.4GHz USB adapter together with t
 It is not currently possible to create this configuration with RaspAP's UI, so these manual steps are provided below.
 
 ## Prerequisites
-This tutorial assumes that you have followed the [Quick start](/#quick-start) or [manual installation](/manual/) instructions.
-If an **802.11 AC 5GHz** wireless mode is desired with the RPi's onboard chipset, you must first configure a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](/faq/#80211ac) for more information.
+This tutorial assumes that you have followed the [Quick start](index.md#quick-start) or [manual installation](manual.md) instructions.
+If an **802.11 AC 5GHz** wireless mode is desired with the RPi's onboard chipset, you must first configure a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](faq.md#80211ac) for more information.
 
 ## Create the hostapd configs
 The simplest method to achieve this is to use RaspAP's **Hotspot > Basic** tab to create the base configurations. Configure an AP for the onboard `wlan0` interface with the settings shown below. Choose **Save settings** to write this to the filesystem. 
@@ -42,7 +42,7 @@ sudo cp /etc/hostapd/hostapd.conf /etc/hostapd/wlan1.conf
 > :information_source: **Note:** If you decide to create two APs on the same band, for example 802.11n 2.4GHz, be sure to select two different channels for each interface.
 
 ## Configure dnsmasq
-RaspAP's [default settings](/defaults/) includes a preconfigured `wlan0` file for the `dnsmasq` service. Execute `cat /etc/dnsmasq.d/090_wlan0.conf` to display its contents:
+RaspAP's [default settings](defaults.md) includes a preconfigured `wlan0` file for the `dnsmasq` service. Execute `cat /etc/dnsmasq.d/090_wlan0.conf` to display its contents:
 
 ```
 # RaspAP wlan0 configuration
@@ -68,7 +68,7 @@ dhcp-range=10.4.141.50,10.4.141.255,255.255.255.0,12h
 ```
 
 ## Configure dhcpcd
-Similar to `dnsmasq`, the `dhcpcd` service is preconfigured with RaspAP's [default settings](/defaults/). Open this file in an editor by executing `sudo nano /etc/dhcpcd.conf`, then add a `wlan1` block to the end of the file:
+Similar to `dnsmasq`, the `dhcpcd` service is preconfigured with RaspAP's [default settings](defaults.md). Open this file in an editor by executing `sudo nano /etc/dhcpcd.conf`, then add a `wlan1` block to the end of the file:
 
 ```
 # RaspAP default configuration

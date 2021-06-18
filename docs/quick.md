@@ -21,7 +21,7 @@ Invoke installer remotely, run non-interactively with option flags:
 curl -sL https://install.raspap.com | bash -s -- --yes --openvpn 1 --adblock 0
 ```
 
-Invoke remotely, uprgrade an existing install to the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](/insiders/):
+Invoke remotely, uprgrade an existing install to the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](insiders.md):
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
 ```
@@ -48,7 +48,7 @@ Used with the `-y`, `--yes` option above, this sets the OpenVPN install option (
 Used with the `-y`, `--yes` option above, this sets the Ad Blocking install option (`0` = don't install Adblock). Given that Adblock support is an optional extra, this enables an unattended setup without installing it.
 
 #### -c, --cert, --certificate
-This option installs an SSL certificate with `mkcert` and configures lighttpd for HTTPS support. It does _not_ (re)install RaspAP. Details are [provided here](/ssl-quick/).
+This option installs an SSL certificate with `mkcert` and configures lighttpd for HTTPS support. It does _not_ (re)install RaspAP. Details are [provided here](ssl-quick.md).
 
 #### -r, --repo, --repository `<name>`
 If you have forked this project to your own GitHub repo, this option lets you override the default GitHub repo (`RaspAP/raspap-webgui`) used to install RaspAP. An alternate repository name is a required parameter.
@@ -68,7 +68,7 @@ Specify a [GitHub token](https://docs.github.com/en/github/authenticating-to-git
 Upgrades an existing installation to the latest release version.
 
 #### -i, --insiders
-Installs from the [Insiders Edition](/insiders/) (`RaspAP/raspap-insiders`)
+Installs from the [Insiders Edition](insiders.md) (`RaspAP/raspap-insiders`)
 
 #### -v, --version
 Queries the Github API, outputs the latest RaspAP release version and exits.

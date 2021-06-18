@@ -4,7 +4,7 @@
 
 Creating a software routed access point (AP) requires the installation and setup of several related Linux services.
 RaspAP uses a known-good default configuration as a starting point. This facilitates a faster setup by not prompting the user for various network 
-settings during the installation. More importantly, it eliminates guesswork that can lead to conflicts down the road. When the [manual](/manual/) or [quick installation](/quick/) is completed,
+settings during the installation. More importantly, it eliminates guesswork that can lead to conflicts down the road. When the [manual](manual.md) or [quick installation](quick.md) is completed,
 you will have a functional AP that you may then administer with RaspAP's web interface.
 
 While this project handles every facet of this process for you, it's still recommended that users familiarize themselves with the [steps involved](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md) in building a software AP from start to finish.
@@ -136,10 +136,10 @@ was developed to capture regulatory data as it applies here. For example, the co
 ```
 
 If you think your country might support AC wireless, this file may be modified in place and the options reflected in the **Hotspot > Basic** panel.
-See [this FAQ](/faq/#wificountries) for more information.
+See [this FAQ](faq.md#wificountries) for more information.
 
 ## Restoring settings
 
-If you've modified RaspAP's default configuration and the AP no longer works as expected, the defaults may be restored simply by running the [Quick installer](/quick/) again or by following
-the steps described in the [manual installation](/manual/).
+If you've modified RaspAP's default configuration and the AP no longer works as expected, the defaults may be restored simply by running the [Quick installer](quick.md) again or by following
+the steps described in the [manual installation](manual.md).
   

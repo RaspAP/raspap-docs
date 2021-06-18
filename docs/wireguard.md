@@ -3,19 +3,19 @@
 ![](https://i.imgur.com/5YDv37e.png)
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
 WireGuard<sup>®</sup> is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be considerably more performant than OpenVPN,
 and is generally regarded as the most secure, easiest to use, and simplest VPN solution for modern Linux distributions.
 
-WireGuard may be optionally installed by the [Quick Installer](/quick/). Once this is done, you can manage local (server) settings, create a peer configuration and control the `wg-quick` service with RaspAP.
+WireGuard may be optionally installed by the [Quick Installer](quick.md). Once this is done, you can manage local (server) settings, create a peer configuration and control the `wg-quick` service with RaspAP.
 
 ## Creating a WireGuard tunnel
 
 WireGuard requires a public and private keypair for each device you wish to have access to the VPN tunnel. RaspAP simplifies this process with a
 magic button :fontawesome-solid-magic: associated with each public key input field. Simply click or tap this button to securely generate a cryptographic keypair for both the server and peer.
 
-Several [default values](/defaults/) are provided for you as a starting point. These are intended to get a VPN tunnel up and running quickly. They may be modified to suit your needs.
+Several [default values](defaults.md) are provided for you as a starting point. These are intended to get a VPN tunnel up and running quickly. They may be modified to suit your needs.
 
 After the keypairs are generated, simply choose **Save settings** followed by **Start WireGuard**.
 
@@ -52,7 +52,7 @@ iptables -A FORWARD -i wg0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCE
 iptables -t nat -A  POSTROUTING -o wg0 -j MASQUERADE
 ```
 
-These `iptables` rules are defined in WireGuard's [default settings](/defaults/) and may be modified if you wish.
+These `iptables` rules are defined in WireGuard's [default settings](defaults.md) and may be modified if you wish.
 
 > :information_source: **Note:** If your VPN server is behind a NAT, you will need to open a UDP port of your choosing (51820 is the default). 
 

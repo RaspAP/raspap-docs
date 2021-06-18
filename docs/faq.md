@@ -92,7 +92,7 @@ Yes, this is supported by RaspAP. In this scenario, you may wish to use the `wla
 Recommended adapters such as the Edimax 7811Un and Ralink RT5370 work out of the box with Raspberry OS (32-bit) Buster Lite. Adapters that require compiling of third-party drivers or other workarounds can be problematic. For this reason, you must verify your adapter _before_ reporting an issue with this feature.
 
 ## <a name="monitor"></a>Can I use RaspAP as a monitor only, without changing my configuration?
-Yes, RaspAP has support for a so-called "monitor mode". In `config.php` change the setting `RASPI_MONITOR_ENABLED` to `true`. This disables the ability to modify settings, start/stop daemons, shutdown or reboot the RPi. RaspAP will continue to report interface statistics, service settings and data usage as normal. See [this](/defaults/#managing-config-values) for more information. 
+Yes, RaspAP has support for a so-called "monitor mode". In `config.php` change the setting `RASPI_MONITOR_ENABLED` to `true`. This disables the ability to modify settings, start/stop daemons, shutdown or reboot the RPi. RaspAP will continue to report interface statistics, service settings and data usage as normal. See [this](defaults.md#managing-config-values) for more information. 
 
 ## <a name="dnsmasq"></a> Can I use RaspAP with my custom dnsmasq configuration?
 Yes, RaspAP supports this through the use of `dnsmasq.d`. The primary `/etc/dnsmasq.d/090_raspap.conf` managed by the UI includes the following directive to enable your custom .conf files:
@@ -164,13 +164,13 @@ Save settings, restart `dnsmasq` and try connecting your client again.
 If you're running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
 
 1. Be sure your browser isn't forcing SSL by appending https:// to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](https://docs.raspap.com/ssl-quick/))
-2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. Check the logs for hostapd errors and reconfigure the service, or run the installer again to restore the [default configuration](/defaults/).
+2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. Check the logs for hostapd errors and reconfigure the service, or run the installer again to restore the [default configuration](defaults.md).
 3. There are [several methods](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on `wlan0`. If the AP has entered a failed state, you may still be able to connect on an alternate interface.
 4. Recent versions of the RPi OS kernel include the `avahi-daemon` which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering [http://raspberrypi.local/](http://raspberrypi.local/) in the browser or via SSH with `ssh pi@raspberrypi.local`.
 5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, aka 'on-the-go' or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
 ## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone. Help!
-The [installer](https://docs.raspap.com/quick/) applies a "known good" [default configuration](/defaults/) to some services, including `hostapd`. It will also, optionally, optimize php by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
+The [installer](https://docs.raspap.com/quick/) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize php by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
 
 You are free to SSH in to restore those files to their rightful position. However, you may need to ensure that the RaspAP modifications are applied to your own custom configurations.
 
@@ -336,7 +336,7 @@ in your local network via a wireless hotspot while connected to a router via eth
 
 Follow these steps to create this configuration:
 
-1. Follow RaspAP's [Quick start](/quick/) guide and set up your network as you wish.
+1. Follow RaspAP's [Quick start](quick.md) guide and set up your network as you wish.
 2. Change the default Web server port to `8080` (so that it doesn't conflict with OMV5), from RaspAP's **System > Advanced** panel.
 3. Install OMV5 skipping network configuration.
 4. Configure your OMV5 install without changing the network settings.
@@ -349,7 +349,7 @@ interfaces = lo eth0
 Source: [openmediavault forums](https://forum.openmediavault.org/index.php?thread/39060-raspap-and-omv5-media-center-wifihotspot-with-ethernet/).
 
 ## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet. Help!
-RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](/defaults/), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
+RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
 
 ```
 -A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
@@ -473,7 +473,7 @@ hostapd: Could not set channel for kernel driver
 In testing, stable AP's on the RPi's supported AC channels were only reliably obtained with 'US' as the regulatory domain. To get a list of the supported channels on your RPi for the 2.4 and 5 GHz bands, use `iw phy phy0 channels`. Refer to [this issue](https://github.com/RaspAP/raspap-webgui/issues/450#issuecomment-569343686).
 
 ## <a name="wificountries"></a>I think my country allows 5 GHz AP channels. Can I test this?
-Yes, you can. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](/defaults/). The file [wireless.json](https://github.com/RaspAP/raspap-webgui/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
+Yes, you can. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](defaults.md). The file [wireless.json](https://github.com/RaspAP/raspap-webgui/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
 
 ```
 // Constant for the 5GHz wireless regulatory domain

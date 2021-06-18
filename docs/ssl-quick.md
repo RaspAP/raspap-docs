@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Quick Installer may be used to generate SSL certs with `mkcert`. The installer automates the manual steps [described here](/ssl-manual/), including configuring lighttpd with SSL support. It's recommended to review the [manual setup](/ssl-manual/) to get an idea of what is happening behind the scenes. 
+The Quick Installer may be used to generate SSL certs with `mkcert`. The installer automates the manual steps [described here](ssl-manual.md), including configuring lighttpd with SSL support. It's recommended to review the [manual setup](ssl-manual.md) to get an idea of what is happening behind the scenes. 
 
 Simply append the `-c` or `--cert` option to the Quick Installer, like so:
 

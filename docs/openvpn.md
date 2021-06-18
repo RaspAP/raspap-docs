@@ -4,7 +4,7 @@
 
 ![](https://i.imgur.com/ta7tCon.png){: style="width:450px"}
 
-OpenVPN may be optionally installed by the [Quick Installer](/quick/). Once this is done, you can create a client configuration and manage the `openvpn-client` service with RaspAP.
+OpenVPN may be optionally installed by the [Quick Installer](quick.md). Once this is done, you can create a client configuration and manage the `openvpn-client` service with RaspAP.
 
 ## Enabling OpenVPN
 
@@ -39,9 +39,9 @@ After a page reload, your new public IPv4 address will be indicated. Click or ta
 public IP.
 
 ## Multiple client configs
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
-[Insiders](/insiders/) are able to manage multiple OpenVPN configurations. This includes the ability to upload, activate and delete any number of valid `.ovpn` files and
+[Insiders](insiders.md) are able to manage multiple OpenVPN configurations. This includes the ability to upload, activate and delete any number of valid `.ovpn` files and
 associated login credentials. Thereafter, switching between them is done by simply activating the desired profile. 
 
 ![](https://user-images.githubusercontent.com/229399/113760259-52410680-9716-11eb-9b44-21ed27b9a8bb.png){: style="width:450px"}
@@ -49,9 +49,9 @@ associated login credentials. Thereafter, switching between them is done by simp
 Activating a profile will restart the `openvpn-client` service automatically. Additionally, `openvpn-service` activity may be tracked in the **Logging** tab. 
 
 ## Certificate authentication
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](/insiders/)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
-[Insiders](/insiders/) are able to authenticate with a signing **certification authority (CA) certificate**. This is an alternative to the default username and password authentication, and is
+[Insiders](insiders.md) are able to authenticate with a signing **certification authority (CA) certificate**. This is an alternative to the default username and password authentication, and is
 often used with a private or self-hosted OpenVPN server.
  
 ![](https://user-images.githubusercontent.com/229399/113760359-68e75d80-9716-11eb-82ea-5ed1307e8496.png){: style="width:450px"}

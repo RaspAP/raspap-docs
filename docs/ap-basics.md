@@ -28,7 +28,7 @@ When the AP is operational, you may connect clients to it by using one of two me
 1. Select the SSID from the list of available networks on your device and enter the passphrase.
 2. Scan the QR code displayed on the **Hotspot > Security** tab and join the AP.
 
-By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.255`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](/faq/#noip).
+By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.255`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](faq.md#noip).
 
 ## Advanced options
 The above sections cover everything you will need for a basic routed AP. The **Hotspot > Advanced** tab has several options that allow you to control advanced settings for the Linux `hostapd` service. These are discussed in the following sections.
@@ -40,7 +40,7 @@ you will no longer be able to access the web interface from the default `10.1.14
 ### WiFi client AP mode
 RaspAP has support for this special mode, also known as a **micro-AP** or simply **AP-STA**. Typically this can be difficult to configure manually, but RaspAP performs most of the config work behind the scenes for you.
 
-> :information_source: **Note:** This option is disabled or "greyed out" until a wireless client is configured. This can be done via the **WiFi client** UI, or by manually [configuring a valid `wpa_supplicant.conf`](/faq/#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode).
+> :information_source: **Note:** This option is disabled or "greyed out" until a wireless client is configured. This can be done via the **WiFi client** UI, or by manually [configuring a valid `wpa_supplicant.conf`](faq.md#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode).
 
 Before using this mode, it is recommended that users familiarize themselves with [how AP-STA works](ap-sta.md). Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface.
 For the latter, refer to [this FAQ](faq.md#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap). 
@@ -62,7 +62,7 @@ This option sets the `disassoc_low_ack` boolean value for `hostapd`. Be aware th
 ### Transmit power
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
-[Insiders](/insiders/) are able to control the transmit power of the configured AP interface. The default "auto" setting will suffice for the vast majority of APs. A lower `txpower` value
+[Insiders](insiders.md) are able to control the transmit power of the configured AP interface. The default "auto" setting will suffice for the vast majority of APs. A lower `txpower` value
 can be useful to mitigate WiFi radio interference, for example if you are hosting multiple APs in a given area. It can also be advantageous to set `txpower` to a lower value in IoT or similar applications where reduced power consumption is needed.
  
 ![](https://user-images.githubusercontent.com/229399/115698577-0f616e80-a365-11eb-80e5-404527ca7bdb.png){: style="width:375px"}
@@ -92,7 +92,7 @@ Look for any reported errors logged by the `hostapd`, `dhcpcd` or `dnsmasq` serv
 Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/).
 Chances are the problems with your AP have been discussed and answered before.
 
-The RaspAP [FAQ](/faq/) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions.  
+The RaspAP [FAQ](faq.md) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions.  
 
 > :information_source: **Protip:** Capture output from the Linux kernel's message buffer with `dmesg` to help diagnose failure events. Read the last 100 lines with `dmesg | tail -100` and look 
 for any anomalies.

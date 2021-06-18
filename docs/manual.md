@@ -2,7 +2,7 @@
 
 ## Overview
 These steps apply to the [latest release of RaspAP](https://github.com/RaspAP/raspap-webgui/releases/), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
-Please refer to [this](/#compatible-operating-systems) regarding operating systems support.
+Please refer to [this](index.md#compatible-operating-systems) regarding operating systems support.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ The kernel and firmware are installed as a Debian package, and so will also get 
 These packages are updated infrequently and after extensive testing.
 
 ## Enable wireless operation
-Telecommunications radio bands are subject to [regulatory restrictions](/faq/#80211ac) to ensure interference-free operation. The Linux OS complies with these rules by requiring users
+Telecommunications radio bands are subject to [regulatory restrictions](faq.md#80211ac) to ensure interference-free operation. The Linux OS complies with these rules by requiring users
 to configure a two-letter "WiFi country code". In RPi OS, 5 GHz wireless networking is disabled until this country code has been set, usually as part of the initial installation process.
 If you have not set your country code or are unsure, check the "WLAN Country" setting in raspi-config's **Localisation Options**: 
 
@@ -155,7 +155,7 @@ sudo systemctl enable raspapd.service
 ```
 
 ## Default configuration
-To facilitate a faster setup, RaspAP uses a "known-good" [default configuration](/defaults/) as a starting point.
+To facilitate a faster setup, RaspAP uses a "known-good" [default configuration](defaults.md) as a starting point.
 Copy the configuration files for `dhcpcd`, `dnsmasq`, `hostapd` and `defaults.json`. Optionally, backup your existing `hostapd.conf`:
 
 ```
