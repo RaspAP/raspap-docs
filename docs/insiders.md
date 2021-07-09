@@ -60,7 +60,7 @@ was central in our decision to implement Insiders.
 ### Installing
 *How do I install Insiders?*
 
-Invoke the [Quick Installer](https://docs.raspap.com/quick/) with the `--insiders` switch, like so:
+Invoke the [Quick Installer](https://docs.raspap.com/quick.html) with the `--insiders` switch, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --insiders

@@ -91,7 +91,7 @@ With a basic understanding of AP-STA mode, we can proceed with the installation.
 14. Choose **Save settings** and **Start hotspot**.
 15. Wait a few moments and confirm that your AP has started. 
 
-![](https://i.imgur.com/t5p53zP.png){: style="width:450px"}
+![](https://i.imgur.com/t5p53zP.png){: style="width:350px"}
 
 > :information_source: **Note:** The **WiFi client AP mode** option will be disabled, or "greyed out", until a wireless client is configured.
 
