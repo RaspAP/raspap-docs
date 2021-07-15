@@ -8,9 +8,69 @@
 WireGuard<sup>®</sup> is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be considerably more performant than OpenVPN,
 and is generally regarded as the most secure, easiest to use, and simplest VPN solution for modern Linux distributions.
 
-WireGuard may be optionally installed by the [Quick Installer](quick.md). Once this is done, you can manage local (server) settings, create a peer configuration and control the `wg-quick` service with RaspAP.
+WireGuard may be optionally installed by the [Quick Installer](quick.md). Once this is done, you can manage both local and remote server settings, create a peer configuration and control the `wg-quick` service with RaspAP.
 
-## Creating a WireGuard tunnel
+## Securing your wireless network
+RaspAP gives you two ways to create a secure WireGuard tunnel: **1)** by uploading a `.conf` file from your VPN provider, or **2)** by creating a manual configuration. Each method is described and demonstrated with a short video below.
+
+### File upload
+This method may be used if you are using a commerical WireGuard VPN provider, a self-hosted or other remote WG server. In these cases, it's assumed you have an existing WireGuard `.conf` file and wish
+to upload this to RaspAP.
+
+> :information_source: **Note:** The term "server" is used here as a convenience. WireGuard does not make a distinction between client and server roles. Instead, each node is considered a "peer" in a WireGuard network.
+
+To do this, select the **Upload file** option under **Configuration Method**, select a valid WireGuard configuration file and choose **Save settings**. If your `.conf`
+file does not contain `iptables` `PostUp` or `PostDown` rules and you wish to route traffic through the active AP interface, select the **Apply iptables rules for AP interface** option before uploading your
+configuration file.
+
+The complete process of creating a WireGuard configuration with [Mullvad](https://mullvad.net/) and activating it with RaspAP is demonstrated in the video below. 
+
+<video width="640" height="480" controls>
+  <source src="https://cdn-cf-east.streamable.com/video/mp4/c0qgn6_5.mp4?Expires=1626547380&Signature=Y4Se8v0wMaGUPwamMSzy4Lg3roBPJulrjxINC82pgk4cT1e73~ao-0R2gV7c1InVL16hvDKQD8dWL-vqPlL202U-p2MoupobTu2MhyDUDdlAeJueJCjRIVBCilw0TkjcpC-w9o2e8NVzhpGPBr02xlAebaS883GYudXGHk5pihBl9OU4RfuVyNHdIE8u7k2urqiw6cgKWB~Lp0RVl9F9X2ra4kNW0I3BGslF6fnrpUdvP~I948zdajEBKIwJve7zr7l78R9M7odGmr~hOoypg-WdDXMGa0NVV7v2d32hfGc5908KUq2iDaWDqEXkkd190AakZKtXyrIycPOACgNjtA__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ" type="video/mp4">
+</video>
+
+It should be noted that RaspAP has no affiliation whatsoever with Mullvad. In fact, Mullvad [does not use affiliates](https://mullvad.net/en/help/policy-reviews-advertising-and-affiliates/) or pay for reviews. 
+Members of RaspAP's [Insiders community](/insiders.html) have requested support for this VPN provider.
+
+#### Starting WireGuard
+RaspAP will handle uploading your `.conf` file and, optionally, applying any `iptables` rules. To enable the tunnel, choose **Start WireGuard**. The WireGuard protocol is extremely fast, so in most cases
+your new public IPv4 address will be indicated almost immediately. Click or tap the :fontawesome-solid-external-link-alt: icon to open a new window with details about your public IP.
+
+#### Verifying client connections
+If you have chosen to route traffic from the `wg0` interface to the AP interface, you may verify that your clients are secured by the WireGuard VPN. Start by connecting a client to your AP while
+WireGuard is enabled. Again, using Mullvad as an example, visit their [connection check](https://mullvad.net/en/check/) page on your client device. If the tunnel is working correctly, you should see
+a result like the following: 
+
+![](https://user-images.githubusercontent.com/229399/125700202-5cace3a0-3c54-48ff-8bd4-113a2eef5f1b.png){: style="width:225px"}
+
+If any of the above checks fail, enable WireGuard service logging in RaspAP and check the output. You may also consult your VPN provider's support. 
+
+#### IPv6 considerations
+RaspAP currently handles routing of IPv4 traffic only. For this reason, WireGuard server connections and traffic tunneled on IPv6 are incompatible. The solution is to specify IPv4 in your
+WireGuard VPN provider's advanced options (Mullvad is shown below): 
+
+
+![](https://user-images.githubusercontent.com/229399/125697709-d61720a5-fdc6-4d36-8085-563e54d259e1.png){: style="width:375px"}
+
+Alternatively, open your `.conf` file in a text editor and ensure that the `Address` and `AllowedIPs` settings use IPv4 addresses only, like so:
+
+```
+[Interface]
+PrivateKey = ░░░░░░░░░░░░░░░░░░░░░░░░░
+Address = 10.64.171.100/32
+DNS = 193.138.218.74
+
+[Peer]
+PublicKey = /pS3lXg1jTJ7I58GD/s/4GNL2B0U8JNbjbH9Ddh0myw=
+AllowedIPs = 0.0.0.0/0
+Endpoint = 185.254.75.3:51820
+```
+
+When this is done, you are ready to upload your configuration to RaspAP. 
+
+### Manual configuration
+Alternatively, RaspAP gives you full control over creating a manual WireGuard configuration. This method is useful if you wish to secure your local wireless network&#151;that is, between your
+device running RaspAP and the clients connected to it.
 
 WireGuard requires a public and private keypair for each device you wish to have access to the VPN tunnel. RaspAP simplifies this process with a
 magic button :fontawesome-solid-magic: associated with each public key input field. Simply click or tap this button to securely generate a cryptographic keypair for both the server and peer.
@@ -33,7 +93,7 @@ Due to WireGuard’s design, both computers on either end of the VPN tunnel will
 If you wish to regenerate local or peer keypairs (or both), simply tap or click the magic button :fontawesome-solid-magic: and choose **Save settings**. Alternatively, to 
 remove a server or peer configuration entirely, disable the desired toggle and **Save settings**. This will delete the public/private keypair and the associated configuration.
 
-## Peer configuration
+#### Peer configuration
 RaspAP processes the values in the WireGuard **Settings** and **Peer** tabs and creates two configurations for you: `wg0.conf` and `client.conf`.
 The former is used to configure the local (server) side of the VPN tunnel. The latter peer configuration is generated as a QR code on the **Peer** tab. Clients such as mobile devices
 may scan the QR code to transfer `client.conf` and import it into an associated WireGuard client application.
