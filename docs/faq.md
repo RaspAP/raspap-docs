@@ -499,7 +499,7 @@ For more information on optimizing 802.11n, refer to this [resource](https://www
 Generally speaking, the 5 GHz band has substantially greater capacity due to more non-overlapping radio channels and less radio interference as compared to the 2.4 GHz band. 
 
 ## <a name="wep"></a>Can I connect the WiFi client to a WEP network?
-WEP has been deprecated for quite awhile but old routers still exist in the wild. Not all routers accept hex passwords, but you can try converting an ASCII password using an online tool like [this one](https://www.binaryhexconverter.com/ascii-text-to-hex-converter).
+Wired Equivalent Privacy (WEP) has been deprecated for quite awhile but old routers still exist in the wild. Not all routers accept hex passwords, but you can try converting an ASCII password using an online tool like [this one](https://www.binaryhexconverter.com/ascii-text-to-hex-converter).
 A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal value. Be sure the hex values are unpadded and there are no trailing spaces. For example, `52617370415069734772656174` is a valid hex passphrase.
 
 Paste your converted hex value into RaspAP's WiFi client passphrase field and try connecting.
