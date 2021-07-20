@@ -1,0 +1,1126 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
+    
+    
+      
+        <title>Manual installation - RaspAP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3754935a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-187566692-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#manual-installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="RaspAP Documentation" class="md-header__button md-logo" aria-label="RaspAP Documentation" data-md-component="logo">
+      
+  <img src="../images/favicon-32x32.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RaspAP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manual installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/RaspAP/raspap-webgui/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RaspAP Documentation" class="md-nav__button md-logo" aria-label="RaspAP Documentation" data-md-component="logo">
+      
+  <img src="../images/favicon-32x32.png" alt="logo">
+
+    </a>
+    RaspAP Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/RaspAP/raspap-webgui/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adblock/" class="md-nav__link">
+        Ad blocking
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ap-basics/" class="md-nav__link">
+        Access point settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ap-sta/" class="md-nav__link">
+        AP-STA mode
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bridged/" class="md-nav__link">
+        Bridged AP mode
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../captive/" class="md-nav__link">
+        Captive portal setup
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../defaults/" class="md-nav__link">
+        Default settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developers/" class="md-nav__link">
+        Developer tips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../insiders/" class="md-nav__link">
+        Insiders
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issues/" class="md-nav__link">
+        Reporting issues
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Manual installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Manual installation
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-wireless-operation" class="md-nav__link">
+    Enable wireless operation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-rpi-os-dependencies" class="md-nav__link">
+    Non-RPi OS dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-packages" class="md-nav__link">
+    Install packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-php" class="md-nav__link">
+    Enable PHP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-web-application" class="md-nav__link">
+    Create the web application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-directories" class="md-nav__link">
+    Configuration directories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-permissions" class="md-nav__link">
+    Set permissions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-scripts" class="md-nav__link">
+    Control scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-configuration" class="md-nav__link">
+    Default configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimize-php" class="md-nav__link">
+    Optimize PHP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-and-ip-masquerading" class="md-nav__link">
+    Routing and IP masquerading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-hostapd" class="md-nav__link">
+    Enable hostapd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn" class="md-nav__link">
+    OpenVPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ad-blocking" class="md-nav__link">
+    Ad blocking
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart" class="md-nav__link">
+    Restart
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mini-pitft/" class="md-nav__link">
+        Mini PiTFT stats display
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multiple/" class="md-nav__link">
+        Multiple APs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net-devices/" class="md-nav__link">
+        Network devices
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openvpn/" class="md-nav__link">
+        OpenVPN
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick/" class="md-nav__link">
+        Quick installer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssl-manual/" class="md-nav__link">
+        SSL certificates (manual)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssl-quick/" class="md-nav__link">
+        SSL certificates (installer)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translations/" class="md-nav__link">
+        Translations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireguard/" class="md-nav__link">
+        WireGuard
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-wireless-operation" class="md-nav__link">
+    Enable wireless operation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-rpi-os-dependencies" class="md-nav__link">
+    Non-RPi OS dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-packages" class="md-nav__link">
+    Install packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-php" class="md-nav__link">
+    Enable PHP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-web-application" class="md-nav__link">
+    Create the web application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-directories" class="md-nav__link">
+    Configuration directories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-permissions" class="md-nav__link">
+    Set permissions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-scripts" class="md-nav__link">
+    Control scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-configuration" class="md-nav__link">
+    Default configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimize-php" class="md-nav__link">
+    Optimize PHP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-and-ip-masquerading" class="md-nav__link">
+    Routing and IP masquerading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-hostapd" class="md-nav__link">
+    Enable hostapd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn" class="md-nav__link">
+    OpenVPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ad-blocking" class="md-nav__link">
+    Ad blocking
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart" class="md-nav__link">
+    Restart
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/manual.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="manual-installation">Manual installation</h1>
+<h2 id="overview">Overview</h2>
+<p>These steps apply to the <a href="https://github.com/RaspAP/raspap-webgui/releases/">latest release of RaspAP</a>, <a href="https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit">Raspberry Pi OS Lite</a>, Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
+Please refer to <a href="..#compatible-operating-systems">this</a> regarding operating systems support.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Start off by updating your system's package list, then upgrade the kernel, firmware and installed packages to their latest versions:</p>
+<pre><code>sudo apt-get update
+sudo apt-get full-upgrade
+</code></pre>
+<p>Note that <code>full-upgrade</code> is used rather than a simple <code>upgrade</code>, as this also picks up any dependency changes that may have been made.
+The kernel and firmware are installed as a Debian package, and so will also get updates when using the procedure above.
+These packages are updated infrequently and after extensive testing.</p>
+<h2 id="enable-wireless-operation">Enable wireless operation</h2>
+<p>Telecommunications radio bands are subject to <a href="../faq/#80211ac">regulatory restrictions</a> to ensure interference-free operation. The Linux OS complies with these rules by requiring users
+to configure a two-letter "WiFi country code". In RPi OS, 5 GHz wireless networking is disabled until this country code has been set, usually as part of the initial installation process.
+If you have not set your country code or are unsure, check the "WLAN Country" setting in raspi-config's <strong>Localisation Options</strong>: </p>
+<pre><code>sudo raspi-config
+</code></pre>
+<p>To ensure the WiFi radio is not blocked on the Raspberry Pi, execute the following command:</p>
+<pre><code>sudo rfkill unblock wlan
+</code></pre>
+<h2 id="non-rpi-os-dependencies">Non-RPi OS dependencies</h2>
+<p>Operating systems other than RPi OS have some additional dependencies. If you are using RPi OS Lite, skip this section. On Ubuntu Server, add a dependency and the <code>ppa:ondrej/php</code> apt package:</p>
+<pre><code>sudo apt-get install software-properties-common 
+sudo add-apt-repository ppa:ondrej/php
+</code></pre>
+<p>On Debian, Armbian and Ubuntu, install <code>dhcpcd5</code> with the following:</p>
+<pre><code>sudo apt-get install dhcpcd5
+</code></pre>
+<h2 id="install-packages">Install packages</h2>
+<p>Install git, lighttpd, php7, hostapd, dnsmasq and some extra packages with the following:</p>
+<pre><code>sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php7.3-cgi
+</code></pre>
+<blockquote>
+<p><img alt="ℹ" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2139.svg" title=":information_source:" /> <strong>Note:</strong> for Ubuntu, you may replace <code>php7.3-cgi</code> with <code>php7.4-cgi</code>. <code>php5</code> is no longer supported.</p>
+</blockquote>
+<h2 id="enable-php">Enable PHP</h2>
+<p>Next, enable PHP for <code>lighttpd</code> and restart the service for the settings to take effect:</p>
+<pre><code>sudo lighttpd-enable-mod fastcgi-php    
+sudo service lighttpd force-reload
+sudo systemctl restart lighttpd.service
+</code></pre>
+<h2 id="create-the-web-application">Create the web application</h2>
+<p>In these steps we will prepare the web destination and git clone the files to <code>/var/www/html</code>.</p>
+<blockquote>
+<p><img alt="ℹ" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2139.svg" title=":information_source:" />  <strong>Caution:</strong> If this is <em>not</em> a clean installation, be sure you do not have existing files or directories in the web root before executing the <code>rm -rf</code> command.</p>
+</blockquote>
+<pre><code>sudo rm -rf /var/www/html
+sudo git clone https://github.com/RaspAP/raspap-webgui /var/www/html
+</code></pre>
+<p>Copy an extra <code>lighttpd</code> config file to support application routing. This step requires some text substitutions to support user changes to lighttpd's <code>server.document-root</code> setting:</p>
+<pre><code>WEBROOT=&quot;/var/www/html&quot;
+CONFSRC=&quot;$WEBROOT/config/50-raspap-router.conf&quot;
+LTROOT=$(grep &quot;server.document-root&quot; /etc/lighttpd/lighttpd.conf | awk -F '=' '{print $2}' | tr -d &quot; \&quot;&quot;)
+
+HTROOT=${WEBROOT/$LTROOT}
+HTROOT=$(echo &quot;$HTROOT&quot; | sed -e 's/\/$//')
+awk &quot;{gsub(\&quot;/REPLACE_ME\&quot;,\&quot;$HTROOT\&quot;)}1&quot; $CONFSRC &gt; /tmp/50-raspap-router.conf
+sudo cp /tmp/50-raspap-router.conf /etc/lighttpd/conf-available/
+</code></pre>
+<p>Link it into <code>conf-enabled</code> and restart the web service:</p>
+<pre><code>sudo ln -s /etc/lighttpd/conf-available/50-raspap-router.conf /etc/lighttpd/conf-enabled/50-raspap-router.conf
+sudo systemctl restart lighttpd.service
+</code></pre>
+<p>Now comes the fun part. For security reasons, the <code>www-data</code> user which <code>lighttpd</code> runs under is not allowed to start or stop daemons, or run commands like <code>ip link</code>,
+all of which we want our app to do. So we will add the <code>www-data</code> user to sudoers, but with restrictions on what commands the user can run. Copy the sudoers rules to their destination:</p>
+<pre><code>cd /var/www/html
+sudo cp installers/raspap.sudoers /etc/sudoers.d/090_raspap
+</code></pre>
+<h2 id="configuration-directories">Configuration directories</h2>
+<p>RaspAP uses several directories to manage its own configuration. Create these with the following commands:</p>
+<pre><code>sudo mkdir /etc/raspap/
+sudo mkdir /etc/raspap/backups
+sudo mkdir /etc/raspap/networking
+sudo mkdir /etc/raspap/hostapd
+sudo mkdir /etc/raspap/lighttpd
+</code></pre>
+<p>Move RaspAP's auth control file to the configuration directory you created above:</p>
+<pre><code>sudo cp raspap.php /etc/raspap 
+</code></pre>
+<h2 id="set-permissions">Set permissions</h2>
+<p>Next, set the files ownership to the <code>www-data</code> user for the web files and RaspAP config:</p>
+<pre><code>sudo chown -R www-data:www-data /var/www/html
+sudo chown -R www-data:www-data /etc/raspap
+</code></pre>
+<h2 id="control-scripts">Control scripts</h2>
+<p>RaspAP uses several shell scripts to manage various aspects of the application, including <code>hostapd</code> logging and <code>raspapd</code>, the RaspAP control service. Move these scripts to their destinations with the following:</p>
+<pre><code>sudo mv installers/*log.sh /etc/raspap/hostapd 
+sudo mv installers/service*.sh /etc/raspap/hostapd
+</code></pre>
+<p>Set ownership and permissions for the logging and service control scripts:</p>
+<pre><code>sudo chown -c root:www-data /etc/raspap/hostapd/*.sh 
+sudo chmod 750 /etc/raspap/hostapd/*.sh 
+</code></pre>
+<p>Copy and set ownership of the <code>lighttpd</code> control scripts:</p>
+<pre><code>sudo cp installers/configport.sh /etc/raspap/lighttpd
+sudo chown -c root:www-data /etc/raspap/lighttpd/*.sh
+</code></pre>
+<p>Next, move the <code>raspapd</code> service file to the correct location and enable it:</p>
+<pre><code>sudo mv installers/raspapd.service /lib/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable raspapd.service
+</code></pre>
+<h2 id="default-configuration">Default configuration</h2>
+<p>To facilitate a faster setup, RaspAP uses a "known-good" <a href="../defaults/">default configuration</a> as a starting point.
+Copy the configuration files for <code>dhcpcd</code>, <code>dnsmasq</code>, <code>hostapd</code> and <code>defaults.json</code>. Optionally, backup your existing <code>hostapd.conf</code>:</p>
+<pre><code>sudo mv /etc/default/hostapd ~/default_hostapd.old
+sudo cp /etc/hostapd/hostapd.conf ~/hostapd.conf.old
+sudo cp config/default_hostapd /etc/default/hostapd
+sudo cp config/hostapd.conf /etc/hostapd/hostapd.conf
+sudo cp config/090_raspap.conf /etc/dnsmasq.d/090_raspap.conf
+sudo cp config/090_wlan0.conf /etc/dnsmasq.d/090_wlan0.conf
+sudo cp config/dhcpcd.conf /etc/dhcpcd.conf
+sudo cp config/config.php /var/www/html/includes/
+sudo cp config/defaults.json /etc/raspap/networking/
+</code></pre>
+<blockquote>
+<p><img alt="ℹ" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2139.svg" title=":information_source:" /> <strong>Note:</strong> If you wish to modify RaspAP's default configuration for <code>dnsmasq</code> and <code>dhcp</code>, you may do so by changing these files and editing <code>config/defaults.json</code>.</p>
+</blockquote>
+<p>Next, disable <code>systemd-networkd</code> and copy the bridge configuration with the following:</p>
+<pre><code>sudo systemctl stop systemd-networkd
+sudo systemctl disable systemd-networkd
+sudo cp config/raspap-bridge-br0.netdev /etc/systemd/network/raspap-bridge-br0.netdev
+sudo cp config/raspap-br0-member-eth0.network /etc/systemd/network/raspap-br0-member-eth0.network 
+</code></pre>
+<h2 id="optimize-php">Optimize PHP</h2>
+<p>Optionally, you may optimize PHP with the following, replacing <code>php7.3-cgi</code> with your installed version:</p>
+<pre><code>sudo sed -i -E 's/^session\.cookie_httponly\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/session.cookie_httponly = 1/' /etc/php/7.3/cgi/php.ini
+sudo sed -i -E 's/^;?opcache\.enable\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/opcache.enable = 1/' /etc/php/7.3/cgi/php.ini
+sudo phpenmod opcache
+</code></pre>
+<h2 id="routing-and-ip-masquerading">Routing and IP masquerading</h2>
+<p>These steps allow WLAN clients to access computers on the main wired <code>eth0</code> network, and from there the internet. 
+Begin by enabling IP forwarding with the following commands:</p>
+<pre><code>echo &quot;net.ipv4.ip_forward=1&quot; | sudo tee /etc/sysctl.d/90_raspap.conf &gt; /dev/null
+sudo sysctl -p /etc/sysctl.d/90_raspap.conf
+sudo /etc/init.d/procps restart
+</code></pre>
+<p>To enable traffic between clients on the WLAN and the internet, we add two <code>iptables</code> network address translation (NAT) "masquerade" firewall rules.
+Create these rules and persist them with the following:</p>
+<pre><code>sudo iptables -t nat -A POSTROUTING -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -s 192.168.50.0/24 ! -d 192.168.50.0/24 -j MASQUERADE
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
+</code></pre>
+<h2 id="enable-hostapd">Enable hostapd</h2>
+<p>The <code>hostapd</code> service is disabled by default, as there is no configuration for it after its initial installation. Unmask and enable it with the following:</p>
+<pre><code>sudo systemctl unmask hostapd.service
+sudo systemctl enable hostapd.service
+</code></pre>
+<h2 id="openvpn">OpenVPN</h2>
+<p>Optionally, you may install OpenVPN, enabling the option in RaspAP's config and the <code>openvpn-client</code> service:</p>
+<pre><code>sudo apt-get install openvpn
+sudo sed -i &quot;s/\('RASPI_OPENVPN_ENABLED', \)false/\1true/g&quot; /var/www/html/includes/config.php
+sudo systemctl enable openvpn-client@client
+</code></pre>
+<p>Copy the OpenVPN auth control script to its destination, setting ownership and permissions with the following:</p>
+<pre><code>sudo mkdir /etc/raspap/openvpn/
+sudo cp installers/configauth.sh /etc/raspap/openvpn/
+sudo chown -c root:www-data /etc/raspap/openvpn/*.sh 
+sudo chmod 750 /etc/raspap/openvpn/*.sh
+</code></pre>
+<h2 id="ad-blocking">Ad blocking</h2>
+<p>Optionally, you may install Ad blocking, enabling the option in RaspAP's config. There are several steps involved here, including downloading the blocklists:</p>
+<pre><code>sudo mkdir /etc/raspap/adblock
+wget https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt -O /tmp/hostnames.txt
+wget https://raw.githubusercontent.com/notracking/hosts-blocklists/master/domains.txt -O /tmp/domains.txt
+sudo cp /tmp/hostnames.txt /etc/raspap/adblock
+sudo cp /tmp/domains.txt /etc/raspap/adblock 
+sudo cp installers/update_blocklist.sh /etc/raspap/adblock/
+sudo chown -c root:www-data /etc/raspap/adblock/*.*
+sudo chmod 750 /etc/raspap/adblock/*.sh
+sudo touch /etc/dnsmasq.d/090_adblock.conf
+echo &quot;conf-file=/etc/raspap/adblock/domains.txt&quot; | sudo tee -a /etc/dnsmasq.d/090_adblock.conf &gt; /dev/null 
+echo &quot;addn-hosts=/etc/raspap/adblock/hostnames.txt&quot; | sudo tee -a /etc/dnsmasq.d/090_adblock.conf &gt; /dev/null
+sudo sed -i '/dhcp-option=6/d' /etc/dnsmasq.d/090_raspap.conf
+sudo sed -i &quot;s/\('RASPI_ADBLOCK_ENABLED', \)false/\1true/g&quot; includes/config.php
+</code></pre>
+<h2 id="restart">Restart</h2>
+<p>Finally, restart your device and verify that the wireless access point is available:</p>
+<pre><code>sudo systemctl reboot
+</code></pre>
+<p>After your device has restarted, search for wireless networks with your wireless client. The default SSID is <code>raspi-webgui</code>. 
+The default username is "admin" and the default password is "secret".</p>
+<blockquote>
+<p><img alt="ℹ" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2139.svg" title=":information_source:" /> <strong>Note:</strong> It is strongly recommended that you change these default login credentials in RaspAP's <strong>Authentication</strong> panel.
+APs managed by RaspAP in the wild have been administered by third parties with the default login.</p>
+</blockquote>
+<p>If you have any difficulties with the manual install steps, <a href="https://github.com/RaspAP/raspap-webgui/discussions">start a discussion</a> and refer to this page.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../issues/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reporting issues" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Reporting issues
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mini-pitft/" class="md-footer__link md-footer__link--next" aria-label="Next: Mini PiTFT stats display" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Mini PiTFT stats display
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2013 - 2021 <a href="https://github.com/RaspAP">RaspAP</a>
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/rasp_ap" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/RaspAP/raspap-webgui" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>
