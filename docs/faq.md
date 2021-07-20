@@ -46,6 +46,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Why is the 802.11ac 5GHz option disabled in Configure hotspot?](#80211ac)
 * [I think my country allows 5 GHz AP channels. Can I test this?](#wificountries)
 * [Why is the maximum throughput of my 802.11n AP reduced by half?](#wirelessn)
+* [Can I connect the WiFi client to a WEP network?](#wep)
 
 ## Install & upgrade
 * [How do I upgrade RaspAP?](#upgrade)
@@ -496,6 +497,12 @@ In practice, this can be quite difficult due to interference on the 2.4 GHz band
 For more information on optimizing 802.11n, refer to this [resource](https://www.lmi.net/wp-content/uploads/Optimizing_802.11n.pdf).
 
 Generally speaking, the 5 GHz band has substantially greater capacity due to more non-overlapping radio channels and less radio interference as compared to the 2.4 GHz band. 
+
+## <a name="wep"></a>Can I connect the WiFi client to a WEP network?
+WEP has been deprecated for quite awhile but old routers still exist in the wild. Not all routers accept hex passwords, but you can try converting an ASCII password using an online tool like [this one](https://www.binaryhexconverter.com/ascii-text-to-hex-converter).
+A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal value. Be sure the hex values are unpadded and there are no trailing spaces. For example, `52617370415069734772656174` is a valid hex passphrase.
+
+Paste your converted hex value into RaspAP's WiFi client passphrase field and try connecting.
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
 Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version, simply run the [Quick Installer](https://docs.raspap.com/quick/) with the `--upgrade` option:
