@@ -30,6 +30,8 @@ This is done through Insiders' access to discussions, feature requests, issues a
 :octicons-check-circle-fill-24:{: .check } [Set AP transmit power](/ap-basics.html#transmit-power) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [Network device management](/net-devices.html) :material-new-box:   
 :octicons-gear-24: Traffic shaping (in progress)  
+:octicons-gear-24: Firewall settings (in progress)  
+:octicons-gear-24: Printable WiFi signs (in progress)  
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
 
