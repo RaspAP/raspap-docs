@@ -78,8 +78,7 @@ curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
 ```
 
 ### Authentication
-If you haven't [added SSH keys to your GitHub account](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) you will be prompted to authenticate when the
-installer clones the private Insiders repository. In this case, just enter your GitHub credentials during the install. For example:
+You will be prompted to authenticate in order to clone the private Insiders repository. To do so, just enter your GitHub credentials during the install. For example:
 
 ```
 RaspAP Install: Cloning latest files from github
