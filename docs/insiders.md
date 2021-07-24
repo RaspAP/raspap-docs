@@ -49,6 +49,8 @@ Below is a list of funding targets. When a funding target is reached, the featur
 #### **$1000** - 2nd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Network device management](/net-devices.html) :material-new-box:   
 :octicons-gear-24: Traffic shaping (in progress)  
+:octicons-gear-24: Firewall settings (in progress)  
+:octicons-gear-24: Printable WiFi signs (in progress)  
 
 ## Transparency
 We've chosen [OpenCollective](https://opencollective.com/raspap) as the fiscal host for our [GitHub sponsors organization](https://github.com/sponsors/RaspAP). This means that our budget is completely transparent—
