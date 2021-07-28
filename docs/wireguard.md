@@ -30,7 +30,7 @@ The complete process of creating a WireGuard configuration with [Mullvad](https:
 </video>
 
 It should be noted that RaspAP has no affiliation whatsoever with Mullvad. In fact, Mullvad [does not use affiliates](https://mullvad.net/en/help/policy-reviews-advertising-and-affiliates/) or pay for reviews. 
-Members of RaspAP's [Insiders community](/insiders.html) have requested support for this VPN provider.
+Members of RaspAP's [Insiders community](/insiders/) have requested support for this VPN provider.
 
 #### Starting WireGuard
 RaspAP will handle uploading your `.conf` file and, optionally, applying any `iptables` rules. To enable the tunnel, choose **Start WireGuard**. The WireGuard protocol is extremely fast, so in most cases

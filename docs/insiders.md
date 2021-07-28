@@ -21,14 +21,14 @@ You can cancel your sponsorship anytime.[^3]
 The following features are currently available exclusively to sponsors. A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP.
 This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
-:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn.html#multiple-client-configs)    
-:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn.html#certificate-authentication) :material-new-box:      
+:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)    
+:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn/#certificate-authentication) :material-new-box:      
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard.html) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](/ap-basics.html#transmit-power) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [Network device management](/net-devices.html) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](/ap-basics/#transmit-power) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Network device management](/net-devices/) :material-new-box:   
 :octicons-gear-24: Traffic shaping (in progress)  
 :octicons-gear-24: Firewall settings (in progress)  
 :octicons-gear-24: Printable WiFi signs (in progress)  
@@ -40,16 +40,16 @@ Below is a list of funding targets. When a funding target is reached, the featur
 
 ### Goals
 #### **$500** - 1st Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn.html#multiple-client-configs)  
-:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn.html#certificate-authentication) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)  
+:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn/#certificate-authentication) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:  
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:  
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard.html) :material-new-box:  
-:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](/ap-basics.html#transmit-power) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:  
+:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](/ap-basics/#transmit-power) :material-new-box:   
 
 #### **$1000** - 2nd Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Network device management](/net-devices.html) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Network device management](/net-devices/) :material-new-box:   
 :octicons-gear-24: Traffic shaping (in progress)  
 :octicons-gear-24: Firewall settings (in progress)  
 :octicons-gear-24: Printable WiFi signs (in progress)  
@@ -64,7 +64,7 @@ was central in our decision to implement Insiders.
 ### Installing
 *How do I install Insiders?*
 
-Invoke the [Quick Installer](https://docs.raspap.com/quick.html) with the `--insiders` switch, like so:
+Invoke the [Quick Installer](https://docs.raspap.com/quick/) with the `--insiders` switch, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --insiders
@@ -75,7 +75,7 @@ This will automatically pull from the private Insiders repo during the installat
 ### Upgrading
 *I have an existing RaspAP installation. How do I upgrade to Insiders?*
 
-Upgrading is easy. Simply invoke the [Quick Installer](/index.html#quick-start) with the `--upgrade` switch, specifying the private Insiders option, like so:
+Upgrading is easy. Simply invoke the [Quick Installer](/index/#quick-start) with the `--upgrade` switch, specifying the private Insiders option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
