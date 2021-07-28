@@ -4,8 +4,8 @@ RaspAP is introducing a new feature to block DNS requests for ads, trackers and 
 
 In the best of times, ads are usually just annoying. When access to online services is hampered by requests for ads, the best tool in our arsenal is DNS blacklisting. RaspAP already uses `dnsmasq` to manage both DHCP and DNS, so implementing ad blocking was fairly straightforward.
 
-## Enabling DNS blacklisting
-As a beta feature, we invite testing and encourage feedback from users of RaspAP. To enable ad blocking with DNS blacklists, simply respond with 'Y' or press [Enter] when prompted by the installer:
+## Quick installer
+As a beta feature, we invite testing and encourage feedback from users of RaspAP. To install ad blocking with DNS blacklists, simply respond with 'Y' or press [Enter] when prompted by the installer:
 
 ```
 Install ad blocking and enable list management? [Y/n]
@@ -13,8 +13,10 @@ Install ad blocking and enable list management? [Y/n]
 
 The installer will download the blocklists, configure RaspAP to use them and enable the **Ad blocking** management page.
 
-![Ad block install option](https://i.imgur.com/vzbQKnC.gif){: style="width:450px"}
+![Ad block install option](https://user-images.githubusercontent.com/229399/127268555-5e397b12-a123-4a15-a58f-e339b517ac0a.png){: style="width:500px"}
 
+Ad blocking is enabled and active for clients connected to your AP. You may update the blocklists or disable ad blocking with the management page. These actions are described below. 
+ 
 ## Manual installation
 Ad blocking may also be installed manually. Refer to the detailed [installation steps](manual.md#ad-blocking).
 
@@ -36,7 +38,6 @@ Choose **Save settings** and **Restart Ad Blocking**.
 > :information_source: **Note:** As the name suggests, this is effective at blocking individual hosts, but not entire domains (or subdomains). 
 
 
-
 ## Enabling logging
 By default, DNS logging is disabled. If you'd like to see which hosts are being blocked, enable it on the **DHCP Server > Logging** tab by selecting the **Log DNS queries** toggle. **Save settings** and **Restart Ad Blocking**. The **Logging** tab on the **Ad Blocking** page will display blacklisted DNS queries with host addresses of `0.0.0.0`. A sample of blocked ad/tracker requests is below.
 
@@ -56,6 +57,9 @@ dnsmasq[9633]: config pixel.quantserve.com is 0.0.0.0
 dnsmasq[9633]: config cdn.taboola.com is 0.0.0.0
 dnsmasq[9633]: config sdk.iad-01.braze.com is 0.0.0.0
 ```
+
+## Disabling ad block
+To disable the ad blocking service, slide the **Enable blocklists** toggle to its off position, then choose **Save settings**. You may then restart your hotspot for the changes to take effect.
 
 ## About blocklist policies
 The notracking blocklists chosen for RaspAP adhere to these policies:
