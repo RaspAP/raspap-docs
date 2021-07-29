@@ -140,7 +140,7 @@ Exact methods vary between devices, however most will have a 'Forget this networ
 If clients still fail to connect, restart the AP. You may do this by choosing **Restart hotspot** from RaspAP. This reinitializes several related services in a predictable order and timing.
 Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.
 
-RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its [default settings](https://docs.raspap.com/issues/#default-settings), RaspAP has been rigorously
+RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its [default settings](/defaults/), RaspAP has been rigorously
 tested and validated to provide connectivity in routed AP mode. If you suspect that RaspAP is misconfigured and not providing IP addresses to clients, you may troubleshoot this yourself.
 
 Clients connecting to your AP are assigned, or leased, an IP address with `dnsmasq`. You can see how this process works by enabling the **Log DHCP requests** option in the **DHCP Server > Logging** tab. 
@@ -164,14 +164,14 @@ Save settings, restart `dnsmasq` and try connecting your client again.
 ## <a name="access"></a>My WiFi network disappeared and I can't access the webgui. Help!
 If you're running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
 
-1. Be sure your browser isn't forcing SSL by appending https:// to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](https://docs.raspap.com/ssl-quick/))
+1. Be sure your browser isn't forcing SSL by appending https:// to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](/ssl-quick/))
 2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. Check the logs for hostapd errors and reconfigure the service, or run the installer again to restore the [default configuration](defaults.md).
 3. There are [several methods](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on `wlan0`. If the AP has entered a failed state, you may still be able to connect on an alternate interface.
 4. Recent versions of the RPi OS kernel include the `avahi-daemon` which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering [http://raspberrypi.local/](http://raspberrypi.local/) in the browser or via SSH with `ssh pi@raspberrypi.local`.
 5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, aka 'on-the-go' or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
 ## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone. Help!
-The [installer](https://docs.raspap.com/quick/) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize php by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
+The [installer](/quick/) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize php by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
 
 You are free to SSH in to restore those files to their rightful position. However, you may need to ensure that the RaspAP modifications are applied to your own custom configurations.
 
@@ -188,7 +188,7 @@ sudo systemctl status raspapd.service
 The `raspapd.service` is optionally installed and enabled by the Quick Installer. It is also included in the manual setup steps.
 
 ## <a name="bridged"></a>Bridged AP mode is unstable or clients can't connect. Help!
-RaspAP [delegates all DHCP control to your router](https://docs.raspap.com/bridged/) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](https://docs.raspap.com/issues/#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
+RaspAP [delegates all DHCP control to your router](/bridged/) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](/issues/#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
 
 If clients disconnect intermittently, this often indicates an undervoltage issue with your RPi. Check the kernel log for any `Under-voltage detected!` errors. Be sure you are using an official 5.1V power supply (each model has [different power requirements](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md)) and detach any USB devices. Executing `dmesg | grep br0` can also offer clues. Execute `sudo dhclient -v` to gain insights into DHCP requests between your device and router. A typical DHCP exchange follows this pattern:
 
@@ -229,7 +229,7 @@ sudo wpa_supplicant -B -Dnl80211,wext -c/etc/wpa_supplicant/wpa_supplicant.conf 
 substituting `wlan0` with your wireless interface, if necessary. You should then be able to perform scans as expected.
 
 > :information_source: **Note:** If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information 
-on this topic is [available here](https://docs.raspap.com/ap-sta/#when-to-reboot).
+on this topic is [available here](/ap-sta/#when-to-reboot).
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
@@ -238,13 +238,13 @@ One option is to configure RaspAP to use a Pi-Hole installation on a separate de
 
 Alternatively, you can run Pi-Hole and RaspAP on the same device by operating RaspAP in bridged mode. Go to RaspAP's **Hotspot** > **Advanced settings** page, enable the "Bridged AP mode" option and restart your hotspot. 
 
-Finally, and by popular demand, RaspAP has released its own [ad blocking facility](https://docs.raspap.com/adblock/) with support for custom blocklists. 
+Finally, and by popular demand, RaspAP has released its own [ad blocking facility](/adblock/) with support for custom blocklists. 
 
 ## <a name="adguard"></a>Can I integrate RaspAP with Adguard Home?
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400)
 
 ## <a name="captive"></a>Can I configure RaspAP to work with a captive portal?
-Yes, the [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](https://docs.raspap.com/captive/). 
+Yes, the [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](/captive/). 
 
 ## <a name="schedule"></a>How do I create an AP activation schedule?
 This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with `cron` to stop/start RaspAP's service control script at certain times. Run `sudo crontab -e` and add entries like so:
@@ -276,7 +276,7 @@ For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru
 
 ## <a name="managed"></a> Can I configure a managed mode AP without using the UI?
 Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings.
-This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](https://docs.raspap.com/faq/#headless) and a valid [`hostapd.conf`](https://docs.raspap.com/ap-sta/#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
+This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](/faq/#headless) and a valid [`hostapd.conf`](/ap-sta/#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
 
 ```
 LogEnable = 0
@@ -421,7 +421,7 @@ RaspAP:
 If using TKIP for encryption with WPA, you will be restricted to 54 Mb/s. This is because the IEEE 802.11n draft prohibits using high throughput with WEP or TKIP ciphers.
 
 ## <a name="iptables"></a> How do I exclude NAT rules from IP traffic on localhost?
-RaspAP's [Quick Installer](https://docs.raspap.com/quick/) configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.
+RaspAP's [Quick Installer](/quick/) configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.
 
 In some cases, NAT rules applied to `localhost` can interfere with other services running on an RPi. An example is the Plex Media Server, which has an API that listens on localhost. As of this writing, the Plex API has been built to not authenticate communication between service processes of the server. This can cause a failure to communicate with the Plex API or similar add-on services on your RPi.
 
@@ -505,7 +505,7 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 Paste your converted hex value into RaspAP's WiFi client passphrase field and try connecting.
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
-Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version, simply run the [Quick Installer](https://docs.raspap.com/quick/) with the `--upgrade` option:
+Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version, simply run the [Quick Installer](/quick/) with the `--upgrade` option:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade
@@ -557,7 +557,7 @@ sudo systemctl disable raspapd.service
 ```
 
 ## <a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?
-Yes, the [Quick Installer](https://docs.raspap.com/quick/) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command-line option, like so:
+Yes, the [Quick Installer](/quick/) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command-line option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --yes
