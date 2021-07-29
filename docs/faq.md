@@ -202,7 +202,7 @@ SERVER -> DHCPACK
 If your device (the client) broadcasts DHCPDISCOVER, but there is no DHCPOFFER response from your router, you have a misconfiguration or other issue with your network. Troubleshooting client connectivity in bridged AP mode is not supported. No hard feelings.
 
 ## <a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W. Help!
-See [this walkthrough](https:docs.raspap.com/ap-sta/) where the installation is described in detail.
+See [this walkthrough](/ap-sta/) where the installation is described in detail.
 
 ## <a name="scanning"></a>WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`. Help!
 On some configurations, the **Configure WiFi client** panel may appear empty. This project uses the `wpa_supplicant` command line client `wpa_cli` to populate a list of available wireless networks. If you can't execute this from the shell, neither can the web UI. For example, the results of this command:
