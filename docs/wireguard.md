@@ -25,9 +25,7 @@ configuration file.
 
 The complete process of creating a WireGuard configuration with [Mullvad](https://mullvad.net/) and activating it with RaspAP is demonstrated in the video below. 
 
-<video width="640" height="480" controls>
-  <source src="https://cdn-cf-east.streamable.com/video/mp4/c0qgn6_5.mp4?Expires=1626547380&Signature=Y4Se8v0wMaGUPwamMSzy4Lg3roBPJulrjxINC82pgk4cT1e73~ao-0R2gV7c1InVL16hvDKQD8dWL-vqPlL202U-p2MoupobTu2MhyDUDdlAeJueJCjRIVBCilw0TkjcpC-w9o2e8NVzhpGPBr02xlAebaS883GYudXGHk5pihBl9OU4RfuVyNHdIE8u7k2urqiw6cgKWB~Lp0RVl9F9X2ra4kNW0I3BGslF6fnrpUdvP~I948zdajEBKIwJve7zr7l78R9M7odGmr~hOoypg-WdDXMGa0NVV7v2d32hfGc5908KUq2iDaWDqEXkkd190AakZKtXyrIycPOACgNjtA__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ" type="video/mp4">
-</video>
+<video src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" data-canonical-src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" controls="controls" muted="muted"></video>
 
 It should be noted that RaspAP has no affiliation whatsoever with Mullvad. In fact, Mullvad [does not use affiliates](https://mullvad.net/en/help/policy-reviews-advertising-and-affiliates/) or pay for reviews. 
 Members of RaspAP's [Insiders community](/insiders/) have requested support for this VPN provider.
