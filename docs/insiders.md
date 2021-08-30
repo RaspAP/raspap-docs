@@ -82,19 +82,17 @@ curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
 ```
 
 ### Authentication
-You will be prompted to authenticate in order to clone the private Insiders repository. To do so, just enter your GitHub credentials during the install. For example:
+As of August 13, 2021 GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal Access Token** and pass this as a parameter to the installer. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
+
+After you've generated a token, use the [Quick Installer](/quick/#-t-token-accesstoken)'s `-t` or `--token` option to pass this when doing a fresh install or upgrading an existing install to the **Insiders Edition**. For example:
 
 ```
-RaspAP Install: Cloning latest files from github
-Cloning into '/tmp/raspap-webgui'...
-Username for 'https://github.com': octocat
-Password for 'https://octocat@github.com': 
+curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --token [my-token]`
 ```
 
-> :information_source: **Note**: your password is sent securely via SSH to GitHub. The above prompt is actually from GitHub, so the installer does _not_ know your credentials.
+> :information_source: **Note**: your token is sent securely via SSH to GitHub. The installer does _not_ have access to or store your token.
 
-Using GitHub with 2FA enabled? Create a [personal access token](https://docs.github.com/en/github/authenticating-to-github/accessing-github-using-two-factor-authentication#using-two-factor-authentication-with-the-command-line) and pass it to the installer with the [--token](https://docs.raspap.com/quick/#-t-token-accesstoken) option.
-Adding SSH keys to your GitHub account achieves the same result.
+If you're using GitHub with 2FA enabled the same process above applies.
 
 ### Terms
 *We're using RaspAP for a commercial project. Can we use Insiders under the same terms and conditions?*
