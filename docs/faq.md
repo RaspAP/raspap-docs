@@ -14,6 +14,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [What is the maximum number of simultaneous clients that I can connect to my AP?](#maxclients)
 * [Where can I find a list of USB WiFi adapters that use in-kernel drivers?](#adapters)
 * [What are the passphrase requirements used by RaspAP?](#passphrase)
+* [Can I remove the AP password to create an open WiFi network?](#nopw)
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
@@ -136,7 +137,10 @@ This means that so-called special characters, or extended ASCII codes, are not p
 
 RaspAP will automatically generate a secure passphrase, or PSK, for you. On the **Hotspot > Security** tab, click or tap the magic icon :fontawesome-solid-magic: next to the PSK input. Choose **Save settings**
 and **Restart hotspot** for the changes to take effect. 
- 
+
+## <a name="nopw"></a>Can I remove the AP password to create an open WiFi network?
+Yes. On the **Hotspot > Security** tab, select 'None' for Security type. Choose **Save settings** and **Restart hotspot** for the changes to take effect.
+
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
 
