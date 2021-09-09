@@ -13,6 +13,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I use RaspAP with my custom dnsmasq configuration?](#dnsmasq)
 * [What is the maximum number of simultaneous clients that I can connect to my AP?](#maxclients)
 * [Where can I find a list of USB WiFi adapters that use in-kernel drivers?](#adapters)
+* [What are the passphrase requirements used by RaspAP?](#passphrase)
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
@@ -126,6 +127,16 @@ This [GitHub list](https://github.com/morrownr/USB-WiFi) currently has 60 links 
 
 With adapters that use in-kernel drivers, you may simply plug the adapter in and it will work. Many people find that using adapters with in-kernel drivers is a better solution than buying an adapter that requires drivers to be found, downloaded, compiled, installed, fixed and reinstalled.
 
+## <a name="passphrase"></a>What are the passphrase requirements used by RaspAP?
+The requirements are based on [IEEE standard 802.11i-2004](https://en.wikipedia.org/wiki/IEEE_802.11i-2004) which defines a passphrase as a sequence of between 8 and 63 ASCII-encoded characters.
+Furthermore, each character in the passphrase must have a decimal encoding in the range of 32 to 126 (IEEE Std. 802.11i-2004, Annex H.4.1). These are often known as [printable characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters)
+that represent letters, digits, punctuation marks and a few miscellaneous symbols.
+
+This means that so-called special characters, or extended ASCII codes, are not permitted in a passphrase. For example, the Euro sign "€", German "ä" and British pound symbol "£" fall outside this range. 
+
+RaspAP will automatically generate a secure passphrase, or PSK, for you. On the **Hotspot > Security** tab, click or tap the magic icon :fontawesome-solid-magic: next to the PSK input. Choose **Save settings**
+and **Restart hotspot** for the changes to take effect. 
+ 
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
 
