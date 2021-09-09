@@ -34,6 +34,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I configure an alternate port for RaspAP's web service?](#webport)
 * [What breaks RaspAP when Docker is installed on the same system and how I can fix it?](#docker)
 * [Can I integrate RaspAP with OpenMediaVault?](#omv)
+* [Can I use RaspAP to share Speedify's aggregated connections?](#speedify)
 
 ## OpenVPN
 * [OpenVPN fails to start and/or I have no internet. Help!](#openvpn-fails)
@@ -348,6 +349,32 @@ interfaces = lo eth0
 ```
 
 Source: [openmediavault forums](https://forum.openmediavault.org/index.php?thread/39060-raspap-and-omv5-media-center-wifihotspot-with-ethernet/).
+
+## <a name="speedify"></a>Can I use RaspAP to share Speedify's aggregated connections?
+Yes, RaspAP is compatibile with Speedify's connection bonding. In this scenario, you may want to combine several internet connections (for example, a DSL connection, 4G cellphone and an LTE router) and share these via RaspAP.
+
+Begin by running Speedify's [one step install](https://support.speedify.com/article/562-install-speedify-linux), login with your credentials and connect Speedify. Next, [configure Speedify for WiFi sharing](https://support.speedify.com/article/566-speedify-linux-wifi)
+by editing the following file:
+
+```
+sudo nano /etc/speedify/speedify.conf
+```
+
+Make sure to uncomment the following lines (remove the '#' symbol). To share over the Wi-Fi interface `wlan0`, set:
+
+```
+ENABLE_SHARE=1 
+SHARE_INTERFACE="wlan0"
+WIFI_INTERFACE="wlan0" 
+```
+
+Once you have configured the sharing settings, save the file (if you are using nano, use CTRL+O and press Enter to save). Exit the text editor and then execute:
+ 
+```
+sudo service speedify-sharing restart
+```
+
+Refer to [Speedify's support article](https://support.speedify.com/article/566-speedify-linux-wifi) for additional tips and troubleshooting.
 
 ## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet. Help!
 RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
