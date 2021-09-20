@@ -22,6 +22,8 @@ sudo reboot
 ```
 Set the WiFi country in raspi-config's **Localisation Options**: `sudo raspi-config`.
 
+> :information_source: **Important**: Failure to perform this step will prevent the RPi from enabling wireless operation. When this happens, you will see the warning `Wi-Fi is currently blocked by rfkill` in the console.
+
 Install RaspAP from your device's shell prompt:
 ```sh
 curl -sL https://install.raspap.com | bash
