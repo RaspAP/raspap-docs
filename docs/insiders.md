@@ -87,7 +87,7 @@ As of August 13, 2021 GitHub [removed support for password authentication](https
 After you've generated a token, use the [Quick Installer](/quick/#-t-token-accesstoken)'s `-t` or `--token` option to pass this when doing a fresh install or upgrading an existing install to the **Insiders Edition**. For example:
 
 ```
-curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --token [my-token]`
+curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --token [my-token]
 ```
 
 > :information_source: **Note**: your token is sent securely via SSH to GitHub. The installer does _not_ have access to or store your token.
