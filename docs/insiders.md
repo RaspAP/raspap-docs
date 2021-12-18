@@ -21,15 +21,15 @@ You can cancel your sponsorship anytime.[^3]
 The following features are currently available exclusively to sponsors. A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP.
 This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
-:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)    
-:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn/#certificate-authentication) :material-new-box:      
+:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](openvpn.md#multiple-client-configs)    
+:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](openvpn.md#certificate-authentication) :material-new-box:      
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](/ap-basics/#transmit-power) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [Network device management](/net-devices/) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } Firewall settings :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [WireGuard support](wireguard.md) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](ap-basics.md#transmit-power) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md) :material-new-box:   
 :octicons-gear-24: Traffic shaping (in progress)  
 :octicons-gear-24: Printable WiFi signs (in progress)  
 
@@ -40,17 +40,17 @@ Below is a list of funding targets. When a funding target is reached, the featur
 
 ### Goals
 #### **$500** - 1st Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](/openvpn/#multiple-client-configs)  
-:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](/openvpn/#certificate-authentication) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](openvpn.md#multiple-client-configs)  
+:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](openvpn.md#certificate-authentication) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle :material-new-box:  
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients :material-new-box:  
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](/wireguard/) :material-new-box:  
-:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](/ap-basics/#transmit-power) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [WireGuard support](wireguard.md) :material-new-box:  
+:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](ap-basics.md#transmit-power) :material-new-box:   
 
 #### **$1000** - 2nd Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Network device management](/net-devices/) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } Firewall settings :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md) :material-new-box:   
 :octicons-gear-24: Traffic shaping (in progress)  
 :octicons-gear-24: Printable WiFi signs (in progress)  
 
