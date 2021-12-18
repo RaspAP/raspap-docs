@@ -25,8 +25,8 @@ Main rules cover many functions, including allowing unrestricted traffic over th
 WireGuard (`wg0`, for example). RaspAP will check for the presence of an active OpenVPN or WireGuard connection and automatically apply these rules. 
 
 ### Exception rules
-These types of rules include service exceptions, such as allowing `ssh` access on port 22 and `http` on ports 80 and 443. In addition, user-defined exception rules may be added
-to allow incoming or outgoing traffic from specific IP addresses or interfaces. Any number of IPs may be entered in the UI, separated by a blank or comma.
+These types of rules include service exceptions, such as allowing `ssh` access on port 22 and `http` or `https` on ports 80 and 443, respectively. In addition, user-defined exception rules may be added
+to allow incoming or outgoing traffic from specific IP addresses or interfaces. These exception values may be entered in the UI, separated by a blank character or comma.
 
 This rule type is required for OpenVPN via UDP and WireGuard. A list of currently active VPN server IP addresses is provided in the firewall UI.
 
