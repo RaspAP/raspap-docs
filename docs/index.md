@@ -50,9 +50,9 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 
 | Distribution | Release  | Architecture | Support |
 |---|:---:|:---:|:---:|
-| Raspberry Pi OS | (32-bit) Lite Buster | ARM | Official |
-| Armbian | Buster | [ARM](https://docs.armbian.com/#supported-chips) | Official |
-| Debian  |  Buster | ARM / x86_64  | Beta |
+| Raspberry Pi OS | (32-bit) Lite Bullseye | ARM | Official |
+| Armbian | Bullseye | [ARM](https://docs.armbian.com/#supported-chips) | Official |
+| Debian  |  Bullseye | ARM / x86_64  | Beta |
 | Ubuntu  |  18.04 LTS / 19.10 | ARM / x86_64  | Beta |
 
 ![](https://user-images.githubusercontent.com/229399/115760318-81f03f80-a3a1-11eb-8df5-15ec4aec3e8a.png){: style="width:400px"}
