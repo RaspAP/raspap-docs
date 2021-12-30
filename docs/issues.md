@@ -23,6 +23,14 @@ RaspAP functions very well "out of the box" on fresh installs of the latest RPi 
 
 If you have installed other software packages on top of RaspAP, particularly those related to networking such as TOR or Pi-hole, please test RaspAP first on a clean install before reporting an issue.
 
+## External hardware
+RaspAP has been rigorously tested on the above supported distros and devices using the onboard wireless chipsets. While many good external wireless USB adapters, or "dongles", are available, a
+substantial number lack in-kernel driver support or are otherwise unsuitable for this project. It is not practical, or even possible, to individually test every dongle on the market with this project. 
+For this reason, issues that concern external wireless adapters, or request troubleshooting of these devices, will not be considered.
+
+If you suspect a driver problem with your USB adapter, [RaspAP tools](https://github.com/RaspAP/raspap-tools#install-missing-wlan-driver-modules) 
+can assist you with installing missing WLAN driver modules. Beyond this, your best avenue for troubleshooting are the public forums mentioned above.
+
 ## Default settings
 One of RaspAP's most popular features is the [Quick Installer](quick.md), which gets an AP up and running quickly and with a minimum of hassle. This works by applying a known-good [default configuration](defaults.md) that has been validated in testing with the project's supported devices. When the project [prerequisites](index.md#quick-start) are followed, an AP with wired ethernet (`eth0`) or managed mode (`wlan0`) Wifi client AP will be functional with the default settings.
 
