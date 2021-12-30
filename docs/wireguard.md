@@ -23,6 +23,9 @@ To do this, select the **Upload file** option under **Configuration Method**, se
 file does not contain `iptables` `PostUp` or `PostDown` rules and you wish to route traffic through the active AP interface, select the **Apply iptables rules for AP interface** option before uploading your
 configuration file.
 
+> :warning: **Attention:** For security reasons, your WireGuard `.conf` file must have a Linux MIME type of `text/plain`. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a `text/plain` 
+MIME type embedded in it before uploading.
+
 The complete process of creating a WireGuard configuration with [Mullvad](https://mullvad.net/) and activating it with RaspAP is demonstrated in the video below. 
 
 <video src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" data-canonical-src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" controls="controls" muted="muted"></video>

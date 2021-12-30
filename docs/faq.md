@@ -24,7 +24,8 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [RaspAP control panel works but there is no WiFi after reboot.](#nowifi)
 * [Bridged AP mode is unstable or clients can't connect. Help!](#bridged)
 * [Managed mode AP doesn't work on the Pi Zero W. Help!](#pizero-w)
-* [WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`. Help!](#scanning)
+* [WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.](#scanning)
+* [Uploading my OpenVPN or WireGuard config results in "Mime type not allowed".](#mimetype)
 
 ## Integrations
 * [How do I integrate RaspAP with Pi-hole?](#pihole)
@@ -246,6 +247,10 @@ substituting `wlan0` with your wireless interface, if necessary. You should then
 
 > :information_source: **Note:** If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information 
 on this topic is [available here](/ap-sta/#when-to-reboot).
+
+## <a name="mimetype"></a>Uploading my OpenVPN or WireGuard config results in "Mime type not allowed".
+Your OpenVPN or WireGuard `.conf` files must have a Linux MIME type of `text/plain`. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a `text/plain` 
+MIME type embedded in it before uploading. Most OpenVPN and WireGuard service providers give you the option of downloading a file formatted for Linux.
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
