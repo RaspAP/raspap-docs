@@ -249,7 +249,7 @@ substituting `wlan0` with your wireless interface, if necessary. You should then
 on this topic is [available here](/ap-sta/#when-to-reboot).
 
 ## <a name="mimetype"></a>Uploading my OpenVPN or WireGuard config results in "Mime type not allowed".
-Your OpenVPN or WireGuard `.conf` files must have a Linux MIME type of `text/plain`. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a `text/plain` 
+For security reasons, your OpenVPN or WireGuard `.conf` files must have a Linux MIME type of `text/plain`. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a `text/plain` 
 MIME type embedded in it before uploading. Most OpenVPN and WireGuard service providers give you the option of downloading a file formatted for Linux.
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
