@@ -65,6 +65,7 @@ The following translations are currently maintained by the project:
 | Čeština | cs_CZ.UTF-8 |
 | Русский | ru_RU.UTF-8 |
 | Polskie | pl_PL.UTF-8 |
+| Română  | ro_RO.UTF-8 |
 | Español | es_MX.UTF-8 |
 | Finnish | fi_FI.UTF-8 |
 | Türkçe  | tr_TR.UTF-8 |
