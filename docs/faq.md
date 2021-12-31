@@ -492,6 +492,9 @@ You may also execute this command directly from the shell, if you wish.
 
 Finally, you may check and verify the WireGuard config itself, including PostUp / PostDown rules, by executing `sudo cat /etc/wireguard/wg0.conf`.
 
+As a last piece of advice, be sure to check more than one client device connection with your WireGuard-enabled AP. Some users have reported traffic not routing as expected with one device, while a 
+different device behaves normally. 
+
 Please note that RaspAP provides a front-end to the WireGuard service only. It has no way of validating your WireGuard configuration. For this reason, bug reports such as "WireGuard not working"
 won't be considered. 
 
