@@ -465,7 +465,7 @@ There are several things you can do to troubleshoot this. First, with the WireGu
 
 ![](https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png){: style="width:276px"}
 
-Next, you may check the WireGuard service status by executing `sudo systemctl status wg-quick@wg0.service` from the bash shell.
+Next, you may check the WireGuard service status by executing `sudo systemctl status wg-quick@wg0.service` from the shell, like so:
 
 ```
 $ sudo systemctl status wg-quick@wg0.service
@@ -484,9 +484,13 @@ $ sudo systemctl status wg-quick@wg0.service
      CGroup: /system.slice/system-wg\x2dquick.slice/wg-quick@wg0.service
 ```
 
-You may also use `journalctl --identifier wg-quick` to identify any errors.
+You may also use RaspAP's built-in WireGuard logging facility. On the **WireGuard > Logging** tab, enable the "Display WireGuard debug log" option and choose **Save settings**. Check the log
+output in the tab and look for any errors.
 
-Finally, you may check and verify the PostUp / PostDown rules by executing `sudo cat /etc/wireguard/wg0.conf`.
+> :information_source: **Note:** The debug log facility queries the `systemd` journal with a one-time execution of `journalctl --identifier wg-quick`. If you want to update this log output, simply enable the option again.
+You may also execute this command directly from the shell, if you wish.
+
+Finally, you may check and verify the WireGuard config itself, including PostUp / PostDown rules, by executing `sudo cat /etc/wireguard/wg0.conf`.
 
 Please note that RaspAP provides a front-end to the WireGuard service only. It has no way of validating your WireGuard configuration. For this reason, bug reports such as "WireGuard not working"
 won't be considered. 
