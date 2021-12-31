@@ -25,7 +25,6 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Bridged AP mode is unstable or clients can't connect. Help!](#bridged)
 * [Managed mode AP doesn't work on the Pi Zero W. Help!](#pizero-w)
 * [WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.](#scanning)
-* [Uploading my OpenVPN or WireGuard config results in "Mime type not allowed".](#mimetype)
 
 ## Integrations
 * [How do I integrate RaspAP with Pi-hole?](#pihole)
@@ -39,10 +38,16 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I integrate RaspAP with OpenMediaVault?](#omv)
 * [Can I use RaspAP to share Speedify's aggregated connections?](#speedify)
 
+<a name="openvpn"></a>
 ## OpenVPN
 * [OpenVPN fails to start and/or I have no internet. Help!](#openvpn-fails)
 * [OpenVPN works but I have partial or no internet access. Help!](#partial)
 * [OpenVPN is enabled but I am still blocked from country restricted websites. Help!](#restricted)  
+
+<a name="wireguard"></a>
+## WireGuard
+* [Uploading my WireGuard config results in "MIME type not allowed".](#mimetype)
+* [I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?](#wgtraffic)
 
 ## Networking
 * [Why can't I access wireless mode 'N' (802.11n)?](#wireless-mode)
@@ -248,10 +253,6 @@ substituting `wlan0` with your wireless interface, if necessary. You should then
 > :information_source: **Note:** If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information 
 on this topic is [available here](/ap-sta/#when-to-reboot).
 
-## <a name="mimetype"></a>Uploading my OpenVPN or WireGuard config results in "Mime type not allowed".
-For security reasons, your OpenVPN or WireGuard `.conf` files must have a Linux MIME type of `text/plain`. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a `text/plain` 
-MIME type embedded in it before uploading. Most OpenVPN and WireGuard service providers give you the option of downloading a file formatted for Linux.
-
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
 
@@ -451,6 +452,44 @@ If you suspect network traffic is not being routed through tun0 (or any other in
 sudo apt install iftop
 sudo iftop -i [interface]
 ```
+
+## <a name="mimetype"></a>Uploading my WireGuard config results in "MIME type not allowed".
+For security reasons, your OpenVPN or WireGuard `.conf` files must have a Linux MIME type of `text/plain`. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a `text/plain` 
+MIME type embedded in it before uploading.
+
+Most OpenVPN and WireGuard service providers give you the option of downloading a file formatted for Linux. Alternatively, you may convert your Windows config file
+for use with Linux with `dos2unix` or one of several online tools made for this purpose. 
+
+## <a name="wgtraffic"></a>I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?
+There are several things you can do to troubleshoot this. First, with the WireGuard service active, verify your public IPv4 address and check the external link, as shown below:
+
+![](https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png){: style="width:276px"}
+
+Next, you may check the WireGuard service status by executing `sudo systemctl status wg-quick@wg0.service` from the bash shell.
+
+```
+$ sudo systemctl status wg-quick@wg0.service
+● wg-quick@wg0.service - WireGuard via wg-quick(8) for wg0
+     Loaded: loaded (/lib/systemd/system/wg-quick@.service; enabled; vendor preset: enabled)
+     Active: active (exited) since Wed 2021-12-29 15:31:03 GMT; 1 day 18h ago
+       Docs: man:wg-quick(8)
+             man:wg(8)
+             https://www.wireguard.com/
+             https://www.wireguard.com/quickstart/
+             https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8
+             https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
+   Main PID: 1450 (code=exited, status=0/SUCCESS)
+      Tasks: 0 (limit: 1438)
+        CPU: 0
+     CGroup: /system.slice/system-wg\x2dquick.slice/wg-quick@wg0.service
+```
+
+You may also use `journalctl --identifier wg-quick` to identify any errors.
+
+Finally, you may check and verify the PostUp / PostDown rules by executing `sudo cat /etc/wireguard/wg0.conf`.
+
+Please note that RaspAP provides a front-end to the WireGuard service only. It has no way of validating your WireGuard configuration. For this reason, bug reports such as "WireGuard not working"
+won't be considered. 
 
 ## <a name="wireless-mode"></a>Why can't I access wireless mode 'N' (802.11n)?
 On the **Configure hotspot** > **Security** tab, be sure to select CCMP for the Encryption Type. Save the settings and restart the hotspot. The wireless mode should be reported on clients as 802.11b/g/n.

@@ -78,3 +78,6 @@ sudo iftop -i [interface]
 The Mozilla Foundation recently added a **DNS over HTTPS (DoH)** proprietary service to its Firefox browser. As of this writing, this "feature" is enabled by default for users in the United States.
 A consequence of DoH is that DNS requests will be resolved by Mozilla's DNS servers, instead of your VPN provider's. Instructions for disabling this DoH may be found [here](https://support.mozilla.org/en-US/kb/firefox-dns-over-https#w_manually-enabling-and-disabling-dns-over-https).
 
+## Troubleshooting
+See the [FAQ section](/faq/#openvpn) for OpenVPN.
+

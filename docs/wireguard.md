@@ -123,3 +123,5 @@ WireGuard isn't a chatty protocol. For the most part, it only transmits data whe
 
 As a result, your wireless adapter has a higher likelihood of being able to idle down, which leads to better battery life.
 
+## Troubleshooting
+See the [FAQ section](/faq/#wireguard) for WireGuard.
