@@ -60,9 +60,8 @@ wlan0: STA 24:62:ab:fd:24:34 IEEE 802.11: deauthenticated due to inactivity (tim
 This option sets the `disassoc_low_ack` boolean value for `hostapd`. Be aware that this value is dependent on driver capabilities. Moreover, `hostapd` may disassociate a client (or station) for a variety of reasons, so this is not a silver bullet.
 
 ### Transmit power
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
-[Insiders](insiders.md) are able to control the transmit power of the configured AP interface. The default "auto" setting will suffice for the vast majority of APs. A lower `txpower` value
+RaspAP allows you to control the transmit power of the configured AP interface. The default "auto" setting will suffice for the vast majority of APs. A lower `txpower` value
 can be useful to mitigate WiFi radio interference, for example if you are hosting multiple APs in a given area. It can also be advantageous to set `txpower` to a lower value in IoT or similar applications where reduced power consumption is needed.
  
 ![](https://user-images.githubusercontent.com/229399/115698577-0f616e80-a365-11eb-80e5-404527ca7bdb.png){: style="width:375px"}

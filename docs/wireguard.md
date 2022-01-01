@@ -3,8 +3,6 @@
 ![](https://i.imgur.com/5YDv37e.png)
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
-
 WireGuard<sup>®</sup> is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be considerably more performant than OpenVPN,
 and is generally regarded as the most secure, easiest to use, and simplest VPN solution for modern Linux distributions.
 
