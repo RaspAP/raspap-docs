@@ -43,9 +43,10 @@ Below is a list of funding targets. When a funding target is reached, the featur
 #### **$1000** - 2nd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md) :material-new-box:   
+:octicons-gear-24: 802.11w Protected Management Frames (in progress)  
+:octicons-gear-24: WPA3-Personal AP security (in progress)  
 :octicons-gear-24: Traffic shaping (in progress)  
 :octicons-gear-24: Printable WiFi signs (in progress)  
-:octicons-gear-24: Protected Management Frames (in progress)  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
