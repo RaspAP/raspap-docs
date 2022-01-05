@@ -21,18 +21,12 @@ You can cancel your sponsorship anytime.[^3]
 The following features are currently available exclusively to sponsors. A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP.
 This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
-:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](openvpn.md#multiple-client-configs)    
-:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](openvpn.md#certificate-authentication)     
-:octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
-:octicons-check-circle-fill-24:{: .check } Night mode toggle   
-:octicons-check-circle-fill-24:{: .check } Restrict network to static clients   
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](wireguard.md) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](ap-basics.md#transmit-power) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md) :material-new-box:   
+:octicons-gear-24: 802.11w Protected Management Frames (in progress)  
+:octicons-gear-24: WPA3-Personal AP security (in progress)  
 :octicons-gear-24: Traffic shaping (in progress)  
 :octicons-gear-24: Printable WiFi signs (in progress)  
-:octicons-gear-24: Protected Management Frames (in progress)  
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
 
