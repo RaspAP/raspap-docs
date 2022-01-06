@@ -3,9 +3,13 @@
 ## Overview
 :octicons-beaker-24: Experimental (Unsupported)
 
-This walkthrough describes an installation of RaspAP on the [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/). A managed mode AP, variously known as **WiFi client AP mode**, a **micro-AP** or simply **AP-STA**, works "out-of-the-box" with the Quick Installer if the steps below are followed carefully. This feature was added to RaspAP specifically to support Internet of Things (IoT) and embedded applications for the Pi Zero W, however it is equally useful for a broad range of projects.
+This walkthrough describes an installation of RaspAP on the [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/). A managed mode AP, variously known as 
+**WiFi client AP mode**, a **micro-AP** or simply **AP-STA**, _usually_ works with the Quick Installer if the steps below are followed carefully. This feature was added to RaspAP specifically to support Internet of Things (IoT) and embedded applications for the Pi Zero W, however it is equally useful for a broad range of projects.
 
-Continue reading for an explanation of AP-STA mode, or [skip to the installation](#installation).
+> :information_source: **Disclaimer:** this mode is _completely unsupported_ and should be used for educational purposes only. If you need a reliable solution with an access point (AP) and wireless client (STA)
+on the same device, buy a second Wi-Fi adapter and follow [this FAQ](faq.md#interfaces) instead. 
+
+Before proceeding with the installation, it's important to have a basic understanding of how AP-STA works.
 
 ![](https://i.imgur.com/gppLmAj.png)
 
