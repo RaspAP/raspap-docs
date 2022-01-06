@@ -23,10 +23,10 @@ This is done through Insiders' access to discussions, feature requests, issues a
 
 :octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md) :material-new-box:   
-:octicons-gear-24: 802.11w Protected Management Frames (in progress)  
-:octicons-gear-24: WPA3-Personal AP security (in progress)  
-:octicons-gear-24: Traffic shaping (in progress)  
+:octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](ap-basics.md#wpa3-personal) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](ap-basics.md#80211w) :material-new-box:   
 :octicons-gear-24: Printable WiFi signs (in progress)  
+:octicons-gear-24: Traffic shaping (in progress)  
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
 
@@ -37,10 +37,10 @@ Below is a list of funding targets. When a funding target is reached, the featur
 #### **$1000** - 2nd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md) :material-new-box:   
-:octicons-gear-24: 802.11w Protected Management Frames (in progress)  
-:octicons-gear-24: WPA3-Personal AP security (in progress)  
-:octicons-gear-24: Traffic shaping (in progress)  
+:octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](ap-basics.md#wpa3-personal) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](ap-basics.md#80211w) :material-new-box:   
 :octicons-gear-24: Printable WiFi signs (in progress)  
+:octicons-gear-24: Traffic shaping (in progress)  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition

@@ -30,6 +30,35 @@ When the AP is operational, you may connect clients to it by using one of two me
 
 By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.255`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](faq.md#noip).
 
+## Security settings
+WPA2 is currently the most secure standard utilizing AES (Advanced Encryption Standard) and a pre-shared key for authentication. WPA2 is also backwards compatible with TKIP to allow interoperability with legacy devices. AES uses the CCMP encryption protocol which is a stronger algorithm for message integrity and confidentiality.
+
+By default, RaspAP's access point is configured with WPA2 and CCMP encryption. You may of course change this to allow legacy clients (older mobile devices, for example) by selecting `TKIP+CCMP` as the encryption type. Choose **Save settings** and **Restart hotspot** for your changes to take effect. 
+
+### WPA3-Personal
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+
+WPA3 is an improved encryption standard, thanks to Simultaneous Authentication of Equals (SAE) which replaces the Pre-Shared Key (PSK) authentication method used in prior WPA
+versions. WPA3-Personal allows for better password-based authentication even when using simple passphrases. In general, WPA3-Personal networks with simple passphrases are more difficult to crack
+by using brute-force, dictionary-based methods, as with WPA/WPA2.
+
+![](https://user-images.githubusercontent.com/229399/148420827-51b176de-182e-48eb-962d-2943a47c8549.png){: style="width:400px"}
+
+WPA3 also requires the use of Protected Management Frames (PMFs) to increase network security. If you wish to connect AP clients that may not have support for WPA3-Personal or PMFs, a transitional 
+security mode is also available.
+
+> :information_source: **Note:** The Raspberry Pi's onboard wireless chipsets do not currently support the WPA3 standard. For this reason, in order to use this setting you will need to configure
+your AP with an external wireless adapter that supports WPA3.  
+
+### 802.11w
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+
+The 802.11w amendment was introduced as a way to secure Wi-Fi management frames against attacks by ensuring that these frames are legitimately exchanged between an AP and its clients, rather than
+a malicious third-party. These 802.11w Protected Management Frames (PMFs) can mitigate common types of "deauthentication" and "disassociation" attacks.
+
+Similar to WPA3-Personal, 802.11w may be configured in one of two modes: enabled and required. _Enabled_ allows for mixed operation by allowing legacy devices that do not support 802.11w to associate
+while also allowing devices that support 802.11w to use the PMF features. _Required_ will prevent clients that do not support 802.11w from associating with the SSID.
+
 ## Advanced options
 The above sections cover everything you will need for a basic routed AP. The **Hotspot > Advanced** tab has several options that allow you to control advanced settings for the Linux `hostapd` service. These are discussed in the following sections.
 
