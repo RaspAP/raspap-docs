@@ -56,6 +56,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [I think my country allows 5 GHz AP channels. Can I test this?](#wificountries)
 * [Why is the maximum throughput of my 802.11n AP reduced by half?](#wirelessn)
 * [Can I connect the WiFi client to a WEP network?](#wep)
+* [Can I turn the hotspot on/off over SSH?](#hotspotssh)
 
 ## Install & upgrade
 * [How do I upgrade RaspAP?](#upgrade)
@@ -607,6 +608,19 @@ Wired Equivalent Privacy (WEP) has been deprecated for quite awhile but old rout
 A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal value. Be sure the hex values are unpadded and there are no trailing spaces. For example, `52617370415069734772656174` is a valid hex passphrase.
 
 Paste your converted hex value into RaspAP's WiFi client passphrase field and try connecting.
+
+## <a name="hotspotssh"></a>Can I turn the hotspot on/off over SSH?
+Yes, RaspAP provides a front-end to several Linux `systemd` services, including `hostapd`. From the terminal, check the status of the `hostapd.service` like so:
+
+```
+$ sudo systemctl status hostapd.service 
+● hostapd.service - Access point and authentication server for Wi-Fi and Ethernet
+     Loaded: loaded (/lib/systemd/system/hostapd.service; enabled; vendor preset: enabled)
+```
+
+Stop the service with `sudo systemctl stop hostapd.service` and start it with `sudo systemctl start hostapd.service`.
+
+If you're curious about which other services and Linux tools RaspAP controls for you, take a look at [`raspap.sudoers`](https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers).  
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
 Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version, simply run the [Quick Installer](/quick/) with the `--upgrade` option:
