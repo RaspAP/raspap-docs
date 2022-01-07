@@ -216,9 +216,11 @@ The `hostapd` service is disabled by default, as there is no configuration for i
 sudo systemctl unmask hostapd.service
 sudo systemctl enable hostapd.service
 ```
+## Optional components
+The following components are not required to operate RaspAP, but extend its usefulness in several ways. Each is independent of the others, so you may choose to add whichever one you need.
 
-## OpenVPN
-Optionally, you may install OpenVPN, enabling the option in RaspAP's config and the `openvpn-client` service:
+### OpenVPN
+Install [OpenVPN](openvpn.md), enabling the option in RaspAP's config and the `openvpn-client` service, like so:
 
 ```
 sudo apt-get install openvpn
@@ -236,8 +238,17 @@ sudo chown -c root:www-data /etc/raspap/openvpn/*.sh
 sudo chmod 750 /etc/raspap/openvpn/*.sh
 ```
 
-## Ad blocking
-Optionally, you may install Ad blocking, enabling the option in RaspAP's config. There are several steps involved here, including downloading the blocklists:
+### WireGuard
+Adding support for [WireGuard](wireguard.md) is straightforward. The application files are already present in RaspAP, so you may simply install and enable the service, then activate the management option:
+
+```
+sudo apt-get install wireguard
+sudo sed -i "s/\('RASPI_WIREGUARD_ENABLED', \)false/\1true/g" /var/www/html/includes/config.php
+sudo systemctl enable wg-quick@wg
+```
+
+### Ad blocking
+There are several steps to enable [Ad blocking](adblock.md), including downloading the blocklists, setting permissions and adding a `dnsmasq` configuration: 
 
 ```
 sudo mkdir /etc/raspap/adblock
