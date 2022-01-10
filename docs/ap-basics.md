@@ -59,6 +59,16 @@ a malicious third-party. These 802.11w Protected Management Frames (PMFs) can mi
 Similar to WPA3-Personal, 802.11w may be configured in one of two modes: enabled and required. _Enabled_ allows for mixed operation by allowing legacy devices that do not support 802.11w to associate
 while also allowing devices that support 802.11w to use the PMF features. _Required_ will prevent clients that do not support 802.11w from associating with the SSID.
 
+### Printable signs
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+
+Beneath the QR code on the **Hotspot > Security** tab, you will find a link to open a "Wi-Fi connect" sign suitable for printing. Click or tap the link after the :fontawesome-solid-print: printer icon to open a new window with your hotspot's QR code, SSID and password neatly formatted.
+
+![](https://user-images.githubusercontent.com/229399/148738058-dfe7ea04-d59b-460a-a8b8-f0fca15ef715.png){: style="width:580px"}
+
+To print, select **File > Print** from your browser's toolbar and adjust print preferences as needed. This feature can be especially useful if you operate a public wireless access point. You may also
+opt to integrate a [captive portal](captive.md) for your visitors.
+
 ## Advanced options
 The above sections cover everything you will need for a basic routed AP. The **Hotspot > Advanced** tab has several options that allow you to control advanced settings for the Linux `hostapd` service. These are discussed in the following sections.
 
