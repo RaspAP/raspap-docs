@@ -121,7 +121,7 @@ the AP, have no internet on AP clients, or observe clients being disconnected fr
 If any of the above happens, one of the best diagnostic tools at your disposal is RaspAP's built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**. Finally, choose
 **Restart hotspot** and check the log output.
 
-![](https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png)
+![](https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png){: style="width:580px"}
 
 Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab.
 
