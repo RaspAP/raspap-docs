@@ -113,5 +113,5 @@ WifiManaged = wlan0
 These are used by RaspAP's [systemd control service](faq.md#raspap-service) `raspapd` to determine that a managed mode AP is enabled for the Pi and restore the connection after subsequent reboots.
 
 ## Changing hostapd settings
-Changes to the hotspot configuration should be applied to the `wlan0` physical device, not `uap0` (a virtual interface). In other words, configure hostapd _before_ enabling AP-STA mode.
-
+Changes to the hotspot configuration should be applied to the `wlan0` physical device, not `uap0` (a virtual interface). In other words, if you wish to change `hostapd` settings, stop the hotspot,
+disable AP-STA, make your config changes on `wlan0`, re-enable AP-STA and finally restart hostapd. An explanation is available [here](https://github.com/RaspAP/raspap-webgui/issues/752#issuecomment-757448664).
