@@ -69,7 +69,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. Since RaspAP does quite a bit of configuration on top
 of a known [default starting point](defaults.md), the more distros a project supports the bigger the task of handling these variations.
 
-It is increasingly difficult for a small team dev team to support a wide variety of targets. The RaspAP team could spend their precious and rare development time troubleshooting
+It becomes increasingly difficult for a small team of developers to support a wide variety of targets. The RaspAP team could spend their precious and rare development time troubleshooting
 one-offs and edge cases, or work on new features and bug fixes. For this reason, we've chosen to include support for a narrow, but diverse, subset of [compatible operating systems](index.md#compatible-operating-systems). 
 
 ## <a name="settings"></a>What do all these settings in the UI do? Changing them seems to have no effect.
