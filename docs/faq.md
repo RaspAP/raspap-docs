@@ -38,6 +38,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [What breaks RaspAP when Docker is installed on the same system and how I can fix it?](#docker)
 * [Can I integrate RaspAP with OpenMediaVault?](#omv)
 * [Can I use RaspAP to share Speedify's aggregated connections?](#speedify)
+* [How do I serve custom pages from RaspAP?](#custompages)
 
 <a name="openvpn"></a>
 ## OpenVPN
@@ -416,6 +417,24 @@ sudo service speedify-sharing restart
 ```
 
 Refer to [Speedify's support article](https://support.speedify.com/article/566-speedify-linux-wifi) for additional tips and troubleshooting.
+
+## <a name="custompages"></a>How do I serve custom pages from RaspAP?
+Several users have asked if they can extend RaspAP or otherwise serve their own custom directory with the existing `lighttpd` web service. Broadly, there are two approaches to achieve this.
+In the examples below, we will add support for a custom directory called "admin".
+
+
+**Option 1.** Create a subdirectory of RaspAP's default install location (`/var/www/html`) called "admin": `/var/www/html/admin`. Now, modify RaspAP's [application routing rules](https://docs.raspap.com/manual/#create-the-web-application)
+ by adding this directory to the exclusion list. You may do this with `sudo nano /etc/lighttpd/conf-available/50-raspap-router.conf`. Next, modify the following line like so: 
+
+```
+$HTTP["url"] =~ "^/(?!(dist|app|ajax|config|admin)).*" {
+```
+
+Notice that "admin" is appended above after "config". This instructs lighttpd not to rewrite URLs that match this pattern. Reload the lighttpd service with `sudo systemctl reload lighttpd.service`.
+
+You may now create your own `index.php` file in this folder and request it from the browser as `http://10.3.141.1/admin/` or `http://raspberrypi.local/admin`.
+
+**Option 2.**  Reinstall RaspAP and specify a custom install destination, for example `/var/www/html/raspap`. This will leave the default web root free for you to create any files you wish, without attempting to rewrite the URLs (the installer will only apply routing rules to your custom RaspAP root). 
 
 ## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet. Help!
 RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
