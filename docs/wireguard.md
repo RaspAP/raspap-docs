@@ -33,7 +33,7 @@ Members of RaspAP's [Insiders community](/insiders/) have requested support for 
 
 #### Starting WireGuard
 RaspAP will handle uploading your `.conf` file and, optionally, applying any `iptables` rules. To enable the tunnel, choose **Start WireGuard**. The WireGuard protocol is extremely fast, so in most cases
-your new public IPv4 address will be indicated almost immediately. Click or tap the :fontawesome-solid-external-link-alt: icon to open a new window with details about your public IP.
+your new public IPv4 address will be indicated almost immediately. Click or tap the :octicons-link-external-16: icon to open a new window with details about your public IP.
 
 #### Verifying client connections
 If you have chosen to route traffic from the `wg0` interface to the AP interface, you may verify that your clients are secured by the WireGuard VPN. Start by connecting a client to your AP while
@@ -72,7 +72,7 @@ Alternatively, RaspAP gives you full control over creating a manual WireGuard co
 device running RaspAP and the clients connected to it.
 
 WireGuard requires a public and private keypair for each device you wish to have access to the VPN tunnel. RaspAP simplifies this process with a
-magic button :fontawesome-solid-magic: associated with each public key input field. Simply click or tap this button to securely generate a cryptographic keypair for both the server and peer.
+magic button :fontawesome-solid-wand-magic-sparkles: associated with each public key input field. Simply click or tap this button to securely generate a cryptographic keypair for both the server and peer.
 
 Several [default values](defaults.md) are provided for you as a starting point. These are intended to get a VPN tunnel up and running quickly. They may be modified to suit your needs.
 
