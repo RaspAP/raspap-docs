@@ -35,7 +35,7 @@ iptables -A FORWARD -i wlan0 -o tun0 -j ACCEPT
 
 ## Public IP address
 
-After a page reload, your new public IPv4 address will be indicated. Click or tap the :fontawesome-solid-external-link-alt: icon to open a new window with details about your 
+After a page reload, your new public IPv4 address will be indicated. Click or tap the :octicons-link-external-16: icon to open a new window with details about your 
 public IP.
 
 ## Multiple client configs
