@@ -59,7 +59,19 @@ a malicious third-party. These 802.11w Protected Management Frames (PMFs) can mi
 Similar to WPA3-Personal, 802.11w may be configured in one of two modes: enabled and required. _Enabled_ allows for mixed operation by allowing legacy devices that do not support 802.11w to associate
 while also allowing devices that support 802.11w to use the PMF features. _Required_ will prevent clients that do not support 802.11w from associating with the SSID.
 
-### Printable signs
+## Drag & drop widgets
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+
+The default dashboard layout may be customized to suit your needs. Click or tap the :fontawesome-solid-pen: icon to modify the dashboard. Each widget may be resized, dragged and repositioned.
+Release the widget to drop it into a new location.
+
+<video width="640" height="472" controls>
+  <source src="https://user-images.githubusercontent.com/229399/162409566-1c2195ce-1dfe-46e0-b2df-9e8972c3bb6f.mov" type="video/mp4">
+</video>
+
+Click or tap the :fontawesome-solid-pen: icon a second time when you're done making changes. The new responsive dashboard layout will be saved to your browser's local storage.
+
+## Printable signs
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
 Beneath the QR code on the **Hotspot > Security** tab, you will find a link to open a "Wi-Fi connect" sign suitable for printing. Click or tap the link after the :fontawesome-solid-print: printer icon to open a new window with your hotspot's QR code, SSID and password neatly formatted.
