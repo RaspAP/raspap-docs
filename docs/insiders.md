@@ -13,7 +13,7 @@ You can become a sponsor using your individual or organization's GitHub account.
 Then, after a few hours, you will be added as a team member to the super-secret private GitHub repository containing the Insiders edition, which has all exclusive features.
 In addition, you get access to Insiders-only team discussions and content.
 
-[Become a sponsor now](https://github.com/sponsors/RaspAP){ .md-button .md-button--primary }
+[Join our awesome sponsors :octicons-heart-fill-24:](https://github.com/sponsors/RaspAP){ .md-button .md-button--primary }
 
 > :information_source: **Important**: If you're sponsoring [RaspAP](https://github.com/sponsors/RaspAP) through a GitHub organization, please send a short email to [sponsors@raspap.com](mailto:sponsors@raspap.com) with the name of your organization and the account that should be added as a collaborator.[^2] 
 
