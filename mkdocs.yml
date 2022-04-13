@@ -5,7 +5,14 @@ theme:
   name: material
   logo: images/favicon-32x32.png
   palette:
-    primary: blue grey
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
   features:
     - header.autohide
     - navigation.instant
