@@ -89,7 +89,7 @@ Due to WireGuard’s design, both computers on either end of the VPN tunnel will
 
 > :information_source: **Note:** For security reasons, the local (server) private key is not displayed in the UI. The peer private key is encoded in the QR code and available to download in the `client.conf` file.
 
-If you wish to regenerate local or peer keypairs (or both), simply tap or click the magic button :fontawesome-solid-magic: and choose **Save settings**. Alternatively, to 
+If you wish to regenerate local or peer keypairs (or both), simply tap or click the magic button :fontawesome-solid-wand-magic-sparkles: and choose **Save settings**. Alternatively, to 
 remove a server or peer configuration entirely, disable the desired toggle and **Save settings**. This will delete the public/private keypair and the associated configuration.
 
 #### Peer configuration

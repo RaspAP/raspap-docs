@@ -42,9 +42,9 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 
 <a name="openvpn"></a>
 ## OpenVPN
-* [OpenVPN fails to start and/or I have no internet. Help!](#openvpn-fails)
-* [OpenVPN works but I have partial or no internet access. Help!](#partial)
-* [OpenVPN is enabled but I am still blocked from country restricted websites. Help!](#restricted)  
+* [OpenVPN fails to start and/or I have no internet.](#openvpn-fails)
+* [OpenVPN works but I have partial or no internet access.](#partial)
+* [OpenVPN is enabled but I am still blocked from country restricted websites.](#restricted)  
 
 <a name="wireguard"></a>
 ## WireGuard
@@ -162,7 +162,7 @@ that represent letters, digits, punctuation marks and a few miscellaneous symbol
 
 This means that so-called special characters, or extended ASCII codes, are not permitted in a passphrase. For example, the Euro sign "€", German "ä" and British pound symbol "£" fall outside this range. 
 
-RaspAP will automatically generate a secure passphrase, or PSK, for you. On the **Hotspot > Security** tab, click or tap the magic icon :fontawesome-solid-magic: next to the PSK input. Choose **Save settings**
+RaspAP will automatically generate a secure passphrase, or PSK, for you. On the **Hotspot > Security** tab, click or tap the magic icon :fontawesome-solid-wand-magic-sparkles: next to the PSK input. Choose **Save settings**
 and **Restart hotspot** for the changes to take effect. 
 
 ## <a name="nopw"></a>Can I remove the AP password to create an open WiFi network?
@@ -205,16 +205,16 @@ As a last resort, you can assign a static IP address to your device. Copy the MA
 Save settings, restart `dnsmasq` and try connecting your client again.
 
 ## <a name="access"></a>My WiFi network disappeared and I can't access the webgui. Help!
-If you're running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
+If you are running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
 
-1. Be sure your browser isn't forcing SSL by appending https:// to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](/ssl-quick/))
+1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](/ssl-quick/)).
 2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. Check the logs for hostapd errors and reconfigure the service, or run the installer again to restore the [default configuration](defaults.md).
 3. There are [several methods](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on `wlan0`. If the AP has entered a failed state, you may still be able to connect on an alternate interface.
 4. Recent versions of the RPi OS kernel include the `avahi-daemon` which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering [http://raspberrypi.local/](http://raspberrypi.local/) in the browser or via SSH with `ssh pi@raspberrypi.local`.
 5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, aka 'on-the-go' or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
 ## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone. Help!
-The [installer](/quick/) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize php by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
+The [installer](/quick/) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize PHP by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
 
 You are free to SSH in to restore those files to their rightful position. However, you may need to ensure that the RaspAP modifications are applied to your own custom configurations.
 
@@ -222,7 +222,7 @@ You are free to SSH in to restore those files to their rightful position. Howeve
 Login credentials are stored in `/etc/raspap/raspap.auth`. The password is encrypted and cannot be edited manually. However, deleting this file with `sudo rm /etc/raspap/raspap.auth` will restore the default admin password.
 
 ## <a name="nowifi"></a>RaspAP control panel works but there is no WiFi after reboot.
-This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, known as a 'managed mode' AP. To address this, RaspAP has added a `systemd` init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:
+This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a ["managed mode"](/ap-sta/) AP. To address this, RaspAP has added a `systemd` init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:
 
 ```
 sudo systemctl status raspapd.service
@@ -247,14 +247,14 @@ If your device (the client) broadcasts DHCPDISCOVER, but there is no DHCPOFFER r
 ## <a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W. Help!
 See [this walkthrough](/ap-sta/) where the installation is described in detail.
 
-## <a name="scanning"></a>WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`. Help!
+## <a name="scanning"></a>WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.
 On some configurations, the **Configure WiFi client** panel may appear empty. This project uses the `wpa_supplicant` command line client `wpa_cli` to populate a list of available wireless networks. If you can't execute this from the shell, neither can the web UI. For example, the results of this command:
 
 ```
 sudo wpa_cli -i wlan0 scan_results
 Failed to connect to non-global ctrl_ifname: wlan0  error: No such file or directory
 ```
-indicate a problem with the socket used to communicate with `wpa_supplicant`. You may also encounter errors such as "Could not connect to wpa_supplicant: wlan0 - re-trying".
+...indicate a problem with the socket used to communicate with `wpa_supplicant`. You may also encounter errors such as "Could not connect to wpa_supplicant: wlan0 - re-trying".
 
 If this happens, first check the contents of `wpa_supplicant` with `sudo cat /etc/wpa_supplicant/wpa_supplicant.conf`. You should see, at minimum, the following:
 
@@ -277,11 +277,13 @@ on this topic is [available here](/ap-sta/#when-to-reboot).
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
 
-One option is to configure RaspAP to use a Pi-Hole installation on a separate device. Go to RaspAP's **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server" option, add your Pi-Hole's DNS, save settings and restart dnsmasq.
+1. The first option is to configure RaspAP to use a Pi-Hole installation on a separate device. Go to RaspAP's **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server" option, add your Pi-Hole's DNS, save settings and restart dnsmasq.
 
-Alternatively, you can run Pi-Hole and RaspAP on the same device by operating RaspAP in bridged mode. Go to RaspAP's **Hotspot** > **Advanced settings** page, enable the "Bridged AP mode" option and restart your hotspot. 
+2. Alternatively, you can run Pi-Hole and RaspAP on the same device by operating RaspAP in bridged mode. Go to RaspAP's **Hotspot** > **Advanced settings** page, enable the "Bridged AP mode" option and restart your hotspot. 
 
-Finally, and by popular demand, RaspAP has released its own [ad blocking facility](/adblock/) with support for custom blocklists. 
+3. Install Pi-Hole in a [Docker container](https://hub.docker.com/r/pihole/pihole) and proceed with a normal installation of RaspAP on the same device.
+
+4. Finally, and by popular demand, RaspAP has released its own [ad blocking facility](/adblock/) with support for custom blocklists. 
 
 ## <a name="adguard"></a>Can I integrate RaspAP with Adguard Home?
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400)
@@ -304,7 +306,7 @@ For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru
 
 ## <a name="genpassword"></a> Can I schedule the WiFi password to change automatically?
 Here's [one way to do it](https://gist.github.com/billz/2cc43e96563293d650e313e068d52dfb) using bash. Save the script to your home directory (`/home/pi` for example) and set the execution
-bit with `sudo chmod +x genpassphrase.sh`. When it's executed, the script will automatically generate a strong password (or a weaker, pronounceable one), update the `wpa_passphrase` setting in `hostapd.conf` and finally restart
+bit with `sudo chmod +x genpassphrase.sh`. When executed, the script will automatically generate a strong password (or a weaker, pronounceable one), update the `wpa_passphrase` setting in `hostapd.conf` and finally restart
 the `raspapd.service`. The new passphrase and QR code will be visible on the **Hotspot > Security** tab.
 
 This can be useful if you're using RaspAP to serve WiFi to clients in a public place, and need to update the passphrase regularly. Similar to creating an [AP activation schedule](#schedule),
@@ -318,7 +320,7 @@ you can have this execute at specific intervals by using `cron`. Run `sudo cront
 For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
 
 ## <a name="managed"></a> Can I configure a managed mode AP without using the UI?
-Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings.
+Yes, you can. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings.
 This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](/faq/#headless) and a valid [`hostapd.conf`](/ap-sta/#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
 
 ```
@@ -331,7 +333,7 @@ WifiManaged = wlan0
 substituting `wlan0` for your AP interface, if necessary. You may then restart the raspap daemon with `sudo systemctl restart raspapd.service`.
 
 ## <a name="webport"></a>Can I configure an alternate port for RaspAP's web service?
-Yes, you can now do this from the **Advanced** tab in System. Manual steps for changing lighttpd's default port are included below.
+Yes, you can now do this from the **Advanced** tab in System. Manual steps for changing `lighttpd`'s default port are included below.
 
 Edit `/etc/lighttpd/lighttpd.conf` and change the following line:
 
@@ -342,7 +344,7 @@ then give the service a kick...
 ```
 sudo systemctl restart lighttpd.service
 ```
-You can then access RaspAP as before with the new port number in the URI, for example, http://raspberrypi.local:8080. This will allow you run another web server alongside lighttpd, if that is your goal. 
+You can then access RaspAP as before with the new port number in the URI, for example, `http://raspberrypi.local:8080`. This will allow you run another web server alongside lighttpd, if that is your goal. 
 
 ## <a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?
 Installing RaspAP after installing Docker often results in connected clients not having internet access from the AP. The reason for this is Docker manipulates `iptables` rules to provide network isolation. Docker installs two custom iptables chains named `DOCKER-USER` and `DOCKER`, and it ensures that incoming packets are always checked by these two chains first. Docker also sets the policy for the `FORWARD` chain to `DROP`.
@@ -430,7 +432,7 @@ In the examples below, we will add support for a custom directory called "admin"
 $HTTP["url"] =~ "^/(?!(dist|app|ajax|config|admin)).*" {
 ```
 
-Notice that "admin" is appended above after "config". This instructs lighttpd not to rewrite URLs that match this pattern. Reload the lighttpd service with `sudo systemctl reload lighttpd.service`.
+Note that "admin" is appended above "config", above. This instructs lighttpd not to rewrite URLs that match this pattern. Reload the lighttpd service with `sudo systemctl reload lighttpd.service`.
 
 You may now create your own `index.php` file in this folder and request it from the browser as `http://10.3.141.1/admin/` or `http://raspberrypi.local/admin`.
 
@@ -446,7 +448,7 @@ RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn
 
 It is your responsibility to provide a valid .ovpn file; RaspAP does not attempt to validate the settings or RSA keys contained in this file. If OpenVPN fails to start, check for errors with `sudo systemctl status openvpn-client@client` and `journalctl --identifier openvpn`.
 
-## <a name="partial"></a>OpenVPN works but I have partial or no internet access. Help!
+## <a name="partial"></a>OpenVPN works but I have partial or no internet access.
 Issues [like this](https://github.com/RaspAP/raspap-webgui/issues/612) are frequently reported. Begin by confirming the status of your connection:
 
 ```
@@ -470,7 +472,7 @@ You can also use `journalctl --identifier openvpn` to identify any errors. If yo
 sudo apt install mtr -y
 sudo mtr -rwc 50 -i 0.2 -rw duckduckgo.com
 
-Start: 2020-06-13T11:42:26+0100
+Start: 2021-06-13T11:42:26+0100
 HOST: raspberrypi                                Loss%   Snt   Last   Avg  Best  Wrst StDev
   1.|-- 192.168.1.254                              0.0%    50   26.8  27.1  26.5  31.4   0.8
   2.|-- somerouter.net                            88.0%    50   392.0 390.4 362.1 596.7  1.2
@@ -480,7 +482,7 @@ The results are reported as round-trip response times in milliseconds and the pe
 
 Protip: free VPNs are frequently oversubscribed and usually not worth the trouble.
 
-## <a name="restricted"></a>OpenVPN is enabled but I am still blocked from country restricted websites. Help!
+## <a name="restricted"></a>OpenVPN is enabled but I am still blocked from country restricted websites.
 Remote hosts use a variety of methods to defeat VPNs, some more aggressively than others. Many VPN providers will advise you to configure custom DNS servers to mitigate [DNS leaks](https://dnsleaktest.com/), which you can do from RaspAP's **DHCP > Advanced** tab. Others have specific VPN nodes to use with popular streaming services. 
 
 Several users have reported that Firefox's [DNS-over-HTTPS (DoH)](https://support.mozilla.org/en-US/kb/firefox-dns-over-https) has created problems with their VPN, in effect creating a DNS leak from the browser that circumvents RaspAP's DNS settings. Be sure to disable this "feature" when using a VPN service. 
