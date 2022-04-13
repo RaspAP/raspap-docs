@@ -1,5 +1,6 @@
 site_name: RaspAP Documentation
 repo_url: https://github.com/RaspAP/raspap-webgui
+repo_name: RaspAP/raspap-webgui
 edit_uri: /RaspAP/raspap-docs/edit/master/docs
 theme:
   name: material
@@ -16,6 +17,7 @@ theme:
   features:
     - header.autohide
     - navigation.instant
+    - navigation.tracking
 markdown_extensions:
   - attr_list
   - footnotes
