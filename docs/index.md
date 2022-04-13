@@ -1,6 +1,6 @@
 # Overview
 
-![](https://camo.githubusercontent.com/4ab9f14ff0d3e36887b0264e7c2ea5b8daac1450a46e1fa29161f6a0362a3fe3/68747470733a2f2f692e696d6775722e636f6d2f556467444b50692e706e67)
+![RaspAP-banner-aqua](https://user-images.githubusercontent.com/229399/163250197-61144792-a4ef-45d5-88c4-539e0bc9be39.png)
 
 Simple AP setup & WiFi management for Debian-based devices
 
