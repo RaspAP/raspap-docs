@@ -53,8 +53,8 @@ Below is a list of funding targets. When a funding target is reached, the featur
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
 :octicons-check-circle-fill-24:{: .check } Night mode toggle   
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients  
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](wireguard.md) :material-new-box:  
-:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](ap-basics.md#transmit-power) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [WireGuard support](wireguard.md)   
+:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](ap-basics.md#transmit-power)  
 
 
 ## Transparency
