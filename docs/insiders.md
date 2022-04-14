@@ -68,6 +68,8 @@ UK-based charity that works to put the power of computing and digital making int
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dEzg92g1LHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+The Foundation supports initiatives like [Coder Dojo](https://coderdojo.com/), [Astro Pi](https://astro-pi.org/), [Coolest Projects](https://online.coolestprojects.org/) and much more.
+
 When you become an Insider, not only do you support development of RaspAP but you also help inspire young people by harnessing the power of computing to solve problems and express themselves creatively.
 ## Frequently asked questions
 
