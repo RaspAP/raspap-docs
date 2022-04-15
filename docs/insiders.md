@@ -2,6 +2,7 @@
 
 Development of RaspAP is made possible thanks to a sponsorware release model. This means that new features are first exclusively released to sponsors as part of **Insiders**. Read on to learn how sponsorship works, and how easy it is to get access to Insiders.
 
+Sponsorships start as low as **[$10 per month](#how-to-become-a-sponsor)**.
 ## How sponsorship works
 New features first land in [**Insiders**](https://github.com/sponsors/RaspAP), which means that *sponsors will have access to them immediately*. Every feature is tied to a funding goal in monthly subscriptions. When a funding goal is hit, the features that are tied to it are merged back into the [public RaspAP repository](https://github.com/RaspAP/raspap-webgui) and released for general availability.
 Bug fixes, translation updates and minor enhancements are always released simultaneously in both editions.[^1]
@@ -10,8 +11,8 @@ Bug fixes, translation updates and minor enhancements are always released simult
 
 ## How to become a sponsor
 You can become a sponsor using your individual or organization's GitHub account. Just [pick any tier from $10/month](https://github.com/sponsors/RaspAP) and complete the checkout.
-Then, after a few hours, you will be added as a team member to the super-secret private GitHub repository containing the Insiders edition, which has all exclusive features.
-In addition, you get access to Insiders-only team discussions and content.
+You will be automatically granted access to the private GitHub repository containing the Insiders edition, which has all exclusive features.
+In addition, you will be added as a team member with access to Insiders-only team discussions and content.
 
 [Join our awesome sponsors :octicons-heart-fill-24:](https://github.com/sponsors/RaspAP){ .md-button .md-button--primary }
 
