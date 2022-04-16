@@ -7,7 +7,7 @@ RaspAP uses a known-good default configuration as a starting point. This facilit
 settings during the installation. More importantly, it eliminates guesswork that can lead to conflicts down the road. When the [manual](manual.md) or [quick installation](quick.md) is completed,
 you will have a functional AP that you may then administer with RaspAP's web interface.
 
-While this project handles every facet of this process for you, it's still recommended that users familiarize themselves with the [steps involved](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md) in building a software AP from start to finish.
+While this project handles every facet of this process for you, it's still recommended that users familiarize themselves with the [steps involved](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point) in building a software AP from start to finish.
 
 ## Configuration directory
 
