@@ -105,11 +105,7 @@ curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --token [m
 
 > :information_source: **Note**: your token is sent securely via SSH to GitHub. The installer does _not_ have access to or store your token.
 
-You may be prompted to authenticate again when the installer clones the private Insiders GitHub repo. In this case, simply enter your GitHub username and token when prompted.
-
-> :information_source: **Important**: Granting access to the private Insiders repo is currently a manual process. This means there's usually a delay between your sponsorship and receiving an invite to the Insiders team on GitHub.
-We are working with GitHub to automate this process. In the meantime, please be aware that attempting to install or upgrade to Insiders without access will result in errors.
-
+You will be prompted to authenticate a second time when the installer clones the private Insiders GitHub repo. In this case, simply enter your GitHub username and token when prompted.
 
 If you're using GitHub with 2FA enabled the same process above applies.
 

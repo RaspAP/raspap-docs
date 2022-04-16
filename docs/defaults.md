@@ -94,7 +94,7 @@ Likewise, the DHCP ranges for both `wlan0` and the virtual `uap0` interface are 
     }
 ```
 
-These default settings are defined as fallback values. That is, if a user-defined value is undefined these will be used in their place. 
+These default settings are defined as fallback values. That is, if a user-defined value is missing these will be used in their place.
 
 ## DNS servers
 
