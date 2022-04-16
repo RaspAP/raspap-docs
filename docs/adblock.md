@@ -1,8 +1,11 @@
 # Ad blocking
 
-RaspAP is introducing a new feature to block DNS requests for ads, trackers and other undesirable hosts.
+![adblock](https://user-images.githubusercontent.com/229399/163673637-e65c507b-19fa-4e78-8139-098ee8bcad55.png){: style="width:100px"}
 
-In the best of times, ads are usually just annoying. When access to online services is hampered by requests for ads, the best tool in our arsenal is DNS blacklisting. RaspAP already uses `dnsmasq` to manage both DHCP and DNS, so implementing ad blocking was fairly straightforward.
+RaspAP has introduced a new DNS based filter to stop ads, trackers and other undesirable hosts in their tracks. 
+
+In the best of times, ads are usually just annoying. When access to online services served by our AP is hampered by ads, malware and trackers, the best tool in our arsenal is DNS blacklisting.
+RaspAP already uses `dnsmasq` to manage both DHCP and DNS, so we have the foundation for a highly effective ad blocking facility.
 
 ## Quick installer
 As a beta feature, we invite testing and encourage feedback from users of RaspAP. To install ad blocking with DNS blacklists, simply respond with 'Y' or press [Enter] when prompted by the installer:
@@ -73,4 +76,4 @@ The notracking blocklists chosen for RaspAP adhere to these policies:
 - Blocks webminers
 - Blocks phishing servers
 
-
+Furthermore, notracking makes full use of domain name based wildcard filtering (for example, `*.adhost.net`). This reduces the chance of missing any new subdomains and significantly reduces the size of the blocklists.
