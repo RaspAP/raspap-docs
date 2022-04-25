@@ -439,14 +439,24 @@ You may now create your own `index.php` file in this folder and request it from 
 **Option 2.**  Reinstall RaspAP and specify a custom install destination, for example `/var/www/html/raspap`. This will leave the default web root free for you to create any files you wish, without attempting to rewrite the URLs (the installer will only apply routing rules to your custom RaspAP root). 
 
 ## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.
-RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
+RaspAP supports OpenVPN clients by uploading a valid `.ovpn` file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
 
 ```
 -A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A FORWARD -i wlan0 -o tun0 -j ACCEPT
 ``` 
 
-It is your responsibility to provide a valid .ovpn file; RaspAP does not attempt to validate the settings or RSA keys contained in this file. If OpenVPN fails to start, check for errors with `sudo systemctl status openvpn-client@client` and `journalctl --identifier openvpn`.
+After starting the OpenVPN service, you may check and validate these rules like so:
+
+```
+$ sudo iptables -L FORWARD -v -n
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 1955 1493K ACCEPT     all  --  tun0   wlan0   0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+ 1715  194K ACCEPT     all  --  wlan0  tun0    0.0.0.0/0            0.0.0.0/0
+```
+
+It is your responsibility to provide a valid `.ovpn` file. RaspAP does not attempt to validate the settings or RSA keys contained in this file. If OpenVPN fails to start, check for errors with `sudo systemctl status openvpn-client@client` and `journalctl --identifier openvpn`.
 
 ## <a name="partial"></a>OpenVPN works but I have partial or no internet access.
 Issues [like this](https://github.com/RaspAP/raspap-webgui/issues/612) are frequently reported. Begin by confirming the status of your connection:
