@@ -438,7 +438,7 @@ You may now create your own `index.php` file in this folder and request it from 
 
 **Option 2.**  Reinstall RaspAP and specify a custom install destination, for example `/var/www/html/raspap`. This will leave the default web root free for you to create any files you wish, without attempting to rewrite the URLs (the installer will only apply routing rules to your custom RaspAP root). 
 
-## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet. Help!
+## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.
 RaspAP supports OpenVPN clients by uploading a valid .ovpn file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
 
 ```
