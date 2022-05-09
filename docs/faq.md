@@ -19,13 +19,16 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
-* [My WiFi network disappeared and I can't access the webgui. Help!](#access)
-* [My custom `hostapd.conf` / `php.ini` is gone. Help!](#custom)
-* [I changed the admin password and forgot what it was. Help!](#password)
+* [My WiFi network disappeared and I can't access the web UI.](#access)
+* [My custom `hostapd.conf` / `php.ini` is gone.](#custom)
+* [I changed the admin password and forgot what it was.](#password)
 * [RaspAP control panel works but there is no WiFi after reboot.](#nowifi)
-* [Bridged AP mode is unstable or clients can't connect. Help!](#bridged)
-* [Managed mode AP doesn't work on the Pi Zero W. Help!](#pizero-w)
+* [Bridged AP mode is unstable or clients can't connect.](#bridged)
+* [Managed mode AP doesn't work on the Pi Zero W.](#pizero-w)
 * [WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.](#scanning)
+* [I started the hotspot but it shows "hostapd down". What's happening?](#hostapd-down)
+* [Pinging the AP from a client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?](#ping)
+* [My `wlan1` keeps being disabled and/or clients are repeatedly disconnected.](#disassociated)
 
 ## Integrations
 * [How do I integrate RaspAP with Pi-hole?](#pihole)
@@ -204,7 +207,7 @@ able to respond to DHCP requests.
 As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
 Save settings, restart `dnsmasq` and try connecting your client again.
 
-## <a name="access"></a>My WiFi network disappeared and I can't access the webgui. Help!
+## <a name="access"></a>My WiFi network disappeared and I can't access the web UI
 If you are running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
 
 1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](/ssl-quick/)).
@@ -213,12 +216,12 @@ If you are running your Pi headless and are unable to access RaspAP's web interf
 4. Recent versions of the RPi OS kernel include the `avahi-daemon` which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering [http://raspberrypi.local/](http://raspberrypi.local/) in the browser or via SSH with `ssh pi@raspberrypi.local`.
 5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, aka 'on-the-go' or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
-## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone. Help!
+## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone.
 The [installer](/quick/) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize PHP by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
 
 You are free to SSH in to restore those files to their rightful position. However, you may need to ensure that the RaspAP modifications are applied to your own custom configurations.
 
-## <a name="password"></a>I changed the admin password and forgot what it was. Help!
+## <a name="password"></a>I changed the admin password and forgot what it was.
 Login credentials are stored in `/etc/raspap/raspap.auth`. The password is encrypted and cannot be edited manually. However, deleting this file with `sudo rm /etc/raspap/raspap.auth` will restore the default admin password.
 
 ## <a name="nowifi"></a>RaspAP control panel works but there is no WiFi after reboot.
@@ -230,7 +233,7 @@ sudo systemctl status raspapd.service
 
 The `raspapd.service` is optionally installed and enabled by the Quick Installer. It is also included in the manual setup steps.
 
-## <a name="bridged"></a>Bridged AP mode is unstable or clients can't connect. Help!
+## <a name="bridged"></a>Bridged AP mode is unstable or clients can't connect.
 RaspAP [delegates all DHCP control to your router](/bridged/) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](/issues/#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
 
 If clients disconnect intermittently, this often indicates an undervoltage issue with your RPi. Check the kernel log for any `Under-voltage detected!` errors. Be sure you are using an official 5.1V power supply (each model has [different power requirements](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md)) and detach any USB devices. Executing `dmesg | grep br0` can also offer clues. Execute `sudo dhclient -v` to gain insights into DHCP requests between your device and router. A typical DHCP exchange follows this pattern:
@@ -244,7 +247,7 @@ SERVER -> DHCPACK
 
 If your device (the client) broadcasts DHCPDISCOVER, but there is no DHCPOFFER response from your router, you have a misconfiguration or other issue with your network. Troubleshooting client connectivity in bridged AP mode is not supported. No hard feelings.
 
-## <a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W. Help!
+## <a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W.
 See [this walkthrough](/ap-sta/) where the installation is described in detail.
 
 ## <a name="scanning"></a>WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.
@@ -273,6 +276,66 @@ substituting `wlan0` with your wireless interface, if necessary. You should then
 
 > :information_source: **Note:** If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information 
 on this topic is [available here](/ap-sta/#when-to-reboot).
+
+## <a name="hostapd-down"></a>I started the hotspot but it shows "hostapd down". What's happening?
+Hostapd, the Linux service that creates the access point, can fail to start for a variety of reasons. The following are common causes, with troubleshooting advice:
+
+1. If you've attached an external wireless adapter (bound to `wlan1`, for example) and have selected this as the AP interface, be sure that it either uses an [in-kernel driver](#adapters), also 
+known as "plug and play" support, or that you have installed the correct driver for it.
+2. Confirm that the 802.11 wireless mode you've selected is supported by the adapter you've chosen in the list of available interfaces. For example, if you've selected the `802.11ac 5 GHz` wireless mode
+with incompatible hardware, RaspAP will create the configuration for you but `hostapd` will fail to start.
+   
+In each of these cases, the `hostapd` service will report errors that can be useful for troubleshooting. Enable logging by selecting **Logfile output** on the **Hostapd > Logging** tab, choose 
+**Save settings** then **Restart hotspot**.
+
+Refer to [this FAQ](#disassociated) for more info.
+
+## <a name="ping"></a>Pinging the AP from a connected client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?
+An intermittent ping failure on the wireless interface could indicate any number of things; a poor wireless signal, co-channel interference and disassociated client being among the most common.
+The following are methods for troubleshooting this:
+
+1. Get a signal strength report. A signal of -80 dBm or less from your AP is unreliable. If your client computer supports Linux, use `sudo iw dev wlan0 scan | awk '/signal:/{sta=$2$3} /SSID:/{print $0" "sta}'` and check your AP's dBm value.
+Alternatively, use any one of several graphical WiFi explorer type tools and obtain your signal strength this way.
+
+2. Use `wavemon` on the AP to scan for overlapping channels from nearby APs. Install it with `sudo apt install wavemon`. If it shows an AP with a strong signal on the same channel as your AP, you 
+are likely experiencing co-channel interference. Select a different channel or band for your AP, restart it and compare the results.
+
+3. Use `mtr` to run a continuous scan that reports on latency and percentage packet loss. Install it with `sudo apt install mtr-tiny`. Obtain your client's IPv4 address from the dashboard or
+**DHCP Server > Client list** and start the utility, for example `mtr 10.3.141.151`. While the scan is running, reposition your client computer and/or your AP and observe the results.
+
+4. Enable `hostapd` service logging from RaspAP with **Hotspot > Logging > Logfile output**, followed by **Save settings** and restart your AP. Look for errors that indicate clients are being disassociated from the AP. Refer to [this FAQ](#disassociated) for more info.
+
+## <a name="disassociated"></a>My wlan1 keeps being disabled and/or clients are repeatedly disconnected.
+Issues [such as this](https://github.com/RaspAP/raspap-webgui/issues/666) can be tricky to diagnose. In this case, an AP is started with an external USB wireless adapter, but client devices are continuously authenticated and disconnected
+(or "disassociated"). This may appear in `hostapd` service logs like so:
+
+```
+wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: authenticated
+wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: associated (aid 1)
+wlan1: AP-STA-CONNECTED 24:62:ab:fd:24:34
+wlan1: STA 24:62:ab:fd:24:34 RADIUS: starting accounting session 1D0030DD3176A315
+wlan1: STA 24:62:ab:fd:24:34 WPA: pairwise key handshake completed (RSN)
+wlan1: AP-STA-DISCONNECTED 24:62:ab:fd:24:34
+wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: disassociated
+wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: deauthenticated due to inactivity (timer DEAUTH/REMOVE)
+```
+
+The AP itself may also fail repeatedly with errors like the following:
+
+```
+wlan1: INTERFACE-ENABLED 
+Failed to set beacon parameters
+wlan1: INTERFACE-DISABLED 
+wlan1: INTERFACE-ENABLED 
+Failed to set beacon parameters
+wlan1: interface state ENABLED->DISABLED
+wlan1: AP-DISABLED 
+wlan1: CTRL-EVENT-TERMINATING 
+```
+
+If you see messages indicating "deauthenticated due to inactivity", you can try the "Disable `disassoc_low_ack`" setting on the **Hotspot > Advanced** tab. Choose **Save settings** then restart your AP. Monitor the hostapd service logs and see if your clients are able to remain connected.
+
+In this specific case, the user determined that the external [RT3070 WiFi adapter](https://unix.stackexchange.com/questions/610338/raspberry-pi-4-model-b-external-rt3070-wifi-adapter-hostapd-crashing) was at fault.
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
