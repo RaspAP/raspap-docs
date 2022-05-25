@@ -4,7 +4,11 @@
 RaspAP is free software. It is delivered to you, at no cost, and with no guarantee. The [community of developers](https://github.com/RaspAP/raspap-webgui/graphs/contributors) who contribute to this project make every effort to deliver defect-free code. That said, no software is perfect. You can help us improve this project by accurately describing your issue.
 
 ## Issue policy
-This project is currently led by one developer ([@billz](https://github.com/billz)) in his very limited spare time. Please respect our developers' time by using issues for reporting bugs only. RaspAP is not a boxed product with a free troubleshooting hotline. If your issue is of a general nature and not directly related to a defect with this project, try searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/), [RaspAP's GitHub discussions](https://github.com/RaspAP/raspap-webgui/discussions), or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/). Chances are your question has been discussed and answered before.
+This project is currently led by one developer ([@billz](https://github.com/billz)) in his very limited spare time. Please respect our developers' time by using issues for reporting bugs only.
+RaspAP is not a boxed product with a free troubleshooting hotline. If your issue is of a general nature and not directly related to a defect with this project, try searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/), [RaspAP's GitHub discussions](https://github.com/RaspAP/raspap-webgui/discussions), or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/). Chances are your question has been discussed and answered before.
+
+Issues are only valid for _clean installs_ of this project's [compatible operating systems](index.md#compatible-operating-systems).
+If you observe RaspAP behaving strangely and you did _not_ begin with a clean install, be sure to test it on a fresh SD card before reporting an issue.
 
 The project [FAQ](faq.md) is continuously updated with answers to many common questions. Refer to this first before creating a new issue. 
 
