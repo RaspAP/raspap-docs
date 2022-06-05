@@ -9,7 +9,7 @@ RaspAP is feature-rich wireless router software that _just works_ on many popula
 Our popular Quick installer creates a known-good default configuration in minutes on all current Raspberry Pis with onboard wireless.
 
 ## Quick start
-Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit). The Raspberry Pi OS desktop and 64-bit beta distros are unsupported.
+Start with a clean install of the [latest release of Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported. The Raspberry Pi OS desktop distro is currently unsupported.
 
 > :information_source: **Note**: Be sure to use an official power supply with your device. Power supply requirements [differ by Raspberry Pi model](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md). Inadequate voltage is the source of many WiFi issues.
 

@@ -6,7 +6,7 @@ FAQ items are organized into thematic sections, below, for easier reference.
 If you would like to see a new FAQ that you feel would assist other users, [start a discussion](https://github.com/RaspAP/raspap-webgui/discussions) or [open an issue](https://github.com/RaspAP/raspap-webgui-docs/issues).
 
 ## General
-* [Why isn't there support for Desktop or 64-bit distributions?](#distros)
+* [Why isn't there support for Desktop distributions?](#distros)
 * [What do all these settings in the UI do? Changing them seems to have no effect.](#settings)
 * [How do I prepare the SD card to connect to WiFi in headless mode?](#headless)
 * [Can I use wlan0 and wlan1 rather than eth0 for my AP?](#interfaces)
@@ -69,9 +69,8 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can the Quick Installer accept the default options without prompting me?](#unattended)
 * [How do I uninstall RaspAP?](#uninstall)
 
-## <a name="distros"></a>Why isn't there support for Desktop or 64-bit distributions?
-A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. Since RaspAP does quite a bit of configuration on top
-of a known [default starting point](defaults.md), the more distros a project supports the bigger the task of handling these variations.
+## <a name="distros"></a>Why isn't there support for Desktop distributions?
+A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. Since RaspAP does quite a bit of configuration on top of a known [default starting point](defaults.md), the more distros a project supports the bigger the task of handling these variations.
 
 It becomes increasingly difficult for a small team of developers to support a wide variety of targets. The RaspAP team could spend their precious and rare development time troubleshooting
 one-offs and edge cases, or work on new features and bug fixes. For this reason, we've chosen to include support for a narrow, but diverse, subset of [compatible operating systems](index.md#compatible-operating-systems). 
