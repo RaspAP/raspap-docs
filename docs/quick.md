@@ -73,6 +73,9 @@ Installs from the [Insiders Edition](insiders.md) (`RaspAP/raspap-insiders`)
 #### -v, --version
 Queries the Github API, outputs the latest RaspAP release version and exits.
 
+#### -n, --uninstall
+Loads and executes the uninstaller.
+
 #### -h, --help
 Outputs these usage notes and exits.
 
