@@ -16,6 +16,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Where can I find a list of USB WiFi adapters that use in-kernel drivers?](#adapters)
 * [What are the passphrase requirements used by RaspAP?](#passphrase)
 * [Can I remove the AP password to create an open WiFi network?](#nopw)
+* [How do I prevent WAN access to RaspAP's web administration?](#access)
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
@@ -169,6 +170,34 @@ and **Restart hotspot** for the changes to take effect.
 
 ## <a name="nopw"></a>Can I remove the AP password to create an open WiFi network?
 Yes. On the **Hotspot > Security** tab, select 'None' for Security type. Choose **Save settings** and **Restart hotspot** for the changes to take effect.
+
+## <a name="access"></a>How do I prevent WAN access to RaspAP's web administration?
+There are two ways to do this. The simplest method is to set the web server's bind address in RaspAP's **System > Advanced** tab to the IPv4 address you wish to grant access to. Choose **Save settings** and **Restart lighttpd**.
+After this is done, the web server will refuse connections to all IP addresses other than the one you've defined. 
+
+A somewhat cleaner method with a "403 Forbidden" response can be done manually with lighttpd. You could modify lighttpd's main config directly, but to keep things neater we can use RaspAP's own configuration in lighttpd's `/conf-available` directory. Edit it like so:
+
+```
+sudo nano /etc/lighttpd/conf-available/50-raspap-router.conf
+```
+
+Add the following to the end, substituting the `192.168.0.0/16` private IPv4 address range (192.168.0.0 – 192.168.255.255) for your own network:
+
+```
+# deny access to RaspAP admin for users that
+# are not in the 192.168.0.0/16 network
+$HTTP["remoteip"] != "192.168.0.0/16" {
+    url.access-deny = ( "" )
+}
+```
+
+Save and exit the file, then restart the lighttpd service:
+
+```
+sudo systemctl restart lighttpd.service
+```
+
+Clients outside of your defined network range will receive a '403' response when accessing the web UI.
 
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
