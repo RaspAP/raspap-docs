@@ -21,7 +21,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
 * [My WiFi network disappeared and I can't access the web UI.](#access)
-* [My custom `hostapd.conf` / `php.ini` is gone.](#custom)
+* [My custom hostapd.conf / php.ini is gone.](#custom)
 * [I changed the admin password and forgot what it was.](#password)
 * [RaspAP control panel works but there is no WiFi after reboot.](#nowifi)
 * [Bridged AP mode is unstable or clients can't connect.](#bridged)
@@ -29,7 +29,8 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.](#scanning)
 * [I started the hotspot but it shows "hostapd down". What's happening?](#hostapd-down)
 * [Pinging the AP from a client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?](#ping)
-* [My `wlan1` keeps being disabled and/or clients are repeatedly disconnected.](#disassociated)
+* [My wlan1 keeps being disabled and/or clients are repeatedly disconnected.](#disassociated)
+* [RaspAP web UI fails to start or unable to save settings.](#webfail)
 
 ## Integrations
 * [How do I integrate RaspAP with Pi-hole?](#pihole)
@@ -364,6 +365,22 @@ wlan1: CTRL-EVENT-TERMINATING
 If you see messages indicating "deauthenticated due to inactivity", you can try the "Disable `disassoc_low_ack`" setting on the **Hotspot > Advanced** tab. Choose **Save settings** then restart your AP. Monitor the hostapd service logs and see if your clients are able to remain connected.
 
 In this specific case, the user determined that the external [RT3070 WiFi adapter](https://unix.stackexchange.com/questions/610338/raspberry-pi-4-model-b-external-rt3070-wifi-adapter-hostapd-crashing) was at fault.
+
+## <a name="webfail"></a>RaspAP web UI fails to start or unable to save settings.
+After performing a clean install of RaspAP or upgrading an existing installation, the web UI may fail to start or the admin panel may behave in unexpected ways. For example, pages may load but any
+attempt to save settings will fail. In other cases, the lighttpd web server may fail to respond completely. Errors such as these in `/var/log/lighttpd/error.log` are common:
+
+```
+(gw_backend.c.503) bind failed for: unix:/run/lighttpd/php.socket-0: No such file or directory
+(gw_backend.c.601) gw-backend failed to start: /usr/bin/php-cgi
+(gw_backend.c.1655) [ERROR]: spawning gw failed
+```
+
+These signs point to a corrupted filesystem on the SD card. If during a power disconnection the memory card is in a write operation, there is a high chance that one or more sectors will be
+damaged. In these cases, a fresh install on a new SD card can save you time and frustration.
+
+> :information_source: **Important:** Be sure to use genuine MicroSD cards from a reputable manufacturer. Card clones are common and hard to distinguish from legitimately made ones, but certainly not subject to the same
+quality standards. Neither fake nor cheap cards are typically suitable for an entire OS to run from.
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
