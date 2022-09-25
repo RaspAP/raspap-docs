@@ -44,6 +44,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I integrate RaspAP with OpenMediaVault?](#omv)
 * [Can I use RaspAP to share Speedify's aggregated connections?](#speedify)
 * [How do I serve custom pages from RaspAP?](#custompages)
+* [Can I automatically update RaspAP's adblock lists?](#adblockauto)
 
 <a name="openvpn"></a>
 ## OpenVPN
@@ -545,6 +546,12 @@ Note that "admin" is appended above "config", above. This instructs lighttpd not
 You may now create your own `index.php` file in this folder and request it from the browser as `http://10.3.141.1/admin/` or `http://raspberrypi.local/admin`.
 
 **Option 2.**  Reinstall RaspAP and specify a custom install destination, for example `/var/www/html/raspap`. This will leave the default web root free for you to create any files you wish, without attempting to rewrite the URLs (the installer will only apply routing rules to your custom RaspAP root). 
+
+## <a name="adblockauto"></a>Can I automatically update RaspAP's adblock lists?
+RaspAP's <a href="/adblock/">adblock feature</a> uses the <a href="/adblock/#blocklist-source">notracking project's blocklists</a>. In a typical setup, you may use the **Ad blocking** management
+page to manually update these lists. Alternatively, this <a href="https://github.com/RaspAP/raspap-webgui/discussions/1216">user-contributed script</a> will automatically fetch the latest blocklists on
+the schedule of your choosing (for example, daily, weekly, etc.) and reload `dnsmasq`. Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.
+
 
 ## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.
 RaspAP supports OpenVPN clients by uploading a valid `.ovpn` file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
