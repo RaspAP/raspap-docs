@@ -31,6 +31,24 @@ To modify a device's name, enter a value in the **Fixed name** field and choose 
 
 The only restriction for the device name is that it must only contain lowercase letters and numbers. The maximal length is limited to 20 characters. Devices names are automatically filtered accordingly. 
 
+### Changing the MAC address
+Sometimes you might need to set the MAC address of the WLAN interface to be the same as your PC or some other device on your network. This is known as MAC address cloning.
+
+For example, some ISPs register your computer's MAC address when the service is first installed. When you place a router behind the cable or ADSL modem, the MAC address from the device WLAN port will not be recognized by the ISP.
+
+External networking devices, like a Raspberry Pi, also have their own MAC addresses which can create authentication problems. This often occurs on guest Wi-Fi networks.
+
+You can clone the MAC address of the WLAN interface (or any other valid interface) to be the same as your computer's MAC address. To create this configuration, follow the steps below:
+
+1. Open the **Networking > Network Devices** tab. 
+2. Choose a MAC address for the interface you wish to clone.
+3. Enter a valid address in the **MAC** field and click or tap **Change**.
+4. The new MAC address will be configured immediately.
+
+![image](https://user-images.githubusercontent.com/229399/193248142-8838f585-aeef-4ef0-8aef-109ff9dd338e.png){: style="width:575px"}
+
+> :information_source: **Note:** Virtual interfaces such as OpenVPN's `tun0` or WireGuard's `wg0` do not have this capability. To avoid potential conflicts, change the MAC address and reconnect the device before modifying any other settings. 
+
 ## Ethernet interfaces
 The built-in ethernet adapter as well as USB adapters are usually detected automatically. In these cases no configuration is required.
 Devices such as USB tethered phones might appear as an ethernet device as well. The same applies to mobile data adapters that also contain a router.
