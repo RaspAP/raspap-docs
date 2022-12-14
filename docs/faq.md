@@ -20,7 +20,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
-* [My WiFi network disappeared and I can't access the web UI.](#access)
+* [My WiFi network disappeared and I can't access the web UI.](#webui)
 * [My custom hostapd.conf / php.ini is gone.](#custom)
 * [I changed the admin password and forgot what it was.](#password)
 * [RaspAP control panel works but there is no WiFi after reboot.](#nowifi)
@@ -237,7 +237,7 @@ able to respond to DHCP requests.
 As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
 Save settings, restart `dnsmasq` and try connecting your client again.
 
-## <a name="access"></a>My WiFi network disappeared and I can't access the web UI
+## <a name="webui"></a>My WiFi network disappeared and I can't access the web UI
 If you are running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
 
 1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](/ssl-quick/)).
