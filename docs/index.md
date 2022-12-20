@@ -41,6 +41,9 @@ After the reboot at the end of the installation the wireless AP network will be 
 
 Your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.md#advanced-options) are now ready to be modified by RaspAP.
 
+> :information_source: **Important**: If this is _not_ a clean install or you are configuring a device with a non-standard [integration](faq.md#integrations) it's strongly recommended to follow
+the [manual installation](manual.md) instructions.
+
 ## Get Insiders
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](insiders.md#how-to-become-a-sponsor)
 and get access to [exclusive features](insiders.md#exclusive-features) in the :octicons-heart-fill-24:{: .heart } [Insiders Edition](insiders.md).
