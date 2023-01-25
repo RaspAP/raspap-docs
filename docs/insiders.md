@@ -61,9 +61,7 @@ Below is a list of funding targets. When a funding target is reached, the featur
 
 
 ## Transparency
-We've chosen [OpenCollective](https://opencollective.com/raspap) as the fiscal host for our [GitHub sponsors organization](https://github.com/sponsors/RaspAP). This means that our budget is completely transparent—
-financial contributions, expenses and payouts to project team members are automatically reported. Everyone can see where money comes from and what it's spent on. This committent to full transparency
-was central in our decision to implement Insiders.
+We've chosen [OpenCollective](https://opencollective.com/raspap) as the fiscal host for our [GitHub sponsors organization](https://github.com/sponsors/RaspAP). This means that our budget is completely transparent &#151; financial contributions, expenses and payouts to project team members are automatically reported. Everyone can see where money comes from and what it's spent on. This committent to full transparency was central in our decision to implement Insiders.
 
 ## Quarterly giving
 Beginning in 2022, each quarter 15% of all proceeds from Insiders will be donated directly to the [Raspberry Pi Foundation](https://www.raspberrypi.org/). The Raspberry Pi Foundation is a
@@ -74,6 +72,17 @@ UK-based charity that works to put the power of computing and digital making int
 The Foundation supports initiatives like [Coder Dojo](https://coderdojo.com/), [Astro Pi](https://astro-pi.org/), [Coolest Projects](https://online.coolestprojects.org/) and much more.
 
 When you become an Insider, not only do you support development of RaspAP but you also help inspire young people by harnessing the power of computing to solve problems and express themselves creatively.
+
+## Support for educators
+We are big believers in the role that computing and digital technologies can play in shaping a better world. Many engineers, including members of the RaspAP team, got their first introduction to computing
+at an early age. This can take the form of a structured curriculum in a school setting, or less-formally through clubs, competitions and partnerships with youth organizations. Equally important is university, vocational and research training in digital technologies at all levels.
+
+To this end, we have pledged to make Insiders freely available to all educators, their students, club participants and staff.
+
+### Criteria
+Educators, teacher trainers, researchers and club organizers engaged in digital and computing technologies for students of all ages are eligible. The only requirement is a [GitHub](https://github.com/) account and a domain email address associated with an educational institution or organization with a focus on digital learning. Send a mail to [sponsors@raspap.com](mailto:sponsors@raspap.com) with your GitHub 
+account details and we'll get you started with Insiders.
+
 ## Frequently asked questions
 
 ### Installing
