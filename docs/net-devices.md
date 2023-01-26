@@ -18,7 +18,7 @@ The following network devices are supported:
 All devices require a driver in order to be available for use with RaspAP. 
 
 ## Listing detected devices
-The **Networking > Network Devices** tab displays a list of available devices with their attributes and assumed adapter type. The adapter type as well as the device name may be changed.
+The **Networking > Devices** tab displays a list of available devices with their attributes and assumed adapter type. The adapter type as well as the device name may be changed.
 Incorrect device types might appear for some devices, which advertise themselves to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This often happens for USB connected phones and external routers.  
 
 ![Networking: Network devices](https://user-images.githubusercontent.com/229399/116096642-bf0e4780-a6a9-11eb-9794-6935b0858b9b.png)
@@ -40,7 +40,7 @@ External networking devices, like a Raspberry Pi, also have their own MAC addres
 
 You can clone the MAC address of the WLAN interface (or any other valid interface) to be the same as your computer's MAC address. To create this configuration, follow the steps below:
 
-1. Open the **Networking > Network Devices** tab. 
+1. Open the **Networking > Devices** tab.
 2. Choose a MAC address for the interface you wish to clone.
 3. Enter a valid address in the **MAC** field and click or tap **Change**.
 4. The new MAC address will be configured immediately.
@@ -65,7 +65,7 @@ can be used to search for and install existing driver modules.
 
 ## Mobile data modems
 Modems or Point-to-Point Protocol (ppp) devices require login data. This includes a PIN number to unlock the SIM card, the Access Point Name (APN) and login data of your mobile network provider. 
-These values may be entered under the **Networking > Mobile Data Settings** tab. 
+These values may be entered under the **Networking > Mobile Data** tab.
 
 ![image](https://user-images.githubusercontent.com/229399/116100321-182baa80-a6ad-11eb-9fd5-4a3bc22b9388.png){: style="width:375px"}
 
@@ -88,12 +88,12 @@ to work without a PIN for the SIM card and without login data. Typically, this c
 
 ### Huawei Hilink Device
 A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can communicate directly with these devices. Be sure that the administration interface is _not_ locked with a user/password.
-The PIN number entered on the **Networking > Mobile Data Settings** tab will be used to unlock the SIM card. In addition, connection information (mode, signal quality and network provider) are
+The PIN number entered on the **Networking > Mobile Data** tab will be used to unlock the SIM card. In addition, connection information (mode, signal quality and network provider) are
 extracted from the device and displayed on the dashboard. The dashboard button to stop/start the device is active and will disconnect/connect the mobile network.
 
 ![image](https://user-images.githubusercontent.com/33725910/115952612-3a73cb80-a4e7-11eb-8998-cbb66fb108c4.png){: style="width:450px"}
 
-The model E3372h-320 will be detected as a **Hilink** device and appears with the name `hilink0`. Other Hilink devices require a corresponding assignment on the **Networking > Network Devices** tab.
+The model E3372h-320 will be detected as a **Hilink** device and appears with the name `hilink0`. Other Hilink devices require a corresponding assignment on the **Networking > Devices** tab.
 
 ## USB tethered phones
 A phone connected via USB and with USB tethering enabled will appear as either an ethernet device (e.g. `eth1`), or as a USB network device (e.g. `usb0`).
@@ -107,3 +107,9 @@ Changing the device type to **phone** will result in a corresponding display on 
 - Mobile data settings are stored in: `/etc/raspap/networking/mobiledata.ini`
 - Modem AT-commands and login data are stored in: `/etc/wvdial.conf`
 
+## Diagnostics
+A built-in tool to evaluate network performance is available on the **Networking > Diagnostics** tab. This permits testing of both local network throughput (that is, data transfer over a wired or wireless interface between RaspAP and a connected client) and internet speed (data transfer between a RaspAP instance and remote host). Ping, jitter download and upload metrics are included in the test.
+
+<video src="https://user-images.githubusercontent.com/229399/214792331-4656d482-7c4d-4ca9-853d-2d1718ddf62d.mov" controls="controls" muted="muted"></video>
+
+The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.

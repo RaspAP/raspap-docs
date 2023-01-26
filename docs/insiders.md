@@ -31,7 +31,7 @@ This is done through Insiders' access to discussions, feature requests, issues a
 :octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](ap-basics.md#printable-signs) :material-new-box:    
 :octicons-check-circle-fill-24:{: .check } [Drag & drop dashboard widgets](ap-basics.md#drag-drop-widgets) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address) :material-new-box:   
-:octicons-gear-24: Traffic shaping (in progress)  
+:octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics) :material-new-box:   
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
 
@@ -47,7 +47,7 @@ Below is a list of funding targets. When a funding target is reached, the featur
 :octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](ap-basics.md#printable-signs) :material-new-box:    
 :octicons-check-circle-fill-24:{: .check } [Drag & drop dashboard widgets](ap-basics.md#drag-drop-widgets) :material-new-box:   
 :octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address) :material-new-box:   
-:octicons-gear-24: Traffic shaping (in progress)  
+:octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics) :material-new-box:   
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
