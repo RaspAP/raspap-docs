@@ -17,6 +17,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [What are the passphrase requirements used by RaspAP?](#passphrase)
 * [Can I remove the AP password to create an open WiFi network?](#nopw)
 * [How do I prevent WAN access to RaspAP's web administration?](#access)
+* [Why do I receive an 'Invalid CSRF token' message and a blank screen?](#token)
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
@@ -200,6 +201,15 @@ sudo systemctl restart lighttpd.service
 ```
 
 Clients outside of your defined network range will receive a '403' response when accessing the web UI.
+
+## <a name="token"></a>Why do I receive an 'Invalid CSRF token' message and a blank screen?
+Cross-site request forgery (CSRF) is a type of exploit where unauthorized commands are executed against a website on behalf of a trusted user. To guard against this, RaspAP generates a one-time
+token that is unique for every user and stored in the PHP session object. This token value is inserted into a hidden field on every form in the RaspAP application. If the token doesn’t exist in the submitted
+form data or fails to match with the token on the server, the form will reject the submission and return an error.
+
+The most common cause for this error message is when your PHP session expires. By default, the PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.
+
+If you submit a form in RaspAP 24 minutes after the page was loaded, the application will return a CSRF token error. When this occurs, simply refresh the page to generate a new CSRF session token.
 
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
