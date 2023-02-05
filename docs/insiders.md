@@ -51,6 +51,7 @@ Below is a list of funding targets. When a funding target is reached, the featur
 
 #### **$1,500** - 3rd Insiders Edition
 :octicons-gear-24: WireGuard kill switch (in progress)  
+:octicons-gear-24: Multiple WireGuard configs (in progress)  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
