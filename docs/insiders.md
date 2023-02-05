@@ -24,14 +24,14 @@ You can cancel your sponsorship anytime.[^3]
 The following features are currently available exclusively to sponsors. A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP.
 This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
-:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](ap-basics.md#wpa3-personal) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](ap-basics.md#80211w) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](ap-basics.md#printable-signs) :material-new-box:    
-:octicons-check-circle-fill-24:{: .check } [Drag & drop dashboard widgets](ap-basics.md#drag-drop-widgets) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address) :material-new-box:   
-:octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics) :material-new-box:   
+:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
+:octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md)  
+:octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](ap-basics.md#wpa3-personal)  
+:octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](ap-basics.md#80211w)  
+:octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](ap-basics.md#printable-signs)  
+:octicons-check-circle-fill-24:{: .check } [Drag & drop dashboard widgets](ap-basics.md#drag-drop-widgets)  
+:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
+:octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics)  
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
 
