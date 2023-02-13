@@ -115,6 +115,18 @@ These `iptables` rules are defined in WireGuard's [default settings](defaults.md
 
 > :information_source: **Note:** If your VPN server is behind a NAT, you will need to open a UDP port of your choosing (51820 is the default). 
 
+## Kill switch
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+
+In the event that the WireGuard tunnel accidentally goes down, unencrypted traffic may reveal your real IP address. To prevent this from happening, additional `PostUp` and `PreDown` rules may be
+added to the firewall. Simply choose the **Enable kill switch** option when uploading your WireGuard configuration:
+
+![](https://user-images.githubusercontent.com/229399/218388355-0d489f34-5935-448d-b08c-134c509a0319.png){: style="width:580px"}
+
+These rules are automatically appended to your configuration. 
+
+> :information_source: **Note:** Some VPN providers give you the option of adding these rules to their Linux configurations. Skip this option as RaspAP needs to add an exclusion rule for your AP interface.
+
 ## Low overhead
 Due to its low overhead compared with OpenVPN, WireGuard is well-suited for applications where battery longevity is a concern. As [described by its developer](https://www.wireguard.com/quickstart/#nat-and-firewall-traversal-persistence),
 WireGuard isn't a chatty protocol. For the most part, it only transmits data when a peer wishes to send packets. When it's not being asked to send packets, it stops sending packets until it is asked again.
