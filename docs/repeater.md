@@ -53,7 +53,7 @@ After [installing RaspAP](index.md#quick-start) your device will broadcast an 80
 ### Connect device to WiFi
 With your USB dongle connected and AP active, use RaspAP's **WiFi client** interface to select and authenticate with your existing wireless router. 
 
-![](https://user-images.githubusercontent.com/229399/223978928-7dbd63a8-c61c-4ef7-b50b-dff73b2584cf.png){: style="width:460px"}
+![](https://user-images.githubusercontent.com/229399/223978928-7dbd63a8-c61c-4ef7-b50b-dff73b2584cf.png){: style="width:520px"}
 
 Alternatively, if you've used software such as the [Raspberry Pi imager](https://www.raspberrypi.com/software/) to install an OS on your microSD card, you may choose the "Configure wireless LAN" option
 before booting your device for the first time. This will configure your `wpa_supplicant.conf` and your device should already be connected to your WLAN. In this case, you may skip this step.
@@ -62,7 +62,7 @@ before booting your device for the first time. This will configure your `wpa_sup
 Your current network configuration will display two default routes. This may be confirmed by checking the **Routing table** output on RaspAP's **Networking** interface. In the example below, `wlan0` is the
 AP interface and has a default route (identified by the `default` label) and a metric value of `303`:
 
-![](https://user-images.githubusercontent.com/229399/224000866-1a0b8bf1-59a8-4e7a-b658-d224c7b25abc.png){: style="width:460px"}
+![](https://user-images.githubusercontent.com/229399/224091327-2481764c-3b39-48f7-b7a2-26b3587db8e2.png){: style="width:520px"}
 
 Note that our USB adapter is on the `wlan1` interface and has a higher metric value of `304`. It also has a default route. Until we configure these metrics, our WiFi repeater does not know how to route
 packets from `wlan1` (the client interface) to `wlan0` (the AP interface) and vice versa. Clients connected to the AP will *not* have internet connectivity. Fortunately, this is easily fixed.
@@ -72,11 +72,11 @@ the interface is brought up and will usually choose the network routes it decide
 
 To configure routing for our repeater, select `wlan0` (the AP interface, in this example) from the **DHCP Server settings** interface. Be sure that the "Install a default route for this interface" option is disabled. 
 
-![](https://user-images.githubusercontent.com/229399/147859041-5abaab36-b474-43a4-98f6-5aebfca5c9bf.png){: style="width:460px"}
+![](https://user-images.githubusercontent.com/229399/147859041-5abaab36-b474-43a4-98f6-5aebfca5c9bf.png){: style="width:520px"}
 
 Scroll to the bottom and set a metric value of `305` for this interface, then choose **Save settings**:
 
-![](https://user-images.githubusercontent.com/229399/224007041-f1f11f60-0545-4673-a87d-7c6297d2b129.png){: style="width:460px"}
+![](https://user-images.githubusercontent.com/229399/224007041-f1f11f60-0545-4673-a87d-7c6297d2b129.png){: style="width:520px"}
 
 This instructs the DHCP daemon to treat the `wlan0` interface with a lower priority than the `wlan1` interface. There's nothing magic about the value "305" in this example &#151; the important thing is that the AP interface has a higher value, and thus a lower priorty, than the `wlan1` interface. 
 
@@ -96,7 +96,7 @@ nogateway
 This is reflected in the updated routing table, visible on the **Networking** interface. In the example below, the `wlan0` interface hosting the AP no longer has a default route and shows a higher metric
 value (lower priority) than the `wlan1` interface:
 
-![](https://user-images.githubusercontent.com/229399/224005982-06b906cd-8e88-40f2-b11a-36ae5d81c147.png){: style="width:460px"}
+![](https://user-images.githubusercontent.com/229399/224091951-2ec46f45-c552-4cf4-87f4-384fa6f52ada.png){: style="width:520px"}
 
 If you don't see these changes in the routing table, be sure to restart the hotspot. 
 
