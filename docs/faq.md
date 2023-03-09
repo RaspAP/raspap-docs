@@ -106,27 +106,8 @@ network={
 ```
 
 ## <a name="interfaces"></a>Can I use wlan0 and wlan1 rather than eth0 for my AP?
-Yes, this is supported by RaspAP. In this scenario, you may wish to use the `wlan0` interface as a wireless client with `wlan1` as the AP interface. Follow the steps below to enable this configuration:
-
-1. Be sure the adapters are configured with the interface names `wlan0` and `wlan1`.
-2. Select `wlan1` as the AP interface on the **Hotspot > Basic** tab and **Save Settings**.
-3. Disable the "Install a default route for this interface" option on the **DHCP Server > Settings** tab for the AP interface (`wlan1` in this case) and choose **Save settings**.
-
-    ![](https://user-images.githubusercontent.com/229399/147859041-5abaab36-b474-43a4-98f6-5aebfca5c9bf.png){: style="width:500px"}
-
-4. Do not enable the Wi-fi AP (AP-STA) mode option. This is only needed when the client and AP are utilizing the same wlan adapter.
-5. (Re)start the hotspot.
-
-Once this configuration is made, the settings will be applied after subsequent reboots or restarting the hotspot, until you change them.
-
-If you would like to switch these wlan devices (the AP and client), select a different interface for the AP on the **Hotspot > Basic** tab, then choose **Save settings**. Reverse the DHCP settings in step 3, then restart the AP or reboot your device.
-In order to still be able to access the web UI, connect your device via an ethernet cable.
-
-> :information_source: **Important:** Be aware that external WiFi adapters (ie, USB "dongles") vary greatly in terms of hardware capabilities and driver support. Many do not have support for AP mode, require a powered USB hub,
-manual driver and/or firmware installation or are otherwise not well suited for this application. 
-
-Recommended adapters such as the Edimax 7811Un and Ralink RT5370 work out of the box with Raspberry OS (32-bit) Lite. Adapters that require compiling of third-party drivers or other workarounds can be problematic. For this reason, you must verify your adapter _before_ reporting an issue with this feature.
-If you are missing a WLAN driver module for your device, [RaspAP Tools](https://github.com/RaspAP/raspap-tools) may be able to help.
+Yes, this is supported by RaspAP. In this scenario, you may wish to use the `wlan0` interface as the AP interface with `wlan1` as the wireless client interface. Refer to the dedicated [WiFi repeater](repeater.md)
+walkthrough for steps to enable this configuration.
 
 ## <a name="monitor"></a>Can I use RaspAP as a monitor only, without changing my configuration?
 Yes, RaspAP has support for a so-called "monitor mode". In `config.php` change the setting `RASPI_MONITOR_ENABLED` to `true`. This disables the ability to modify settings, start/stop daemons, shutdown or reboot the RPi. RaspAP will continue to report interface statistics, service settings and data usage as normal. See [this](defaults.md#managing-config-values) for more information. 
