@@ -67,7 +67,8 @@ AP interface and has a default route (identified by the `default` label) and a m
 Note that our USB adapter is on the `wlan1` interface and has a higher metric value of `304`. It also has a default route. Until we configure these metrics, our WiFi repeater does not know how to route
 packets from `wlan1` (the client interface) to `wlan0` (the AP interface) and vice versa. Clients connected to the AP will *not* have internet connectivity. Fortunately, this is easily fixed.
 
-Metrics and default routes are set by the [DHCP daemon](https://man.archlinux.org/man/core/dhcpcd/dhcpcd.8.en). Contrary to [popular belief](https://www.reddit.com/r/RaspAP/comments/10601do/issues_with_raspap_and_routing_traffic_from_wlan0/), RaspAP does *not* manipulate the ip routing table or set interface priorities without user input. The Linux kernel sets default interface metric values and will usually choose the network routes it decides is best. The `dhcpcd` daemon uses metrics to prioritize interfaces, where lower values are given a higher priority.
+Metrics and default routes are used by `dhcpcd`, the [DHCP daemon](https://man.archlinux.org/man/core/dhcpcd/dhcpcd.8.en). Contrary to [popular belief](https://www.reddit.com/r/RaspAP/comments/10601do/issues_with_raspap_and_routing_traffic_from_wlan0/), RaspAP does not manipulate the IP routing table or set interface priorities without user input. The Linux kernel sets default metric values when 
+the interface is brought up and will usually choose the network routes it decides is best. The DHCP daemon uses these metrics to prioritize interfaces, where lower values are given a higher priority.
 
 To configure routing for our repeater, select `wlan0` (the AP interface, in this example) from the **DHCP Server settings** interface. Be sure that the "Install a default route for this interface" option is disabled. 
 
@@ -77,7 +78,7 @@ Scroll to the bottom and set a metric value of `305` for this interface, then ch
 
 ![](https://user-images.githubusercontent.com/229399/224007041-f1f11f60-0545-4673-a87d-7c6297d2b129.png){: style="width:460px"}
 
-This instructs the `dhcpcd` daemon to treat the `wlan0` interface with a lower priority than the `wlan1` interface. There's nothing magic about the value "305" in this example &#151; the important thing is that the AP interface has a higher value, and thus a lower priorty, than the `wlan1` interface. 
+This instructs the DHCP daemon to treat the `wlan0` interface with a lower priority than the `wlan1` interface. There's nothing magic about the value "305" in this example &#151; the important thing is that the AP interface has a higher value, and thus a lower priorty, than the `wlan1` interface. 
 
 For your changes to take effect, choose **Restart hotspot** from the **Hotspot** interface.
 
@@ -93,7 +94,7 @@ nogateway
 ```
 
 This is reflected in the updated routing table, visible on the **Networking** interface. In the example below, the `wlan0` interface hosting the AP no longer has a default route and shows a higher metric
-(lower priority) than the `wlan1` interface:
+value (lower priority) than the `wlan1` interface:
 
 ![](https://user-images.githubusercontent.com/229399/224005982-06b906cd-8e88-40f2-b11a-36ae5d81c147.png){: style="width:460px"}
 
