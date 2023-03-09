@@ -65,7 +65,7 @@ AP interface and has a default route (identified by the `default` label) and a m
 ![](https://user-images.githubusercontent.com/229399/224000866-1a0b8bf1-59a8-4e7a-b658-d224c7b25abc.png){: style="width:460px"}
 
 Note that our USB adapter is on the `wlan1` interface and has a higher metric value of `304`. It also has a default route. Until we configure these metrics, our WiFi repeater does not know how to route
-packets from `wlan1` (the client interface) to `wlan0` (the AP interface) and vice versa. Clients connected to the AP will *not* have internet connectivity. Fortunately this is easily fixed.
+packets from `wlan1` (the client interface) to `wlan0` (the AP interface) and vice versa. Clients connected to the AP will *not* have internet connectivity. Fortunately, this is easily fixed.
 
 Metrics and default routes are set by the [DHCP daemon](https://man.archlinux.org/man/core/dhcpcd/dhcpcd.8.en). Contrary to [popular belief](https://www.reddit.com/r/RaspAP/comments/10601do/issues_with_raspap_and_routing_traffic_from_wlan0/), RaspAP does *not* manipulate the ip routing table or set interface priorities without user input. The Linux kernel sets default interface metric values and will usually choose the network routes it decides is best. The `dhcpcd` daemon uses metrics to prioritize interfaces, where lower values are given a higher priority.
 
@@ -107,7 +107,7 @@ If you would like to switch the wlan interfaces, select a different interface fo
 
 ### Troubleshooting
 If your clients do not have internet connectivity, start by following these [troubleshooting steps](ap-basics.md#troubleshooting). In most cases, problems may be diagosed and fixed by checking the service 
-logs and RaspAP's **Neworking** interface. Help is available from the sources [mentioned here](ap-basics.md#diagnosing-problems). 
+logs and RaspAP's **Networking** interface. Help is available from the sources [mentioned here](ap-basics.md#diagnosing-problems).
 
 ## Speed testing
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
