@@ -28,7 +28,7 @@ When the AP is operational, you may connect clients to it by using one of two me
 1. Select the SSID from the list of available networks on your device and enter the passphrase.
 2. Scan the QR code displayed on the **Hotspot > Security** tab and join the AP.
 
-By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.255`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](faq.md#noip).
+By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.254`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](faq.md#noip).
 
 ## Security settings
 WPA2 is currently the most secure standard utilizing AES (Advanced Encryption Standard) and a pre-shared key for authentication. WPA2 is also backwards compatible with TKIP to allow interoperability with legacy devices. AES uses the CCMP encryption protocol which is a stronger algorithm for message integrity and confidentiality.
