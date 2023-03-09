@@ -139,10 +139,10 @@ Similarly, you may also enable DHCP server activity by sliding either of the two
 
 ### Diagnosing problems
 Look for any reported errors logged by the `hostapd`, `dhcpcd` or `dnsmasq` services. In most cases, errors thrown by one or more of these services have been discussed in various online forums.
-Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/).
-Chances are the problems with your AP have been discussed and answered before.
+Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/). Chances are the problems with your AP have been discussed and answered before.
 
-The RaspAP [FAQ](faq.md) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions.  
+For additional help and advice, the [FAQ](faq.md) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions. For issues not covered in
+the FAQ, you may find many topics in [RaspAP discussions](https://github.com/RaspAP/raspap-webgui/discussions) and the [RaspAP subreddit](https://reddit.com/r/RaspAP).
 
 > :information_source: **Protip:** Capture output from the Linux kernel's message buffer with `dmesg` to help diagnose failure events. Read the last 100 lines with `dmesg | tail -100` and look 
 for any anomalies.
