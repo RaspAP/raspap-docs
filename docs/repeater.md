@@ -1,6 +1,6 @@
 # WiFi repeater
 
-![](https://user-images.githubusercontent.com/229399/223968265-dc315c90-5884-41a1-b28b-0468159f2042.jpg){: style="width:640px"}
+![](https://user-images.githubusercontent.com/229399/224082441-d9db2204-2ea5-434a-b96a-c23aef581a80.jpg){: style="width:640px"}
 
 ## Overview
 A popular use case for RaspAP is to connect to your wireless network and rebroadcast an existing wireless signal. Often known as a *wireless repeater*, this setup is particularly useful if you are 
