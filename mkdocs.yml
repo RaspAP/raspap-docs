@@ -21,6 +21,9 @@ theme:
     - navigation.footer
     - content.action.edit
     - content.action.view
+    - search.suggest
+    - search.highlight
+    - search.share
 markdown_extensions:
   - attr_list
   - footnotes
@@ -32,8 +35,8 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 plugins:
+  - search
   - git-revision-date-localized:
-      enable_creation_date: true
 extra_css:
   - stylesheets/extra.css
 extra:
