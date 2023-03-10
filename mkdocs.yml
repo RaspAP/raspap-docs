@@ -8,16 +8,17 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-4
         name: Switch to light mode
   features:
     - header.autohide
     - navigation.instant
     - navigation.tracking
+    - navigation.footer
 markdown_extensions:
   - attr_list
   - footnotes
@@ -34,9 +35,26 @@ extra:
   analytics:
     provider: google
     property: G-8JKSE6SEPQ
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/rasp_ap
     - icon: fontawesome/brands/github
-      link: https://github.com/RaspAP/raspap-webgui
+      link: https://github.com/RaspAP/
+    - icon: fontawesome/brands/reddit-alien
+      link: https://reddit.com/r/RaspAP
+
 copyright: Copyright &copy; 2013 - 2023 <a href="https://github.com/RaspAP">RaspAP</a>
