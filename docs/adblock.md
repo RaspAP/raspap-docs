@@ -8,7 +8,7 @@ In the best of times, ads are usually just annoying. When access to online servi
 RaspAP already uses `dnsmasq` to manage both DHCP and DNS, so we have the foundation for a highly effective ad blocking facility.
 
 ## Quick installer
-As a beta feature, we invite testing and encourage feedback from users of RaspAP. To install ad blocking with DNS blacklists, simply respond with 'Y' or press [Enter] when prompted by the installer:
+As a beta feature, we invite testing and encourage feedback from users of RaspAP. To install ad blocking with DNS blacklists, simply respond with ++y++ or press ++enter++ when prompted by the installer:
 
 ```
 Install ad blocking and enable list management? [Y/n]
@@ -16,7 +16,7 @@ Install ad blocking and enable list management? [Y/n]
 
 The installer will download the blocklists, configure RaspAP to use them and enable the **Ad blocking** management page.
 
-![Ad block install option](https://user-images.githubusercontent.com/229399/127268555-5e397b12-a123-4a15-a58f-e339b517ac0a.png){: style="width:500px"}
+![Ad block install option](https://user-images.githubusercontent.com/229399/127268555-5e397b12-a123-4a15-a58f-e339b517ac0a.png){: style="width:520px"}
 
 Ad blocking is enabled and active for clients connected to your AP. You may update the blocklists or disable ad blocking with the management page. These actions are described below. 
  
@@ -29,7 +29,7 @@ For the public beta release, blocklists are sourced from the [notracking project
 ## Updating lists 
 The notracking project maintains two blocklists; hostnames and domains. These are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
 
-![Manage blocklists](https://i.imgur.com/7enu97T.png){: style="width:550px"}
+![Manage blocklists](https://user-images.githubusercontent.com/229399/224507022-f71e9a8f-ad73-437b-81cd-c59b27ad3dc3.png){: style="width:520px"}
 
 > :information_source: **Note:** to apply the latest blocklists, be sure to **Restart Ad Blocking**.
 

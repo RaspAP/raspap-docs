@@ -59,7 +59,7 @@ GatewayInterface wlan0
 # server listens on.
 GatewayAddress 10.3.141.1
 ```
-Save and quit out of the editor by pressing **Ctrl+X** and then pressing **Y** and finally **Enter**.
+Save and quit out of the editor by pressing ++ctrl+x++ and then pressing ++y++ and finally ++enter++.
 
 ## Starting the captive portal
 We are now ready to start up the software. This can be done by simply executing the binary with `sudo nodogsplash`. However, we'll make things a bit easier by adding a `systemd` service provided by the project. Copy the service control file and enable it:
