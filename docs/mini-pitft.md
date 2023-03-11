@@ -6,7 +6,7 @@ The [Adafruit Mini PiTFT](https://www.adafruit.com/product/4393) is an affordabl
 
 Using the display is straightforward with Adafruit's [CircuitPython library for the ST7789 chipset](https://github.com/adafruit/Adafruit_CircuitPython_ST7789). For this application we will use the Python imaging library (PIL) to output some useful stats for RaspAP. The Mini PiTFT's small size complements the Pi Zero W, although for this example we're using a Pi Model 4. 
 
-![Adafruit Mini PiTFT](https://i.imgur.com/kxVSWH4.jpg)
+![Adafruit Mini PiTFT](https://user-images.githubusercontent.com/229399/224494563-d13e8c09-95b4-4a73-9521-d745973b311c.jpg)
 
 ## Setup
 With the Mini PiTFT attached to your Pi's GPIO pins, follow Adafruit's [setup guide for Python](https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/python-setup). You will need to verify that Serial Peripheral Interface (SPI) is enabled on your Pi and that you are running Python 3.
@@ -28,7 +28,7 @@ Alternatively, you can follow the [manual setup](manual.md) instructions.
 
 With the preliminary setup done, execute RaspAP's [stats.py](https://github.com/RaspAP/raspap-webgui/blob/master/app/pitft/stats.py) with: `sudo python3 stats.py`. Your Mini PiTFT should output a summary of RaspAP's status, like so:
 
-![](https://i.imgur.com/7Bfz6jL.jpg)
+![](https://user-images.githubusercontent.com/229399/224494592-1b76482e-4bc7-4448-9319-f0f1b064b769.jpg)
 
 This program updates the display every 100 milliseconds until exited. Interrupt its execution with ++ctrl+c++. 
 
