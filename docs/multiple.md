@@ -10,7 +10,7 @@ For this reason it is used in this walkthrough.
 ## Scenario
 In this setup, we will use an external Edimax 2.4GHz USB adapter together with the onboard wireless chipset of the Raspberry Pi 4 operating on the 5GHz band. The end result is displayed in the WiFi network scan below.
 
-![](https://user-images.githubusercontent.com/229399/121822121-a380ef80-cc9d-11eb-94a1-d404adc07b78.png){: style="width:450px"}
+![](https://user-images.githubusercontent.com/229399/121822121-a380ef80-cc9d-11eb-94a1-d404adc07b78.png){: style="width:520px"}
 
 It is not currently possible to create this configuration with RaspAP's UI, so these manual steps are provided below.
 
@@ -21,7 +21,7 @@ If an **802.11 AC 5GHz** wireless mode is desired with the RPi's onboard chipset
 ## Create the hostapd configs
 The simplest method to achieve this is to use RaspAP's **Hotspot > Basic** tab to create the base configurations. Configure an AP for the onboard `wlan0` interface with the settings shown below. Choose **Save settings** to write this to the filesystem. 
 
-![](https://user-images.githubusercontent.com/229399/121924564-5011ae80-cd3c-11eb-81c8-114972d1a05b.png){: style="width:350px"}
+![](https://user-images.githubusercontent.com/229399/121924564-5011ae80-cd3c-11eb-81c8-114972d1a05b.png){: style="width:420px"}
 
 Open your preferred terminal program and enter the following command to copy this as a new `wlan0` configuration:
 
@@ -31,7 +31,7 @@ sudo cp /etc/hostapd/hostapd.conf /etc/hostapd/wlan0.conf
 
 Next, configure a second AP for the external `wlan1` interface with the settings shown below. Again, choose **Save settings** to write this to the filesystem.
 
-![](https://user-images.githubusercontent.com/229399/121924637-63247e80-cd3c-11eb-94b1-bf4e1f848fd3.png){: style="width:350px"}
+![](https://user-images.githubusercontent.com/229399/121924637-63247e80-cd3c-11eb-94b1-bf4e1f848fd3.png){: style="width:420px"}
 
 Enter the following command to copy this as a new `wlan1` configuration:
 
@@ -48,7 +48,7 @@ RaspAP's [default settings](defaults.md) includes a preconfigured `wlan0` file f
 # RaspAP wlan0 configuration
 interface=wlan0
 domain-needed
-dhcp-range=10.3.141.50,10.3.141.255,255.255.255.0,12h
+dhcp-range=10.3.141.50,10.3.141.254,255.255.255.0,12h
 ```
 
 Next, we will copy this file and make some modfications to it:
@@ -64,7 +64,7 @@ Edit this file so it looks like the example below, then save it and exit your ed
 # RaspAP wlan1 configuration
 interface=wlan1
 domain-needed
-dhcp-range=10.4.141.50,10.4.141.255,255.255.255.0,12h
+dhcp-range=10.4.141.50,10.4.141.254,255.255.255.0,12h
 ```
 
 ## Configure dhcpcd
@@ -107,7 +107,7 @@ Now we are ready to run `hostapd` interactively with the configurations we've cr
 sudo hostapd -dd /etc/hostapd/wlan0.conf /etc/hostapd/wlan1.conf
 ```
 
-Connect clients to each AP and monitor the output. You may stop `hostapd` from the terminal with the `CTRL+C` keystroke. Alternatively, you may send the process to the background with `CTRL+Z` and restore it to the foreground with `fg`.
+Connect clients to each AP and monitor the output. You may stop `hostapd` from the terminal with the ++ctrl+c++ keystroke. Alternatively, you may send the process to the background with ++ctrl+z++ and restore it to the foreground with `fg`.
 
 ## Troubleshooting
 With RaspAP's DHCP logging option enabled, it can be useful to monitor this service's activity from the terminal. Execute `tail -f /tmp/dnsmasq.log` and try associating and disconnecting client devices from each AP.

@@ -30,7 +30,7 @@ With the preliminary setup done, execute RaspAP's [stats.py](https://github.com/
 
 ![](https://i.imgur.com/7Bfz6jL.jpg)
 
-This program updates the display every 100 milliseconds until exited. Interrupt its execution with CTRL+C. 
+This program updates the display every 100 milliseconds until exited. Interrupt its execution with ++ctrl+c++. 
 
 ## Running on boot
 It's easy to run this each time your Pi starts up. There are a few ways to do this, but the simplest method is to edit `/etc/rc.local`. Assuming a typical install of RaspAP, the stats.py path is `/var/www/html/app/pitft/stats.py`. In the example below, we've copied this to Pi user's home directory with `cp stats.py /home/pi`. You may then edit rc.local with `sudo nano /etc/rc.local` and add the line below before `exit 0`:

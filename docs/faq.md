@@ -512,7 +512,7 @@ SHARE_INTERFACE="wlan0"
 WIFI_INTERFACE="wlan0" 
 ```
 
-Once you have configured the sharing settings, save the file (if you are using nano, use CTRL+O and press Enter to save). Exit the text editor and then execute:
+Once you have configured the sharing settings, save the file (if you are using nano, use ++ctrl+o++ and press ++enter++ to save). Exit the text editor and then execute:
  
 ```
 sudo service speedify-sharing restart
@@ -539,10 +539,24 @@ You may now create your own `index.php` file in this folder and request it from 
 **Option 2.**  Reinstall RaspAP and specify a custom install destination, for example `/var/www/html/raspap`. This will leave the default web root free for you to create any files you wish, without attempting to rewrite the URLs (the installer will only apply routing rules to your custom RaspAP root). 
 
 ## <a name="adblockauto"></a>Can I automatically update RaspAP's adblock lists?
-RaspAP's <a href="/adblock/">adblock feature</a> uses the <a href="/adblock/#blocklist-source">notracking project's blocklists</a>. In a typical setup, you may use the **Ad blocking** management
+RaspAP's [adblock feature](adblock.md) uses the [notracking project's blocklists](adblock.md#blocklist-source). In a typical setup, you may use the **Ad blocking** management
 page to manually update these lists. Alternatively, this <a href="https://github.com/RaspAP/raspap-webgui/discussions/1216">user-contributed script</a> will automatically fetch the latest blocklists on
-the schedule of your choosing (for example, daily, weekly, etc.) and reload `dnsmasq`. Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.
+the schedule of your choosing (for example, daily, weekly, etc.) and reload `dnsmasq`.
+```
+#!/bin/sh
+#
+sleep $(shuf -i 0-3600 -n1)
+curl -L https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt > /etc/raspap/adblock/hostnames.tmp
+curl -L https://raw.githubusercontent.com/notracking/hosts-blocklists/master/domains.txt > /etc/raspap/adblock/domains.tmp
 
+mv /etc/raspap/adblock/hostnames.tmp /etc/raspap/adblock/hostnames.txt
+mv /etc/raspap/adblock/domains.tmp /etc/raspap/adblock/domains.txt
+chown root:www-data /etc/raspap/adblock/hostnames.txt
+chown root:www-data /etc/raspap/adblock/domains.txt
+
+sudo systemctl reload dnsmasq.service
+```
+Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.
 
 ## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.
 RaspAP supports OpenVPN clients by uploading a valid `.ovpn` file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):

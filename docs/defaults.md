@@ -87,7 +87,7 @@ Likewise, the DHCP ranges for both `wlan0` and the virtual `uap0` interface are 
 ```
 "dnsmasq": {
     "wlan0": {
-      "dhcp-range": [ "10.3.141.50,10.3.141.255,255.255.255.0,12h" ]
+      "dhcp-range": [ "10.3.141.50,10.3.141.254,255.255.255.0,12h" ]
     },
     "uap0": {
       "dhcp-range": [ "192.168.50.50,192.168.50.150,12h" ]
