@@ -12,17 +12,16 @@ Using a Raspberry Pi as an access point requires reliable operation over a long 
 ## Solution
 Rather than force the system into a read-only mode, RaspAP has an alternative "minimal write mode" that _substantially_ reduces the risk of SD card corruption and also helps to extend the card's lifespan.
 
-This solution involves moving logging and temporary data to a RAM-based file system. The default system log processor `rsyslog` is replaced with an in-memory logger and several log-related services are disabled. A `tmpfs` filesystem is provided for services that require write access, such as sessions used by `php-cgi`, as well as paths for transient and cache data including `/var/cache` and `/var/tmp`.
+This solution involves moving logging, cache and temporary data to a RAM-based file system. The default system log processor `rsyslog` is replaced with an in-memory logger and several log-related services are disabled. The `tmpfs` filesystem is used for most processes that require write access, such as sessions used by `php-cgi`, as well as paths for transient and cache data including `/var/cache` and `/var/tmp`.
 
 In addition, the system's boot options are modified to disable swap and file system checks. A tangible side benefit of retaining a read/write boot partition is that your system will behave otherwise normally &#151; you may install packages, add services and perform most operations as before.
 
 ## Enabling minimal write
-The minimal microSD card write utility, **minwrite**, may be invoked by using RaspAP's [Quick installer](quick.md). This does _not_ (re)install RaspAP &#151; only the [minwrite](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, manual configuration steps are also provided. 
+The minimal microSD card write utility, **minwrite**, may be invoked by using RaspAP's [Quick installer](quick.md). This does _not_ (re)install RaspAP &#151; only the [minwrite](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, manual configuration steps are also provided. Notes specific to Armbian are given where applicable.
 
-> :information_source: **Important**: These methods have been used successfully with many systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card
-before proceeding, or begin with a baseline setup that you can easily recreate if needed. 
+> :information_source: **Important**: These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed. 
 
-Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since we'll be migrating several system processes to the `tmpfs` ramdisk. For this reason, it's recommended to review the [memory considerations](#memory-considerations) before proceeding. Notes specific to Armbian are provided where applicable.
+Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since we'll be migrating several system processes to the `tmpfs` ramdisk. For this reason, it's recommended to review the [memory considerations](#memory-considerations) before proceeding.
 
 After we've enabled **minwrite** we'll look at a technique to evaluate its effectiveness.
 
@@ -30,13 +29,13 @@ After we've enabled **minwrite** we'll look at a technique to evaluate its effec
 The [minwrite utility](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) may be invoked remotely from the [Quick installer](quick.md) like so:
 
 ```
-curl -sL https://install.raspap.com | bash -s --minwrite
+curl -sL https://install.raspap.com | bash -s -- --minwrite
 ```
 
 Alternatively, if you have a local install of RaspAP you may execute it from the `/installers` directory like so:
 
 ```
-./raspbian.sh --minwwrite.sh
+./raspbian.sh --minwrite.sh
 ```
 
 You will be prompted at each step during the minwrite script's execution. As a final step, be sure to reboot your system.
@@ -86,7 +85,7 @@ These steps perform the same actions as the Quick install method. Details are pr
 The goal here is to only remove packages that actively write to the filesystem, and that we intend to replace or disable entirely. In a subsequent step, `logrotate` will be replaced with `busybox-syslogd`.
 Additionally, `dphys-swapfile`, which manages a swapfile in the root filesystem on the SD card, won’t be able to work.
 
-Remove these packages like so:
+Remove these packages with the following:
 
 ```
 sudo apt-get remove --purge dphys-swapfile logrotate
@@ -152,14 +151,14 @@ tmpfs /var/lib/vnstat tmpfs  nosuid,nodev 0 0
 tmpfs /var/php/sessions tmpfs  nosuid,nodev 0 0
 ```
 
-> :information_source: **Note**: Armbian puts `/tmp` in RAM by default, while Raspberry Pi OS des not. On both Armbian and Raspberry Pi OS, `/run` is stored in RAM already and `/var/run` symlinks to it. 
-
 Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
+
+> :information_source: **Note**: Armbian puts `/tmp` in RAM by default, while Raspberry Pi OS does not. On both Armbian and Raspberry Pi OS, `/run` is stored in RAM already and `/var/run` symlinks to it. 
 
 The `/var/tmp` directory is made available for programs that require temporary files or directories that are preserved between system reboots. Therefore, data stored in `/var/tmp` is more persistent than data in `/tmp`. In practice, however, few programs in common use with Raspberry Pi OS write to this directory so we can safely move it to RAM. 
 
 #### Reboot
-A reboot is required for the above steps to take effect. Do so by executing `sudo reboot`.
+A reboot is required for the above steps to take effect. Do this by executing `sudo reboot`.
 
 ## Memory considerations
 The **minwrite** configuration migrates as much as possible from SD card storage to the `tmpfs` ramdisk. As a result, a concomitant increase in memory utilization is expected. To benchmark this, we can compare the change in memory usage on a Pi 3 Model B+ with 1GB of RAM with a typical RaspAP installation.
@@ -214,7 +213,7 @@ Current DISK READ:       0.00 B/s | Current DISK WRITE:      22.52 K/s
 ```
 Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
 Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    PID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO>    COMMAND                                
+    PID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO>    COMMAND
     101 ?sys root          0.00 B      8.00 K  				  [jbd2/mmcblk0p2-8]
     837 ?sys www-data     24.00 K      0.00 B				  lighttpd -D -f /etc/lighttpd/lighttpd.conf
     890 ?sys www-data    170.00 K      0.00 B				  php-cgi
@@ -226,4 +225,6 @@ Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
 Notice that in the latter `iotop` output, logging to disk is nearly absent and `vnstatd` now writes data to RAM. The remaining disk write activity originates mainly from the ext4 journal update process `jbd2`.
 
 At the same time, RaspAP settings may be modified and persisted to the microSD card and the system otherwise operated normally.
+
+Questions or comments about using the **minwrite** mode? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions).
 
