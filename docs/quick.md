@@ -70,6 +70,9 @@ Upgrades an existing installation to the latest release version.
 #### -i, --insiders
 Installs from the [Insiders Edition](insiders.md) (`RaspAP/raspap-insiders`)
 
+#### -m, --minwrite
+Configures a microSD card for [minimum write operation](minwrite.md).
+
 #### -v, --version
 Queries the Github API, outputs the latest RaspAP release version and exits.
 
