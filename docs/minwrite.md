@@ -7,7 +7,7 @@ Linux, and indeed most substantial operating systems, is frequently writing logs
 
 What is more, most microSD cards were not designed with 24/7 operation in mind. Continuous writing to the card's flash memory shortens its lifespan. They often accumulate bad sectors rather quickly after a period of extended use. This is particularly true of so-called "budget" microSD cards.
 
-Using a Raspberry Pi as an access point requires reliable operation over a long period of time. While "read-only mode" operation for the SD card is one approach to prolong its use, this prevents user settings from being persisted to storage &#151; meaning that any changes will be lost following a reboot. This makes it less than ideal for RaspAP, or indeed any application such as a web server or database that depends on read/write tasks.
+Using a Raspberry Pi as an access point requires reliable operation over a long period of time. While "read-only mode" operation for the SD card is one approach to prolong its use, this prevents user settings from being persisted to storage &#151; meaning that any changes will be lost if the device is disconnected from power. This makes it less than ideal for RaspAP, or indeed any application such as a web server or database that depends on persistent storage.
 
 ## Solution
 Rather than force the system into a read-only mode, RaspAP has an alternative "minimal write mode" that _substantially_ reduces the risk of SD card corruption and also helps to extend the card's lifespan.
@@ -22,7 +22,9 @@ The minimal microSD card write utility, **minwrite**, may be invoked by using Ra
 > :information_source: **Important**: These methods have been used successfully with many systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card
 before proceeding, or begin with a baseline setup that you can easily recreate if needed. 
 
-Both methods are reasonably straightforward. After we've enabled **minwrite** we'll look at a technique to evaluate its effectiveness.
+Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since we'll be migrating several system processes to the `tmpfs` ramdisk. For this reason, it's recommended to review the [memory considerations](#memory-considerations) before proceeding. Notes specific to Armbian are provided where applicable.
+
+After we've enabled **minwrite** we'll look at a technique to evaluate its effectiveness.
 
 ### Quick install
 The [minwrite utility](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) may be invoked remotely from the [Quick installer](quick.md) like so:
@@ -116,20 +118,29 @@ sudo apt-get install busybox-syslogd
 sudo dpkg --purge rsyslog
 ```
 
-Be aware that because `busybox-syslogd` writes system logs to RAM, these logs will be deleted on a reboot or if your device is disconnected from power.
+Be aware that because `busybox-syslogd` writes system logs to RAM, these logs will be lost if your device is disconnected from power.
 
 #### Disable swap
-Next we'll modify system boot options to disable [swap](https://wiki.debian.org/Swap) and filesystem checks. These are both intensive disk I/O operations. Edit this file with your editor of choice, for example `sudo nano /boot/cmdline.txt`. Append the following to the end of this file:
+Next we'll modify system boot options to disable [swap](https://wiki.debian.org/Swap) and filesystem checks, as these are both intensive disk I/O processes. Edit this file with `sudo nano /boot/cmdline.txt` and append the following to the end:
 
 ```
 fsck.mode=skip noswap
 ```
+
+The resulting file will look something like this (copied from a Pi 3 Model B+):
+
+```
+console=serial0,115200 console=tty1 root=PARTUUID=bddffae9-02 rootfstype=ext4 fsck.repair=yes rootwait fsck.mode=skip noswap
+```
+
 Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
+
+> :information_source: **Note**: By default Armbian does not use any SD card-based swap, so unless you’ve customized your installation there’s nothing to disable.
 
 #### Move directories to RAM
 As a final step, we'll move several directories to the `tmpfs` filesystem. By directing write operations to a ramdisk instead of the SD card, we can substantially reduce the volume of I/O operations on the card's flash memory. Writing to `tmpfs` also provides fast sequential read/write speeds. The tradeoff is that `tmpfs` is _volatile storage_ &#151; meaning that you will lose all data stored on the filesystem if you lose power.
 
-We'll select paths to migrate to `tmpfs` for transient and cache data, as well as those required for RaspAP's operation that are associated with disk I/O activity. Moving these directories to `tmpfs` is done by editing `fstab` with `sudo nano /etc/fstab`. Add the following lines:
+We'll select paths to migrate to `tmpfs` for transient and cache data, as well as those required for RaspAP's operation that are associated with disk I/O activity. Moving these directories to `tmpfs` is done by editing `fstab` with `sudo nano /etc/fstab`. Append the following lines to the end:
 
 ```
 tmpfs /tmp tmpfs  nosuid,nodev 0 0
@@ -145,14 +156,74 @@ tmpfs /var/php/sessions tmpfs  nosuid,nodev 0 0
 
 Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
 
-According to the Linux docs, the `/var/tmp` directory is made available for programs that require temporary files or directories that are preserved between system reboots. Therefore, data stored in `/var/tmp` is more persistent than data in `/tmp`. In practice, few programs in common use with Raspberry Pi OS write to this directory so we can safely move it to RAM. 
+The `/var/tmp` directory is made available for programs that require temporary files or directories that are preserved between system reboots. Therefore, data stored in `/var/tmp` is more persistent than data in `/tmp`. In practice, however, few programs in common use with Raspberry Pi OS write to this directory so we can safely move it to RAM. 
 
 #### Reboot
 A reboot is required for the above steps to take effect. Do so by executing `sudo reboot`.
 
 ## Memory considerations
+The **minwrite** configuration migrates as much as possible from SD card storage to the `tmpfs` ramdisk. As a result, a concomitant increase in memory utilization is expected. To benchmark this, we can compare the change in memory usage on a Pi 3 Model B+ with 1GB of RAM with a typical RaspAP installation.
 
+Here we use the following to return the amount of free system memory expressed as a percentage of total available:
+
+```
+free -m | awk '/Mem:/ { total=$2 ; used=$3 } END { print used/total*100}'
+```
+
+| Pre-minwrite | Post-minwrite            |
+| ------------ | -------------------------|
+| 11.88%       | :material-check:  29.70% |
+
+While this is a noticable increase in RAM usage, it's still well within the margin for reliable operation of the OS. If you have a higher rate of RAM utilization on your device, or have limited available system memory to begin with, bear this in mind before proceeding.
+
+> :information_source: **Note**: Recall that we've disabled swap, so if the system runs out of physical memory (RAM) there is no partition available for the kernel to allocate virtual memory in its place. This will cause the kernel to throw an out of memory (OOM) error. Normally this causes the kernel to panic and stop functioning. 
 
 ## File system metrics
+We can evaluate a **minwrite** configuration by using `iotop`, a utility that watches I/O usage information output by the Linux kernel. Install it like so:
 
+```
+sudo apt-get install iotop
+```
+
+Execute it with the following switches to monitor accumulated activity of processes doing actual I/O:
+
+```
+sudo iotop -aoP
+```
+
+After a period of time, you will see disk I/O activity reported for a number of processes. Returning to our Pi 3 Model B+ test bench, we can compare the before and after results: 
+
+**Pre-minwrite I/O**
+```
+Total DISK READ:         0.00 B/s | Total DISK WRITE:       191.31 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:      22.52 K/s
+    PID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO>    COMMAND
+     95 ?sys root          0.00 B    860.00 K	              [jbd2/mmcblk0p2-]
+    145 ?sys root          0.00 B      3.03 M				  systemd-journald
+    412 ?sys root          0.00 B    112.00 K 				  rsyslogd -n -iNONE
+    529 ?sys vnstat        0.00 B    264.00 K				  vnstatd -n
+   1080 ?sys www-data    800.00 K     48.00 K				  lighttpd -D -f /etc/lighttpd/lighttpd.conf
+   1186 ?sys www-data      2.25 M      0.00 B				  php-cgi
+   1187 ?sys www-data      4.00 K      0.00 B				  php-cgi
+   1188 ?sys www-data     52.00 K      0.00 B				  php-cgi
+   4752 ?sys root          0.00 B      4.00 K				  dhcpcd -w -q
+   5402 ?sys dnsmasq       0.00 B    140.00 K				  dnsmasq -x /run/dnsmasq/dnsmasq.pid
+```
+
+**Post-minwrite I/O**
+```
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    PID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO>    COMMAND                                
+    101 ?sys root          0.00 B      8.00 K  				  [jbd2/mmcblk0p2-8]
+    837 ?sys www-data     24.00 K      0.00 B				  lighttpd -D -f /etc/lighttpd/lighttpd.conf
+    890 ?sys www-data    170.00 K      0.00 B				  php-cgi
+    891 ?sys www-data      4.00 K      0.00 B				  php-cgi
+    892 ?sys www-data      4.00 K      0.00 B 			      php-cgi
+    893 ?sys www-data     80.00 K      0.00 B 	              php-cgi
+```
+
+Notice that in the latter `iotop` output, logging to disk is nearly absent and `vnstatd` now writes data to RAM. The remaining disk write activity originates mainly from the ext4 journal update process `jbd2`.
+
+At the same time, RaspAP settings may be modified and persisted to the microSD card and the system otherwise operated normally.
 
