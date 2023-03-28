@@ -119,3 +119,5 @@ A tool to evaluate your WiFi repeater's performance is available on the **Networ
 
 The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
 
+## Discussions
+Questions or comments about configuring a WiFi repeater? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/1320).
