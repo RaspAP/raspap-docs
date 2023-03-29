@@ -33,6 +33,7 @@ This is done through Insiders' access to discussions, feature requests, issues a
 :octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
 :octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics)  
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
+:octicons-gear-24: Dynamic DNS support (in progress)  
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
 
@@ -52,7 +53,7 @@ Below is a list of funding targets. When a funding target is reached, the featur
 
 #### **$1,500** - 3rd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
-:octicons-gear-24: Multiple WireGuard configs (in progress)  
+:octicons-gear-24: Dynamic DNS support (in progress)  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
