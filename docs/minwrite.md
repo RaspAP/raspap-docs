@@ -21,7 +21,7 @@ The minimal microSD card write utility, **minwrite**, may be invoked by using Ra
 
 > :information_source: **Important**: These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed. 
 
-Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since we'll be migrating several system processes to the `tmpfs` ramdisk. For this reason, it's recommended to review the [memory considerations](#memory-considerations) before proceeding.
+Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since we'll be migrating the disk I/O activity of several system processes to the `tmpfs` ramdisk. For this reason, it's recommended to review the [memory considerations](#memory-considerations) before proceeding.
 
 After we've enabled **minwrite** we'll look at a technique to evaluate its effectiveness.
 
@@ -137,7 +137,7 @@ Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ a
 > :information_source: **Note**: By default Armbian does not use any SD card-based swap, so unless you’ve customized your installation there’s nothing to disable.
 
 #### Move directories to RAM
-As a final step, we'll move several directories to the `tmpfs` filesystem. By directing write operations to a ramdisk instead of the SD card, we can substantially reduce the volume of I/O operations on the card's flash memory. Writing to `tmpfs` also provides fast sequential read/write speeds. The tradeoff is that `tmpfs` is _volatile storage_ &#151; meaning that you will lose all data stored on the filesystem if you lose power.
+As a final step, we'll move several directories to the `tmpfs` filesystem. By storing these directories on a ramdisk instead of the SD card, we can substantially reduce the volume of I/O operations on the card's flash memory. Writing to `tmpfs` also provides fast sequential read/write speeds. The tradeoff is that `tmpfs` is _volatile storage_ &#151; meaning that you will lose all data stored on the filesystem if you lose power.
 
 We'll select paths to migrate to `tmpfs` for transient and cache data, as well as those required for RaspAP's operation that are associated with disk I/O activity. Moving these directories to `tmpfs` is done by editing `fstab` with `sudo nano /etc/fstab`. Append the following lines to the end:
 
@@ -226,5 +226,6 @@ Notice that in the latter `iotop` output, logging to disk is nearly absent and `
 
 At the same time, RaspAP settings may be modified and persisted to the microSD card and the system otherwise operated normally.
 
-Questions or comments about using the **minwrite** mode? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions).
+## Discussion
+Questions or comments about using **minwrite** mode? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions).
 
