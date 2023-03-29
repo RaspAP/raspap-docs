@@ -226,6 +226,6 @@ Notice that in the latter `iotop` output, logging to disk is nearly absent and `
 
 At the same time, RaspAP settings may be modified and persisted to the microSD card and the system otherwise operated normally.
 
-## Discussion
-Questions or comments about using **minwrite** mode? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions).
+## Discussions
+Questions or comments about using **minwrite** mode? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/1324).
 
