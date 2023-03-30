@@ -111,13 +111,7 @@ If your clients do not have internet connectivity, start by following these [tro
 logs and RaspAP's **Networking** interface. Help is available from the sources [mentioned here](ap-basics.md#diagnosing-problems).
 
 ## Speed testing
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
-
-A tool to evaluate your WiFi repeater's performance is available on the **Networking > Diagnostics** tab. This permits testing of both local network throughput (that is, data transferred over your repeater's wireless interfaces) and internet speed (data transfer between a RaspAP instance and remote host). Ping, jitter download and upload metrics are included in the test.
-
-<video src="https://user-images.githubusercontent.com/229399/214792331-4656d482-7c4d-4ca9-853d-2d1718ddf62d.mov" controls="controls" muted="muted"></video>
-
-The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
+RaspAP hosts a fast, open source and privacy-focused [public speed test server](speedtest.md) that you can use to evaluate your WiFi repeater's performance. The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
 
 ## Discussions
 Questions or comments about configuring a WiFi repeater? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/1320).
