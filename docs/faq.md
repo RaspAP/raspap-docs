@@ -185,7 +185,7 @@ sudo systemctl restart lighttpd.service
 Clients outside of your defined network range will receive a '403' response when accessing the web UI.
 
 ## <a name="minwrite"></a> How can I reduce the risk of SD card corruption and extend a card's lifespan?
-Yes, RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards. 
+RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
 
 ## <a name="token"></a>Why do I receive an 'Invalid CSRF token' message and a blank screen?
 A [cross-site request forgery](https://owasp.org/www-community/attacks/csrf) (CSRF) is a type of exploit where unauthorized commands are executed against a website on behalf of a trusted user. To guard against this, RaspAP generates a one-time token that is unique for every user and stored in the PHP session object. This token value is inserted into a hidden field on every form in the RaspAP application. If the token doesn’t exist in the submitted
