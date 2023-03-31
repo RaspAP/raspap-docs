@@ -48,7 +48,7 @@ Used with the `-y`, `--yes` option above, this sets the OpenVPN install option (
 Used with the `-y`, `--yes` option above, this sets the Ad Blocking install option (`0` = don't install Adblock). Given that Adblock support is an optional extra, this enables an unattended setup without installing it.
 
 #### -c, --cert, --certificate
-This option installs an SSL certificate with `mkcert` and configures lighttpd for HTTPS support. It does _not_ (re)install RaspAP. Details are [provided here](ssl-quick.md).
+This option installs an SSL certificate with `mkcert` and configures lighttpd for HTTPS support. It does _not_ (re)install RaspAP. Details are [provided here](ssl.md).
 
 #### -r, --repo, --repository `<name>`
 If you have forked this project to your own GitHub repo, this option lets you override the default GitHub repo (`RaspAP/raspap-webgui`) used to install RaspAP. An alternate repository name is a required parameter.

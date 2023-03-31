@@ -19,7 +19,8 @@ In addition, the system's boot options are modified to disable swap and file sys
 ## Enabling minimal write
 The minimal microSD card write utility, **minwrite**, may be invoked by using RaspAP's [Quick installer](quick.md). This does _not_ (re)install RaspAP &#151; only the [minwrite](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, [manual configuration](#manual-steps) steps are also provided. Notes specific to Armbian are given where applicable.
 
-> :information_source: **Important**: These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed. 
+!!! caution "Caution"
+    These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed.
 
 Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since we'll be migrating the disk I/O activity of several system processes to the `tmpfs` ramdisk. For this reason, it's recommended to review the [memory considerations](#memory-considerations) before proceeding.
 
@@ -102,8 +103,8 @@ sudo systemctl unmask bootlogd.service
 sudo systemctl disable bootlogs
 sudo systemctl disable apt-daily.service apt-daily.timer apt-daily-upgrade.timer apt-daily-upgrade.service
 ```
-
-> :information_source: **Note**: By disabling these services, you will need to manually check for package updates periodically with `sudo apt-get update && sudo apt-get upgrade`.
+!!! note "Note"
+    By disabling these services, you will need to manually check for package updates periodically with `sudo apt-get update && sudo apt-get upgrade`.
 
 #### Replace logger
 In this step we'll replace the default system logger `rsyslog` with an in-memory logger, `busybox-syslogd`. [BusyBox](https://manpages.debian.org/jessie/busybox-syslogd/syslogd.8.en.html) combines tiny versions of many common Linux utilities into a single small executable. It provides a fairly complete POSIX environment for any small or embedded system, including a minimal write Raspberry Pi.
@@ -132,7 +133,8 @@ console=serial0,115200 console=tty1 root=PARTUUID=bddffae9-02 rootfstype=ext4 fs
 
 Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
 
-> :information_source: **Note**: By default Armbian does not use any SD card-based swap, so unless you’ve customized your installation there’s nothing to disable.
+!!! note "Note"
+    By default Armbian does not use any SD card-based swap, so unless you’ve customized your installation there’s nothing to disable.
 
 #### Move directories to RAM
 As a final step, we'll move several directories to the `tmpfs` filesystem. By storing these directories on a ramdisk instead of the SD card, we can substantially reduce the volume of I/O operations on the card's flash memory. Writing to `tmpfs` also provides fast sequential read/write speeds. The tradeoff is that `tmpfs` is _volatile storage_ &#151; meaning that you will lose all data stored on the filesystem if you lose power.
@@ -151,7 +153,8 @@ tmpfs /var/php/sessions tmpfs  nosuid,nodev 0 0
 
 Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
 
-> :information_source: **Note**: Armbian puts `/tmp` in RAM by default, while Raspberry Pi OS does not. On both Armbian and Raspberry Pi OS, `/run` is stored in RAM already and `/var/run` symlinks to it. 
+!!! note "Note"
+    Armbian puts `/tmp` in RAM by default, while Raspberry Pi OS does not. On both Armbian and Raspberry Pi OS, `/run` is stored in RAM already and `/var/run` symlinks to it. 
 
 The `/var/tmp` directory is made available for programs that require temporary files or directories that are preserved between system reboots. Therefore, data stored in `/var/tmp` is more persistent than data in `/tmp`. In practice, however, few programs in common use with Raspberry Pi OS write to this directory so we can safely move it to RAM. 
 
@@ -173,7 +176,8 @@ free -m | awk '/Mem:/ { total=$2 ; used=$3 } END { print used/total*100}'
 
 While this is a noticable increase in RAM usage, it's still well within the margin for reliable operation of the OS. If you have a higher rate of RAM utilization on your device, or have limited available system memory to begin with, bear this in mind before proceeding.
 
-> :information_source: **Note**: Recall that we've disabled swap, so if the system runs out of physical memory (RAM) there is no partition available for the kernel to allocate virtual memory in its place. This will cause the kernel to throw an out of memory (OOM) error. Normally this causes the kernel to panic and stop functioning. 
+!!! note "Note"
+    Recall that we've disabled swap, so if the system runs out of physical memory (RAM) there is no partition available for the kernel to allocate virtual memory in its place. This will cause the kernel to throw an out of memory (OOM) error. Normally this causes the kernel to panic and stop functioning. 
 
 ## File system metrics
 We can evaluate a **minwrite** configuration by using `iotop`, a utility that watches I/O usage information output by the Linux kernel. Install it like so:
