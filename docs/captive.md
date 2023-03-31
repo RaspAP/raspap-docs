@@ -5,7 +5,8 @@
 ## Overview
 The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) is a lightweight, highly configurable captive portal solution. It integrates nicely with RaspAP and is recommended over other methods. No configuration changes are needed with RaspAP, however you will need to modify some default settings in the nodogsplash config. This step-by-step guide assumes you have already installed RaspAP, either with the [Quick Installer](quick.md) or [manual setup instructions](manual.md). 
 
-> :information_source: **Note:** This walkthrough is provided as a courtesy only; there is no support for NDS or any integration with this project.
+!!! note "Note"
+    This walkthrough is provided as a courtesy only; there is no support for NDS or any integration with this project.
 
 ## Installing the software
 
@@ -36,7 +37,8 @@ sudo make install
 With nodogsplash installed in the Pi's system, we will make two small changes to its configuration. The nodogsplash `GatewayInterface` should be set to the interface RaspAP runs on (`wlan0` is the default).
 You will also need to change the `GateWayAddress` to `10.3.141.1`.
 
-> :information_source: **Note:** If you have modified RaspAP's default configuration, be sure this setting reflects your changes, otherwise the captive portal will not work correctly.
+!!! note "Note"
+    If you have modified RaspAP's default configuration, be sure this setting reflects your changes, otherwise the captive portal will not work correctly.
 
 ```
 sudo nano /etc/nodogsplash/nodogsplash.conf

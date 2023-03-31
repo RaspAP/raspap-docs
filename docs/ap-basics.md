@@ -13,7 +13,8 @@ As part of this initial setup, the `hostapd` service broadcasts an AP with the f
 **Encryption Type:** `CCMP`  
 **Passphrase:** `ChangeMe`  
 
-> :information_source: **Note:** The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](faq.md#80211ac) for more information.
+!!! note "Note"
+    The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](faq.md#80211ac) for more information.
 
 Each of these settings may be changed on the **Hotspot > Basic** and **Security** tabs to any values you wish. Your changes will be applied and made visible on the broadcasted AP by choosing
 **Save settings** followed by **Restart hotspot**.
@@ -47,8 +48,8 @@ by using brute-force, dictionary-based methods, as with WPA/WPA2.
 WPA3 also requires the use of Protected Management Frames (PMFs) to increase network security. If you wish to connect AP clients that may not have support for WPA3-Personal or PMFs, a transitional 
 security mode is also available.
 
-> :information_source: **Note:** The Raspberry Pi's onboard wireless chipsets do not currently support the WPA3 standard. For this reason, in order to use this setting you will need to configure
-your AP with an external wireless adapter that supports WPA3.  
+!!! note "Note"
+    The Raspberry Pi's onboard wireless chipsets do not currently support the WPA3 standard. For this reason, in order to use this setting you will need to configure your AP with an external wireless adapter that supports WPA3.  
 
 ### 802.11w
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
@@ -91,7 +92,8 @@ you will no longer be able to access the web interface from the default `10.1.14
 ### WiFi client AP mode
 RaspAP has support for this special mode, also known as a **micro-AP** or simply **AP-STA**. Typically this can be difficult to configure manually, but RaspAP performs most of the config work behind the scenes for you.
 
-> :information_source: **Note:** This option is disabled or "greyed out" until a wireless client is configured. This can be done via the **WiFi client** UI, or by manually [configuring a valid `wpa_supplicant.conf`](faq.md#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode).
+!!! note "Note"
+    This option is disabled or "greyed out" until a wireless client is configured. This can be done via the **WiFi client** UI, or by manually [configuring a valid `wpa_supplicant.conf`](faq.md#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode).
 
 Before using this mode, it is recommended that users familiarize themselves with [how AP-STA works](ap-sta.md). Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface.
 For the latter, refer to [this FAQ](faq.md#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap). 
@@ -123,8 +125,8 @@ It is not necessary to restart the AP for this to take effect.
 ### Maximum number of clients
 This option sets the `max_num_sta` value for `hostapd`, and is effective for placing a limit on the number of clients (stations) that can connect to your AP. When the limit is reached, new client connections will be rejected.
 
-> :information_source: **Note:** The default setting is 2007, but this is merely the value set by `hostapd` from the IEEE 802.11 specification. It should _not_ be interpreted as a guarantee that RaspAP can support this many simultaneous clients.
-In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](faq.md#maxclients).  
+!!! note "Note"
+    The default setting is 2007, but this is merely the value set by `hostapd` from the IEEE 802.11 specification. It should _not_ be interpreted as a guarantee that RaspAP can support this many simultaneous clients. In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](faq.md#maxclients).  
 
 ## Troubleshooting
 RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. You may also encounter errors connecting clients to 
@@ -144,14 +146,14 @@ Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.or
 For additional help and advice, the [FAQ](faq.md) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions. For issues not covered in
 the FAQ, you may find many topics in [RaspAP discussions](https://github.com/RaspAP/raspap-webgui/discussions) and the [RaspAP subreddit](https://reddit.com/r/RaspAP).
 
-> :information_source: **Protip:** Capture output from the Linux kernel's message buffer with `dmesg` to help diagnose failure events. Read the last 100 lines with `dmesg | tail -100` and look 
-for any anomalies.
+!!! tip "Tip"
+    Capture output from the Linux kernel's message buffer with `dmesg` to help diagnose failure events. Read the last 100 lines with `dmesg | tail -100` and look for any anomalies.
 
 The performance of WiFi radios may be impacted by many factors, including, but not limited to:
 
-**1)** undervoltage due to inadequate power and/or too many peripherals connected to the USB bus,
-**2)** interference from a poorly shielded HDMI cable or using a [specific HDMI screen resolution](https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/), or
-**3)** RF interference from overlapping WiFi networks on a crowded 2.4 GHz band.
+1.  Undervoltage due to inadequate power or too many peripherals connected to the USB bus
+2.  Interference from a poorly shielded HDMI cable or using a [specific HDMI screen resolution](https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/)
+3.  RF interference from overlapping WiFi networks on a crowded 2.4 GHz band.
 
 Bear these things in mind if your AP exhibits unexpected behavior and do your best to mitigate them.
  

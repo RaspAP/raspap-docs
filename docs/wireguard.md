@@ -15,14 +15,15 @@ RaspAP gives you two ways to create a secure WireGuard tunnel: **1)** by uploadi
 This method may be used if you are using a commerical WireGuard VPN provider, a self-hosted or other remote WG server. In these cases, it's assumed you have an existing WireGuard `.conf` file and wish
 to upload this to RaspAP.
 
-> :information_source: **Note:** The term "server" is used here as a convenience. WireGuard does not make a distinction between client and server roles. Instead, each node is considered a "peer" in a WireGuard network.
+!!! note "Note"
+    The term "server" is used here as a convenience. WireGuard does not make a distinction between client and server roles. Instead, each node is considered a "peer" in a WireGuard network.
 
 To do this, select the **Upload file** option under **Configuration Method**, select a valid WireGuard configuration file and choose **Save settings**. If your `.conf`
 file does not contain `iptables` `PostUp` or `PostDown` rules and you wish to route traffic through the active AP interface, select the **Apply iptables rules for AP interface** option before uploading your
 configuration file.
 
-> :warning: **Attention:** For security reasons, your WireGuard `.conf` file must have a Linux MIME type of `text/plain`. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a `text/plain` 
-MIME type embedded in it before uploading.
+!!! warning "Attention"
+    For security reasons, your WireGuard `.conf` file must have a Linux MIME type of `text/plain`. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a `text/plain` MIME type embedded in it before uploading.
 
 The complete process of creating a WireGuard configuration with [Mullvad](https://mullvad.net/) and activating it with RaspAP is demonstrated in the video below. 
 
@@ -87,7 +88,8 @@ The video walkthrough below illustrates the steps of configuring a WireGuard tun
 
 Due to WireGuard’s design, both computers on either end of the VPN tunnel will need to have each other's public key. This is discussed below.
 
-> :information_source: **Note:** For security reasons, the local (server) private key is not displayed in the UI. The peer private key is encoded in the QR code and available to download in the `client.conf` file.
+!!! note "Note"
+    For security reasons, the local (server) private key is not displayed in the UI. The peer private key is encoded in the QR code and available to download in the `client.conf` file.
 
 If you wish to regenerate local or peer keypairs (or both), simply tap or click the magic button :fontawesome-solid-wand-magic-sparkles: and choose **Save settings**. Alternatively, to 
 remove a server or peer configuration entirely, disable the desired toggle and **Save settings**. This will delete the public/private keypair and the associated configuration.
@@ -97,7 +99,8 @@ RaspAP processes the values in the WireGuard **Settings** and **Peer** tabs and 
 The former is used to configure the local (server) side of the VPN tunnel. The latter peer configuration is generated as a QR code on the **Peer** tab. Clients such as mobile devices
 may scan the QR code to transfer `client.conf` and import it into an associated WireGuard client application.
 
-> :information_source: **Note:** For this experimental release, a single peer configuration may be created. The ability to manage multiple peer configurations is on the project roadmap.
+!!! note "Note"
+    For this experimental release, a single peer configuration may be created. The ability to manage multiple peer configurations is on the project roadmap.
 
 Your peer will need to have WireGuard installed as well. For installing WireGuard on other systems, please see Wireguard's [website](https://www.wireguard.com/install/).
 
@@ -113,7 +116,8 @@ iptables -t nat -A  POSTROUTING -o wg0 -j MASQUERADE
 
 These `iptables` rules are defined in WireGuard's [default settings](defaults.md) and may be modified if you wish.
 
-> :information_source: **Note:** If your VPN server is behind a NAT, you will need to open a UDP port of your choosing (51820 is the default). 
+!!! note "Note"
+    If your VPN server is behind a NAT, you will need to open a UDP port of your choosing (51820 is the default). 
 
 ## Kill switch
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
@@ -125,7 +129,8 @@ added to the firewall. Simply choose the **Enable kill switch** option when uplo
 
 These rules are automatically appended to your configuration. 
 
-> :information_source: **Note:** Some VPN providers give you the option of adding these rules to their Linux configurations. Skip this option as RaspAP needs to add an exclusion rule for your AP interface.
+!!! note "Note"
+    Some VPN providers give you the option of adding these rules to their Linux configurations. Skip this option as RaspAP needs to add an exclusion rule for your AP interface.
 
 ## Low overhead
 Due to its low overhead compared with OpenVPN, WireGuard is well-suited for applications where battery longevity is a concern. As [described by its developer](https://www.wireguard.com/quickstart/#nat-and-firewall-traversal-persistence),

@@ -39,7 +39,8 @@ Enter the following command to copy this as a new `wlan1` configuration:
 sudo cp /etc/hostapd/hostapd.conf /etc/hostapd/wlan1.conf
 ```
 
-> :information_source: **Note:** If you decide to create two APs on the same band, for example 802.11n 2.4GHz, be sure to select two different channels for each interface.
+!!! tip "Tip"
+    If you decide to create two APs on the same band, for example 802.11n 2.4GHz, be sure to select two different channels for each interface.
 
 ## Configure dnsmasq
 RaspAP's [default settings](defaults.md) includes a preconfigured `wlan0` file for the `dnsmasq` service. Execute `cat /etc/dnsmasq.d/090_wlan0.conf` to display its contents:
@@ -96,7 +97,8 @@ static routers=10.4.141.1
 static domain_name_server=9.9.9.9 1.1.1.1
 ```
 
-> :information_source: **Note:** RaspAP only manipulates `/etc/hostapd/hostapd.conf` so your custom hostapd configs won't be touched. The [version 2.6](https://github.com/billz/raspap-webgui/releases/tag/2.6-beta) release lets you manage the `dhcpcd` and `dnsmasq` configs from the UI, while also preserving any manual changes.
+!!! note "Note"
+    RaspAP only manipulates `/etc/hostapd/hostapd.conf` so your custom hostapd configs won't be touched. The [version 2.6](https://github.com/billz/raspap-webgui/releases/tag/2.6-beta) release lets you manage the `dhcpcd` and `dnsmasq` configs from the UI, while also preserving any manual changes.
 
 Finally, enable the **Log DHCP requests** toggle on RaspAP's **DHCP Server > Logging** tab. Be sure to restart the `dnsmasq` service. 
 ## Starting the hotspots

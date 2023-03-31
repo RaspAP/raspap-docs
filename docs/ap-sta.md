@@ -6,8 +6,8 @@
 This walkthrough describes an installation of RaspAP on the [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/). A managed mode AP, variously known as 
 **WiFi client AP mode**, a **micro-AP** or simply **AP-STA**, _usually_ works with the Quick Installer if the steps below are followed carefully. This feature was added to RaspAP specifically to support Internet of Things (IoT) and embedded applications for the Pi Zero W, however it is equally useful for a broad range of projects.
 
-> :information_source: **Disclaimer:** this mode is _completely unsupported_ and should be used for educational purposes only. If you need a reliable solution with an access point (AP) and wireless client (STA)
-on the same device, buy a second Wi-Fi adapter and follow [this FAQ](faq.md#interfaces) instead. 
+!!! warning "Disclaimer"
+    This mode is _completely unsupported_ and should be used for educational purposes only. If you need a reliable solution with an access point (AP) and wireless client (STA) on the same device, buy a second Wi-Fi adapter and follow [this FAQ](faq.md#interfaces) instead. 
 
 Before proceeding with the installation, it's important to have a basic understanding of how AP-STA works.
 
@@ -27,7 +27,8 @@ $ iw list | grep -A 4 'valid interface'
 
 The second valid interface combination indicates that both a `managed` and `AP` configuration is possible. The constraint `#channels <= 1` means that your software AP must operate on the same channel as your Wi-Fi client connection. 
 
-> :information_source: **Note:** if you have a second wireless adapter bound to `wlan1` on a Pi Zero W (or other device), refer to [this FAQ](faq.md#interfaces). 
+!!! note "Note"
+    If you have a second wireless adapter bound to `wlan1` on a Pi Zero W (or other device), refer to [this FAQ](faq.md#interfaces). 
 
 ## Use cases
 There are many scenarios in which AP-STA mode might be useful. These are some of the more popular ones:
@@ -88,7 +89,7 @@ With a basic understanding of AP-STA mode, we can proceed with the installation.
 
 > ![](https://i.imgur.com/mwKYBKF.png){: style="width:520px"}
 
-9. Open the RaspAP admin interface in your browser, usually http://raspberrypi.local.
+9. Open the RaspAP admin interface in your browser, usually `http://raspberrypi.local`.
 10. The status widget should indicate that hostapd is inactive. This is expected.
 11. Confirm that the **Wireless Client** dashboard widget displays an active connection.
 12. Choose **Hotspot > Advanced** and enable the **WiFi client AP mode** option.
@@ -98,7 +99,8 @@ With a basic understanding of AP-STA mode, we can proceed with the installation.
 
 ![](https://user-images.githubusercontent.com/229399/224536460-b4c3550f-7cbb-4b47-8230-fc7be74fd69c.png){: style="width:420px"}
 
-> :information_source: **Note:** The **WiFi client AP mode** option will be disabled, or "greyed out", until a wireless client is configured.
+!!! note "Note"
+    The **WiFi client AP mode** option will be disabled, or "greyed out", until a wireless client is configured.
 
 ## When to reboot?
 Rebooting _before_ configuring AP-STA mode is likely the main cause of problems for users with the Pi Zero W. The reason is the [default configuration](defaults.md) is designed for a wired (ethernet) AP. 

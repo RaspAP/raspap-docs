@@ -24,8 +24,8 @@ Baseline configurations for `dhcpcd`, `dnsmasq` (described below) and bridged AP
 
 The interface itself, default Linux file paths and so on may be changed by modifying the project's configuration file `config.php`. 
 
-> :information_source: **Note:** The file `config/config.php` is copied during the installation to `includes/config.php` and ignored by Git. This way, users can modify `includes/config.php`
-without `git pull` or upgrades complaining about local changes. The file `includes/defaults.php` loads corresponding default values if they are not set.
+!!! note "Note"
+    The file `config/config.php` is copied during the installation to `includes/config.php` and ignored by Git. This way, users can modify `includes/config.php` without `git pull` or upgrades complaining about local changes. The file `includes/defaults.php` loads corresponding default values if they are not set.
 
 For example, you can change the brand text that appears in the interface header simply by modifying the value of this constant:
 
@@ -63,7 +63,8 @@ the following value in `config.php`:
 define('RASPI_WIFI_AP_INTERFACE', 'wlan0');
 ```
 
- > :information_source: **Note:** If a second wireless adapter is configured for your device, for example bound to the `wlan1` interface, RaspAP will automatically detect it and assign it as the default
+!!! info "Info"
+    If a second wireless adapter is configured for your device, for example bound to the `wlan1` interface, RaspAP will automatically detect it and assign it as the default
 wireless client interface. You may change this setting simply by selecting `wlan1` as the AP interface in the **Hotspot > Basic** panel. After restarting the hotspot, RaspAP will use `wlan0`
 as the client interface.
 

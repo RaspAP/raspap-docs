@@ -16,7 +16,8 @@ In addition, you will be added as a team member with access to Insiders-only tea
 
 [Join our awesome sponsors :octicons-heart-fill-24:](https://github.com/sponsors/RaspAP){ .md-button .md-button--primary }
 
-> :information_source: **Important**: If you're sponsoring [RaspAP](https://github.com/sponsors/RaspAP) through a GitHub organization, please send a short email to [sponsors@raspap.com](mailto:sponsors@raspap.com) with the name of your organization and the account that should be added as a collaborator.[^2] 
+!!! info "Info"
+    If you're sponsoring [RaspAP](https://github.com/sponsors/RaspAP) through a GitHub organization, please send a short email to [sponsors@raspap.com](mailto:sponsors@raspap.com) with the name of your organization and the account that should be added as a collaborator.[^2] 
 
 You can cancel your sponsorship anytime.[^3]
 
@@ -120,7 +121,8 @@ After you've generated a token, use the [Quick Installer](/quick/#-t-token-acces
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --token [my-token]
 ```
 
-> :information_source: **Note**: your token is sent securely via SSH to GitHub. The installer does _not_ have access to or store your token.
+!!! note "Note"
+    Your token is sent securely via SSH to GitHub. The installer does _not_ have access to or store your token.
 
 You will be prompted to authenticate a second time when the installer clones the private Insiders GitHub repo. In this case, simply enter your GitHub username and token when prompted.
 

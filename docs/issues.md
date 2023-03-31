@@ -38,7 +38,8 @@ can assist you with installing missing WLAN driver modules. Beyond this, your be
 ## Default settings
 One of RaspAP's most popular features is the [Quick Installer](quick.md), which gets an AP up and running quickly and with a minimum of hassle. This works by applying a known-good [default configuration](defaults.md) that has been validated in testing with the project's supported devices. When the project [prerequisites](index.md#quick-start) are followed, an AP with wired ethernet (`eth0`) or managed mode (`wlan0`) Wifi client AP will be functional with the default settings.
 
-> :information_source: **Important:** RaspAP gives you control over many of the settings for `hostapd`, `dhcpcd` and `dnsmasq`. Once these default settings are changed, it's possible that one or all of the above services will enter a failed state.
+!!! warning "Important"
+    RaspAP gives you control over many of the settings for `hostapd`, `dhcpcd` and `dnsmasq`. Once these default settings are changed, it's possible that one or all of the above services will enter a failed state.
 
 ## Will RaspAP let me create a configuration that "breaks" my hotspot?
 In a word, yes. While the [Quick Installer](quick.md) automates most of the work of creating an AP, RaspAP does not automagically validate your custom configurations. As a result, you may observe anomalous behavior when restarting these services and/or rebooting your RPi.

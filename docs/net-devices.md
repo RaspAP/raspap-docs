@@ -47,7 +47,8 @@ You can clone the MAC address of the WLAN interface (or any other valid interfac
 
 ![image](https://user-images.githubusercontent.com/229399/193248142-8838f585-aeef-4ef0-8aef-109ff9dd338e.png){: style="width:575px"}
 
-> :information_source: **Note:** Virtual interfaces such as OpenVPN's `tun0` or WireGuard's `wg0` do not have this capability. To avoid potential conflicts, change the MAC address and reconnect the device before modifying any other settings. 
+!!! note "Note"
+    Virtual interfaces such as OpenVPN's `tun0` or WireGuard's `wg0` do not have this capability. To avoid potential conflicts, change the MAC address and reconnect the device before modifying any other settings. 
 
 ## Ethernet interfaces
 The built-in ethernet adapter as well as USB adapters are usually detected automatically. In these cases no configuration is required.
@@ -76,7 +77,8 @@ When a connected modem is attached, the connection mode, signal quality and netw
 
 ![image](https://user-images.githubusercontent.com/33725910/115954368-ec63c580-a4f0-11eb-8f4b-3a8830ee1d35.png){: style="width:450px"}
 
-> :information_source: **Note:** The names of modems cannot be changed. The reason is that the device name `ppp0` is directly coupled with the required system services.
+!!! note "Note"
+    The names of modems cannot be changed. The reason is that the device name `ppp0` is directly coupled with the required system services.
 
 ### What if my modem device doesn't appear?
 In this case your connected modem device is not recognized by the OS, or it has not been switched into modem mode by [usb_modeswitch](https://www.draisberghof.de/usb_modeswitch/).

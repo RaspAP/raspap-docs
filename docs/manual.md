@@ -52,7 +52,8 @@ Install git, lighttpd, php7, hostapd, dnsmasq and some extra packages with the f
 ```
 sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php7.3-cgi
 ```
-> :information_source: **Note:** for Ubuntu, you may replace `php7.3-cgi` with `php7.4-cgi`. `php5` is no longer supported.
+!!! note "Note"
+    For Ubuntu, you may replace `php7.3-cgi` with `php7.4-cgi`. `php5` is no longer supported.
 
 ## Enable PHP
 Next, enable PHP for `lighttpd` and restart the service for the settings to take effect:
@@ -65,7 +66,8 @@ sudo systemctl restart lighttpd.service
 ## Create the web application
 In these steps we will prepare the web destination and git clone the files to `/var/www/html`.
 
-> :information_source:  **Caution:** If this is _not_ a clean installation, be sure you do not have existing files or directories in the web root before executing the `rm -rf` command.
+!!! warning "Caution"
+    If this is _not_ a clean installation, be sure you do not have existing files or directories in the web root before executing the `rm -rf` command.
 
 ```
 sudo rm -rf /var/www/html
@@ -170,7 +172,8 @@ sudo cp config/config.php /var/www/html/includes/
 sudo cp config/defaults.json /etc/raspap/networking/
 ```
 
-> :information_source: **Note:** If you wish to modify RaspAP's default configuration for `dnsmasq` and `dhcp`, you may do so by changing these files and editing `config/defaults.json`.
+!!! tip "Tip"
+    If you wish to modify RaspAP's default configuration for `dnsmasq` and `dhcp`, you may do so by changing these files and editing `config/defaults.json`.
 
 Next, disable `systemd-networkd` and copy the bridge configuration with the following:
 
@@ -276,9 +279,10 @@ sudo systemctl reboot
 After your device has restarted, search for wireless networks with your wireless client. The default SSID is `raspi-webgui`. 
 The default username is "admin" and the default password is "secret".
 
-> :information_source: **Note:** It is strongly recommended that you change these default login credentials in RaspAP's **Authentication** panel.
-APs managed by RaspAP in the wild have been administered by third parties with the default login.
+!!! warning "Important"
+    It is strongly recommended that you change these default login credentials in RaspAP's **Authentication** panel. APs managed by RaspAP in the wild have been administered by third parties with the default login.
 
-If you have any difficulties with the manual install steps, [start a discussion](https://github.com/RaspAP/raspap-webgui/discussions) and refer to this page.
+## Discussions
+Questions or comments about the manual install? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/1330).
 
 

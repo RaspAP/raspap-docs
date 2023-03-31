@@ -11,7 +11,8 @@ Our popular Quick installer creates a known-good default configuration in minute
 ## Quick start
 Start with a clean install of the [latest release of Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported. The Raspberry Pi OS desktop distro is currently unsupported.
 
-> :information_source: **Note**: Be sure to use an official power supply with your device. Power supply requirements [differ by Raspberry Pi model](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md). Inadequate voltage is the source of many WiFi issues.
+!!! note "Note"
+    Be sure to use an official power supply with your device. Power supply requirements [differ by Raspberry Pi model](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md). Inadequate voltage is the source of many WiFi issues.
 
 Update RPi OS to its latest version, including the kernel and firmware, followed by a reboot:
 
@@ -22,7 +23,8 @@ sudo reboot
 ```
 Set the WiFi country in raspi-config's **Localisation Options**: `sudo raspi-config`.
 
-> :information_source: **Important**: Failure to perform this step will prevent the RPi from enabling wireless operation. When this happens, you will see the warning `Wi-Fi is currently blocked by rfkill` in the console.
+!!! warning "Important"
+    Failure to perform this step will prevent the RPi from enabling wireless operation. When this happens, you will see the warning `Wi-Fi is currently blocked by rfkill` in the console.
 
 Install RaspAP from your device's shell prompt:
 ```sh
@@ -41,8 +43,8 @@ After the reboot at the end of the installation the wireless AP network will be 
 
 Your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.md#advanced-options) are now ready to be modified by RaspAP.
 
-> :information_source: **Important**: If this is _not_ a clean install or you are configuring a device with a non-standard [integration](faq.md#integrations) it's strongly recommended to follow
-the [manual installation](manual.md) instructions.
+!!! warning "Important"
+    If this is _not_ a clean install or you are configuring a device with a non-standard [integration](faq.md#integrations) it's strongly recommended to follow the [manual installation](manual.md) instructions.
 
 ## Get Insiders
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](insiders.md#how-to-become-a-sponsor)

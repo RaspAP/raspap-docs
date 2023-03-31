@@ -115,7 +115,9 @@ Now, copy `rootCA.pem` to your lighttpd web root:
 ```
 sudo cp /home/pi/.local/share/mkcert/rootCA.pem /var/www/html
 ```
-> :information_source: **Important**: Do *not* share the `rootCA-key.pem` file.
+
+!!! warning "Important"
+    Do *not* share the `rootCA-key.pem` file.
 
 Finish by following the [client configuration](#client-configuration) steps below.
 
@@ -127,7 +129,9 @@ Invoke the Quick installer and specify the `-c` or `--cert` option, like so:
 ```
 curl -sL https://install.raspap.com | bash -s -- --cert
 ```
-> :information_source: **Note**: this only installs `mkcert` and generates an SSL certificate with the input you provide. It does _not_ (re)install RaspAP. 
+
+!!! note "Note"
+    Executing the Quick installer only installs `mkcert` and generates an SSL certificate with the input you provide. It does _not_ (re)install RaspAP. 
 
 ![](https://user-images.githubusercontent.com/229399/228978188-bac645ab-76fb-4eb6-95aa-44521167907a.gif){: style="width:540px"}
 
