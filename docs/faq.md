@@ -87,7 +87,8 @@ RaspAP manipulates several daemons, services and helper programs behind the scen
 
 For example, two of the best starting points for understanding `hostapd` (the service that implements 802.11 AP management) include the [hostapd Linux documentation page](https://wireless.wiki.kernel.org/en/users/Documentation/hostapd) and [hostapd Wifi homepage](https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf).
 
-> :information_source: **Important:** After you choose **Save settings** for `hostapd` or `dhcpcd`, these services _must_ be restarted for your changes to take effect. If you're not sure if your AP is behaving as expected, enable logging in the **Logging** tab of **Hotspot** and check the output.
+!!! info "Info"
+    After you choose **Save settings** for `hostapd` or `dhcpcd`, these services must be restarted for your changes to take effect. If you're not sure if your AP is behaving as expected, enable logging in the **Logging** tab of **Hotspot** and check the output.
 
 ## <a name="headless"></a>How do I prepare the SD card to connect to WiFi in headless mode?
 Since [May 2016](https://www.raspberrypi.org/blog/another-update-raspbian/), Raspbian has been able to copy wifi details from `/boot/wpa_supplicant.conf` into `/etc/wpa_supplicant/wpa_supplicant.conf` to automatically configure wireless network access. 
@@ -225,8 +226,8 @@ dnsmasq-dhcp[2516]: DHCPACK(wlan0) 10.3.141.249 [MAC address] iPhone
 
 If one or more steps in this exchange are missing, either your device is unable to respond to the server's `DHCPOFFER` or the AP itself is misconfigured.
 
-> :information_source: **Important**: By default, the `dnsmasq` service listens on TCP/UDP port 53 and UDP port 67. If you have configured firewall software such as `ufw` or `iptables` to filter traffic on these ports, the service may not be
-able to respond to DHCP requests.
+!!! note "Note"
+    By default, the `dnsmasq` service listens on TCP/UDP port 53 and UDP port 67. If you have configured firewall software such as `ufw` or `iptables` to filter traffic on these ports, the service may not be able to respond to DHCP requests.
 
 As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
 Save settings, restart `dnsmasq` and try connecting your client again.
@@ -298,8 +299,8 @@ sudo wpa_supplicant -B -Dnl80211,wext -c/etc/wpa_supplicant/wpa_supplicant.conf 
 
 substituting `wlan0` with your wireless interface, if necessary. You should then be able to perform scans as expected.
 
-> :information_source: **Note:** If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information 
-on this topic is [available here](/ap-sta/#when-to-reboot).
+!!! note "Note"
+    If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information on this topic is [available here](/ap-sta/#when-to-reboot).
 
 ## <a name="hostapd-down"></a>I started the hotspot but it shows "hostapd down". What's happening?
 Hostapd, the Linux service that creates the access point, can fail to start for a variety of reasons. The following are common causes, with troubleshooting advice:
@@ -372,10 +373,10 @@ attempt to save settings will fail. In other cases, the lighttpd web server may 
 ```
 
 These signs point to a corrupted filesystem on the SD card. If during a power disconnection the memory card is in a write operation, there is a high chance that one or more sectors will be
-damaged. In these cases, a fresh install on a new SD card can save you time and frustration.
+damaged. In these cases, a fresh install on a new SD card can save you time and frustration. RaspAP's [minimal SD card write](minwrite.md) mode can help in this case.
 
-> :information_source: **Important:** Be sure to use genuine MicroSD cards from a reputable manufacturer. Card clones are common and hard to distinguish from legitimately made ones, but certainly not subject to the same
-quality standards. Neither fake nor cheap cards are typically suitable for an entire OS to run from.
+!!! tip "Tip"
+    Be sure to use genuine MicroSD cards from a reputable manufacturer. Card clones are common and hard to distinguish from legitimately made ones, but certainly not subject to the same quality standards. Neither fake nor cheap cards are typically suitable for an entire OS to run from.
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
@@ -661,8 +662,8 @@ $ sudo systemctl status wg-quick@wg0.service
 You may also use RaspAP's built-in WireGuard logging facility. On the **WireGuard > Logging** tab, enable the "Display WireGuard debug log" option and choose **Save settings**. Check the log
 output in the tab and look for any errors.
 
-> :information_source: **Note:** The debug log facility queries the `systemd` journal with a one-time execution of `journalctl --identifier wg-quick`. If you want to update this log output, simply enable the option again.
-You may also execute this command directly from the shell, if you wish.
+!!! note "Note"
+    The debug log facility queries the `systemd` journal with a one-time execution of `journalctl --identifier wg-quick`. If you want to update this log output, simply enable the option again. You may also execute this command directly from the shell, if you wish.
 
 Finally, you may check and verify the WireGuard config itself, including PostUp / PostDown rules, by executing `sudo cat /etc/wireguard/wg0.conf`.
 
@@ -750,7 +751,8 @@ define('RASPI_5GHZ_ISO_ALPHA2', array('US'));
 
 The **Configure hotspot** page will now let you select AC as a wireless mode option for your country. If you succeed in creating a stable AP, feel free to share your results in a [discussion](https://github.com/RaspAP/raspap-webgui/discussions/).
 
-> :information_source: **Note:** it is recommended to monitor logs such as `dmesg` and the hostapd error log (available in the **Logfile output** tab of RaspAP) while doing this. Bug reports like "AC doesn't work" and/or troubleshooting requests will not be considered. No hard feelings.
+!!! note "Note"
+    It is recommended to monitor logs such as `dmesg` and the hostapd error log (available in the **Logfile output** tab of RaspAP) while doing this. Bug reports like "AC doesn't work" and/or troubleshooting requests will not be considered. No hard feelings.
 
 ## <a name="wirelessn"></a>Why is the maximum throughput of my 802.11n AP reduced by half? 
 In order to achieve optimal throughput with 802.11n, the wireless stream must operate at a 40 MHz wide channel on the 2.4 GHz band. A 20 MHz channel will restrict you to 72 Mbps. Your `hostapd.conf` might have  the required settings, but this is no guarantee of a 40 MHz channel.
@@ -815,9 +817,10 @@ sudo nano /var/www/html/includes/config.php
 ```
 Change the first line to the release version, save the file and exit.
 
-> :information_source: **Note:** `RASPI_VERSION` is only used on the About page; it does not affect any other functionality.
+!!! note "Note"
+    `RASPI_VERSION` is only used on the About page; it does not affect any other functionality.
 ```
-define('RASPI_VERSION', '2.5');
+define('RASPI_VERSION', '2.8.9');
 ```
 
 Finally, give the lighttpd service a kick with:
