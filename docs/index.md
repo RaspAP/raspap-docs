@@ -11,7 +11,7 @@ Our popular Quick installer creates a known-good default configuration in minute
 ## Quick start
 Start with a clean install of the [latest release of Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported. The Raspberry Pi OS desktop distro is currently unsupported.
 
-!!! note "Note"
+!!! tip "Tip"
     Be sure to use an official power supply with your device. Power supply requirements [differ by Raspberry Pi model](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md). Inadequate voltage is the source of many WiFi issues.
 
 Update RPi OS to its latest version, including the kernel and firmware, followed by a reboot:
@@ -43,7 +43,7 @@ After the reboot at the end of the installation the wireless AP network will be 
 
 Your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.md#advanced-options) are now ready to be modified by RaspAP.
 
-!!! warning "Important"
+!!! tip "Tip"
     If this is _not_ a clean install or you are configuring a device with a non-standard [integration](faq.md#integrations) it's strongly recommended to follow the [manual installation](manual.md) instructions.
 
 ## Get Insiders
@@ -76,4 +76,7 @@ Developers can get started by following these steps:
 4. Open a pull request and reference the initial issue in the pull request message.
 
 Find out more about our [coding style guidelines and recommended tools](https://github.com/RaspAP/raspap-webgui/blob/master/CONTRIBUTING.md).
+
+## Discussions
+Questions or comments about the Quick start? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/1331).
 
