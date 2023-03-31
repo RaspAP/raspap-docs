@@ -1,10 +1,12 @@
 # SSL certificates
 
+![](https://user-images.githubusercontent.com/229399/229061188-ada5687c-6ef3-410a-8750-3ea54ae83632.jpg){: style="width:640px"}
+
 ## Overview
-HTTPS prevents network attackers from observing or injecting page contents. Clearly, this is a good thing for RaspAP &#151;  given its primary function for creating and managing wireless networks. But HTTPS needs TLS certificates, and while deploying public websites is largely a solved issue thanks to the ACME protocol and Let's Encrypt, local web servers still mostly use HTTP because no one can get a universally valid certificate for localhost.
+HTTPS prevents network attackers from observing or injecting page contents. This is desirable for server applications like RaspAP &#151; or indeed any locally hosted web application. But HTTPS requires [TLS certificates](https://en.wikipedia.org/wiki/Transport_Layer_Security), and while deploying public websites is largely a solved issue thanks to the ACME protocol and Let's Encrypt, local web servers still mostly use HTTP because no one can get a universally valid certificate for localhost.
 
 ## Locally trusted certificates 
-Managing your own Certificate Authority (CA) is the best solution, but this usually requires an involved manual setup routine. An excellent solution for local websites is [mkcert](https://github.com/FiloSottile/mkcert). This is a zero-config tool for making locally-trusted certificates with any name you like. mkcert automatically creates and installs a local CA in the system root store and generates locally-trusted certificates. It also works perfectly well with RaspAP. This allows you to generate a trusted certificate for a hostname (for example, `raspap.local`) or IP address because it only works for you. 
+Managing your own Certificate Authority (CA) is the best solution, but this usually requires an involved manual setup routine. An excellent solution for local websites is [mkcert](https://github.com/FiloSottile/mkcert). This is a zero-config tool for making locally-trusted certificates with any name you like. `mkcert` automatically creates and installs a local CA in the system root store and generates locally-trusted certificates. It also works perfectly well with RaspAP. This allows you to generate a trusted certificate for a hostname (for example, `raspap.local`) or IP address because it only works for you. 
 
 ![raspap.local](https://user-images.githubusercontent.com/229399/228976581-34beed42-9f08-4ece-9c1b-e5a865415dab.png){: style="width:450px"}
 
@@ -34,7 +36,7 @@ Generate a certificate for `raspap.local`:
 cd /home/pi
 mkcert raspap.local "*.raspap.local" raspap.local
 ```
-... and look for output like this:
+You should see output like the following:
 ```
 Using the local CA at "/home/pi/.local/share/mkcert" ✨
 
@@ -59,11 +61,8 @@ Set permissions and move the `.pem` file:
 chmod 400 /home/pi/raspap.local.pem
 sudo mv /home/pi/raspap.local.pem /etc/lighttpd/ssl
 ```
-Edit the lighttpd configuration:
-```
-sudo nano /etc/lighttpd/lighttpd.conf
-```
-... and add the following block to enable SSL with your new certificate:
+Edit the lighttpd configuration with `sudo nano /etc/lighttpd/lighttpd.conf`. Add the following block to enable SSL with your new certificate:
+
 ```
 server.modules += ("mod_openssl")
 $SERVER["socket"] == ":443" {
@@ -83,6 +82,7 @@ $SERVER["socket"] == ":80" {
   }
 }
 ```
+Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
 
 Restart the lighttpd service:
 ```
@@ -95,32 +95,34 @@ sudo systemctl status lighttpd
 You should see a response like the following:
 ```
 ● lighttpd.service - Lighttpd Daemon
-   Loaded: loaded (/lib/systemd/system/lighttpd.service; enabled)
-   Active: active (running) since Mon 2019-07-01 11:56:15 UTC; 1s ago
-  Process: 1433 ExecStartPre=/usr/sbin/lighttpd -t -f /etc/lighttpd/lighttpd.conf (code=exited, status=0/SUCCESS)
- Main PID: 1443 (lighttpd)
-   CGroup: /system.slice/lighttpd.service
-           ├─1443 /usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
-           ├─1453 /usr/bin/php-cgi
-           ├─1454 /usr/bin/php-cgi
-           ├─1455 /usr/bin/php-cgi
-           ├─1456 /usr/bin/php-cgi
-           └─1457 /usr/bin/php-cgi
+     Loaded: loaded (/lib/systemd/system/lighttpd.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2023-03-26 10:09:46 CEST; 5 days ago
+   Main PID: 1080 (lighttpd)
+      Tasks: 6 (limit: 779)
+        CPU: 5min 17.332s
+     CGroup: /system.slice/lighttpd.service
+             ├─1080 /usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
+             ├─1168 /usr/bin/php-cgi
+             ├─1185 /usr/bin/php-cgi
+             ├─1186 /usr/bin/php-cgi
+             ├─1187 /usr/bin/php-cgi
+             └─1188 /usr/bin/php-cgi
 
-Jul 01 11:56:15 raspap lighttpd[1433]: Syntax OK
-Jul 01 11:56:15 raspap systemd[1]: Started Lighttpd Daemon.
+Mar 30 18:23:38 raspap lighttpd[1433]: Syntax OK
+Mar 30 18:23:38 raspap systemd[1]: Started Lighttpd Daemon.
 ```
-Now, copy `rootCA.pem` to your lighttpd web root (**important:** do *NOT* share `rootCA-key.pem`):
+Now, copy `rootCA.pem` to your lighttpd web root:
 ```
 sudo cp /home/pi/.local/share/mkcert/rootCA.pem /var/www/html
 ```
+> :information_source: **Important**: Do *not* share the `rootCA-key.pem` file.
 
 Finish by following the [client configuration](#client-configuration) steps below.
 
 ### Quick installer
-The [Quick Installer](quick.md) may also be used to generate SSL certs with `mkcert`. The installer automates the manual steps described above, including configuring lighttpd with SSL support. It's recommended to review these stepsto get an idea of what is happening behind the scenes. 
+The [Quick Installer](quick.md) may also be used to generate SSL certs with `mkcert`. The installer automates the manual steps described above, including configuring lighttpd with SSL support. It's recommended to review these steps to have an idea of what is happening behind the scenes. 
 
-Being by appending the `-c` or `--cert` option to the Quick Installer, like so:
+Invoke the Quick installer and specify the `-c` or `--cert` option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --cert
@@ -129,7 +131,7 @@ curl -sL https://install.raspap.com | bash -s -- --cert
 
 ![](https://user-images.githubusercontent.com/229399/228978188-bac645ab-76fb-4eb6-95aa-44521167907a.gif){: style="width:540px"}
 
-Complete the installation by following the [client configuration](#client-configuration) steps below.
+The installer will walk you through the steps of creating a certificate. Complete the installation by following the [client configuration](#client-configuration) steps below.
 
 ## Client configuration
 Open a browser and enter the following address, substituting the domain name you chose in the steps above: `http://raspap.local/rootCA.pem`. Download the root certificate to your client and add it to your system keychain. Examples below illustrate this process on macOS:
