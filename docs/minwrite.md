@@ -10,14 +10,14 @@ What is more, most microSD cards were not designed with 24/7 operation in mind. 
 Using a Raspberry Pi as an access point requires reliable operation over a long period of time. While "read-only mode" operation for the SD card is one approach to prolong its use, this prevents user settings from being persisted to storage &#151; meaning that any changes will be lost if the device is disconnected from power. This makes it less than ideal for RaspAP, or indeed any application such as a web server or database that depends on persistent storage.
 
 ## Solution
-Rather than force the system into a read-only mode, RaspAP has an alternative "minimal write mode" that _substantially_ reduces the risk of SD card corruption and also helps to extend the card's lifespan.
+Rather than force the system into a read-only mode, RaspAP has an alternative "minimal write mode" that substantially reduces the risk of SD card corruption and also helps to extend the card's lifespan.
 
 This solution involves moving logging, cache and temporary data to a RAM-based file system. The default system log processor `rsyslog` is replaced with an in-memory logger and several log-related services are disabled. The `tmpfs` filesystem is used for most processes that require write access, such as sessions used by `php-cgi`, as well as paths for transient and cache data including `/var/cache` and `/var/tmp`.
 
 In addition, the system's boot options are modified to disable swap and file system checks. A tangible side benefit of retaining a read/write boot partition is that your system will behave otherwise normally &#151; you may install packages, add services and perform most operations as before.
 
 ## Enabling minimal write
-The minimal microSD card write utility, **minwrite**, may be invoked by using RaspAP's [Quick installer](quick.md). This does _not_ (re)install RaspAP &#151; only the [minwrite](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, manual configuration steps are also provided. Notes specific to Armbian are given where applicable.
+The minimal microSD card write utility, **minwrite**, may be invoked by using RaspAP's [Quick installer](quick.md). This does _not_ (re)install RaspAP &#151; only the [minwrite](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, [manual configuration](#manual-steps) steps are also provided. Notes specific to Armbian are given where applicable.
 
 > :information_source: **Important**: These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed. 
 
@@ -83,7 +83,7 @@ These steps perform the same actions as the Quick install method. Details are pr
 
 #### Remove packages
 The goal here is to only remove packages that actively write to the filesystem, and that we intend to replace or disable entirely. In a subsequent step, `logrotate` will be replaced with `busybox-syslogd`.
-Additionally, `dphys-swapfile`, which manages a swapfile in the root filesystem on the SD card, won’t be able to work.
+Additionally, `dphys-swapfile`, which manages a swapfile in the root filesystem on the SD card, is removed as it won’t be able to work.
 
 Remove these packages with the following:
 
@@ -93,11 +93,9 @@ sudo apt-get autoremove --purge
 ```
 
 #### Disable services
-Several services are disabled here, including those related to logging such as `bootlogd.service`. In additon, `apt-daily` and several related services are disabled.
+Linux is able to update packages autonomously without an external command. This task is scheduled by the `apt-daily.service`, which triggers the system to start `apt` tasks and scan installed packages for available updates. If updates are found, the `apt-daily-upgrade.service` downloads and installs them without user intervention. While useful for keeping your system updated, these are intensive processes in terms of disk I/O that we can safely disable and handle manually.
 
-In Linux, the system is able to update packages autonomously without an external command. This task is scheduled by the `apt-daily.service`, which triggers the system to start `apt` tasks and scan installed packages for available updates. If updates are found, the `apt-daily-upgrade.service` downloads and installs them without user intervention. 
-
-Disable these services with the following:
+Several services are disabled here, including `bootlogd.service`, `apt-daily` and several related services:
 
 ```
 sudo systemctl unmask bootlogd.service
@@ -105,7 +103,7 @@ sudo systemctl disable bootlogs
 sudo systemctl disable apt-daily.service apt-daily.timer apt-daily-upgrade.timer apt-daily-upgrade.service
 ```
 
-It's important to note that by disabling these services, you will need to manually check for package updates periodically with `sudo apt-get update && sudo apt-get upgrade`.
+> :information_source: **Note**: By disabling these services, you will need to manually check for package updates periodically with `sudo apt-get update && sudo apt-get upgrade`.
 
 #### Replace logger
 In this step we'll replace the default system logger `rsyslog` with an in-memory logger, `busybox-syslogd`. [BusyBox](https://manpages.debian.org/jessie/busybox-syslogd/syslogd.8.en.html) combines tiny versions of many common Linux utilities into a single small executable. It provides a fairly complete POSIX environment for any small or embedded system, including a minimal write Raspberry Pi.
@@ -158,7 +156,7 @@ Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ a
 The `/var/tmp` directory is made available for programs that require temporary files or directories that are preserved between system reboots. Therefore, data stored in `/var/tmp` is more persistent than data in `/tmp`. In practice, however, few programs in common use with Raspberry Pi OS write to this directory so we can safely move it to RAM. 
 
 #### Reboot
-A reboot is required for the above steps to take effect. Do this by executing `sudo reboot`.
+A reboot is required for the above steps to take effect: `sudo reboot`.
 
 ## Memory considerations
 The **minwrite** configuration migrates as much as possible from SD card storage to the `tmpfs` ramdisk. As a result, a concomitant increase in memory utilization is expected. To benchmark this, we can compare the change in memory usage on a Pi 3 Model B+ with 1GB of RAM with a typical RaspAP installation.
