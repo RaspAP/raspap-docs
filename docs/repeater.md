@@ -53,7 +53,7 @@ After [installing RaspAP](index.md#quick-start) your device will broadcast an 80
 ### Connect device to WiFi
 With your USB dongle connected and AP active, use RaspAP's **WiFi client** interface to select and authenticate with your existing wireless router. 
 
-![](https://user-images.githubusercontent.com/229399/223978928-7dbd63a8-c61c-4ef7-b50b-dff73b2584cf.png){: style="width:520px"}
+![](https://user-images.githubusercontent.com/229399/229067441-f266cc8e-5dc5-4155-af4e-46e0a5a6d007.png){: style="width:520px"}
 
 Alternatively, if you've used software such as the [Raspberry Pi imager](https://www.raspberrypi.com/software/) to install an OS on your microSD card, you may choose the "Configure wireless LAN" option
 before booting your device for the first time. This will configure your `wpa_supplicant.conf` and your device should already be connected to your WLAN. In this case, you may skip this step.
