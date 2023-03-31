@@ -19,7 +19,7 @@ In addition, the system's boot options are modified to disable swap and file sys
 ## Enabling minimal write
 The minimal microSD card write utility, **minwrite**, may be invoked by using RaspAP's [Quick installer](quick.md). This does _not_ (re)install RaspAP &#151; only the [minwrite](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, [manual configuration](#manual-steps) steps are also provided. Notes specific to Armbian are given where applicable.
 
-!!! caution "Caution"
+!!! warning "Warning"
     These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed.
 
 Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since we'll be migrating the disk I/O activity of several system processes to the `tmpfs` ramdisk. For this reason, it's recommended to review the [memory considerations](#memory-considerations) before proceeding.
