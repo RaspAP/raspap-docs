@@ -95,7 +95,7 @@ sudo apt-get autoremove --purge
 #### Disable services
 Linux is able to update packages autonomously without an external command. This task is scheduled by the `apt-daily.service`, which triggers the system to start `apt` tasks and scan installed packages for available updates. If updates are found, the `apt-daily-upgrade.service` downloads and installs them without user intervention. While useful for keeping your system updated, these are intensive processes in terms of disk I/O that we can safely disable and handle manually.
 
-Several services are disabled here, including `bootlogd.service`, `apt-daily` and several related services:
+Disable the `bootlogd.service`, `apt-daily` and related services like so:
 
 ```
 sudo systemctl unmask bootlogd.service
