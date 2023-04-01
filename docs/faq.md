@@ -235,11 +235,11 @@ Save settings, restart `dnsmasq` and try connecting your client again.
 ## <a name="webui"></a>My WiFi network disappeared and I can't access the web UI
 If you are running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
 
-1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](/ssl-quick/)).
+1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](ssl.md).
 2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. Check the logs for hostapd errors and reconfigure the service, or run the installer again to restore the [default configuration](defaults.md).
 3. There are [several methods](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on `wlan0`. If the AP has entered a failed state, you may still be able to connect on an alternate interface.
 4. Recent versions of the RPi OS kernel include the `avahi-daemon` which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering [http://raspberrypi.local/](http://raspberrypi.local/) in the browser or via SSH with `ssh pi@raspberrypi.local`.
-5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, aka 'on-the-go' or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
+5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, also known as "on-the-go" or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
 ## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone.
 The [installer](/quick/) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize PHP by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
@@ -250,7 +250,7 @@ You are free to SSH in to restore those files to their rightful position. Howeve
 Login credentials are stored in `/etc/raspap/raspap.auth`. The password is encrypted and cannot be edited manually. However, deleting this file with `sudo rm /etc/raspap/raspap.auth` will restore the default admin password.
 
 ## <a name="nowifi"></a>RaspAP control panel works but there is no WiFi after reboot.
-This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a ["managed mode"](/ap-sta/) AP. To address this, RaspAP has added a `systemd` init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:
+This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a [managed mode](/ap-sta/) AP. To address this, RaspAP has added a `systemd` init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:
 
 ```
 sudo systemctl status raspapd.service
@@ -270,7 +270,7 @@ CLIENT -> DHCPREQUEST
 SERVER -> DHCPACK
 ```
 
-If your device (the client) broadcasts DHCPDISCOVER, but there is no DHCPOFFER response from your router, you have a misconfiguration or other issue with your network. Troubleshooting client connectivity in bridged AP mode is not supported. No hard feelings.
+If your device (the client) broadcasts `DHCPDISCOVER`, but there is no `DHCPOFFER` response from your router, you have a misconfiguration or other issue with your network. Troubleshooting client connectivity in bridged AP mode is not supported. No hard feelings.
 
 ## <a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W.
 See [this walkthrough](/ap-sta/) where the installation is described in detail.
