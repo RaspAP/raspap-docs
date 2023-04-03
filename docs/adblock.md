@@ -1,6 +1,6 @@
 # Ad blocking
 
-![adblock](https://user-images.githubusercontent.com/229399/163673637-e65c507b-19fa-4e78-8139-098ee8bcad55.png){: style="width:100px"}
+![adblock](https://user-images.githubusercontent.com/229399/229465083-5d6a0905-ac08-41d8-9629-fb487d0bd68b.jpg){: style="width:640px"}
 
 RaspAP has introduced a new DNS based filter to stop ads, trackers and other undesirable hosts in their tracks. 
 
@@ -16,7 +16,7 @@ Install ad blocking and enable list management? [Y/n]
 
 The installer will download the blocklists, configure RaspAP to use them and enable the **Ad blocking** management page.
 
-![Ad block install option](https://user-images.githubusercontent.com/229399/127268555-5e397b12-a123-4a15-a58f-e339b517ac0a.png){: style="width:520px"}
+![Ad block install option](https://user-images.githubusercontent.com/229399/127268555-5e397b12-a123-4a15-a58f-e339b517ac0a.png){: style="width:540px"}
 
 Ad blocking is enabled and active for clients connected to your AP. You may update the blocklists or disable ad blocking with the management page. These actions are described below. 
  
@@ -29,16 +29,18 @@ For the public beta release, blocklists are sourced from the [notracking project
 ## Updating lists 
 The notracking project maintains two blocklists; hostnames and domains. These are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
 
-![Manage blocklists](https://user-images.githubusercontent.com/229399/224507022-f71e9a8f-ad73-437b-81cd-c59b27ad3dc3.png){: style="width:520px"}
+![Manage blocklists](https://user-images.githubusercontent.com/229399/224507022-f71e9a8f-ad73-437b-81cd-c59b27ad3dc3.png){: style="width:480px"}
 
-> :information_source: **Note:** to apply the latest blocklists, be sure to **Restart Ad Blocking**.
+!!! note "Note"
+    To apply the latest blocklists, be sure to **Restart Ad Blocking**.
 
 ## Custom blocklist
 In addition to the notracking blocklists, you may create your own host blocklist by adding entries on the **Custom blocklist** tab. 
 Define custom hosts to be blocked by entering an IPv4 or IPv6 address followed by any whitespace (spaces or tabs) and the host name. An IPv4 example would take the form `0.0.0.0 badhost.com`.
 Choose **Save settings** and **Restart Ad Blocking**.
 
-> :information_source: **Note:** As the name suggests, this is effective at blocking individual hosts, but not entire domains (or subdomains). 
+!!! note "Note"
+    As the name suggests, this is effective at blocking individual hosts, but not entire domains (or subdomains). 
 
 
 ## Enabling logging
