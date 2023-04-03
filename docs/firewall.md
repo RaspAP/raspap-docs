@@ -1,5 +1,7 @@
 # Firewall
 
+![](https://user-images.githubusercontent.com/229399/229590714-32a916b7-0c72-4080-8d32-3d6dff064499.jpg){: style="width:640px"}
+
 ## Overview
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
