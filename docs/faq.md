@@ -33,6 +33,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [My wlan1 keeps being disabled and/or clients are repeatedly disconnected.](#disassociated)
 * [RaspAP web UI fails to start or unable to save settings.](#webfail)
 * [Why do I receive an 'Invalid CSRF token' message and a blank screen?](#token)
+* [Can I restore RaspAP's default settings?](#restore)
 
 ## Integrations
 * [How do I integrate RaspAP with Pi-hole?](#pihole)
@@ -72,6 +73,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [How do I upgrade RaspAP?](#upgrade)
 * [Do I need the RaspAP service to run at boot?](#raspap-service)
 * [Can the Quick Installer accept the default options without prompting me?](#unattended)
+* [Can I restore RaspAP's default settings?](#restore)
 * [How do I uninstall RaspAP?](#uninstall)
 
 ## <a name="distros"></a>Why isn't there support for Desktop distributions?
@@ -195,6 +197,9 @@ form data or fails to match with the token on the server, the form will reject t
 The most common cause for this error message is when your PHP session expires. By default, the PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.
 
 If you submit a form in RaspAP 24 minutes after the page was loaded, the application will return a CSRF token error. When this occurs, simply refresh the page to generate a new session token.
+
+## <a name="restore"></a>Can I restore RaspAP's default settings?
+Yes, two methods are [described here](defaults.md#restoring-settings).
 
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
@@ -840,7 +845,7 @@ sudo systemctl disable raspapd.service
 ```
 
 ## <a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?
-Yes, the [Quick Installer](/quick/) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command-line option, like so:
+Yes, the [Quick Installer](quick.md) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command-line option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --yes
