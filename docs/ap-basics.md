@@ -158,8 +158,7 @@ The performance of WiFi radios may be impacted by many factors, including, but n
 Bear these things in mind if your AP exhibits unexpected behavior and do your best to mitigate them.
  
 ### Reverting to base settings
-It is always advisable to begin with RaspAP's [default configuration](defaults.md), which has been rigorously tested and validated with the project's [supported operating systems](index.md#compatible-operating-systems).
-If, after modifying RaspAP's default settings, your AP no longer functions as expected, simply run the [Quick installer](quick.md#usage) again to restore these defaults.
+It is generally advisable to begin with RaspAP's [default configuration](defaults.md), which has been rigorously tested and validated with the project's [supported operating systems](index.md#compatible-operating-systems). If, after modifying RaspAP's default settings, your AP no longer functions as expected, you may perform a [system reset](defaults.md#restoring-settings) to restore these defaults.
 
 ### Accessing backups
 Each time you revert to RaspAP's base settings, your existing service configuration files are automatically backed up to `/etc/raspap/backups`. In this way, you can compare differences between your files and the default configuration, if needed.
