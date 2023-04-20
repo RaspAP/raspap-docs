@@ -42,12 +42,10 @@ One of RaspAP's most popular features is the [Quick Installer](quick.md), which 
     RaspAP gives you control over many of the settings for `hostapd`, `dhcpcd` and `dnsmasq`. Once these default settings are changed, it's possible that one or all of the above services will enter a failed state.
 
 ## Will RaspAP let me create a configuration that "breaks" my hotspot?
-In a word, yes. While the [Quick Installer](quick.md) automates most of the work of creating an AP, RaspAP does not automagically validate your custom configurations. As a result, you may observe anomalous behavior when restarting these services and/or rebooting your RPi.
+In a word, yes. While the [Quick Installer](quick.md) automates most of the work of creating an AP, RaspAP does not automagically validate your custom configurations. As a result, you may observe anomalous behavior when restarting these services and/or rebooting your device.
 
-When in doubt, simply run the Quick Installer again to restore the default settings:
-```
-curl -sL https://install.raspap.com | bash
-```
+When in doubt, you may perform a [system reset](defaults.md#restoring-settings) to restore the default settings.
+
 Because of this, issues such as "hotspot isn't working" or "gui doesn't work" won't be considered. No hard feelings. 
 
 ## Submitting an issue
