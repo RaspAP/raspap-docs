@@ -21,7 +21,7 @@
 :octicons-heart-fill-24:{: .heart }
 :octicons-check-circle-fill-24:{: .check }
 
-:root {
+:root > * {
   --md-primary-fg-color:        #2b8080;
   --md-primary-fg-color--light: #2b8080;
   --md-primary-fg-color--dark:  #90030C;
