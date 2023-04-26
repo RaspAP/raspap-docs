@@ -10,9 +10,18 @@ Accessing your device from anywhere in your local network is great, but there ar
 Some ISPs offer a static external IP address, although often at an additional cost above a basic subscription. This is where using a **Dynamic DNS** (or **DDNS**) service on your home network can be extremely useful. 
 
 ## Solution
-Dynamic DNS solves this problem by providing a domain name that always points to the current IP address of your device, regardless of how often it changes. With DDNS, the IP assigned to your domain name is automatically updated by a piece of software (in this case, known as a _daemon_) running on your device. This means that you can access the server using the same domain name, without having to constantly update settings each time the IP address changes.
+Dynamic DNS solves this problem by providing a domain name that always points to the current IP address of your device, regardless of how often it changes. With DDNS, the IP assigned to your domain name is automatically updated by a piece of software (known as a _daemon_) running on your device. This means that you can access the server using the same domain name, without having to constantly update settings each time the IP address changes.
 
 The daemon running on your device resolves your external IP address using one of several methods, then reports this to your DDNS provider. There are a number of different providers that offer Dynamics DNS free of charge. If you currently own a custom domain name, chances are your registrar provides DDNS or has a partner to support this.
+
+## Installation
+The [Quick installer](quick.md) will give you the option to add the required packages to your system, and enable the configuration page in RaspAP. Simply press ++enter++ at the prompt to accept the default "Y" (yes) response:
+
+```
+Install ddclient and enable DDNS configuration? [Y/n]:
+```
+
+When the installer completes, you will be able to administer the `ddclient` service as described in the sections below.
 
 ## Basic settings
 All the configuration settings needed to enable Dynamic DNS on your device are available on the **Basic settings** tab. These are described in the next section.
@@ -48,6 +57,8 @@ Check with your DDNS service provider to determine which entry is best for your 
 
 ## Advanced settings
 A subset of advanced options are provided for your configuration. These are not required for the DDNS service to be functional, but may be adjusted to suit your needs.
+
+![](https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png){: style="width:520px"}
 
 ### Enable SSL
 You may wish to **Enable SSL** to ensure that your credentials are not sent over the internet unencrypted. Not all providers support this, however, so this option is disabled by default. Enabling this option for a non-SSL supported provider may result in a connection timeout. Errors such as these [have been reported](https://github.com/ddclient/ddclient/issues/309): 
