@@ -23,7 +23,7 @@ Refer to the diagram above as we walk through the steps of creating this configu
 ### Connect a USB WiFi dongle
 Begin by connecting an external wireless adapter to a USB port on your device. Your choice of adapter is important &#151; external WiFi adapters (ie, "dongles") vary greatly in terms of hardware capabilities and driver support. Many do not have support for AP mode, require a powered USB hub, manual driver and/or firmware installation or are otherwise not well suited for this application.
 
-To quickly determine if your USB WiFi adapter is capable of hosting an AP, execute the following:
+To determine if your USB WiFi adapter is capable of hosting an AP, execute the following:
 
 ```
 $ iw list
@@ -41,7 +41,7 @@ If "AP" does not appear in the list above, save yourself some time and find anot
 
 You should also pair an adapter with the wireless mode you intend to operate from your device's onboard wireless chipset. For example, if you wish to use a Raspberry Pi 4's 802.11ac 5 GHz wireless mode, make sure your adpater also supports this mode. 
 
-We strongly recommend [this resource](https://github.com/morrownr/USB-WiFi) which lists USB WiFi adapters with "in-kernel" Linux drivers. These will work "out of the box" on Debian-based devices without
+We strongly recommend [this resource](https://github.com/morrownr/USB-WiFi) which lists USB WiFi adapters with in-kernel Linux drivers. These will work out of the box on Debian-based devices without
 installing third-party drivers. You may also wish to skip directly to this [short list](https://github.com/morrownr/USB-WiFi/blob/main/home/The_Short_List.md) of "superstar" USB WiFi adapters for Linux. Pay special attention to those that are excellent choices for 5 GHz AP mode, if this
 is desired.
 
