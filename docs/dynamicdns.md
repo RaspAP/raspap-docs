@@ -18,7 +18,7 @@ The daemon running on your device resolves your external IP address using one of
 All the configuration settings needed to enable Dynamic DNS on your device are available on the **Basic settings** tab. These are described in the next section.
 
 ### Service provider
-RaspAP makes use of the proven **[ddclient](https://github.com/ddclient/ddclient)** open source software for Linux to update dynamic DNS entries. The `ddclient` software is highly configurable and provides a daemon that updates your external IP at scheduled intervals. Many popular [Dynamic DNS services](https://github.com/ddclient/ddclient#supported-service) are supported by `ddclient` and RaspAP. 
+RaspAP makes use of the proven **[ddclient](https://github.com/ddclient/ddclient)** open source software for Linux to update dynamic DNS entries. The `ddclient` software is highly configurable and provides a daemon that updates your external IP at scheduled intervals. Many popular [Dynamic DNS services](https://github.com/ddclient/ddclient#supported-services) are supported by `ddclient` and RaspAP. 
 
 Instructions on how to setup your domain for DDNS vary by provider, but the process is generally similar. Begin by selecting a **Service provider** from the dropdown. RaspAP will assist you by automatically populating the **Protocol** and **Server** fields. You may also manually configure the details for your service if so desired.
 
@@ -62,7 +62,9 @@ WARNING:  unable to determine IP address
 For this reason, it's recommended to check with your DDNS service provider before enabling this.
 
 ### Daemon check interval
-Finally, you may define the **Daemon check interval** to control the length of time between updates performed by `ddclient` in the background. This value is specified in milliseconds and defaults to 300. 
+Finally, you may define the **Daemon check interval** to control the length of time between updates performed by `ddclient` in the background. This value is specified in milliseconds and defaults to 300.
+
+When you've completed your configuration, choose **Save settings** and **Start Dynamic DNS**.
 
 ## Troubleshooting
 Behind the scenes, the `ddclient` daemon will determine your external IP using the method you've defined and send this to your DDNS provider. Your provider will then update the IP address corresponding to the DNS "A" (or "address") record for your domain.
