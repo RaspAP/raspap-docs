@@ -20,6 +20,9 @@ There are two options to go about creating a self-signed certificate with mkcert
 ### Manual steps
 Follow the steps below to generate and install a locally-trusted certificate for RaspAP. The local domain `raspap.local` is used in the examples below. You may substitute this with the default `raspberrypi.local` or your own hostname. 
 
+!!! tip "Tip"
+    If you've changed your hostname prior to starting this process, be sure to reboot your device for the change to take effect.
+
 Start by installing the pre-built binary for Arch Linux ARM on your Raspberry Pi:
 ```
 sudo wget https://github.com/FiloSottile/mkcert/releases/download/v1.3.0/mkcert-v1.3.0-linux-arm -O /usr/local/bin/mkcert
