@@ -778,6 +778,8 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 
 Paste your converted hex value into RaspAP's WiFi client passphrase field and try connecting.
 
+If you're not able to connect with a hex passphrase, you can also try this alternate [manual configuration method](https://wiki.netbsd.org/tutorials/how_to_use_wpa_supplicant/#index3h2).
+
 ## <a name="hotspotssh"></a>Can I turn the hotspot on/off over SSH?
 Yes, RaspAP provides a front-end to several Linux `systemd` services, including `hostapd`. From the terminal, check the status of the `hostapd.service` like so:
 
