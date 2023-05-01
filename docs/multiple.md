@@ -4,15 +4,18 @@
 :octicons-beaker-24: Experimental
 
 Many users have asked if it's possible to create a second wireless access point on the same device. The answer is "yes" with an AP-capable external wireless adapter and the correct settings.
-The [Edimax EW-7811Un USB adapter](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/us/wireless_adapters_n150/ew-7811un/) works without additional drivers on many devices, including the Raspberry Pi.
-For this reason it is used in this walkthrough.
+The [Edimax EW-7811Un USB adapter](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/us/wireless_adapters_n150/ew-7811un/) works without additional drivers on many devices, including the Raspberry Pi. For this reason it is used in this walkthrough.
+
+!!! tip Tip
+    We strongly recommend [this resource](https://github.com/morrownr/USB-WiFi) which lists USB WiFi adapters with in-kernel Linux drivers. These will work out of the box on Debian-based devices without installing third-party drivers. You may also wish to skip directly to this [short list](https://github.com/morrownr/USB-WiFi/blob/main/home/The_Short_List.md) of "superstar" USB WiFi adapters for Linux. Pay special attention to those that are excellent choices for 5 GHz AP mode, if this is desired.
+
 
 ## Scenario
 In this setup, we will use an external Edimax 2.4GHz USB adapter together with the onboard wireless chipset of the Raspberry Pi 4 operating on the 5GHz band. The end result is displayed in the WiFi network scan below.
 
 ![](https://user-images.githubusercontent.com/229399/121822121-a380ef80-cc9d-11eb-94a1-d404adc07b78.png){: style="width:520px"}
 
-It is not currently possible to create this configuration with RaspAP's UI, so these manual steps are provided below.
+It is not currently possible to create this setup with RaspAP's UI, so these manual steps are provided below. We can, however, leverage the web UI to create the `hostapd` configurations we'll need.
 
 ## Prerequisites
 This tutorial assumes that you have followed the [Quick start](index.md#quick-start) or [manual installation](manual.md) instructions.
