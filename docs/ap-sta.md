@@ -14,7 +14,7 @@ Before proceeding with the installation, it's important to have a basic understa
 ![](https://i.imgur.com/gppLmAj.png)
 
 ## What is AP-STA mode?
-Many wireless devices support _simultaneous_ operation as both an access point (AP) and as a wireless client/station (STA). This is sometimes called Wi-Fi AP/STA concurrency. In this configuration, it is possible to create a software AP acting as a "wireless repeater" for an existing network, using a single wireless device. This capability is listed in the following section in the output of `iw list`:
+Many wireless devices support _simultaneous_ operation as both an access point (AP) and as a wireless client/station (STA). This is sometimes called Wi-Fi AP/STA concurrency. In this configuration, it is possible to create a software AP acting as a [wireless repeater](repeater.md) for an existing network, using a single wireless device. This capability is listed in the following section in the output of `iw list`:
 
 ```
 $ iw list | grep -A 4 'valid interface'
@@ -78,7 +78,7 @@ With a basic understanding of AP-STA mode, we can proceed with the installation.
 
 ## Installation
 
-1. Begin by flashing an SD card with the latest release of [Raspberry Pi OS (32- or 64-bit) Lite](https://www.raspberrypi.org/downloads/raspbian/). 
+1. Begin by flashing an SD card with the latest release of [Raspberry Pi OS (32- or 64-bit) Lite](https://www.raspberrypi.com/software/operating-systems/). 
 2. Prepare the SD card to connect to your WiFi network in headless mode [according to this FAQ](faq.md#headless).
 3. Enable `ssh` access by creating an empty file called "ssh" (no extension) in the SD card's root. 
 4. Insert the SD card into the Pi Zero W and connect it to power. **Note:** the standard power supply for the Raspberry Pi is 5.1V @ 2.5A. Other power sources may result in undervoltage or other issues. Do _not_ use the micro USB connection. 
@@ -86,9 +86,6 @@ With a basic understanding of AP-STA mode, we can proceed with the installation.
 6. Follow the [project prerequisites](index.md#quick-start) exactly. Do _not_ skip any of these steps.
 7. Invoke the [Quick Installer](quick.md) as normal: `curl -sL https://install.raspap.com | bash`.
 8. The installer automatically detects a Pi (or other device) without an active `eth0` interface. In this case, you will _not_ be prompted to reboot your Pi.
-
-> ![](https://i.imgur.com/mwKYBKF.png){: style="width:520px"}
-
 9. Open the RaspAP admin interface in your browser, usually `http://raspberrypi.local`.
 10. The status widget should indicate that hostapd is inactive. This is expected.
 11. Confirm that the **Wireless Client** dashboard widget displays an active connection.
