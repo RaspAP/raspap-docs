@@ -62,6 +62,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 #### **$1,500** - 3rd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
 :octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
+:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Multiple WireGuard configs
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
