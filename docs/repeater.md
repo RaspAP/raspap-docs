@@ -9,7 +9,7 @@ experiencing problems with "dead spots" in your WiFi network. This step-by-step 
 ## How a WiFi repeater works
 A WiFi repeater receives an existing WiFi signal, amplifies it and then transmits the boosted signal. With this arrangment you can effectively double the coverage area of your WiFi network &#151; reaching far corners of your home or office, different floors, or even extend coverage outside to a yard or garage. A repeater effectively contains two wireless routers and a minimum of two antennas. One of these wireless routers picks up the existing WiFi network. It then transfers the signal to the other wireless router, which retransmits the boosted signal.
 
-!!! info "Info"
+!!! info "Note"
     A wireless repeater will restrict your maximum throughput. This is because WiFi is a half-duplex system, meaning only one device may transmit data at any given time. The repeater must accept incoming and outgoing packets from clients and forward those packets on to the next WiFi router and accept replies. In practice, you can expect half the bandwidth as a non-boosted signal, as each packet must go over the air twice.
 
 We will create this setup with a WiFi-capable Raspberry Pi (or similar device) and an external USB wireless adapter, or dongle.
