@@ -1,29 +1,21 @@
-![](https://user-images.githubusercontent.com/229399/163228575-7a48afb7-2d06-487e-afd6-0e08d7e3bf5e.png){: style="width:475px"}
+![](https://user-images.githubusercontent.com/229399/235716984-1e6f091a-ac20-4096-b071-fdbc534995b5.jpg){: style="width:640px"}
 
-Development of RaspAP is made possible thanks to a sponsorware release model. This means that new features are first exclusively released to sponsors as part of **Insiders**. Read on to learn how sponsorship works, and how easy it is to get access to Insiders.
+Development of RaspAP is made possible thanks to a **sponsorware** release model. This means that new features are first exclusively released to sponsors as part of [Insiders](#what-is-insiders). Read on to learn [what sponsorships achieve](#what-sponsorships-achieve), [how to become a sponsor](#how-to-become-a-sponsor) with access to Insiders, and [what's in it for you](#whats-in-it-for-me)! We also [pay your sponsorship forward](#quarterly-giving) to inspire future generations and [their educators](#support-for-educators).
+
+## What is Insiders?
+RaspAP Insiders is a private fork of RaspAP, hosted as a private GitHub repository. Almost all new features are developed as part of this fork, which means that they are immediately available to all eligible sponsors, as they are made collaborators of this repository.
+
+Every feature is tied to a funding goal in monthly subscriptions. When a funding goal is hit, the features that are tied to it are merged back into the RaspAP public repo and released for general availability, making them available to all users. Bugfixes are always released in tandem.
 
 Sponsorships start as low as **[$10 per month](#how-to-become-a-sponsor)**.
-## How sponsorship works
-New features first land in [**Insiders**](https://github.com/sponsors/RaspAP), which means that *sponsors will have access to them immediately*. Every feature is tied to a funding goal in monthly subscriptions. When a funding goal is hit, the features that are tied to it are merged back into the [public RaspAP repository](https://github.com/RaspAP/raspap-webgui) and released for general availability.
-Bug fixes, translation updates and minor enhancements are always released simultaneously in both editions.[^1]
 
-*Don't want to sponsor? No problem, RaspAP already has tons of features available, so chances are that most of your requirements are already satisfied. See the list of [exclusive features](#exclusive-features) to learn which features are currently only available to sponsors.*
+## What sponsorships achieve
+Sponsorships make this project sustainable, as they buy the maintainers of this project time — a very scarce resource – which is spent on the development of new features, bug fixes, stability improvement, issue triage and community support.  
 
-## How to become a sponsor
-You can become a sponsor using your individual or organization's GitHub account. Just [pick any tier from $10/month](https://github.com/sponsors/RaspAP) and complete the checkout.
-You will be automatically granted access to the private GitHub repository containing the Insiders edition, which has all exclusive features.
-In addition, you will be added as a team member with access to Insiders-only team discussions and content.
+If you're unsure if you should sponsor this project, check out the list of [completed funding goals](#completed-goals) to learn whether you're already using features that were developed with the help of sponsorships. You're most likely using at least a handful of them, [thanks to our awesome sponsors](#how-to-become-a-sponsor)!
 
-[Join our awesome sponsors :octicons-heart-fill-24:](https://github.com/sponsors/RaspAP){ .md-button .md-button--primary }
-
-!!! info "Info"
-    If you're sponsoring [RaspAP](https://github.com/sponsors/RaspAP) through a GitHub organization, please send a short email to [sponsors@raspap.com](mailto:sponsors@raspap.com) with the name of your organization and the account that should be added as a collaborator.[^2] 
-
-You can cancel your sponsorship anytime.[^3]
-
-## Exclusive features
-The following features are currently available exclusively to sponsors. A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP.
-This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
+## What's in it for me?
+The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immediate access to the additional features below** that you can start using right away, and which are currently exclusively available to sponsors:
 
 :octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
 :octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md)  
@@ -36,12 +28,27 @@ This is done through Insiders' access to discussions, feature requests, issues a
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
 :octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
 
+A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
+
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
+
+## How to become a sponsor
+Thanks for your interest in sponsoring! You can become a sponsor using your individual or organization's GitHub account. Just [pick any tier from $10/month](https://github.com/sponsors/RaspAP) and complete the checkout. You will be automatically granted access to the private GitHub repository containing the Insiders edition, which has all exclusive features.
+In addition, you will be added as a team member with access to Insiders-only team discussions and content.
+
+[Join our awesome sponsors :octicons-heart-fill-24:](https://github.com/sponsors/RaspAP){ .md-button .md-button--primary }
+
+!!! info "Info"
+    If you're sponsoring [RaspAP](https://github.com/sponsors/RaspAP) through a GitHub organization, please send a short email to [sponsors@raspap.com](mailto:sponsors@raspap.com) with the name of your organization and the account that should be added as a collaborator.[^2] 
+
+You can cancel your sponsorship anytime.[^3]
 
 ## Funding targets
 Below is a list of funding targets. When a funding target is reached, the features that are tied to it are merged back into RaspAP and released to the public for general availability.
 
 ### Goals
+The following section lists all funding goals. Each goal contains a list of features prefixed with a checkmark symbol, denoting whether a feature is :octicons-check-circle-fill-24:{: .check } already available or :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } planned, but not yet implemented. When the funding goal is hit, the features are released for general availability.
+
 #### **$1,000** - 2nd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
 :octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md)  

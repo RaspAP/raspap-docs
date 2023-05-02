@@ -48,7 +48,7 @@ Your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.m
 
 ## Get Insiders
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](insiders.md#how-to-become-a-sponsor)
-and get access to [exclusive features](insiders.md#exclusive-features) in the :octicons-heart-fill-24:{: .heart } [Insiders Edition](insiders.md).
+and get access to [exclusive features](insiders.md#whats-in-it-for-me) in the :octicons-heart-fill-24:{: .heart } [Insiders Edition](insiders.md).
 
 ## Compatible operating systems
 RaspAP was originally made for Raspbian, but now also installs on the following Debian-based distros.
