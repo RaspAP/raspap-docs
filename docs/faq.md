@@ -59,6 +59,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 ## WireGuard
 * [Uploading my WireGuard config results in "MIME type not allowed".](#mimetype)
 * [I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?](#wgtraffic)
+* [How can I clear RaspAP's WireGuard log?](#wglog)
 
 ## Networking
 * [Why can't I access wireless mode 'N' (802.11n)?](#wireless-mode)
@@ -677,6 +678,15 @@ different device behaves normally.
 
 Please note that RaspAP provides a front-end to the WireGuard service only. It has no way of validating your WireGuard configuration. For this reason, bug reports such as "WireGuard not working"
 won't be considered. 
+
+## <a name="wglog"></a>How can I clear RaspAP's WireGuard log?
+WireGuard doesn't do any logging by default. The quasi-logging done by RaspAP executes `sudo journalctl --identifier wg-quick`. The Linux journal is not something you usually clear by yourself, however you can use journalctl's self maintenance to retain only the past two days:
+
+```
+sudo journalctl --vacuum-time=2d
+```
+
+See `man journalctl` for more information.
 
 ## <a name="wireless-mode"></a>Why can't I access wireless mode 'N' (802.11n)?
 On the **Configure hotspot** > **Security** tab, be sure to select CCMP for the Encryption Type. Save the settings and restart the hotspot. The wireless mode should be reported on clients as 802.11b/g/n.
