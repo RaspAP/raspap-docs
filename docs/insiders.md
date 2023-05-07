@@ -2,8 +2,8 @@
 
 Development of RaspAP is made possible thanks to a **sponsorware** release model. This means that new features are first exclusively released to sponsors as part of [Insiders](#what-is-insiders). Read on to learn [what sponsorships achieve](#what-sponsorships-achieve), [how to become a sponsor](#how-to-become-a-sponsor) and [what's in it for you](#whats-in-it-for-me)!
 
-!!! success "Giving back"
-    We now also [pay your sponsorship forward](#quarterly-giving) in the form of quarterly donations to inspire future generations of makers together with [their educators](#support-for-educators).
+!!! success "Paying it forward"
+    We [donate a percentage of all proceeds](#quarterly-giving) from Insiders to the Raspberry Pi Foundation each quarter, to help inspire future generations of makers together with [their educators](#support-for-educators).
 
 ## What is Insiders?
 RaspAP Insiders is a private fork of RaspAP, hosted as a private GitHub repository. Almost all new features are developed as part of this fork, which means that they are immediately available to all eligible sponsors, as they are made collaborators of this repository.
