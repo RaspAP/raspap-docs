@@ -17,7 +17,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [What are the passphrase requirements used by RaspAP?](#passphrase)
 * [Can I remove the AP password to create an open WiFi network?](#nopw)
 * [How do I prevent WAN access to RaspAP's web administration?](#access)
-* [How can I reduce the risk of SD card corruption and extend a card's lifespan?](#minwrite)
+* [Can I reduce the risk of SD card corruption and extend a card's lifespan?](#minwrite)
 
 ## Troubleshooting
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
@@ -188,8 +188,8 @@ sudo systemctl restart lighttpd.service
 
 Clients outside of your defined network range will receive a '403' response when accessing the web UI.
 
-## <a name="minwrite"></a> How can I reduce the risk of SD card corruption and extend a card's lifespan?
-RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
+## <a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?
+Yes. RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
 
 ## <a name="token"></a>Why do I receive an 'Invalid CSRF token' message and a blank screen?
 A [cross-site request forgery](https://owasp.org/www-community/attacks/csrf) (CSRF) is a type of exploit where unauthorized commands are executed against a website on behalf of a trusted user. To guard against this, RaspAP generates a one-time token that is unique for every user and stored in the PHP session object. This token value is inserted into a hidden field on every form in the RaspAP application. If the token doesn’t exist in the submitted
@@ -232,18 +232,18 @@ dnsmasq-dhcp[2516]: DHCPACK(wlan0) 10.3.141.249 [MAC address] iPhone
 
 If one or more steps in this exchange are missing, either your device is unable to respond to the server's `DHCPOFFER` or the AP itself is misconfigured.
 
-!!! note "Note"
+!!! tip "Tip"
     By default, the `dnsmasq` service listens on TCP/UDP port 53 and UDP port 67. If you have configured firewall software such as `ufw` or `iptables` to filter traffic on these ports, the service may not be able to respond to DHCP requests.
 
 As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
 Save settings, restart `dnsmasq` and try connecting your client again.
 
 ## <a name="webui"></a>My WiFi network disappeared and I can't access the web UI
-If you are running your Pi headless and are unable to access RaspAP's web interface from the default http://10.3.141.1/ address, do the following:
+If you are running your Pi headless and are unable to access RaspAP's web interface from the default `http://10.3.141.1/` address, do the following:
 
 1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](ssl.md).
-2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. Check the logs for hostapd errors and reconfigure the service, or run the installer again to restore the [default configuration](defaults.md).
-3. There are [several methods](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on `wlan0`. If the AP has entered a failed state, you may still be able to connect on an alternate interface.
+2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. [Check the logs for hostapd errors](ap-basics.md#troubleshooting) and reconfigure the service, or run the installer again to restore the [default configuration](defaults.md).
+3. There are [several methods](https://www.raspberrypi.com/documentation/computers/remote-access.html) you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on `wlan0`. If the AP has entered a failed state, you may still be able to connect on an alternate interface.
 4. Recent versions of the RPi OS kernel include the `avahi-daemon` which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering [http://raspberrypi.local/](http://raspberrypi.local/) in the browser or via SSH with `ssh pi@raspberrypi.local`.
 5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, also known as "on-the-go" or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
@@ -305,7 +305,7 @@ sudo wpa_supplicant -B -Dnl80211,wext -c/etc/wpa_supplicant/wpa_supplicant.conf 
 
 substituting `wlan0` with your wireless interface, if necessary. You should then be able to perform scans as expected.
 
-!!! note "Note"
+!!! tip "Tip"
     If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information on this topic is [available here](/ap-sta/#when-to-reboot).
 
 ## <a name="hostapd-down"></a>I started the hotspot but it shows "hostapd down". What's happening?
@@ -399,7 +399,7 @@ There have been several discussions around integrating RaspAP with Pi-hole, with
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400)
 
 ## <a name="captive"></a>Can I configure RaspAP to work with a captive portal?
-Yes, the [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](/captive/). 
+Yes. The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](/captive/). 
 
 ## <a name="schedule"></a>How do I create an AP activation schedule?
 This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with `cron` to stop/start RaspAP's service control script at certain times. Run `sudo crontab -e` and add entries like so:
@@ -415,7 +415,7 @@ This is a common function in consumer wireless routers. For example, let's assum
 For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
 
 ## <a name="genpassword"></a> Can I schedule the WiFi password to change automatically?
-Here's [one way to do it](https://gist.github.com/billz/2cc43e96563293d650e313e068d52dfb) using bash. Save the script to your home directory (`/home/pi` for example) and set the execution
+Yes. Here's [one way to do it](https://gist.github.com/billz/2cc43e96563293d650e313e068d52dfb) using bash. Save the script to your home directory (`/home/pi` for example) and set the execution
 bit with `sudo chmod +x genpassphrase.sh`. When executed, the script will automatically generate a strong password (or a weaker, pronounceable one), update the `wpa_passphrase` setting in `hostapd.conf` and finally restart
 the `raspapd.service`. The new passphrase and QR code will be visible on the **Hotspot > Security** tab.
 
@@ -430,8 +430,7 @@ you can have this execute at specific intervals by using `cron`. Run `sudo cront
 For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
 
 ## <a name="managed"></a> Can I configure a managed mode AP without using the UI?
-Yes, you can. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings.
-This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](/faq/#headless) and a valid [`hostapd.conf`](/ap-sta/#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
+Yes. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](/faq/#headless) and a valid [`hostapd.conf`](/ap-sta/#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
 
 ```
 LogEnable = 0
@@ -443,7 +442,7 @@ WifiManaged = wlan0
 substituting `wlan0` for your AP interface, if necessary. You may then restart the raspap daemon with `sudo systemctl restart raspapd.service`.
 
 ## <a name="webport"></a>Can I configure an alternate port for RaspAP's web service?
-Yes, you can now do this from the **Advanced** tab in System. Manual steps for changing `lighttpd`'s default port are included below.
+Yes. You can now do this from the **Advanced** tab in System. Manual steps for changing `lighttpd`'s default port are included below.
 
 Edit `/etc/lighttpd/lighttpd.conf` and change the following line:
 
@@ -514,7 +513,7 @@ by editing the following file:
 sudo nano /etc/speedify/speedify.conf
 ```
 
-Make sure to uncomment the following lines (remove the '#' symbol). To share over the Wi-Fi interface `wlan0`, set:
+Make sure to uncomment the following lines (remove the "`#`" symbol). To share over the Wi-Fi interface `wlan0`, set:
 
 ```
 ENABLE_SHARE=1 
@@ -668,7 +667,7 @@ $ sudo systemctl status wg-quick@wg0.service
 You may also use RaspAP's built-in WireGuard logging facility. On the **WireGuard > Logging** tab, enable the "Display WireGuard debug log" option and choose **Save settings**. Check the log
 output in the tab and look for any errors.
 
-!!! note "Note"
+!!! tip "Tip"
     The debug log facility queries the `systemd` journal with a one-time execution of `journalctl --identifier wg-quick`. If you want to update this log output, simply enable the option again. You may also execute this command directly from the shell, if you wish.
 
 Finally, you may check and verify the WireGuard config itself, including PostUp / PostDown rules, by executing `sudo cat /etc/wireguard/wg0.conf`.
@@ -757,7 +756,7 @@ hostapd: Could not set channel for kernel driver
 In testing, stable AP's on the RPi's supported AC channels were only reliably obtained with 'US' as the regulatory domain. To get a list of the supported channels on your RPi for the 2.4 and 5 GHz bands, use `iw phy phy0 channels`. Refer to [this issue](https://github.com/RaspAP/raspap-webgui/issues/450#issuecomment-569343686).
 
 ## <a name="wificountries"></a>I think my country allows 5 GHz AP channels. Can I test this?
-Yes, you can. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](defaults.md). The file [wireless.json](https://github.com/RaspAP/raspap-webgui/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
+Yes. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](defaults.md). The file [wireless.json](https://github.com/RaspAP/raspap-webgui/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
 
 ```
 // Constant for the 5GHz wireless regulatory domain
@@ -766,8 +765,8 @@ define('RASPI_5GHZ_ISO_ALPHA2', array('US'));
 
 The **Configure hotspot** page will now let you select AC as a wireless mode option for your country. If you succeed in creating a stable AP, feel free to share your results in a [discussion](https://github.com/RaspAP/raspap-webgui/discussions/).
 
-!!! note "Note"
-    It is recommended to monitor logs such as `dmesg` and the hostapd error log (available in the **Logfile output** tab of RaspAP) while doing this. Bug reports like "AC doesn't work" and/or troubleshooting requests will not be considered. No hard feelings.
+!!! tip "Tip"
+    It's recommended to monitor logs such as `dmesg` and the hostapd error log (available in the **Logfile output** tab of RaspAP) while doing this. Bug reports like "AC doesn't work" and/or troubleshooting requests will not be considered. No hard feelings.
 
 ## <a name="wirelessn"></a>Why is the maximum throughput of my 802.11n AP reduced by half? 
 In order to achieve optimal throughput with 802.11n, the wireless stream must operate at a 40 MHz wide channel on the 2.4 GHz band. A 20 MHz channel will restrict you to 72 Mbps. Your `hostapd.conf` might have  the required settings, but this is no guarantee of a 40 MHz channel.
