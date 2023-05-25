@@ -34,6 +34,9 @@ The notracking project maintains two blocklists; hostnames and domains. These ar
 !!! note "Note"
     To apply the latest blocklists, be sure to **Restart Ad Blocking**.
 
+### Automatic updates
+Alternatively, you may wish to automate the process of keeping the ad block source lists up-to-date. A method to achieve this is described in [this FAQ](faq.md#adblockauto). 
+
 ## Custom blocklist
 In addition to the notracking blocklists, you may create your own host blocklist by adding entries on the **Custom blocklist** tab. 
 Define custom hosts to be blocked by entering an IPv4 or IPv6 address followed by any whitespace (spaces or tabs) and the host name. An IPv4 example would take the form `0.0.0.0 badhost.com`.
