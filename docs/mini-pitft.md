@@ -18,7 +18,8 @@ dtparam=spi=on
 ```
 If you don't see the above, edit this file with `sudo nano /boot/config.txt`, add this line, save the file and reboot your Pi.
 
-> :information_source: **Note:** Some users have followed Adafruit's setup guide and installed the kernel module, which is useful if you want to draw to the framebuffer and output a [mini console](https://cdn-learn.adafruit.com/assets/assets/000/082/874/large1024/adafruit_products_4393_demo_ORIG_2019_10.jpg?1571860426). However, the TFT kernel driver can't be run alongside the Python install. So you should choose one method, not both.
+!!! note "Note"
+    Some users have followed Adafruit's setup guide and installed the kernel module, which is useful if you want to draw to the framebuffer and output a [mini console](https://cdn-learn.adafruit.com/assets/assets/000/082/874/large1024/adafruit_products_4393_demo_ORIG_2019_10.jpg?1571860426). However, the TFT kernel driver can't be run alongside the Python install. So you should choose one method, not both.
 
 Install RaspAP using the [Quick Installer](quick.md):
 ```
