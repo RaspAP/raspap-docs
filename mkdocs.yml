@@ -39,6 +39,7 @@ theme:
     - search.highlight
     - search.share
     - navigation.top
+    - content.code.copy
 markdown_extensions:
   - admonition
   - attr_list
