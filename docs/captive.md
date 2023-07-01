@@ -97,7 +97,8 @@ Feb 11 09:19:44 raspberrypi systemd[1]: Started NoDogSplash Captive Portal.
 Feb 11 09:19:46 raspberrypi nodogsplash[10538]: [5][Tue Feb 11 09:19:46 2020][10539](src/fw_iptables.c:382) Initializing firewall rules
 ```
 
-**Note:** The captive portal may be stopped with `sudo systemctl stop nodogsplash.service` or disabled completely with `sudo systemctl disable nodogsplash.service`.
+!!! note "Note"
+    The captive portal may be stopped with `sudo systemctl stop nodogsplash.service` or disabled completely with `sudo systemctl disable nodogsplash.service`.
 
 ## Connecting clients
 Connect a client to RaspAP's hotspot. You should now see nodogsplash's captive portal screen:
