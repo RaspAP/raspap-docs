@@ -57,9 +57,9 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 |---|:---:|:---:|:---:|
 | Raspberry Pi OS | (32-bit) Lite Bullseye | ARM | Official |
 | Raspberry Pi OS | (64-bit) Lite Bullseye | ARM | Official |
-| Armbian | 22.05 Jammy | [ARM](https://www.armbian.com/rpi4b/) | Official |
-| Debian  |  Bullseye | ARM / x86_64  | Beta |
-| Ubuntu  |  Server 22.04 LTS | ARM / x86_64  | Beta |
+| Armbian | 23.05 (Suni) | [ARM](https://www.armbian.com/rpi4b/) | Official |
+| Debian  |  Bookworm | ARM / x86_64  | Beta |
+| Ubuntu  |  Server 23.04 (Lunar) | ARM / x86_64  | Beta |
 
 ![](https://user-images.githubusercontent.com/229399/115760318-81f03f80-a3a1-11eb-8df5-15ec4aec3e8a.png){: style="width:400px"}
 
