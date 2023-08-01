@@ -46,6 +46,24 @@ On Debian, Armbian and Ubuntu, install `dhcpcd5` with the following:
 sudo apt-get install dhcpcd5
 ```
 
+## Ubuntu-specific steps
+!!! note "Note"
+    This section concerns manual pre- and post-install steps required for the latest Ubuntu 23.04 (Lunar Lobster) release. They are not necessary with other distributions.
+
+RaspAP's installer will prompt you to stop and disable the `systemd-resolved` service listening on port 53 before installing `dnsmasq`. On Ubuntu 23.04 this results in a name resolution failure and the installation cannot continue. To resolve this, perform the following **pre-install steps**:
+
+1. Stop systemd-resolved with `sudo systemctl stop systemd-resolved.service`.
+1. Edit the systemd-resolved config file: `sudo nano /etc/systemd/resolved.conf`, un-hash and specify `DNS=9.9.9.9` (for example) and set `DNSStubListener=no`. Save and exit the file.
+1. Symlink `/etc/resolv.conf` with `sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf`.
+1. Proceed with RaspAP install as normal. Disable systemd services when prompted by the installer.
+
+**Post-install:** The `dnsmasq` service will report errors such as "config error is REFUSED (EDE: not ready)". DNS 'A' record queries will fail and the AP will not be usable for clients. This is easily resolved with the following steps:
+
+1. Edit the dnsmasq configuration with `sudo nano /etc/default/dnsmasq` and un-hash `IGNORE_RESOLVCONF=yes`. Save and exit the file.
+1. Restart the dnsmasq service with `sudo systemctl restart dnsmasq.service`. 
+
+Your RaspAP install on Ubuntu should now function as expected.
+
 ## Install packages
 Install git, lighttpd, php7, hostapd, dnsmasq and some extra packages with the following:
 
