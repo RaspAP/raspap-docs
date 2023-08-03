@@ -19,6 +19,10 @@ The **DHCP Server** page is disabled. The reason for this is in bridged AP mode,
 
 Clients connected to a bridged AP with **OpenVPN** enabled will not have their traffic routed through the VPN server. Your RPi itself will still have its own traffic routed through the VPN server.
 
+!!!note Note
+    Bridged AP mode is not currently supported on Ubuntu Server. 
+
+
 ## Accessing the web interface
 In bridged AP mode, you will no longer be able to access RaspAP's web interface using the default 10.3.141.1 address. This is because your RPi no longer creates its own 10.3.141.0/24 subnet for its hotspot. Instead, access RaspAP's web interface by entering your RPi's hostname followed by `.local`. By default this will look like `raspberrypi.local`.
 
