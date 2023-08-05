@@ -71,7 +71,7 @@ Install git, lighttpd, php7, hostapd, dnsmasq and some extra packages with the f
 sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php7.3-cgi
 ```
 !!! note "Note"
-    For Ubuntu, you may replace `php7.3-cgi` with `php7.4-cgi`. `php5` is no longer supported.
+    For Debian 12 and Armbian 23.05, replace `php7.3-cgi` with `php8.2-cgi`. For Ubuntu Server 23.04, you may use `php8.1-cgi`.
 
 ## Enable PHP
 Next, enable PHP for `lighttpd` and restart the service for the settings to take effect:
