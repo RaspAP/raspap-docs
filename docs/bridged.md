@@ -28,7 +28,7 @@ In bridged AP mode, you will no longer be able to access RaspAP's web interface 
 
 Some browsers have trouble resolving `.local` addresses. You might have to modify the address depending on your browser: `http://raspberrypi.local` or `raspberrypi.local/`.
 
-If the above methods don't work, the `nmap` command (Network Mapper) can be used to scan your subnet for devices connected to your network. For example, invoke `namp` with the `-sn` flag (ping scan) 
+If the above methods don't work, the `nmap` command (Network Mapper) can be used to scan your subnet for devices connected to your network. For example, invoke `nmap` with the `-sn` flag (ping scan) 
 on your subnet range:
 
 ```
