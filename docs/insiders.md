@@ -111,7 +111,8 @@ Invoke the [Quick Installer](/quick/) with the `--insiders` switch, like so:
 curl -sL https://install.raspap.com | bash -s -- --insiders
 ```
 
-This will automatically pull from the private Insiders repo during the installation process.
+!!! tip "Tip"
+    During the Insiders install, GitHub will ask you for your username and password in order to clone the private repository. You must enter a GitHub **Personal Access Token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below. 
 
 ### Upgrading
 *I have an existing RaspAP installation. How do I upgrade to Insiders?*
@@ -122,13 +123,16 @@ Upgrading is easy. Simply invoke the [Quick Installer](/index/#quick-start) with
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
 ```
 
+!!! tip "Tip"
+    When upgrading to Insiders, GitHub will ask you for your username and password in order to clone the private repository. You must enter a GitHub **Personal Access Token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below. 
+
 ### Authentication
-As of August 13, 2021 GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal Access Token** and pass this as a parameter to the installer. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
+As of August 2021 GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal Access Token** and use this in place of your password. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
 
-!!! warning "Important"
-    Several users have reported difficulties upgrading to Insiders using GitHub's personal access token. Before invoking the Quick installer to perform the upgrade, it's recommended to verify your token using the method described below. Also, be aware that GitHub may prompt you for a your account password. In this case, enter your token instead.
+!!! tip "Tip"
+    Before invoking the Quick installer to perform an upgrade or new Insiders install, it's recommended to verify your token using the method described below.
 
-If this is your first time using a GitHub personal access token, you can verify it by using `curl` and the GitHub API. Substitute your token value for `MY_TOKEN` below:
+If this is your first time using a GitHub personal access token, you can verify it by using `curl` and the [GitHub API](https://docs.github.com/rest). Substitute your token value for `MY_TOKEN` below:
 
 ```
 curl -sS -f -I -H "Authorization: token MY_TOKEN" https://api.github.com
@@ -136,16 +140,10 @@ curl -sS -f -I -H "Authorization: token MY_TOKEN" https://api.github.com
 
 If successful, GitHub should reply with `HTTP/2 200` and a `x-oauth-scopes: repo` value in the response. If you receive a `401` or other error from curl, check your token and try again.  
 
-After you have created and verified your token, use the [Quick Installer](/quick/#-t-token-accesstoken)'s `-t` or `--token` option to pass this when doing a fresh install or upgrading an existing install to the **Insiders Edition**. For example:
-
-```
-curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --token [my-token]
-```
+You will be asked to authenticate with GitHub when the installer clones the private Insiders repo. In this case, simply enter your GitHub username and token when prompted.
 
 !!! note "Note"
     Your token is sent securely via SSH to GitHub. The installer does _not_ have access to or store your token.
-
-You will be prompted to authenticate a second time when the installer clones the private Insiders GitHub repo. In this case, simply enter your GitHub username and token when prompted.
 
 If you're using GitHub with 2FA enabled the same process above applies.
 
