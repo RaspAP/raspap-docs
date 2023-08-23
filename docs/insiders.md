@@ -125,7 +125,18 @@ curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
 ### Authentication
 As of August 13, 2021 GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal Access Token** and pass this as a parameter to the installer. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
 
-After you've generated a token, use the [Quick Installer](/quick/#-t-token-accesstoken)'s `-t` or `--token` option to pass this when doing a fresh install or upgrading an existing install to the **Insiders Edition**. For example:
+!!! warning "Important"
+    Several users have reported difficulties upgrading to Insiders using GitHub's personal access token. Before invoking the Quick installer to perform the upgrade, it's recommended to verify your token using the method described below. Also, be aware that GitHub may prompt you for a your account password. In this case, enter your token instead.
+
+If this is your first time using a GitHub personal access token, you can verify it by using `curl` and the GitHub API. Substitute your token value for `MY_TOKEN` below:
+
+```
+curl -sS -f -I -H "Authorization: token MY_TOKEN" https://api.github.com
+```
+
+If successful, GitHub should reply with `HTTP/2 200` and a `x-oauth-scopes: repo` value in the response. If you receive a `401` or other error from curl, check your token and try again.  
+
+After you have created and verified your token, use the [Quick Installer](/quick/#-t-token-accesstoken)'s `-t` or `--token` option to pass this when doing a fresh install or upgrading an existing install to the **Insiders Edition**. For example:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --token [my-token]
