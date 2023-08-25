@@ -138,7 +138,7 @@ If this is your first time using a GitHub personal access token, you can verify 
 curl -sS -f -I -H "Authorization: token MY_TOKEN" https://api.github.com
 ```
 
-If successful, GitHub should reply with `HTTP/2 200` and a `x-oauth-scopes: repo` value in the response. If you receive a `401` or other error from curl, check your token and try again.  
+If successful, GitHub should reply with `HTTP/2 200` and a `x-oauth-scopes: repo` value in the response. If you receive a `HTTP 401` or other error from curl, check your token and try again.  
 
 You will be asked to authenticate with GitHub when the installer clones the private Insiders repo. In this case, simply enter your GitHub username and token when prompted.
 
