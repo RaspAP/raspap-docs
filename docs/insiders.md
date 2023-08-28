@@ -30,6 +30,7 @@ The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immedi
 :octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics)  
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
 :octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
+:octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](wireguard.md#multiple-configs)  
 
 A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
@@ -65,7 +66,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 #### **$1,500** - 3rd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
 :octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
-:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Multiple WireGuard configs
+:octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](wireguard.md#multiple-configs)  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition

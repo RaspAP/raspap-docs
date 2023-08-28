@@ -41,7 +41,7 @@ If you have chosen to route traffic from the `wg0` interface to the AP interface
 WireGuard is enabled. Again, using Mullvad as an example, visit their [connection check](https://mullvad.net/en/check/) page on your client device. If the tunnel is working correctly, you should see
 a result like the following: 
 
-![](https://user-images.githubusercontent.com/229399/125700202-5cace3a0-3c54-48ff-8bd4-113a2eef5f1b.png){: style="width:225px"}
+![](https://user-images.githubusercontent.com/229399/125700202-5cace3a0-3c54-48ff-8bd4-113a2eef5f1b.png){: style="width:300px"}
 
 If any of the above checks fail, enable WireGuard service logging in RaspAP and check the output. You may also consult your VPN provider's support. 
 
@@ -131,6 +131,15 @@ These rules are automatically appended to your configuration.
 
 !!! note "Note"
     Some VPN providers give you the option of adding these rules to their Linux configurations. Skip this option as RaspAP needs to add an exclusion rule for your AP interface.
+
+## Multiple configs
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+
+RaspAP lets you manage multiple WireGuard configurations. This includes the ability to upload, activate and delete any number of valid wg .conf files. Select the **Apply iptables rules for AP interface** option when uploading your .conf file to automatically route traffic to connected peers on the AP interface.
+
+![](https://github.com/RaspAP/raspap-webgui/assets/229399/b38f9fec-a604-4dcf-996a-024bc1b93b1a){: style="width:450px"}
+
+Thereafter, switching between your saved configurations is done by simply activating the desired profile. Activating a profile will restart the `wg-quick` service automatically. Additionally, WireGuard service activity may be tracked on the **Logging** tab.
 
 ## Low overhead
 Due to its low overhead compared with OpenVPN, WireGuard is well-suited for applications where battery longevity is a concern. As [described by its developer](https://www.wireguard.com/quickstart/#nat-and-firewall-traversal-persistence),
