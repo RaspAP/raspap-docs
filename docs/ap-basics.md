@@ -63,10 +63,12 @@ while also allowing devices that support 802.11w to use the PMF features. _Requi
 ## Drag & drop widgets
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
-The default dashboard layout may be customized to suit your needs. Click or tap the :fontawesome-solid-pen: icon to modify the dashboard. Each widget may be resized, dragged and repositioned.
-Release the widget to drop it into a new location.
+The default dashboard layout may be customized to suit your needs. Enable this option from the **System > Theme** menu by selecting the **Dynamic widgets** toggle. Next, from the **Dashboard** click or tap the :fontawesome-solid-pen: icon to modify the widgets. Each widget may be resized, dragged and repositioned. Release the widget to drop it into a new location.
 
-<video width="640" height="472" controls>
+!!! tip "Tip"
+    This option works best for large displays. The default dashboard widgets are optimized for mobile devices and smaller displays. 
+
+<video width="680" height="500" controls>
   <source src="https://user-images.githubusercontent.com/229399/162409566-1c2195ce-1dfe-46e0-b2df-9e8972c3bb6f.mov" type="video/mp4">
 </video>
 
