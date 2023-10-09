@@ -273,8 +273,8 @@ There are several steps to enable [Ad blocking](adblock.md), including downloadi
 
 ```
 sudo mkdir /etc/raspap/adblock
-wget https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt -O /tmp/hostnames.txt
-wget https://raw.githubusercontent.com/notracking/hosts-blocklists/master/domains.txt -O /tmp/domains.txt
+wget https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts -O /tmp/hostnames.txt
+wget https://big.oisd.nl/dnsmasq -O /tmp/domains.txt
 sudo cp /tmp/hostnames.txt /etc/raspap/adblock
 sudo cp /tmp/domains.txt /etc/raspap/adblock 
 sudo cp installers/update_blocklist.sh /etc/raspap/adblock/

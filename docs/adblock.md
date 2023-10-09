@@ -2,13 +2,13 @@
 
 ![adblock](https://user-images.githubusercontent.com/229399/229465083-5d6a0905-ac08-41d8-9629-fb487d0bd68b.jpg){: style="width:640px"}
 
-RaspAP has introduced a new DNS based filter to stop ads, trackers and other undesirable hosts in their tracks. 
+RaspAP has introduced a new DNS based filter to stop ads, trackers, malware and other undesirable hosts in their tracks. 
 
 In the best of times, ads are usually just annoying. When access to online services served by our AP is hampered by ads, malware and trackers, the best tool in our arsenal is DNS blacklisting.
 RaspAP already uses `dnsmasq` to manage both DHCP and DNS, so we have the foundation for a highly effective ad blocking facility.
 
 ## Quick installer
-As a beta feature, we invite testing and encourage feedback from users of RaspAP. To install ad blocking with DNS blacklists, simply respond with ++y++ or press ++enter++ when prompted by the installer:
+To install ad blocking with DNS blacklists, simply respond with ++y++ or press ++enter++ when prompted by the installer:
 
 ```
 Install ad blocking and enable list management? [Y/n]
@@ -23,8 +23,14 @@ Ad blocking is enabled and active for clients connected to your AP. You may upda
 ## Manual installation
 Ad blocking may also be installed manually. Refer to the detailed [installation steps](manual.md#ad-blocking).
 
-## Blocklist source
-For the public beta release, blocklists are sourced from the [notracking project](https://github.com/notracking/hosts-blocklists) on GitHub. This "list of lists" is gathered from multiple, actively maintained sources and automatically updated, cleaned, optimized and moderated on a daily basis. A complete list of sources is available [here](https://github.com/notracking/hosts-blocklists/blob/master/SOURCES.md).
+## Blocklist sources
+Blocklists are sourced from multiple, continuously updated open source projects. These are divided into two groups: **hosts** and **domain** blocklists. By default, RaspAP's ad block facility uses [StevenBlack's hosts](https://github.com/StevenBlack/hosts) as the primary hosts blocklist. This repository is a hosts file aggregator that consolidates several reputable hosts files and merges them into a unified, optimized hosts file with duplicates removed.
+
+![StevenBlack's hosts file aggregator](https://raw.githubusercontent.com/StevenBlack/hosts/master/aggregator.png){: style="width:640px"}
+
+Alternatively, users may choose from a number of host blocklist sources maintained by the [badmojr/1Hosts](https://github.com/badmojr/1Hosts) GitHub project. These lists are compiled daily into Mini, Lite, Pro and Xtra versions depending on specific user needs. Refer to the [GitHub project](https://github.com/badmojr/1Hosts) for an explanation of these different blocklists.
+
+In addition to blocking hosts, domain blocking gives us the ability to use wildcards with `dnsmasq` to block an entire domain (for example, `baddomain.org`) with a single rule. This includes all known and unknown subdomains, such as `*.baddomain.org`. Domain blocklists are provided by the [OISD](https://oisd.nl/) project. Similar to hosts lists, these are continuously updated and curated into several lists: Small, Big and NSFW. Refer to the [OISD](https://oisd.nl/) project for an explanation of these lists. 
 
 ## Updating lists 
 The notracking project maintains two blocklists; hostnames and domains. These are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
@@ -70,7 +76,7 @@ dnsmasq[9633]: config sdk.iad-01.braze.com is 0.0.0.0
 To disable the ad blocking service, slide the **Enable blocklists** toggle to its off position, then choose **Save settings**. You may then restart your hotspot for the changes to take effect.
 
 ## About blocklist policies
-The notracking blocklists chosen for RaspAP adhere to these policies:
+The blocklist sources chosen for RaspAP adhere to these policies:
 
 - Should not break useful websites or apps
 - Blocks tracking servers
@@ -81,4 +87,4 @@ The notracking blocklists chosen for RaspAP adhere to these policies:
 - Blocks webminers
 - Blocks phishing servers
 
-Furthermore, notracking makes full use of domain name based wildcard filtering (for example, `*.adhost.net`). This reduces the chance of missing any new subdomains and significantly reduces the size of the blocklists.
+Users may tailor RaspAP's ad blocking to suit their needs by selecting from multiple blocklist sources. Furthermore, domain blocklists enable full use of domain name based wildcard filtering (for example, `*.baddomain.org`). This reduces the chance of missing any new subdomains and significantly reduces the size of the blocklists.
