@@ -33,9 +33,11 @@ Alternatively, users may choose from a number of host blocklist sources maintain
 In addition to blocking hosts, domain blocking gives us the ability to use wildcards with `dnsmasq` to block an entire domain (for example, `baddomain.org`) with a single rule. This includes all known and unknown subdomains, such as `*.baddomain.org`. Domain blocklists are provided by the [OISD](https://oisd.nl/) project. Similar to hosts lists, these are continuously updated and curated into several lists: Small, Big and NSFW. Refer to the [OISD](https://oisd.nl/) project for an explanation of these lists. 
 
 ## Updating lists 
-The notracking project maintains two blocklists; hostnames and domains. These are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
+Each of the hosts and domains blocklists are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
 
 ![Manage blocklists](https://user-images.githubusercontent.com/229399/224507022-f71e9a8f-ad73-437b-81cd-c59b27ad3dc3.png){: style="width:480px"}
+
+Next to the update button, a gear icon :fontawesome-solid-gear:{ style="color: var(--md-default-fg-color--light)" } will appear to indicate that the selected list is being downloaded. Thereafter, a timestamp after each list will indicate when it was last updated.
 
 !!! note "Note"
     To apply the latest blocklists, be sure to **Restart Ad Blocking**.
