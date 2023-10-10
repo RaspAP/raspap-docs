@@ -548,15 +548,15 @@ You may now create your own `index.php` file in this folder and request it from 
 **Option 2.**  Reinstall RaspAP and specify a custom install destination, for example `/var/www/html/raspap`. This will leave the default web root free for you to create any files you wish, without attempting to rewrite the URLs (the installer will only apply routing rules to your custom RaspAP root). 
 
 ## <a name="adblockauto"></a>Can I automatically update RaspAP's adblock lists?
-RaspAP's [adblock feature](adblock.md) uses the [notracking project's blocklists](adblock.md#blocklist-source). In a typical setup, you may use the **Ad blocking** management
+RaspAP's [adblock feature](adblock.md) uses several [blocklists](adblock.md#blocklist-source) that are aggregated and updated daily. In a typical setup, you may use the **Ad blocking** management
 page to manually update these lists. Alternatively, this <a href="https://github.com/RaspAP/raspap-webgui/discussions/1216">user-contributed script</a> will automatically fetch the latest blocklists on
 the schedule of your choosing (for example, daily, weekly, etc.) and reload `dnsmasq`.
 ```
 #!/bin/sh
 #
 sleep $(shuf -i 0-3600 -n1)
-curl -L https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt > /etc/raspap/adblock/hostnames.tmp
-curl -L https://raw.githubusercontent.com/notracking/hosts-blocklists/master/domains.txt > /etc/raspap/adblock/domains.tmp
+curl -L https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts > /etc/raspap/adblock/hostnames.tmp
+curl -L https://big.oisd.nl/dnsmasq > /etc/raspap/adblock/domains.tmp
 
 mv /etc/raspap/adblock/hostnames.tmp /etc/raspap/adblock/hostnames.txt
 mv /etc/raspap/adblock/domains.tmp /etc/raspap/adblock/domains.txt
