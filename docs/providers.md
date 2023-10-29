@@ -8,7 +8,7 @@
 Several popular VPN providers include a Linux Command Line Interface (CLI) for interacting with their services. As a new beta feature, you may optionally control these VPN services from within RaspAP. In this way, after your preferred CLI is installed on your system you may administer it thereafter by using RaspAP's UI.
 
 ## Installation
-To configure VPN provider support, respond by pressing ++enter++ to accept the default ++y++ response when prompted by the Quick installer:
+To configure VPN provider support, respond by pressing ++enter++ to accept the default ++y++ option when prompted by the Quick installer:
 
 ```
 RaspAP Install: Configure VPN provider support (Beta)
@@ -31,10 +31,10 @@ Adding VPN provider to /etc/raspap/provider.ini
 [ ✓ ok ]
 ```
 
-The installer will configure RaspAP to administer the corresponding Linux CLI.
+The installer will configure RaspAP to administer the corresponding Linux CLI. Choosing ++0++ (None) followed by ++enter++ will exit the VPN provider option and continue with the installer.
 
 ## Provider CLIs
-RaspAP provides an interface to interact with your chosen VPN provider's CLI. To facilitate this, you must first install and configure the CLI on your system. Specific steps will depend on your VPN provider; consult the online documentation for your chosen VPN service.
+RaspAP provides a visual interface to interact with your chosen VPN provider's CLI. To facilitate this, you must first install and configure the CLI on your system. Specific steps will depend on your VPN provider; consult the online documentation for your chosen VPN service.
 
 !!! note "Note"
     The RaspAP project has no affiliation whatsoever with the supported VPN providers. Each provider was selected solely based on availability of their Debian compatible CLIs.
@@ -76,7 +76,7 @@ With these setps completed, you are now ready to begin administering your VPN pr
 ## Administer your provider
 Continuing from the above example, access your VPN provider's UI page from RaspAP. From the **Settings** page, you can view your account status, connect to a recommended VPN server or choose a specific country from the select list.
 
-Below, a country is selected from the list followed by **Save settings**:
+Below, RaspAP displays the CLI output when a country is selected from the list followed by **Save settings**:
 
 ![](https://github.com/RaspAP/raspap-webgui/assets/229399/ad9f111d-a75b-4f3f-8e6c-f5aaa6ef053e){: style="width:400px"}
 
@@ -96,9 +96,28 @@ If a configured provider's CLI is not found, RaspAP will detect this and give yo
 Likewise, if the CLI binary exists but RaspAP is unable to execute it, a diagnostic message will be displayed.
 
 ## Control scope
-Each VPN provider's CLI offers different command sets to control various aspects of their service. For this beta release, RaspAP may be used to administer basic functions including connect, disconnect, status, account information and country (or city) selection for the remote VPN server.
+Each VPN provider's CLI offers different command sets to control various aspects of their service. For this beta release, RaspAP may be used to administer basic functions including connect, disconnect, status, account information and country (or city) selection for the remote VPN server. 
 
-More advanced CLI settings such as whitelists, kill switches, firewalls, protocols and so on should be administered with your CLI directly.
+```
+nordvpn settings
+Technology: NORDLYNX
+Firewall: disabled
+Firewall Mark: 0xe1f1
+Routing: enabled
+Analytics: enabled
+Kill Switch: disabled
+Threat Protection Lite: disabled
+Notify: disabled
+Auto-connect: disabled
+IPv6: disabled
+Meshnet: disabled
+DNS: disabled
+LAN Discovery: disabled
+Allowlisted ports:
+       22 (UDP|TCP)
+```
+
+More advanced CLI settings such as whitelists, kill switches, firewalls, protocols and so on (shown above) should be administered with your CLI directly.
 
 ## Public IP
 After a VPN connection is established, your public IPv4 address will be displayed next to a globe icon :fontawesome-solid-earth-americas:{ style="color: var(--md-default-fg-color--light)" } below your provider name on the **Settings** tab. Click or tap on the external link icon :octicons-link-external-16:{ style="color: var(--md-default-fg-color--light)" } to see details about your IP location.
