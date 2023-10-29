@@ -91,7 +91,7 @@ You may perform the same operations with any of the supported VPN providers.
 
 If a configured provider's CLI is not found, RaspAP will detect this and give you a helpful pointer to the CLI's installation instructions:
 
-![](https://github.com/RaspAP/raspap-webgui/assets/229399/a8747519-39bb-4577-a20f-d6661c6dd8c2){: style="width:400px"}
+![](https://github.com/RaspAP/raspap-webgui/assets/229399/6ef30536-0255-4f0d-a234-445dc02953c2){: style="width:400px"}
 
 Likewise, if the CLI binary exists but RaspAP is unable to execute it, a diagnostic message will be displayed.
 
