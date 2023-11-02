@@ -141,6 +141,43 @@ If any of the above happens, one of the best diagnostic tools at your disposal i
 
 Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab.
 
+### Debug log
+In some situations, you may need more comprehensive information to self-diagnose a problem. RaspAP lets you generate a debug log with a detailed summary of your system including the installed OS, Linux kernel version, attached USB devices, RaspAP settings, network configuration and current state of several AP-related services.
+
+![](https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad){: style="width:480px"}
+
+To create this log, simply click or tap on the **Generate debug log** button from the **System > Tools** tab. You will be prompted to choose a location to store the generated `raspap_debug.log` file on your local computer or mobile device. An example portion of RaspAP's debug log is shown below:
+
+```
+System Info
+===========
+Hardware: Raspberry Pi 3 Model B Rev 1.2
+Detected OS: Debian GNU/Linux 12 (bookworm) 64-bit
+Kernel: Linux raspberrypi 6.1.0-rpi4-rpi-v8 (2023-10-05) aarch64 GNU/Linux
+System Uptime: 4 days, 20 hours, 45 minutes
+Memory Usage: 29.0749%
+
+Installed Packages
+==================
+PHP Version: 8.2.7 (cli) (built: Jun  9 2023 19:37:27) (NTS)
+Dnsmasq Version: 2.89
+dhcpcd Version: 9.4.1
+lighttpd Version: 1.4.69
+vnStat Version: 2.10
+
+RaspAP Install
+==============
+RaspAP Version: 2.9.9
+RaspAP Installation Directory: /var/www/html
+RaspAP hostapd.ini contents:
+WifiInterface = wlan0
+```
+
+!!! tip "Tip"
+    If you are unable to perform a self-diagnosis and would like to share your debug log (or a portion of it) with another party, upload it to <a href="https://pastebin.com/" target="_blank">Pastebin</a> or <a href="https://paste.ubuntu.com/" target="_blank">Ubuntu Pastebin</a>. Please don't paste the log in its entirety to RaspAP's discussions, issues or other support channels.
+
+RaspAP's debug log contains information about your system and local network configuration. However, no passwords or other senstive data are included.
+
 ### Diagnosing problems
 Look for any reported errors logged by the `hostapd`, `dhcpcd` or `dnsmasq` services. In most cases, errors thrown by one or more of these services have been discussed in various online forums.
 Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/). Chances are the problems with your AP have been discussed and answered before.

@@ -141,9 +141,9 @@ See [this FAQ](faq.md#wificountries) for more information.
 
 ## Restoring settings
 
-If you've modified RaspAP's default configuration and the AP no longer works as expected, the defaults may be restored by performing a system reset. From the **System > Reset** tab, click or tap the **Perform reset** button. A dialog will appear to confirm this action.
+If you've modified RaspAP's default configuration and the AP no longer works as expected, the defaults may be restored by performing a system reset. From the **System > Tools** tab, click or tap the **Perform reset** button. A dialog will appear to confirm this action.
 
-![](https://user-images.githubusercontent.com/229399/231104852-4501be14-2bc0-4f4e-a89c-8b9249a6e1d2.png){: style="width:520px"}
+![](https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad){: style="width:480px"}
 
 Alternatively, you may follow the steps described in the [manual installation](manual.md#default-configuration).
 
