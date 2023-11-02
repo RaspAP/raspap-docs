@@ -3,15 +3,16 @@
 ## Overview
 :octicons-beaker-24: Experimental (Unsupported)
 
-This walkthrough describes an installation of RaspAP on the [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/). A managed mode AP, variously known as 
-**WiFi client AP mode**, a **micro-AP** or simply **AP-STA**, _usually_ works with the Quick Installer if the steps below are followed carefully. This feature was added to RaspAP specifically to support Internet of Things (IoT) and embedded applications for the Pi Zero W, however it is equally useful for a broad range of projects.
+This walkthrough describes an installation of RaspAP on the [Raspberry Pi Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/) or [Zero 2 W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) models. However, the same steps apply to any device with a chipset capable of supporting this mode.
+
+A managed mode AP, variously known as **WiFi client AP mode**, a **micro-AP** or simply **AP-STA**, _usually_ works with the Quick Installer if the steps below are followed carefully. This feature was added to RaspAP specifically to support Internet of Things (IoT) and embedded applications for the Pi Zero W, however it is equally useful for a broad range of projects.
 
 !!! warning "Disclaimer"
     This mode is _completely unsupported_ and should be used for educational purposes only. If you need a reliable solution with an access point (AP) and wireless client (STA) on the same device, buy a second Wi-Fi adapter and follow [this FAQ](faq.md#interfaces) instead. 
 
-Before proceeding with the installation, it's important to have a basic understanding of how AP-STA works.
+![](https://github.com/RaspAP/raspap-webgui/assets/229399/d9adadde-9e96-4281-9978-4150f03026f2)
 
-![](https://i.imgur.com/gppLmAj.png)
+Before proceeding with the installation, it's important to have a basic understanding of how AP-STA works.
 
 ## What is AP-STA mode?
 Many wireless devices support _simultaneous_ operation as both an access point (AP) and as a wireless client/station (STA). This is sometimes called Wi-Fi AP/STA concurrency. In this configuration, it is possible to create a software AP acting as a [wireless repeater](repeater.md) for an existing network, using a single wireless device. This capability is listed in the following section in the output of `iw list`:
