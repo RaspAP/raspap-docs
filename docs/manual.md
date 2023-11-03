@@ -46,6 +46,12 @@ On Debian, Armbian and Ubuntu, install `dhcpcd5` with the following:
 sudo apt-get install dhcpcd5
 ```
 
+On Raspberry Pi OS Lite 32-bit (bookworm), install `dhcpcd5` with a dependency:
+
+```
+sudo apt-get install dhcpcd dhcpcd-base
+```
+
 ## Ubuntu-specific steps
 !!! note "Note"
     This section concerns manual pre- and post-install steps required for the latest Ubuntu 23.04 (Lunar Lobster) release. They are not necessary with other distributions.
@@ -65,13 +71,13 @@ RaspAP's installer will prompt you to stop and disable the `systemd-resolved` se
 Your RaspAP install on Ubuntu should now function as expected.
 
 ## Install packages
-Install git, lighttpd, php7, hostapd, dnsmasq and some extra packages with the following:
+Install git, lighttpd, php8, hostapd, dnsmasq and some extra packages with the following:
 
 ```
-sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php7.3-cgi
+sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php8.2-cgi
 ```
 !!! note "Note"
-    For Debian 12 and Armbian 23.05, replace `php7.3-cgi` with `php8.2-cgi`. For Ubuntu Server 23.04, you may use `php8.1-cgi`.
+    For Raspberry Pi OS Lite (bullseye), Debian 11 and Ubuntu Server 22.04, replace `php8.2-cgi` with `php7.4-cgi`. For Ubuntu Server 23.04, you may use `php8.1-cgi`.
 
 ## Enable PHP
 Next, enable PHP for `lighttpd` and restart the service for the settings to take effect:
@@ -129,12 +135,7 @@ sudo mkdir /etc/raspap/backups
 sudo mkdir /etc/raspap/networking
 sudo mkdir /etc/raspap/hostapd
 sudo mkdir /etc/raspap/lighttpd
-```
-
-Move RaspAP's auth control file to the configuration directory you created above:
-
-```
-sudo cp raspap.php /etc/raspap 
+sudo mkdir /etc/raspap/system
 ```
 
 ## Set permissions
@@ -149,21 +150,26 @@ sudo chown -R www-data:www-data /etc/raspap
 RaspAP uses several shell scripts to manage various aspects of the application, including `hostapd` logging and `raspapd`, the RaspAP control service. Move these scripts to their destinations with the following:
 
 ```
-sudo mv installers/*log.sh /etc/raspap/hostapd 
-sudo mv installers/service*.sh /etc/raspap/hostapd
+sudo mv installers/enablelog.sh /etc/raspap/hostapd
+sudo mv installers/disablelog.sh /etc/raspap/hostapd
+sudo mv installers/servicestart.sh /etc/raspap/hostapd
+sudo mv installers/debuglog.sh /etc/raspap/system
 ```
 
 Set ownership and permissions for the logging and service control scripts:
 
 ```
-sudo chown -c root:www-data /etc/raspap/hostapd/*.sh 
-sudo chmod 750 /etc/raspap/hostapd/*.sh 
+sudo chown -c root:root /etc/raspap/hostapd/*.sh
+sudo chmod 750 /etc/raspap/hostapd/*.sh
+
+sudo chown -c root:root /etc/raspap/system/*.sh
+sudo chmod 750 /etc/raspap/system/*.sh
 ```
 
 Copy and set ownership of the `lighttpd` control scripts:
 ```
 sudo cp installers/configport.sh /etc/raspap/lighttpd
-sudo chown -c root:www-data /etc/raspap/lighttpd/*.sh
+sudo chown -c root:root /etc/raspap/lighttpd/*.sh
 ```
 
 Next, move the `raspapd` service file to the correct location and enable it:
@@ -203,11 +209,11 @@ sudo cp config/raspap-br0-member-eth0.network /etc/systemd/network/raspap-br0-me
 ```
 
 ## Optimize PHP
-Optionally, you may optimize PHP with the following, replacing `php7.3-cgi` with your installed version:
+Optionally, you may optimize PHP with the following, replacing `php8.2-cgi` with your installed version:
 
 ```
-sudo sed -i -E 's/^session\.cookie_httponly\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/session.cookie_httponly = 1/' /etc/php/7.3/cgi/php.ini
-sudo sed -i -E 's/^;?opcache\.enable\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/opcache.enable = 1/' /etc/php/7.3/cgi/php.ini
+sudo sed -i -E 's/^session\.cookie_httponly\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/session.cookie_httponly = 1/' /etc/php/8.2/cgi/php.ini
+sudo sed -i -E 's/^;?opcache\.enable\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/opcache.enable = 1/' /etc/php/8.2/cgi/php.ini
 sudo phpenmod opcache
 ```
 
@@ -255,7 +261,7 @@ Copy the OpenVPN auth control script to its destination, setting ownership and p
 ```
 sudo mkdir /etc/raspap/openvpn/
 sudo cp installers/configauth.sh /etc/raspap/openvpn/
-sudo chown -c root:www-data /etc/raspap/openvpn/*.sh 
+sudo chown -c root:root /etc/raspap/openvpn/*.sh
 sudo chmod 750 /etc/raspap/openvpn/*.sh
 ```
 
