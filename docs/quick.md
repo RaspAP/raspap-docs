@@ -47,6 +47,9 @@ Used with the `-y`, `--yes` option above, this sets the OpenVPN install option (
 #### -a, --adblock `<flag>`
 Used with the `-y`, `--yes` option above, this sets the Ad Blocking install option (`0` = don't install Adblock). Given that Adblock support is an optional extra, this enables an unattended setup without installing it.
 
+#### -w, --wireguard `<flag>`
+Used with the `-y`, `--yes` option above, this sets the WireGuard install option (`0` = don't install WireGuard). Given that WireGuard support is an optional extra, this enables an unattended setup without installing it.
+
 #### -c, --cert, --certificate
 This option installs an SSL certificate with `mkcert` and configures lighttpd for HTTPS support. It does _not_ (re)install RaspAP. Details are [provided here](ssl.md).
 
@@ -54,7 +57,7 @@ This option installs an SSL certificate with `mkcert` and configures lighttpd fo
 If you have forked this project to your own GitHub repo, this option lets you override the default GitHub repo (`RaspAP/raspap-webgui`) used to install RaspAP. An alternate repository name is a required parameter.
 
 #### -b, --branch `<name>`
-Similarly, this option overrides the default git branch (`master`). This is useful if you have created a feature branch (`my-feature`) and wish to perform an installation using the Quick Installer. An alternate branch name is a required parameter.
+Similarly, this option overrides the default git branch. This is useful if you have created a feature branch (`my-feature`) and wish to perform an installation using the Quick Installer. An alternate branch name is a required parameter.
 
 An example combining the `repo` and `branch` options is given below:
 ```
