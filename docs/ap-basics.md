@@ -13,9 +13,6 @@ As part of this initial setup, the `hostapd` service broadcasts an AP with the f
 **Encryption Type:** `CCMP`  
 **Passphrase:** `ChangeMe`  
 
-!!! note "Note"
-    The **802.11 AC 5GHz** wireless mode option is disabled by default. It may be enabled by configuring a country that permits wireless operation on the 5GHz band. Refer to [this FAQ](faq.md#80211ac) for more information.
-
 Each of these settings may be changed on the **Hotspot > Basic** and **Security** tabs to any values you wish. Your changes will be applied and made visible on the broadcasted AP by choosing
 **Save settings** followed by **Restart hotspot**.
 
@@ -35,6 +32,16 @@ By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 â
 WPA2 is currently the most secure standard utilizing AES (Advanced Encryption Standard) and a pre-shared key for authentication. WPA2 is also backwards compatible with TKIP to allow interoperability with legacy devices. AES uses the CCMP encryption protocol which is a stronger algorithm for message integrity and confidentiality.
 
 By default, RaspAP's access point is configured with WPA2 and CCMP encryption. You may of course change this to allow legacy clients (older mobile devices, for example) by selecting `TKIP+CCMP` as the encryption type. Choose **Save settings** and **Restart hotspot** for your changes to take effect. 
+
+## 802.11ac 5 GHz
+RaspAP largely removes the guesswork in creating a 5 GHz access point. It achieves this by being tightly integrated with the [wireless regulatory database](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) used by the Linux kernel. Behind the scenes, RaspAP queries `iw` and intelligently matches its output with the 5 GHz channels allowed by `hostapd`, the user space daemon access point software.
+
+From the **Hotspot > Advanced** tab, select your country from the dropdown then choose **Save settings**. This executes `iw reg set [country-code]` to set the wireless regulatory domain for your device. Now, on the **Hotspot > Basic** tab choose an interface, modify your SSID (if desired) and select the '802.11ac - 5 GHz' wireless mode option. RaspAP will automatically populate the available 5 GHz channels for your country. Select a channel followed by **Save settings**, then **Start** or **Restart hotspot**.
+
+!!! tip "Tip"
+    Enable `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab, followed by **Save settings**. This will provide you with useful log details for troubleshooting purposes.
+
+If the **Channel** dropdown and **Save settings** button are disabled, refer to [this FAQ](faq.md#channels).
 
 ### WPA3-Personal
 :octicons-beaker-24: Experimental Â· :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)

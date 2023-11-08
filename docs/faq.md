@@ -64,8 +64,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 ## Networking
 * [Why can't I access wireless mode 'N' (802.11n)?](#wireless-mode)
 * [How do I exclude NAT rules from IP traffic on localhost?](#iptables)
-* [Why is the 802.11ac 5GHz option disabled in Configure hotspot?](#80211ac)
-* [I think my country allows 5 GHz AP channels. Can I test this?](#wificountries)
+* [Why is the channel dropdown disabled on the Hotspot page?](#channels)
 * [Why is the maximum throughput of my 802.11n AP reduced by half?](#wirelessn)
 * [Can I connect the WiFi client to a WEP network?](#wep)
 * [Can I turn the hotspot on/off over SSH?](#hotspotssh)
@@ -732,41 +731,12 @@ Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
 ```
 Refer to [this issue](https://github.com/RaspAP/raspap-webgui/issues/333#issue-454352554).
 
-## <a name="80211ac"></a> Why is the 802.11ac 5GHz wireless mode option disabled in Configure hotspot?
-**Short answer:** because of wireless regulatory restrictions for your country. If the AC option is disabled on your RPi, there are two small configuration changes you can make to enable it. First, configure your RPi's wireless regulatory domain with `sudo iw reg set US`. Next, on the **Advanced** tab of **Configure hotspot**, choose "United States" as the country code and save settings. You can now choose 802.11ac from the wireless mode select on the **Basic** tab.
+## <a name="channels"></a> Why is the channel dropdown disabled on the Hotspot page? 
+RaspAP is capable of detecting the frequencies (channels) supported by each of your device's wireless interfaces. If an interface is selected that is not capable of broadcasting on the 5 GHz band, the associated channels and the **Save settings** button are disabled. Next to the **Wireless Mode** selector, a tooltip :octicons-question-24: will provide a brief explanation. 
 
-Choosing the AC wireless mode will populate the supported 5 GHz channels for you.
+![](https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb){: style="width:320px"}
 
-![](https://i.imgur.com/ZAxB8Wf.png){: style="width:350px"}
-
-**Longer answer:** AC support is not simply a function of your device's hardware capabilities. It must also take into account regulatory restrictions of the wireless spectrum. The regulatory info for `brcmfmac`, the kernel driver that supports the Broadcom wireless chipset, is embedded in the firmware of RPi models 3B+ and 4. There are lots of [international issues with WiFi](https://en.wikipedia.org/wiki/List_of_WLAN_channels#5_GHz_or_5.8_GHz_(802.11a/h/j/n/ac/ax)) that restrict channel use, transmission power, etc. on a regional and per-country basis. As a result, only combinations of certain frequencies (channels) and countries are capable of hosting an AC access point with the RPi's wireless adapter. 
-
-![](https://user-images.githubusercontent.com/229399/112802618-aee75600-9072-11eb-98ca-c55084964a0d.gif){: style="width:550px"}
-
-RaspAP uses an [extensively tested](https://github.com/RaspAP/raspap-webgui/issues/450#issuecomment-569343686) internal database of [permitted wireless channels](https://github.com/RaspAP/raspap-webgui/blob/master/config/wireless.json) for each country to populate
-the **Hotspot > Basic** settings tab. The page logic for loading the **Channel** select is displayed above.
-
-If the country configured on your RPi does not allow use of a particular segment of the 5 GHz wireless spectrum, an AC configured AP will fail to start. Errors like these are common:
-
-```
-nl80211: Failed to set channel (freq=5180): -22 (Invalid argument)
-hostapd: Could not set channel for kernel driver
-```
-
-In testing, stable AP's on the RPi's supported AC channels were only reliably obtained with 'US' as the regulatory domain. To get a list of the supported channels on your RPi for the 2.4 and 5 GHz bands, use `iw phy phy0 channels`. Refer to [this issue](https://github.com/RaspAP/raspap-webgui/issues/450#issuecomment-569343686).
-
-## <a name="wificountries"></a>I think my country allows 5 GHz AP channels. Can I test this?
-Yes. In the spirit of experimentation, this project allows you to override RaspAP's [default configuration](defaults.md). The file [wireless.json](https://github.com/RaspAP/raspap-webgui/blob/master/config/wireless.json) contains the regulatory domains and channels for the 2.4 and 5 GHz bands. Add a valid ISO Alpha-2 country code to the list of `5Ghz_max48ch` countries and save the file. Next, edit `includes/config.php` and add the same country to this constant:
-
-```
-// Constant for the 5GHz wireless regulatory domain
-define('RASPI_5GHZ_ISO_ALPHA2', array('US'));
-``` 
-
-The **Configure hotspot** page will now let you select AC as a wireless mode option for your country. If you succeed in creating a stable AP, feel free to share your results in a [discussion](https://github.com/RaspAP/raspap-webgui/discussions/).
-
-!!! tip "Tip"
-    It's recommended to monitor logs such as `dmesg` and the hostapd error log (available in the **Logfile output** tab of RaspAP) while doing this. Bug reports like "AC doesn't work" and/or troubleshooting requests will not be considered. No hard feelings.
+In this case, selecting a compatible 2.4 GHz wireless mode will populate the list of available channels for that interface. Alternatively, select another interface or connect a 5 GHz capable external wireless adapter. RaspAP will automatically detect the adapter and add it to the list of available interfaces.
 
 ## <a name="wirelessn"></a>Why is the maximum throughput of my 802.11n AP reduced by half? 
 In order to achieve optimal throughput with 802.11n, the wireless stream must operate at a 40 MHz wide channel on the 2.4 GHz band. A 20 MHz channel will restrict you to 72 Mbps. Your `hostapd.conf` might have  the required settings, but this is no guarantee of a 40 MHz channel.
