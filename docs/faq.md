@@ -732,7 +732,7 @@ Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
 Refer to [this issue](https://github.com/RaspAP/raspap-webgui/issues/333#issue-454352554).
 
 ## <a name="channels"></a> Why is the channel dropdown disabled on the Hotspot page? 
-RaspAP is capable of detecting the frequencies (channels) supported by each of your device's wireless interfaces. If an interface is selected that is not capable of broadcasting on the 5 GHz band, the associated channels and the **Save settings** button are disabled. Next to the **Wireless Mode** selector, a tooltip :octicons-question-24: will provide a brief explanation. 
+RaspAP is capable of detecting the frequencies (channels) supported by each of your device's wireless interfaces. If an interface is selected that is not capable of broadcasting on the 5 GHz band, the associated channels and the **Save settings** button are disabled. Next to the **Wireless Mode** selector, a tooltip :fontawesome-solid-circle-question:{ style="color: var(--md-default-fg-color--light) } will provide a brief explanation. 
 
 ![](https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb){: style="width:320px"}
 
