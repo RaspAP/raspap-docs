@@ -16,7 +16,7 @@ The project [FAQ](faq.md) is continuously updated with answers to many common qu
 You can help us improve this project by accurately describing defects. To that end, these guidelines have been established to streamline the reporting process: 
 
 1. The bug report template is there for a reason. Please use it.
-2. Provide useful detail to reproduce your issue. "Doesn't work" or "not working" is not a valid report.
+2. Provide useful detail to reproduce your issue. "Doesn't work" or "not working" is not a valid report. Here's an example [model issue](https://github.com/RaspAP/raspap-webgui/issues/1451).
 3. Issues created without the template will be labeled as `invalid` and closed immediately.
 4. Log data can be helpful in context, within reasonable limits.
 5. If an issue is unclear or needs further information, it will be labeled with `question` and `awaiting-user`.
