@@ -28,11 +28,6 @@ When the AP is operational, you may connect clients to it by using one of two me
 
 By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.254`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](faq.md#noip).
 
-## Security settings
-WPA2 is currently the most secure standard utilizing AES (Advanced Encryption Standard) and a pre-shared key for authentication. WPA2 is also backwards compatible with TKIP to allow interoperability with legacy devices. AES uses the CCMP encryption protocol which is a stronger algorithm for message integrity and confidentiality.
-
-By default, RaspAP's access point is configured with WPA2 and CCMP encryption. You may of course change this to allow legacy clients (older mobile devices, for example) by selecting `TKIP+CCMP` as the encryption type. Choose **Save settings** and **Restart hotspot** for your changes to take effect. 
-
 ## 802.11ac 5 GHz
 RaspAP [version 3.0](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0-beta) largely removes the guesswork in creating a 5 GHz access point. It achieves this by being tightly integrated with the [wireless regulatory database](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) used by the Linux kernel. Behind the scenes, RaspAP queries `iw` and intelligently matches its output with the 5 GHz channels allowed by `hostapd`, the user space daemon access point software.
 
@@ -42,6 +37,11 @@ From the **Hotspot > Advanced** tab, select your country from the dropdown then 
     Enable `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab, followed by **Save settings**. This will provide you with useful log details for troubleshooting purposes.
 
 If the **Channel** dropdown and **Save settings** button are disabled, refer to [this FAQ](faq.md#channels).
+
+## Security settings
+WPA2 is currently the most secure standard utilizing AES (Advanced Encryption Standard) and a pre-shared key for authentication. WPA2 is also backwards compatible with TKIP to allow interoperability with legacy devices. AES uses the CCMP encryption protocol which is a stronger algorithm for message integrity and confidentiality.
+
+By default, RaspAP's access point is configured with WPA2 and CCMP encryption. You may of course change this to allow legacy clients (older mobile devices, for example) by selecting `TKIP+CCMP` as the encryption type. Choose **Save settings** and **Restart hotspot** for your changes to take effect. 
 
 ### WPA3-Personal
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
