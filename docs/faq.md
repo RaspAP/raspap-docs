@@ -20,6 +20,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I reduce the risk of SD card corruption and extend a card's lifespan?](#minwrite)
 
 ## Troubleshooting
+* [My 802.11ac 5 GHz hotspot failed to start. What now?](#actroubleshoot)
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
 * [My WiFi network disappeared and I can't access the web UI.](#webui)
 * [My custom hostapd.conf / php.ini is gone.](#custom)
@@ -27,7 +28,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [RaspAP control panel works but there is no WiFi after reboot.](#nowifi)
 * [Bridged AP mode is unstable or clients can't connect.](#bridged)
 * [Managed mode AP doesn't work on the Pi Zero W.](#pizero-w)
-* [WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.](#scanning)
+* [WiFi scanning doesn't work or I get the error "cannot execute wpa_cli reconfigure".](#scanning)
 * [I started the hotspot but it shows "hostapd down". What's happening?](#hostapd-down)
 * [Pinging the AP from a client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?](#ping)
 * [My wlan1 keeps being disabled and/or clients are repeatedly disconnected.](#disassociated)
@@ -190,16 +191,19 @@ Clients outside of your defined network range will receive a '403' response when
 ## <a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?
 Yes. RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
 
-## <a name="token"></a>Why do I receive an 'Invalid CSRF token' message and a blank screen?
-A [cross-site request forgery](https://owasp.org/www-community/attacks/csrf) (CSRF) is a type of exploit where unauthorized commands are executed against a website on behalf of a trusted user. To guard against this, RaspAP generates a one-time token that is unique for every user and stored in the PHP session object. This token value is inserted into a hidden field on every form in the RaspAP application. If the token doesn’t exist in the submitted
-form data or fails to match with the token on the server, the form will reject the submission and return an error.
+## <a name="actroubleshoot"></a> My 802.11ac 5 GHz hotspot failed to start. What now?
+RaspAP uses [`iw`](https://wireless.wiki.kernel.org/en/users/documentation/iw) and the [`wireless-regdb`](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) to determine which channels are allowed for your configured country. However, not all channels may be supported by your device's wireless adapter. If your 5 GHz access point fails to start, use the steps below to troubleshoot it.
 
-The most common cause for this error message is when your PHP session expires. By default, the PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.
+Enable `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab. Choose **Save settings** followed by **Restart hotspot** and check the log output. The logs will often indicate when a selected channel is not supported by the hardware. For example:
 
-If you submit a form in RaspAP 24 minutes after the page was loaded, the application will return a CSRF token error. When this occurs, simply refresh the page to generate a new session token.
+```
+wlan0: IEEE 802.11 Hardware does not support configured channel
+Could not select hw_mode and channel. (-3)
+```
 
-## <a name="restore"></a>Can I restore RaspAP's default settings?
-Yes, two methods are [described here](defaults.md#restoring-settings).
+This may occur with the Raspberry Pi or other device's onboard wireless chipset, or an external wireless adapter. To mitigate this, try using one of the following 5 GHz channels: `36, 40, 44` or `48`, then **Save settings**. Click or tap the **Clear log** button on the **Hotspot > Logging** tab, if needed, and finally choose **Restart hotspot**. Check the logs again and see if the error persists.
+
+If troubles persist, an [external AC wireless adapter](faq.md#adapters) with in-kernel drivers is another option.
 
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
@@ -318,7 +322,7 @@ with incompatible hardware, RaspAP will create the configuration for you but `ho
 In each of these cases, the `hostapd` service will report errors that can be useful for troubleshooting. Enable logging by selecting **Logfile output** on the **Hostapd > Logging** tab, choose 
 **Save settings** then **Restart hotspot**.
 
-Refer to [this FAQ](#disassociated) for more info.
+Refer to [this FAQ](faq.md#actroubleshooting) and [this FAQ](#disassociated) for more info.
 
 ## <a name="ping"></a>Pinging the AP from a connected client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?
 An intermittent ping failure on the wireless interface could indicate any number of things; a poor wireless signal, co-channel interference and disassociated client being among the most common.
@@ -382,6 +386,17 @@ damaged. In these cases, a fresh install on a new SD card can save you time and 
 
 !!! tip "Tip"
     Be sure to use genuine MicroSD cards from a reputable manufacturer. Card clones are common and hard to distinguish from legitimately made ones, but certainly not subject to the same quality standards. Neither fake nor cheap cards are typically suitable for an entire OS to run from.
+
+## <a name="token"></a>Why do I receive an 'Invalid CSRF token' message and a blank screen?
+A [cross-site request forgery](https://owasp.org/www-community/attacks/csrf) (CSRF) is a type of exploit where unauthorized commands are executed against a website on behalf of a trusted user. To guard against this, RaspAP generates a one-time token that is unique for every user and stored in the PHP session object. This token value is inserted into a hidden field on every form in the RaspAP application. If the token doesn’t exist in the submitted
+form data or fails to match with the token on the server, the form will reject the submission and return an error.
+
+The most common cause for this error message is when your PHP session expires. By default, the PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.
+
+If you submit a form in RaspAP 24 minutes after the page was loaded, the application will return a CSRF token error. When this occurs, simply refresh the page to generate a new session token.
+
+## <a name="restore"></a>Can I restore RaspAP's default settings?
+Yes, two methods are [described here](defaults.md#restoring-settings).
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
