@@ -34,7 +34,7 @@ For devices with compatible wireless hardware, RaspAP [version 3.0](https://gith
 From the **Hotspot > Advanced** tab, select your country from the dropdown then choose **Save settings**. This sets the wireless regulatory domain for your device. Now, on the **Hotspot > Basic** tab choose an interface and select the `802.11ac - 5 GHz` wireless mode option. RaspAP will automatically populate the available 5 GHz channels for your country. Select a channel followed by **Save settings**, then **Start** or **Restart hotspot**.
 
 !!! tip "Tip"
-    Not all AC channels may be compatible with your hardware. If your hotspot fails to start, enable `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab, followed by **Save settings**, then **Restart hotspot**. This will provide you with useful troubleshooting info. See [this FAQ](faq.md#actroubleshoot) for more assistance. 
+    Not all AC channels may be compatible with your hardware. If your hotspot fails to start, enable `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab, followed by **Save settings**, then **Restart hotspot**. See [this FAQ](faq.md#actroubleshoot) for more assistance. 
 
 If the **Channel** dropdown and **Save settings** button are disabled, refer to [this FAQ](faq.md#channels).
 

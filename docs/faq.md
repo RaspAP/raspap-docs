@@ -192,18 +192,18 @@ Clients outside of your defined network range will receive a '403' response when
 Yes. RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
 
 ## <a name="actroubleshoot"></a> My 802.11ac 5 GHz hotspot failed to start. What now?
-RaspAP uses [`iw`](https://wireless.wiki.kernel.org/en/users/documentation/iw) and the [`wireless-regdb`](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) to determine which channels are allowed for your configured country. However, not all channels may be supported by your device's wireless adapter. If your 5 GHz access point fails to start, use the steps below to troubleshoot it.
+RaspAP uses [`iw`](https://wireless.wiki.kernel.org/en/users/documentation/iw) and the [`wireless-regdb`](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) to determine which channels are allowed for your configured country. However, not all channels may be supported by your device's wireless adapter or firmware. If your 5 GHz access point fails to start, use the steps below to troubleshoot the problem.
 
-Enable `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab. Choose **Save settings** followed by **Restart hotspot** and check the log output. The logs will often indicate when a selected channel is not supported by the hardware. For example:
+Begin by enabling `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab. Choose **Save settings** followed by **Restart hotspot** and check the log output. The logs will often indicate when a selected channel is not supported by the hardware. For example:
 
 ```
 wlan0: IEEE 802.11 Hardware does not support configured channel
 Could not select hw_mode and channel. (-3)
 ```
 
-This may occur with the Raspberry Pi or other device's onboard wireless chipset, or an external wireless adapter. To mitigate this, try using one of the following 5 GHz channels: `36, 40, 44` or `48`, then **Save settings**. Click or tap the **Clear log** button on the **Hotspot > Logging** tab, if needed, and finally choose **Restart hotspot**. Check the logs again and see if the error persists.
+This may occur with the Raspberry Pi or another device's onboard wireless chipset, or an external wireless adapter. To mitigate this, select one of the following 5 GHz channels: `36`, `40`, `44` or `48`, then choose **Save settings**. Click or tap the **Clear log** button on the **Hotspot > Logging** tab, if needed, and finally choose **Restart hotspot**. Check the logs again and see if the error persists.
 
-If troubles persist, an [external AC wireless adapter](faq.md#adapters) with in-kernel drivers is another option.
+If the 802.11ac AP still fails to start, an [external AC wireless adapter](faq.md#adapters) with in-kernel drivers is an option worth considering.
 
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
