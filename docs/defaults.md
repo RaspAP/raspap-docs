@@ -118,26 +118,23 @@ a JSON formatted collection of hostnames and IPv4 addresses, like so:
 
 Edits to this file in place will immediately be reflected in the user interface.
 
-## Wireless regulatory data
-
-802.11 wireless AC support is not simply a function of your device's hardware capabilities. It must also take into account regulatory restrictions of the wireless spectrum.
-The regulatory info for `brcmfmac`, the kernel driver that supports the Broadcom wireless chipset, is embedded in the firmware of RPi models 3B+ and 4.
-
-There are lots of international issues with Wi-Fi that restrict channel use, transmission power, etc. on a regional and per-country basis.
-As a result, only combinations of certain frequencies (channels) and countries are capable of hosting an AC access point with the RPi's wireless adapter.
-
-Based on [rigorous testing](https://github.com/RaspAP/raspap-webgui/issues/450#issuecomment-569343686) of RaspAP's AC wireless mode with supported RPi hardware, the file `config/wireless.json`
-was developed to capture regulatory data as it applies here. For example, the countries that permit 5 GHz low-power AC channels (according to `brcmfmac`) are defined below:
+## VPN providers
+RaspAP [version 3.0](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0) introduced beta support for a select number of [VPN providers](providers.md). These services are largely defined in the `config/vpn-providers.json` file. An example provider definiton is shown below:
 
 ```
-"5Ghz_max48ch": {
-        "countries": [ "NL","US" ],
-        "channels": [ 36, 40, 44, 48 ]
-    }
+"id": 1,
+"name": "ExpressVPN",
+"bin_path": "/usr/bin/expressvpn",
+"install_page": "https://www.expressvpn.com/support/vpn-setup/app-for-linux/",
+"account_page": "https://www.expressvpn.com/subscriptions",
+"cmd_overrides": {
+   "countries": "list all",
+   "log": "diagnostics",
+   "version": "-v"
+}
 ```
 
-If you think your country might support AC wireless, this file may be modified in place and the options reflected in the **Hotspot > Basic** panel.
-See [this FAQ](faq.md#wificountries) for more information.
+It is not necessary to modify these definitions, unless you would like to experiment by adding a provider not currently supported by RaspAP.
 
 ## Restoring settings
 
