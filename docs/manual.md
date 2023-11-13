@@ -74,7 +74,7 @@ Your RaspAP install on Ubuntu should now function as expected.
 Install git, lighttpd, php8, hostapd, dnsmasq and some extra packages with the following:
 
 ```
-sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php8.2-cgi
+sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php8.2-cgi jq isoquery
 ```
 !!! note "Note"
     For Raspberry Pi OS Lite (bullseye), Debian 11 and Ubuntu Server 22.04, replace `php8.2-cgi` with `php7.4-cgi`. For Ubuntu Server 23.04, you may use `php8.1-cgi`.
