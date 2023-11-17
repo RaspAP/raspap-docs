@@ -85,7 +85,7 @@ Upgrades an existing RaspAP installation to the latest release version.
 #### -d, --update
 Performs a minimal update of an existing installation to the [latest release version](https://github.com/RaspAP/raspap-webgui/releases). This differs from the `-u`, `--upgrade` option in several ways. The user is not prompted to install optional RaspAP components, and several steps used for an initial installation are not performed. Existing configuration files remain intact.
 
-#### -p, --path
+#### -p, --path `<path>`
 Sets the application path for an existing RaspAP installation. 
 
 It may be combined with the `-d`, `--update` and `-y`, `--yes` options to perform an unattended update. An example is given below:
