@@ -115,6 +115,12 @@ curl -sL https://install.raspap.com | bash -s -- --insiders
 !!! tip "Tip"
     During the Insiders install, GitHub will ask you for your username and password in order to clone the private repository. You must enter a GitHub **Personal Access Token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below. 
 
+Alternatively, you may skip the GitHub authentication step by specifying your GitHub credentials with the `--name` and `--token` parameters: 
+
+```
+curl -sL https://install.raspap.com | bash -s -- --insiders --name [username] --token [my-token]
+```
+
 ### Upgrading
 *I have an existing RaspAP installation. How do I upgrade to Insiders?*
 
@@ -126,6 +132,13 @@ curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
 
 !!! tip "Tip"
     When upgrading to Insiders, GitHub will ask you for your username and password in order to clone the private repository. You must enter a GitHub **Personal Access Token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below. 
+
+As with a fresh Insiders install, you may also skip the GitHub authentication step by specifying your GitHub credentials with the `--name` and `--token` parameters: 
+
+```
+curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name [username] --token [my-token]
+```
+
 
 ### Authentication
 As of August 2021 GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal Access Token** and use this in place of your password. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
