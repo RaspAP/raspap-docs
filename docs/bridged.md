@@ -53,6 +53,6 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 6.08 seconds
 More information on finding your RPi's IP address can be found [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 ## Troubleshooting
-If you are unable to connect clients to your bridged AP, start by following the recommendations in [this FAQ](/faq/#bridged-ap-mode-is-unstable-or-clients-cant-connect-help).
+If you are unable to connect clients to your bridged AP, start by following the recommendations in [this FAQ](faq.md#bridged).
 Client connectivity issues in bridged AP mode are most often the result of your router, not RaspAP. Check your router's web interface and DHCP settings _before_ reporting a bug.
 
