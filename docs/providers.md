@@ -128,10 +128,13 @@ If your device is connected to the internet via Ethernet (`eth0`), clients conne
 ## Troubleshooting
 RaspAP uses each CLI to fetch the most detailed available connection information and display this on the **Status** tab. The level of detail varies from one provider to the next. If you suspect a problem with your VPN service, it's recommended to check this output and use it for troubleshooting purposes with your VPN provider.
 
-### Allowing DHCP to lease ip
-Additionally, you might want to consider whitelisting other ports that are commonly used for essential network services. For instance, whitelisting TCP port 53 and UDP port 67, this will allow devices connecting to your AP to obtain an ip
+## Whitelisting services
+Additionally, you might want to consider whitelisting other ports that are commonly used for essential network services. For instance, with NordVPN's CLI you may whitelist TCP port 53 and UDP port 67 with the following commands:
 
 ```
 nordvpn whitelist add port 53
 nordvpn whitelist add port 67
 ```
+
+This will allow devices connecting to your AP to obtain an IP address. Refer to your provider's CLI documentation for more information.
+
