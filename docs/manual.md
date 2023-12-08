@@ -54,9 +54,9 @@ sudo apt-get install dhcpcd dhcpcd-base
 
 ## Ubuntu-specific steps
 !!! note "Note"
-    This section concerns manual pre- and post-install steps required for the latest Ubuntu 23.04 (Lunar Lobster) release. They are not necessary with other distributions.
+    This section concerns manual pre- and post-install steps required for the latest Ubuntu 23.04 (Lunar Lobster) and Armbian 23.11 (Jammy) releases. They are not necessary with other distributions.
 
-RaspAP's installer will prompt you to stop and disable the `systemd-resolved` service listening on port 53 before installing `dnsmasq`. On Ubuntu 23.04 this results in a name resolution failure and the installation cannot continue. To resolve this, perform the following **pre-install steps**:
+RaspAP's installer will prompt you to stop and disable the `systemd-resolved` service listening on port 53 before installing `dnsmasq`. On Ubuntu 23.04 and Armbian 23.11 this results in a name resolution failure and the installation cannot continue. To resolve this, perform the following **pre-install steps**:
 
 1. Stop systemd-resolved with `sudo systemctl stop systemd-resolved.service`.
 1. Edit the systemd-resolved config file: `sudo nano /etc/systemd/resolved.conf`, un-hash and specify `DNS=9.9.9.9` (for example) and set `DNSStubListener=no`. Save and exit the file.
