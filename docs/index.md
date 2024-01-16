@@ -63,8 +63,9 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 | Debian  |  Bookworm | ARM / x86_64  | Beta |
 | Ubuntu  |  Server 23.04 (Lunar) | ARM / x86_64  | Beta |
 
-![](https://user-images.githubusercontent.com/229399/115760318-81f03f80-a3a1-11eb-8df5-15ec4aec3e8a.png){: style="width:400px"}
+![](https://github.com/RaspAP/raspap-webgui/assets/229399/6fe62f2d-631a-46c9-8ceb-83ebf0ade6a9){: style="width:480px"}
 
+You are also encouraged to use RaspAP's community-led [Docker container](https://github.com/RaspAP/raspap-docker).
 
 Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
