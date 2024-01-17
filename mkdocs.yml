@@ -40,6 +40,7 @@ theme:
     - search.share
     - navigation.top
     - content.code.copy
+    - content.tabs.link
 markdown_extensions:
   - admonition
   - attr_list
@@ -54,6 +55,13 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 plugins:
   - search
   - social:
