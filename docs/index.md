@@ -65,7 +65,7 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 
 ![](https://github.com/RaspAP/raspap-webgui/assets/229399/6fe62f2d-631a-46c9-8ceb-83ebf0ade6a9){: style="width:480px"}
 
-You are also encouraged to use RaspAP's community-led [Docker container](https://github.com/RaspAP/raspap-docker).
+You are also encouraged to use RaspAP's community-led [Docker container](docker.md).
 
 Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
