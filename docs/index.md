@@ -44,7 +44,7 @@ After the reboot at the end of the installation the wireless AP network will be 
 Your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.md#advanced-options) are now ready to be modified by RaspAP.
 
 !!! tip "Tip"
-    If this is _not_ a clean install or you are configuring a device with a non-standard [integration](faq.md#integrations) it's strongly recommended to follow the [manual installation](manual.md) instructions.
+    If this is _not_ a clean install or you are configuring a device with a non-standard [integration](faq.md#integrations) it's strongly recommended to follow the [manual installation](manual.md) instructions or deploy RaspAP in a [Docker container](https://github.com/RaspAP/raspap-docker).
 
 ## Get Insiders
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](insiders.md#how-to-become-a-sponsor)
