@@ -4,6 +4,9 @@
 These steps apply to the [latest release of RaspAP](https://github.com/RaspAP/raspap-webgui/releases/), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
 Please refer to [this](index.md#compatible-operating-systems) regarding operating systems support.
 
+## Alternatives
+If your goal is to use RaspAP as a component of a larger project, or wish to isolate its dependencies from existing software on your system, consider deploying RaspAP in a [Docker container](docker.md) instead. 
+
 ## Prerequisites
 
 Start off by updating your system's package list, then upgrade the kernel, firmware and installed packages to their latest versions:
@@ -307,6 +310,6 @@ The default username is "admin" and the default password is "secret".
     It is strongly recommended that you change these default login credentials in RaspAP's **Authentication** panel. APs managed by RaspAP in the wild have been administered by third parties with the default login.
 
 ## Discussions
-Questions or comments about the manual install? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/1330).
+Questions or comments about RaspAP's manual install? Join the [discussions here](https://github.com/RaspAP/raspap-webgui/discussions/).
 
 
