@@ -7,7 +7,7 @@ As an alternative to the [Quick installer](quick.md) or [manual installation](ma
 
 A **container** is an isolated environment for your code. This means that a container has no knowledge of your operating system, dependencies, or your files. It runs on the environment provided to you by either Docker Desktop or the Docker Engine. Containers have everything that your code needs in order to run, down to a base operating system.
 
-Here, we'll focus on using [Docker Engine](https://docs.docker.com/engine/) to deploy and manage a containerized RaspAP application stack.
+Here, we'll focus on using [Docker Engine](https://docs.docker.com/engine/) to deploy and manage a [containerized RaspAP](https://github.com/RaspAP/raspap-docker) application stack.
 
 ## Why a container?
 Docker containers have several advantages over other methods of developing and deploying code. As a sandboxed process, containers are isolated from all other processes running on a host machine. That isolation leverages things like [kernel namespaces and cgroups](https://medium.com/@saschagrunert/demystifying-containers-part-i-kernel-space-2c53d6979504), features that have been in Linux for a long time.
