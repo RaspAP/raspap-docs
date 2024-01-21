@@ -5,12 +5,12 @@
 ## Overview
 As an alternative to the [Quick installer](quick.md) or [manual installation](manual.md) steps, you may also deploy RaspAP in an isolated and portable **Docker** container.
 
-A **container** is an isolated environment for your code. This means that a container has no knowledge of your operating system, dependencies, or your files. It runs on the environment provided to you by either Docker Desktop or the Docker Engine. Containers have everything that your code needs in order to run, down to a base operating system.
+A **container** is an isolated environment for code. This means that a container has no knowledge of the host operating system, dependencies, or its files. It runs on the environment provided to you by either Docker Desktop or the Docker Engine. Containers have everything needed to run an application, down to a base operating system.
 
 Here, we'll focus on using [Docker Engine](https://docs.docker.com/engine/) to deploy and manage a [containerized RaspAP](https://github.com/RaspAP/raspap-docker) application stack.
 
 ## Why a container?
-Docker containers have several advantages over other methods of developing and deploying code. As a sandboxed process, containers are isolated from all other processes running on a host machine. That isolation leverages things like [kernel namespaces and cgroups](https://medium.com/@saschagrunert/demystifying-containers-part-i-kernel-space-2c53d6979504), features that have been in Linux for a long time.
+Docker containers have several advantages over other methods of deploying code. As a [sandboxed](https://en.wikipedia.org/wiki/Sandbox_(software_development)) process, containers are isolated from all other processes running on a host machine. That isolation leverages things like [kernel namespaces and cgroups](https://medium.com/@saschagrunert/demystifying-containers-part-i-kernel-space-2c53d6979504), features that have been in Linux for a long time.
 
 A RaspAP Docker container is a runnable instance of an image. This container can be started, stopped, moved or deleted using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/). It can be run on a local device, virtual machines or deployed to the cloud. Isolation from other containers also means that it runs its own software, binaries and so on.
 
@@ -18,7 +18,7 @@ A RaspAP Docker container is a runnable instance of an image. This container can
 Since RaspAP is built for Debian-based systems, the instructions here will focus on this OS family. To get started with Docker Engine on Debian, make sure you meet the [prerequisites](#prerequisites), and then follow the [installation steps](#install-using-the-apt-repository).
 
 ### Prerequisites
-To install Docker Engine, you need the 64-bit version of one of these Debian versions:
+To install Docker Engine, begin with the 64-bit version of one of these Debian versions:
 
 - Debian Bookworm 12 (stable)
 - Debian Bullseye 11 (oldstable)
@@ -26,9 +26,9 @@ To install Docker Engine, you need the 64-bit version of one of these Debian ver
 Docker Engine for Debian is compatible with x86_64 (or amd64), armhf, arm64, and ppc64le (ppc64el) architectures.
 
 ### Uninstall old versions
-Before you can install Docker Engine, you need to first uninstall any conflicting packages.
+Before installing Docker Engine, we must first uninstall any conflicting packages.
 
-Distro maintainers provide unofficial distributions of Docker packages in their repositories. You must uninstall these packages before you can install the official version of Docker Engine.
+Distro maintainers provide unofficial distributions of Docker packages in their repositories. These packages must be uninstalled prior to installing the official version of Docker Engine.
 
 The unofficial packages to uninstall are:
 
@@ -37,10 +37,17 @@ The unofficial packages to uninstall are:
 - `docker-doc`
 - `podman-docker`
 
-Run the following command to uninstall all conflicting packages:
+Run the following command to uninstall these packages and their dependencies:
 
 ```
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+for pkg in docker.io \
+    docker-doc \
+    docker-compose \
+    podman-docker \
+    containerd \
+    runc; do \
+    sudo apt-get remove $pkg;
+done
 ```
 
 !!! note "Note"
@@ -48,7 +55,7 @@ for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
 
 ### Install using the apt repository
 
-Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker `apt` repository. Afterward, you can install and update Docker from the repository.
+Before installing Docker Engine for the first time on a new host machine, we will first set up the Docker `apt` repository. With this done, we can install and update Docker from the repository.
 
 1. Set up Docker's `apt` repository.
 
@@ -77,7 +84,18 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ```
 sudo docker run hello-world
 ```
-This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
+This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits. The output should appear similar to the example below:
+
+```
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+478afc919002: Pull complete
+Digest: sha256:4bd78111b6914a99dbc560e6a20eab57ff6655aea4a80c50b0c5491968cbc2e6
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
 
 !!! tip "Tip"
     If the test container fails to run or you encounter any errors, refer to the [Docker Engine](https://docs.docker.com/engine/install/troubleshoot/) documentation for troubleshooting tips.
