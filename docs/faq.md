@@ -403,11 +403,11 @@ There have been several discussions around integrating RaspAP with Pi-hole, with
 
 1. The first option is to configure RaspAP to use a Pi-Hole installation on a separate device. Go to RaspAP's **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server" option, add your Pi-Hole's DNS, save settings and restart dnsmasq.
 
-2. Alternatively, you can run Pi-Hole and RaspAP on the same device by operating RaspAP in bridged mode. Go to RaspAP's **Hotspot** > **Advanced settings** page, enable the "Bridged AP mode" option and restart your hotspot. 
+2. Install RaspAP in an isolated [Docker container](docker.md) together with Pi-Hole. You will need to configure Pi-Hole's `dnsmasq` service to listen on a port other than `53`.
 
-3. Install Pi-Hole in a [Docker container](https://hub.docker.com/r/pihole/pihole) and proceed with a normal installation of RaspAP on the same device.
+3. Install Pi-Hole in a Docker container and proceed with a normal installation of RaspAP on the same device.
 
-4. Finally, and by popular demand, RaspAP has released its own [ad blocking facility](/adblock/) with support for custom blocklists. 
+4. Alternatively, you may use RaspAP's own [ad blocking facility](adblock.md) with support for custom blocklists. 
 
 ## <a name="adguard"></a>Can I integrate RaspAP with Adguard Home?
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400)
