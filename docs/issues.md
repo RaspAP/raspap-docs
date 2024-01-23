@@ -1,7 +1,7 @@
 # Reporting issues
 
 ## Overview
-RaspAP is free software. It is delivered to you, at no cost, and with no guarantee. The [community of developers](https://github.com/RaspAP/raspap-webgui/graphs/contributors) who contribute to this project make every effort to deliver defect-free code. That said, no software is perfect. You can help us improve this project by accurately describing your issue.
+RaspAP is free software. It is delivered to you, at no cost, and with no warranty of any kind. The [community of developers](https://github.com/RaspAP/raspap-webgui/graphs/contributors) who contribute to this project make every effort to deliver defect-free code. That said, no software is perfect. You can help us improve this project by accurately describing your issue.
 
 ## Issue policy
 This project is currently led by one developer ([@billz](https://github.com/billz)) in his very limited spare time. Please respect our developers' time by using issues for reporting bugs only.
