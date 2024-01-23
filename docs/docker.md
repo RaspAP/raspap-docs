@@ -243,6 +243,24 @@ sudo chmod +x firewall-rules.sh
 ./firewall-rules.sh
 ```
 
+### Installer options
+The goal of the initial Docker rollout for RaspAP is to have a "one shot" command to get a container up quickly with minimal user input. For this reason, the RaspAP application stack is installed with some common options enabled by default. These optional components are [Ad blocking](adblock.md), [OpenVPN](openvpn.md) and [WireGuard](wireguard.md).
+
+You may change this behavior by removing any or all of the [Quick installer](quick.md) flags from RaspAP's [Dockerfile](https://github.com/RaspAP/raspap-docker/blob/master/Dockerfile). For example, to skip the WireGuard install option, remove the `--wireguard 1` flag on the line below:
+
+``` py hl_lines="2" 
+RUN apt update && apt install -y sudo wget procps curl systemd iproute2 && rm -rf /var/lib/apt/lists/*
+RUN curl -sL https://install.raspap.com | bash -s -- --yes --wireguard 1 --openvpn 1 --adblock 1
+COPY firewall-rules.sh /home/firewall-rules.sh
+RUN chmod +x /home/firewall-rules.sh
+CMD [ "/bin/bash", "-c", "/home/firewall-rules.sh && /lib/systemd/systemd" ]
+```
+
+With this done, you may proceed with building your Docker image as usual. 
+
+!!! note "Note"
+    Alternatively, you may choose to install these optional components and disable them in RaspAP's [configuration file](defaults.md#managing-config-values), `config.php`.
+
 ## Troubleshooting
 The `docker logs` command shows information logged by a running container and is generally the best starting point for troubleshooting. To obtain logs for the `raspap` container, execute `docker logs raspap`.
 
