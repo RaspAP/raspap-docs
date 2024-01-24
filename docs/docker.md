@@ -86,7 +86,7 @@ Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
 
-You have now successfully installed and started Docker Engine. The docker service starts automatically on Debian based distributions.
+You have now successfully installed and tested Docker Engine. The docker service starts automatically on Debian based distributions.
 
 !!! note "Note"
     If the test container fails to run or you encounter any errors, refer to the [Docker Engine](https://docs.docker.com/engine/install/troubleshoot/) documentation for troubleshooting tips.

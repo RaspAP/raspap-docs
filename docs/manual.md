@@ -190,7 +190,6 @@ Copy the configuration files for `dhcpcd`, `dnsmasq`, `hostapd` and `defaults.js
 ```
 sudo mv /etc/default/hostapd ~/default_hostapd.old
 sudo cp /etc/hostapd/hostapd.conf ~/hostapd.conf.old
-sudo cp config/default_hostapd /etc/default/hostapd
 sudo cp config/hostapd.conf /etc/hostapd/hostapd.conf
 sudo cp config/090_raspap.conf /etc/dnsmasq.d/090_raspap.conf
 sudo cp config/090_wlan0.conf /etc/dnsmasq.d/090_wlan0.conf
