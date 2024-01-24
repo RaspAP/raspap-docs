@@ -53,39 +53,28 @@ done
 !!! note "Note"
     `apt-get` might report that you have none of these packages installed.
 
-### Install using the apt repository
+### Install using the convenience script
 
-Before installing Docker Engine for the first time on a new host machine, we will first set up the Docker `apt` repository. With this done, we can install and update Docker from the repository.
+Docker provides a convenience script at [https://get.docker.com/](https://get.docker.com/) to install Docker non-interactively. Prior to executing it, be sure to familiarize yourself with the potential [risks and limitations](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script) associated with this script.
 
-1. Set up Docker's `apt` repository.
+!!! tip "Tip"
+    You can run the script with the `--dry-run option` to learn what steps the script will run when invoked:
+    ```
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh ./get-docker.sh --dry-run
+    ```
 
+1. Begin by changing into your home directory, then download and execute the convenience script to install the latest stable release of Docker:
 ```
-# Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-
-# Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
+cd ~/
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
 ```
-2. Install the Docker packages.
-
-To install the latest version, run:
-```
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-3. Verify that the installation is successful by running the `hello-world` image:
+2. Verify that the installation is successful by running the `hello-world` image:
 ```
 sudo docker run hello-world
 ```
 This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits. The output should appear similar to the example below:
-
 ```
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
@@ -96,8 +85,9 @@ Status: Downloaded newer image for hello-world:latest
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
+You have now successfully installed and started Docker Engine. The docker service starts automatically on Debian based distributions.
 
-!!! tip "Tip"
+!!! note "Note"
     If the test container fails to run or you encounter any errors, refer to the [Docker Engine](https://docs.docker.com/engine/install/troubleshoot/) documentation for troubleshooting tips.
 
 ### Post-installation steps
