@@ -85,6 +85,7 @@ Status: Downloaded newer image for hello-world:latest
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
+
 You have now successfully installed and started Docker Engine. The docker service starts automatically on Debian based distributions.
 
 !!! note "Note"
