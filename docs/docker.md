@@ -156,7 +156,18 @@ docker compose up -d
 
 You should see output similar to below to indicate the progress of RaspAP's Docker image being built: 
 
-![docker-compose](https://github.com/RaspAP/raspap-docker/assets/229399/770b5c11-a995-43ca-bc92-957dd273abe0){: style="width:640px"}
+```
+docker compose up -d
+[+] Running 2/8
+ ⠇ raspap 7 layers [⠀⡀⣿⣿⠀⠀⠀] 12.83MB/337.8MB Pulling
+   ⠋ 5665c1f9a9e1 Downloading [===>                        ]  3.547MB/49.59MB
+   ⠋ 4311202aff18 Downloading [=========>                  ]   4.98MB/24.95MB
+   ✔ ac4d205394f0 Download complete
+   ✔ baf57b850085 Download complete
+   ⠋ 18a1ed9b4ba8 Downloading [=>                          ]  4.307MB/263.3MB
+   ⠋ 5bed08c889b9 Waiting
+   ⠋ 09ed3fdeed88 Waiting
+```
 
 During this process, a Docker image containing RaspAP's application stack will be created on your system. This build always pulls the [latest RaspAP release](https://github.com/RaspAP/raspap-webgui/releases/latest) from the main [GitHub repository](https://github.com/RaspAP/raspap-webgui/). 
 
