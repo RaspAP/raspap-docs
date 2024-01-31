@@ -67,6 +67,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
 :octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
 :octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](wireguard.md#multiple-configs)  
+:octicons-gear-24: Wireless LAN routing to USB & Ethernet  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
