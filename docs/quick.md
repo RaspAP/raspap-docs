@@ -61,6 +61,15 @@ Used with the `-y`, `--yes` option above, this sets the Ad Blocking install opti
 #### -w, --wireguard `<flag>`
 Used with the `-y`, `--yes` option above, this sets the WireGuard install option (`0` = don't install WireGuard). Given that WireGuard support is an optional extra, this enables an unattended setup without installing it.
 
+#### -e, --provider `<value>`
+Used with the `-y`, `--yes` option above, this sets the VPN provider install option. Valid numeric option values are:
+```
+  1 = ExpressVPN
+  2 = Mullvad VPN
+  3 = NordVPN
+  0 = None
+```
+
 #### -r, --repo, --repository `<name>`
 If you have forked this project to your own GitHub repo, this option lets you override the default GitHub repo (`RaspAP/raspap-webgui`) used to install RaspAP. An alternate repository name is a required parameter.
 
