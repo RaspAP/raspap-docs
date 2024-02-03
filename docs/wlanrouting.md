@@ -51,7 +51,7 @@ In addition to these settings, Network Address Translation (NAT) rules must be a
 ### Configure wireless client
 To create this configuration, begin by configuring your device as a wireless client, or station, with RaspAP's **WiFi client** page or by preconfiguring your OS for wireless LAN operation. Optionally, connect an external wireless adapter to an available USB port.
 
-### Check connectivity
+### Check wireless connectivity
 Ensure that you have a stable wireless connection to your router. The **Wireless Client** widget on RaspAP's dashboard will indicate its status and link quality. 
 ![wifi-client](https://github.com/RaspAP/raspap-webgui/assets/229399/9b60a72e-1199-4b26-a080-4e10ec3d0cca){: style="width:460px; padding-left:30px; padding-top:10px"}
 
@@ -71,8 +71,8 @@ Now, from RaspAP's **Networking > WLAN routing** tab, choose your wireless clien
 
 A system configured with predictable interface names is shown, above.
 
-### Check connectivity
-Finally, confirm internet connectivity on your attached client device. Optionally, you may wish to perform a [speed test](speedtest.md). If you wish to stop wireless LAN routing, simply choose **Stop WLAN routing**. The `iptables` NAT rules added by RaspAP will be removed from your system.
+### Check ethernet connectivity
+Finally, confirm internet connectivity on your Ethernet-equipped client device. Optionally, you may wish to perform a [speed test](speedtest.md). If you want to stop wireless LAN routing, simply choose **Stop WLAN routing**. The `iptables` NAT rules added by RaspAP will be removed from your system. The associated DHCP and `dnsmasq` configurations will be removed as well.
 
 !!! tip "Tip"
     RaspAP's default subnets are added for convenience. If you wish to create a custom configuration for your clients, you may do so from the **DHCP Server** page. Be sure to **Save settings** and restart `dsnmasq` to apply your changes. If your interface is named something other than `eth0` or `enx` you must create your own DHCP configuration.
