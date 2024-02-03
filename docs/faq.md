@@ -69,6 +69,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Why is the maximum throughput of my 802.11n AP reduced by half?](#wirelessn)
 * [Can I connect the WiFi client to a WEP network?](#wep)
 * [Can I turn the hotspot on/off over SSH?](#hotspotssh)
+* [Can I share internet from a wireless LAN with Ethernet clients?](#wlanether)
 
 ## Install & upgrade
 * [How do I upgrade RaspAP?](#upgrade)
@@ -786,6 +787,9 @@ $ sudo systemctl status hostapd.service
 Stop the service with `sudo systemctl stop hostapd.service` and start it with `sudo systemctl start hostapd.service`.
 
 If you're curious about which other services and Linux tools RaspAP controls for you, take a look at [`raspap.sudoers`](https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers).  
+
+## <a name="wlanether"></a>Can I share internet from a wireless LAN with Ethernet clients?
+Yes, RaspAP simplifies this with an intuitive and easy-to-use [WLAN routing](wlanrouting.md) solution.
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
 Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version, simply run the [Quick Installer](/quick/) with the `--upgrade` option:
