@@ -61,10 +61,10 @@ Next, attach an Ethernet cable or a USB-Ethernet adapter to an available port, a
 
 Verify your attached device by checking the output on RaspAP's **Networking > Summary** tab.
 !!! tip "Tip"
-    ![adapter](https://github.com/RaspAP/raspap-webgui/assets/229399/7fa8ea1a-c10f-4c91-99c3-998b3a177b58){ align=left style="width:200px; padding-left:30px; padding-top:0px"} Many USB-Ethernet adapters are available at low cost. If you choose this option, we recommend buying from a reputable brand. Note that a plain USB cable, rather than a USB-Ethernet adapter, is not designed for direct Ethernet communication.
+    ![adapter](https://github.com/RaspAP/raspap-webgui/assets/229399/7fa8ea1a-c10f-4c91-99c3-998b3a177b58){ align=left style="width:200px; padding-left:30px; padding-top:0px"} Many USB-Ethernet adapters are available at low cost. If you choose this option, buy one from a reputable brand. When in doubt, verify your adapter by testing it with a laptop or other device. Note that a regular USB cable, rather than a USB-Ethernet adapter, is not designed for direct Ethernet communication.
 
 ### Configure RaspAP's settings
-Now, from RaspAP's **Networking > WLAN routing** tab, choose your wireless client interface and output interface (typically, `eth0` or `enx`). Select the "Configure a static IP address and DHCP for output interface" option toggle, choose **Save settings**  and lastly **Start WLAN routing**.
+Now, from RaspAP's **Networking > WLAN Routing** tab, choose your wireless client interface and output interface (typically, `eth0` or `enx`). Select the "Configure a static IP address and DHCP for output interface" option toggle, choose **Save settings**  and lastly **Start WLAN routing**.
 
 ![wlan-routing](https://github.com/RaspAP/raspap-webgui/assets/229399/f721a4bc-0aad-400e-aec1-ef10ce2a12a5){: style="width:520px; padding-left:0px; padding-bottom:10px; padding-top:10px"}
 
@@ -82,7 +82,7 @@ Finally, confirm internet connectivity on your Ethernet-equipped client device. 
 ### Troubleshooting
 If clients do not have internet connectivity, ensure that the attached Ethernet device appears on the **Networking > Summary** tab. Faulty Ethernet cables and USB-Ethernet adapters are common culprits.
 
-Be sure that you've selected the option to configure a static IP address and DHCP for the output interface on the **Networking > WLAN routing** tab. If you've configured your own subnet for this purpose, ensure that the settings are correct on the **DHCP server** page and that the `dnsmasq` service was restarted after saving them.
+Be sure that you've selected the option to configure a static IP address and DHCP for the output interface on the **Networking > WLAN Routing** tab. If you've configured your own subnet for this purpose, ensure that the settings are correct on the **DHCP server** page and that the `dnsmasq` service was restarted after saving them.
 
 Finally, while wireless LAN routing is active, you may confirm that the `iptables` NAT rules are active by executing the following:
 
@@ -90,7 +90,7 @@ Finally, while wireless LAN routing is active, you may confirm that the `iptable
 sudo iptables -t nat -L -v
 ```
 
-This should output the `POSTROUTING`, `MASQUERADE` and `FORWARD` rules for the interfaces you've selected. If not, confirm that this option is active on the **Networking > WLAN routing** tab, then choose **Restart WLAN routing**.
+This should output the `POSTROUTING`, `MASQUERADE` and `FORWARD` rules for the interfaces you've selected. If not, confirm that this option is active on the **Networking > WLAN Routing** tab, then choose **Restart WLAN routing**.
 
 ## Discussions
 Questions or comments about using wireless LAN routing? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
