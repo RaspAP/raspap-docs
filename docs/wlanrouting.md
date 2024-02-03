@@ -53,23 +53,24 @@ To create this configuration, begin by configuring your device as a wireless cli
 
 ### Check wireless connectivity
 Ensure that you have a stable wireless connection to your router. The **Wireless Client** widget on RaspAP's dashboard will indicate its status and link quality. 
-![wifi-client](https://github.com/RaspAP/raspap-webgui/assets/229399/9b60a72e-1199-4b26-a080-4e10ec3d0cca){: style="width:460px; padding-left:30px; padding-top:10px"}
+![wifi-client](https://github.com/RaspAP/raspap-webgui/assets/229399/9b60a72e-1199-4b26-a080-4e10ec3d0cca){: style="width:460px; padding-left:10px; padding-top:10px"}
 
 ### Attach Ethernet or USB-Ethernet adapter
 Next, attach an Ethernet cable or a USB-Ethernet adapter to an available port, and connect a device you wish to provide internet connectivity to. This could be a laptop, hub or other Ethernet-capable network device. This device will typically be assigned a network interface name by the operating system, such as `eth0` or `eth1`. If your system is configured to use [predictable interface names](https://wiki.debian.org/NetworkInterfaceNames), it may incorporate the interfaces's MAC address (for example, `enx78e7d1ea46da`).
 
 Verify your attached device by checking the output on RaspAP's **Networking > Summary** tab.
 !!! tip "Tip"
-    ![adapter](https://github.com/RaspAP/raspap-webgui/assets/229399/7fa8ea1a-c10f-4c91-99c3-998b3a177b58){: style="width:260px; padding-left:60px; padding-top:0px"}
-
-    Many USB-Ethernet adapters are available at low cost. If you choose this option, we recommend buying from a reputable brand. Note that a plain USB cable, rather than a USB-Ethernet adapter, is not designed for direct Ethernet communication.
+    ![adapter](https://github.com/RaspAP/raspap-webgui/assets/229399/7fa8ea1a-c10f-4c91-99c3-998b3a177b58){ align=left style="width:200px; padding-left:30px; padding-top:0px"} Many USB-Ethernet adapters are available at low cost. If you choose this option, we recommend buying from a reputable brand. Note that a plain USB cable, rather than a USB-Ethernet adapter, is not designed for direct Ethernet communication.
 
 ### Configure RaspAP's settings
 Now, from RaspAP's **Networking > WLAN routing** tab, choose your wireless client interface and output interface (typically, `eth0` or `enx`). Select the "Configure a static IP address and DHCP for output interface" option toggle, choose **Save settings**  and lastly **Start WLAN routing**.
 
-![wlan-routing](https://github.com/RaspAP/raspap-webgui/assets/229399/ddcca445-a26a-4139-8f5e-b149ee28e04f){: style="width:480px; padding-left:30px; padding-bottom:10px; padding-top:10px"}
+![wlan-routing](https://github.com/RaspAP/raspap-webgui/assets/229399/f721a4bc-0aad-400e-aec1-ef10ce2a12a5){: style="width:520px; padding-left:0px; padding-bottom:10px; padding-top:10px"}
 
 A system configured with predictable interface names is shown, above.
+
+!!! note "Note"
+    If a wireless client connection is not detected on your system, it will be indicated as "not configured" in the interface. The **Start WLAN routing** button will also be disabled until an active wireless client connection is present. 
 
 ### Check ethernet connectivity
 Finally, confirm internet connectivity on your Ethernet-equipped client device. Optionally, you may wish to perform a [speed test](speedtest.md). If you want to stop wireless LAN routing, simply choose **Stop WLAN routing**. The `iptables` NAT rules added by RaspAP will be removed from your system. The associated DHCP and `dnsmasq` configurations will be removed as well.
