@@ -46,7 +46,8 @@ In addition to these settings, Network Address Translation (NAT) rules must be a
 
 ## Steps to enable WLAN routing
 
-![wlan-routing-diagram](https://github.com/RaspAP/raspap-webgui/assets/229399/7ed4c927-79fb-40f9-b445-d94f4d004acd){: style="width:640px"}
+![wlan-routing-diagram](https://github.com/RaspAP/raspap-webgui/assets/229399/aa88a477-3a78-43e3-ae70-b6de99414452){: style="width:640px"}
+
 
 ### Configure wireless client
 To create this configuration, begin by configuring your device as a wireless client, or station, with RaspAP's **WiFi client** page or by preconfiguring your OS for wireless LAN operation. Optionally, connect an external wireless adapter to an available USB port.
