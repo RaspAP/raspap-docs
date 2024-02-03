@@ -1,7 +1,6 @@
 # Wireless LAN routing
 
-![wlan-routing](https://github.com/RaspAP/raspap-webgui/assets/229399/2553804b-f147-49b6-b471-4a2724810452){: style="width:640px"}
-
+![wlan-routing](https://github.com/RaspAP/raspap-webgui/assets/229399/e72ed882-741e-444b-959e-42ea1d111966)
 
 ## Overview
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
