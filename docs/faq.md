@@ -72,6 +72,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I share internet from a wireless LAN with Ethernet clients?](#wlanether)
 
 ## Install & upgrade
+* [Can I isolate RaspAP from other software on my system?](#isolate)
 * [How do I upgrade RaspAP?](#upgrade)
 * [Do I need the RaspAP service to run at boot?](#raspap-service)
 * [Can the Quick Installer accept the default options without prompting me?](#unattended)
@@ -790,6 +791,10 @@ If you're curious about which other services and Linux tools RaspAP controls for
 
 ## <a name="wlanether"></a>Can I share internet from a wireless LAN with Ethernet clients?
 Yes, RaspAP simplifies this with an intuitive and easy-to-use [WLAN routing](wlanrouting.md) solution.
+
+## <a name="isolate"></a>Can I isolate RaspAP from other software on my system?
+Yes, you have the option of installing RaspAP in an isolated and portable [Docker container](docker.md). 
+
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
 Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version, simply run the [Quick Installer](/quick/) with the `--upgrade` option:
