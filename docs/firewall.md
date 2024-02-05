@@ -58,4 +58,7 @@ variable in the actual `iptables` rule should be replaced. To illustrate this, t
     ]
 ```
 
-In this way, interdependent firewall rules may be defined and administered by RaspAP. 
+In this way, interdependent firewall rules may be defined and administered by RaspAP.
+
+## Discussions
+Questions or comments about using RaspAP's firewall? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

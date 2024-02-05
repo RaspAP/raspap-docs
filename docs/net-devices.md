@@ -115,3 +115,6 @@ A built-in tool to evaluate network performance is available on the **Networking
 <video src="https://user-images.githubusercontent.com/229399/214792331-4656d482-7c4d-4ca9-853d-2d1718ddf62d.mov" controls="controls" muted="muted"></video>
 
 The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
+
+## Discussions
+Questions or comments about network devices support? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

@@ -110,4 +110,4 @@ This setup is often desirable when a host is running multiple public-facing serv
 The specifics of creating a DMZ are beyond the scope of this document, although at minimum a [firewall](firewall.md) is strongly advised. 
 
 ## Discussions
-Questions or comments about using Dynamic DNS? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/1347).
+Questions or comments about using Dynamic DNS? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

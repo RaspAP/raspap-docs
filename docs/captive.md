@@ -109,3 +109,7 @@ Optional: you can customize the captive portal screen by modifying the files loc
 
 ## More information
 Full documentation of nodogsplash is available [here](https://nodogsplashdocs.readthedocs.io/en/stable/).
+
+## Discussions
+Questions or comments about using nodogsplash with RaspAP? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+

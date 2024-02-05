@@ -83,3 +83,5 @@ The process is very straightforward. Start by signing up for a free account at [
 
 Here you will find our supported translations, recent activity, discussions and so on. You can get started by simply choosing the language you'd like to contribute to. For more info, see Crowdin's [detailed walkthrough](https://support.crowdin.com/crowdin-intro/#translation-process) of the translation process.
 
+## Discussions
+Questions or comments about RaspAP's translations? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

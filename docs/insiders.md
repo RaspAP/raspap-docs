@@ -172,6 +172,9 @@ Yes. Whether you're an individual or a company, you may use RaspAP Insiders prec
 * Please **don't distribute the source code** of Insiders. You may freely use it for public, private or commercial projects, fork it, mirror it, do whatever you want with it, but please don't release the source code, as it would counteract the sponsorware strategy.
 * If you cancel your subscription, you're removed as a collaborator and will miss out on future updates of Insiders. However, you may *use the latest version* that's available to you as long as you like. Just remember that [GitHub deletes private forks](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository).
 
+## Discussions
+Questions or comments about Insiders? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+
 [^1]: You may be wondering if the sponsorware model contradicts the ethos of Open Source software. It's true that some features are locked behind a payment, which means they are only accessible after pledging a small amount of money.
 However, these features are only exclusive until specific funding targets are reached. Making an Open Source project sustainable is exceptionally difficult. Maintainers invest significant time and energy
 developing software, testing, responding to issues, writing documentation and so on. Too often, this leads to burnout and abandoned projects.

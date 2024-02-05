@@ -115,4 +115,4 @@ logs and RaspAP's **Networking** interface. Help is available from the sources [
 RaspAP hosts a fast, open source and privacy-focused [public speed test server](speedtest.md) that you can use to evaluate your WiFi repeater's performance. The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
 
 ## Discussions
-Questions or comments about configuring a WiFi repeater? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/1320).
+Questions or comments about configuring a WiFi repeater? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

@@ -29,4 +29,5 @@ A tool to evaluate your local WiFi network's performance is available on the **N
 
 The WiFi speed test uses a local speedtest instance hosted by your RaspAP installation. The test is performed on a device connected to RaspAP's wireless [access point](ap-basics.md). The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
 
-
+## Discussions
+Questions or comments about RaspAP's speed test? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

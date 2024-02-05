@@ -115,3 +115,7 @@ These are used by RaspAP's [systemd control service](faq.md#raspap-service) `ras
 ## Changing hostapd settings
 Changes to the hotspot configuration should be applied to the `wlan0` physical device, not `uap0` (a virtual interface). In other words, if you wish to change `hostapd` settings, stop the hotspot,
 disable AP-STA, make your config changes on `wlan0`, re-enable AP-STA and finally restart hostapd. An explanation is available [here](https://github.com/RaspAP/raspap-webgui/issues/752#issuecomment-757448664).
+
+## Discussions
+Questions or comments about using AP-STA mode? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+

@@ -149,3 +149,7 @@ As a result, your wireless adapter has a higher likelihood of being able to idle
 
 ## Troubleshooting
 See the [FAQ section](/faq/#wireguard) for WireGuard.
+
+## Discussions
+Questions or comments about using WireGuard? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+

@@ -117,3 +117,6 @@ Connect clients to each AP and monitor the output. You may stop `hostapd` from t
 ## Troubleshooting
 With RaspAP's DHCP logging option enabled, it can be useful to monitor this service's activity from the terminal. Execute `tail -f /tmp/dnsmasq.log` and try associating and disconnecting client devices from each AP.
 
+## Discussions
+Questions or comments about multiple APs? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+

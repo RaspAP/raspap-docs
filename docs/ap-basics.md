@@ -213,3 +213,6 @@ Install `colordiff` with `sudo apt-get install colordiff`.
 
 Similarly, the web files located in the default `/var/www/html` root are backed up to `/var/www` in a directory named with a timestamp. Therefore, any changes you've made to RaspAP's internals are preserved. 
 
+## Discussions
+Questions or comments about using access point settings? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+

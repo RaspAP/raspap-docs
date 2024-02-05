@@ -138,3 +138,5 @@ nordvpn whitelist add port 67
 
 This will allow devices connecting to your AP to obtain an IP address. Refer to your provider's CLI documentation for more information.
 
+## Discussions
+Questions or comments about using VPN providers? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

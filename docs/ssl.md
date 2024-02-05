@@ -156,3 +156,6 @@ For the certificates to be trusted on mobile devices and remote clients, you wil
 
 More advanced topics are [covered at mkcert](https://github.com/FiloSottile/mkcert#advanced-topics).
  
+## Discussions
+Questions or comments about using SSL certificates? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+

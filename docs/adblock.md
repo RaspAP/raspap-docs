@@ -90,3 +90,7 @@ The blocklist sources chosen for RaspAP adhere to these policies:
 - Blocks phishing servers
 
 Users may tailor RaspAP's ad blocking to suit their needs by selecting from multiple blocklist sources. Furthermore, domain blocklists enable full use of domain name based wildcard filtering (for example, `*.baddomain.org`). This reduces the chance of missing any new subdomains and significantly reduces the size of the blocklists.
+
+## Discussions
+Questions or comments about using Ad blocking? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+

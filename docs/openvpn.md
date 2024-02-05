@@ -78,3 +78,5 @@ A consequence of DoH is that DNS requests will be resolved by Mozilla's DNS serv
 ## Troubleshooting
 See the [FAQ section](/faq/#openvpn) for OpenVPN.
 
+## Discussions
+Questions or comments about using OpenVPN? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
