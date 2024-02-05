@@ -6,13 +6,13 @@ Simple AP setup & WiFi management for Debian-based devices
 
 ## About
 RaspAP is feature-rich wireless router software that _just works_ on many popular [Debian-based devices](/#compatible-operating-systems), including the Raspberry Pi.
-Our popular Quick installer creates a known-good default configuration in minutes on all current Raspberry Pis with onboard wireless.
+Our popular [Quick installer](quick.md) and [Docker container](docker.md) create a known-good default configuration in minutes on all current Raspberry Pis with onboard wireless.
 
 ## Quick start
 Start with a clean install of the [latest release of Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported. The Raspberry Pi OS Desktop distro is currently [unsupported](faq.md#distros).
 
 !!! tip "Tip"
-    Be sure to use an official power supply with your device. Power supply requirements [differ by Raspberry Pi model](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md). Inadequate voltage is the source of many WiFi issues.
+    Be sure to use an official power supply with your device. Power supply requirements [differ by Raspberry Pi model](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply). Inadequate voltage is the source of many WiFi issues.
 
 Update RPi OS to its latest version, including the kernel and firmware, followed by a reboot:
 
