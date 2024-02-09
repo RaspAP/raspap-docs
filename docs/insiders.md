@@ -69,7 +69,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
 :octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](wireguard.md#multiple-configs)  
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
-:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Traffic shaping
+:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Custom user avatars  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
