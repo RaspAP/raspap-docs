@@ -797,22 +797,28 @@ Yes, you have the option of installing RaspAP in an isolated and portable [Docke
 
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
-Upgrading an existing install without changing your configuration is very straightforward. To upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version, simply run the [Quick Installer](/quick/) with the `--upgrade` option:
+Upgrading an existing install without changing your configuration is very straightforward. Several different methods are described below.
+
+The [version 3.0.2](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2) release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the **About** page and click or tap on the **Check for update** button. This queries the GitHub API for a new release, compares it with your current install and prompts you to upgrade if a newer release is available.
+
+![Update](https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae){: style="width:520px"}
+
+No other actions are required on your behalf. Alternatively, you may also use the [Quick installer](quick.md) to upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version. This is done with the `--upgrade` option, as shown below:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade
 ```
 
-The installer upgrade is _idempotent_, meaning it can be repeated an arbitrary number of times and the result will be as if it had been done only once. If you choose this method, you're done! Confirm the upgrade by checking the release version on the **About** page.
+The installer upgrade is [_idempotent_](https://en.wikipedia.org/wiki/Idempotence), meaning it can be repeated an arbitrary number of times and the result will be as if it had been done only once. If you choose this method, you're done! Confirm the upgrade by checking the release version on the **About** page.
 
-If you want to install a specific version you can do so by referencing a tag:
+If you want to install a specific version, you may do so by referencing a tag using `git`:
 
 ```
-sudo git fetch --tags
-sudo git checkout 2.5
+sudo git fetch -v --tags
+sudo git checkout 3.0.8
 ```
 
-A tag is a pointer that isn't connected to the main development tree that git knows about. As a result, git will reply that you're in a 'detached HEAD' state. This isn't a big deal, it just means that you have a specific version of the code that isn't connected to the git tree.
+A tag is a pointer that isn't connected to the main development tree that git knows about. As a result, git will reply that you're in a "detached HEAD" state. This isn't a big deal, it just means that you have a specific version of the code that isn't connected to the git tree.
 
 Alternatively, if you want the latest _bleeding edge_ commits from the master branch, use the following:
 
@@ -825,20 +831,13 @@ If you've customized your installation by editing `config.php`, update the relea
 ```
 sudo nano /var/www/html/includes/config.php
 ```
-Change the first line to the release version, save the file and exit.
+Change the value in this line to the release version, save the file and exit.
 
-!!! note "Note"
-    `RASPI_VERSION` is only used on the About page; it does not affect any other functionality.
 ```
-define('RASPI_VERSION', '2.8.9');
+define('RASPI_VERSION', '3.0.8');
 ```
 
-Finally, give the lighttpd service a kick with:
-```
-sudo systemctl restart lighttpd.service
-```
-
-Whichever method you choose (installer upgrade, specific release or latest updates), your RaspAP configuration won't be changed.
+Whichever method you choose (about page button, installer upgrade, specific release or latest updates), your RaspAP configuration won't be changed.
 
 ## <a name="raspap-service"></a>Do I need the RaspAP service to run at boot?
 If you are using your RPi as a client on a WiFi network (also known as managed mode) and hosting an access point simultaneously, the `raspapd.service` will ensure that your hotspot is active after a reboot. It does this by detecting WiFi client AP mode, adding the `uap0` interface and starting up networking services in a specific order.
