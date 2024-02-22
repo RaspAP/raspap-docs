@@ -107,6 +107,18 @@ account details and we'll get you started with Insiders.
 
 ## Frequently asked questions
 
+### Repository access
+When you become a sponsor, GitHub will send you an invitation to the private Insiders repo. You must accept this invite _before_ performing an upgrade or new install, as described below. Until you accept this invitation, running the Quick installer with the `--insiders` switch will result in the following:
+
+```
+RaspAP Install: Cloning latest files from GitHub
+Cloning into '/tmp/raspap-webgui'...
+remote: Repository not found.
+fatal: repository 'https://github.com/RaspAP/raspap-insiders' not found
+```
+
+In this event, check your mail folders for an invitation from GitHub and accept it. You may also [verify access](insiders.md#authentication) to the Insiders repo with your token beforehand. 
+
 ### Installing
 *How do I install Insiders?*
 
