@@ -234,7 +234,6 @@ docker exec -it raspap bash
 ```
 
 The above command combines the `-i` (interactive) and `-t` (tty) options together with the `raspap` named container. The `bash` command starts an interactive Bash shell within the running container. From here you can perform most of the same shell operations and commands within Docker's pseudo-TTY as you would in a regular Linux environment. 
-
 ### iptables rules and NAT
 With either of the above methods, `iptables` [Network Address Translation (NAT) rules](https://github.com/RaspAP/raspap-docker/blob/master/firewall-rules.sh) will automatically be applied on the Docker host. It's necessary to add these rules on the host device due to Docker's network isolation and security defaults.
 
@@ -250,18 +249,40 @@ The goal of the initial Docker rollout for RaspAP is to have a "one shot" comman
 
 You may change this behavior by removing any or all of the [Quick installer](quick.md) flags from RaspAP's [Dockerfile](https://github.com/RaspAP/raspap-docker/blob/master/Dockerfile). For example, to skip the WireGuard install option, remove the `--wireguard 1` flag on the line below:
 
-``` py hl_lines="2" 
-RUN apt update && apt install -y sudo wget procps curl systemd iproute2 && rm -rf /var/lib/apt/lists/*
+``` py hl_lines="3"
+VOLUME [ "/sys/fs/cgroup" ]
+
 RUN curl -sL https://install.raspap.com | bash -s -- --yes --wireguard 1 --openvpn 1 --adblock 1
 COPY firewall-rules.sh /home/firewall-rules.sh
-RUN chmod +x /home/firewall-rules.sh
-CMD [ "/bin/bash", "-c", "/home/firewall-rules.sh && /lib/systemd/systemd" ]
+COPY wpa_supplicant.conf /etc/wpa_supplicant/
 ```
 
 With this done, you may proceed with building your Docker image as usual. 
 
-!!! note "Note"
+!!! tip "Tip"
     Alternatively, you may choose to install these optional components and disable them in RaspAP's [configuration file](defaults.md#managing-config-values), `config.php`.
+
+### Environment variables
+Several [environment variables](https://docs.docker.com/compose/environment-variables/) are made available in RaspAP's Docker image to aid in configuration. These are summarized in the table below: 
+
+| Environment Variable | Description             | Default       |
+|----------------------|-------------------------|---------------|
+| RASPAP_SSID          | SSID name               | raspap-webgui |
+| RASPAP_SSID_PASS     | SSID password           | ChangeMe      |
+| RASPAP_COUNTRY       | SSID country code       | GB            |
+| RASPAP_WEBGUI_USER   | Admin username          | admin         |
+| RASPAP_WEBGUI_PASS   | Admin password          | secret        |
+| RASPAP_WEBGUI_PORT   | Web user interface port | 80            |
+
+More fine-grained configuration is also possible through the use of the following prefixed environment variables, in the form `RASAPAP_[target]_[key]`: 
+
+| Environment Variable Prefix | Target File             |
+|----------------------|--------------------------------|
+| RASPAP_hostapd_      | /etc/hostapd/hostapd.conf      |
+| RASPAP_raspap_       | /etc/dnsmasq.d/090_raspap.conf |
+| RASPAP_wlan0_        | /etc/dnsmasq.d/090_wlan0.conf  |
+
+For example, `RASPAP_hostapd_driver` would set the `driver` value in `/etc/hostapd/hostapd.conf`.
 
 ## Troubleshooting
 The `docker logs` command shows information logged by a running container and is generally the best starting point for troubleshooting. To obtain logs for the `raspap` container, execute `docker logs raspap`.
