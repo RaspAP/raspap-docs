@@ -799,7 +799,7 @@ Yes, you have the option of installing RaspAP in an isolated and portable [Docke
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
 Upgrading an existing install without changing your configuration is very straightforward. Several different methods are described below.
 
-The [version 3.0.2](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2) release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the **About** page and click or tap on the **Check for update** button. This queries the GitHub API for a new release, compares it with your current install and prompts you to upgrade if a newer release is available.
+The [version 3.0.2](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2) release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the **About** page and click or tap on the **Check for update** button. This queries the GitHub API for the latest release version, compares it with your current install and prompts you to upgrade if a newer release is available.
 
 ![Update](https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae){: style="width:520px"}
 
@@ -849,7 +849,7 @@ sudo systemctl disable raspapd.service
 ```
 
 ## <a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?
-Yes, the [Quick Installer](quick.md) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command-line option, like so:
+Yes, the [Quick Installer](quick.md) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command line option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --yes
@@ -858,10 +858,19 @@ curl -sL https://install.raspap.com | bash -s -- --yes
 The options `-y` or `--assume-yes` are also accepted and have the same result. 
 
 ## <a name="uninstall"></a>How do I uninstall RaspAP?
-We have provided an uninstall script to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. The uninstall script is located in `installers/uninstall.sh`. To start the uninstaller, simply run the following from the project root folder (default location is `/var/www/html`):
+An uninstaller is provided to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. Start the uninstaller with the following:
+
+```
+curl -sL https://install.raspap.com | bash -s -- --uninstall
+```
+
+Alternatively, you may execute the uninstaller directly from the project folder (default location is `/var/www/html`):
 
 ```
 cd /var/www/html
-sudo installers/uninstall.sh
+source installers/uninstall.sh
+_remove_raspap
 ```
+
+Whichever method you choose, the result is the same. Check your network configuration before rebooting to ensure you can still access your device.
 
