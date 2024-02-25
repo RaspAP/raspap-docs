@@ -33,6 +33,7 @@ The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immedi
 :octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](wireguard.md#multiple-configs)  
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } Custom user avatars  
+:octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](ap-basics.md#wifi-repeater-mode)  
 
 A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
@@ -71,6 +72,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](wireguard.md#multiple-configs)  
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } Custom user avatars  
+eocticons-check-circle-fill-24:{: .check } [WiFi repeater mode](ap-basics.md#wifi-repeater-mode)  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
