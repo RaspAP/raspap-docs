@@ -53,7 +53,7 @@ done
 !!! note "Note"
     `apt-get` might report that you have none of these packages installed.
 
-### Install using the convenience script
+### Using the convenience script
 
 Docker provides a convenience script at [https://get.docker.com/](https://get.docker.com/) to install Docker non-interactively. Prior to executing it, be sure to familiarize yourself with the potential [risks and limitations](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script) associated with this script.
 
@@ -224,7 +224,7 @@ At this stage, the RaspAP application stack is running and you may access the we
 Take note that RaspAP and all its dependencies are wholly contained within the running Docker container. That is, the host system does not have any of the `apt` packages or application files used by RaspAP, unless you've explicitly installed them.
 
 ## Tips and tricks
-The following section has some general advice that users of RaspAP's Docker container have found useful. If you have a tip or trick to contribute, feel free to join our [discussions](#discussions). 
+The following section has some general advice that users of RaspAP's Docker container have found useful. If you have a tip or trick to contribute, feel free to join our [discussions](docker.md#discussions). 
 
 ### Allocating a terminal
 While RaspAP's Docker container is running, you may obtain an interactive pseudo-TTY, or Linux terminal, connected to standard input. Do so by executing the following:
