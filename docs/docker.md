@@ -114,7 +114,7 @@ With these steps completed, you have successfully installed and started Docker E
 With Docker Engine installed, you have two ways of deploying RaspAP in a Docker container. Each of these methods is described in the sections below.
 
 ### Using Docker compose
-This method lets us deploy the entire RaspAP application stack with a single command (`docker-compose up`) as well as configure things like environment variables, network settings and so on in a centralized manner. Advanced users may also use this option to define a multi-container environment of which RaspAP is one component. This may be done with the `docker-compose.yml` file.
+This method lets us deploy the entire RaspAP application stack with a single command (`docker compose up`) as well as configure things like environment variables, network settings and so on in a centralized manner. Advanced users may also use this option to define a multi-container environment of which RaspAP is one component. This may be done with the `docker-compose.yml` file.
 
 Begin by cloning the `raspap-docker` [GitHub repository](https://github.com/RaspAP/raspap-docker) into your home directory, then change into it:
 
