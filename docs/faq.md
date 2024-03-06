@@ -20,6 +20,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I reduce the risk of SD card corruption and extend a card's lifespan?](#minwrite)
 
 ## Troubleshooting
+* [After a clean install, RaspAP does nothing or can't save settings](#clean)
 * [My 802.11ac 5 GHz hotspot failed to start. What now?](#actroubleshoot)
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
 * [My WiFi network disappeared and I can't access the web UI.](#webui)
@@ -193,6 +194,11 @@ Clients outside of your defined network range will receive a '403' response when
 ## <a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?
 Yes. RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
 
+## <a name="clean"></a>After a clean install, RaspAP does nothing or can't save settings.
+Issues like this are frequently reported. Chances are you haven't discovered a strange fatal bug with this project that needs immediate attention. In every case where this is reported, the issue stems from one (or several) of the following: 1) the install was _not_ performed on a clean OS, 2) a faulty, corrupt, fake, poor quality and/or otherwise unsuitable SD card was used, or 3) the SD card has insufficient storage space.
+
+If you observe RaspAP behaving unpredictably, save yourself (and the project maintainers) some time by performing a ^^clean^^ install with a known-good SD card from a reputable manufacturer _before_ reporting an issue or starting a disussion. Failure to do so will result in the issue or discussion being immediately closed. No hard feelings.
+
 ## <a name="actroubleshoot"></a> My 802.11ac 5 GHz hotspot failed to start. What now?
 RaspAP uses [`iw`](https://wireless.wiki.kernel.org/en/users/documentation/iw) and the [`wireless-regdb`](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) to determine which channels are allowed for your configured country. However, not all channels may be supported by your device's wireless adapter or firmware. If your 5 GHz access point fails to start, use the steps below to troubleshoot the problem.
 
@@ -209,7 +215,6 @@ If the 802.11ac AP still fails to start, an [external AC wireless adapter](faq.m
 
 ## <a name="noip"></a>Clients cannot obtain an IP address from the AP.
 Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
-
 1. A poor WiFi signal from the access point. In this event, reduce the distance between your device and the AP.
 2. Your device does not operate properly with the encryption method set by the AP. 
 3. The access point is misconfigured.
