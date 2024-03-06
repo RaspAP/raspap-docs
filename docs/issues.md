@@ -17,10 +17,9 @@ You can help us improve this project by accurately describing defects. To that e
 
 1. Please read and follow the [Code of Conduct](https://github.com/RaspAP/raspap-webgui/blob/master/CODE_OF_CONDUCT.md). 
 2. Provide useful detail to reproduce your issue. "Doesn't work" or "not working" is not a valid report. Here's an example [model issue](https://github.com/RaspAP/raspap-webgui/issues/1451).
-3. Issues created without the template will be labeled as `invalid` and closed immediately.
-4. Log data can be helpful in context, within reasonable limits.
-5. If an issue is unclear or needs further information, it will be labeled with `question` and `awaiting-user`.
-6. Issues that becomes stale due to inactivity are automatically managed by stale-bot.
+3. Generate a [debug log](ap-basics.md#debug-log) and upload the contents to [Pastebin](https://pastebin.com/). 
+4. If an issue is unclear or needs further information, it will be labeled with `question` and `awaiting-user`.
+5. Issues that becomes stale due to inactivity are automatically managed by stale-bot.
 
 ## Supported devices 
 RaspAP functions very well "out of the box" on fresh installs of the latest RPi OS Lite 32-bit distribution on recent hardware like the RPi 4, 3B+ and Zero W. The [version 2.3.1 release](https://github.com/RaspAP/raspap-webgui/releases/tag/2.3.1) extends beta support to additional Debian-based distros, including Armbian and Ubuntu Server. Please note that "supported" is [not a guarantee](index.md#compatible-operating-systems).
