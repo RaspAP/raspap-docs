@@ -7,12 +7,12 @@
 
 RaspAP includes support for stateless client-server data exchange via a high performance RESTful API. This allows clients to communicate with the API over HTTP with standard methods such as GET and POST and receive responses in JSON. RaspAP's API is powered by [FastAPI](https://fastapi.tiangolo.com/), one of the [fastest Python frameworks available](https://fastapi.tiangolo.com/#performance).
 
-FastAPI makes use of the [Uvicorn](https://www.uvicorn.org/) ASGI web server implementation for Python. This is a minimal, low-level server/application interface for async frameworks.
+FastAPI makes use of the [Uvicorn](https://www.uvicorn.org/) ASGI web server implementation for Python. This is a minimal, low-level server interface for asynchronous frameworks.
 
 ## Use cases
 A RESTful API operates asynchronously, making it ideally suited for building microservices. These are small, independent services that work together in the context of larger applications. Examples might include a dashboard widget or similar component that consumes JSON data from the API to perform live monitoring of RaspAP's operational state or configuration.
 
-Using the API's POST methods, RaspAP's functions may even be remotely controlled outside of its web interface. 
+Using the API's POST methods, RaspAP's functions may even be remotely controlled outside of its regular web interface. 
 
 ## Installation
 The RestAPI may be optionally installed by the [Quick installer](quick.md). To install RestAPI support, respond by pressing ++enter++ to accept the default ++y++ option at the following prompt:
@@ -22,7 +22,7 @@ RaspAP Install: Configure RestAPI
 Install and enable RestAPI? [Y/n]:
 ```
 
-The Python language is a requirement for the RestAPI (Python 3 is installed by default on Raspberry Pi OS). The Quick installer will detect if Python is not installed on your system and install `python3`. In addition, Python's package manager `pip` will also be installed. The following Python packages are requirements for the RestAPI:
+The Python language is a requirement for the RestAPI. The Quick installer will detect if Python is not installed on your system and install it for you (Python 3 is installed by default on Raspberry Pi OS). In addition, Python's package manager `pip` will also be installed. The following Python packages are requirements for the RestAPI:
 
 ```
 fastapi
@@ -60,7 +60,7 @@ While the API server is operational, you must generate an API key to authenticat
 The `restapi.service` will be automatically restarted when updating your API key. At this stage, you have a valid API key that may be used to authenticate with the RestAPI. This is described in the next section.
 
 ### Authorization
-Now, click or tap the RestAPI docs :octicons-link-external-16: link to open the documentaion in a new window. The API docs are fully interactive, meaning you may test any of the available endpoints and receive a valid server response. Begin by choosing the green **Authorize &nbsp;:fontawesome-solid-lock:**  button, shown below:
+Now, click or tap the RestAPI docs :octicons-link-external-16: link to open the documentation in a new window. The API docs are fully interactive, meaning you may test any of the available endpoints and receive a valid server response. Begin by choosing the green **Authorize &nbsp;:fontawesome-solid-lock:** button, shown below:
 
 ![restapi-docs](https://github.com/RaspAP/raspap-webgui/assets/229399/f5a1bd5d-8dda-4b94-96e5-94f159a2b85c){: style="width:520px"}
 
@@ -71,12 +71,11 @@ This will open a dialog where you may enter your API key, which will be passed a
 At this stage, the dialog should indicated "Authorized". Dismiss the dialog by choosing **Close**. You may now proceed with testing the API interactively.
 
 ### Testing endpoints
-With authorization done, you may test any of RaspAP's available RestAPI endpoints. Start with the first available `/system` (Get System) endpoint. Click or tap anywhere in this endpoint's header area and choose the **Try it out** button. This endpoint takes no parameters, so you may simply use the **Execute** button to query the API. An example server response is shown below.
+With authorization done, you may test any of RaspAP's available RestAPI endpoints. Start with the first available `/system` (Get System) endpoint. Click or tap anywhere in this endpoint's header area and choose the **Try it out** button. This endpoint takes no parameters, so you may simply use the **Execute** button to query the API. An example client request and corresponding server response are shown below.
 
-#### Server responses
-Here, we can see a `curl` `GET` command with the `-H` (header) option used to specify the `access_token` you created. The request URL is `http://raspberrypi.local:8081/system` (yours may differ):
+#### Client requests
+Here, we can see a `curl` `GET` command with the `-H` (header) option used to specify the `access_token` and the API key as the value. The request URL in this example is `http://raspberrypi.local:8081/system` (yours may differ):
 
-**Curl**
 ```
 curl -X 'GET' \
   'http://raspberrypi.local:8081/system' \
@@ -84,9 +83,10 @@ curl -X 'GET' \
   -H 'access_token: o2eycsnwzacgcukkdkxulmvcva7hou5q'
 ```
 
-The `/system` API endpoint returns several key pieces of data in JSON format:
 
-**Server response**
+#### Server responses
+The `/system` API endpoint responds to the above request with several key pieces of data in JSON format:
+
 ```
 {
   "hostname": "raspberrypi",
@@ -115,7 +115,7 @@ If your current user is something other than `pi`, edit the control file with:
 sudo nano /lib/systemd/system/restapi.service
 ```
 
-Modify the `User` line to reflect your current user, as shown below:
+Modify the `User` line to reflect your current user, if necessary:
 
 ``` py hl_lines="6"
 [Unit]
@@ -146,7 +146,7 @@ raspberrypi python3[3033]: INFO: 192.168.0.102:58844 - "GET /clients/wlan0 HTTP/
 
 If a remote client is using an invalid API key, for example, this will appear as a `403 Forbidden` server response in the **Status** console.
 
-You may also obtain journal entries from the service by executing `journalctl -xeu restapi.service` from the shell. 
+You may also obtain journal entries from the service by executing `journalctl -xeu restapi.service` from the shell.
 
 ## Discussions
 Questions or comments about using the RestAPI? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
