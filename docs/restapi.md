@@ -48,9 +48,9 @@ Proceed with the Quick installer and accept the default ++y++ prompt to reboot y
 Following a reboot, the RestAPI service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-solid-puzzle-piece: RestAPI** administration page. The **Status** tab will display the operational status of the `restapi.service`.
 
 ### Generate an API key
-While the API server is operational, you must generate an API key to authenticate with the service before interacting with it. These steps are described below:
+While the API server is operational, you must generate an API key to authenticate with the service before interacting with it. These steps are described below.
 
-1. In the API key field, use the magic icon :fontawesome-solid-wand-magic-sparkles: to generate a 32-character key.
+1. In the **API Key** field, use the magic icon :fontawesome-solid-wand-magic-sparkles: to generate a 32-character key.
 2. Alternatively, you may create your own key&#151;just be sure it's of a sufficient length and complexity.
 3. Choose **Save settings**. Your API key is stored in `/etc/raspap/api/.env`.
 4. Copy your API key to the clipboard for use in the Authorization section.
@@ -70,10 +70,10 @@ This will open a dialog where you may enter your API key, which will be passed a
 
 At this stage, the dialog should indicated "Authorized". Dismiss the dialog by choosing **Close**. You may now proceed with testing the API interactively.
 
-### Testing endpoints
+## Testing endpoints
 With authorization done, you may test any of RaspAP's available RestAPI endpoints. Start with the first available `/system` (Get System) endpoint. Click or tap anywhere in this endpoint's header area and choose the **Try it out** button. This endpoint takes no parameters, so you may simply use the **Execute** button to query the API. An example client request and corresponding server response are shown below.
 
-#### Client requests
+### Client requests
 Here, we can see a `curl` `GET` command with the `-H` (header) option used to specify the `access_token` and the API key as the value. The request URL in this example is `http://raspberrypi.local:8081/system` (yours may differ):
 
 ```
@@ -84,7 +84,7 @@ curl -X 'GET' \
 ```
 
 
-#### Server responses
+### Server responses
 The `/system` API endpoint responds to the above request with several key pieces of data in JSON format:
 
 ```
@@ -138,13 +138,13 @@ WantedBy=multi-user.target
 Save and exit the file, then reload the daemon with `sudo systemctl daemon-reload`.
 
 ## Troubleshooting
-The current status of the `restapi.service` is available on the **RestAPI > Status** tab. This is generally the best starting point when diagnosing problems, such as authorization errors. Note that the service records the most recent API queries, including the requesting IPv4 address:
+The current status of the `restapi.service` is available on the **RestAPI > Status** tab. This is generally the best starting point when diagnosing common problems, such as authorization errors. Note that the service records the most recent API queries, including the requesting IPv4 client address:
 
 ```
 raspberrypi python3[3033]: INFO: 192.168.0.102:58844 - "GET /clients/wlan0 HTTP/1.1" 200 OK
 ```
 
-If a remote client is using an invalid API key, for example, this will appear as a `403 Forbidden` server response in the **Status** console.
+If a remote client is using an invalid API key, for example, this will appear as a `403 Forbidden` server response in the **Status** console. A successful response, like the one above, will return a `200 OK` code.
 
 You may also obtain journal entries from the service by executing `journalctl -xeu restapi.service` from the shell.
 
