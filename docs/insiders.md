@@ -157,7 +157,6 @@ As with a fresh Insiders install, you may also skip the GitHub authentication st
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name [username] --token [my-token]
 ```
 
-
 ### Authentication
 As of August 2021 GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal Access Token** and use this in place of your password. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
 
@@ -178,6 +177,11 @@ You will be asked to authenticate with GitHub when the installer clones the priv
     Your token is sent securely via SSH to GitHub. The installer does _not_ have access to or store your token.
 
 If you're using GitHub with 2FA enabled the same process above applies.
+
+### Scope of support
+Individual sponsors may use the [main RaspAP repository](https://github.com/RaspAP/raspap-webgui) for non-bug related discussions, including troubleshooting. If you've found a bug with an Insiders feature, please review our [issue policy](issues.md) and create a report in the [Insiders repository](https://github.com/RaspAP/raspap-insiders).
+
+The RaspAP team will prioritize issues and feature requests for sponsors at the Business tier. Please create a report in the [Insiders repository](https://github.com/RaspAP/raspap-insiders) or contact us via email to discuss your requirements. 
 
 ### Terms
 *We're using RaspAP for a commercial project. Can we use Insiders under the same terms and conditions?*
