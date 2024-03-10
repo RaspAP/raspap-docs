@@ -8,10 +8,11 @@
 RaspAP includes support for stateless client-server data exchange via a high performance RESTful API. This allows clients to communicate with the API over HTTP with standard methods such as GET and POST and receive responses in JSON. RaspAP's API is powered by [FastAPI](https://fastapi.tiangolo.com/), one of the [fastest Python frameworks available](https://fastapi.tiangolo.com/#performance).
 
 FastAPI makes use of the [Uvicorn](https://www.uvicorn.org/) ASGI web server implementation for Python. This is a minimal, low-level server/application interface for async frameworks.
-## Use cases
-A RESTful API operates asynchronously, making it well suited for building microservices. These are small, independent services that work together in the context of larger applications. Examples may include a dashboard widget or other component that consumes JSON data from the API to perform live monitoring of RaspAP's operational state or configuration.
 
-Using the API's POST methods, RaspAP's functions may even be controlled outside of its web interface. 
+## Use cases
+A RESTful API operates asynchronously, making it ideally suited for building microservices. These are small, independent services that work together in the context of larger applications. Examples might include a dashboard widget or similar component that consumes JSON data from the API to perform live monitoring of RaspAP's operational state or configuration.
+
+Using the API's POST methods, RaspAP's functions may even be remotely controlled outside of its web interface. 
 
 ## Installation
 The RestAPI may be optionally installed by the [Quick installer](quick.md). To install RestAPI support, respond by pressing ++enter++ to accept the default ++y++ option at the following prompt:
@@ -33,7 +34,7 @@ python-dotenv
 !!! note "Note"
     From Bookworm onwards, packages installed via `pip` must be installed into a Python Virtual Environment using `venv`. This has been introduced by the Python community, not by Raspberry Pi; see [PEP 668](https://peps.python.org/pep-0668/) for more details. The Python modules listed above are installed system-wide with the `--break-system-packages` flag.
 
-With the requirements installed, the systemd `restapi.service` control file will be enabled on your system, as well as the RestAPI  management UI: 
+With the software requirements installed, the systemd `restapi.service` control file will be enabled on your system, as well as the RestAPI management UI: 
 
 ```
 Moving restapi systemd unit control file to /lib/systemd/system/
@@ -43,8 +44,8 @@ Enabling RestAPI management option
 
 Proceed with the Quick installer and accept the default ++y++ prompt to reboot your system as a final step.
 
-## Configuration steps
-Following a reboot, the RestAPI service should be up and running. You may check and control its current state by visiting RaspAP's **RestAPI** administration page. The **Status** tab will display the operational status of the `restapi.service`.
+## Configuration
+Following a reboot, the RestAPI service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-solid-puzzle-piece: RestAPI** administration page. The **Status** tab will display the operational status of the `restapi.service`.
 
 ### Generate an API key
 While the API server is operational, you must generate an API key to authenticate with the service before interacting with it. These steps are described below:
@@ -52,28 +53,28 @@ While the API server is operational, you must generate an API key to authenticat
 1. In the API key field, use the magic icon :fontawesome-solid-wand-magic-sparkles: to generate a 32-character key.
 2. Alternatively, you may create your own key&#151;just be sure it's of a sufficient length and complexity.
 3. Choose **Save settings**. Your API key is stored in `/etc/raspap/api/.env`.
-4. The `restapi.service` will be automatically restarted when updating your API key.
+4. Copy your API key to the clipboard for use in the Authorization section.
 
 ![restapi-settings](https://github.com/RaspAP/raspap-webgui/assets/229399/07fd0203-0fec-4600-84f3-88dc013abcae){: style="width:520px"}
 
-At this stage, you have a valid API key that may be used to authenticate with the RestAPI. This is described in the next section.
+The `restapi.service` will be automatically restarted when updating your API key. At this stage, you have a valid API key that may be used to authenticate with the RestAPI. This is described in the next section.
 
 ### Authorization
-Now, click or tap the RestAPI docs link; this will open in a new window. The API documentation is fully interactive, meaning you may try any of the available endpoints and receive a valid server response.Get started by choosing the green **Authorize** button, shown below:
+Now, click or tap the RestAPI docs :octicons-link-external-16: link to open the documentaion in a new window. The API docs are fully interactive, meaning you may test any of the available endpoints and receive a valid server response. Begin by choosing the green **Authorize &nbsp;:fontawesome-solid-lock:**  button, shown below:
 
-![restapi-docs](https://github.com/RaspAP/raspap-webgui/assets/229399/42842a80-bcf4-4c2c-b543-e86f5d0fb8a5){: style="width:520px"}
+![restapi-docs](https://github.com/RaspAP/raspap-webgui/assets/229399/f5a1bd5d-8dda-4b94-96e5-94f159a2b85c){: style="width:520px"}
 
-This will open a dialog where you may enter your API key, also known as an `access_token`. Paste the key you created into the text field and choose the **Authorize** button. 
+This will open a dialog where you may enter your API key, which will be passed as an `access_token` in the HTTP request header. Paste the key you created in the previous step into the "Value" text field and choose the **Authorize** button: 
 
 ![restapi-dialog](https://github.com/RaspAP/raspap-webgui/assets/229399/28023ea4-428a-49db-ad3e-3575ff109582){: style="width:520px"}
 
-Dismiss the dialog by choosing **Close**. You may now proceed with testing the API interactively.
+At this stage, the dialog should indicated "Authorized". Dismiss the dialog by choosing **Close**. You may now proceed with testing the API interactively.
 
 ### Testing endpoints
 With authorization done, you may test any of RaspAP's available RestAPI endpoints. Start with the first available `/system` (Get System) endpoint. Click or tap anywhere in this endpoint's header area and choose the **Try it out** button. This endpoint takes no parameters, so you may simply use the **Execute** button to query the API. An example server response is shown below.
 
 #### Server responses
-Here, we can see a `curl` `GET` command with the `-H` (header) option used to specify the `access_token` you created.
+Here, we can see a `curl` `GET` command with the `-H` (header) option used to specify the `access_token` you created. The request URL is `http://raspberrypi.local:8081/system` (yours may differ):
 
 **Curl**
 ```
@@ -103,10 +104,10 @@ The `/system` API endpoint returns several key pieces of data in JSON format:
 }
 ```
 
-The `hostapdStatus` indicates the current state of RaspAP's `hostapd` service, which provides the AP or hotspot. You may copy this data to the clipboard or download it from the test console, if you wish.
+The `hostapdStatus` indicates the current state of the Linux `hostapd` service, which provides the AP or hotspot. You may copy this data to the clipboard or download it from the test console, if you wish.
 
 ## Systemd service
-During the [installation](restapi.md#installation), the Python modules installed by `pip` are stored in the current user's home directory. For the default `pi` user in Raspberry Pi OS, this path is `/home/pi/.local/bin`. In order for the `uvicorn` module to be found by Python, the `systemd` service control file therefore specifies the `pi` user.
+During the RestAPI [installation](restapi.md#installation), the Python modules installed by `pip` are stored in the current user's home directory. For the default `pi` user in Raspberry Pi OS, this path is `/home/pi/.local/bin`. In order for the `uvicorn` module to be found by Python, the `systemd` service control file specifies the `pi` user.
 
 If your current user is something other than `pi`, edit the control file with:
 
@@ -137,14 +138,15 @@ WantedBy=multi-user.target
 Save and exit the file, then reload the daemon with `sudo systemctl daemon-reload`.
 
 ## Troubleshooting
-The current status of the `restapi.service` is available on the **RestAPI > Status** tab. This is generally the best starting point when diagnosing issues, such as authorization errors. Note that the service logs the most recent API queries, including the requesting IPv4 address:
-
+The current status of the `restapi.service` is available on the **RestAPI > Status** tab. This is generally the best starting point when diagnosing problems, such as authorization errors. Note that the service records the most recent API queries, including the requesting IPv4 address:
 
 ```
 raspberrypi python3[3033]: INFO: 192.168.0.102:58844 - "GET /clients/wlan0 HTTP/1.1" 200 OK
 ```
 
-If a remote client is using an invalid API key, for example, this will appear in the **Status** console.
+If a remote client is using an invalid API key, for example, this will appear as a `403 Forbidden` server response in the **Status** console.
+
+You may also obtain journal entries from the service by executing `journalctl -xeu restapi.service` from the shell. 
 
 ## Discussions
 Questions or comments about using the RestAPI? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
