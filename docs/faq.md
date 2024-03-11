@@ -67,6 +67,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Why can't I access wireless mode 'N' (802.11n)?](#wireless-mode)
 * [How do I exclude NAT rules from IP traffic on localhost?](#iptables)
 * [Why is the channel dropdown disabled on the Hotspot page?](#channels)
+* [802.11ac is supposed to operate at 433 Mbps. Why is my AP's throughput so much less?](#433ac) 
 * [Why is the maximum throughput of my 802.11n AP reduced by half?](#wirelessn)
 * [Can I connect the WiFi client to a WEP network?](#wep)
 * [Can I turn the hotspot on/off over SSH?](#hotspotssh)
@@ -759,6 +760,11 @@ RaspAP is capable of detecting the frequencies (channels) supported by each of y
 ![](https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb){: style="width:320px"}
 
 In this case, selecting a compatible 2.4 GHz wireless mode will populate the list of available channels for that interface. Alternatively, select another interface or connect a 5 GHz capable external wireless adapter. RaspAP will automatically detect the adapter and add it to the list of available interfaces.
+
+## <a name="433ac"></a> 802.11ac is supposed to operate at 433 Mbps. Why is my AP's throughput so much less?
+The 802.11ac wireless standard uses 433 Mbps per spatial stream in the 5GHz band. Therefore, the theoretical maximum speed for a single-stream device is 433 Mbps when using an 80 MHz wide channel. However, real-world speeds are often significantly less due to a number of factors.
+
+In the Raspberry Pi's case, its onboard wireless chipset is connected to the primary System on a Chip (SoC) with a 4-bit SDIO link that runs at 41.7 MHz. 4 bits x 41.7 suggests about 160 Mbps should be possible with 802.11ac on this device. In practice, iPerf tests won't get close to this figure because SDIO is a simplex link (that is, half-duplex) with overhead in each of the protocol and transport layers. Given these restrictions, real-world iPerf tests in the range of 90-100 Mbps are actually quite good for this hardware.
 
 ## <a name="wirelessn"></a>Why is the maximum throughput of my 802.11n AP reduced by half? 
 In order to achieve optimal throughput with 802.11n, the wireless stream must operate at a 40 MHz wide channel on the 2.4 GHz band. A 20 MHz channel will restrict you to 72 Mbps. Your `hostapd.conf` might have  the required settings, but this is no guarantee of a 40 MHz channel.
