@@ -108,7 +108,10 @@ As a convenience, [Insiders](insiders.md) are able to configure routing automati
 
 ![WiFi repeater mode](https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a){: style="width:420px"}
 
-Save settings and choose **Start hotspot** or **Restart hotspot** to activate the wireless repeater. As with [AP-STA mode](ap-sta.md) this option is disabled or "greyed out" until a wireless client is configured. 
+Save settings and choose **Start hotspot** or **Restart hotspot** to activate the wireless repeater.
+
+!!! info "Info"
+    As with [WiFi client AP mode](ap-sta.md), the **WiFi repeater mode** option is disabled or "greyed out" until a wireless client is configured. 
 
 ### Connecting clients
 At this stage, you may connect clients to the AP as you would normally. Two different methods are [described here](ap-basics.md#connecting-clients).
