@@ -10,9 +10,9 @@ RaspAP includes support for stateless client-server data exchange via a high per
 FastAPI makes use of the [Uvicorn](https://www.uvicorn.org/) ASGI web server implementation for Python. This is a minimal, low-level server interface for asynchronous frameworks.
 
 ## Use cases
-A RESTful API operates asynchronously, making it ideally suited for building microservices. These are small, independent services that work together in the context of larger applications. Examples might include a dashboard widget or similar component that consumes JSON data from the API to perform live monitoring of RaspAP's operational state or configuration.
+A RESTful API operates asynchronously, making it suited for building microservices&#151;small, independent services that function in the context of larger applications. Examples might include a dashboard widget or other integration that consumes JSON data from the API to perform live monitoring of RaspAP's operational state.
 
-Using the API's POST methods, RaspAP's functions may even be remotely controlled outside of its regular web interface. 
+Using the API's POST methods (to be announced soon), RaspAP's functions may even be remotely controlled outside of its regular web interface. 
 
 ## Installation
 The RestAPI may be optionally installed by the [Quick installer](quick.md). To install RestAPI support, respond by pressing ++enter++ to accept the default ++y++ option at the following prompt:
