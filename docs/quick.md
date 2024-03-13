@@ -55,6 +55,9 @@ This option installs an SSL certificate with `mkcert` and configures lighttpd fo
 #### -o, --openvpn `<flag>`
 Used with the `-y`, `--yes` option above, this sets the OpenVPN install option (`0` = don't install OpenVPN). Given that OpenVPN support is an optional extra, this enables an unattended setup without installing it.
 
+#### -s, --rest, --restapi `<flag>`
+Used with the `-y`, `--yes` option above, this sets RestAPI install option (`0` = don't install the RestAPI). Given that the RestAPI is an optional extra, this enables an unattended setup without installing it.
+
 #### -a, --adblock `<flag>`
 Used with the `-y`, `--yes` option above, this sets the Ad Blocking install option (`0` = don't install Adblock). Given that Adblock support is an optional extra, this enables an unattended setup without installing it.
 
