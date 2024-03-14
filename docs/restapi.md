@@ -22,6 +22,9 @@ RaspAP Install: Configure RestAPI
 Install and enable RestAPI? [Y/n]:
 ```
 
+!!! tip "Tip"
+    The RestAPI is enabled by default in RaspAP's [Docker container](restapi.md#docker-support), so if you choose this option there is nothing more for you to do.
+
 The Python language is a requirement for the RestAPI. The Quick installer will detect if Python is not installed on your system and install it for you (Python 3 is installed by default on Raspberry Pi OS). In addition, Python's package manager `pip` will also be installed. The following Python packages are requirements for the RestAPI:
 
 ```
@@ -136,6 +139,9 @@ WantedBy=multi-user.target
 ```
 
 Save and exit the file, then reload the daemon with `sudo systemctl daemon-reload`.
+
+## Docker support
+The RestAPI is installed by default in RaspAP's [Docker container](docker.md). This includes configuration of port `8081` used by the server to respond to client requests. Note that the API is also exposed on your system's WAN interface.
 
 ## Troubleshooting
 The current status of the `restapi.service` is available on the **RestAPI > Status** tab. This is generally the best starting point when diagnosing common problems, such as authorization errors. Note that the service records the most recent API queries, including the requesting IPv4 client address:
