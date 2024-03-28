@@ -70,7 +70,6 @@ plugins:
         background_color:
           fill: "#2b8080"
           text: "#FFFFFF"
-        font_family: Roboto
   - git-revision-date-localized:
 extra_css:
   - stylesheets/extra.css
