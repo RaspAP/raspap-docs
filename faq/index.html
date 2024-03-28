@@ -1,0 +1,3024 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../dynamicdns/">
+      
+      
+        <link rel="next" href="../firewall/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+    
+    
+      
+        <title>FAQ - RaspAP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.533.753V.752c.217 2.385 1.463 3.626 2.653 4.81C13.37 6.74 14.498 7.863 14.498 10c0 3.5-3 6-6.5 6S1.5 13.512 1.5 10c0-1.298.536-2.56 1.425-3.286.376-.308.862 0 1.035.454C4.46 8.487 5.581 8.419 6 8c.282-.282.341-.811-.003-1.5C4.34 3.187 7.035.75 8.77.146c.39-.137.726.194.763.607ZM7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.3-2.29-2.834-4.434-.322.256-.63.579-.864.953-.432.696-.621 1.58-.046 2.73.473.947.67 2.284-.278 3.232-.61.61-1.545.84-2.403.633a2.79 2.79 0 0 1-1.436-.874A3.198 3.198 0 0 0 3 10c0 2.53 2.164 4.5 4.998 4.5Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-8JKSE6SEPQ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-8JKSE6SEPQ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-8JKSE6SEPQ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#faq" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="RaspAP Documentation" class="md-header__button md-logo" aria-label="RaspAP Documentation" data-md-component="logo">
+      
+  <img src="../images/favicon-32x32.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RaspAP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FAQ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/RaspAP/raspap-webgui" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RaspAP/raspap-webgui
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RaspAP Documentation" class="md-nav__button md-logo" aria-label="RaspAP Documentation" data-md-component="logo">
+      
+  <img src="../images/favicon-32x32.png" alt="logo">
+
+    </a>
+    RaspAP Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/RaspAP/raspap-webgui" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RaspAP/raspap-webgui
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adblock/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ad blocking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ap-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access point settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ap-sta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AP-STA mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bridged/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bridged AP mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../captive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Captive portal setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../defaults/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Default settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamicdns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      General
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenVPN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wireguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      WireGuard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install &amp; upgrade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-isnt-there-support-for-desktop-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why isn't there support for Desktop distributions?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-do-all-these-settings-in-the-ui-do-changing-them-seems-to-have-no-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      What do all these settings in the UI do? Changing them seems to have no effect.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I prepare the SD card to connect to WiFi in headless mode?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use wlan0 and wlan1 rather than eth0 for my AP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-use-raspap-as-a-monitor-only-without-changing-my-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use RaspAP as a monitor only, without changing my configuration?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-use-raspap-with-my-custom-dnsmasq-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use RaspAP with my custom dnsmasq configuration?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-maximum-number-of-simultaneous-clients-that-i-can-connect-to-my-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the maximum number of simultaneous clients that I can connect to my AP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-can-i-find-a-list-of-usb-wifi-adapters-that-use-in-kernel-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where can I find a list of USB WiFi adapters that use in-kernel drivers?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-the-passphrase-requirements-used-by-raspap" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are the passphrase requirements used by RaspAP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-remove-the-ap-password-to-create-an-open-wifi-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I remove the AP password to create an open WiFi network?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-prevent-wan-access-to-raspaps-web-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I prevent WAN access to RaspAP's web administration?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-reduce-the-risk-of-sd-card-corruption-and-extend-a-cards-lifespan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I reduce the risk of SD card corruption and extend a card's lifespan?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-a-clean-install-wifi-andor-raspap-behaves-unpredictably" class="md-nav__link">
+    <span class="md-ellipsis">
+      After a clean install, WiFi and/or RaspAP behaves unpredictably.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-80211ac-5-ghz-hotspot-failed-to-start-what-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      My 802.11ac 5 GHz hotspot failed to start. What now?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clients-cannot-obtain-an-ip-address-from-the-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clients cannot obtain an IP address from the AP.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-wifi-network-disappeared-and-i-cant-access-the-web-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      My WiFi network disappeared and I can't access the web UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-custom-hostapdconf-phpini-is-gone" class="md-nav__link">
+    <span class="md-ellipsis">
+      My custom hostapd.conf / php.ini is gone.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-changed-the-admin-password-and-forgot-what-it-was" class="md-nav__link">
+    <span class="md-ellipsis">
+      I changed the admin password and forgot what it was.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raspap-control-panel-works-but-there-is-no-wifi-after-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      RaspAP control panel works but there is no WiFi after reboot.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridged-ap-mode-is-unstable-or-clients-cant-connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bridged AP mode is unstable or clients can't connect.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managed-mode-ap-doesnt-work-on-the-pi-zero-w" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managed mode AP doesn't work on the Pi Zero W.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wifi-scanning-doesnt-work-or-i-get-the-error-cannot-execute-wpa_cli-reconfigure" class="md-nav__link">
+    <span class="md-ellipsis">
+      WiFi scanning doesn't work or I get the error cannot execute "wpa_cli reconfigure".
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-started-the-hotspot-but-it-shows-hostapd-down-whats-happening" class="md-nav__link">
+    <span class="md-ellipsis">
+      I started the hotspot but it shows "hostapd down". What's happening?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinging-the-ap-from-a-connected-client-computer-or-vice-versa-results-in-an-intermittent-failure-can-i-troubleshoot-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pinging the AP from a connected client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-wlan1-keeps-being-disabled-andor-clients-are-repeatedly-disconnected" class="md-nav__link">
+    <span class="md-ellipsis">
+      My wlan1 keeps being disabled and/or clients are repeatedly disconnected.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raspap-web-ui-fails-to-start-or-unable-to-save-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      RaspAP web UI fails to start or unable to save settings.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-i-receive-an-invalid-csrf-token-message-and-a-blank-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do I receive an 'Invalid CSRF token' message and a blank screen?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-restore-raspaps-default-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I restore RaspAP's default settings?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-integrate-raspap-with-pi-hole" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I integrate RaspAP with Pi-hole?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-integrate-raspap-with-adguard-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I integrate RaspAP with Adguard Home?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-configure-raspap-to-work-with-a-captive-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I configure RaspAP to work with a captive portal?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-create-an-ap-activation-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I create an AP activation schedule?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-schedule-the-wifi-password-to-change-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I schedule the WiFi password to change automatically?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-configure-a-managed-mode-ap-without-using-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I configure a managed mode AP without using the UI?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-configure-an-alternate-port-for-raspaps-web-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I configure an alternate port for RaspAP's web service?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-breaks-raspap-when-docker-is-installed-on-the-same-system-and-how-i-can-fix-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What breaks RaspAP when Docker is installed on the same system and how I can fix it?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-integrate-raspap-with-openmediavault" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I integrate RaspAP with OpenMediaVault?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-use-raspap-to-share-speedifys-aggregated-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use RaspAP to share Speedify's aggregated connections?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-serve-custom-pages-from-raspap" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I serve custom pages from RaspAP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-automatically-update-raspaps-adblock-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I automatically update RaspAP's adblock lists?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn-fails-to-start-andor-i-have-no-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenVPN fails to start and/or I have no internet.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn-works-but-i-have-partial-or-no-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenVPN works but I have partial or no internet access.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn-is-enabled-but-i-am-still-blocked-from-country-restricted-websites" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenVPN is enabled but I am still blocked from country restricted websites.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-my-wireguard-config-results-in-mime-type-not-allowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uploading my WireGuard config results in "MIME type not allowed".
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-think-my-traffic-isnt-being-routed-through-the-wireguard-vpn-can-i-debug-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-i-clear-raspaps-wireguard-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can I clear RaspAP's WireGuard log?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-cant-i-access-wireless-mode-n-80211n" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why can't I access wireless mode 'N' (802.11n)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-exclude-nat-rules-from-ip-traffic-on-localhost" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I exclude NAT rules from IP traffic on localhost?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-the-channel-dropdown-disabled-on-the-hotspot-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why is the channel dropdown disabled on the Hotspot page?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#80211ac-is-supposed-to-operate-at-433-mbps-why-is-my-aps-throughput-so-much-less" class="md-nav__link">
+    <span class="md-ellipsis">
+      802.11ac is supposed to operate at 433 Mbps. Why is my AP's throughput so much less?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-the-maximum-throughput-of-my-80211n-ap-reduced-by-half" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why is the maximum throughput of my 802.11n AP reduced by half?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-connect-the-wifi-client-to-a-wep-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I connect the WiFi client to a WEP network?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-turn-the-hotspot-onoff-over-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I turn the hotspot on/off over SSH?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-share-internet-from-a-wireless-lan-with-ethernet-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I share internet from a wireless LAN with Ethernet clients?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-isolate-raspap-from-other-software-on-my-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I isolate RaspAP from other software on my system?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-upgrade-raspap" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I upgrade RaspAP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-i-need-the-raspap-service-to-run-at-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do I need the RaspAP service to run at boot?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-the-quick-installer-accept-the-default-options-without-prompting-me" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can the Quick Installer accept the default options without prompting me?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-uninstall-raspap" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I uninstall RaspAP?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firewall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../insiders/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insiders
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issues/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reporting issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manual installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minwrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Minimal SD card write
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multiple/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple APs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net-devices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network devices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openvpn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenVPN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VPN Providers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick installer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repeater/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WiFi repeater
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../restapi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RestAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../speedtest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Speed testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSL certificates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireguard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WireGuard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wlanrouting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wireless LAN routing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      General
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenVPN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wireguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      WireGuard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install &amp; upgrade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-isnt-there-support-for-desktop-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why isn't there support for Desktop distributions?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-do-all-these-settings-in-the-ui-do-changing-them-seems-to-have-no-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      What do all these settings in the UI do? Changing them seems to have no effect.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I prepare the SD card to connect to WiFi in headless mode?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use wlan0 and wlan1 rather than eth0 for my AP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-use-raspap-as-a-monitor-only-without-changing-my-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use RaspAP as a monitor only, without changing my configuration?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-use-raspap-with-my-custom-dnsmasq-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use RaspAP with my custom dnsmasq configuration?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-maximum-number-of-simultaneous-clients-that-i-can-connect-to-my-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the maximum number of simultaneous clients that I can connect to my AP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-can-i-find-a-list-of-usb-wifi-adapters-that-use-in-kernel-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where can I find a list of USB WiFi adapters that use in-kernel drivers?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-the-passphrase-requirements-used-by-raspap" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are the passphrase requirements used by RaspAP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-remove-the-ap-password-to-create-an-open-wifi-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I remove the AP password to create an open WiFi network?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-prevent-wan-access-to-raspaps-web-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I prevent WAN access to RaspAP's web administration?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-reduce-the-risk-of-sd-card-corruption-and-extend-a-cards-lifespan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I reduce the risk of SD card corruption and extend a card's lifespan?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-a-clean-install-wifi-andor-raspap-behaves-unpredictably" class="md-nav__link">
+    <span class="md-ellipsis">
+      After a clean install, WiFi and/or RaspAP behaves unpredictably.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-80211ac-5-ghz-hotspot-failed-to-start-what-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      My 802.11ac 5 GHz hotspot failed to start. What now?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clients-cannot-obtain-an-ip-address-from-the-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clients cannot obtain an IP address from the AP.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-wifi-network-disappeared-and-i-cant-access-the-web-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      My WiFi network disappeared and I can't access the web UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-custom-hostapdconf-phpini-is-gone" class="md-nav__link">
+    <span class="md-ellipsis">
+      My custom hostapd.conf / php.ini is gone.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-changed-the-admin-password-and-forgot-what-it-was" class="md-nav__link">
+    <span class="md-ellipsis">
+      I changed the admin password and forgot what it was.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raspap-control-panel-works-but-there-is-no-wifi-after-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      RaspAP control panel works but there is no WiFi after reboot.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridged-ap-mode-is-unstable-or-clients-cant-connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bridged AP mode is unstable or clients can't connect.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managed-mode-ap-doesnt-work-on-the-pi-zero-w" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managed mode AP doesn't work on the Pi Zero W.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wifi-scanning-doesnt-work-or-i-get-the-error-cannot-execute-wpa_cli-reconfigure" class="md-nav__link">
+    <span class="md-ellipsis">
+      WiFi scanning doesn't work or I get the error cannot execute "wpa_cli reconfigure".
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-started-the-hotspot-but-it-shows-hostapd-down-whats-happening" class="md-nav__link">
+    <span class="md-ellipsis">
+      I started the hotspot but it shows "hostapd down". What's happening?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinging-the-ap-from-a-connected-client-computer-or-vice-versa-results-in-an-intermittent-failure-can-i-troubleshoot-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pinging the AP from a connected client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-wlan1-keeps-being-disabled-andor-clients-are-repeatedly-disconnected" class="md-nav__link">
+    <span class="md-ellipsis">
+      My wlan1 keeps being disabled and/or clients are repeatedly disconnected.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raspap-web-ui-fails-to-start-or-unable-to-save-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      RaspAP web UI fails to start or unable to save settings.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-i-receive-an-invalid-csrf-token-message-and-a-blank-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do I receive an 'Invalid CSRF token' message and a blank screen?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-restore-raspaps-default-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I restore RaspAP's default settings?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-integrate-raspap-with-pi-hole" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I integrate RaspAP with Pi-hole?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-integrate-raspap-with-adguard-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I integrate RaspAP with Adguard Home?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-configure-raspap-to-work-with-a-captive-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I configure RaspAP to work with a captive portal?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-create-an-ap-activation-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I create an AP activation schedule?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-schedule-the-wifi-password-to-change-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I schedule the WiFi password to change automatically?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-configure-a-managed-mode-ap-without-using-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I configure a managed mode AP without using the UI?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-configure-an-alternate-port-for-raspaps-web-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I configure an alternate port for RaspAP's web service?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-breaks-raspap-when-docker-is-installed-on-the-same-system-and-how-i-can-fix-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What breaks RaspAP when Docker is installed on the same system and how I can fix it?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-integrate-raspap-with-openmediavault" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I integrate RaspAP with OpenMediaVault?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-use-raspap-to-share-speedifys-aggregated-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use RaspAP to share Speedify's aggregated connections?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-serve-custom-pages-from-raspap" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I serve custom pages from RaspAP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-automatically-update-raspaps-adblock-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I automatically update RaspAP's adblock lists?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn-fails-to-start-andor-i-have-no-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenVPN fails to start and/or I have no internet.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn-works-but-i-have-partial-or-no-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenVPN works but I have partial or no internet access.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn-is-enabled-but-i-am-still-blocked-from-country-restricted-websites" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenVPN is enabled but I am still blocked from country restricted websites.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-my-wireguard-config-results-in-mime-type-not-allowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uploading my WireGuard config results in "MIME type not allowed".
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-think-my-traffic-isnt-being-routed-through-the-wireguard-vpn-can-i-debug-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-i-clear-raspaps-wireguard-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can I clear RaspAP's WireGuard log?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-cant-i-access-wireless-mode-n-80211n" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why can't I access wireless mode 'N' (802.11n)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-exclude-nat-rules-from-ip-traffic-on-localhost" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I exclude NAT rules from IP traffic on localhost?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-the-channel-dropdown-disabled-on-the-hotspot-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why is the channel dropdown disabled on the Hotspot page?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#80211ac-is-supposed-to-operate-at-433-mbps-why-is-my-aps-throughput-so-much-less" class="md-nav__link">
+    <span class="md-ellipsis">
+      802.11ac is supposed to operate at 433 Mbps. Why is my AP's throughput so much less?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-the-maximum-throughput-of-my-80211n-ap-reduced-by-half" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why is the maximum throughput of my 802.11n AP reduced by half?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-connect-the-wifi-client-to-a-wep-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I connect the WiFi client to a WEP network?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-turn-the-hotspot-onoff-over-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I turn the hotspot on/off over SSH?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-share-internet-from-a-wireless-lan-with-ethernet-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I share internet from a wireless LAN with Ethernet clients?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-isolate-raspap-from-other-software-on-my-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I isolate RaspAP from other software on my system?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-upgrade-raspap" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I upgrade RaspAP?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-i-need-the-raspap-service-to-run-at-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do I need the RaspAP service to run at boot?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-the-quick-installer-accept-the-default-options-without-prompting-me" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can the Quick Installer accept the default options without prompting me?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-uninstall-raspap" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I uninstall RaspAP?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/faq.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/faq.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="faq">FAQ</h1>
+<p>This guide was written to address some frequently asked questions among users of RaspAP.
+FAQ items are organized into thematic sections, below, for easier reference.</p>
+<p>If you would like to see a new FAQ that you feel would assist other users, <a href="https://github.com/RaspAP/raspap-webgui/discussions">start a discussion</a> or <a href="https://github.com/RaspAP/raspap-webgui-docs/issues">open an issue</a>.</p>
+<h2 id="general">General</h2>
+<ul>
+<li><a href="#distros">Why isn't there support for Desktop distributions?</a></li>
+<li><a href="#settings">What do all these settings in the UI do? Changing them seems to have no effect.</a></li>
+<li><a href="#headless">How do I prepare the SD card to connect to WiFi in headless mode?</a></li>
+<li><a href="#interfaces">Can I use wlan0 and wlan1 rather than eth0 for my AP?</a></li>
+<li><a href="#monitor">Can I use RaspAP as a monitor only, without changing my configuration?</a></li>
+<li><a href="#dnsmasq">Can I use RaspAP with my custom dnsmasq configuration?</a></li>
+<li><a href="#maxclients">What is the maximum number of simultaneous clients that I can connect to my AP?</a></li>
+<li><a href="#adapters">Where can I find a list of USB WiFi adapters that use in-kernel drivers?</a></li>
+<li><a href="#passphrase">What are the passphrase requirements used by RaspAP?</a></li>
+<li><a href="#nopw">Can I remove the AP password to create an open WiFi network?</a></li>
+<li><a href="#access">How do I prevent WAN access to RaspAP's web administration?</a></li>
+<li><a href="#minwrite">Can I reduce the risk of SD card corruption and extend a card's lifespan?</a></li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><a href="#clean">After a clean install, WiFi  and/or RaspAP behaves unpredictably.</a></li>
+<li><a href="#actroubleshoot">My 802.11ac 5 GHz hotspot failed to start. What now?</a></li>
+<li><a href="#noip">Clients cannot obtain an IP address from the hotspot.</a></li>
+<li><a href="#webui">My WiFi network disappeared and I can't access the web UI.</a></li>
+<li><a href="#custom">My custom hostapd.conf / php.ini is gone.</a></li>
+<li><a href="#password">I changed the admin password and forgot what it was.</a></li>
+<li><a href="#nowifi">RaspAP control panel works but there is no WiFi after reboot.</a></li>
+<li><a href="#bridged">Bridged AP mode is unstable or clients can't connect.</a></li>
+<li><a href="#pizero-w">Managed mode AP doesn't work on the Pi Zero W.</a></li>
+<li><a href="#scanning">WiFi scanning doesn't work or I get the error "cannot execute wpa_cli reconfigure".</a></li>
+<li><a href="#hostapd-down">I started the hotspot but it shows "hostapd down". What's happening?</a></li>
+<li><a href="#ping">Pinging the AP from a client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?</a></li>
+<li><a href="#disassociated">My wlan1 keeps being disabled and/or clients are repeatedly disconnected.</a></li>
+<li><a href="#webfail">RaspAP web UI fails to start or unable to save settings.</a></li>
+<li><a href="#token">Why do I receive an 'Invalid CSRF token' message and a blank screen?</a></li>
+<li><a href="#restore">Can I restore RaspAP's default settings?</a></li>
+</ul>
+<h2 id="integrations">Integrations</h2>
+<ul>
+<li><a href="#pihole">How do I integrate RaspAP with Pi-hole?</a></li>
+<li><a href="#adguard">Can I integrate RaspAP with Adguard Home?</a></li>
+<li><a href="#captive">Can I configure RaspAP to work with a captive portal?</a></li>
+<li><a href="#schedule">How do I create an AP activation schedule?</a></li>
+<li><a href="#genpassword">Can I schedule the WiFi password to change automatically?</a></li>
+<li><a href="#managed">Can I configure a managed mode AP without using the UI?</a></li>
+<li><a href="#webport">Can I configure an alternate port for RaspAP's web service?</a></li>
+<li><a href="#docker">What breaks RaspAP when Docker is installed on the same system and how I can fix it?</a></li>
+<li><a href="#omv">Can I integrate RaspAP with OpenMediaVault?</a></li>
+<li><a href="#speedify">Can I use RaspAP to share Speedify's aggregated connections?</a></li>
+<li><a href="#custompages">How do I serve custom pages from RaspAP?</a></li>
+<li><a href="#adblockauto">Can I automatically update RaspAP's adblock lists?</a></li>
+</ul>
+<p><a name="openvpn"></a></p>
+<h2 id="openvpn">OpenVPN</h2>
+<ul>
+<li><a href="#openvpn-fails">OpenVPN fails to start and/or I have no internet.</a></li>
+<li><a href="#partial">OpenVPN works but I have partial or no internet access.</a></li>
+<li><a href="#restricted">OpenVPN is enabled but I am still blocked from country restricted websites.</a>  </li>
+</ul>
+<p><a name="wireguard"></a></p>
+<h2 id="wireguard">WireGuard</h2>
+<ul>
+<li><a href="#mimetype">Uploading my WireGuard config results in "MIME type not allowed".</a></li>
+<li><a href="#wgtraffic">I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?</a></li>
+<li><a href="#wglog">How can I clear RaspAP's WireGuard log?</a></li>
+</ul>
+<h2 id="networking">Networking</h2>
+<ul>
+<li><a href="#wireless-mode">Why can't I access wireless mode 'N' (802.11n)?</a></li>
+<li><a href="#iptables">How do I exclude NAT rules from IP traffic on localhost?</a></li>
+<li><a href="#channels">Why is the channel dropdown disabled on the Hotspot page?</a></li>
+<li><a href="#433ac">802.11ac is supposed to operate at 433 Mbps. Why is my AP's throughput so much less?</a> </li>
+<li><a href="#wirelessn">Why is the maximum throughput of my 802.11n AP reduced by half?</a></li>
+<li><a href="#wep">Can I connect the WiFi client to a WEP network?</a></li>
+<li><a href="#hotspotssh">Can I turn the hotspot on/off over SSH?</a></li>
+<li><a href="#wlanether">Can I share internet from a wireless LAN with Ethernet clients?</a></li>
+</ul>
+<h2 id="install-upgrade">Install &amp; upgrade</h2>
+<ul>
+<li><a href="#isolate">Can I isolate RaspAP from other software on my system?</a></li>
+<li><a href="#upgrade">How do I upgrade RaspAP?</a></li>
+<li><a href="#raspap-service">Do I need the RaspAP service to run at boot?</a></li>
+<li><a href="#unattended">Can the Quick Installer accept the default options without prompting me?</a></li>
+<li><a href="#restore">Can I restore RaspAP's default settings?</a></li>
+<li><a href="#uninstall">How do I uninstall RaspAP?</a></li>
+</ul>
+<h2 id="why-isnt-there-support-for-desktop-distributions"><a name="distros"></a>Why isn't there support for Desktop distributions?</h2>
+<p>A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. Since RaspAP does quite a bit of configuration on top of a known <a href="../defaults/">default starting point</a>, the more distros a project supports the bigger the task of handling these variations.</p>
+<p>It becomes increasingly difficult for a small team of developers to support a wide variety of targets. The RaspAP team could spend their precious and rare development time troubleshooting
+one-offs and edge cases, or work on new features and bug fixes. For this reason, we've chosen to include support for a narrow, but diverse, subset of <a href="../#compatible-operating-systems">compatible operating systems</a>. </p>
+<h2 id="what-do-all-these-settings-in-the-ui-do-changing-them-seems-to-have-no-effect"><a name="settings"></a>What do all these settings in the UI do? Changing them seems to have no effect.</h2>
+<p>RaspAP manipulates several daemons, services and helper programs behind the scenes for you. In the footer of each management panel is a helpful "Information provided by..." label. These indicate which Linux daemon and/or program is being modified by the UI. Learning what these services are and how they work will go a long way toward demystifying things.</p>
+<p><img alt="" src="https://i.imgur.com/q1RflMy.png" style="width:350px" /></p>
+<p>For example, two of the best starting points for understanding <code>hostapd</code> (the service that implements 802.11 AP management) include the <a href="https://wireless.wiki.kernel.org/en/users/Documentation/hostapd">hostapd Linux documentation page</a> and <a href="https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf">hostapd Wifi homepage</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>After you choose <strong>Save settings</strong> for <code>hostapd</code> or <code>dhcpcd</code>, these services must be restarted for your changes to take effect. If you're not sure if your AP is behaving as expected, enable logging in the <strong>Logging</strong> tab of <strong>Hotspot</strong> and check the output.</p>
+</div>
+<h2 id="how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode"><a name="headless"></a>How do I prepare the SD card to connect to WiFi in headless mode?</h2>
+<p>Since <a href="https://www.raspberrypi.org/blog/another-update-raspbian/">May 2016</a>, Raspbian has been able to copy wifi details from <code>/boot/wpa_supplicant.conf</code> into <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> to automatically configure wireless network access. </p>
+<p>An example <code>wpa_supplicant.conf</code> file is shown below. Replace the fields with your settings:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>update_config=1
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>country=your_ISO-3166_two-letter_country_code
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>network={
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ssid=&quot;my_SSID&quot;
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    psk=&quot;my_PSK&quot;
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    key_mgmt=WPA-PSK
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>}
+</span></code></pre></div>
+<h2 id="can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap"><a name="interfaces"></a>Can I use wlan0 and wlan1 rather than eth0 for my AP?</h2>
+<p>Yes, this is supported by RaspAP. In this scenario, you may wish to use the <code>wlan0</code> interface as the AP interface with <code>wlan1</code> as the wireless client interface. Refer to the dedicated <a href="../repeater/">WiFi repeater</a>
+walkthrough for steps to enable this configuration.</p>
+<h2 id="can-i-use-raspap-as-a-monitor-only-without-changing-my-configuration"><a name="monitor"></a>Can I use RaspAP as a monitor only, without changing my configuration?</h2>
+<p>Yes, RaspAP has support for a so-called "monitor mode". In <code>config.php</code> change the setting <code>RASPI_MONITOR_ENABLED</code> to <code>true</code>. This disables the ability to modify settings, start/stop daemons, shutdown or reboot the RPi. RaspAP will continue to report interface statistics, service settings and data usage as normal. See <a href="../defaults/#managing-config-values">this</a> for more information. </p>
+<h2 id="can-i-use-raspap-with-my-custom-dnsmasq-configuration"><a name="dnsmasq"></a> Can I use RaspAP with my custom dnsmasq configuration?</h2>
+<p>Yes, RaspAP supports this through the use of <code>dnsmasq.d</code>. The primary <code>/etc/dnsmasq.d/090_raspap.conf</code> managed by the UI includes the following directive to enable your custom .conf files:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conf-dir=/etc/dnsmasq.d
+</span></code></pre></div>
+<p>Configuration files placed in this directory will be used by the dnsmasq service and are untouched by the UI. </p>
+<h2 id="what-is-the-maximum-number-of-simultaneous-clients-that-i-can-connect-to-my-ap"><a name="maxclients"></a>What is the maximum number of simultaneous clients that I can connect to my AP?</h2>
+<p><strong>Short answer:</strong> it depends.</p>
+<p><strong>Longer answer:</strong> there are several factors that come into play including, but not limited to, the specific RPi model, firmware version, available RAM and so on. </p>
+<p>Every update to the RPi's firmware takes up more of the limited RAM reserved for WiFi, resulting in less space to host AP clients. Users of RaspAP have reported
+up to <a href="https://github.com/billz/raspap-webgui/issues/462#issuecomment-588367233">19 simultaneous clients</a> with a RPi 3B, but a smaller number with a newer RPi model.
+If you are willing to modify your device's firmware and replace the <code>brcmfmac</code> driver <a href="https://github.com/raspberrypi/linux/issues/3010#issuecomment-788323744">with a specific version</a>, a
+maximum of 20 simultaneous WiFi clients is theoretically possible.</p>
+<p><strong>Bottom line:</strong> if maximizing AP clients is your primary goal, you will have to either use a specific firmware version or purchase an external wireless adapter.</p>
+<p>See also: <a href="https://github.com/raspberrypi/linux/issues/3010">https://github.com/raspberrypi/linux/issues/3010</a>.</p>
+<h2 id="where-can-i-find-a-list-of-usb-wifi-adapters-that-use-in-kernel-drivers"><a name="adapters"></a>Where can I find a list of USB WiFi adapters that use in-kernel drivers?</h2>
+<p>There are many USB WiFi adapters that work without the need to install a driver in Linux. The term "in-kernel" refers to drivers that are packaged and maintained by the Linux kernel.</p>
+<p>This <a href="https://github.com/morrownr/USB-WiFi">GitHub list</a> currently has 60 links to USB WiFi adapters that work without installing drivers (ie., "plug and play") on devices like the Raspberry Pi.</p>
+<p>With adapters that use in-kernel drivers, you may simply plug the adapter in and it will work. Many people find that using adapters with in-kernel drivers is a better solution than buying an adapter that requires drivers to be found, downloaded, compiled, installed, fixed and reinstalled.</p>
+<h2 id="what-are-the-passphrase-requirements-used-by-raspap"><a name="passphrase"></a>What are the passphrase requirements used by RaspAP?</h2>
+<p>The requirements are based on <a href="https://en.wikipedia.org/wiki/IEEE_802.11i-2004">IEEE standard 802.11i-2004</a> which defines a passphrase as a sequence of between 8 and 63 ASCII-encoded characters.
+Furthermore, each character in the passphrase must have a decimal encoding in the range of 32 to 126 (IEEE Std. 802.11i-2004, Annex H.4.1). These are often known as <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">printable characters</a>
+that represent letters, digits, punctuation marks and a few miscellaneous symbols.</p>
+<p>This means that so-called special characters, or extended ASCII codes, are not permitted in a passphrase. For example, the Euro sign "€", German "ä" and British pound symbol "£" fall outside this range. </p>
+<p>RaspAP will automatically generate a secure passphrase, or PSK, for you. On the <strong>Hotspot &gt; Security</strong> tab, click or tap the magic icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg></span> next to the PSK input. Choose <strong>Save settings</strong>
+and <strong>Restart hotspot</strong> for the changes to take effect. </p>
+<h2 id="can-i-remove-the-ap-password-to-create-an-open-wifi-network"><a name="nopw"></a>Can I remove the AP password to create an open WiFi network?</h2>
+<p>Yes. On the <strong>Hotspot &gt; Security</strong> tab, select 'None' for Security type. Choose <strong>Save settings</strong> and <strong>Restart hotspot</strong> for the changes to take effect.</p>
+<h2 id="how-do-i-prevent-wan-access-to-raspaps-web-administration"><a name="access"></a>How do I prevent WAN access to RaspAP's web administration?</h2>
+<p>There are two ways to do this. The simplest method is to set the web server's bind address in RaspAP's <strong>System &gt; Advanced</strong> tab to the IPv4 address you wish to grant access to. Choose <strong>Save settings</strong> and <strong>Restart lighttpd</strong>.
+After this is done, the web server will refuse connections to all IP addresses other than the one you've defined. </p>
+<p>A somewhat cleaner method with a "403 Forbidden" response can be done manually with lighttpd. You could modify lighttpd's main config directly, but to keep things neater we can use RaspAP's own configuration in lighttpd's <code>/conf-available</code> directory. Edit it like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo nano /etc/lighttpd/conf-available/50-raspap-router.conf
+</span></code></pre></div>
+<p>Add the following to the end, substituting the <code>192.168.0.0/16</code> private IPv4 address range (192.168.0.0 – 192.168.255.255) for your own network:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># deny access to RaspAP admin for users that
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a># are not in the 192.168.0.0/16 network
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>$HTTP[&quot;remoteip&quot;] != &quot;192.168.0.0/16&quot; {
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    url.access-deny = ( &quot;&quot; )
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>}
+</span></code></pre></div>
+<p>Save and exit the file, then restart the lighttpd service:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo systemctl restart lighttpd.service
+</span></code></pre></div>
+<p>Clients outside of your defined network range will receive a '403' response when accessing the web UI.</p>
+<h2 id="can-i-reduce-the-risk-of-sd-card-corruption-and-extend-a-cards-lifespan"><a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?</h2>
+<p>Yes. RaspAP has developed a <a href="../minwrite/">minimal write mode</a> that substantially reduces disk I/O activity and helps to extend the life of microSD cards.</p>
+<h2 id="after-a-clean-install-wifi-andor-raspap-behaves-unpredictably"><a name="clean"></a>After a clean install, WiFi  and/or RaspAP behaves unpredictably.</h2>
+<p>Issues like this are frequently reported. The vast majority of these problems stem from one (or a combination) of the following:</p>
+<ol>
+<li>The install was not performed on a clean OS.</li>
+<li>A faulty, corrupt, fake, poor quality and/or otherwise unsuitable SD card was used.</li>
+<li>The SD card has insufficient storage space.</li>
+<li>Raspberry Pi Imager software applied preconfigured wireless settings.</li>
+</ol>
+<p>If you observe RaspAP or your wireless AP behaving strangely, be sure to follow the project prerequisites and perform a <em>clean</em> install with a known-good SD card from a reputable manufacturer.</p>
+<p>Problems such as <a href="https://www.reddit.com/r/RaspAP/comments/1bo7vdf/need_help_with_ver_310_badly_no_idea_what_im/">this</a> can be difficult to diagnose. In this case, the Raspberry Pi Imager was adding the user's old WiFi settings to an otherwise clean OS image. Be sure to check the "OS customization" options when using this software. When in doubt, use an alternative SD card imaging tool.</p>
+<p>RaspAP has been successfully integrated with many popular open source projects. One of the best ways to use RaspAP in an existing project is to deploy it in an isolated <a href="../docker/">Docker container</a>.</p>
+<h2 id="my-80211ac-5-ghz-hotspot-failed-to-start-what-now"><a name="actroubleshoot"></a> My 802.11ac 5 GHz hotspot failed to start. What now?</h2>
+<p>RaspAP uses <a href="https://wireless.wiki.kernel.org/en/users/documentation/iw"><code>iw</code></a> and the <a href="https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb"><code>wireless-regdb</code></a> to determine which channels are allowed for your configured country. However, not all channels may be supported by your device's wireless adapter or firmware. If your 5 GHz access point fails to start, use the steps below to troubleshoot the problem.</p>
+<p>Begin by enabling <code>hostapd</code> service logging by sliding the <strong>Logfile output</strong> toggle on the <strong>Hotspot &gt; Logging</strong> tab. Choose <strong>Save settings</strong> followed by <strong>Restart hotspot</strong> and check the log output. The logs will often indicate when a selected channel is not supported by the hardware. For example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>wlan0: IEEE 802.11 Hardware does not support configured channel
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Could not select hw_mode and channel. (-3)
+</span></code></pre></div>
+<p>This may occur with the Raspberry Pi or another device's onboard wireless chipset, or an external wireless adapter. To mitigate this, select one of the following 5 GHz channels: <code>36</code>, <code>40</code>, <code>44</code> or <code>48</code>, then choose <strong>Save settings</strong>. Click or tap the <strong>Clear log</strong> button on the <strong>Hotspot &gt; Logging</strong> tab, if needed, and finally choose <strong>Restart hotspot</strong>. Check the logs again and see if the error persists.</p>
+<p>If the 802.11ac AP still fails to start, an <a href="./#adapters">external AC wireless adapter</a> with in-kernel drivers is an option worth considering.</p>
+<h2 id="clients-cannot-obtain-an-ip-address-from-the-ap"><a name="noip"></a>Clients cannot obtain an IP address from the AP.</h2>
+<p>Clients may receive a "failed to obtain IP address" or similar error message when connecting to your AP. These are the most frequent reasons for this error:
+1. A poor WiFi signal from the access point. In this event, reduce the distance between your device and the AP.
+2. Your device does not operate properly with the encryption method set by the AP. 
+3. The access point is misconfigured.</p>
+<p>The first and simplest fix is to reconnect the client to your WiFi network. When you do this, the AP forgets the previous attempt and initiates a new process to assign an IP address to your device.
+Exact methods vary between devices, however most will have a 'Forget this network' option or similar in the WiFi settings. This is shown in iOS, below:</p>
+<p><img alt="" src="https://i.imgur.com/7xvx5JT.png" style="width:350px" /></p>
+<p>If clients still fail to connect, restart the AP. You may do this by choosing <strong>Restart hotspot</strong> from RaspAP. This reinitializes several related services in a predictable order and timing.
+Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.</p>
+<p>RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its <a href="../defaults/">default settings</a>, RaspAP has been rigorously
+tested and validated to provide connectivity in routed AP mode. If you suspect that RaspAP is misconfigured and not providing IP addresses to clients, you may troubleshoot this yourself.</p>
+<p>Clients connecting to your AP are assigned, or leased, an IP address with <code>dnsmasq</code>. You can see how this process works by enabling the <strong>Log DHCP requests</strong> option in the <strong>DHCP Server &gt; Logging</strong> tab. 
+When a client connects to your AP, a typical <code>dnsmasq-dhcp</code> exchange follows this pattern:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dnsmasq-dhcp[2516]: DHCPDISCOVER(wlan0) [MAC address] 
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>dnsmasq-dhcp[2516]: DHCPOFFER(wlan0) 10.3.141.249 [MAC address] 
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>dnsmasq-dhcp[2516]: DHCPREQUEST(wlan0) 10.3.141.249 [MAC address] 
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>dnsmasq-dhcp[2516]: DHCPACK(wlan0) 10.3.141.249 [MAC address] iPhone
+</span></code></pre></div>
+<p>If one or more steps in this exchange are missing, either your device is unable to respond to the server's <code>DHCPOFFER</code> or the AP itself is misconfigured.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>By default, the <code>dnsmasq</code> service listens on TCP/UDP port 53 and UDP port 67. If you have configured firewall software such as <code>ufw</code> or <code>iptables</code> to filter traffic on these ports, the service may not be able to respond to DHCP requests.</p>
+</div>
+<p>As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's <strong>DHCP Server &gt; Static Leases</strong> tab. 
+Save settings, restart <code>dnsmasq</code> and try connecting your client again.</p>
+<h2 id="my-wifi-network-disappeared-and-i-cant-access-the-web-ui"><a name="webui"></a>My WiFi network disappeared and I can't access the web UI</h2>
+<p>If you are running your Pi headless and are unable to access RaspAP's web interface from the default <code>http://10.3.141.1/</code> address, do the following:</p>
+<ol>
+<li>Be sure your browser isn't forcing SSL by appending <code>https://</code> to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add <a href="../ssl/">SSL support for RaspAP</a>.</li>
+<li>Connect your device to wired ethernet and access it via the browser or SSH on the <code>eth0</code> interface using one of the methods described below. <a href="../ap-basics/#troubleshooting">Check the logs for hostapd errors</a> and reconfigure the service, or run the installer again to restore the <a href="../defaults/">default configuration</a>.</li>
+<li>There are <a href="https://www.raspberrypi.com/documentation/computers/remote-access.html">several methods</a> you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on <code>wlan0</code>. If the AP has entered a failed state, you may still be able to connect on an alternate interface.</li>
+<li>Recent versions of the RPi OS kernel include the <code>avahi-daemon</code> which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering <a href="http://raspberrypi.local/">http://raspberrypi.local/</a> in the browser or via SSH with <code>ssh pi@raspberrypi.local</code>.</li>
+<li>If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, also known as "on-the-go" or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.</li>
+</ol>
+<h2 id="my-custom-hostapdconf-phpini-is-gone"><a name="custom"></a>My custom <code>hostapd.conf</code> / <code>php.ini</code> is gone.</h2>
+<p>The <a href="../quick/">installer</a> applies a "known good" <a href="../defaults/">default configuration</a> to some services, including <code>hostapd</code>. It will also, optionally, optimize PHP by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in <code>/etc/raspap/backups</code>.</p>
+<p>You are free to SSH in to restore those files to their rightful position. However, you may need to ensure that the RaspAP modifications are applied to your own custom configurations.</p>
+<h2 id="i-changed-the-admin-password-and-forgot-what-it-was"><a name="password"></a>I changed the admin password and forgot what it was.</h2>
+<p>Login credentials are stored in <code>/etc/raspap/raspap.auth</code>. The password is encrypted and cannot be edited manually. However, deleting this file with <code>sudo rm /etc/raspap/raspap.auth</code> will restore the default admin password.</p>
+<h2 id="raspap-control-panel-works-but-there-is-no-wifi-after-reboot"><a name="nowifi"></a>RaspAP control panel works but there is no WiFi after reboot.</h2>
+<p>This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a <a href="../ap-sta/">managed mode</a> AP. To address this, RaspAP has added a <code>systemd</code> init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo systemctl status raspapd.service
+</span></code></pre></div>
+<p>The <code>raspapd.service</code> is optionally installed and enabled by the Quick Installer. It is also included in the manual setup steps.</p>
+<h2 id="bridged-ap-mode-is-unstable-or-clients-cant-connect"><a name="bridged"></a>Bridged AP mode is unstable or clients can't connect.</h2>
+<p>RaspAP <a href="../bridged/">delegates all DHCP control to your router</a> in bridged AP mode. If you have trouble connecting clients, start with this project's <a href="../issues/#default-settings">default configuration</a> in routed AP mode <em>first</em> and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.</p>
+<p>If clients disconnect intermittently, this often indicates an undervoltage issue with your RPi. Check the kernel log for any <code>Under-voltage detected!</code> errors. Be sure you are using an official 5.1V power supply (each model has <a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md">different power requirements</a>) and detach any USB devices. Executing <code>dmesg | grep br0</code> can also offer clues. Execute <code>sudo dhclient -v</code> to gain insights into DHCP requests between your device and router. A typical DHCP exchange follows this pattern:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>CLIENT -&gt; DHCPDISCOVER
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>SERVER -&gt; DHCPOFFER
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>CLIENT -&gt; DHCPREQUEST
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>SERVER -&gt; DHCPACK
+</span></code></pre></div>
+<p>If your device (the client) broadcasts <code>DHCPDISCOVER</code>, but there is no <code>DHCPOFFER</code> response from your router, you have a misconfiguration or other issue with your network. Troubleshooting client connectivity in bridged AP mode is not supported. No hard feelings.</p>
+<h2 id="managed-mode-ap-doesnt-work-on-the-pi-zero-w"><a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W.</h2>
+<p>See <a href="../ap-sta/">this walkthrough</a> where the installation is described in detail.</p>
+<h2 id="wifi-scanning-doesnt-work-or-i-get-the-error-cannot-execute-wpa_cli-reconfigure"><a name="scanning"></a>WiFi scanning doesn't work or I get the error <code>cannot execute "wpa_cli reconfigure"</code>.</h2>
+<p>On some configurations, the <strong>Configure WiFi client</strong> panel may appear empty. This project uses the <code>wpa_supplicant</code> command line client <code>wpa_cli</code> to populate a list of available wireless networks. If you can't execute this from the shell, neither can the web UI. For example, the results of this command:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo wpa_cli -i wlan0 scan_results
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Failed to connect to non-global ctrl_ifname: wlan0  error: No such file or directory
+</span></code></pre></div>
+...indicate a problem with the socket used to communicate with <code>wpa_supplicant</code>. You may also encounter errors such as "Could not connect to wpa_supplicant: wlan0 - re-trying".</p>
+<p>If this happens, first check the contents of <code>wpa_supplicant</code> with <code>sudo cat /etc/wpa_supplicant/wpa_supplicant.conf</code>. You should see, at minimum, the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>update_config=1
+</span></code></pre></div>
+<p>The above is present on clean installs of Raspbian. If you've made changes to this file, ensure that these lines appear first. Next, reinitialize the socket with:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo wpa_supplicant -B -Dnl80211,wext -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
+</span></code></pre></div>
+<p>substituting <code>wlan0</code> with your wireless interface, if necessary. You should then be able to perform scans as expected.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are using <code>wpa_suplicant.conf</code> to connect to your device with SSH on a wireless interface, do <em>not</em> reboot after running the Quick Installer. More information on this topic is <a href="../ap-sta/#when-to-reboot">available here</a>.</p>
+</div>
+<h2 id="i-started-the-hotspot-but-it-shows-hostapd-down-whats-happening"><a name="hostapd-down"></a>I started the hotspot but it shows "hostapd down". What's happening?</h2>
+<p>Hostapd, the Linux service that creates the access point, can fail to start for a variety of reasons. The following are common causes, with troubleshooting advice:</p>
+<ol>
+<li>If you've attached an external wireless adapter (bound to <code>wlan1</code>, for example) and have selected this as the AP interface, be sure that it either uses an <a href="#adapters">in-kernel driver</a>, also 
+known as "plug and play" support, or that you have installed the correct driver for it.</li>
+<li>Confirm that the 802.11 wireless mode you've selected is supported by the adapter you've chosen in the list of available interfaces. For example, if you've selected the <code>802.11ac 5 GHz</code> wireless mode
+with incompatible hardware, RaspAP will create the configuration for you but <code>hostapd</code> will fail to start.</li>
+</ol>
+<p>In each of these cases, the <code>hostapd</code> service will report errors that can be useful for troubleshooting. Enable logging by selecting <strong>Logfile output</strong> on the <strong>Hostapd &gt; Logging</strong> tab, choose 
+<strong>Save settings</strong> then <strong>Restart hotspot</strong>.</p>
+<p>Refer to <a href="./#actroubleshooting">this FAQ</a> and <a href="#disassociated">this FAQ</a> for more info.</p>
+<h2 id="pinging-the-ap-from-a-connected-client-computer-or-vice-versa-results-in-an-intermittent-failure-can-i-troubleshoot-this"><a name="ping"></a>Pinging the AP from a connected client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?</h2>
+<p>An intermittent ping failure on the wireless interface could indicate any number of things; a poor wireless signal, co-channel interference and disassociated client being among the most common.
+The following are methods for troubleshooting this:</p>
+<ol>
+<li>
+<p>Get a signal strength report. A signal of -80 dBm or less from your AP is unreliable. If your client computer supports Linux, use <code>sudo iw dev wlan0 scan | awk '/signal:/{sta=$2$3} /SSID:/{print $0" "sta}'</code> and check your AP's dBm value.
+Alternatively, use any one of several graphical WiFi explorer type tools and obtain your signal strength this way.</p>
+</li>
+<li>
+<p>Use <code>wavemon</code> on the AP to scan for overlapping channels from nearby APs. Install it with <code>sudo apt install wavemon</code>. If it shows an AP with a strong signal on the same channel as your AP, you 
+are likely experiencing co-channel interference. Select a different channel or band for your AP, restart it and compare the results.</p>
+</li>
+<li>
+<p>Use <code>mtr</code> to run a continuous scan that reports on latency and percentage packet loss. Install it with <code>sudo apt install mtr-tiny</code>. Obtain your client's IPv4 address from the dashboard or
+<strong>DHCP Server &gt; Client list</strong> and start the utility, for example <code>mtr 10.3.141.151</code>. While the scan is running, reposition your client computer and/or your AP and observe the results.</p>
+</li>
+<li>
+<p>Enable <code>hostapd</code> service logging from RaspAP with <strong>Hotspot &gt; Logging &gt; Logfile output</strong>, followed by <strong>Save settings</strong> and restart your AP. Look for errors that indicate clients are being disassociated from the AP. Refer to <a href="#disassociated">this FAQ</a> for more info.</p>
+</li>
+</ol>
+<h2 id="my-wlan1-keeps-being-disabled-andor-clients-are-repeatedly-disconnected"><a name="disassociated"></a>My wlan1 keeps being disabled and/or clients are repeatedly disconnected.</h2>
+<p>Issues <a href="https://github.com/RaspAP/raspap-webgui/issues/666">such as this</a> can be tricky to diagnose. In this case, an AP is started with an external USB wireless adapter, but client devices are continuously authenticated and disconnected
+(or "disassociated"). This may appear in <code>hostapd</code> service logs like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: authenticated
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: associated (aid 1)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>wlan1: AP-STA-CONNECTED 24:62:ab:fd:24:34
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>wlan1: STA 24:62:ab:fd:24:34 RADIUS: starting accounting session 1D0030DD3176A315
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>wlan1: STA 24:62:ab:fd:24:34 WPA: pairwise key handshake completed (RSN)
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>wlan1: AP-STA-DISCONNECTED 24:62:ab:fd:24:34
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: disassociated
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: deauthenticated due to inactivity (timer DEAUTH/REMOVE)
+</span></code></pre></div>
+<p>The AP itself may also fail repeatedly with errors like the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>wlan1: INTERFACE-ENABLED 
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Failed to set beacon parameters
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>wlan1: INTERFACE-DISABLED 
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>wlan1: INTERFACE-ENABLED 
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Failed to set beacon parameters
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>wlan1: interface state ENABLED-&gt;DISABLED
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>wlan1: AP-DISABLED 
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>wlan1: CTRL-EVENT-TERMINATING 
+</span></code></pre></div>
+<p>If you see messages indicating "deauthenticated due to inactivity", you can try the "Disable <code>disassoc_low_ack</code>" setting on the <strong>Hotspot &gt; Advanced</strong> tab. Choose <strong>Save settings</strong> then restart your AP. Monitor the hostapd service logs and see if your clients are able to remain connected.</p>
+<p>In this specific case, the user determined that the external <a href="https://unix.stackexchange.com/questions/610338/raspberry-pi-4-model-b-external-rt3070-wifi-adapter-hostapd-crashing">RT3070 WiFi adapter</a> was at fault.</p>
+<h2 id="raspap-web-ui-fails-to-start-or-unable-to-save-settings"><a name="webfail"></a>RaspAP web UI fails to start or unable to save settings.</h2>
+<p>After performing a clean install of RaspAP or upgrading an existing installation, the web UI may fail to start or the admin panel may behave in unexpected ways. For example, pages may load but any
+attempt to save settings will fail. In other cases, the lighttpd web server may fail to respond completely. Errors such as these in <code>/var/log/lighttpd/error.log</code> are common:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>(gw_backend.c.503) bind failed for: unix:/run/lighttpd/php.socket-0: No such file or directory
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>(gw_backend.c.601) gw-backend failed to start: /usr/bin/php-cgi
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>(gw_backend.c.1655) [ERROR]: spawning gw failed
+</span></code></pre></div>
+<p>These signs point to a corrupted filesystem on the SD card. If during a power disconnection the memory card is in a write operation, there is a high chance that one or more sectors will be
+damaged. In these cases, a fresh install on a new SD card can save you time and frustration. RaspAP's <a href="../minwrite/">minimal SD card write</a> mode can help in this case.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Be sure to use genuine MicroSD cards from a reputable manufacturer. Card clones are common and hard to distinguish from legitimately made ones, but certainly not subject to the same quality standards. Neither fake nor cheap cards are typically suitable for an entire OS to run from.</p>
+</div>
+<h2 id="why-do-i-receive-an-invalid-csrf-token-message-and-a-blank-screen"><a name="token"></a>Why do I receive an 'Invalid CSRF token' message and a blank screen?</h2>
+<p>A <a href="https://owasp.org/www-community/attacks/csrf">cross-site request forgery</a> (CSRF) is a type of exploit where unauthorized commands are executed against a website on behalf of a trusted user. To guard against this, RaspAP generates a one-time token that is unique for every user and stored in the PHP session object. This token value is inserted into a hidden field on every form in the RaspAP application. If the token doesn’t exist in the submitted
+form data or fails to match with the token on the server, the form will reject the submission and return an error.</p>
+<p>The most common cause for this error message is when your PHP session expires. By default, the PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.</p>
+<p>If you submit a form in RaspAP 24 minutes after the page was loaded, the application will return a CSRF token error. When this occurs, simply refresh the page to generate a new session token.</p>
+<h2 id="can-i-restore-raspaps-default-settings"><a name="restore"></a>Can I restore RaspAP's default settings?</h2>
+<p>Yes, two methods are <a href="../defaults/#restoring-settings">described here</a>.</p>
+<h2 id="how-do-i-integrate-raspap-with-pi-hole"><a name="pihole"></a>How do I integrate RaspAP with Pi-hole?</h2>
+<p>There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on <code>dnsmasq</code>, so integration between them is tricky. There are now several options available to users of RaspAP.</p>
+<ol>
+<li>
+<p>The first option is to configure RaspAP to use a Pi-Hole installation on a separate device. Go to RaspAP's <strong>DHCP Server</strong> &gt; <strong>Advanced</strong> page and enable the "Upstream DNS Server" option, add your Pi-Hole's DNS, save settings and restart dnsmasq.</p>
+</li>
+<li>
+<p>Install RaspAP in an isolated <a href="../docker/">Docker container</a> together with Pi-Hole. You will need to configure Pi-Hole's <code>dnsmasq</code> service to listen on a port other than <code>53</code>.</p>
+</li>
+<li>
+<p>Install Pi-Hole in a Docker container and proceed with a normal installation of RaspAP on the same device.</p>
+</li>
+<li>
+<p>Alternatively, you may use RaspAP's own <a href="../adblock/">ad blocking facility</a> with support for custom blocklists. </p>
+</li>
+</ol>
+<h2 id="can-i-integrate-raspap-with-adguard-home"><a name="adguard"></a>Can I integrate RaspAP with Adguard Home?</h2>
+<p>Yes, you can run RaspAP and <a href="https://github.com/AdguardTeam/AdGuardHome">Adguard Home</a> on the same device. Change Adguard Home’s listening port to <code>5300</code> and bind to <code>127.0.0.1</code>, then go to RaspAP's &gt; <strong>DHCP Server</strong> &gt; <strong>Advanced</strong> page and enable the "Upstream DNS Server".  Add <code>127.0.0.1#5300</code> as an upstream DNS Server. Save settings and restart dnsmasq. Tip via <a href="https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400">@firestrife23</a></p>
+<h2 id="can-i-configure-raspap-to-work-with-a-captive-portal"><a name="captive"></a>Can I configure RaspAP to work with a captive portal?</h2>
+<p>Yes. The <a href="https://github.com/nodogsplash/nodogsplash">nodogsplash project</a> works just fine with RaspAP and is recommended over other methods. A detailed setup guide is <a href="../captive/">available here</a>. </p>
+<h2 id="how-do-i-create-an-ap-activation-schedule"><a name="schedule"></a>How do I create an AP activation schedule?</h2>
+<p>This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with <code>cron</code> to stop/start RaspAP's service control script at certain times. Run <code>sudo crontab -e</code> and add entries like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a># Stop RaspAP services at 02:00 on Monday through Friday
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>0 2 * * 1-5 sudo /etc/raspap/hostapd/servicestart.sh --action stop
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a># Start RaspAP services at 08:00 on Monday through Friday
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>0 8 * * 1-5 sudo /etc/raspap/hostapd/servicestart.sh --seconds 3
+</span></code></pre></div>
+<p>For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.</p>
+<h2 id="can-i-schedule-the-wifi-password-to-change-automatically"><a name="genpassword"></a> Can I schedule the WiFi password to change automatically?</h2>
+<p>Yes. Here's <a href="https://gist.github.com/billz/2cc43e96563293d650e313e068d52dfb">one way to do it</a> using bash. Save the script to your home directory (<code>/home/pi</code> for example) and set the execution
+bit with <code>sudo chmod +x genpassphrase.sh</code>. When executed, the script will automatically generate a strong password (or a weaker, pronounceable one), update the <code>wpa_passphrase</code> setting in <code>hostapd.conf</code> and finally restart
+the <code>raspapd.service</code>. The new passphrase and QR code will be visible on the <strong>Hotspot &gt; Security</strong> tab.</p>
+<p>This can be useful if you're using RaspAP to serve WiFi to clients in a public place, and need to update the passphrase regularly. Similar to creating an <a href="#schedule">AP activation schedule</a>,
+you can have this execute at specific intervals by using <code>cron</code>. Run <code>sudo crontab -e</code> and add an entry like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a># Generate a new passphrase and restart RaspAP everyday at midnight
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>@midnight /home/pi/genpassphrase.sh
+</span></code></pre></div>
+<p>For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.</p>
+<h2 id="can-i-configure-a-managed-mode-ap-without-using-the-ui"><a name="managed"></a> Can I configure a managed mode AP without using the UI?</h2>
+<p>Yes. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have <a href="./#headless"><code>wpa_supplicant.conf</code> fully populated</a> and a valid <a href="../ap-sta/#how-does-ap-sta-work"><code>hostapd.conf</code></a>, set the following values in <code>/etc/raspap/hostapd.ini</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>LogEnable = 0
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>WifiAPEnable = 1
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>BridgedEnable = 0
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>WifiManaged = wlan0
+</span></code></pre></div>
+<p>substituting <code>wlan0</code> for your AP interface, if necessary. You may then restart the raspap daemon with <code>sudo systemctl restart raspapd.service</code>.</p>
+<h2 id="can-i-configure-an-alternate-port-for-raspaps-web-service"><a name="webport"></a>Can I configure an alternate port for RaspAP's web service?</h2>
+<p>Yes. You can now do this from the <strong>Advanced</strong> tab in System. Manual steps for changing <code>lighttpd</code>'s default port are included below.</p>
+<p>Edit <code>/etc/lighttpd/lighttpd.conf</code> and change the following line:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>server.port                 = 8080
+</span></code></pre></div>
+then give the service a kick...
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo systemctl restart lighttpd.service
+</span></code></pre></div>
+You can then access RaspAP as before with the new port number in the URI, for example, <code>http://raspberrypi.local:8080</code>. This will allow you run another web server alongside lighttpd, if that is your goal. </p>
+<h2 id="what-breaks-raspap-when-docker-is-installed-on-the-same-system-and-how-i-can-fix-it"><a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?</h2>
+<p>Installing RaspAP after installing Docker often results in connected clients not having internet access from the AP. The reason for this is Docker manipulates <code>iptables</code> rules to provide network isolation. Docker installs two custom iptables chains named <code>DOCKER-USER</code> and <code>DOCKER</code>, and it ensures that incoming packets are always checked by these two chains first. Docker also sets the policy for the <code>FORWARD</code> chain to <code>DROP</code>.</p>
+<p>When RaspAP is started in its default router mode, this will result in the AP not forwarding traffic anymore. If you want RaspAP to continue functioning as a router, you can add explicit <code>ACCEPT</code> rules to the <code>DOCKER-USER</code> chain to allow it:</p>
+<p><code>sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT</code></p>
+<p>When Docker is correctly installed <em>after</em> RaspAP, the following <code>iptables</code> chain should be present:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Chain INPUT (policy ACCEPT) target prot opt source destination
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Chain FORWARD (policy ACCEPT)
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>target prot opt source destination DOCKER-USER all -- anywhere anywhere
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>DOCKER-ISOLATION-STAGE-1 all -- anywhere anywhere
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>ACCEPT all -- anywhere anywhere ctstate RELATED,ESTABLISHED DOCKER all -- anywhere anywhere
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>ACCEPT all -- anywhere anywhere ACCEPT all -- anywhere anywhere
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Chain OUTPUT (policy ACCEPT) target prot opt source destination
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>Chain DOCKER (1 references) target prot opt source destination
+</span></code></pre></div>
+<p>Additional info <a href="https://github.com/RaspAP/raspap-webgui/issues/458#issuecomment-643425658">here</a> and <a href="https://docs.docker.com/network/iptables/">here</a>. </p>
+<p><strong>tl;dr:</strong> Install RaspAP <em>first</em>, followed by Docker, adding the explicit <code>iptables</code> rule <code>sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT</code>.</p>
+<h2 id="can-i-integrate-raspap-with-openmediavault"><a name="omv"></a>Can I integrate RaspAP with OpenMediaVault?</h2>
+<p>Yes, you can run RaspAP alongside <a href="https://www.openmediavault.org/">OpenMediaVault</a> for a complete media center and wireless hotspot on a single device. In this way, you are able to share the media storage
+in your local network via a wireless hotspot while connected to a router via ethernet. This is illustrated in the schematic below:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>[Router] &lt;---- eth ----&gt; [Pi] (RaspAP + OMV5)
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>   |                      |
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a> WiFi 1              WiFi 2 (subnet)
+</span></code></pre></div>
+<p>Follow these steps to create this configuration:</p>
+<ol>
+<li>Follow RaspAP's <a href="../quick/">Quick start</a> guide and set up your network as you wish.</li>
+<li>Change the default Web server port to <code>8080</code> (so that it doesn't conflict with OMV5), from RaspAP's <strong>System &gt; Advanced</strong> panel.</li>
+<li>Install OMV5 skipping network configuration.</li>
+<li>Configure your OMV5 install without changing the network settings.</li>
+<li>To make your OMV5 drives accessible from the subnet (WiFi 2), add the following settings at the end of <strong>OMV Control panel &gt; Menu &gt; SMB/CIFS &gt; Settings Tab &gt; Extra Options</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>bind interfaces only = yes
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>interfaces = lo eth0
+</span></code></pre></div></li>
+</ol>
+<p>Source: <a href="https://forum.openmediavault.org/index.php?thread/39060-raspap-and-omv5-media-center-wifihotspot-with-ethernet/">openmediavault forums</a>.</p>
+<h2 id="can-i-use-raspap-to-share-speedifys-aggregated-connections"><a name="speedify"></a>Can I use RaspAP to share Speedify's aggregated connections?</h2>
+<p>Yes, RaspAP is compatibile with Speedify's connection bonding. In this scenario, you may want to combine several internet connections (for example, a DSL connection, 4G cellphone and an LTE router) and share these via RaspAP.</p>
+<p>Begin by running Speedify's <a href="https://support.speedify.com/article/562-install-speedify-linux">one step install</a>, login with your credentials and connect Speedify. Next, <a href="https://support.speedify.com/article/566-speedify-linux-wifi">configure Speedify for WiFi sharing</a>
+by editing the following file:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo nano /etc/speedify/speedify.conf
+</span></code></pre></div>
+<p>Make sure to uncomment the following lines (remove the "<code>#</code>" symbol). To share over the Wi-Fi interface <code>wlan0</code>, set:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>ENABLE_SHARE=1 
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>SHARE_INTERFACE=&quot;wlan0&quot;
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>WIFI_INTERFACE=&quot;wlan0&quot; 
+</span></code></pre></div>
+<p>Once you have configured the sharing settings, save the file (if you are using nano, use <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to save). Exit the text editor and then execute:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sudo service speedify-sharing restart
+</span></code></pre></div>
+<p>Refer to <a href="https://support.speedify.com/article/566-speedify-linux-wifi">Speedify's support article</a> for additional tips and troubleshooting.</p>
+<h2 id="how-do-i-serve-custom-pages-from-raspap"><a name="custompages"></a>How do I serve custom pages from RaspAP?</h2>
+<p>Several users have asked if they can extend RaspAP or otherwise serve their own custom directory with the existing <code>lighttpd</code> web service. Broadly, there are two approaches to achieve this.
+In the examples below, we will add support for a custom directory called "admin".</p>
+<p><strong>Option 1.</strong> Create a subdirectory of RaspAP's default install location (<code>/var/www/html</code>) called "admin": <code>/var/www/html/admin</code>. Now, modify RaspAP's <a href="https://docs.raspap.com/manual/#create-the-web-application">application routing rules</a>
+ by adding this directory to the exclusion list. You may do this with <code>sudo nano /etc/lighttpd/conf-available/50-raspap-router.conf</code>. Next, modify the following line like so: </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$HTTP[&quot;url&quot;] =~ &quot;^/(?!(dist|app|ajax|config|admin)).*&quot; {
+</span></code></pre></div>
+<p>Note that "admin" is appended above "config", above. This instructs lighttpd not to rewrite URLs that match this pattern. Reload the lighttpd service with <code>sudo systemctl reload lighttpd.service</code>.</p>
+<p>You may now create your own <code>index.php</code> file in this folder and request it from the browser as <code>http://10.3.141.1/admin/</code> or <code>http://raspberrypi.local/admin</code>.</p>
+<p><strong>Option 2.</strong>  Reinstall RaspAP and specify a custom install destination, for example <code>/var/www/html/raspap</code>. This will leave the default web root free for you to create any files you wish, without attempting to rewrite the URLs (the installer will only apply routing rules to your custom RaspAP root). </p>
+<h2 id="can-i-automatically-update-raspaps-adblock-lists"><a name="adblockauto"></a>Can I automatically update RaspAP's adblock lists?</h2>
+<p>RaspAP's <a href="../adblock/">adblock feature</a> uses several <a href="../adblock/#blocklist-source">blocklists</a> that are aggregated and updated daily. In a typical setup, you may use the <strong>Ad blocking</strong> management
+page to manually update these lists. Alternatively, this <a href="https://github.com/RaspAP/raspap-webgui/discussions/1216">user-contributed script</a> will automatically fetch the latest blocklists on
+the schedule of your choosing (for example, daily, weekly, etc.) and reload <code>dnsmasq</code>.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>#!/bin/sh
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>#
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>sleep $(shuf -i 0-3600 -n1)
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>curl -L https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts &gt; /etc/raspap/adblock/hostnames.tmp
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>curl -L https://big.oisd.nl/dnsmasq &gt; /etc/raspap/adblock/domains.tmp
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>mv /etc/raspap/adblock/hostnames.tmp /etc/raspap/adblock/hostnames.txt
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>mv /etc/raspap/adblock/domains.tmp /etc/raspap/adblock/domains.txt
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>chown root:www-data /etc/raspap/adblock/hostnames.txt
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>chown root:www-data /etc/raspap/adblock/domains.txt
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>sudo systemctl reload dnsmasq.service
+</span></code></pre></div>
+Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.</p>
+<h2 id="openvpn-fails-to-start-andor-i-have-no-internet"><a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.</h2>
+<p>RaspAP supports OpenVPN clients by uploading a valid <code>.ovpn</code> file to <code>/etc/openvpn/client</code> and, optionally, creating a <code>login.conf</code> file with your client auth credentials. Additionally, in line with the project's <a href="../defaults/">default configuration</a>, the following iptables rules are added to forward traffic from OpenVPN's <code>tun0</code> interface to your configured wireless interface (<code>wlan0</code> is the default):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>-A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>-A FORWARD -i wlan0 -o tun0 -j ACCEPT
+</span></code></pre></div>
+<p>After starting the OpenVPN service, you may check and validate these rules like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>$ sudo iptables -L FORWARD -v -n
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a> pkts bytes target     prot opt in     out     source               destination         
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a> 1955 1493K ACCEPT     all  --  tun0   wlan0   0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a> 1715  194K ACCEPT     all  --  wlan0  tun0    0.0.0.0/0            0.0.0.0/0
+</span></code></pre></div>
+<p>It is your responsibility to provide a valid <code>.ovpn</code> file. RaspAP does not attempt to validate the settings or RSA keys contained in this file. If OpenVPN fails to start, check for errors with <code>sudo systemctl status openvpn-client@client</code> and <code>journalctl --identifier openvpn</code>.</p>
+<h2 id="openvpn-works-but-i-have-partial-or-no-internet-access"><a name="partial"></a>OpenVPN works but I have partial or no internet access.</h2>
+<p>Issues <a href="https://github.com/RaspAP/raspap-webgui/issues/612">like this</a> are frequently reported. Begin by confirming the status of your connection:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>$ sudo systemctl status openvpn-client@client
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>● openvpn-client@client.service - OpenVPN tunnel for client
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>   Loaded: loaded (/lib/systemd/system/openvpn-client@.service; enabled; vendor preset: enabled)
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>   Active: active (running) since Fri 2020-06-12 15:45:41 CDT; 1min 39s ago
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>     Docs: man:openvpn(8)
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>           https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>           https://community.openvpn.net/openvpn/wiki/HOWTO
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a> Main PID: 2689 (openvpn)
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>   Status: &quot;Initialization Sequence Completed&quot;
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>    Tasks: 1 (limit: 2200)
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>   Memory: 1.1M
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>   CGroup: /system.slice/system-openvpn\x2dclient.slice/openvpn-client@client.service
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>           └─2689 /usr/sbin/openvpn --suppress-timestamps --nobind --config client.conf
+</span></code></pre></div>
+You can also use <code>journalctl --identifier openvpn</code> to identify any errors. If your internet access is intermittent or otherwise degraded with the <code>openvpn-client</code> active, the next step is to test your connection for packet loss and latency. There are many Linux tools you can use to diagnose your network. <code>mtr</code> is a good choice as it combines functionality of the traceroute and ping programs. Install and use it to perform your own evaluation:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo apt install mtr -y
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>sudo mtr -rwc 50 -i 0.2 -rw duckduckgo.com
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>Start: 2021-06-13T11:42:26+0100
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>HOST: raspberrypi                                Loss%   Snt   Last   Avg  Best  Wrst StDev
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>  1.|-- 192.168.1.254                              0.0%    50   26.8  27.1  26.5  31.4   0.8
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>  2.|-- somerouter.net                            88.0%    50   392.0 390.4 362.1 596.7  1.2
+</span></code></pre></div>
+<p>The results are reported as round-trip response times in milliseconds and the percentage of packet loss. If you see loss and/or latency like the above example, report it to your VPN provider or find another one. Read <a href="https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr/">this</a> for more on interpreting mtr results.</p>
+<p>Protip: free VPNs are frequently oversubscribed and usually not worth the trouble.</p>
+<h2 id="openvpn-is-enabled-but-i-am-still-blocked-from-country-restricted-websites"><a name="restricted"></a>OpenVPN is enabled but I am still blocked from country restricted websites.</h2>
+<p>Remote hosts use a variety of methods to defeat VPNs, some more aggressively than others. Many VPN providers will advise you to configure custom DNS servers to mitigate <a href="https://dnsleaktest.com/">DNS leaks</a>, which you can do from RaspAP's <strong>DHCP &gt; Advanced</strong> tab. Others have specific VPN nodes to use with popular streaming services. </p>
+<p>Several users have reported that Firefox's <a href="https://support.mozilla.org/en-US/kb/firefox-dns-over-https">DNS-over-HTTPS (DoH)</a> has created problems with their VPN, in effect creating a DNS leak from the browser that circumvents RaspAP's DNS settings. Be sure to disable this "feature" when using a VPN service. </p>
+<p>If you suspect network traffic is not being routed through tun0 (or any other interface) for some reason, you can monitor this directly from your RPi with <code>iftop</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo apt install iftop
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sudo iftop -i [interface]
+</span></code></pre></div>
+<h2 id="uploading-my-wireguard-config-results-in-mime-type-not-allowed"><a name="mimetype"></a>Uploading my WireGuard config results in "MIME type not allowed".</h2>
+<p>For security reasons, your OpenVPN or WireGuard <code>.conf</code> files must have a Linux MIME type of <code>text/plain</code>. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a <code>text/plain</code> 
+MIME type embedded in it before uploading.</p>
+<p>Most OpenVPN and WireGuard service providers give you the option of downloading a file formatted for Linux. Alternatively, you may convert your Windows config file
+for use with Linux with <code>dos2unix</code> or one of several online tools made for this purpose. </p>
+<h2 id="i-think-my-traffic-isnt-being-routed-through-the-wireguard-vpn-can-i-debug-this"><a name="wgtraffic"></a>I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?</h2>
+<p>There are several things you can do to troubleshoot this. First, with the WireGuard service active, verify your public IPv4 address and check the external link, as shown below:</p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" style="width:276px" /></p>
+<p>Next, you may check the WireGuard service status by executing <code>sudo systemctl status wg-quick@wg0.service</code> from the shell, like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>$ sudo systemctl status wg-quick@wg0.service
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>● wg-quick@wg0.service - WireGuard via wg-quick(8) for wg0
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>     Loaded: loaded (/lib/systemd/system/wg-quick@.service; enabled; vendor preset: enabled)
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>     Active: active (exited) since Wed 2021-12-29 15:31:03 GMT; 1 day 18h ago
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>       Docs: man:wg-quick(8)
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>             man:wg(8)
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>             https://www.wireguard.com/
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>             https://www.wireguard.com/quickstart/
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>   Main PID: 1450 (code=exited, status=0/SUCCESS)
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>      Tasks: 0 (limit: 1438)
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>        CPU: 0
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>     CGroup: /system.slice/system-wg\x2dquick.slice/wg-quick@wg0.service
+</span></code></pre></div>
+<p>You may also use RaspAP's built-in WireGuard logging facility. On the <strong>WireGuard &gt; Logging</strong> tab, enable the "Display WireGuard debug log" option and choose <strong>Save settings</strong>. Check the log
+output in the tab and look for any errors.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The debug log facility queries the <code>systemd</code> journal with a one-time execution of <code>journalctl --identifier wg-quick</code>. If you want to update this log output, simply enable the option again. You may also execute this command directly from the shell, if you wish.</p>
+</div>
+<p>Finally, you may check and verify the WireGuard config itself, including PostUp / PostDown rules, by executing <code>sudo cat /etc/wireguard/wg0.conf</code>.</p>
+<p>As a last piece of advice, be sure to test more than one client device connection with your WireGuard-enabled AP. Some users have reported traffic not routing as expected with one device, while a 
+different device behaves normally. </p>
+<p>Please note that RaspAP provides a front-end to the WireGuard service only. It has no way of validating your WireGuard configuration. For this reason, bug reports such as "WireGuard not working"
+won't be considered. </p>
+<h2 id="how-can-i-clear-raspaps-wireguard-log"><a name="wglog"></a>How can I clear RaspAP's WireGuard log?</h2>
+<p>WireGuard doesn't do any logging by default. The quasi-logging done by RaspAP executes <code>sudo journalctl --identifier wg-quick</code>. The Linux journal is not something you usually clear by yourself, however you can use journalctl's self maintenance to retain only the past two days:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>sudo journalctl --vacuum-time=2d
+</span></code></pre></div>
+<p>See <code>man journalctl</code> for more information.</p>
+<h2 id="why-cant-i-access-wireless-mode-n-80211n"><a name="wireless-mode"></a>Why can't I access wireless mode 'N' (802.11n)?</h2>
+<p>On the <strong>Configure hotspot</strong> &gt; <strong>Security</strong> tab, be sure to select CCMP for the Encryption Type. Save the settings and restart the hotspot. The wireless mode should be reported on clients as 802.11b/g/n.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>RaspAP:
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>  PHY Mode:     802.11n
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>  Channel:      1
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>  Network Type:     Infrastructure
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>  Security:     WPA2 Personal
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>  Signal / Noise:   -49 dBm / -86 dBm
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>  Transmit Rate:    73
+</span></code></pre></div>
+<p>If using TKIP for encryption with WPA, you will be restricted to 54 Mb/s. This is because the IEEE 802.11n draft prohibits using high throughput with WEP or TKIP ciphers.</p>
+<h2 id="how-do-i-exclude-nat-rules-from-ip-traffic-on-localhost"><a name="iptables"></a> How do I exclude NAT rules from IP traffic on localhost?</h2>
+<p>RaspAP's <a href="../quick/">Quick Installer</a> configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.</p>
+<p>In some cases, NAT rules applied to <code>localhost</code> can interfere with other services running on an RPi. An example is the Plex Media Server, which has an API that listens on localhost. As of this writing, the Plex API has been built to not authenticate communication between service processes of the server. This can cause a failure to communicate with the Plex API or similar add-on services on your RPi.</p>
+<p>The solution is to add a NAT rule ahead of the rule RaspAP installs to not apply NAT to connections destined to 127.0.0.0/8:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>$ sudo iptables -t nat -I POSTROUTING -d 127.0.0.0/8 -j ACCEPT
+</span></code></pre></div>
+The resulting iptables chain should look something like this:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>$ sudo iptables -t nat -L -n -v
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>Chain PREROUTING (policy ACCEPT 31 packets, 4810 bytes)
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>Chain INPUT (policy ACCEPT 31 packets, 4810 bytes)
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>Chain OUTPUT (policy ACCEPT 23 packets, 1338 bytes)
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>   17 999 ACCEPT all -- * * 0.0.0.0/0 127.0.0.0/8
+</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>   2422 158K MASQUERADE all -- * * 0.0.0.0/0 0.0.0.0/0
+</span></code></pre></div>
+Refer to <a href="https://github.com/RaspAP/raspap-webgui/issues/333#issue-454352554">this issue</a>.</p>
+<h2 id="why-is-the-channel-dropdown-disabled-on-the-hotspot-page"><a name="channels"></a> Why is the channel dropdown disabled on the Hotspot page?</h2>
+<p>RaspAP is capable of detecting the frequencies (channels) supported by each of your device's wireless interfaces. If an interface is selected that is not capable of broadcasting on the 5 GHz band, the associated channels and the <strong>Save settings</strong> button are disabled. Next to the <strong>Wireless Mode</strong> selector, a tooltip <span class="twemoji" style="&quot;color:" var_--md-default-fg-color--light_="var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-86.2-346.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1 0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6-13.3 0-24-10.7-24-24v-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1 0-8.4-6.8-15.1-15.1-15.1h-58.3c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg></span> will provide a brief explanation. </p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb" style="width:320px" /></p>
+<p>In this case, selecting a compatible 2.4 GHz wireless mode will populate the list of available channels for that interface. Alternatively, select another interface or connect a 5 GHz capable external wireless adapter. RaspAP will automatically detect the adapter and add it to the list of available interfaces.</p>
+<h2 id="80211ac-is-supposed-to-operate-at-433-mbps-why-is-my-aps-throughput-so-much-less"><a name="433ac"></a> 802.11ac is supposed to operate at 433 Mbps. Why is my AP's throughput so much less?</h2>
+<p>The 802.11ac wireless standard uses 433 Mbps per spatial stream in the 5GHz band. Therefore, the theoretical maximum speed for a single-stream device is 433 Mbps when using an 80 MHz wide channel. However, real-world speeds are often significantly less due to a number of factors.</p>
+<p>In the Raspberry Pi's case, its onboard wireless chipset is connected to the primary System on a Chip (SoC) with a 4-bit SDIO link that runs at 41.7 MHz. 4 bits x 41.7 suggests about 160 Mbps should be possible with 802.11ac on this device. In practice, iPerf tests won't get close to this figure because SDIO is a simplex link (that is, half-duplex) with overhead in each of the protocol and transport layers. Given these restrictions, real-world iPerf tests in the range of 90-100 Mbps are actually quite good for this hardware.</p>
+<h2 id="why-is-the-maximum-throughput-of-my-80211n-ap-reduced-by-half"><a name="wirelessn"></a>Why is the maximum throughput of my 802.11n AP reduced by half?</h2>
+<p>In order to achieve optimal throughput with 802.11n, the wireless stream must operate at a 40 MHz wide channel on the 2.4 GHz band. A 20 MHz channel will restrict you to 72 Mbps. Your <code>hostapd.conf</code> might have  the required settings, but this is no guarantee of a 40 MHz channel.</p>
+<p>In practice, this can be quite difficult due to interference on the 2.4 GHz band. There are many things that will cause an AP to fallback to 20 MHz. The most common reason is if an AP detects another wireless network within 40 MHz, i.e. two channels, of its own channel. For example, if an AP is set to channel 6, another network operating anywhere from channel 4 to 8 will trigger a fallback. hostapd will usually report a fallback like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>20/40 MHz operation not permitted on channel pri=3 sec=7 based on overlapping BSSes
+</span></code></pre></div>
+<p>For more information on optimizing 802.11n, refer to this <a href="https://www.lmi.net/wp-content/uploads/Optimizing_802.11n.pdf">resource</a>.</p>
+<p>Generally speaking, the 5 GHz band has substantially greater capacity due to more non-overlapping radio channels and less radio interference as compared to the 2.4 GHz band. </p>
+<h2 id="can-i-connect-the-wifi-client-to-a-wep-network"><a name="wep"></a>Can I connect the WiFi client to a WEP network?</h2>
+<p>Wired Equivalent Privacy (WEP) has been deprecated for quite awhile but old routers still exist in the wild. Not all routers accept hex passwords, but you can try converting an ASCII password using an online tool like <a href="https://www.binaryhexconverter.com/ascii-text-to-hex-converter">this one</a>.
+A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal value. Be sure the hex values are unpadded and there are no trailing spaces. For example, <code>52617370415069734772656174</code> is a valid hex passphrase.</p>
+<p>Paste your converted hex value into RaspAP's WiFi client passphrase field and try connecting.</p>
+<p>If you're not able to connect with a hex passphrase, you can also try this alternate <a href="https://wiki.netbsd.org/tutorials/how_to_use_wpa_supplicant/#index3h2">manual configuration method</a>.</p>
+<h2 id="can-i-turn-the-hotspot-onoff-over-ssh"><a name="hotspotssh"></a>Can I turn the hotspot on/off over SSH?</h2>
+<p>Yes, RaspAP provides a front-end to several Linux <code>systemd</code> services, including <code>hostapd</code>. From the terminal, check the status of the <code>hostapd.service</code> like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>$ sudo systemctl status hostapd.service 
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>● hostapd.service - Access point and authentication server for Wi-Fi and Ethernet
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>     Loaded: loaded (/lib/systemd/system/hostapd.service; enabled; vendor preset: enabled)
+</span></code></pre></div>
+<p>Stop the service with <code>sudo systemctl stop hostapd.service</code> and start it with <code>sudo systemctl start hostapd.service</code>.</p>
+<p>If you're curious about which other services and Linux tools RaspAP controls for you, take a look at <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers"><code>raspap.sudoers</code></a>.  </p>
+<h2 id="can-i-share-internet-from-a-wireless-lan-with-ethernet-clients"><a name="wlanether"></a>Can I share internet from a wireless LAN with Ethernet clients?</h2>
+<p>Yes, RaspAP simplifies this with an intuitive and easy-to-use <a href="../wlanrouting/">WLAN routing</a> solution.</p>
+<h2 id="can-i-isolate-raspap-from-other-software-on-my-system"><a name="isolate"></a>Can I isolate RaspAP from other software on my system?</h2>
+<p>Yes, you have the option of installing RaspAP in an isolated and portable <a href="../docker/">Docker container</a>. </p>
+<h2 id="how-do-i-upgrade-raspap"><a name="upgrade"></a>How do I upgrade RaspAP?</h2>
+<p>Upgrading an existing install without changing your configuration is very straightforward. Several different methods are described below.</p>
+<p>The <a href="https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2">version 3.0.2</a> release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the <strong>About</strong> page and click or tap on the <strong>Check for update</strong> button. This queries the GitHub API for the latest release version, compares it with your current install and prompts you to upgrade if a newer release is available.</p>
+<p><img alt="Update" src="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" style="width:520px" /></p>
+<p>No other actions are required on your behalf. Alternatively, you may also use the <a href="../quick/">Quick installer</a> to upgrade to the <a href="https://github.com/RaspAP/raspap-webgui/releases/latest">latest release</a> version. This is done with the <code>--upgrade</code> option, as shown below:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
+</span></code></pre></div>
+<p>The installer upgrade is <a href="https://en.wikipedia.org/wiki/Idempotence"><em>idempotent</em></a>, meaning it can be repeated an arbitrary number of times and the result will be as if it had been done only once. If you choose this method, you're done! Confirm the upgrade by checking the release version on the <strong>About</strong> page.</p>
+<p>If you want to install a specific version, you may do so by referencing a tag using <code>git</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>sudo git fetch -v --tags
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>sudo git checkout 3.0.8
+</span></code></pre></div>
+<p>A tag is a pointer that isn't connected to the main development tree that git knows about. As a result, git will reply that you're in a "detached HEAD" state. This isn't a big deal, it just means that you have a specific version of the code that isn't connected to the git tree.</p>
+<p>Alternatively, if you want the latest <em>bleeding edge</em> commits from the master branch, use the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>sudo git checkout -b master
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>sudo git pull origin master
+</span></code></pre></div>
+<p>If you've customized your installation by editing <code>config.php</code>, update the release version in this file:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>sudo nano /var/www/html/includes/config.php
+</span></code></pre></div>
+Change the value in this line to the release version, save the file and exit.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>define(&#39;RASPI_VERSION&#39;, &#39;3.0.8&#39;);
+</span></code></pre></div>
+<p>Whichever method you choose (about page button, installer upgrade, specific release or latest updates), your RaspAP configuration won't be changed.</p>
+<h2 id="do-i-need-the-raspap-service-to-run-at-boot"><a name="raspap-service"></a>Do I need the RaspAP service to run at boot?</h2>
+<p>If you are using your RPi as a client on a WiFi network (also known as managed mode) and hosting an access point simultaneously, the <code>raspapd.service</code> will ensure that your hotspot is active after a reboot. It does this by detecting WiFi client AP mode, adding the <code>uap0</code> interface and starting up networking services in a specific order.</p>
+<p>If your RPi is configured with wired ethernet (<code>eth0</code>) or you haven't experienced problems with the AP starting on boot, you can disable the RaspAP daemon like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>sudo systemctl disable raspapd.service
+</span></code></pre></div>
+<h2 id="can-the-quick-installer-accept-the-default-options-without-prompting-me"><a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?</h2>
+<p>Yes, the <a href="../quick/">Quick Installer</a> has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the <code>--yes</code> command line option, like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes
+</span></code></pre></div>
+<p>The options <code>-y</code> or <code>--assume-yes</code> are also accepted and have the same result. </p>
+<h2 id="how-do-i-uninstall-raspap"><a name="uninstall"></a>How do I uninstall RaspAP?</h2>
+<p>An uninstaller is provided to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. Start the uninstaller with the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>curl -sL https://install.raspap.com | bash -s -- --uninstall
+</span></code></pre></div>
+<p>Alternatively, you may execute the uninstaller directly from the project folder (default location is <code>/var/www/html</code>):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>cd /var/www/html
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>source installers/uninstall.sh
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>_remove_raspap
+</span></code></pre></div>
+<p>Whichever method you choose, the result is the same. Check your network configuration before rebooting to ensure you can still access your device.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2024</span>
+  </span>
+
+    
+    
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/billz" class="md-author" title="@billz">
+          
+          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
+        </a>
+      
+        <a href="https://github.com/moaipool" class="md-author" title="@moaipool">
+          
+          <img src="https://avatars.githubusercontent.com/u/84546123?v=4&size=72" alt="moaipool">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../dynamicdns/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dynamic DNS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Dynamic DNS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../firewall/" class="md-footer__link md-footer__link--next" aria-label="Next: Firewall">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Firewall
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2013 - 2024 <a href="https://github.com/RaspAP">RaspAP</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/rasp_ap" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/RaspAP/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://reddit.com/r/RaspAP" target="_blank" rel="noopener" title="reddit.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M373 138.6c-25.2 0-46.3-17.5-51.9-41-30.6 4.3-54.2 30.7-54.2 62.4v.2c47.4 1.8 90.6 15.1 124.9 36.3 12.6-9.7 28.4-15.5 45.5-15.5 41.3 0 74.7 33.4 74.7 74.7 0 29.8-17.4 55.5-42.7 67.5-2.4 86.8-97 156.6-213.2 156.6S45.5 410.1 43 323.4c-25.4-11.9-43-37.7-43-67.7C0 214.4 33.4 181 74.7 181c17.2 0 33 5.8 45.7 15.6 34-21.1 76.8-34.4 123.7-36.4v-.3c0-44.3 33.7-80.9 76.8-85.5C325.8 50.2 347.2 32 373 32c29.4 0 53.3 23.9 53.3 53.3s-23.9 53.3-53.3 53.3zM157.5 255.3c-20.9 0-38.9 20.8-40.2 47.9s17.1 38.1 38 38.1 36.6-9.8 37.8-36.9-14.7-49.1-35.7-49.1zM395 303.1c-1.2-27.1-19.2-47.9-40.2-47.9s-36.9 22-35.7 49.1c1.2 27.1 16.9 36.9 37.8 36.9s39.3-11 38-38.1zm-60.1 70.8c1.5-3.6-1-7.7-4.9-8.1-23-2.3-47.9-3.6-73.8-3.6s-50.8 1.3-73.8 3.6c-3.9.4-6.4 4.5-4.9 8.1 12.9 30.8 43.3 52.4 78.7 52.4s65.8-21.6 78.7-52.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.footer", "content.action.edit", "content.action.view", "search.suggest", "search.highlight", "search.share", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
