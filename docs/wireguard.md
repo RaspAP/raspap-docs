@@ -30,7 +30,7 @@ The complete process of creating a WireGuard configuration with [Mullvad](https:
 <video src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" data-canonical-src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" controls="controls" muted="muted"></video>
 
 It should be noted that RaspAP has no affiliation whatsoever with Mullvad. In fact, Mullvad [does not use affiliates](https://mullvad.net/en/help/policy-reviews-advertising-and-affiliates/) or pay for reviews. 
-Members of RaspAP's [Insiders community](/insiders/) have requested support for this VPN provider.
+Members of RaspAP's [Insiders community](insiders.md) have requested support for this VPN provider.
 
 #### Starting WireGuard
 RaspAP will handle uploading your `.conf` file and, optionally, applying any `iptables` rules. To enable the tunnel, choose **Start WireGuard**. The WireGuard protocol is extremely fast, so in most cases
@@ -148,7 +148,7 @@ WireGuard isn't a chatty protocol. For the most part, it only transmits data whe
 As a result, your wireless adapter has a higher likelihood of being able to idle down, which leads to better battery life.
 
 ## Troubleshooting
-See the [FAQ section](/faq/#wireguard) for WireGuard.
+See the [FAQ section](faq.md#wireguard) for WireGuard.
 
 ## Discussions
 Questions or comments about using WireGuard? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

@@ -124,7 +124,7 @@ In this event, check your mail folders for an invitation from GitHub and accept 
 ### Installing
 *How do I install Insiders?*
 
-Invoke the [Quick Installer](/quick/) with the `--insiders` switch, like so:
+Invoke the [Quick Installer](quick.md) with the `--insiders` switch, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --insiders
@@ -142,7 +142,7 @@ curl -sL https://install.raspap.com | bash -s -- --insiders --name [username] --
 ### Upgrading
 *I have an existing RaspAP installation. How do I upgrade to Insiders?*
 
-Upgrading is easy. Simply invoke the [Quick Installer](/index/#quick-start) with the `--upgrade` switch, specifying the private Insiders option, like so:
+Upgrading is easy. Simply invoke the [Quick Installer](quick.md) with the `--upgrade` switch, specifying the private Insiders option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders

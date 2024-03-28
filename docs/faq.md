@@ -237,7 +237,7 @@ Exact methods vary between devices, however most will have a 'Forget this networ
 If clients still fail to connect, restart the AP. You may do this by choosing **Restart hotspot** from RaspAP. This reinitializes several related services in a predictable order and timing.
 Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.
 
-RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its [default settings](/defaults/), RaspAP has been rigorously
+RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its [default settings](defaults.md), RaspAP has been rigorously
 tested and validated to provide connectivity in routed AP mode. If you suspect that RaspAP is misconfigured and not providing IP addresses to clients, you may troubleshoot this yourself.
 
 Clients connecting to your AP are assigned, or leased, an IP address with `dnsmasq`. You can see how this process works by enabling the **Log DHCP requests** option in the **DHCP Server > Logging** tab. 
@@ -268,7 +268,7 @@ If you are running your Pi headless and are unable to access RaspAP's web interf
 5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, also known as "on-the-go" or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
 ## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone.
-The [installer](/quick/) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize PHP by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
+The [installer](quick.md) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize PHP by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
 
 You are free to SSH in to restore those files to their rightful position. However, you may need to ensure that the RaspAP modifications are applied to your own custom configurations.
 
@@ -276,7 +276,7 @@ You are free to SSH in to restore those files to their rightful position. Howeve
 Login credentials are stored in `/etc/raspap/raspap.auth`. The password is encrypted and cannot be edited manually. However, deleting this file with `sudo rm /etc/raspap/raspap.auth` will restore the default admin password.
 
 ## <a name="nowifi"></a>RaspAP control panel works but there is no WiFi after reboot.
-This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a [managed mode](/ap-sta/) AP. To address this, RaspAP has added a `systemd` init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:
+This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a [managed mode](ap-sta.md) AP. To address this, RaspAP has added a `systemd` init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:
 
 ```
 sudo systemctl status raspapd.service
@@ -285,7 +285,7 @@ sudo systemctl status raspapd.service
 The `raspapd.service` is optionally installed and enabled by the Quick Installer. It is also included in the manual setup steps.
 
 ## <a name="bridged"></a>Bridged AP mode is unstable or clients can't connect.
-RaspAP [delegates all DHCP control to your router](/bridged/) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](/issues/#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
+RaspAP [delegates all DHCP control to your router](bridged.md) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](issues.md#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
 
 If clients disconnect intermittently, this often indicates an undervoltage issue with your RPi. Check the kernel log for any `Under-voltage detected!` errors. Be sure you are using an official 5.1V power supply (each model has [different power requirements](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md)) and detach any USB devices. Executing `dmesg | grep br0` can also offer clues. Execute `sudo dhclient -v` to gain insights into DHCP requests between your device and router. A typical DHCP exchange follows this pattern:
 
@@ -299,7 +299,7 @@ SERVER -> DHCPACK
 If your device (the client) broadcasts `DHCPDISCOVER`, but there is no `DHCPOFFER` response from your router, you have a misconfiguration or other issue with your network. Troubleshooting client connectivity in bridged AP mode is not supported. No hard feelings.
 
 ## <a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W.
-See [this walkthrough](/ap-sta/) where the installation is described in detail.
+See [this walkthrough](ap-sta.md) where the installation is described in detail.
 
 ## <a name="scanning"></a>WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.
 On some configurations, the **Configure WiFi client** panel may appear empty. This project uses the `wpa_supplicant` command line client `wpa_cli` to populate a list of available wireless networks. If you can't execute this from the shell, neither can the web UI. For example, the results of this command:
@@ -326,7 +326,7 @@ sudo wpa_supplicant -B -Dnl80211,wext -c/etc/wpa_supplicant/wpa_supplicant.conf 
 substituting `wlan0` with your wireless interface, if necessary. You should then be able to perform scans as expected.
 
 !!! tip "Tip"
-    If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information on this topic is [available here](/ap-sta/#when-to-reboot).
+    If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information on this topic is [available here](ap-sta.md#when-to-reboot).
 
 ## <a name="hostapd-down"></a>I started the hotspot but it shows "hostapd down". What's happening?
 Hostapd, the Linux service that creates the access point, can fail to start for a variety of reasons. The following are common causes, with troubleshooting advice:
@@ -430,7 +430,7 @@ There have been several discussions around integrating RaspAP with Pi-hole, with
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400)
 
 ## <a name="captive"></a>Can I configure RaspAP to work with a captive portal?
-Yes. The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](/captive/). 
+Yes. The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](captive.md). 
 
 ## <a name="schedule"></a>How do I create an AP activation schedule?
 This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with `cron` to stop/start RaspAP's service control script at certain times. Run `sudo crontab -e` and add entries like so:
@@ -461,7 +461,7 @@ you can have this execute at specific intervals by using `cron`. Run `sudo cront
 For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
 
 ## <a name="managed"></a> Can I configure a managed mode AP without using the UI?
-Yes. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](/faq/#headless) and a valid [`hostapd.conf`](/ap-sta/#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
+Yes. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](faq.md#headless) and a valid [`hostapd.conf`](ap-sta.md#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
 
 ```
 LogEnable = 0
@@ -734,7 +734,7 @@ RaspAP:
 If using TKIP for encryption with WPA, you will be restricted to 54 Mb/s. This is because the IEEE 802.11n draft prohibits using high throughput with WEP or TKIP ciphers.
 
 ## <a name="iptables"></a> How do I exclude NAT rules from IP traffic on localhost?
-RaspAP's [Quick Installer](/quick/) configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.
+RaspAP's [Quick Installer](quick.md) configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.
 
 In some cases, NAT rules applied to `localhost` can interfere with other services running on an RPi. An example is the Plex Media Server, which has an API that listens on localhost. As of this writing, the Plex API has been built to not authenticate communication between service processes of the server. This can cause a failure to communicate with the Plex API or similar add-on services on your RPi.
 
