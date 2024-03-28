@@ -20,7 +20,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I reduce the risk of SD card corruption and extend a card's lifespan?](#minwrite)
 
 ## Troubleshooting
-* [After a clean install, RaspAP does nothing or can't save settings](#clean)
+* [After a clean install, WiFi  and/or RaspAP behaves unpredictably.](#clean)
 * [My 802.11ac 5 GHz hotspot failed to start. What now?](#actroubleshoot)
 * [Clients cannot obtain an IP address from the hotspot.](#noip)
 * [My WiFi network disappeared and I can't access the web UI.](#webui)
@@ -195,10 +195,19 @@ Clients outside of your defined network range will receive a '403' response when
 ## <a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?
 Yes. RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
 
-## <a name="clean"></a>After a clean install, RaspAP does nothing or can't save settings.
-Issues like this are frequently reported. Chances are you haven't discovered a strange fatal bug with this project that needs immediate attention. In every case where this is reported, the issue stems from one (or several) of the following: 1) the install was _not_ performed on a clean OS, 2) a faulty, corrupt, fake, poor quality and/or otherwise unsuitable SD card was used, or 3) the SD card has insufficient storage space.
+## <a name="clean"></a>After a clean install, WiFi  and/or RaspAP behaves unpredictably.
+Issues like this are frequently reported. The vast majority of these problems stem from one (or a combination) of the following:
 
-If you observe RaspAP behaving unpredictably, save yourself (and the project maintainers) some time by performing a ^^clean^^ install with a known-good SD card from a reputable manufacturer _before_ reporting an issue or starting a disussion. Failure to do so will result in the issue or discussion being immediately closed. No hard feelings.
+1. The install was not performed on a clean OS.
+2. A faulty, corrupt, fake, poor quality and/or otherwise unsuitable SD card was used.
+3. The SD card has insufficient storage space.
+4. Raspberry Pi Imager software applied preconfigured wireless settings.
+
+If you observe RaspAP or your wireless AP behaving strangely, be sure to follow the project prerequisites and perform a _clean_ install with a known-good SD card from a reputable manufacturer.
+
+Problems such as [this](https://www.reddit.com/r/RaspAP/comments/1bo7vdf/need_help_with_ver_310_badly_no_idea_what_im/) can be difficult to diagnose. In this case, the Raspberry Pi Imager was adding the user's old WiFi settings to an otherwise clean OS image. Be sure to check the "OS customization" options when using this software. When in doubt, use an alternative SD card imaging tool.
+
+RaspAP has been successfully integrated with many popular open source projects. One of the best ways to use RaspAP in an existing project is to deploy it in an isolated [Docker container](docker.md).
 
 ## <a name="actroubleshoot"></a> My 802.11ac 5 GHz hotspot failed to start. What now?
 RaspAP uses [`iw`](https://wireless.wiki.kernel.org/en/users/documentation/iw) and the [`wireless-regdb`](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) to determine which channels are allowed for your configured country. However, not all channels may be supported by your device's wireless adapter or firmware. If your 5 GHz access point fails to start, use the steps below to troubleshoot the problem.
