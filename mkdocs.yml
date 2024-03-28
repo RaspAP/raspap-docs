@@ -70,7 +70,9 @@ plugins:
         background_color:
           fill: "#2b8080"
           text: "#FFFFFF"
-  - git-revision-date-localized:
+  - git-revision-date-localized
+  - git-committers:
+      repository: RaspAP/raspap-docs
 extra_css:
   - stylesheets/extra.css
 extra:
