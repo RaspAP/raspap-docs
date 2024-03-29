@@ -7,12 +7,14 @@
 
 One of the limitations of devices such as the Raspberry Pi is that it lacks an onboard **real-time clock (RTC)** to accurately keep track of the time, including when the device is powered off. To overcome this, two solutions are generally available: 1) install a hardware RTC module, or 2) synchronize time from the network. 
 
-The **Network Time Protocol (NTP)** is widely used to fill this gap. This is a protocol that, together with its associated daemon and related tools, is able to keep all the system clocks in a local network in sync with millisecond precision.
+The **Network Time Protocol (NTP)** is widely used to fill this gap. This is a protocol that, together with its associated daemon and related tools, is able to keep all the system clocks in a local network in sync with authoritative millisecond precision.
 
 ## Use cases
 There are many scenarios in which accurate and synchronized timekeeping across networked devices can be extremely useful, if not essential. For example, a robotic controller or sensor may need to perform an operation at a specific interval but, for one reason or another, doesn't have reliable internet connectivity.
 
 In this situation, a single internet connected device (the NTP server) will synchronize the time of the robot or sensor (NTP clients). These devices may already receive control instructions and/or exchange data with the server via a wireless network, such as the one provided by RaspAP. In this way, NTP functions as an additional service layer on top of an existing WiFi network.
+
+Alternatively, a standalone configuration may be needed in which precision timekeeping is required for a network device.
 
 ## Installation
 An NTP server may be optionally installed by the [Quick installer](quick.md). To install NTP server support, respond by pressing ++enter++ to accept the default ++y++ option at the following prompt:
@@ -33,17 +35,24 @@ Enabling NTP server management option
 Proceed with the Quick installer and accept the default ++y++ prompt to reboot your system as a final step.
 
 ## Configuration
-Following a reboot, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational status of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](time.md#peer-status-queries).
+Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational status of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](time.md#peer-status-queries) so you may interpret them.
 
 ### Standalone device
-In a standalone configuration, a single device will be automatically kept in sync by talking to remote NTP servers tied directly to high quality clocks. As long as the `ntpd.service` is running (enabled on boot by default), the protocol will largely handle the time syncronization for you with its default settings. This of course assumes the device has internet connectivity.
+In a standalone configuration, a single device will be automatically kept in sync by communicating with remote NTP servers tied to high quality clocks. As long as the `ntpd.service` is running (enabled on boot by default), the protocol will largely handle the time syncronization for you with its default settings. This of course assumes the device has internet connectivity.
 
 The **NTP Server > Settings** tab will report the current system time synchronized from its remote NTP server peers.
 
 ![ntp-configuration](https://github.com/RaspAP/raspap-webgui/assets/229399/02cdd835-e4a1-4516-b5f6-60c24402cd54){: style="width:540px"}
 
+You may add any number of public NTP servers by entering their IP address or fully qualified domain name (FQDN) under **Add an NTP server**.
+
+!!! tip "Tip"
+    Public NTP servers that support **Network Time Security (NTS)** may be specified by appending the `nts` suffix.
+
+Click or tap the :fontawesome-solid-plus: icon to add an entry to your list of servers and choose **Save settings**. The `ntpd.service` will be automatically restarted.
+
 ### Multiple devices
-In an environment with multiple networked devices, some of which may lack internet connectivity, an NTP server on your local network is able to keep them synchronized. To create this configuration, under **Add an NTP server** (shown above) specify the IP address or local network host address, for example `time.raspberrypi.local`, of the NTP server on your local network. Click or tap the :fontawesome-solid-plus: icon to add it to your list of servers and choose **Save settings**. The `ntpd.service` will automatically restart for you.
+In an environment with multiple networked devices, some of which may lack internet connectivity, an NTP server on your local network may be used to keep them synchronized. To create this configuration, under **Add an NTP server** (shown above) specify a private IP address or local network host address, for example `time.raspberrypi.local`, of the NTP server on your local network. Click or tap the :fontawesome-solid-plus: icon to add it to your list of servers and choose **Save settings**. The `ntpd.service` will automatically restart for you.
 
 Repeat this process for each of the devices you wish to keep synchronized on your network. 
 
@@ -52,7 +61,7 @@ For users who are familiar with the NTP protocol and [configuration file](https:
 
 ![ntp-advanced](https://github.com/RaspAP/raspap-webgui/assets/229399/2f4a23ea-9a32-4aad-919e-692c440d98d8){: style="width:540px"}
 
-To enable `ntp.config` editing mode, simply slide the **Edit mode** toggle. You may then make your edits to the configuration directly. When you are finished editing, choose **Save settings**. The `ntpd.service` will restart automatically. 
+To enable `ntp.config` editing, simply slide the **Edit mode** toggle. You may then make your edits to the configuration directly. When you are finished editing, choose **Save settings**. The `ntpd.service` will restart automatically. 
 
 !!! warning "Caution"
     Editing the `ntp.config` file may lead to unpredictable results and/or cause the NTP service to enter a failed state. For this reason, it's recommended to preserve a backup of your original NTP configuration.
@@ -91,7 +100,20 @@ Looking at the column headers, this status output may be interpreted with the fo
 In the above example, our local NTP server is within 0.37ms of the preferred remote server, which itself is closely tied (`stratum=2`) to a high quality clock source. Our local server is within +/- 6ms of the other remotes.
 
 ## Firewall settings
-If your system uses a network [firewall](firewall.md), such as the one provided by RaspAP, you will need to be sure that it's configured for the NTP protocol. NTP uses UDP port 123 to communicate with peers. Therefore, you must ensure that the port is open in any firewall. Moreover, ensure that no other time synchronization application is in use, such as `timesyncd` or any third party software.
+If your system uses a network [firewall](firewall.md), such as the one provided by RaspAP, you will need to be sure that it's configured for the NTP protocol. NTP uses UDP port 123 to communicate with peers. Therefore, you must ensure that the port is open in any firewall. To enable NTP traffic with `iptables` execute the following:
+
+```
+iptables -A INPUT -p udp --dport 123 -j ACCEPT
+```
+
+Alternatively, you may use `ufw` to achieve the same result:
+
+```
+ufw allow 123/udp
+```
+
+!!! note "Note"
+    If you're using RaspAP's [firewall](firewall.md), an exception is already present to allow NTP traffic by default.
 
 ## Troubleshooting
 Output from the NTP system calls `ntp_gettime()` and `ntp_adjtime()` is displayed prominently on the **NTP Server > Settings** page. If present, the current synchronized timekeeping data are displayed with their associated status codes. A `code 0 (OK)` indicates that these system calls are functioning as expected, as shown below:
@@ -117,6 +139,8 @@ raspberrypi ntpd[1279]: kernel reports TIME_ERROR: 0x2041: Clock Unsynchronized"
 The NTP system calls shown above may also return a `code 5 (ERROR)` result. In most cases, this will resolve itself in a few minutes while the system clock is synchronized. Persistent errors may indicate a misconfiguration of the NTP protocol or a general networking problem. Refer to the [firewall settings](time.md#firewall-settings), above.
 
 Detailed metrics from [peer status queries](time.md#peer-status-queries) are also useful for troubleshooting purposes. 
+
+Finally, ensure that no other time synchronization application is in use, such as `timesyncd` or any third party software.
 
 ## Discussions
 Questions or comments about time synchronization with NTP? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
