@@ -35,7 +35,7 @@ Enabling NTP server management option
 Proceed with the Quick installer and accept the default ++y++ prompt to reboot your system as a final step.
 
 ## Configuration
-Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational status of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](time.md#peer-status-queries) to assist you with interpreting them.
+Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational state of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](time.md#peer-status-queries) to assist you with interpreting them.
 
 ### Standalone device
 In a standalone configuration, a single device will be automatically kept in sync by communicating with remote NTP servers tied to high quality clocks. As long as the `ntpd.service` is running (enabled on boot by default), the protocol will largely handle the time syncronization for you with its default settings. This of course assumes the device has internet connectivity.
@@ -85,10 +85,10 @@ Looking at the column headers, this status output may be interpreted with the fo
 
 | Identifier | Description                                                  |
 | ---------- | ------------------------------------------------------------ |
-|`remote` | The IPv4 address of a remote NTP server your local server is talking to. | 
+|`remote` | The address of a remote NTP server your local server is talking to. | 
 |`refid` | A reference to where the remote server is synced from. |
-|`st` | An abbreviation for "stratum"; the number of hops between that server and a high quality clock source, such as nuclear or GPS. Stratum 1 is the highest level, 15 the lowest. |
-|`type` | The peer type – local, unicast, multicast or broadcast. Most peers are accessed in unicast mode. |
+|`st` | An abbreviation for "stratum" – the number of hops between that server and a high quality clock source, such as nuclear or GPS. Stratum 1 is the highest level, 15 the lowest. |
+|`t` | An abbreviation for the peer "type" – local, unicast, multicast or broadcast. Most peers are accessed in unicast mode. |
 |`when` | The number of seconds since your local server last polled the remote. |
 |`poll` | The interval in seconds between polling of the remote server. |
 |`reach` | An octal representation of the success/failure over time, 377 being 100% success. |
