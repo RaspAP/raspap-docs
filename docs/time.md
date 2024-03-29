@@ -1,13 +1,13 @@
 # Time synchronization
 
-![time synchronization](https://github.com/RaspAP/raspap-webgui/assets/229399/985b738d-76f1-480e-960b-9d4cd233684b){: style="width:640px"}
+![time synchronization](https://github.com/RaspAP/raspap-webgui/assets/229399/a5a4dbdd-7f9a-4866-9b5e-9b2c43a5082d){: style="width:640px"}
 
 ## Overview
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
 One of the limitations of devices such as the Raspberry Pi is that it lacks an onboard **real-time clock (RTC)** to accurately keep track of the time, including when the device is powered off. To overcome this, two solutions are generally available: 1) install a hardware RTC module, or 2) synchronize time from the network. 
 
-The **Network Time Protocol (NTP)** is widely used to fill this gap. This is a protocol that, together with its associated daemon and related tools, is able to keep all the system clocks in a local network in sync with authoritative millisecond precision.
+The **Network Time Protocol (NTP)** is widely used to fulfill this need. This is a protocol that, together with its associated daemon and related tools, is able to keep all the system clocks in a local network in sync with authoritative millisecond precision.
 
 ## Use cases
 There are many scenarios in which accurate and synchronized timekeeping across networked devices can be extremely useful, if not essential. For example, a robotic controller or sensor may need to perform an operation at a specific interval but, for one reason or another, doesn't have reliable internet connectivity.
@@ -35,7 +35,7 @@ Enabling NTP server management option
 Proceed with the Quick installer and accept the default ++y++ prompt to reboot your system as a final step.
 
 ## Configuration
-Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational status of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](time.md#peer-status-queries) so you may interpret them.
+Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational status of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](time.md#peer-status-queries) to assist you with interpreting them.
 
 ### Standalone device
 In a standalone configuration, a single device will be automatically kept in sync by communicating with remote NTP servers tied to high quality clocks. As long as the `ntpd.service` is running (enabled on boot by default), the protocol will largely handle the time syncronization for you with its default settings. This of course assumes the device has internet connectivity.
