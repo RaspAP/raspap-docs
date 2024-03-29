@@ -1171,7 +1171,7 @@
 </span></code></pre></div>
 <p>Proceed with the Quick installer and accept the default <span class="keys"><kbd class="key-y">Y</kbd></span> prompt to reboot your system as a final step.</p>
 <h2 id="configuration">Configuration</h2>
-<p>Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's <strong>&nbsp;<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M464 256a208 208 0 1 1-416 0 208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0 256 256 0 1 0-512 0zm232-136v136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg></span> NTP Server</strong> administration page. Basic <strong>Settings</strong> as well as <strong>Advanced</strong> controls are available on their respective tabs. The <strong>Status</strong> tab will display the operational status of connected peers by using the <code>ntpq</code> query tool. These status queries are <a href="./#peer-status-queries">examined in detail</a> to assist you with interpreting them.</p>
+<p>Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's <strong>&nbsp;<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M464 256a208 208 0 1 1-416 0 208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0 256 256 0 1 0-512 0zm232-136v136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg></span> NTP Server</strong> administration page. Basic <strong>Settings</strong> as well as <strong>Advanced</strong> controls are available on their respective tabs. The <strong>Status</strong> tab will display the operational state of connected peers by using the <code>ntpq</code> query tool. These status queries are <a href="./#peer-status-queries">examined in detail</a> to assist you with interpreting them.</p>
 <h3 id="standalone-device">Standalone device</h3>
 <p>In a standalone configuration, a single device will be automatically kept in sync by communicating with remote NTP servers tied to high quality clocks. As long as the <code>ntpd.service</code> is running (enabled on boot by default), the protocol will largely handle the time syncronization for you with its default settings. This of course assumes the device has internet connectivity.</p>
 <p>The <strong>NTP Server &gt; Settings</strong> tab will report the current system time synchronized from its remote NTP server peers.</p>
@@ -1215,7 +1215,7 @@
 <tbody>
 <tr>
 <td><code>remote</code></td>
-<td>The IPv4 address of a remote NTP server your local server is talking to.</td>
+<td>The address of a remote NTP server your local server is talking to.</td>
 </tr>
 <tr>
 <td><code>refid</code></td>
@@ -1223,11 +1223,11 @@
 </tr>
 <tr>
 <td><code>st</code></td>
-<td>An abbreviation for "stratum"; the number of hops between that server and a high quality clock source, such as nuclear or GPS. Stratum 1 is the highest level, 15 the lowest.</td>
+<td>An abbreviation for "stratum" – the number of hops between that server and a high quality clock source, such as nuclear or GPS. Stratum 1 is the highest level, 15 the lowest.</td>
 </tr>
 <tr>
-<td><code>type</code></td>
-<td>The peer type – local, unicast, multicast or broadcast. Most peers are accessed in unicast mode.</td>
+<td><code>t</code></td>
+<td>An abbreviation for the peer "type" – local, unicast, multicast or broadcast. Most peers are accessed in unicast mode.</td>
 </tr>
 <tr>
 <td><code>when</code></td>
