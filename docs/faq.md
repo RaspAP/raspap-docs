@@ -6,6 +6,7 @@ FAQ items are organized into thematic sections, below, for easier reference.
 If you would like to see a new FAQ that you feel would assist other users, [start a discussion](https://github.com/RaspAP/raspap-webgui/discussions) or [open an issue](https://github.com/RaspAP/raspap-webgui-docs/issues).
 
 ## General
+* [Is RaspAP a fork of OpenWRT or another router project?](#fork)
 * [Why isn't there support for Desktop distributions?](#distros)
 * [What do all these settings in the UI do? Changing them seems to have no effect.](#settings)
 * [How do I prepare the SD card to connect to WiFi in headless mode?](#headless)
@@ -80,6 +81,11 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can the Quick Installer accept the default options without prompting me?](#unattended)
 * [Can I restore RaspAP's default settings?](#restore)
 * [How do I uninstall RaspAP?](#uninstall)
+
+## <a name="fork"></a>Is RaspAP a fork of OpenWRT or another router project?
+RaspAP is an independent router application designed for embeded systems and created by a [community of developers](https://github.com/RaspAP/raspap-webgui/graphs/contributors). By contrast, OpenWRT is an operating system built around the Linux kernel. While powerful, it's rather more difficult to tailor custom applications around OpenWRT. That is, users are generally limited to what is available in OpenWRT's package repository, unless they fork the project code and modify the OS.
+
+RaspAP is popularly used to provide a variety of networking and wireless routing services to other Linux projects and applications. Moreover, with [Docker support](docker.md) users are able to run RaspAP in an isolated container. This gives you much greater flexibility if you're hosting other Linux services and/or applications on your device.
 
 ## <a name="distros"></a>Why isn't there support for Desktop distributions?
 A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. Since RaspAP does quite a bit of configuration on top of a known [default starting point](defaults.md), the more distros a project supports the bigger the task of handling these variations.
