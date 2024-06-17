@@ -138,8 +138,14 @@ Additionally, you might want to consider whitelisting other ports that are commo
 nordvpn whitelist add port 53
 nordvpn whitelist add port 67
 ```
+This will allow devices connecting to your AP to obtain an IP address.
 
-This will allow devices connecting to your AP to obtain an IP address. Refer to your provider's CLI documentation for more information.
+Next, it's recommended to whitelist your network subnet. For example:
+
+```
+nordvpn whitelist add subnet 192.168.x.x/24
+```
+Substitute the placeholder value for your network. This will permit you to connect to the VPN while also preserving your access to SSH and RaspAP's web UI. Refer to your provider's CLI documentation for more information.
 
 ## Discussions
 Questions or comments about using VPN providers? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
