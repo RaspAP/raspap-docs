@@ -64,6 +64,9 @@ Used with the `-y`, `--yes` option above, this sets the Ad Blocking install opti
 #### -w, --wireguard `<flag>`
 Used with the `-y`, `--yes` option above, this sets the WireGuard install option (`0` = don't install WireGuard). Given that WireGuard support is an optional extra, this enables an unattended setup without installing it.
 
+#### -g, --tcp-bbr `<flag>`
+Used with the `-y`, `--yes` option above, this enables kernel support for [TCP BBR congestion control](https://cloud.google.com/blog/products/networking/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster) (`0` = don't configure TCP BBR). Given that TCB BBR support is optional, this enables an unattended setup without enabling it.
+
 #### -e, --provider `<value>`
 Used with the `-y`, `--yes` option above, this sets the VPN provider install option. Valid numeric option values are:
 ```
