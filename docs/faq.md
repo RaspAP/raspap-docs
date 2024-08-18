@@ -825,7 +825,7 @@ When rebooting, users must manually re-establish a connection to a known WiFi ne
 However, you can change this behavior and have `wpa_supplicant` establish a connection on startup by editing the root user's `crontab`, like so:
 
 ```
-sudo crontab -e
+$ sudo crontab -e
 ```
 
 Using your editor, append a line like the following:
