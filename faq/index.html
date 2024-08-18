@@ -1093,6 +1093,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#can-raspap-automatically-connect-to-a-known-wifi-network-at-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can RaspAP automatically connect to a known WiFi network at boot?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#can-i-isolate-raspap-from-other-software-on-my-system" class="md-nav__link">
     <span class="md-ellipsis">
       Can I isolate RaspAP from other software on my system?
@@ -2070,6 +2079,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#can-raspap-automatically-connect-to-a-known-wifi-network-at-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can RaspAP automatically connect to a known WiFi network at boot?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#can-i-isolate-raspap-from-other-software-on-my-system" class="md-nav__link">
     <span class="md-ellipsis">
       Can I isolate RaspAP from other software on my system?
@@ -2223,6 +2241,7 @@ FAQ items are organized into thematic sections, below, for easier reference.</p>
 <li><a href="#wep">Can I connect the WiFi client to a WEP network?</a></li>
 <li><a href="#hotspotssh">Can I turn the hotspot on/off over SSH?</a></li>
 <li><a href="#wlanether">Can I share internet from a wireless LAN with Ethernet clients?</a></li>
+<li><a href="#autoconnect">Can RaspAP automatically connect to a known WiFi network at boot?</a></li>
 </ul>
 <h2 id="install-upgrade">Install &amp; upgrade</h2>
 <ul>
@@ -2764,6 +2783,16 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <p>If you're curious about which other services and Linux tools RaspAP controls for you, take a look at <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers"><code>raspap.sudoers</code></a>.  </p>
 <h2 id="can-i-share-internet-from-a-wireless-lan-with-ethernet-clients"><a name="wlanether"></a>Can I share internet from a wireless LAN with Ethernet clients?</h2>
 <p>Yes, RaspAP simplifies this with an intuitive and easy-to-use <a href="../wlanrouting/">WLAN routing</a> solution.</p>
+<h2 id="can-raspap-automatically-connect-to-a-known-wifi-network-at-boot"><a name="autoconnect"></a>Can RaspAP automatically connect to a known WiFi network at boot?</h2>
+<p>When rebooting, users must manually re-establish a connection to a known WiFi network by using the <strong>WiFi client</strong> UI. This is the default behavior of <code>wpa_supplicant</code>. That is, on startup the <code>wpa_supplicant</code> service is executed by <code>systemd</code> (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.</p>
+<p>However, you can change this behavior and have <code>wpa_supplicant</code> establish a connection on startup by editing the root user's <code>crontab</code>, like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>sudo crontab -e
+</span></code></pre></div>
+<p>Using your editor, append a line like the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a># m h  dom mon dow   command
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>@reboot /sbin/wpa_supplicant -B -Dnl80211 -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
+</span></code></pre></div>
+<p>Save the file and exit from your editor. On the next system boot, your RaspAP router will automatically connect to your preferred wireless network, if it's available.</p>
 <h2 id="can-i-isolate-raspap-from-other-software-on-my-system"><a name="isolate"></a>Can I isolate RaspAP from other software on my system?</h2>
 <p>Yes, you have the option of installing RaspAP in an isolated and portable <a href="../docker/">Docker container</a>. </p>
 <h2 id="how-do-i-upgrade-raspap"><a name="upgrade"></a>How do I upgrade RaspAP?</h2>
@@ -2771,43 +2800,43 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <p>The <a href="https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2">version 3.0.2</a> release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the <strong>About</strong> page and click or tap on the <strong>Check for update</strong> button. This queries the GitHub API for the latest release version, compares it with your current install and prompts you to upgrade if a newer release is available.</p>
 <p><img alt="Update" src="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" style="width:520px" /></p>
 <p>No other actions are required on your behalf. Alternatively, you may also use the <a href="../quick/">Quick installer</a> to upgrade to the <a href="https://github.com/RaspAP/raspap-webgui/releases/latest">latest release</a> version. This is done with the <code>--upgrade</code> option, as shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
 </span></code></pre></div>
 <p>The installer upgrade is <a href="https://en.wikipedia.org/wiki/Idempotence"><em>idempotent</em></a>, meaning it can be repeated an arbitrary number of times and the result will be as if it had been done only once. If you choose this method, you're done! Confirm the upgrade by checking the release version on the <strong>About</strong> page.</p>
 <p>If you want to install a specific version, you may do so by referencing a tag using <code>git</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>sudo git fetch -v --tags
-</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>sudo git checkout 3.0.8
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>sudo git fetch -v --tags
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>sudo git checkout 3.0.8
 </span></code></pre></div>
 <p>A tag is a pointer that isn't connected to the main development tree that git knows about. As a result, git will reply that you're in a "detached HEAD" state. This isn't a big deal, it just means that you have a specific version of the code that isn't connected to the git tree.</p>
 <p>Alternatively, if you want the latest <em>bleeding edge</em> commits from the master branch, use the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>sudo git checkout -b master
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>sudo git pull origin master
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>sudo git checkout -b master
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>sudo git pull origin master
 </span></code></pre></div>
 <p>If you've customized your installation by editing <code>config.php</code>, update the release version in this file:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>sudo nano /var/www/html/includes/config.php
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>sudo nano /var/www/html/includes/config.php
 </span></code></pre></div>
 Change the value in this line to the release version, save the file and exit.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>define(&#39;RASPI_VERSION&#39;, &#39;3.0.8&#39;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>define(&#39;RASPI_VERSION&#39;, &#39;3.0.8&#39;);
 </span></code></pre></div>
 <p>Whichever method you choose (about page button, installer upgrade, specific release or latest updates), your RaspAP configuration won't be changed.</p>
 <h2 id="do-i-need-the-raspap-service-to-run-at-boot"><a name="raspap-service"></a>Do I need the RaspAP service to run at boot?</h2>
 <p>If you are using your RPi as a client on a WiFi network (also known as managed mode) and hosting an access point simultaneously, the <code>raspapd.service</code> will ensure that your hotspot is active after a reboot. It does this by detecting WiFi client AP mode, adding the <code>uap0</code> interface and starting up networking services in a specific order.</p>
 <p>If your RPi is configured with wired ethernet (<code>eth0</code>) or you haven't experienced problems with the AP starting on boot, you can disable the RaspAP daemon like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>sudo systemctl disable raspapd.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>sudo systemctl disable raspapd.service
 </span></code></pre></div>
 <h2 id="can-the-quick-installer-accept-the-default-options-without-prompting-me"><a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?</h2>
 <p>Yes, the <a href="../quick/">Quick Installer</a> has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the <code>--yes</code> command line option, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes
 </span></code></pre></div>
 <p>The options <code>-y</code> or <code>--assume-yes</code> are also accepted and have the same result. </p>
 <h2 id="how-do-i-uninstall-raspap"><a name="uninstall"></a>How do I uninstall RaspAP?</h2>
 <p>An uninstaller is provided to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. Start the uninstaller with the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>curl -sL https://install.raspap.com | bash -s -- --uninstall
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>curl -sL https://install.raspap.com | bash -s -- --uninstall
 </span></code></pre></div>
 <p>Alternatively, you may execute the uninstaller directly from the project folder (default location is <code>/var/www/html</code>):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>cd /var/www/html
-</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>source installers/uninstall.sh
-</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>_remove_raspap
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>cd /var/www/html
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>source installers/uninstall.sh
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>_remove_raspap
 </span></code></pre></div>
 <p>Whichever method you choose, the result is the same. Check your network configuration before rebooting to ensure you can still access your device.</p>
 
@@ -2830,7 +2859,7 @@ Change the value in this line to the release version, save the file and exit.</p
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 18, 2024</span>
   </span>
 
     
