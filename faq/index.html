@@ -2786,7 +2786,7 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <h2 id="can-raspap-automatically-connect-to-a-known-wifi-network-at-boot"><a name="autoconnect"></a>Can RaspAP automatically connect to a known WiFi network at boot?</h2>
 <p>When rebooting, users must manually re-establish a connection to a known WiFi network by using the <strong>WiFi client</strong> UI. This is the default behavior of <code>wpa_supplicant</code>. That is, on startup the <code>wpa_supplicant</code> service is executed by <code>systemd</code> (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.</p>
 <p>However, you can change this behavior and have <code>wpa_supplicant</code> establish a connection on startup by editing the root user's <code>crontab</code>, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>sudo crontab -e
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>$ sudo crontab -e
 </span></code></pre></div>
 <p>Using your editor, append a line like the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a># m h  dom mon dow   command
