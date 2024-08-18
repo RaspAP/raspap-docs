@@ -73,6 +73,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I connect the WiFi client to a WEP network?](#wep)
 * [Can I turn the hotspot on/off over SSH?](#hotspotssh)
 * [Can I share internet from a wireless LAN with Ethernet clients?](#wlanether)
+* [Can RaspAP automatically connect to a known WiFi network at boot?](#autoconnect)
 
 ## Install & upgrade
 * [Can I isolate RaspAP from other software on my system?](#isolate)
@@ -817,6 +818,25 @@ If you're curious about which other services and Linux tools RaspAP controls for
 
 ## <a name="wlanether"></a>Can I share internet from a wireless LAN with Ethernet clients?
 Yes, RaspAP simplifies this with an intuitive and easy-to-use [WLAN routing](wlanrouting.md) solution.
+
+## <a name="autoconnect"></a>Can RaspAP automatically connect to a known WiFi network at boot?
+When rebooting, users must manually re-establish a connection to a known WiFi network by using the **WiFi client** UI. This is the default behavior of `wpa_supplicant`. That is, on startup the `wpa_supplicant` service is executed by `systemd` (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.
+
+However, you can change this behavior and have `wpa_supplicant` establish a connection on startup by editing the root user's `crontab`, like so:
+
+```
+sudo crontab -e
+```
+
+Using your editor, append a line like the following:
+
+```
+# m h  dom mon dow   command
+@reboot /sbin/wpa_supplicant -B -Dnl80211 -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
+```
+
+Save the file and exit from your editor. On the next system boot, your RaspAP router will automatically connect to your preferred wireless network, if it's available.
+
 
 ## <a name="isolate"></a>Can I isolate RaspAP from other software on my system?
 Yes, you have the option of installing RaspAP in an isolated and portable [Docker container](docker.md). 
