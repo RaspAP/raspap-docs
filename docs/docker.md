@@ -235,10 +235,10 @@ docker exec -it raspap bash
 
 The above command combines the `-i` (interactive) and `-t` (tty) options together with the `raspap` named container. The `bash` command starts an interactive Bash shell within the running container. From here you can perform most of the same shell operations and commands within Docker's pseudo-TTY as you would in a regular Linux environment. 
 ### iptables rules and NAT
-With either of the above methods, `iptables` [Network Address Translation (NAT) rules](https://github.com/RaspAP/raspap-docker/blob/master/firewall-rules.sh) will automatically be applied on the Docker host. It's necessary to add these rules on the host device due to Docker's network isolation and security defaults.
+
+When either of the above methods are executed, RaspAP will apply some `iptables` [Network Address Translation (NAT) rules](https://github.com/RaspAP/raspap-docker/blob/master/firewall-rules.sh) on the host. It's necessary to add these rules on the host due to Docker's network isolation and security defaults. **You should not run the `./firewall-rules.sh` manually**, the RaspAP will do this for you.
 
 If your host's network interfaces are anything other than `wlan0` and `eth0`, you may customize [these rules](https://github.com/RaspAP/raspap-docker/blob/master/firewall-rules.sh) to suit your own specific needs. After editing this file on your device, set execute permissions and run it like so:
-
 ```
 sudo chmod +x firewall-rules.sh
 ./firewall-rules.sh
