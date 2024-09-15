@@ -1464,7 +1464,11 @@ This command downloads a test image and runs it in a container. When the contain
 </span></code></pre></div>
 <p>The above command combines the <code>-i</code> (interactive) and <code>-t</code> (tty) options together with the <code>raspap</code> named container. The <code>bash</code> command starts an interactive Bash shell within the running container. From here you can perform most of the same shell operations and commands within Docker's pseudo-TTY as you would in a regular Linux environment. </p>
 <h3 id="iptables-rules-and-nat">iptables rules and NAT</h3>
-<p>When either of the above methods are executed, RaspAP will apply some <code>iptables</code> <a href="https://github.com/RaspAP/raspap-docker/blob/master/firewall-rules.sh">Network Address Translation (NAT) rules</a> on the host. It's necessary to add these rules on the host due to Docker's network isolation and security defaults. <strong>You should not run the <code>./firewall-rules.sh</code> manually</strong>, the RaspAP will do this for you.</p>
+<p>When either of the above methods are executed, RaspAP will apply <code>iptables</code> <a href="https://github.com/RaspAP/raspap-docker/blob/master/firewall-rules.sh">Network Address Translation (NAT) rules</a> on the host. It's necessary to add these rules on the host due to Docker's network isolation and security defaults.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should not need to execute <code>./firewall-rules.sh</code> manually; RaspAP will do this for you.</p>
+</div>
 <p>If your host's network interfaces are anything other than <code>wlan0</code> and <code>eth0</code>, you may customize <a href="https://github.com/RaspAP/raspap-docker/blob/master/firewall-rules.sh">these rules</a> to suit your own specific needs. After editing this file on your device, set execute permissions and run it like so:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo chmod +x firewall-rules.sh
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>./firewall-rules.sh
@@ -1576,7 +1580,7 @@ This command downloads a test image and runs it in a container. When the contain
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 19, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 15, 2024</span>
   </span>
 
     
@@ -1595,14 +1599,14 @@ This command downloads a test image and runs it in a container. When the contain
     
     <nav>
       
-        <a href="https://github.com/zibdie" class="md-author" title="@zibdie">
-          
-          <img src="https://avatars.githubusercontent.com/u/59550818?v=4&size=72" alt="zibdie">
-        </a>
-      
         <a href="https://github.com/billz" class="md-author" title="@billz">
           
           <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
+        </a>
+      
+        <a href="https://github.com/zibdie" class="md-author" title="@zibdie">
+          
+          <img src="https://avatars.githubusercontent.com/u/59550818?v=4&size=72" alt="zibdie">
         </a>
       
       
