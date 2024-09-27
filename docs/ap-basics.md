@@ -146,6 +146,23 @@ This option sets the `max_num_sta` value for `hostapd`, and is effective for pla
 !!! note "Note"
     The default setting is 2007, but this is merely the value set by `hostapd` from the IEEE 802.11 specification. It should _not_ be interpreted as a guarantee that RaspAP can support this many simultaneous clients. In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](faq.md#maxclients).  
 
+### Custom user settings
+RaspAP gives you control over many common AP settings via the **Hotspot > Basic**, **Security** and **Advanced** tabs. However, `hostapd` has lots of [other options](https://w1.fi/cgit/hostap/tree/hostapd/hostapd.conf) that aren't exposed in the management UI. RaspAP gives advanced users the ability to define any number of available `hostapd` options by adding them to a custom configuration file.
+
+Begin by creating `/etc/hostapd/hostapd.conf.users` on your device's filesystem, then add your desired settings to this file. For example, to enable `hostapd`'s built-in support for MAC address filtering, you may add the following:
+
+```
+# Accept/deny lists are read from separate files (containing list of
+# MAC addresses, one per line).
+accept_mac_file=/etc/hostapd.accept
+deny_mac_file=/etc/hostapd.deny
+```
+
+Next, choose **Hotspot > Save settings** to parse this file and append the custom settings to your `hostapd` configuration. Finally, choose **Hotspot > Restart hotspot** for your changes to take effect.
+
+!!! tip "Tip"
+    Direct manipulation of advanced `hostapd` settings may lead to your AP failing to start and/or other unanticipated behavior. For this reason, it's advisable to enable service logging on the **Hotspot > Logging** tab and monitor the log output for errors. 
+
 ## Troubleshooting
 RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. You may also encounter errors connecting clients to 
 the AP, have no internet on AP clients, or observe clients being disconnected from the AP for no apparent reason. 
