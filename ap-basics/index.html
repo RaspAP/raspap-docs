@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -540,6 +540,15 @@
   <a href="#maximum-number-of-clients" class="md-nav__link">
     <span class="md-ellipsis">
       Maximum number of clients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-user-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom user settings
     </span>
   </a>
   
@@ -1275,6 +1284,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#custom-user-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom user settings
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1479,6 +1497,19 @@ It is not necessary to restart the AP for this to take effect. </p>
 <p class="admonition-title">Note</p>
 <p>The default setting is 2007, but this is merely the value set by <code>hostapd</code> from the IEEE 802.11 specification. It should <em>not</em> be interpreted as a guarantee that RaspAP can support this many simultaneous clients. In practice, this number depends on several factors and is a much lower value, as discussed in <a href="../faq/#maxclients">this FAQ</a>.  </p>
 </div>
+<h3 id="custom-user-settings">Custom user settings</h3>
+<p>RaspAP gives you control over many common AP settings via the <strong>Hotspot &gt; Basic</strong>, <strong>Security</strong> and <strong>Advanced</strong> tabs. However, <code>hostapd</code> has lots of <a href="https://w1.fi/cgit/hostap/tree/hostapd/hostapd.conf">other options</a> that aren't exposed in the management UI. RaspAP gives advanced users the ability to define any number of available <code>hostapd</code> options by adding them to a custom configuration file.</p>
+<p>Begin by creating <code>/etc/hostapd/hostapd.conf.users</code> on your device's filesystem, then add your desired settings to this file. For example, to enable <code>hostapd</code>'s built-in support for MAC address filtering, you may add the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Accept/deny lists are read from separate files (containing list of
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a># MAC addresses, one per line).
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>accept_mac_file=/etc/hostapd.accept
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>deny_mac_file=/etc/hostapd.deny
+</span></code></pre></div>
+<p>Next, choose <strong>Hotspot &gt; Save settings</strong> to parse this file and append the custom settings to your <code>hostapd</code> configuration. Finally, choose <strong>Hotspot &gt; Restart hotspot</strong> for your changes to take effect.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Direct manipulation of advanced <code>hostapd</code> settings may lead to your AP failing to start and/or other unanticipated behavior. For this reason, it's advisable to enable service logging on the <strong>Hotspot &gt; Logging</strong> tab and monitor the log output for errors. </p>
+</div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. You may also encounter errors connecting clients to 
 the AP, have no internet on AP clients, or observe clients being disconnected from the AP for no apparent reason. </p>
@@ -1490,28 +1521,28 @@ the AP, have no internet on AP clients, or observe clients being disconnected fr
 <p>In some situations, you may need more comprehensive information to self-diagnose a problem. RaspAP lets you generate a debug log with a detailed summary of your system including the installed OS, Linux kernel version, attached USB devices, RaspAP settings, network configuration and current state of several AP-related services.</p>
 <p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad" style="width:480px" /></p>
 <p>To create this log, simply click or tap on the <strong>Generate debug log</strong> button from the <strong>System &gt; Tools</strong> tab. You will be prompted to choose a location to store the generated <code>raspap_debug.log</code> file on your local computer or mobile device. An example portion of RaspAP's debug log is shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>System Info
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>===========
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Hardware: Raspberry Pi 3 Model B Rev 1.2
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Detected OS: Debian GNU/Linux 12 (bookworm) 64-bit
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Kernel: Linux raspberrypi 6.1.0-rpi4-rpi-v8 (2023-10-05) aarch64 GNU/Linux
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>System Uptime: 4 days, 20 hours, 45 minutes
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Memory Usage: 29.0749%
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Installed Packages
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>==================
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>PHP Version: 8.2.7 (cli) (built: Jun  9 2023 19:37:27) (NTS)
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Dnsmasq Version: 2.89
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>dhcpcd Version: 9.4.1
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>lighttpd Version: 1.4.69
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>vnStat Version: 2.10
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>RaspAP Install
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>==============
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>RaspAP Version: 2.9.9
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>RaspAP Installation Directory: /var/www/html
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>RaspAP hostapd.ini contents:
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>WifiInterface = wlan0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>System Info
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>===========
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Hardware: Raspberry Pi 3 Model B Rev 1.2
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Detected OS: Debian GNU/Linux 12 (bookworm) 64-bit
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Kernel: Linux raspberrypi 6.1.0-rpi4-rpi-v8 (2023-10-05) aarch64 GNU/Linux
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>System Uptime: 4 days, 20 hours, 45 minutes
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Memory Usage: 29.0749%
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Installed Packages
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>==================
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>PHP Version: 8.2.7 (cli) (built: Jun  9 2023 19:37:27) (NTS)
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Dnsmasq Version: 2.89
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>dhcpcd Version: 9.4.1
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>lighttpd Version: 1.4.69
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>vnStat Version: 2.10
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>RaspAP Install
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>==============
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>RaspAP Version: 2.9.9
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>RaspAP Installation Directory: /var/www/html
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>RaspAP hostapd.ini contents:
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>WifiInterface = wlan0
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1563,7 +1594,7 @@ Install <code>colordiff</code> with <code>sudo apt-get install colordiff</code>.
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 25, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 27, 2024</span>
   </span>
 
     
@@ -1764,10 +1795,10 @@ Install <code>colordiff</code> with <code>sudo apt-get install colordiff</code>.
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.footer", "content.action.edit", "content.action.view", "search.suggest", "search.highlight", "search.share", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.footer", "content.action.edit", "content.action.view", "search.suggest", "search.highlight", "search.share", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>
