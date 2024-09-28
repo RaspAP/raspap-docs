@@ -158,7 +158,7 @@ accept_mac_file=/etc/hostapd.accept
 deny_mac_file=/etc/hostapd.deny
 ```
 
-Next, choose **Hotspot > Save settings** to parse this file and append the custom settings to your `hostapd` configuration. Finally, choose **Hotspot > Restart hotspot** for your changes to take effect.
+Next, choose **Hotspot > Save settings** to parse this file and append your custom settings to RaspAP's `hostapd` configuration. Finally, choose **Hotspot > Restart hotspot** for your changes to take effect.
 
 !!! tip "Tip"
     Direct manipulation of advanced `hostapd` settings may lead to your AP failing to start and/or other unanticipated behavior. For this reason, it's advisable to enable service logging on the **Hotspot > Logging** tab and monitor the log output for errors. 
