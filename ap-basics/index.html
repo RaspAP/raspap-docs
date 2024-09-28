@@ -1498,7 +1498,7 @@ It is not necessary to restart the AP for this to take effect. </p>
 <p>The default setting is 2007, but this is merely the value set by <code>hostapd</code> from the IEEE 802.11 specification. It should <em>not</em> be interpreted as a guarantee that RaspAP can support this many simultaneous clients. In practice, this number depends on several factors and is a much lower value, as discussed in <a href="../faq/#maxclients">this FAQ</a>.  </p>
 </div>
 <h3 id="custom-user-settings">Custom user settings</h3>
-<p>RaspAP gives you control over many common AP settings via the <strong>Hotspot &gt; Basic</strong>, <strong>Security</strong> and <strong>Advanced</strong> tabs. However, <code>hostapd</code> has lots of <a href="https://w1.fi/cgit/hostap/tree/hostapd/hostapd.conf">other options</a> that aren't exposed in the management UI. RaspAP gives advanced users the ability to define any number of available <code>hostapd</code> options by adding them to a custom configuration file.</p>
+<p>RaspAP gives you control over many common AP settings via the <strong>Hotspot &gt; Basic</strong>, <strong>Security</strong> and <strong>Advanced</strong> tabs. However, <code>hostapd</code> has lots of <a href="https://w1.fi/cgit/hostap/tree/hostapd/hostapd.conf">other options</a> that aren't exposed in the management UI. For this reason, RaspAP lets advanced users define any number of valid <code>hostapd</code> settings by adding them to a custom configuration file.</p>
 <p>Begin by creating <code>/etc/hostapd/hostapd.conf.users</code> on your device's filesystem, then add your desired settings to this file. For example, to enable <code>hostapd</code>'s built-in support for MAC address filtering, you may add the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Accept/deny lists are read from separate files (containing list of
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a># MAC addresses, one per line).
@@ -1594,7 +1594,7 @@ Install <code>colordiff</code> with <code>sudo apt-get install colordiff</code>.
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 27, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 28, 2024</span>
   </span>
 
     
