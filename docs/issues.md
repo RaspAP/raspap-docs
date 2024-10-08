@@ -22,7 +22,7 @@ You can help us improve this project by accurately describing defects. To that e
 5. Issues that becomes stale due to inactivity are automatically managed by stale-bot.
 
 ## Supported devices 
-RaspAP functions very well "out of the box" on fresh installs of the latest RPi OS Lite 32-bit distribution on recent hardware like the RPi 4, 3B+ and Zero W. The [version 2.3.1 release](https://github.com/RaspAP/raspap-webgui/releases/tag/2.3.1) extends beta support to additional Debian-based distros, including Armbian and Ubuntu Server. Please note that "supported" is [not a guarantee](index.md#compatible-operating-systems).
+RaspAP functions very well "out of the box" on fresh installs of the latest RPi OS Lite 64- or 32-bit distribution with recent hardware like the RPi 4, 3B+ and Zero 2 W. The [version 2.3.1 release](https://github.com/RaspAP/raspap-webgui/releases/tag/2.3.1) extends beta support to additional Debian-based distros, including Armbian and Ubuntu Server. Please note that "supported" is [not a guarantee](index.md#compatible-operating-systems).
 
 If you have installed other software packages on top of RaspAP, particularly those related to networking such as Pi-hole, please test RaspAP first on a clean install before reporting an issue. You may also use RaspAP's [Docker container](docker.md) to mitigate conflicts with other software packages.
 
