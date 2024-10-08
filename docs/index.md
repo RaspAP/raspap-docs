@@ -57,6 +57,7 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 |---|:---:|:---:|:---:|
 | Raspberry Pi OS | (64-bit) Lite Bookworm | ARM | Official |
 | Raspberry Pi OS | (32-bit) Lite Bookworm | ARM | Official |
+| Raspberry Pi OS | (64-bit) Desktop Bookworm | ARM | Official |
 | Raspberry Pi OS | (64-bit) Lite Bullseye | ARM | Official |
 | Raspberry Pi OS | (32-bit) Lite Bullseye | ARM | Official |
 | Armbian | 23.11  (Jammy) | [ARM](https://www.armbian.com/rpi4b/) | Beta |
@@ -67,7 +68,7 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 
 You are also encouraged to use RaspAP's community-led [Docker container](docker.md).
 
-Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
+Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project. Read [this FAQ](faq.md#distros) before installing RaspAP in a desktop environment.
 
 ## Get involved
 We welcome all users of RaspAP to contribute to the project. This can take the form of [issue reports](https://github.com/RaspAP/raspap-webgui/issues), [discussions](https://github.com/RaspAP/raspap-webgui/discussions), or [pull requests](https://github.com/RaspAP/raspap-webgui/pulls).
