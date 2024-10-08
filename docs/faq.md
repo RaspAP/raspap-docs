@@ -7,7 +7,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 
 ## General
 * [Is RaspAP a fork of OpenWRT or another router project?](#fork)
-* [Why isn't there support for Desktop distributions?](#distros)
+* [What is the scope of support for Desktop distributions?](#distros)
 * [What do all these settings in the UI do? Changing them seems to have no effect.](#settings)
 * [How do I prepare the SD card to connect to WiFi in headless mode?](#headless)
 * [Can I use wlan0 and wlan1 rather than eth0 for my AP?](#interfaces)
@@ -88,11 +88,12 @@ RaspAP is an independent router application designed for embeded systems and cre
 
 RaspAP is popularly used to provide a variety of networking and wireless routing services to other Linux projects and applications. Moreover, with [Docker support](docker.md) users are able to run RaspAP in an isolated container. This gives you much greater flexibility if you're hosting other Linux services and/or applications on your device.
 
-## <a name="distros"></a>Why isn't there support for Desktop distributions?
-A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. Since RaspAP does quite a bit of configuration on top of a known [default starting point](defaults.md), the more distros a project supports the bigger the task of handling these variations.
+## <a name="distros"></a>What is the scope of support for Desktop distributions?
+A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. While this project generally recommends non-desktop distros, such as Raspberry Pi OS Lite, it's understood that many users prefer using a desktop environment.
 
-It becomes increasingly difficult for a small team of developers to support a wide variety of targets. The RaspAP team could spend their precious and rare development time troubleshooting
-one-offs and edge cases, or work on new features and bug fixes. For this reason, we've chosen to include support for a narrow, but diverse, subset of [compatible operating systems](index.md#compatible-operating-systems). 
+For this reason, Raspberry Pi OS (64-bit) Desktop has undergone extensive testing and is subsequently [validated for use with this project](index.md#compatible-operating-systems) with _clean installs_ of the OS.
+
+Please be aware that "supported" [is not a guarantee](issues.md#supported-devices). That is, if you experience issues with RaspAP in your desktop environment, it's _your_ responsibility (not the maintainers of this project) to eliminate potential conflicts with other software that you've installed _after_ booting a fresh desktop OS. Before reporting a bug, you may use one of several [community support channels](issues.md#issue-policy) to help you determine the cause of your issue or find a potential workaround.
 
 ## <a name="settings"></a>What do all these settings in the UI do? Changing them seems to have no effect.
 RaspAP manipulates several daemons, services and helper programs behind the scenes for you. In the footer of each management panel is a helpful "Information provided by..." label. These indicate which Linux daemon and/or program is being modified by the UI. Learning what these services are and how they work will go a long way toward demystifying things.
