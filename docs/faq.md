@@ -6,7 +6,7 @@ FAQ items are organized into thematic sections, below, for easier reference.
 If you would like to see a new FAQ that you feel would assist other users, [start a discussion](https://github.com/RaspAP/raspap-webgui/discussions) or [open an issue](https://github.com/RaspAP/raspap-webgui-docs/issues).
 
 ## General
-* [Is RaspAP a fork of OpenWRT or another router project?](#fork)
+* [Is RaspAP a fork of OpenWrt or another router project?](#fork)
 * [What is the scope of support for Desktop distributions?](#distros)
 * [What do all these settings in the UI do? Changing them seems to have no effect.](#settings)
 * [How do I prepare the SD card to connect to WiFi in headless mode?](#headless)
@@ -83,8 +83,8 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I restore RaspAP's default settings?](#restore)
 * [How do I uninstall RaspAP?](#uninstall)
 
-## <a name="fork"></a>Is RaspAP a fork of OpenWRT or another router project?
-RaspAP is an independent router application designed for embeded systems and created by a [community of developers](https://github.com/RaspAP/raspap-webgui/graphs/contributors). By contrast, OpenWRT is an operating system built around the Linux kernel. While powerful, it's rather more difficult to tailor custom applications around OpenWRT. That is, users are generally limited to what is available in OpenWRT's package repository, unless they fork the project code and modify the OS.
+## <a name="fork"></a>Is RaspAP a fork of OpenWrt or another router project?
+RaspAP is an independent wireless router project designed for embedded systems and created by a [community of developers](https://github.com/RaspAP/raspap-webgui/graphs/contributors). By contrast, [OpenWrt](https://openwrt.org/) is an operating system built around the Linux kernel. While powerful, it's rather more difficult to tailor custom applications around OpenWrt. That is, users are generally limited to what is available in OpenWrt's package repository, unless they fork the project code and modify the OS.
 
 RaspAP is popularly used to provide a variety of networking and wireless routing services to other Linux projects and applications. Moreover, with [Docker support](docker.md) users are able to run RaspAP in an isolated container. This gives you much greater flexibility if you're hosting other Linux services and/or applications on your device.
 
@@ -543,7 +543,7 @@ interfaces = lo eth0
 Source: [openmediavault forums](https://forum.openmediavault.org/index.php?thread/39060-raspap-and-omv5-media-center-wifihotspot-with-ethernet/).
 
 ## <a name="speedify"></a>Can I use RaspAP to share Speedify's aggregated connections?
-Yes, RaspAP is compatibile with Speedify's connection bonding. In this scenario, you may want to combine several internet connections (for example, a DSL connection, 4G cellphone and an LTE router) and share these via RaspAP.
+Yes, RaspAP is compatible with Speedify's connection bonding. In this scenario, you may want to combine several internet connections (for example, a DSL connection, 4G cellphone and an LTE router) and share these via RaspAP.
 
 Begin by running Speedify's [one step install](https://support.speedify.com/article/562-install-speedify-linux), login with your credentials and connect Speedify. Next, [configure Speedify for WiFi sharing](https://support.speedify.com/article/566-speedify-linux-wifi)
 by editing the following file:
