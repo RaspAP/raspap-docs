@@ -63,5 +63,5 @@ This will restore the default admin login and password pair.
     RaspAP uses PHP's built-in `password_hash` function which leverages the Blowfish (`CRYPT_BLOWFISH`) algorithm. Blowfish is an adaptive hashing algorithm that is widely considered to be _very secure_.
 
 ## Discussions
-Questions or comments about RaspAP's defaults? Join the [discussions here](https://github.com/RaspAP/raspap-webgui/discussions/).
+Questions or comments about RaspAP's authentication? Join the [discussions here](https://github.com/RaspAP/raspap-webgui/discussions/).
 
