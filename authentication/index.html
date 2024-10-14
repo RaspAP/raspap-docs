@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../restapi/">
+        <link rel="prev" href="../ap-sta/">
       
       
-        <link rel="next" href="../ssl/">
+        <link rel="next" href="../bridged/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Speed testing - RaspAP Documentation</title>
+        <title>Authentication - RaspAP Documentation</title>
       
     
     
@@ -125,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#speed-testing" class="md-skip">
+        <a href="#authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -160,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Speed testing
+              Authentication
             
           </span>
         </div>
@@ -386,10 +386,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../authentication/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -398,6 +418,104 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-secure-is-basic-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      How secure is basic auth?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-httpstls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using HTTPS/TLS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-security-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best security practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limited-privilege-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited privilege user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-user-avatars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom user avatars
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoring-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restoring defaults
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -746,30 +864,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Speed testing
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../speedtest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,71 +876,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#raspaps-speedtest-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      RaspAP's speedtest server
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wifi-speed-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      WiFi speed test
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discussions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Discussions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -980,30 +1013,63 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-secure-is-basic-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      How secure is basic auth?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-httpstls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using HTTPS/TLS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#best-security-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting
+      Best security practices
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#raspaps-speedtest-server" class="md-nav__link">
+  <a href="#limited-privilege-user" class="md-nav__link">
     <span class="md-ellipsis">
-      RaspAP's speedtest server
+      Limited privilege user
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#wifi-speed-test" class="md-nav__link">
+  <a href="#custom-user-avatars" class="md-nav__link">
     <span class="md-ellipsis">
-      WiFi speed test
+      Custom user avatars
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoring-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restoring defaults
     </span>
   </a>
   
@@ -1033,7 +1099,7 @@
                   
 
   
-    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/speedtest.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/authentication.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1042,36 +1108,58 @@
     
       
     
-    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/speedtest.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/authentication.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="speed-testing">Speed testing</h1>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/228899043-4ddb0cee-687e-4e88-ba0d-e5883d821d72.jpg" style="width:640px" /></p>
+<h1 id="authentication">Authentication</h1>
 <h2 id="overview">Overview</h2>
-<p>An internet <strong>speed test</strong> measures the connection speed and quality of your connected device to a remote host. Many speed test services perform multiple consecutive tests that evaluate different aspects of your internet connection, including <strong>ping</strong> (latency), <strong>download</strong> and <strong>upload speed</strong>. A fourth metric, known as <strong>jitter</strong>, measures variation in the latency of a flow of packets between two systems. Jitter is said to occur when some packets take longer to travel from one system to the other. The most common causes of jitter are network congestion, timing drift and changes in packet routing.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>Speed tests can be useful in diagnosing many issues, such as a fault with a service provider or a misconfigured device on your network. The speed of your connection may also vary due to factors such as the time of day. This is especially true of places such as educational or work environments where many users may be sharing the same internet connection. Known as a <strong>contention ratio</strong>, this refers to how many other users are contending for their share of available bandwidth. The higher the contention the more likely you are to experience a slow connection at peak times.</p>
-<p>Periodic <a href="https://speedtest.raspap.com/">speed tests</a> can help you identify the best time of day to perform your tasks. They are also useful for sharing diagnostic results with an ISP or network engineer.</p>
-<h2 id="raspaps-speedtest-server">RaspAP's speedtest server</h2>
-<figure>
-<p><img alt="RaspAP Speedtest" src="https://user-images.githubusercontent.com/229399/228870882-99206d3f-a96d-487e-80a6-748fee9f2210.jpg" style="width:640px" />
- </p>
-<figcaption>RaspAP Speedtest - <a href="https://speedtest.raspap.com/" target="_blank">https://speedtest.raspap.com/</a></figcaption>
-</figure>
-<p>RaspAP provides a simple, fast and mobile-friendly <a href="https://speedtest.raspap.com/">public speedtest server</a> that evaluates your internet speed using the criteria mentioned above. In addition, it reports your public IP address, ISP and distance from the speedtest server. When the test is complete, you can share the results of your test with a generated image and a link to results.</p>
-<p>Importantly, and notably different from other services, RaspAP's Speedtest is completely <a href="https://github.com/RaspAP/speedtest">open source</a> and privacy focused &#151; meaning we do not share your data with third-parties or attempt to monetize results in any way.</p>
-<h2 id="wifi-speed-test">WiFi speed test</h2>
+<p>RaspAP's authentication module uses HTTP's built-in framework to limit access to authorized users. Known as the HTTP "Basic" scheme, when first accessing RaspAP on your device the server will respond with a <code>401</code> (unauthorized) status. Authentication is then handled with a response header that presents a login challenge in the browser.</p>
+<p>The default administrator login is:</p>
+<p><strong>Username:</strong> <code>admin</code><br />
+<strong>Password:</strong> <code>secret</code>  </p>
+<p>After performing the initial login, it's <em>strongly recommended</em> to change these default credentials. This is a first-line countermeasure against unauthorized users taking control of your wireless network.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The "Basic" HTTP authentication scheme is defined in <a href="https://datatracker.ietf.org/doc/html/rfc7617">RFC 7617</a>, which transmits credentials as user ID/password pairs, encoded using base64.</p>
+</div>
+<h3 id="how-secure-is-basic-auth">How secure is basic auth?</h3>
+<p>The HTTP Basic Authentication scheme is not considered to be secure on its own, especially over plain HTTP. This is because it sends the username and password in an easily decodable Base64-encoded format. Without an additional encryption layer, credentials are sent over the network in plain text. This makes it highly vulnerable to interception by attackers via man-in-the-middle (MITM) attacks or by packet sniffing. </p>
+<h3 id="using-httpstls">Using HTTPS/TLS</h3>
+<p>Basic Authentication can be used securely if transmitted over HTTPS, which encrypts the entire communication channel. For this reason, RaspAP has simplified the process of creating <a href="../ssl/">locally-trusted SSL certificates</a> with the <a href="../ssl/#quick-installer">Quick installer</a>. When HTTPS/TLS is enabled with a RaspAP install, this authentication process is significantly more secure. </p>
+<h2 id="best-security-practices">Best security practices</h2>
+<p>In most scenarios, a potential attacker can only access RaspAP's admin login prompt if they are already associated with your wireless access point. To mitigate this, change the default <code>raspap-webgui</code> SSID and generate a strong pre-shared key (PSK) or passphrase.</p>
+<p><img alt="" src="https://github.com/user-attachments/assets/416d32fc-0163-40d9-9e7f-c4d256d3f715" style="width:480px" /></p>
+<p>RaspAP will automatically generate a secure passphrase, or PSK, for you. On the <strong>Hotspot &gt; Security</strong> tab, click or tap the magic icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg></span> next to the PSK input. Choose <strong>Save settings</strong> followed by <strong>Restart hotspot</strong>. Thereafter, you may share RaspAP's QR code with your wireless clients.</p>
+<div class="admonition tip tip">
+<p class="admonition-title">Tip</p>
+<p>Given RaspAP's popularity, assume that both the default admin login credentials <em>and</em> the default access point SSID and password are well known to third-parties. Failure to change these default settings is an invitation to attackers.</p>
+</div>
+<h2 id="limited-privilege-user">Limited privilege user</h2>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
-<p>A tool to evaluate your local WiFi network's performance is available on the <strong>Networking &gt; Diagnostics</strong> tab. This permits testing of both local WiFi network throughput (that is, data transferred between the device hosting RaspAP and your wireless clients) and internet speed (data transfer between wireless clients and a remote host). A WiFi speed test is a useful diagnostic tool to determine if connectivity issues are due to your ISP, your wireless connection or an issue with the device hosting your AP.</p>
-<video src="https://user-images.githubusercontent.com/229399/214792331-4656d482-7c4d-4ca9-853d-2d1718ddf62d.mov" controls="controls" muted="muted"></video>
-
-<p>The WiFi speed test uses a local speedtest instance hosted by your RaspAP installation. The test is performed on a device connected to RaspAP's wireless <a href="../ap-basics/">access point</a>. The remote host is RaspAP's public <a href="https://speedtest.raspap.com/">speedtest server</a> located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.</p>
+<p>The administrator may enable a user that is able to access RaspAP's management interface, but is limited in their ability to modify the existing configuration. In this case, the limited privilege user may configure a wireless client connection on the <strong>WiFi client</strong> page, but is unable to change any other settings. </p>
+<p><img alt="" src="https://github.com/user-attachments/assets/7adbee61-b3e1-4bbb-856f-b90e5b54cd0a" style="width:480px" /></p>
+<p>This is useful in any multi-user environment where the admin user may want to initially configure a wireless router, and then delegate client connection duties to other users of the network.</p>
+<p>To enable the limited privilege user, slide the corresponding toggle on the <strong>Basic</strong> tab and choose <strong>Save settings</strong>. The current admin user will be prompted to logout. Thereafter, the limited privilege user will be active. To disable the limited privilege user, simply login with the administrator account again.</p>
+<h2 id="custom-user-avatars">Custom user avatars</h2>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
+<p>The default administrator user icon may be replaced with a custom one of your choosing. From the <strong>Avatar</strong> tab, click or tap on the existing avatar to upload a new one. The new custom avatar will be displayed in RaspAP's header.</p>
+<p><img alt="" src="https://github.com/user-attachments/assets/ff7f1974-4411-4113-8130-f7ad4d9d9411" style="width:480px" /></p>
+<p>Image files of type <code>.jpg</code>, <code>.gif</code> or <code>.png</code> up to a maximum of 2 MB are supported. To restore the avatar to the default, choose <strong>Reset avatar</strong>.</p>
+<h2 id="restoring-defaults">Restoring defaults</h2>
+<p>Login credentials are stored in <code>/etc/raspap/raspap.auth</code>. The password is encrypted and cannot be edited manually. If you've forgotten your admin login or wish to temporarily reset the defaults, you may do so by simply deleting this file:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo rm /etc/raspap/raspap.auth
+</span></code></pre></div>
+<p>This will restore the default admin login and password pair.</p>
+<div class="admonition note note">
+<p class="admonition-title">Note</p>
+<p>RaspAP uses PHP's built-in <code>password_hash</code> function which leverages the Blowfish (<code>CRYPT_BLOWFISH</code>) algorithm. Blowfish is an adaptive hashing algorithm that is widely considered to be <em>very secure</em>.</p>
+</div>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about RaspAP's speed test? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about RaspAP's defaults? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussions here</a>.</p>
 
 
 
@@ -1092,7 +1180,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2024</span>
   </span>
 
     
@@ -1195,7 +1283,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../restapi/" class="md-footer__link md-footer__link--prev" aria-label="Previous: RestAPI">
+          <a href="../ap-sta/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AP-STA mode">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1205,20 +1293,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                RestAPI
+                AP-STA mode
               </div>
             </div>
           </a>
         
         
           
-          <a href="../ssl/" class="md-footer__link md-footer__link--next" aria-label="Next: SSL certificates">
+          <a href="../bridged/" class="md-footer__link md-footer__link--next" aria-label="Next: Bridged AP mode">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                SSL certificates
+                Bridged AP mode
               </div>
             </div>
             <div class="md-footer__button md-icon">
