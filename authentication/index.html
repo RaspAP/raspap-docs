@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -453,15 +453,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#using-httpstls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using HTTPS/TLS
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -474,12 +465,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Best security practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-httpstls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using HTTPS/TLS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-strong-passphrase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a strong passphrase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-point-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access point settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#limited-privilege-user" class="md-nav__link">
+  <a href="#limited-privilege-user-role" class="md-nav__link">
     <span class="md-ellipsis">
-      Limited privilege user
+      Limited privilege user role
     </span>
   </a>
   
@@ -1025,15 +1049,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#using-httpstls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using HTTPS/TLS
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1046,12 +1061,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Best security practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-httpstls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using HTTPS/TLS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-strong-passphrase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a strong passphrase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-point-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access point settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#limited-privilege-user" class="md-nav__link">
+  <a href="#limited-privilege-user-role" class="md-nav__link">
     <span class="md-ellipsis">
-      Limited privilege user
+      Limited privilege user role
     </span>
   </a>
   
@@ -1118,32 +1166,36 @@
 <h1 id="authentication">Authentication</h1>
 <h2 id="overview">Overview</h2>
 <p>RaspAP's authentication module uses HTTP's built-in framework to limit access to authorized users. Known as the HTTP "Basic" scheme, when first accessing RaspAP on your device the server will respond with a <code>401</code> (unauthorized) status. Authentication is then handled with a response header that presents a login challenge in the browser.</p>
-<p>The default administrator login is:</p>
+<p>The default administrator credentials are:</p>
 <p><strong>Username:</strong> <code>admin</code><br />
 <strong>Password:</strong> <code>secret</code>  </p>
-<p>After performing the initial login, it's <em>strongly recommended</em> to change these default credentials. This is a first-line countermeasure against unauthorized users taking control of your wireless network.</p>
+<p>After performing the initial login, it is <em>strongly recommended</em> to change these default credentials on the <strong>Authentication &gt; Basic</strong> tab. This is a first-line defense against unauthorized users taking control of your wireless network.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The "Basic" HTTP authentication scheme is defined in <a href="https://datatracker.ietf.org/doc/html/rfc7617">RFC 7617</a>, which transmits credentials as user ID/password pairs, encoded using base64.</p>
 </div>
 <h3 id="how-secure-is-basic-auth">How secure is basic auth?</h3>
 <p>The HTTP Basic Authentication scheme is not considered to be secure on its own, especially over plain HTTP. This is because it sends the username and password in an easily decodable Base64-encoded format. Without an additional encryption layer, credentials are sent over the network in plain text. This makes it highly vulnerable to interception by attackers via man-in-the-middle (MITM) attacks or by packet sniffing. </p>
+<h2 id="best-security-practices">Best security practices</h2>
+<p>The overall security of your RaspAP install can be greatly enhanced by applying some rudimentary changes to it. Taken together, these have the effect of hardening your router against potential external threats.</p>
 <h3 id="using-httpstls">Using HTTPS/TLS</h3>
 <p>Basic Authentication can be used securely if transmitted over HTTPS, which encrypts the entire communication channel. For this reason, RaspAP has simplified the process of creating <a href="../ssl/">locally-trusted SSL certificates</a> with the <a href="../ssl/#quick-installer">Quick installer</a>. When HTTPS/TLS is enabled with a RaspAP install, this authentication process is significantly more secure. </p>
-<h2 id="best-security-practices">Best security practices</h2>
-<p>In most scenarios, a potential attacker can only access RaspAP's admin login prompt if they are already associated with your wireless access point. To mitigate this, change the default <code>raspap-webgui</code> SSID and generate a strong pre-shared key (PSK) or passphrase.</p>
+<h3 id="using-a-strong-passphrase">Using a strong passphrase</h3>
+<p>In most scenarios, a potential attacker can only access RaspAP's admin login prompt if they are already associated with your wireless access point. To mitigate this, change the default <code>raspap-webgui</code> SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:</p>
 <p><img alt="" src="https://github.com/user-attachments/assets/416d32fc-0163-40d9-9e7f-c4d256d3f715" style="width:480px" /></p>
-<p>RaspAP will automatically generate a secure passphrase, or PSK, for you. On the <strong>Hotspot &gt; Security</strong> tab, click or tap the magic icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg></span> next to the PSK input. Choose <strong>Save settings</strong> followed by <strong>Restart hotspot</strong>. Thereafter, you may share RaspAP's QR code with your wireless clients.</p>
+<p>On the <strong>Hotspot &gt; Security</strong> tab, click or tap the magic icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg></span> next to the PSK input. Choose <strong>Save settings</strong> followed by <strong>Restart hotspot</strong>. Thereafter, you may share RaspAP's QR code with your wireless clients to assist them with authentication.</p>
 <div class="admonition tip tip">
 <p class="admonition-title">Tip</p>
 <p>Given RaspAP's popularity, assume that both the default admin login credentials <em>and</em> the default access point SSID and password are well known to third-parties. Failure to change these default settings is an invitation to attackers.</p>
 </div>
-<h2 id="limited-privilege-user">Limited privilege user</h2>
+<h3 id="access-point-settings">Access point settings</h3>
+<p>RaspAP enables Wi-Fi Protected Access 2 (WPA2) as the default security type for the access point. This includes support for AES-based encryption and a multi-step 4-way handshake. For greater security, the newer <a href="../ap-basics/#wpa3-personal">WPA3 standard</a> increases the key length to 192 bits (compared with the 128-bit key used by WPA2), further improving the password defense strength.</p>
+<h2 id="limited-privilege-user-role">Limited privilege user role</h2>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
-<p>The administrator may enable a user that is able to access RaspAP's management interface, but is limited in their ability to modify the existing configuration. In this case, the limited privilege user may configure a wireless client connection on the <strong>WiFi client</strong> page, but is unable to change any other settings. </p>
-<p><img alt="" src="https://github.com/user-attachments/assets/7adbee61-b3e1-4bbb-856f-b90e5b54cd0a" style="width:480px" /></p>
-<p>This is useful in any multi-user environment where the admin user may want to initially configure a wireless router, and then delegate client connection duties to other users of the network.</p>
-<p>To enable the limited privilege user, slide the corresponding toggle on the <strong>Basic</strong> tab and choose <strong>Save settings</strong>. The current admin user will be prompted to logout. Thereafter, the limited privilege user will be active. To disable the limited privilege user, simply login with the administrator account again.</p>
+<p>The administrator may enable a user who is able to access RaspAP's management interface, but is restricted in their ability to modify the existing configuration. In this case, the limited privilege user may configure a wireless client connection on the <strong>WiFi client</strong> page, but is unable to change any other settings. </p>
+<p>This is useful in a multi-user environment where the admin user may want to initially configure a wireless router, and then delegate client connection duties to other users of the network.</p>
+<p><img alt="" src="https://github.com/user-attachments/assets/afe63740-5e1b-4b64-a325-b282fdfbecd2" style="width:480px" /></p>
+<p>To enable the limited privilege user, slide the corresponding toggle on the <strong>Basic</strong> tab, enter the limited privilege user's login and password and choose <strong>Save settings</strong>. The current admin user will be prompted to logout. Thereafter, the limited privilege user role will be active. The limited user may then login with the credentials you've defined. To disable the limited privilege user role, simply login with the administrator account again.</p>
 <h2 id="custom-user-avatars">Custom user avatars</h2>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
 <p>The default administrator user icon may be replaced with a custom one of your choosing. From the <strong>Avatar</strong> tab, click or tap on the existing avatar to upload a new one. The new custom avatar will be displayed in RaspAP's header.</p>
@@ -1156,7 +1208,7 @@
 <p>This will restore the default admin login and password pair.</p>
 <div class="admonition note note">
 <p class="admonition-title">Note</p>
-<p>RaspAP uses PHP's built-in <code>password_hash</code> function which leverages the Blowfish (<code>CRYPT_BLOWFISH</code>) algorithm. Blowfish is an adaptive hashing algorithm that is widely considered to be <em>very secure</em>.</p>
+<p>RaspAP uses PHP's built-in <code>password_hash</code> function which leverages the Blowfish (<code>CRYPT_BLOWFISH</code>) algorithm. Blowfish is an adaptive hashing algorithm that is widely considered to be very secure.</p>
 </div>
 <h2 id="discussions">Discussions</h2>
 <p>Questions or comments about RaspAP's authentication? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussions here</a>.</p>
@@ -1180,7 +1232,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 20, 2024</span>
   </span>
 
     
@@ -1384,7 +1436,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.footer", "content.action.edit", "content.action.view", "search.suggest", "search.highlight", "search.share", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
