@@ -9,7 +9,9 @@ RaspAP is feature-rich wireless router software that _just works_ on many popula
 Our popular [Quick installer](quick.md) and [Docker container](docker.md) create a known-good default configuration in minutes on all current Raspberry Pis with onboard wireless.
 
 ## Quick start
-Start with a clean install of the [latest release of Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported. The Raspberry Pi OS Desktop distro is currently [unsupported](faq.md#distros).
+Start with a clean install of the [latest release of Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported, as well as the latest 64-bit Desktop distribution. Consult [this FAQ](faq.md#distros) before installing RaspAP in a desktop environment.
+
+
 
 !!! tip "Tip"
     Be sure to use an official power supply with your device. Power supply requirements [differ by Raspberry Pi model](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply). Inadequate voltage is the source of many WiFi issues.
@@ -41,10 +43,10 @@ After the reboot at the end of the installation the wireless AP network will be 
   **SSID:** `raspi-webgui`  
   **Password:** ChangeMe  
 
-It's strongly recommended that you begin by changing the default admin [authentication](authentication.md) settings. Thereafter, your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.md#advanced-options) are now ready to be modified by RaspAP.
+It's _strongly recommended_ that your first post-install action is to change the default admin [authentication](authentication.md) settings. Thereafter, your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.md#advanced-options) are now ready to be modified by RaspAP.
 
 !!! tip "Tip"
-    If this is _not_ a clean install or you are configuring a device with a non-standard [integration](faq.md#integrations) it's strongly recommended to follow the [manual installation](manual.md) instructions or deploy RaspAP in a [Docker container](https://github.com/RaspAP/raspap-docker).
+    If this is _not_ a clean install or you are configuring a device with a non-standard [integration](faq.md#integrations) try following the [manual installation](manual.md) instructions or deploy RaspAP in a [Docker container](docker.md).
 
 ## Get Insiders
 RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](insiders.md#how-to-become-a-sponsor)
@@ -68,7 +70,7 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 
 You are also encouraged to use RaspAP's community-led [Docker container](docker.md).
 
-Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project. Read [this FAQ](faq.md#distros) before installing RaspAP in a desktop environment.
+Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
 ## Get involved
 We welcome all users of RaspAP to contribute to the project. This can take the form of [issue reports](https://github.com/RaspAP/raspap-webgui/issues), [discussions](https://github.com/RaspAP/raspap-webgui/discussions), or [pull requests](https://github.com/RaspAP/raspap-webgui/pulls).
