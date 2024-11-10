@@ -1209,11 +1209,11 @@
 
 <h1 id="custom-user-plugins">Custom user plugins</h1>
 <h2 id="overview">Overview</h2>
-<p>RaspAP's <code>PluginManager</code> provides a framework for developers to create custom plugins to extend the application's functionality. To facilitate this, the <code>SamplePlugin</code> <a href="https://github.com/RaspAP/SamplePlugin">repository</a> exists to give developers an entry point into creating their own plugins. Getting started with the <code>SamplePlugin</code> is described in the following sections.</p>
+<p>RaspAP's <code>PluginManager</code> provides a framework for developers to create custom plugins to extend its functionality. To facilitate this, the <code>SamplePlugin</code> <a href="https://github.com/RaspAP/SamplePlugin">repository</a> exists to give developers an entry point into creating their own plugins. Getting started with the <code>SamplePlugin</code> is described in the following sections.</p>
 <h2 id="the-sampleplugin">The SamplePlugin</h2>
 <p>The <code>SamplePlugin</code> implements a <code>PluginInterface</code> and is automatically loaded by RaspAP's <code>PluginManager</code>. </p>
 <p><img alt="sample-plugin" src="https://github.com/user-attachments/assets/5a6ecf40-2b14-4502-8b63-5e85f9ade6f6" style="width:420px" /></p>
-<p>Several common plugin functions are demonstrated in <code>SamplePlugin</code>, as well as a method for persisting session data in plugin instances. Each plugin has its own namespace, meaning that classes and functions are organized to avoid naming conflicts. Plugins are self-contained and render their own templates from inside the <code>/templates</code> directory.</p>
+<p>Several common plugin functions are demonstrated in <code>SamplePlugin</code>, as well as a method for persisting session data in plugin instances. Each plugin has its own namespace, meaning that classes and functions are organized to avoid naming conflicts. Plugins are self-contained and render templates from inside their own <code>/templates</code> directory.</p>
 <h2 id="getting-started">Getting started</h2>
 <p>The <code>SamplePlugin</code> requires an installation of RaspAP, either via the <a href="../quick/">Quick install</a> method or with a <a href="../docker/">Docker container</a>. The default application path <code>/var/www/html</code> is used here. If you've chosen a different install location, substitute this in the steps below.</p>
 <ol>
