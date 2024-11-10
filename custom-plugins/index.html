@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../docker/">
+        <link rel="prev" href="../captive/">
       
       
-        <link rel="next" href="../faq/">
+        <link rel="next" href="../defaults/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Dynamic DNS - RaspAP Documentation</title>
+        <title>Custom user plugins - RaspAP Documentation</title>
       
     
     
@@ -125,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dynamic-dns" class="md-skip">
+        <a href="#custom-user-plugins" class="md-skip">
           Skip to content
         </a>
       
@@ -160,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dynamic DNS
+              Custom user plugins
             
           </span>
         </div>
@@ -446,10 +446,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../custom-plugins/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Custom user plugins
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -458,6 +478,140 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sampleplugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      The SamplePlugin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-of-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scope of functionality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customizing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unique-plugin-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unique plugin names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-logic-and-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plugin logic and templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sidebar-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidebar item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple instances
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-your-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publishing your plugin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -506,30 +660,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Dynamic DNS
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../dynamicdns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -538,164 +672,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solution
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic settings
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#service-provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      Service provider
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#method-to-obtain-ip" class="md-nav__link">
-    <span class="md-ellipsis">
-      Method to obtain IP
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#login-and-domain" class="md-nav__link">
-    <span class="md-ellipsis">
-      Login and domain
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Advanced settings
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#enable-ssl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enable SSL
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#daemon-check-interval" class="md-nav__link">
-    <span class="md-ellipsis">
-      Daemon check interval
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#port-forwarding" class="md-nav__link">
-    <span class="md-ellipsis">
-      Port forwarding
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demilitarized-zone" class="md-nav__link">
-    <span class="md-ellipsis">
-      Demilitarized zone
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discussions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Discussions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1096,55 +1072,73 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
+  <a href="#the-sampleplugin" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution
+      The SamplePlugin
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation
+      Getting started
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-settings" class="md-nav__link">
+  <a href="#scope-of-functionality" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic settings
+      Scope of functionality
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Basic settings">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customizing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#service-provider" class="md-nav__link">
+  <a href="#unique-plugin-names" class="md-nav__link">
     <span class="md-ellipsis">
-      Service provider
+      Unique plugin names
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#method-to-obtain-ip" class="md-nav__link">
+  <a href="#plugin-logic-and-templates" class="md-nav__link">
     <span class="md-ellipsis">
-      Method to obtain IP
+      Plugin logic and templates
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#login-and-domain" class="md-nav__link">
+  <a href="#sidebar-item" class="md-nav__link">
     <span class="md-ellipsis">
-      Login and domain
+      Sidebar item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions
     </span>
   </a>
   
@@ -1156,60 +1150,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-settings" class="md-nav__link">
+  <a href="#multiple-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Advanced settings
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#enable-ssl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enable SSL
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#daemon-check-interval" class="md-nav__link">
-    <span class="md-ellipsis">
-      Daemon check interval
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
+      Multiple instances
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#port-forwarding" class="md-nav__link">
+  <a href="#publishing-your-plugin" class="md-nav__link">
     <span class="md-ellipsis">
-      Port forwarding
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demilitarized-zone" class="md-nav__link">
-    <span class="md-ellipsis">
-      Demilitarized zone
+      Publishing your plugin
     </span>
   </a>
   
@@ -1239,7 +1191,7 @@
                   
 
   
-    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/dynamicdns.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/custom-plugins.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1248,86 +1200,122 @@
     
       
     
-    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/dynamicdns.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/custom-plugins.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="dynamic-dns">Dynamic DNS</h1>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234251356-9d4aeae6-32b3-4b48-92ac-314dc30e993d.jpg" style="width:640px" /></p>
+<h1 id="custom-user-plugins">Custom user plugins</h1>
 <h2 id="overview">Overview</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
-<p>Accessing your device from anywhere in your local network is great, but there are times when you might want it to be reachable from remote locations. This is particularly true for projects such as media servers, network attached storage (NAS) and VPNs such as those provided by RaspAP. However, due to the <a href="https://en.wikipedia.org/wiki/IPv4_address_exhaustion">shortage of IPv4 addresses</a>, it's likely that you will receive a new and different external IP address from your ISP each time your router is rebooted.</p>
-<p>Some ISPs offer a static external IP address, although often at an additional cost above a basic subscription. This is where using a <strong>Dynamic DNS</strong> (or <strong>DDNS</strong>) service on your home network can be extremely useful. </p>
-<h2 id="solution">Solution</h2>
-<p>Dynamic DNS solves this problem by providing a domain name that always points to the current IP address of your device, regardless of how often it changes. With DDNS, the IP assigned to your domain name is automatically updated by a piece of software (known as a <em>daemon</em>) running on your device. This means that you can access the server using the same domain name, without having to constantly update settings each time the IP address changes.</p>
-<p>The daemon running on your device resolves your external IP address using one of several methods, then reports this to your DDNS provider. There are a number of different providers that offer Dynamics DNS free of charge. If you currently own a custom domain name, chances are your registrar provides DDNS or has a partner to support this.</p>
-<h2 id="installation">Installation</h2>
-<p>The <a href="../quick/">Quick installer</a> will give you the option to add the required packages to your system, and enable the configuration page in RaspAP. Simply press <span class="keys"><kbd class="key-enter">Enter</kbd></span> at the prompt to accept the default "Y" (yes) response:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Install ddclient and enable DDNS configuration? [Y/n]:
-</span></code></pre></div>
-<p>When the installer completes, you will be able to administer the <code>ddclient</code> service as described in the sections below.</p>
-<h2 id="basic-settings">Basic settings</h2>
-<p>All the configuration settings needed to enable Dynamic DNS on your device are available on the <strong>Basic settings</strong> tab. These are described in the next section.</p>
-<h3 id="service-provider">Service provider</h3>
-<p>RaspAP makes use of the proven <strong><a href="https://github.com/ddclient/ddclient">ddclient</a></strong> open source software for Linux to update dynamic DNS entries. The <code>ddclient</code> software is highly configurable and provides a daemon that updates your external IP at scheduled intervals. Many popular <a href="https://github.com/ddclient/ddclient#supported-services">Dynamic DNS services</a> are supported by <code>ddclient</code> and RaspAP. </p>
-<p>Instructions on how to setup your domain for DDNS vary by provider, but the process is generally similar. Begin by selecting a <strong>Service provider</strong> from the dropdown. RaspAP will assist you by automatically populating the <strong>Protocol</strong> and <strong>Server</strong> fields. You may also manually configure the details for your service if so desired.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234258065-cc75df63-5e39-4cfd-ba1b-ed533b3982d6.png" style="width:520px" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Some DDNS providers, such as NoIP, distribute their own Linux client to use with their service. It isn't necessary to install this software because the <code>ddclient</code> daemon already includes this functionality.</p>
-</div>
-<h3 id="method-to-obtain-ip">Method to obtain IP</h3>
-<p>There are a variety of different methods to determine your external IP address. A popular one involves a discovery page on the web that resolves your IP. If you choose this method, enter it in the <strong>Web address</strong> field after selecting this option from the <strong>Method to obtain IP</strong> select.</p>
+<p>RaspAP's <code>PluginManager</code> provides a framework for developers to create custom plugins to extend the application's functionality. To facilitate this, the <code>SamplePlugin</code> <a href="https://github.com/RaspAP/SamplePlugin">repository</a> exists to give developers an entry point into creating their own plugins. Getting started with the <code>SamplePlugin</code> is described in the following sections.</p>
+<h2 id="the-sampleplugin">The SamplePlugin</h2>
+<p>The <code>SamplePlugin</code> implements a <code>PluginInterface</code> and is automatically loaded by RaspAP's <code>PluginManager</code>. </p>
+<p><img alt="sample-plugin" src="https://github.com/user-attachments/assets/5a6ecf40-2b14-4502-8b63-5e85f9ade6f6" style="width:420px" /></p>
+<p>Several common plugin functions are demonstrated in <code>SamplePlugin</code>, as well as a method for persisting session data in plugin instances. Each plugin has its own namespace, meaning that classes and functions are organized to avoid naming conflicts. Plugins are self-contained and render their own templates from inside the <code>/templates</code> directory.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>The <code>SamplePlugin</code> requires an installation of RaspAP, either via the <a href="../quick/">Quick install</a> method or with a <a href="../docker/">Docker container</a>. The default application path <code>/var/www/html</code> is used here. If you've chosen a different install location, substitute this in the steps below.</p>
+<ol>
+<li>Begin by creating a fork of the <a href="https://github.com/RaspAP/SamplePlugin">SamplePlugin repository</a>.</li>
+<li>SSH into the device hosting RaspAP, change to the install location and create a <code>/plugins</code> directory.
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cd /var/www/html
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo mkdir plugins
+</span></code></pre></div></li>
+<li>Change to the <code>/plugins</code> directory and clone your <code>SamplePlugin</code> fork:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd plugins
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo git clone https://github.com/[your-username]/SamplePlugin
+</span></code></pre></div></li>
+<li>The <code>PluginManager</code> will autoload the plugin. A <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32m192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32M32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2C297 398 352 333.4 352 256v-32c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/></svg></span> Sample Plugin</strong> item will appear in the sidebar.</li>
+<li>Proceed with customizing the plugin by using the tips in the next sections.</li>
+</ol>
+<h2 id="scope-of-functionality">Scope of functionality</h2>
+<p>The <code>SamplePlugin</code> implements the server-side methods needed to support basic plugin functionality. It initalizes a <code>Sidebar</code> object and adds a custom navigation item. User input is processed with <code>handlePageAction()</code> and several common operations are performed, including:</p>
+<ol>
+<li>Saving plugin settings</li>
+<li>Starting a sample service</li>
+<li>Stopping a sample service</li>
+</ol>
+<p>Template data is then collected in <code>$__template_data</code> and rendered by the <code>main.php</code> template file located in <code>/templates</code>. Property get/set methods are demonstrated with <code>apiKey</code> and <code>serviceStatus</code> values. A method is then used in <code>persistData()</code> to save the <code>SamplePlugin</code> object data.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>There are many freely available external IP discovery pages you can use. Examples include <a href="http://ip.changeip.com/">ChangeIP</a> and this one from <a href="https://dynamicdns.park-your-domain.com/getip">Namecheap</a>. Each of these pages perform the same basic function.</p>
+<p>Importantly, <code>SamplePlugin</code> does <em>not</em> use the PHP <code>$_SESSION</code> object as this super global can lead to conflicts with other user plugins.</p>
 </div>
-<p>Alternatively, you may want to use an IP address from a network interface, your router's firewall status page, or an external command. Each of these options can be specified, thereby giving you a great deal of flexibility.  </p>
-<h3 id="login-and-domain">Login and domain</h3>
-<p>Enter your DDNS service credentials in the <strong>Username</strong> and <strong>Password</strong> fields. Finally, specify the <strong>Domain</strong> to be updated that will be associated with your device. DDNS providers may also refer to this as a "zone" or "host". These definitions may take several forms, for example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>myhost.dyndns.org
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mydomain.com
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>@.mydomain.com
+<p>On the front-end, Bootstrap's <a href="https://getbootstrap.com/docs/5.3/forms/validation/">form validation</a> is used to validate user input. A custom JavaScript function is used to generate a random <code>apiKey</code> value. The <code>sample.service</code> LED indicator is functional, as are the service stop/start form buttons.</p>
+<h2 id="customizing">Customizing</h2>
+<p>The <code>SamplePlugin</code> demonstrates basic plugin functions without being overly complex. It's designed with best practices in mind and made to be easily modified by developers.</p>
+<h3 id="unique-plugin-names">Unique plugin names</h3>
+<p>Most plugin authors will probably begin by renaming <code>SamplePlugin</code> to something unique. The <code>PluginManager</code> expects the plugin folder, file, namespace and class to follow the same naming convention. When renaming the <code>SamplePlugin</code> ensure that each of the following entities uses the same plugin name:</p>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugins/SamplePlugin</code></td>
+<td>folder</td>
+</tr>
+<tr>
+<td><code>plugins/SamplePlugin/SamplePlugin.php</code></td>
+<td>file</td>
+</tr>
+<tr>
+<td><code>namespace RaspAP\Plugins\SamplePlugin</code></td>
+<td>namespace</td>
+</tr>
+<tr>
+<td><code>class SamplePlugin implements PluginInterface</code></td>
+<td>class</td>
+</tr>
+</tbody>
+</table>
+<p>That is, replace each occurrence of <code>SamplePlugin</code> with your plugin name in these entities.</p>
+<h3 id="plugin-logic-and-templates">Plugin logic and templates</h3>
+<p>Plugin classes and functions are contained in <code>SamplePlugin.php</code>. The parent template <code>main.php</code> and child tab templates are used to render template data. </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>├── SamplePlugin/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│   ├── SamplePlugin.php
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   └── templates/
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│       ├── main.php
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│       └── tabs/
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│           ├── about.php
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│           ├── basic.php
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│           └── status.php
 </span></code></pre></div>
-<p>Check with your DDNS service provider to determine which entry is best for your configuration. To complete your setup, choose <strong>Save settings</strong> now or proceed with advanced options.</p>
-<h2 id="advanced-settings">Advanced settings</h2>
-<p>A subset of advanced options are provided for your configuration. These are not required for the DDNS service to be functional, but may be adjusted to suit your needs.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png" style="width:520px" /></p>
-<h3 id="enable-ssl">Enable SSL</h3>
-<p>You may wish to <strong>Enable SSL</strong> to ensure that your credentials are not sent over the internet unencrypted. Not all providers support this, however, so this option is disabled by default. Enabling this option for a non-SSL supported provider may result in a connection timeout. Errors such as these <a href="https://github.com/ddclient/ddclient/issues/309">have been reported</a>: </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>WARNING:  cannot connect to checkip.dyndns.org:443 socket: Connection timed out SSL connect attempt failed
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>WARNING:  found neither IPv4 nor IPv6 address
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>DEBUG:    get_ip: using web, http://checkip.dyndns.org/ reports &lt;undefined&gt;
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>WARNING:  unable to determine IP address
+<p>You may wish to omit, modify or create new tabs. This is done by editing <code>main.php</code> and modifying the contents of the <code>/tabs</code> directory.</p>
+<h3 id="sidebar-item">Sidebar item</h3>
+<p>The <code>PluginInterface</code> exposes an <code>initalize()</code> method that is used to create a unique sidebar item. The properties below can be customized for your plugin:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$label = _(&#39;Sample Plugin&#39;);
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$icon = &#39;fas fa-plug&#39;;
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>$action = &#39;plugin__&#39;.$this-&gt;getName();
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>$priority = 65;
 </span></code></pre></div>
-<p>For this reason, it's recommended to check with your DDNS service provider before enabling this.</p>
-<h3 id="daemon-check-interval">Daemon check interval</h3>
-<p>Finally, you may define the <strong>Daemon check interval</strong> to control the length of time between updates performed by <code>ddclient</code> in the background. This value is specified in milliseconds and defaults to 300.</p>
-<p>When you've completed your configuration, choose <strong>Save settings</strong> and <strong>Start Dynamic DNS</strong>.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>Behind the scenes, the <code>ddclient</code> daemon will determine your external IP using the method you've defined and send this to your DDNS provider. Your provider will then update the IP address corresponding to the DNS "A" (or "address") record for your domain.</p>
-<p>If your DDNS provider fails to report your current IP address, or you suspect there might be a problem with the <code>ddclient</code> configuration on your device, you may generate a detailed debug log.</p>
-<p>From the <strong>Logging</strong> tab, use the <strong>Generate log</strong> button to invoke the <code>ddclient</code> daemon and output a troubleshooting log: </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234276204-5d3e2640-7166-47ec-ac3c-6a4034be8060.png" style="width:520px" /></p>
-<p>This will provide a verbose output of everything <code>ddclient</code> is doing. If it ends with a <code>SUCCESS</code> message this indicates that the daemon successfully checked and updated the DNS "A" record with your provider, if neccessary. An example of this is shown below: </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>RECEIVE:  140.82.121.3
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>DEBUG:    get_ip: using web
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> dynamicdns.park-your-domain.com/getip reports 140.82.121.3
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>SUCCESS:  @.mydomain.com: skipped: IP address was already set to 140.82.121.3.
+<p>You may specify any icon in the <a href="https://fontawesome.com/icons">Font Awesome 6.6 free library</a> for the sidebar item. The priority value sets the position of the item in the sidebar (lower values = a higher priority).</p>
+<h3 id="permissions">Permissions</h3>
+<p>For security reasons, the <code>www-data</code> user which the <code>lighttpd</code> web service runs under is not allowed to start or stop daemons or execute commands. RaspAP's installer adds the <code>www-data</code> user to <a href="https://www.sudo.ws/about/intro/">sudoers</a>, but with restrictions on what commands the user can run. If your plugin requires execute permissions on a Linux binary not present in RaspAP's <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers">sudoers file</a>, you will need to add this yourself. To edit this file, the <code>visudo</code> command should be used. This tool safely edits <code>sudoers</code> and performs basic validity checks before installing the edited file.</p>
+<p>Execute <code>visudo</code> and edit RaspAP's sudoers file like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo visudo /etc/sudoers.d/090_raspap
 </span></code></pre></div>
-<p>If the daemon doesn’t reply with <code>SUCCESS</code>, the debug output should give you some clues as to what the problem is.</p>
-<h2 id="port-forwarding">Port forwarding</h2>
-<p>If <code>ddclient</code> has successfully updated your DDNS provider's "A" record with your IP address, but you are unable to access your device remotely, it's likely your router needs to be configured for <strong>port forwarding</strong>. This instructs the router to send, or forward, data packets from the external WAN interface to the internal IP address belonging to your device.</p>
-<p>You can enable this by using your router's port mapping/forwarding setup. This procedure allows remote computers to connect to a specific device within your internal LAN's private address space. Specifics are highly dependent on the router you have, although the steps are generally straightforward. Consult your router's documentation for details.</p>
-<h2 id="demilitarized-zone">Demilitarized zone</h2>
-<p>An alternative to forwarding specific ports to an internal IP is using a <strong>demilitarized zone</strong> (DMZ). A home router DMZ is a host on an internal network that has all UDP and TCP ports open and exposed, except those ports otherwise forwarded. By using this method, all the ports (and services) of your device will be directly accessible from the internet, with the attendant security risks that this implies.</p>
-<p>This setup is often desirable when a host is running multiple public-facing services that need to be accessed over the internet. In this context, a DMZ provides greater isolation and granular control than is possible with port forwarding. It's also possible to configure different security policies for various DMZ segments. For these reasons, a properly configured DMZ can be a <em>more secure</em> way to expose services to the internet than port forwarding. </p>
-<p>The specifics of creating a DMZ are beyond the scope of this document, although at minimum a <a href="../firewall/">firewall</a> is strongly advised. </p>
+<p>An example of adding entries to support a plugin's service is shown below:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>www-data ALL=(ALL) NOPASSWD:/bin/systemctl start sample.service
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>www-data ALL=(ALL) NOPASSWD:/bin/systemctl stop sample.service
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>www-data ALL=(ALL) NOPASSWD:/bin/systemctl status sample.service
+</span></code></pre></div>
+<p>Wildcards ('<code>*</code>') and regular expressions are supported by <code>sudoers</code> but <a href="https://www.sudo.ws/posts/2022/03/sudo-1.9.10-using-regular-expressions-in-the-sudoers-file/">care should be taken when using them</a>.</p>
+<h2 id="multiple-instances">Multiple instances</h2>
+<p>The <code>PluginManager</code> is a managerial class responsible for locating, instantiating and coordinating plugins. Through the use of namespaces and object data persistence in <code>SamplePlugin</code>, any number of user plugins may be installed to <code>/plugins</code> and run concurrently.</p>
+<p><img alt="multiple-plugins" src="https://github.com/user-attachments/assets/2d156efe-8cfc-49e7-b682-219d2db4eeee" style="width:640px" /></p>
+<p>As previously noted, developers should avoid using PHP's <code>$_SESSION</code> object in their plugins to prevent conflicts with other plugin instances. An alternative method for session data storage is provided in the <code>SamplePlug</code> <code>persistData()</code> function. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>persistData()</code> function writes serialized data to the volatile <code>/tmp</code> directory which is cleared on each system boot. For this reason, it should not be used as a permanent method of data persistence. However, this functionality roughly approximates PHP's <code>$_SESSION</code> object; the difference being that each plugin's data is isolated from other plugin instances.</p>
+</div>
+<h2 id="publishing-your-plugin">Publishing your plugin</h2>
+<p>The <code>SamplePlugin</code> contains an "About" tab where you may provide author information, a description and link to your project. If you've authored a plugin you feel would be useful to the RaspAP community, you're encouraged to share it in the <code>SamplePlugin</code> repo's <a href="https://github.com/RaspAP/SamplePlugin/discussions">Discussions</a>. </p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using Dynamic DNS? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about creating user plugins? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
 
 
 
@@ -1348,7 +1336,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 10, 2024</span>
   </span>
 
     
@@ -1451,7 +1439,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker support">
+          <a href="../captive/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Captive portal setup">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1461,20 +1449,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Docker support
+                Captive portal setup
               </div>
             </div>
           </a>
         
         
           
-          <a href="../faq/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQ">
+          <a href="../defaults/" class="md-footer__link md-footer__link--next" aria-label="Next: Default settings">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                FAQ
+                Default settings
               </div>
             </div>
             <div class="md-footer__button md-icon">
