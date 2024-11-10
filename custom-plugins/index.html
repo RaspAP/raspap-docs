@@ -1218,7 +1218,7 @@
 <p>The <code>SamplePlugin</code> requires an installation of RaspAP, either via the <a href="../quick/">Quick install</a> method or with a <a href="../docker/">Docker container</a>. The default application path <code>/var/www/html</code> is used here. If you've chosen a different install location, substitute this in the steps below.</p>
 <ol>
 <li>Begin by creating a fork of the <a href="https://github.com/RaspAP/SamplePlugin">SamplePlugin repository</a>.</li>
-<li>SSH into the device hosting RaspAP, change to the install location and create a <code>/plugins</code> directory.
+<li>Change to your RaspAP install location and create a <code>/plugins</code> directory.
    <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cd /var/www/html
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo mkdir plugins
 </span></code></pre></div></li>
@@ -1226,20 +1226,20 @@
    <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd plugins
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo git clone https://github.com/[your-username]/SamplePlugin
 </span></code></pre></div></li>
-<li>The <code>PluginManager</code> will autoload the plugin. A <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32m192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32M32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2C297 398 352 333.4 352 256v-32c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/></svg></span> Sample Plugin</strong> item will appear in the sidebar.</li>
-<li>Proceed with customizing the plugin by using the tips in the next sections.</li>
+<li>The <code>PluginManager</code> will detect and autoload the plugin. A <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32m192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32M32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2C297 398 352 333.4 352 256v-32c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/></svg></span> Sample Plugin</strong> item will appear in the sidebar.</li>
+<li>Proceed with customizing your plugin by using the tips in the next sections.</li>
 </ol>
 <h2 id="scope-of-functionality">Scope of functionality</h2>
 <p>The <code>SamplePlugin</code> implements the server-side methods needed to support basic plugin functionality. It initalizes a <code>Sidebar</code> object and adds a custom navigation item. User input is processed with <code>handlePageAction()</code> and several common operations are performed, including:</p>
 <ol>
-<li>Saving plugin settings</li>
-<li>Starting a sample service</li>
-<li>Stopping a sample service</li>
+<li>Saving plugin settings.</li>
+<li>Starting a sample service.</li>
+<li>Stopping a sample service.</li>
 </ol>
 <p>Template data is then collected in <code>$__template_data</code> and rendered by the <code>main.php</code> template file located in <code>/templates</code>. Property get/set methods are demonstrated with <code>apiKey</code> and <code>serviceStatus</code> values. A method is then used in <code>persistData()</code> to save the <code>SamplePlugin</code> object data.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Importantly, <code>SamplePlugin</code> does <em>not</em> use the PHP <code>$_SESSION</code> object as this super global can lead to conflicts with other user plugins.</p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Importantly, <code>SamplePlugin</code> does <em>not</em> use the PHP <code>$_SESSION</code> object. Known as a "superglobal", or automatic global variable, this is available in all scopes throughout a script. Using the <code>$_SESSION</code> object in a plugin context can lead to conflicts with other plugin instances.</p>
 </div>
 <p>On the front-end, Bootstrap's <a href="https://getbootstrap.com/docs/5.3/forms/validation/">form validation</a> is used to validate user input. A custom JavaScript function is used to generate a random <code>apiKey</code> value. The <code>sample.service</code> LED indicator is functional, as are the service stop/start form buttons.</p>
 <h2 id="customizing">Customizing</h2>
@@ -1307,13 +1307,13 @@
 <h2 id="multiple-instances">Multiple instances</h2>
 <p>The <code>PluginManager</code> is a managerial class responsible for locating, instantiating and coordinating plugins. Through the use of namespaces and object data persistence in <code>SamplePlugin</code>, any number of user plugins may be installed to <code>/plugins</code> and run concurrently.</p>
 <p><img alt="multiple-plugins" src="https://github.com/user-attachments/assets/2d156efe-8cfc-49e7-b682-219d2db4eeee" style="width:640px" /></p>
-<p>As previously noted, developers should avoid using PHP's <code>$_SESSION</code> object in their plugins to prevent conflicts with other plugin instances. An alternative method for session data storage is provided in the <code>SamplePlug</code> <code>persistData()</code> function. </p>
+<p>As previously noted, developers should avoid using PHP's <code>$_SESSION</code> object in their plugins to prevent conflicts with other plugin instances. An alternative method for session data storage is provided in the <code>SamplePlugin</code> <code>persistData()</code> function. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>persistData()</code> function writes serialized data to the volatile <code>/tmp</code> directory which is cleared on each system boot. For this reason, it should not be used as a permanent method of data persistence. However, this functionality roughly approximates PHP's <code>$_SESSION</code> object; the difference being that each plugin's data is isolated from other plugin instances.</p>
 </div>
 <h2 id="publishing-your-plugin">Publishing your plugin</h2>
-<p>The <code>SamplePlugin</code> contains an "About" tab where you may provide author information, a description and link to your project. If you've authored a plugin you feel would be useful to the RaspAP community, you're encouraged to share it in the <code>SamplePlugin</code> repo's <a href="https://github.com/RaspAP/SamplePlugin/discussions">Discussions</a>. </p>
+<p>The <code>SamplePlugin</code> contains an "About" tab where you may provide author information, a description and link to your project. If you've authored a plugin you feel would be useful to the RaspAP community, you're encouraged to share it in the <code>SamplePlugin</code> repository's <a href="https://github.com/RaspAP/SamplePlugin/discussions">discussions</a>. </p>
 <h2 id="discussions">Discussions</h2>
 <p>Questions or comments about creating user plugins? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
 
