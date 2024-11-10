@@ -1,7 +1,7 @@
 # Custom user plugins
 
 ## Overview
-RaspAP's `PluginManager` provides a framework for developers to create custom plugins to extend the application's functionality. To facilitate this, the `SamplePlugin` [repository](https://github.com/RaspAP/SamplePlugin) exists to give developers an entry point into creating their own plugins. Getting started with the `SamplePlugin` is described in the following sections.
+RaspAP's `PluginManager` provides a framework for developers to create custom plugins to extend its functionality. To facilitate this, the `SamplePlugin` [repository](https://github.com/RaspAP/SamplePlugin) exists to give developers an entry point into creating their own plugins. Getting started with the `SamplePlugin` is described in the following sections.
 
 ## The SamplePlugin
 The `SamplePlugin` implements a `PluginInterface` and is automatically loaded by RaspAP's `PluginManager`. 
@@ -9,7 +9,7 @@ The `SamplePlugin` implements a `PluginInterface` and is automatically loaded by
 ![sample-plugin](https://github.com/user-attachments/assets/5a6ecf40-2b14-4502-8b63-5e85f9ade6f6){: style="width:420px"}
 
 
-Several common plugin functions are demonstrated in `SamplePlugin`, as well as a method for persisting session data in plugin instances. Each plugin has its own namespace, meaning that classes and functions are organized to avoid naming conflicts. Plugins are self-contained and render their own templates from inside the `/templates` directory.
+Several common plugin functions are demonstrated in `SamplePlugin`, as well as a method for persisting session data in plugin instances. Each plugin has its own namespace, meaning that classes and functions are organized to avoid naming conflicts. Plugins are self-contained and render templates from inside their own `/templates` directory.
 
 ## Getting started
 The `SamplePlugin` requires an installation of RaspAP, either via the [Quick install](quick.md) method or with a [Docker container](docker.md). The default application path `/var/www/html` is used here. If you've chosen a different install location, substitute this in the steps below.
