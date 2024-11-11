@@ -1209,7 +1209,7 @@
 
 <h1 id="custom-user-plugins">Custom user plugins</h1>
 <h2 id="overview">Overview</h2>
-<p>RaspAP's <code>PluginManager</code> provides a framework for developers to create custom plugins to extend its functionality. To facilitate this, the <code>SamplePlugin</code> <a href="https://github.com/RaspAP/SamplePlugin">repository</a> exists to give developers an entry point into creating their own plugins. Getting started with the <code>SamplePlugin</code> is described in the following sections.</p>
+<p>The <code>PluginManager</code> provides a framework for developers to create custom plugins to extend RaspAP's functionality. To facilitate this, the <code>SamplePlugin</code> <a href="https://github.com/RaspAP/SamplePlugin">repository</a> was created to make it easy for developers to get started creating their own plugins. Using the <code>SamplePlugin</code> is described in the following sections.</p>
 <h2 id="the-sampleplugin">The SamplePlugin</h2>
 <p>The <code>SamplePlugin</code> implements a <code>PluginInterface</code> and is automatically loaded by RaspAP's <code>PluginManager</code>. </p>
 <p><img alt="sample-plugin" src="https://github.com/user-attachments/assets/5a6ecf40-2b14-4502-8b63-5e85f9ade6f6" style="width:420px" /></p>
@@ -1226,7 +1226,7 @@
    <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd plugins
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo git clone https://github.com/[your-username]/SamplePlugin
 </span></code></pre></div></li>
-<li>The <code>PluginManager</code> will detect and autoload the plugin. A <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32m192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32M32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2C297 398 352 333.4 352 256v-32c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/></svg></span> Sample Plugin</strong> item will appear in the sidebar.</li>
+<li>The <code>PluginManager</code> will detect and autoload the plugin; a new <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32m192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32M32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2C297 398 352 333.4 352 256v-32c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/></svg></span> Sample Plugin</strong> item will appear in the sidebar.</li>
 <li>Proceed with customizing your plugin by using the tips in the next sections.</li>
 </ol>
 <h2 id="scope-of-functionality">Scope of functionality</h2>
@@ -1310,7 +1310,7 @@
 <p>As previously noted, developers should avoid using PHP's <code>$_SESSION</code> object in their plugins to prevent conflicts with other plugin instances. An alternative method for session data storage is provided in the <code>SamplePlugin</code> <code>persistData()</code> function. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code>persistData()</code> function writes serialized data to the volatile <code>/tmp</code> directory which is cleared on each system boot. For this reason, it should not be used as a permanent method of data persistence. However, this functionality roughly approximates PHP's <code>$_SESSION</code> object; the difference being that each plugin's data is isolated from other plugin instances.</p>
+<p>The <code>persistData()</code> function writes serialized data to the volatile <code>/tmp</code> directory which is cleared on each system boot. For this reason, it should not be used as a method of permanent data storage. However, this functionality roughly approximates PHP's <code>$_SESSION</code> object; the difference being that each plugin's data is isolated from other plugin instances.</p>
 </div>
 <h2 id="publishing-your-plugin">Publishing your plugin</h2>
 <p>The <code>SamplePlugin</code> contains an "About" tab where you may provide author information, a description and link to your project. If you've authored a plugin you feel would be useful to the RaspAP community, you're encouraged to share it in the <code>SamplePlugin</code> repository's <a href="https://github.com/RaspAP/SamplePlugin/discussions">discussions</a>. </p>
@@ -1336,7 +1336,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 10, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2024</span>
   </span>
 
     
