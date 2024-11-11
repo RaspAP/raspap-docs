@@ -1,7 +1,7 @@
 # Custom user plugins
 
 ## Overview
-RaspAP's `PluginManager` provides a framework for developers to create custom plugins to extend its functionality. To facilitate this, the `SamplePlugin` [repository](https://github.com/RaspAP/SamplePlugin) exists to give developers an entry point into creating their own plugins. Getting started with the `SamplePlugin` is described in the following sections.
+The `PluginManager` provides a framework for developers to create custom plugins to extend RaspAP's functionality. To facilitate this, the `SamplePlugin` [repository](https://github.com/RaspAP/SamplePlugin) was created to make it easy for developers to get started creating their own plugins. Using the `SamplePlugin` is described in the following sections.
 
 ## The SamplePlugin
 The `SamplePlugin` implements a `PluginInterface` and is automatically loaded by RaspAP's `PluginManager`. 
@@ -25,7 +25,7 @@ The `SamplePlugin` requires an installation of RaspAP, either via the [Quick ins
    cd plugins
    sudo git clone https://github.com/[your-username]/SamplePlugin
    ```
-4. The `PluginManager` will detect and autoload the plugin. A **:fontawesome-solid-plug: Sample Plugin** item will appear in the sidebar.
+4. The `PluginManager` will detect and autoload the plugin; a new **:fontawesome-solid-plug: Sample Plugin** item will appear in the sidebar.
 5. Proceed with customizing your plugin by using the tips in the next sections.
 
 ## Scope of functionality
@@ -113,7 +113,7 @@ The `PluginManager` is a managerial class responsible for locating, instantiatin
 As previously noted, developers should avoid using PHP's `$_SESSION` object in their plugins to prevent conflicts with other plugin instances. An alternative method for session data storage is provided in the `SamplePlugin` `persistData()` function. 
 
 !!! note "Note"
-    The `persistData()` function writes serialized data to the volatile `/tmp` directory which is cleared on each system boot. For this reason, it should not be used as a permanent method of data persistence. However, this functionality roughly approximates PHP's `$_SESSION` object; the difference being that each plugin's data is isolated from other plugin instances.
+    The `persistData()` function writes serialized data to the volatile `/tmp` directory which is cleared on each system boot. For this reason, it should not be used as a method of permanent data storage. However, this functionality roughly approximates PHP's `$_SESSION` object; the difference being that each plugin's data is isolated from other plugin instances.
 
 
 ## Publishing your plugin
