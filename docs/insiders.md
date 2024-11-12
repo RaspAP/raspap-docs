@@ -36,7 +36,7 @@ The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immedi
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](authentication.md#custom-user-avatars)  
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](ap-basics.md#wifi-repeater-mode)  
-:octicons-check-circle-fill-24:{: .check } [Time synchronization](time.md)  
+:octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user role](authentication.md#limited-privilege-user-role)  
 
 A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
@@ -77,7 +77,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](authentication.md#custom-user-avatars)  
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](repeater.md#alternate-routing-method)  
-:octicons-check-circle-fill-24:{: .check } [Time synchronization](time.md)  
+:octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](authentication.md#limited-privilege-user)  
 
 ### Completed goals
