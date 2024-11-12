@@ -1,6 +1,6 @@
 # RestAPI
 
-![restapi](https://github.com/RaspAP/raspap-webgui/assets/229399/bb47bf20-bce2-45c3-a00e-d990c5622fdd){: style="width:640px"}
+![restful-api](https://github.com/user-attachments/assets/51b6ae1b-5cbf-4552-ad30-210cc68f854b){: style="width:640px"}
 
 ## Overview
 :octicons-beaker-24: Experimental 

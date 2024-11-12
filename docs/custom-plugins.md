@@ -1,5 +1,7 @@
 # Custom user plugins
 
+![user-plugins](https://github.com/user-attachments/assets/4319b667-f73f-4803-8407-f1b825a9e10c){: style="width:640px"}
+
 ## Overview
 The `PluginManager` provides a framework for developers to create custom plugins to extend RaspAP's functionality. To facilitate this, the `SamplePlugin` [repository](https://github.com/RaspAP/SamplePlugin) was created to make it easy for developers to get started creating their own plugins. Using the `SamplePlugin` is described in the following sections.
 

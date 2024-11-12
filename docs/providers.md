@@ -1,6 +1,6 @@
 # VPN Providers
 
-![](https://github.com/RaspAP/raspap-webgui/assets/229399/e43f8e80-7e89-4a61-bbbe-63ad54922f14){: style="width:640px"}
+![vpn-providers](https://github.com/user-attachments/assets/ab600145-e2af-46da-85c9-d35d5b1df018){: style="width:640px"}
 
 ## Overview
 :octicons-beaker-24: Experimental 

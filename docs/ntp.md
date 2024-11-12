@@ -1,6 +1,6 @@
-# Time synchronization
+# NTP Service
 
-![time synchronization](https://github.com/RaspAP/raspap-webgui/assets/229399/a5a4dbdd-7f9a-4866-9b5e-9b2c43a5082d){: style="width:640px"}
+![ntp-service](https://github.com/user-attachments/assets/b5aef638-e615-481f-995c-ef886b966765){: style="width:640px"}
 
 ## Overview
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)

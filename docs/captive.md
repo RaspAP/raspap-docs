@@ -1,7 +1,5 @@
 # Captive portal setup
 
-![nodogsplash](https://user-images.githubusercontent.com/229399/163764673-bd9f5553-e8cb-43f0-ae1f-55ddb41404f1.png){: style="width:150px"}
-
 ## Overview
 The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) is a lightweight, highly configurable captive portal solution. It integrates nicely with RaspAP and is recommended over other methods. No configuration changes are needed with RaspAP, however you will need to modify some default settings in the nodogsplash config. This step-by-step guide assumes you have already installed RaspAP, either with the [Quick Installer](quick.md) or [manual setup instructions](manual.md). 
 

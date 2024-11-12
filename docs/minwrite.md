@@ -1,6 +1,6 @@
 # Minimal SD card write
 
-![](https://user-images.githubusercontent.com/229399/227795437-42d9c102-c05e-4eea-88cc-3c9e81de44ad.jpg){: style="width:640px"}
+![minwrite](https://github.com/user-attachments/assets/c17886a9-5aa6-49f4-a0e9-8b14a333a749){: style="width:640px"}
 
 ## Overview
 Linux, and indeed most substantial operating systems, is frequently writing logs files, cache files and temporary data to disk (or the microSD card with the Raspberry Pi). Performing a shutdown puts these files away into a known valid state. If power is unexpectedly cut to a Raspberry Pi, these unwritten system files can become corrupted and render a card unbootable.

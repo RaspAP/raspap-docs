@@ -1,6 +1,6 @@
 # SSL certificates
 
-![](https://user-images.githubusercontent.com/229399/229061188-ada5687c-6ef3-410a-8750-3ea54ae83632.jpg){: style="width:640px"}
+![ssl-certificates](https://github.com/user-attachments/assets/b7dd2965-8b2e-408a-ac97-f205b913fbe2){: style="width:640px"}
 
 ## Overview
 HTTPS prevents network attackers from observing or injecting page contents. This is desirable for server applications like RaspAP &#151; or indeed any locally hosted web application. But HTTPS requires [TLS certificates](https://en.wikipedia.org/wiki/Transport_Layer_Security), and while deploying public websites is largely a solved issue thanks to the ACME protocol and Let's Encrypt, local web servers still mostly use HTTP because no one can get a universally valid certificate for localhost.

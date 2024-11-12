@@ -1,6 +1,6 @@
 # Dynamic DNS
 
-![](https://user-images.githubusercontent.com/229399/234251356-9d4aeae6-32b3-4b48-92ac-314dc30e993d.jpg){: style="width:640px"}
+![dynamic-dns](https://github.com/user-attachments/assets/ac4fa7b4-a485-4696-9a25-238cd896cdc8){: style="width:640px"}
 
 ## Overview
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
