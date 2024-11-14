@@ -28,7 +28,8 @@ The `SamplePlugin` requires an installation of RaspAP, either via the [Quick ins
    sudo git clone https://github.com/[your-username]/SamplePlugin
    ```
 4. The `PluginManager` will detect and autoload the plugin; a new **:fontawesome-solid-plug: Sample Plugin** item will appear in the sidebar.
-5. Proceed with customizing your plugin by using the tips in the next sections.
+
+You may now proceed with customizing your plugin by using the tips in the next sections.
 
 ## Scope of functionality
 The `SamplePlugin` implements the server-side methods needed to support basic plugin functionality. It initalizes a `Sidebar` object and adds a custom navigation item. User input is processed with `handlePageAction()` and several common operations are performed, including:
@@ -42,7 +43,7 @@ Template data is then collected in `$__template_data` and rendered by the `main.
 !!! warning "Caution"
     Importantly, `SamplePlugin` does _not_ use the PHP `$_SESSION` object. Known as a "superglobal", or automatic global variable, this is available in all scopes throughout a script. Using the `$_SESSION` object in a plugin context can lead to conflicts with other plugin instances.
 
-On the front-end, Bootstrap's [form validation](https://getbootstrap.com/docs/5.3/forms/validation/) is used to validate user input. A custom JavaScript function is used to generate a random `apiKey` value. The `sample.service` LED indicator is functional, as are the service stop/start form buttons.
+On the front-end, Bootstrap's [form validation](https://getbootstrap.com/docs/5.3/forms/validation/) is used to validate user input. A custom JavaScript function responds to a click event to generate a random `apiKey` value. The `sample.service` LED indicator is functional, as are the service stop/start form buttons.
 
 ## Customizing
 The `SamplePlugin` demonstrates basic plugin functions without being overly complex. It's designed with best practices in mind and made to be easily modified by developers.
