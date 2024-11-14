@@ -1211,7 +1211,7 @@
 </span></code></pre></div>
 <p>Proceed with the Quick installer and accept the default <span class="keys"><kbd class="key-y">Y</kbd></span> prompt to reboot your system as a final step.</p>
 <h2 id="configuration">Configuration</h2>
-<p>Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's <strong>&nbsp;<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M464 256a208 208 0 1 1-416 0 208 208 0 1 1 416 0M0 256a256 256 0 1 0 512 0 256 256 0 1 0-512 0m232-136v136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24"/></svg></span> NTP Server</strong> administration page. Basic <strong>Settings</strong> as well as <strong>Advanced</strong> controls are available on their respective tabs. The <strong>Status</strong> tab will display the operational state of connected peers by using the <code>ntpq</code> query tool. These status queries are <a href="time.md#peer-status-queries">examined in detail</a> to assist you with interpreting them.</p>
+<p>Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's <strong>&nbsp;<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M464 256a208 208 0 1 1-416 0 208 208 0 1 1 416 0M0 256a256 256 0 1 0 512 0 256 256 0 1 0-512 0m232-136v136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24"/></svg></span> NTP Server</strong> administration page. Basic <strong>Settings</strong> as well as <strong>Advanced</strong> controls are available on their respective tabs. The <strong>Status</strong> tab will display the operational state of connected peers by using the <code>ntpq</code> query tool. These status queries are <a href="./#peer-status-queries">examined in detail</a> to assist you with interpreting them.</p>
 <h3 id="standalone-device">Standalone device</h3>
 <p>In a standalone configuration, a single device will be automatically kept in sync by communicating with remote NTP servers tied to high quality clocks. As long as the <code>ntpd.service</code> is running (enabled on boot by default), the protocol will largely handle the time syncronization for you with its default settings. This of course assumes the device has internet connectivity.</p>
 <p>The <strong>NTP Server &gt; Settings</strong> tab will report the current system time synchronized from its remote NTP server peers.</p>
@@ -1326,8 +1326,8 @@
 <p>On the other hand, the kernel may occasionally report NTP clock errors like the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>raspberrypi ntpd[1279]: kernel reports TIME_ERROR: 0x2041: Clock Unsynchronized&quot;
 </span></code></pre></div>
-<p>The NTP system calls shown above may also return a <code>code 5 (ERROR)</code> result. In most cases, this will resolve itself in a few minutes while the system clock is synchronized. Persistent errors may indicate a misconfiguration of the NTP protocol or a general networking problem. Refer to the <a href="time.md#firewall-settings">firewall settings</a>, above.</p>
-<p>Detailed metrics from <a href="time.md#peer-status-queries">peer status queries</a> are also useful for troubleshooting purposes. </p>
+<p>The NTP system calls shown above may also return a <code>code 5 (ERROR)</code> result. In most cases, this will resolve itself in a few minutes while the system clock is synchronized. Persistent errors may indicate a misconfiguration of the NTP protocol or a general networking problem. Refer to the <a href="./#firewall-settings">firewall settings</a>, above.</p>
+<p>Detailed metrics from <a href="./#peer-status-queries">peer status queries</a> are also useful for troubleshooting purposes. </p>
 <p>Finally, ensure that no other time synchronization application is in use, such as <code>timesyncd</code> or any third party software.</p>
 <h2 id="discussions">Discussions</h2>
 <p>Questions or comments about time synchronization with NTP? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
@@ -1351,7 +1351,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2024</span>
   </span>
 
     
