@@ -35,7 +35,7 @@ Enabling NTP server management option
 Proceed with the Quick installer and accept the default ++y++ prompt to reboot your system as a final step.
 
 ## Configuration
-Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational state of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](time.md#peer-status-queries) to assist you with interpreting them.
+Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational state of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](ntp.md#peer-status-queries) to assist you with interpreting them.
 
 ### Standalone device
 In a standalone configuration, a single device will be automatically kept in sync by communicating with remote NTP servers tied to high quality clocks. As long as the `ntpd.service` is running (enabled on boot by default), the protocol will largely handle the time syncronization for you with its default settings. This of course assumes the device has internet connectivity.
@@ -136,9 +136,9 @@ On the other hand, the kernel may occasionally report NTP clock errors like the 
 raspberrypi ntpd[1279]: kernel reports TIME_ERROR: 0x2041: Clock Unsynchronized"
 ```
 
-The NTP system calls shown above may also return a `code 5 (ERROR)` result. In most cases, this will resolve itself in a few minutes while the system clock is synchronized. Persistent errors may indicate a misconfiguration of the NTP protocol or a general networking problem. Refer to the [firewall settings](time.md#firewall-settings), above.
+The NTP system calls shown above may also return a `code 5 (ERROR)` result. In most cases, this will resolve itself in a few minutes while the system clock is synchronized. Persistent errors may indicate a misconfiguration of the NTP protocol or a general networking problem. Refer to the [firewall settings](ntp.md#firewall-settings), above.
 
-Detailed metrics from [peer status queries](time.md#peer-status-queries) are also useful for troubleshooting purposes. 
+Detailed metrics from [peer status queries](ntp.md#peer-status-queries) are also useful for troubleshooting purposes. 
 
 Finally, ensure that no other time synchronization application is in use, such as `timesyncd` or any third party software.
 
