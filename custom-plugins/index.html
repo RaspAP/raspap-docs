@@ -1228,8 +1228,8 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo git clone https://github.com/[your-username]/SamplePlugin
 </span></code></pre></div></li>
 <li>The <code>PluginManager</code> will detect and autoload the plugin; a new <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32m192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32M32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2C297 398 352 333.4 352 256v-32c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/></svg></span> Sample Plugin</strong> item will appear in the sidebar.</li>
-<li>Proceed with customizing your plugin by using the tips in the next sections.</li>
 </ol>
+<p>You may now proceed with customizing your plugin by using the tips in the next sections.</p>
 <h2 id="scope-of-functionality">Scope of functionality</h2>
 <p>The <code>SamplePlugin</code> implements the server-side methods needed to support basic plugin functionality. It initalizes a <code>Sidebar</code> object and adds a custom navigation item. User input is processed with <code>handlePageAction()</code> and several common operations are performed, including:</p>
 <ol>
@@ -1242,7 +1242,7 @@
 <p class="admonition-title">Caution</p>
 <p>Importantly, <code>SamplePlugin</code> does <em>not</em> use the PHP <code>$_SESSION</code> object. Known as a "superglobal", or automatic global variable, this is available in all scopes throughout a script. Using the <code>$_SESSION</code> object in a plugin context can lead to conflicts with other plugin instances.</p>
 </div>
-<p>On the front-end, Bootstrap's <a href="https://getbootstrap.com/docs/5.3/forms/validation/">form validation</a> is used to validate user input. A custom JavaScript function is used to generate a random <code>apiKey</code> value. The <code>sample.service</code> LED indicator is functional, as are the service stop/start form buttons.</p>
+<p>On the front-end, Bootstrap's <a href="https://getbootstrap.com/docs/5.3/forms/validation/">form validation</a> is used to validate user input. A custom JavaScript function responds to a click event to generate a random <code>apiKey</code> value. The <code>sample.service</code> LED indicator is functional, as are the service stop/start form buttons.</p>
 <h2 id="customizing">Customizing</h2>
 <p>The <code>SamplePlugin</code> demonstrates basic plugin functions without being overly complex. It's designed with best practices in mind and made to be easily modified by developers.</p>
 <h3 id="unique-plugin-names">Unique plugin names</h3>
@@ -1337,7 +1337,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2024</span>
   </span>
 
     
