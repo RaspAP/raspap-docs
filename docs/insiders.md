@@ -41,7 +41,7 @@ The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immedi
 
 A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
 
-Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-twitter:{: .twitter } Twitter](https://twitter.com/rasp_ap/) to stay updated. 
+Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-square-x-twitter:](https://x.com/rasp_ap/) to stay updated.
 
 ## How to become a sponsor
 Thanks for your interest in sponsoring! You can become a sponsor using your individual or organization's GitHub account. Just [pick any tier from $10/month](https://github.com/sponsors/RaspAP) and complete the checkout. You will be automatically granted access to the private GitHub repository containing the Insiders edition, which has all exclusive features.

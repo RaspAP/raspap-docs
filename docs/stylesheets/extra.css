@@ -13,11 +13,7 @@
 .check {
   color: #32cd32;
 }
-.twitter {
-  color: #1DA1F2;
-}
 
-:fontawesome-brands-twitter:{: .twitter }
 :octicons-heart-fill-24:{: .heart }
 :octicons-check-circle-fill-24:{: .check }
 
