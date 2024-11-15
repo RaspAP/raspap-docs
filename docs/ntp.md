@@ -1,6 +1,6 @@
 # NTP Service
 
-![ntp-service](https://github.com/user-attachments/assets/b5aef638-e615-481f-995c-ef886b966765){: style="width:640px"}
+![ntp-service](https://github.com/user-attachments/assets/9bd23465-5fd2-4a58-98e2-ab28ccc22a16){: style="width:640px"}
 
 ## Overview
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
