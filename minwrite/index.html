@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
@@ -1260,19 +1260,19 @@
 <h2 id="overview">Overview</h2>
 <p>Linux, and indeed most substantial operating systems, is frequently writing logs files, cache files and temporary data to disk (or the microSD card with the Raspberry Pi). Performing a shutdown puts these files away into a known valid state. If power is unexpectedly cut to a Raspberry Pi, these unwritten system files can become corrupted and render a card unbootable.</p>
 <p>What is more, most microSD cards were not designed with 24/7 operation in mind. Continuous writing to the card's flash memory shortens its lifespan. They often accumulate bad sectors rather quickly after a period of extended use. This is particularly true of so-called "budget" microSD cards.</p>
-<p>Using a Raspberry Pi as an access point requires reliable operation over a long period of time. While "read-only mode" operation for the SD card is one approach to prolong its use, this prevents user settings from being persisted to storage &#151; meaning that any changes will be lost if the device is disconnected from power. This makes it less than ideal for RaspAP, or indeed any application such as a web server or database that depends on persistent storage.</p>
+<p>Using a Raspberry Pi as wireless router requires reliable operation over a long period of time. While <em>read-only mode</em> operation for the SD card is one approach to prolong its use, this prevents user settings from being persisted to storage &#151; meaning that any changes will be lost if the device is disconnected from power. This makes it less than ideal for RaspAP, or indeed any application that depends on persistent storage.</p>
 <h2 id="solution">Solution</h2>
-<p>Rather than force the system into a read-only mode, RaspAP has an alternative "minimal write mode" that substantially reduces the risk of SD card corruption and also helps to extend the card's lifespan.</p>
+<p>Rather than force the system into a read-only mode, RaspAP has an alternative <em>minimal write mode</em> that substantially reduces the risk of SD card corruption and also helps to extend the card's lifespan.</p>
 <p>This solution involves moving logging, cache and temporary data to a RAM-based file system. The default system log processor <code>rsyslog</code> is replaced with an in-memory logger and several log-related services are disabled. The <code>tmpfs</code> filesystem is used for most processes that require write access, such as sessions used by <code>php-cgi</code>, as well as paths for transient and cache data including <code>/var/cache</code> and <code>/var/tmp</code>.</p>
 <p>In addition, the system's boot options are modified to disable swap and file system checks. A tangible side benefit of retaining a read/write boot partition is that your system will behave otherwise normally &#151; you may install packages, add services and perform most operations as before.</p>
 <h2 id="enabling-minimal-write">Enabling minimal write</h2>
 <p>The minimal microSD card write utility, <strong>minwrite</strong>, may be invoked by using RaspAP's <a href="../quick/">Quick installer</a>. This does <em>not</em> (re)install RaspAP &#151; only the <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh">minwrite</a> shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, <a href="#manual-steps">manual configuration</a> steps are also provided. Notes specific to Armbian are given where applicable.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. We recommend either creating a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed.</p>
+<p>These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. Best advice is to either create a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed.</p>
 </div>
-<p>Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since we'll be migrating the disk I/O activity of several system processes to the <code>tmpfs</code> ramdisk. For this reason, it's recommended to review the <a href="#memory-considerations">memory considerations</a> before proceeding.</p>
-<p>After we've enabled <strong>minwrite</strong> we'll look at a technique to evaluate its effectiveness.</p>
+<p>Both methods are reasonably straightforward. Bear in mind that RAM usage on your device will necessarily increase, since you'll be migrating the disk I/O activity of several system processes to the <code>tmpfs</code> ramdisk. For this reason, it's recommended to review the <a href="#memory-considerations">memory considerations</a> before proceeding.</p>
+<p>After you've enabled <strong>minwrite</strong> we'll look at a technique to evaluate its effectiveness.</p>
 <h3 id="quick-install">Quick install</h3>
 <p>The <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh">minwrite utility</a> may be invoked remotely from the <a href="../quick/">Quick installer</a> like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl -sL https://install.raspap.com | bash -s -- --minwrite
@@ -1291,7 +1291,7 @@
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a> 88     88 88.  .88       88 88.  .88 88     88   88
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a> dP     dP  88888P8  88888P  88Y888P  88     88   dP
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                             88
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                             dP      version 2.8.8
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                             dP      version 3.2.1
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>The Quick Installer will guide you through a few easy steps
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
@@ -1320,14 +1320,14 @@
 <h3 id="manual-steps">Manual steps</h3>
 <p>These steps perform the same actions as the Quick install method. Details are provided so that you may choose to customize or skip some steps, if desired.</p>
 <h4 id="remove-packages">Remove packages</h4>
-<p>The goal here is to only remove packages that actively write to the filesystem, and that we intend to replace or disable entirely. In a subsequent step, <code>logrotate</code> will be replaced with <code>busybox-syslogd</code>.
+<p>The goal here is to only remove packages that actively write to the filesystem, and that will be replaced or disabled entirely. In a subsequent step, <code>logrotate</code> will be replaced with <code>busybox-syslogd</code>.
 Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root filesystem on the SD card, is removed as it won’t be able to work.</p>
 <p>Remove these packages with the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo apt-get remove --purge dphys-swapfile logrotate
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo apt-get autoremove --purge
 </span></code></pre></div>
 <h4 id="disable-services">Disable services</h4>
-<p>Linux is able to update packages autonomously without an external command. This task is scheduled by the <code>apt-daily.service</code>, which triggers the system to start <code>apt</code> tasks and scan installed packages for available updates. If updates are found, the <code>apt-daily-upgrade.service</code> downloads and installs them without user intervention. While useful for keeping your system updated, these are intensive processes in terms of disk I/O that we can safely disable and handle manually.</p>
+<p>Linux is able to update packages autonomously without an external command. This task is scheduled by the <code>apt-daily.service</code>, which triggers the system to start <code>apt</code> tasks and scan installed packages for available updates. If updates are found, the <code>apt-daily-upgrade.service</code> downloads and installs them without user intervention. While useful for keeping your system updated, these are intensive processes in terms of disk I/O that may be safely disabled and handled manually.</p>
 <p>Disable the <code>bootlogd.service</code>, <code>apt-daily</code> and related services like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo systemctl unmask bootlogd.service
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo systemctl disable bootlogs
@@ -1338,14 +1338,14 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 <p>By disabling these services, you will need to manually check for package updates periodically with <code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code>.</p>
 </div>
 <h4 id="replace-logger">Replace logger</h4>
-<p>In this step we'll replace the default system logger <code>rsyslog</code> with an in-memory logger, <code>busybox-syslogd</code>. <a href="https://manpages.debian.org/jessie/busybox-syslogd/syslogd.8.en.html">BusyBox</a> combines tiny versions of many common Linux utilities into a single small executable. It provides a fairly complete POSIX environment for any small or embedded system, including a minimal write Raspberry Pi.</p>
+<p>In this step you'll replace the default system logger <code>rsyslog</code> with an in-memory logger, <code>busybox-syslogd</code>. <a href="https://manpages.debian.org/jessie/busybox-syslogd/syslogd.8.en.html">BusyBox</a> combines tiny versions of many common Linux utilities into a single small executable. It provides a fairly complete POSIX environment for any small or embedded system, including a minimal write Raspberry Pi.</p>
 <p>Install it like so and remove <code>rsyslog</code>:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo apt-get install busybox-syslogd
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo dpkg --purge rsyslog
 </span></code></pre></div>
 <p>Be aware that because <code>busybox-syslogd</code> writes system logs to RAM, these logs will be lost if your device is disconnected from power.</p>
 <h4 id="disable-swap">Disable swap</h4>
-<p>Next we'll modify system boot options to disable <a href="https://wiki.debian.org/Swap">swap</a> and filesystem checks, as these are both intensive disk I/O processes. Edit this file with <code>sudo nano /boot/cmdline.txt</code> and append the following to the end:</p>
+<p>Next you'll modify system boot options to disable <a href="https://wiki.debian.org/Swap">swap</a> and filesystem checks, as these are both intensive disk I/O processes. Edit this file with <code>sudo nano /boot/cmdline.txt</code> and append the following to the end:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>fsck.mode=skip noswap
 </span></code></pre></div>
 <p>The resulting file will look something like this (copied from a Pi 3 Model B+):</p>
@@ -1357,8 +1357,8 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 <p>By default Armbian does not use any SD card-based swap, so unless you’ve customized your installation there’s nothing to disable.</p>
 </div>
 <h4 id="move-directories-to-ram">Move directories to RAM</h4>
-<p>As a final step, we'll move several directories to the <code>tmpfs</code> filesystem. By storing these directories on a ramdisk instead of the SD card, we can substantially reduce the volume of I/O operations on the card's flash memory. Writing to <code>tmpfs</code> also provides fast sequential read/write speeds. The tradeoff is that <code>tmpfs</code> is <em>volatile storage</em> &#151; meaning that you will lose all data stored on the filesystem if you lose power.</p>
-<p>We'll select paths to migrate to <code>tmpfs</code> for transient and cache data, as well as those required for RaspAP's operation that are associated with disk I/O activity. Moving these directories to <code>tmpfs</code> is done by editing <code>fstab</code> with <code>sudo nano /etc/fstab</code>. Append the following lines to the end:</p>
+<p>As a final step, several directories will be moved to the <code>tmpfs</code> filesystem. Storing these directories on a ramdisk instead of the SD card will substantially reduce the volume of I/O operations on the card's flash memory. Writing to <code>tmpfs</code> also provides fast sequential read/write speeds. The tradeoff is that <code>tmpfs</code> is <em>volatile storage</em> &#151; meaning that you will lose all data stored on the filesystem if your device loses power.</p>
+<p>Paths are selected here to migrate to <code>tmpfs</code> for transient and cache data, as well as those required for RaspAP's operation that are associated with disk I/O activity. Moving these directories to <code>tmpfs</code> is done by editing <code>fstab</code> with <code>sudo nano /etc/fstab</code>. Append the following lines to the end:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>tmpfs /tmp tmpfs  nosuid,nodev 0 0
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>tmpfs /var/log tmpfs  nosuid,nodev 0 0
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>tmpfs /var/tmp tmpfs  nosuid,nodev 0 0
@@ -1376,8 +1376,8 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 <h4 id="reboot">Reboot</h4>
 <p>A reboot is required for the above steps to take effect: <code>sudo reboot</code>.</p>
 <h2 id="memory-considerations">Memory considerations</h2>
-<p>The <strong>minwrite</strong> configuration migrates as much as possible from SD card storage to the <code>tmpfs</code> ramdisk. As a result, a concomitant increase in memory utilization is expected. To benchmark this, we can compare the change in memory usage on a Pi 3 Model B+ with 1GB of RAM with a typical RaspAP installation.</p>
-<p>Here we use the following to return the amount of free system memory expressed as a percentage of total available:</p>
+<p>The <strong>minwrite</strong> configuration migrates as much as possible from SD card storage to the <code>tmpfs</code> ramdisk. As a result, a concomitant increase in memory utilization is expected. To benchmark this, the change in memory usage on a Pi 3 Model B+ with 1GB of RAM and a typical RaspAP installation will be compared.</p>
+<p>Execute the following to return the amount of free system memory expressed as a percentage of the total available:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>free -m | awk &#39;/Mem:/ { total=$2 ; used=$3 } END { print used/total*100}&#39;
 </span></code></pre></div>
 <table>
@@ -1397,16 +1397,16 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 <p>While this is a noticable increase in RAM usage, it's still well within the margin for reliable operation of the OS. If you have a higher rate of RAM utilization on your device, or have limited available system memory to begin with, bear this in mind before proceeding.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Recall that we've disabled swap, so if the system runs out of physical memory (RAM) there is no partition available for the kernel to allocate virtual memory in its place. This will cause the kernel to throw an out of memory (OOM) error. Normally this causes the kernel to panic and stop functioning. </p>
+<p>Recall that with swap disabled, if the system runs out of physical memory (RAM) there is no partition available for the kernel to allocate virtual memory in its place. This will cause the kernel to throw an out of memory (OOM) error. Normally this causes the kernel to panic and stop functioning. </p>
 </div>
 <h2 id="file-system-metrics">File system metrics</h2>
-<p>We can evaluate a <strong>minwrite</strong> configuration by using <code>iotop</code>, a utility that watches I/O usage information output by the Linux kernel. Install it like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo apt-get install iotop
+<p>A <strong>minwrite</strong> configuration may be futher evaluated by using <code>iotop</code>, a utility that watches I/O usage information output by the Linux kernel. Install the package like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo apt-get install iotop -y
 </span></code></pre></div>
 <p>Execute it with the following switches to monitor accumulated activity of processes doing actual I/O:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo iotop -aoP
 </span></code></pre></div>
-<p>After a period of time, you will see disk I/O activity reported for a number of processes. Returning to our Pi 3 Model B+ test bench, we can compare the before and after results: </p>
+<p>After a period of time, you will see disk I/O activity reported for a number of processes. Returning to the example Pi 3 Model B+ test bench, the before and after results may be compared: </p>
 <p><strong>Pre-minwrite I/O</strong>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Total DISK READ:         0.00 B/s | Total DISK WRITE:       191.31 B/s
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Current DISK READ:       0.00 B/s | Current DISK WRITE:      22.52 K/s
@@ -1457,7 +1457,7 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 20, 2024</span>
   </span>
 
     
