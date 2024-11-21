@@ -136,9 +136,53 @@ curl -sL https://install.raspap.com | bash -s -- --cert
 !!! note "Note"
     Executing the Quick installer only installs `mkcert` and generates an SSL certificate with the input you provide. It does _not_ (re)install RaspAP. 
 
-![](https://user-images.githubusercontent.com/229399/228978188-bac645ab-76fb-4eb6-95aa-44521167907a.gif){: style="width:540px"}
+```
+$ curl -sL https://install.raspap.com | bash -s -- --cert
 
-The installer will walk you through the steps of creating a certificate. Complete the installation by following the [client configuration](#client-configuration) steps below.
+
+ 888888ba                              .d888888   888888ba
+ 88     8b                            d8     88   88     8b
+a88aaaa8P' .d8888b. .d8888b. 88d888b. 88aaaaa88a a88aaaa8P
+ 88    8b. 88    88 Y8ooooo. 88    88 88     88   88
+ 88     88 88.  .88       88 88.  .88 88     88   88
+ dP     dP  88888P8  88888P  88Y888P  88     88   dP
+                             88
+                             dP      version 3.2.1
+
+The Quick Installer will guide you through a few easy steps
+
+
+RaspAP mkcert: Configure a new SSL certificate
+Current system hostname is raspap
+Create an SSL certificate for raspap.local? (Recommended) [y/N] y
+Install to lighttpd SSL directory: /etc/lighttpd/ssl? [y/N]: y
+***************************************************************
+A new SSL certificate for: raspap.local
+will be installed to lighttpd SSL directory: /etc/lighttpd/ssl
+***************************************************************
+Complete installation with these values? [y/N]: y
+RaspAP mkcert: Fetching mkcert binary
+RaspAP mkcert: Installing mkcert
+Using the local CA at "/home/pi/.local/share/mkcert" ✨
+The local CA is already installed in the system trust store! 👍
+Warning: "certutil" is not available, so the CA can't be automatically installed in Firefox and/or Chrome/Chromium! ⚠️
+Install "certutil" with "apt install libnss3-tools" and re-run "mkcert -install" 👈
+
+RaspAP mkcert: Generating a new certificate for raspap.local
+Using the local CA at "/home/pi/.local/share/mkcert" ✨
+Warning: the local CA is not installed in the Firefox and/or Chrome/Chromium trust store! ⚠️
+Run "mkcert -install" to avoid verification errors ‼️
+Created a new certificate valid for the following names 📜
+ - "raspap.local"
+ - "*.raspap.local.local"
+ - "raspap.local"
+
+Reminder: X.509 wildcards only go one level deep, so this won't match a.b.raspap.local.local ℹ️
+
+The certificate is at "./raspap.local+2.pem" and the key at "./raspap.local+2-key.pem" ✅
+```
+
+The installer will guide you through the steps of creating a certificate, as shown above. Complete the installation by following the [client configuration](#client-configuration) steps below.
 
 ## Client configuration
 Open a browser and enter the following address, substituting the domain name you chose in the steps above: `http://raspap.local/rootCA.pem`. Download the root certificate to your client and add it to your system keychain. Examples below illustrate this process on macOS:
