@@ -26,7 +26,7 @@ Basic Authentication can be used securely if transmitted over HTTPS, which encry
 ### Using a strong passphrase
 In most scenarios, a potential attacker can only access RaspAP's admin login prompt if they are already associated with your wireless access point. To mitigate this, change the default `raspap-webgui` SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:
 
-![](https://github.com/user-attachments/assets/416d32fc-0163-40d9-9e7f-c4d256d3f715){: style="width:480px"}
+![](https://github.com/user-attachments/assets/416d32fc-0163-40d9-9e7f-c4d256d3f715){: style="width:420px"}
 
 On the **Hotspot > Security** tab, click or tap the magic icon :fontawesome-solid-wand-magic-sparkles: next to the PSK input. Choose **Save settings** followed by **Restart hotspot**. Thereafter, you may share RaspAP's QR code with your wireless clients to assist them with authentication.
 
@@ -43,7 +43,7 @@ The administrator may enable a user who is able to access RaspAP's management in
 
 This is useful in a multi-user environment where the admin user may want to initially configure a wireless router, and then delegate client connection duties to other users of the network.
 
-![](https://github.com/user-attachments/assets/afe63740-5e1b-4b64-a325-b282fdfbecd2){: style="width:480px"}
+![](https://github.com/user-attachments/assets/afe63740-5e1b-4b64-a325-b282fdfbecd2){: style="width:420px"}
 
 To enable the limited privilege user, slide the corresponding toggle on the **Basic** tab, enter the limited privilege user's login and password and choose **Save settings**. The current admin user will be prompted to logout. Thereafter, the limited privilege user role will be active. The limited user may then login with the credentials you've defined. To disable the limited privilege user role, simply login with the administrator account again.
 
