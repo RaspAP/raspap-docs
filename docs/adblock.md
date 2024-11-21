@@ -35,7 +35,7 @@ In addition to blocking hosts, domain blocking gives us the ability to use wildc
 ## Updating lists 
 Each of the hosts and domains blocklists are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
 
-![Manage blocklists](https://user-images.githubusercontent.com/229399/224507022-f71e9a8f-ad73-437b-81cd-c59b27ad3dc3.png){: style="width:480px"}
+![Manage blocklists](https://user-images.githubusercontent.com/229399/224507022-f71e9a8f-ad73-437b-81cd-c59b27ad3dc3.png){: style="width:420px"}
 
 Next to the update button, a gear icon :fontawesome-solid-gear:{ style="color: var(--md-default-fg-color--light)" } will appear to indicate that the selected list is being downloaded. Thereafter, a timestamp after each list will indicate when it was last updated.
 

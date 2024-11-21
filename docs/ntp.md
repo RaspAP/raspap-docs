@@ -42,7 +42,7 @@ In a standalone configuration, a single device will be automatically kept in syn
 
 The **NTP Server > Settings** tab will report the current system time synchronized from its remote NTP server peers.
 
-![ntp-configuration](https://github.com/RaspAP/raspap-webgui/assets/229399/fd11db3e-091f-4d46-868a-a2d77c4d23cd){: style="width:540px"}
+![ntp-configuration](https://github.com/RaspAP/raspap-webgui/assets/229399/fd11db3e-091f-4d46-868a-a2d77c4d23cd){: style="width:420px"}
 
 You may add any number of public NTP servers by entering their IP address or fully qualified domain name (FQDN) under **Add an NTP server**.
 
@@ -59,7 +59,7 @@ Repeat this process for each of the devices you wish to keep synchronized on you
 ## Advanced settings
 For users who are familiar with the NTP protocol and [configuration file](https://docs.ntpsec.org/), the **NTP Server > Advanced** tab permits you to view and edit this file directly. This gives you full control over the NTP server settings, beyond the basic configuration provided on the **Settings** tab.
 
-![ntp-advanced](https://github.com/RaspAP/raspap-webgui/assets/229399/161e7c44-31ef-4784-924b-7d40999cdc90){: style="width:540px"}
+![ntp-advanced](https://github.com/RaspAP/raspap-webgui/assets/229399/161e7c44-31ef-4784-924b-7d40999cdc90){: style="width:420px"}
 
 To enable `ntp.config` editing, simply slide the **Edit mode** toggle. You may then make your edits to the configuration directly. When you are finished editing, choose **Save settings**. The `ntpd.service` will restart automatically. 
 

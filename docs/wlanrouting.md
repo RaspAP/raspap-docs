@@ -65,7 +65,7 @@ Verify your attached device by checking the output on RaspAP's **Networking > Su
 ### Configure RaspAP's settings
 Now, from RaspAP's **Networking > WLAN Routing** tab, choose your wireless client interface and output interface (typically, `eth0` or `enx`). Select the "Configure a static IP address and DHCP for output interface" option toggle, choose **Save settings**  and lastly **Start WLAN routing**.
 
-![wlan-routing](https://github.com/RaspAP/raspap-webgui/assets/229399/f721a4bc-0aad-400e-aec1-ef10ce2a12a5){: style="width:520px; padding-left:0px; padding-bottom:10px; padding-top:10px"}
+![wlan-routing](https://github.com/RaspAP/raspap-webgui/assets/229399/f721a4bc-0aad-400e-aec1-ef10ce2a12a5){: style="width:460px; padding-left:0px; padding-bottom:10px; padding-top:10px"}
 
 A system configured with predictable interface names is shown, above.
 
