@@ -31,7 +31,7 @@ RaspAP makes use of the proven **[ddclient](https://github.com/ddclient/ddclient
 
 Instructions on how to setup your domain for DDNS vary by provider, but the process is generally similar. Begin by selecting a **Service provider** from the dropdown. RaspAP will assist you by automatically populating the **Protocol** and **Server** fields. You may also manually configure the details for your service if so desired.
 
-![](https://user-images.githubusercontent.com/229399/234258065-cc75df63-5e39-4cfd-ba1b-ed533b3982d6.png){: style="width:520px"}
+![](https://user-images.githubusercontent.com/229399/234258065-cc75df63-5e39-4cfd-ba1b-ed533b3982d6.png){: style="width:420px"}
 
 !!! note "Note"
     Some DDNS providers, such as NoIP, distribute their own Linux client to use with their service. It isn't necessary to install this software because the `ddclient` daemon already includes this functionality.
@@ -58,7 +58,7 @@ Check with your DDNS service provider to determine which entry is best for your 
 ## Advanced settings
 A subset of advanced options are provided for your configuration. These are not required for the DDNS service to be functional, but may be adjusted to suit your needs.
 
-![](https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png){: style="width:520px"}
+![](https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png){: style="width:420px"}
 
 ### Enable SSL
 You may wish to **Enable SSL** to ensure that your credentials are not sent over the internet unencrypted. Not all providers support this, however, so this option is disabled by default. Enabling this option for a non-SSL supported provider may result in a connection timeout. Errors such as these [have been reported](https://github.com/ddclient/ddclient/issues/309): 
@@ -84,7 +84,7 @@ If your DDNS provider fails to report your current IP address, or you suspect th
 
 From the **Logging** tab, use the **Generate log** button to invoke the `ddclient` daemon and output a troubleshooting log: 
 
-![](https://user-images.githubusercontent.com/229399/234276204-5d3e2640-7166-47ec-ac3c-6a4034be8060.png){: style="width:520px"}
+![](https://user-images.githubusercontent.com/229399/234276204-5d3e2640-7166-47ec-ac3c-6a4034be8060.png){: style="width:420px"}
 
 This will provide a verbose output of everything `ddclient` is doing. If it ends with a `SUCCESS` message this indicates that the daemon successfully checked and updated the DNS "A" record with your provider, if neccessary. An example of this is shown below: 
 
