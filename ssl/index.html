@@ -1245,8 +1245,51 @@ Now, copy <code>rootCA.pem</code> to your lighttpd web root:
 <p class="admonition-title">Note</p>
 <p>Executing the Quick installer only installs <code>mkcert</code> and generates an SSL certificate with the input you provide. It does <em>not</em> (re)install RaspAP. </p>
 </div>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/228978188-bac645ab-76fb-4eb6-95aa-44521167907a.gif" style="width:540px" /></p>
-<p>The installer will walk you through the steps of creating a certificate. Complete the installation by following the <a href="#client-configuration">client configuration</a> steps below.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ curl -sL https://install.raspap.com | bash -s -- --cert
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a> 888888ba                              .d888888   888888ba
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a> 88     8b                            d8     88   88     8b
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>a88aaaa8P&#39; .d8888b. .d8888b. 88d888b. 88aaaaa88a a88aaaa8P
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a> 88    8b. 88    88 Y8ooooo. 88    88 88     88   88
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a> 88     88 88.  .88       88 88.  .88 88     88   88
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a> dP     dP  88888P8  88888P  88Y888P  88     88   dP
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>                             88
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>                             dP      version 3.2.1
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>The Quick Installer will guide you through a few easy steps
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>RaspAP mkcert: Configure a new SSL certificate
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>Current system hostname is raspap
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>Create an SSL certificate for raspap.local? (Recommended) [y/N] y
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>Install to lighttpd SSL directory: /etc/lighttpd/ssl? [y/N]: y
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>***************************************************************
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>A new SSL certificate for: raspap.local
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>will be installed to lighttpd SSL directory: /etc/lighttpd/ssl
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>***************************************************************
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>Complete installation with these values? [y/N]: y
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>RaspAP mkcert: Fetching mkcert binary
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>RaspAP mkcert: Installing mkcert
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>Using the local CA at &quot;/home/pi/.local/share/mkcert&quot; ✨
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>The local CA is already installed in the system trust store! 👍
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>Warning: &quot;certutil&quot; is not available, so the CA can&#39;t be automatically installed in Firefox and/or Chrome/Chromium! ⚠️
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>Install &quot;certutil&quot; with &quot;apt install libnss3-tools&quot; and re-run &quot;mkcert -install&quot; 👈
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>RaspAP mkcert: Generating a new certificate for raspap.local
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>Using the local CA at &quot;/home/pi/.local/share/mkcert&quot; ✨
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>Warning: the local CA is not installed in the Firefox and/or Chrome/Chromium trust store! ⚠️
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>Run &quot;mkcert -install&quot; to avoid verification errors ‼️
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>Created a new certificate valid for the following names 📜
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a> - &quot;raspap.local&quot;
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a> - &quot;*.raspap.local.local&quot;
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a> - &quot;raspap.local&quot;
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>Reminder: X.509 wildcards only go one level deep, so this won&#39;t match a.b.raspap.local.local ℹ️
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>The certificate is at &quot;./raspap.local+2.pem&quot; and the key at &quot;./raspap.local+2-key.pem&quot; ✅
+</span></code></pre></div>
+<p>The installer will guide you through the steps of creating a certificate, as shown above. Complete the installation by following the <a href="#client-configuration">client configuration</a> steps below.</p>
 <h2 id="client-configuration">Client configuration</h2>
 <p>Open a browser and enter the following address, substituting the domain name you chose in the steps above: <code>http://raspap.local/rootCA.pem</code>. Download the root certificate to your client and add it to your system keychain. Examples below illustrate this process on macOS:</p>
 <p><img alt="" src="https://user-images.githubusercontent.com/229399/228977507-45efefa9-c2e1-4ed5-a298-a8aca5e3c7b7.png" style="width:450px" /></p>
@@ -1278,7 +1321,7 @@ Now, copy <code>rootCA.pem</code> to your lighttpd web root:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 21, 2024</span>
   </span>
 
     
