@@ -15,7 +15,7 @@ RaspAP Install: Configure VPN provider support (Beta)
 Enable VPN provider client configuration? [Y/n]:
 ```
 
-Next, select an available VPN provider from the list. Supported providers include four of the most popular VPN services with Debian-compatible Linux CLIs. Enter a number corresponding to your desired VPN provider followed by the ++enter++ key.
+Next, select an available VPN provider from the list. Supported providers include four of the most popular VPN services with Linux-compatible CLIs. Enter a number corresponding to your desired VPN provider followed by the ++enter++ key.
 
 ```
 Select an option from the list:
@@ -49,7 +49,7 @@ After the installer completes, verify the CLI by checking its version:
 
 ```
 nordvpn --version
-NordVPN Version 3.16.6
+NordVPN Version 3.19.1
 ```
 
 Next, activate your account.  The `--callback` and `--token` methods are useful for headless setups. The latter is shown below:
