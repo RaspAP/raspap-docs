@@ -15,13 +15,14 @@ RaspAP Install: Configure VPN provider support (Beta)
 Enable VPN provider client configuration? [Y/n]:
 ```
 
-Next, select an available VPN provider from the list. For the initial beta, we've identified three of the most popular VPN services that have Debian compatible Linux CLIs. Enter a number corresponding to your desired VPN provider followed by the ++enter++ key.
+Next, select an available VPN provider from the list. Supported providers include four of the most popular VPN services with Debian-compatible Linux CLIs. Enter a number corresponding to your desired VPN provider followed by the ++enter++ key.
 
 ```
 Select an option from the list:
   1) ExpressVPN
   2) Mullvad VPN
   3) NordVPN
+  4) AdGuard VPN
   0) None
 Choose an option: 3
 Configuring support for NordVPN
