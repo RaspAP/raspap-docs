@@ -139,18 +139,28 @@ conf-dir=/etc/dnsmasq.d
 Configuration files placed in this directory will be used by the dnsmasq service and are untouched by the UI. 
 
 ## <a name="maxclients"></a>What is the maximum number of simultaneous clients that I can connect to my AP?
-**Short answer:** it depends.
+There are [several factors that come into play](https://github.com/raspberrypi/linux/issues/3010) here including, but not limited to, the specific RPi model, firmware version, available RAM and so on. 
 
-**Longer answer:** there are several factors that come into play including, but not limited to, the specific RPi model, firmware version, available RAM and so on. 
+Every update to the RPi's firmware takes up more of the limited RAM reserved for wireless, resulting in less space to host AP clients. Users of RaspAP have reported
+up to [19 simultaneous clients](https://github.com/RaspAP/raspap-webgui/issues/462#issuecomment-588367233) with a Pi model 3B, but a smaller number with a newer model. This is related to the installed firmware, rather than the specific hardware.
 
-Every update to the RPi's firmware takes up more of the limited RAM reserved for WiFi, resulting in less space to host AP clients. Users of RaspAP have reported
-up to [19 simultaneous clients](https://github.com/billz/raspap-webgui/issues/462#issuecomment-588367233) with a RPi 3B, but a smaller number with a newer RPi model.
-If you are willing to modify your device's firmware and replace the `brcmfmac` driver [with a specific version](https://github.com/raspberrypi/linux/issues/3010#issuecomment-788323744), a
-maximum of 20 simultaneous WiFi clients is theoretically possible.
+The good news is, you can easily switch to an [alternative minimal firmware](https://github.com/RPi-Distro/firmware-nonfree/blob/bullseye/debian/config/brcm80211/cypress/README.txt) that has been tuned to maximise the number of clients in AP mode while still supporting STA ("station" or wireless client) mode. The expected number of supported clients using this firmware is now 19. 
 
-**Bottom line:** if maximizing AP clients is your primary goal, you will have to either use a specific firmware version or purchase an external wireless adapter.
+To achieve this, a number of features have been removed:
 
-See also: [https://github.com/raspberrypi/linux/issues/3010](https://github.com/raspberrypi/linux/issues/3010).
+* advanced roaming features (802.11k, 802.11v and 802.11r)
+* dfsradar - allows an AP to operate in channels that may be used by radar
+  systems
+* obss-obssdump - ACS (Auto Channel Support)
+* swdiv - antenna diversity (this is not relevant with only one antenna) 
+
+In an up-to-date Raspberry Pi OS install, you can switch between the two variants by running the following command:
+
+```
+sudo update-alternatives --config cyfmac43455-sdio.bin
+```
+
+This method will persist across `firmware-brcm80211` updates.
 
 ## <a name="adapters"></a>Where can I find a list of USB WiFi adapters that use in-kernel drivers?
 There are many USB WiFi adapters that work without the need to install a driver in Linux. The term "in-kernel" refers to drivers that are packaged and maintained by the Linux kernel.

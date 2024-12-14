@@ -70,6 +70,9 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 
 You are also encouraged to use RaspAP's community-led [Docker container](docker.md).
 
+!!! tip "Tip"
+    If maximizing the number of AP clients is a top priority, you can switch to an alternative RPi OS minimal firmware that has been specifically tuned for this purpose. Details are available in [this FAQ](faq.md#maxclients).
+
 Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
 ## Get involved
