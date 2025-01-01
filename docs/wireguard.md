@@ -99,8 +99,12 @@ RaspAP processes the values in the WireGuard **Settings** and **Peer** tabs and 
 The former is used to configure the local (server) side of the VPN tunnel. The latter peer configuration is generated as a QR code on the **Peer** tab. Clients such as mobile devices
 may scan the QR code to transfer `client.conf` and import it into an associated WireGuard client application.
 
+![](https://github.com/user-attachments/assets/112a72f5-9d89-41e9-bcc4-c6c2fdb337a1)
+
+The peer endpoint address may take the form of an IP address, hostname, or Dynamic DNS (DDNS) URL with the remote UDP port (`31820` is typical).
+
 !!! note "Note"
-    For this experimental release, a single peer configuration may be created. The ability to manage multiple peer configurations is on the project roadmap.
+    For this release, a single peer configuration may be created. The ability to manage multiple peer configurations is on the project roadmap.
 
 Your peer will need to have WireGuard installed as well. For installing WireGuard on other systems, please see Wireguard's [website](https://www.wireguard.com/install/).
 
