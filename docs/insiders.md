@@ -61,7 +61,6 @@ Below is a list of funding targets. When a funding target is reached, the featur
 The following section lists all funding goals. Each goal contains a list of features prefixed with a checkmark symbol, denoting whether a feature is :octicons-check-circle-fill-24:{: .check } already available or :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } planned, but not yet implemented. When the funding goal is hit, the features are released for general availability.
 
 #### **$1,000** - 2nd Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
 :octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md)  
 :octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](ap-basics.md#wpa3-personal)  
 :octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](ap-basics.md#80211w)  
@@ -69,10 +68,11 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Drag & drop dashboard widgets](ap-basics.md#drag-drop-widgets)  
 :octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
 :octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics)  
+:octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
 
 #### **$1,500** - 3rd Insiders Edition
+:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
-:octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
 :octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](wireguard.md#multiple-configs)  
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](authentication.md#custom-user-avatars)  
