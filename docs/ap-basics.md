@@ -96,7 +96,7 @@ The above sections cover everything you will need for a basic routed AP. The **H
 
 ### Bridged AP mode
 If you wish to configure RaspAP as a [bridged AP](bridged.md), this may be done by sliding the **Bridged AP mode** toggle, saving settings and restarting the hotspot. Be aware that when the hotspot restarts
-you will no longer be able to access the web interface from the default `10.1.141.1` address. Refer to this [explanation and tips](bridged.md#accessing-the-web-interface) for administering your bridged AP. 
+you will no longer be able to access the web interface from the default `10.3.141.1` address. Refer to this [explanation and tips](bridged.md#accessing-the-web-interface) for administering your bridged AP. 
 
 ### WiFi repeater mode
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
