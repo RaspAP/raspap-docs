@@ -14,7 +14,7 @@ are allowed to be inputted to, and outputted from, the RaspAP router itself.
 As with every other aspect of RaspAP's [default settings](defaults.md), the application `iptables` rules are stored in an external JSON file, so they may be modified without touching code. 
 During the install, the file `iptables_rules.json` is copied from `/config` to `/etc/raspap/networking/firewall`. Thereafter, they may be administered from the UI, shown below.
 
-![](https://user-images.githubusercontent.com/229399/224494422-f9c14384-18b9-4bd2-8058-2c810e9876e2.png){: style="width:420px"}
+![](https://github.com/user-attachments/assets/a436745a-870a-4fed-bdfc-9da5dc1eed28){: style="width:420px"}
 
 By default, the firewall will only allow outgoing and already established traffic. There are no restrictions to the currently configured AP interface (`wlan0` is the default).
 The remaining firewall rules are grouped into four distinct classes. These are described below.
