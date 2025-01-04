@@ -73,6 +73,7 @@ Used with the `-y`, `--yes` option above, this sets the VPN provider install opt
   1 = ExpressVPN
   2 = Mullvad VPN
   3 = NordVPN
+  4 = AdGuard VPN
   0 = None
 ```
 
