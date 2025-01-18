@@ -36,7 +36,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [My wlan1 keeps being disabled and/or clients are repeatedly disconnected.](#disassociated)
 * [RaspAP web UI fails to start or unable to save settings.](#webfail)
 * [Why do I receive an 'Invalid CSRF token' message and a blank screen?](#token)
-* [Can I restore RaspAP's default settings?](#restore)
+* [My hotspot's SSID appears intermittently or clients are unable to connect.](#intermittent)
 
 ## Integrations
 * [How do I integrate RaspAP with Pi-hole?](#pihole)
@@ -276,7 +276,7 @@ If one or more steps in this exchange are missing, either your device is unable 
 As a last resort, you can assign a static IP address to your device. Copy the MAC address for your device as it appears above and create a new entry in RaspAP's **DHCP Server > Static Leases** tab. 
 Save settings, restart `dnsmasq` and try connecting your client again.
 
-## <a name="webui"></a>My WiFi network disappeared and I can't access the web UI
+## <a name="webui"></a>My WiFi network disappeared and I can't access the web UI.
 If you are running your Pi headless and are unable to access RaspAP's web interface from the default `http://10.3.141.1/` address, do the following:
 
 1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](ssl.md).
@@ -430,8 +430,12 @@ The most common cause for this error message is when your PHP session expires. B
 
 If you submit a form in RaspAP 24 minutes after the page was loaded, the application will return a CSRF token error. When this occurs, simply refresh the page to generate a new session token.
 
-## <a name="restore"></a>Can I restore RaspAP's default settings?
-Yes, two methods are [described here](defaults.md#restoring-settings).
+## <a name="intermittent"></a>My hotspot's SSID appears intermittently or clients are unable to connect.
+Your hotspot's SSID may appear intermittently on client devices; when it is visible clients are unable to connect. This may occur with several different clients (a phone, laptop or tablet, for example). In each case, the client will report a failure message such as "Couldn't connect" or similar. If RaspAP's `hostapd` logging is enabled, the logs will often indicate that there was no attempt by clients to connect to it.
+
+In the vast majority of reports like this, the ultimate cause is interference of one form or another with the wireless signal. A common culprit are metal case enclosures used with a Raspberry Pi or similar device. These have the unintended effect of greatly diminishing the wireless radio's range. Remove the case and try connecting a client again.
+
+Other common forms of interference include nearby wireless networks. Survey your wireless neighborhood and take note of the channels (frequencies) being used to broadcast around you. Select an unused or less contested channel on RaspAP's **Hotspot > Basic** tab, and choose **Restart hotspot**. Enable logging on the **Logging** tab and monitor client connect activity.
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
@@ -913,6 +917,9 @@ curl -sL https://install.raspap.com | bash -s -- --yes
 ```
 
 The options `-y` or `--assume-yes` are also accepted and have the same result. 
+
+## <a name="restore"></a>Can I restore RaspAP's default settings?
+Yes, two methods are [described here](defaults.md#restoring-settings).
 
 ## <a name="uninstall"></a>How do I uninstall RaspAP?
 An uninstaller is provided to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. Start the uninstaller with the following:
