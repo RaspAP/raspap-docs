@@ -16,7 +16,7 @@ The project [FAQ](faq.md) is continuously updated with answers to many common qu
 You can help us improve this project by accurately describing defects. To that end, these guidelines have been established to streamline the reporting process: 
 
 1. Please read and follow the [Code of Conduct](https://github.com/RaspAP/raspap-webgui/blob/master/CODE_OF_CONDUCT.md). 
-2. Provide useful detail to reproduce your issue. "Doesn't work" or "not working" is not a valid report. Here's an example [model issue](https://github.com/RaspAP/raspap-webgui/issues/1451).
+2. Provide useful detail to reproduce your issue. "Doesn't work" or "not working" is not a valid report. Here's an example [model bug report](https://github.com/RaspAP/raspap-webgui/issues/1451) and [feature request](https://github.com/RaspAP/raspap-webgui/issues/1498) [[2]](https://github.com/RaspAP/raspap-webgui/issues/1734).
 3. Generate a [debug log](ap-basics.md#debug-log) and upload the contents to [Pastebin](https://pastebin.com/). 
 4. If an issue is unclear or needs further information, it will be labeled with `question` and `awaiting-user`.
 5. Issues that becomes stale due to inactivity are automatically managed by stale-bot.
