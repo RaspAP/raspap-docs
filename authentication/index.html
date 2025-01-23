@@ -445,9 +445,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-secure-is-basic-auth" class="md-nav__link">
+  <a href="#how-secure-is-raspaps-login" class="md-nav__link">
     <span class="md-ellipsis">
-      How secure is basic auth?
+      How secure is RaspAP's login?
     </span>
   </a>
   
@@ -513,6 +513,15 @@
   <a href="#custom-user-avatars" class="md-nav__link">
     <span class="md-ellipsis">
       Custom user avatars
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session management
     </span>
   </a>
   
@@ -1061,9 +1070,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-secure-is-basic-auth" class="md-nav__link">
+  <a href="#how-secure-is-raspaps-login" class="md-nav__link">
     <span class="md-ellipsis">
-      How secure is basic auth?
+      How secure is RaspAP's login?
     </span>
   </a>
   
@@ -1135,6 +1144,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#restoring-defaults" class="md-nav__link">
     <span class="md-ellipsis">
       Restoring defaults
@@ -1185,23 +1203,21 @@
 
 <h1 id="authentication">Authentication</h1>
 <h2 id="overview">Overview</h2>
-<p>RaspAP's authentication module uses HTTP's built-in framework to limit access to authorized users. Known as the HTTP "Basic" scheme, when first accessing RaspAP on your device the server will respond with a <code>401</code> (unauthorized) status. Authentication is then handled with a response header that presents a login challenge in the browser.</p>
+<p>RaspAP's login is used to authenticate with an encrypted password stored on the local filesystem. This familiar web-based dialog is compatible with password managers which are often used (and recommended) to autofill strong passwords.</p>
+<p><img alt="" src="https://github.com/user-attachments/assets/b0546f68-3332-4f36-a8f4-ada10454cd16" style="width:580px" /></p>
 <p>The default administrator credentials are:</p>
 <p><strong>Username:</strong> <code>admin</code><br />
 <strong>Password:</strong> <code>secret</code>  </p>
 <p>After performing the initial login, it is <em>strongly recommended</em> to change these default credentials on the <strong>Authentication &gt; Basic</strong> tab. This is a first-line defense against unauthorized users taking control of your wireless network.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The "Basic" HTTP authentication scheme is defined in <a href="https://datatracker.ietf.org/doc/html/rfc7617">RFC 7617</a>, which transmits credentials as user ID/password pairs, encoded using base64.</p>
-</div>
-<h3 id="how-secure-is-basic-auth">How secure is basic auth?</h3>
-<p>The HTTP Basic Authentication scheme is not considered to be secure on its own, especially over plain HTTP. This is because it sends the username and password in an easily decodable Base64-encoded format. Without an additional encryption layer, credentials are sent over the network in plain text. This makes it highly vulnerable to interception by attackers via man-in-the-middle (MITM) attacks or by packet sniffing. </p>
+<h3 id="how-secure-is-raspaps-login">How secure is RaspAP's login?</h3>
+<p>The administrator login should not be considered secure on its own, especially over plain HTTP. This is because the username and password are sent over your network in plain text. Without an additional encryption layer, credentials are vulnerable to interception via man-in-the-middle (MITM) attacks or by packet sniffing.</p>
+<p>This may not be a concern if your network is isolated behind a router or firewall. However, if your RaspAP installation is accessed over the internet, additional security measures are available and recommended. These are described in the next sections.</p>
 <h2 id="best-security-practices">Best security practices</h2>
 <p>The overall security of your RaspAP install can be greatly enhanced by applying some rudimentary changes to it. Taken together, these have the effect of hardening your router against potential external threats.</p>
 <h3 id="using-httpstls">Using HTTPS/TLS</h3>
 <p>Basic Authentication can be used securely if transmitted over HTTPS, which encrypts the entire communication channel. For this reason, RaspAP has simplified the process of creating <a href="../ssl/">locally-trusted SSL certificates</a> with the <a href="../ssl/#quick-installer">Quick installer</a>. When HTTPS/TLS is enabled with a RaspAP install, this authentication process is significantly more secure. </p>
 <h3 id="using-a-strong-passphrase">Using a strong passphrase</h3>
-<p>In most scenarios, a potential attacker can only access RaspAP's admin login prompt if they are already associated with your wireless access point. To mitigate this, change the default <code>raspap-webgui</code> SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:</p>
+<p>In most scenarios, a potential attacker can only access RaspAP's login prompt if they are already associated with your wireless access point. To mitigate this, change the default <code>raspap-webgui</code> SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:</p>
 <p><img alt="" src="https://github.com/user-attachments/assets/416d32fc-0163-40d9-9e7f-c4d256d3f715" style="width:420px" /></p>
 <p>On the <strong>Hotspot &gt; Security</strong> tab, click or tap the magic icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg></span> next to the PSK input. Choose <strong>Save settings</strong> followed by <strong>Restart hotspot</strong>. Thereafter, you may share RaspAP's QR code with your wireless clients to assist them with authentication.</p>
 <div class="admonition tip tip">
@@ -1221,6 +1237,10 @@
 <p>The default administrator user icon may be replaced with a custom one of your choosing. From the <strong>Avatar</strong> tab, click or tap on the existing avatar to upload a new one. The new custom avatar will be displayed in RaspAP's header.</p>
 <p><img alt="" src="https://github.com/user-attachments/assets/ff7f1974-4411-4113-8130-f7ad4d9d9411" style="width:480px" /></p>
 <p>Image files of type <code>.jpg</code>, <code>.gif</code> or <code>.png</code> up to a maximum of 2 MB are supported. To restore the avatar to the default, choose <strong>Reset avatar</strong>.</p>
+<h2 id="session-management">Session management</h2>
+<p>The default PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.</p>
+<p>Previously, if a page was submitted after the session had expired, RaspAP would return a <a href="../faq/#token">CSRF token error</a>. Usually the page could simply be refreshed to generate a new session token. Now, when the logged-in user's session expires, the login dialog will appear prompting them to reauthenticate.</p>
+<p>This behavior is in line with many modern router implementations, which redirect an administrative user to a login page after a period of inactivity. This has the effect of enhancing security in the event the router is left unattended.</p>
 <h2 id="restoring-defaults">Restoring defaults</h2>
 <p>Login credentials are stored in <code>/etc/raspap/raspap.auth</code>. The password is encrypted and cannot be edited manually. If you've forgotten your admin login or wish to temporarily reset the defaults, you may do so by simply deleting this file:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo rm /etc/raspap/raspap.auth
@@ -1252,7 +1272,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2025</span>
   </span>
 
     
