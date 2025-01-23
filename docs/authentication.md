@@ -1,7 +1,9 @@
 # Authentication
 
 ## Overview
-RaspAP's authentication module uses HTTP's built-in framework to limit access to authorized users. Known as the HTTP "Basic" scheme, when first accessing RaspAP on your device the server will respond with a `401` (unauthorized) status. Authentication is then handled with a response header that presents a login challenge in the browser.
+RaspAP's login is used to authenticate with an encrypted password stored on the local filesystem. This familiar web-based dialog is compatible with password managers which are often used (and recommended) to autofill strong passwords.
+
+![](https://github.com/user-attachments/assets/b0546f68-3332-4f36-a8f4-ada10454cd16){: style="width:580px"}
 
 The default administrator credentials are:
 
@@ -10,11 +12,10 @@ The default administrator credentials are:
 
 After performing the initial login, it is _strongly recommended_ to change these default credentials on the **Authentication > Basic** tab. This is a first-line defense against unauthorized users taking control of your wireless network.
 
-!!! Note
-    The "Basic" HTTP authentication scheme is defined in [RFC 7617](https://datatracker.ietf.org/doc/html/rfc7617), which transmits credentials as user ID/password pairs, encoded using base64.
+### How secure is RaspAP's login?
+The administrator login should not be considered secure on its own, especially over plain HTTP. This is because the username and password are sent over your network in plain text. Without an additional encryption layer, credentials are vulnerable to interception via man-in-the-middle (MITM) attacks or by packet sniffing.
 
-### How secure is basic auth?
-The HTTP Basic Authentication scheme is not considered to be secure on its own, especially over plain HTTP. This is because it sends the username and password in an easily decodable Base64-encoded format. Without an additional encryption layer, credentials are sent over the network in plain text. This makes it highly vulnerable to interception by attackers via man-in-the-middle (MITM) attacks or by packet sniffing. 
+This may not be a concern if your network is isolated behind a router or firewall. However, if your RaspAP installation is accessed over the internet, additional security measures are available and recommended. These are described in the next sections.
 
 ## Best security practices
 The overall security of your RaspAP install can be greatly enhanced by applying some rudimentary changes to it. Taken together, these have the effect of hardening your router against potential external threats.
@@ -24,7 +25,7 @@ Basic Authentication can be used securely if transmitted over HTTPS, which encry
 
 
 ### Using a strong passphrase
-In most scenarios, a potential attacker can only access RaspAP's admin login prompt if they are already associated with your wireless access point. To mitigate this, change the default `raspap-webgui` SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:
+In most scenarios, a potential attacker can only access RaspAP's login prompt if they are already associated with your wireless access point. To mitigate this, change the default `raspap-webgui` SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:
 
 ![](https://github.com/user-attachments/assets/416d32fc-0163-40d9-9e7f-c4d256d3f715){: style="width:420px"}
 
@@ -55,6 +56,13 @@ The default administrator user icon may be replaced with a custom one of your ch
 ![](https://github.com/user-attachments/assets/ff7f1974-4411-4113-8130-f7ad4d9d9411){: style="width:480px"}
 
 Image files of type `.jpg`, `.gif` or `.png` up to a maximum of 2 MB are supported. To restore the avatar to the default, choose **Reset avatar**.
+
+## Session management
+The default PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.
+
+Previously, if a page was submitted after the session had expired, RaspAP would return a [CSRF token error](faq.md#token). Usually the page could simply be refreshed to generate a new session token. Now, when the logged-in user's session expires, the login dialog will appear prompting them to reauthenticate.
+
+This behavior is in line with many modern router implementations, which redirect an administrative user to a login page after a period of inactivity. This has the effect of enhancing security in the event the router is left unattended.
 
 ## Restoring defaults
 Login credentials are stored in `/etc/raspap/raspap.auth`. The password is encrypted and cannot be edited manually. If you've forgotten your admin login or wish to temporarily reset the defaults, you may do so by simply deleting this file:
