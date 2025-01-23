@@ -21,8 +21,7 @@ This may not be a concern if your network is isolated behind a router or firewal
 The overall security of your RaspAP install can be greatly enhanced by applying some rudimentary changes to it. Taken together, these have the effect of hardening your router against potential external threats.
 
 ### Using HTTPS/TLS
-Basic Authentication can be used securely if transmitted over HTTPS, which encrypts the entire communication channel. For this reason, RaspAP has simplified the process of creating [locally-trusted SSL certificates](ssl.md) with the [Quick installer](ssl.md#quick-installer). When HTTPS/TLS is enabled with a RaspAP install, this authentication process is significantly more secure. 
-
+RaspAP's administrator login can be made secure if transmitted over HTTPS, which encrypts the entire communication channel. For this reason, RaspAP has simplified the process of creating [locally-trusted SSL certificates](ssl.md) with the [Quick installer](ssl.md#quick-installer). When HTTPS/TLS is enabled with a RaspAP install, this authentication process is significantly more secure. 
 
 ### Using a strong passphrase
 In most scenarios, a potential attacker can only access RaspAP's login prompt if they are already associated with your wireless access point. To mitigate this, change the default `raspap-webgui` SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:
