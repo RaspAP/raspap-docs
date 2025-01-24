@@ -3,6 +3,44 @@ site_url: ""
 repo_url: https://github.com/RaspAP/raspap-webgui
 repo_name: RaspAP/raspap-webgui
 edit_uri: /RaspAP/raspap-docs/edit/master/docs
+
+nav:
+  - Overview: index.md
+  - Quick Start:
+    - Simple Setup: quick_start.md
+    - Default settings: defaults.md
+    - Manual installation: manual.md
+    - Quick installer: quick.md
+    - Docker support: docker.md
+  - Core Features: 
+    - Ad blocking: adblock.md
+    - Access point settings: ap-basics.md
+    - Authentication: authentication.md
+    - Bridged AP mode: bridged.md
+    - Captive portal setup: captive.md
+    - Custom user plugins: custom-plugins.md
+    - Minimal SD card write: minwrite.md
+    - OpenVPN: openvpn.md
+    - Translations: translations.md
+    - WiFi repeater: repeater.md
+    - WireGuard: wireguard.md
+  - Insiders:
+    - Features: insiders.md
+    - Dynamic DNS: dynamicdns.md
+    - Firewall: firewall.md
+    - Network devices: net-devices.md
+    - NTP Service: ntp.md
+    - Speed testing: speedtest.md
+    - Wireless LAN routing: wlanrouting.md
+  - Experimental Features:
+    - AP-STA mode: ap-sta.md
+    - RestAPI: restapi.md
+    - VPN Providers: providers.md
+    - SSL certificates: ssl.md
+  - FAQ: faq.md
+  - Reporting Issues: issues.md
+  - Get Involved: get_involved.md
+
 theme:
   name: material
   logo: images/favicon-32x32.png
@@ -34,6 +72,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.footer
+    - navigation.expand
     - content.action.edit
     - content.action.view
     - search.suggest
@@ -96,4 +135,4 @@ extra:
     - icon: fontawesome/brands/reddit-alien
       link: https://reddit.com/r/RaspAP
 
-copyright: Copyright &copy; 2013 - 2024 <a href="https://github.com/RaspAP">RaspAP</a>
+copyright: Copyright &copy; 2013 - 2025 <a href="https://github.com/RaspAP">RaspAP</a>
