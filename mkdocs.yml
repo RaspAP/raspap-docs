@@ -73,6 +73,8 @@ theme:
     - navigation.tracking
     - navigation.footer
     - navigation.expand
+    - navigation.instant
+    - navigation.instant.progress
     - content.action.edit
     - content.action.view
     - search.suggest
