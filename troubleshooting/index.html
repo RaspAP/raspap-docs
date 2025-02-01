@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../ap-sta/">
+        <link rel="prev" href="../docker/">
       
       
-        <link rel="next" href="../providers/">
+        <link rel="next" href="../adblock/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>RESTful API - RaspAP Documentation</title>
+        <title>Troubleshooting - RaspAP Documentation</title>
       
     
     
@@ -125,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#restapi" class="md-skip">
+        <a href="#troubleshooting" class="md-skip">
           Skip to content
         </a>
       
@@ -160,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RESTful API
+              Troubleshooting
             
           </span>
         </div>
@@ -327,19 +327,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -354,7 +354,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Quick Start
@@ -475,10 +475,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../troubleshooting/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -488,6 +509,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug log
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnosing-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagnosing problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reverting-to-base-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reverting to base settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing backups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -990,19 +1085,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1017,7 +1112,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Experimental Features
@@ -1050,31 +1145,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    RESTful API
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../restapi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1084,155 +1158,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use cases
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate an API key
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#authorization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authorization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Testing endpoints
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing endpoints">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#client-requests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client requests
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#server-responses" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server responses
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#systemd-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd service
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Docker support
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discussions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Discussions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1388,111 +1313,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#debug-log" class="md-nav__link">
     <span class="md-ellipsis">
-      Use cases
+      Debug log
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#diagnosing-problems" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation
+      Diagnosing problems
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#reverting-to-base-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate an API key
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#authorization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authorization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Testing endpoints
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing endpoints">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#client-requests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client requests
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#server-responses" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server responses
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#systemd-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd service
+      Reverting to base settings
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-support" class="md-nav__link">
+  <a href="#accessing-backups" class="md-nav__link">
     <span class="md-ellipsis">
-      Docker support
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
+      Accessing backups
     </span>
   </a>
   
@@ -1523,7 +1373,7 @@
 
 
   
-    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/restapi.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/troubleshooting.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1532,125 +1382,82 @@
     
       
     
-    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/restapi.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/troubleshooting.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="restapi">RestAPI</h1>
-<p><img alt="restful-api" src="https://github.com/user-attachments/assets/51b6ae1b-5cbf-4552-ad30-210cc68f854b" style="width:640px" /></p>
+<h1 id="troubleshooting">Troubleshooting</h1>
 <h2 id="overview">Overview</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental </p>
-<p>RaspAP includes support for stateless client-server data exchange via a high performance RESTful API. This allows clients to communicate with the API over HTTP with standard methods such as GET and POST and receive responses in JSON. RaspAP's API is powered by <a href="https://fastapi.tiangolo.com/">FastAPI</a>, one of the <a href="https://fastapi.tiangolo.com/#performance">fastest Python frameworks available</a>.</p>
-<p>FastAPI makes use of the <a href="https://www.uvicorn.org/">Uvicorn</a> ASGI web server implementation for Python. This is a minimal, low-level server interface for asynchronous frameworks.</p>
-<h2 id="use-cases">Use cases</h2>
-<p>A RESTful API operates asynchronously, making it suited for building microservices&#151;small, independent services that function in the context of larger applications. Examples might include a dashboard widget or other integration that consumes JSON data from the API to perform live monitoring of RaspAP's operational state.</p>
-<p>Using the API's POST methods (to be announced soon), RaspAP's functions may even be remotely controlled outside of its regular web interface. </p>
-<h2 id="installation">Installation</h2>
-<p>The RestAPI may be optionally installed by the <a href="../quick/">Quick installer</a>. To install RestAPI support, respond by pressing <span class="keys"><kbd class="key-enter">Enter</kbd></span> to accept the default <span class="keys"><kbd class="key-y">Y</kbd></span> option at the following prompt:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>RaspAP Install: Configure RestAPI
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Install and enable RestAPI? [Y/n]:
+<p>RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. You may also encounter errors connecting clients to 
+the AP, have no internet connectivity on AP clients, or observe clients being disconnected for no apparent reason. </p>
+<p>If any of the above happens, one of the best diagnostic tools at your disposal is RaspAP's built-in service logging facility. You may enable the <code>hostapd</code> service log by sliding the <strong>Logfile output</strong> toggle on the <strong>Hotspot &gt; Logging</strong> tab and choosing <strong>Save settings</strong>. Finally, choose
+<strong>Restart hotspot</strong> and check the log output.</p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png" style="width:580px" /></p>
+<p>Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the <strong>DHCP server &gt; Logging</strong> tab.</p>
+<h2 id="debug-log">Debug log</h2>
+<p>In some situations, you may need more comprehensive information to diagnose a problem. RaspAP lets you generate a debug log with a detailed summary of your system including the installed OS, Linux kernel version, attached USB devices, RaspAP settings, network configuration and current state of several AP-related services.</p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad" style="width:480px" /></p>
+<p>To create this log, simply click or tap on the <strong>Generate debug log</strong> button from the <strong>System &gt; Tools</strong> tab. You will be prompted to choose a location to store the generated <code>raspap_debug.log</code> file on your local computer or mobile device. An example portion of RaspAP's debug log is shown below:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>System Info
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>===========
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Hardware: Raspberry Pi 3 Model B Rev 1.2
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Detected OS: Debian GNU/Linux 12 (bookworm) 64-bit
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Kernel: Linux raspberrypi 6.1.0-rpi4-rpi-v8 (2023-10-05) aarch64 GNU/Linux
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>System Uptime: 4 days, 20 hours, 45 minutes
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Memory Usage: 29.0749%
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Installed Packages
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>==================
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>PHP Version: 8.2.7 (cli) (built: Jun  9 2023 19:37:27) (NTS)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Dnsmasq Version: 2.89
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>dhcpcd Version: 9.4.1
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>lighttpd Version: 1.4.69
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>vnStat Version: 2.10
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>RaspAP Install
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>==============
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>RaspAP Version: 2.9.9
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>RaspAP Installation Directory: /var/www/html
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>RaspAP hostapd.ini contents:
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>WifiInterface = wlan0
 </span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>RaspAP's service logs and debug log are intended to assist you with performing a <em>self-diagnosis</em>. Please do <em>not</em> post your logs, in whole or in part, to RaspAP's discussions, issues or other channels. The maintainers of RaspAP <a href="../issues/#issue-policy">cannot parse your log or offer troubleshooting advice</a>. Members of the RaspAP community may be able to offer advice, but bear in mind that you're asking someone else to give up their time and help you figure out why something isn't working.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The RestAPI is enabled by default in RaspAP's <a href="./#docker-support">Docker container</a>, so if you choose this option there is nothing more for you to do.</p>
+<p>If you're unable to diagnose a problem, you can share your debug log with another party by uploading it to <a href="https://pastebin.com/" target="_blank">Pastebin</a>.</p>
 </div>
-<p>The Python language is a requirement for the RestAPI. The Quick installer will detect if Python is not installed on your system and install it for you (Python 3 is installed by default on Raspberry Pi OS). In addition, Python's package manager <code>pip</code> will also be installed. The following Python packages are requirements for the RestAPI:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>fastapi
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>uvicorn
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>psutil
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>python-dotenv
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>From Bookworm onwards, packages installed via <code>pip</code> must be installed into a Python Virtual Environment using <code>venv</code>. This has been introduced by the Python community, not by Raspberry Pi; see <a href="https://peps.python.org/pep-0668/">PEP 668</a> for more details. The Python modules listed above are installed system-wide with the <code>--break-system-packages</code> flag.</p>
+<p>RaspAP's debug log contains information about your system and local network configuration. However, no passwords or other senstive data are included.</p>
+<h2 id="diagnosing-problems">Diagnosing problems</h2>
+<p>Look for any reported errors logged by the <code>hostapd</code>, <code>dhcpcd</code> or <code>dnsmasq</code> services. In most cases, errors thrown by one or more of these services have been discussed in various online forums.
+Start by searching the official <a href="https://www.raspberrypi.org/forums/">Raspberry Pi forums</a> or <a href="https://raspberrypi.stackexchange.com/">Raspberry Pi on Stack Exchange</a>. Chances are the problems with your AP have been discussed and answered before.</p>
+<p>For additional help and advice, the <a href="../faq/">FAQ</a> is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions. For issues not covered in
+the FAQ, you may find many topics in <a href="https://github.com/RaspAP/raspap-webgui/discussions">RaspAP discussions</a> and the <a href="https://reddit.com/r/RaspAP">RaspAP subreddit</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Capture output from the Linux kernel's message buffer with <code>dmesg</code> to help diagnose failure events. Read the last 100 lines with <code>dmesg | tail -100</code> and look for any anomalies.</p>
 </div>
-<p>With the software requirements installed, the systemd <code>restapi.service</code> control file will be enabled on your system, as well as the RestAPI management UI: </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Moving restapi systemd unit control file to /lib/systemd/system/
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Enabling RestAPI management option
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>[ ✓ ok ]
-</span></code></pre></div>
-<p>Proceed with the Quick installer and accept the default <span class="keys"><kbd class="key-y">Y</kbd></span> prompt to reboot your system as a final step.</p>
-<h2 id="configuration">Configuration</h2>
-<p>Following a reboot, the RestAPI service should be up and running. You may check and control its current state by visiting RaspAP's <strong>&nbsp;<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M192 104.8c0-9.2-5.8-17.3-13.2-22.8-11.6-8.7-18.8-20.7-18.8-34 0-26.5 28.7-48 64-48s64 21.5 64 48c0 13.3-7.2 25.3-18.8 34-7.4 5.5-13.2 13.6-13.2 22.8 0 12.8 10.4 23.2 23.2 23.2H336c26.5 0 48 21.5 48 48v56.8c0 12.8 10.4 23.2 23.2 23.2 9.2 0 17.3-5.8 22.8-13.2 8.7-11.6 20.7-18.8 34-18.8 26.5 0 48 28.7 48 64s-21.5 64-48 64c-13.3 0-25.3-7.2-34-18.8-5.5-7.4-13.6-13.2-22.8-13.2-12.8 0-23.2 10.4-23.2 23.2V464c0 26.5-21.5 48-48 48h-56.8c-12.8 0-23.2-10.4-23.2-23.2 0-9.2 5.8-17.3 13.2-22.8 11.6-8.7 18.8-20.7 18.8-34 0-26.5-28.7-48-64-48s-64 21.5-64 48c0 13.3 7.2 25.3 18.8 34 7.4 5.5 13.2 13.6 13.2 22.8 0 12.8-10.4 23.2-23.2 23.2H48c-26.5 0-48-21.5-48-48V343.2C0 330.4 10.4 320 23.2 320c9.2 0 17.3 5.8 22.8 13.2 8.7 11.6 20.7 18.8 34 18.8 26.5 0 48-28.7 48-64s-21.5-64-48-64c-13.3 0-25.3 7.2-34 18.8-5.5 7.4-13.6 13.2-22.8 13.2C10.4 256 0 245.6 0 232.8V176c0-26.5 21.5-48 48-48h120.8c12.8 0 23.2-10.4 23.2-23.2"/></svg></span> RestAPI</strong> administration page. The <strong>Status</strong> tab will display the operational status of the <code>restapi.service</code>.</p>
-<h3 id="generate-an-api-key">Generate an API key</h3>
-<p>While the API server is operational, you must generate an API key to authenticate with the service before interacting with it. These steps are described below.</p>
+<p>The performance of WiFi radios may be impacted by many factors, including, but not limited to:</p>
 <ol>
-<li>In the <strong>API Key</strong> field, use the magic icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg></span> to generate a 32-character key.</li>
-<li>Alternatively, you may create your own key&#151;just be sure it's of a sufficient length and complexity.</li>
-<li>Choose <strong>Save settings</strong>. Your API key is stored in <code>/etc/raspap/api/.env</code>.</li>
-<li>Copy your API key to the clipboard for use in the Authorization section.</li>
+<li>Undervoltage due to inadequate power or too many peripherals connected to the USB bus</li>
+<li>Interference from a poorly shielded HDMI cable or using a <a href="https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/">specific HDMI screen resolution</a></li>
+<li>RF interference from overlapping WiFi networks on a crowded 2.4 GHz band.</li>
 </ol>
-<p><img alt="restapi-settings" src="https://github.com/RaspAP/raspap-webgui/assets/229399/07fd0203-0fec-4600-84f3-88dc013abcae" style="width:520px" /></p>
-<p>The <code>restapi.service</code> will be automatically restarted when updating your API key. At this stage, you have a valid API key that may be used to authenticate with the RestAPI. This is described in the next section.</p>
-<h3 id="authorization">Authorization</h3>
-<p>Now, click or tap the RestAPI docs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> link to open the documentation in a new window. The API docs are fully interactive, meaning you may test any of the available endpoints and receive a valid server response. Begin by choosing the green <strong>Authorize &nbsp;<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M144 144v48h160v-48c0-44.2-35.8-80-80-80s-80 35.8-80 80m-64 48v-48C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64v192c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64z"/></svg></span></strong> button, shown below:</p>
-<p><img alt="restapi-docs" src="https://github.com/RaspAP/raspap-webgui/assets/229399/f5a1bd5d-8dda-4b94-96e5-94f159a2b85c" style="width:520px" /></p>
-<p>This will open a dialog where you may enter your API key, which will be passed as an <code>access_token</code> in the HTTP request header. Paste the key you created in the previous step into the "Value" text field and choose the <strong>Authorize</strong> button: </p>
-<p><img alt="restapi-dialog" src="https://github.com/RaspAP/raspap-webgui/assets/229399/28023ea4-428a-49db-ad3e-3575ff109582" style="width:520px" /></p>
-<p>At this stage, the dialog should indicated "Authorized". Dismiss the dialog by choosing <strong>Close</strong>. You may now proceed with testing the API interactively.</p>
-<h2 id="testing-endpoints">Testing endpoints</h2>
-<p>With authorization done, you may test any of RaspAP's available RestAPI endpoints. Start with the first available <code>/system</code> (Get System) endpoint. Click or tap anywhere in this endpoint's header area and choose the <strong>Try it out</strong> button. This endpoint takes no parameters, so you may simply use the <strong>Execute</strong> button to query the API. An example client request and corresponding server response are shown below.</p>
-<h3 id="client-requests">Client requests</h3>
-<p>Here, we can see a <code>curl</code> <code>GET</code> command with the <code>-H</code> (header) option used to specify the <code>access_token</code> and the API key as the value. The request URL in this example is <code>http://raspberrypi.local:8081/system</code> (yours may differ):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl -X &#39;GET&#39; \
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  &#39;http://raspberrypi.local:8081/system&#39; \
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  -H &#39;accept: application/json&#39; \
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  -H &#39;access_token: o2eycsnwzacgcukkdkxulmvcva7hou5q&#39;
-</span></code></pre></div>
-<h3 id="server-responses">Server responses</h3>
-<p>The <code>/system</code> API endpoint responds to the above request with several key pieces of data in JSON format:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  &quot;hostname&quot;: &quot;raspberrypi&quot;,
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  &quot;uptime&quot;: &quot;up 23 hours, 2 minutes&quot;,
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  &quot;systime&quot;: &quot;Sun 10 Mar 11:11:11 CET 2024&quot;,
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  &quot;usedMemory&quot;: 35.46,
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  &quot;processorCount&quot;: 4,
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  &quot;LoadAvg1Min&quot;: 0.14,
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  &quot;systemLoadPercentage&quot;: 3.5,
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  &quot;systemTemperature&quot;: 46.16,
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  &quot;hostapdStatus&quot;: 1,
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  &quot;operatingSystem&quot;: &quot;Debian GNU/Linux 12 (bookworm)&quot;,
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  &quot;kernelVersion&quot;: &quot;6.1.0-rpi4-rpi-v8&quot;,
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  &quot;rpiRevision&quot;: &quot;Pi 3 Model B&quot;
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>}
-</span></code></pre></div>
-<p>The <code>hostapdStatus</code> indicates the current state of the Linux <code>hostapd</code> service, which provides the AP or hotspot. You may copy this data to the clipboard or download it from the test console, if you wish.</p>
-<h2 id="systemd-service">Systemd service</h2>
-<p>During the RestAPI <a href="./#installation">installation</a>, the Python modules installed by <code>pip</code> are stored in the current user's home directory. For the default <code>pi</code> user in Raspberry Pi OS, this path is <code>/home/pi/.local/bin</code>. In order for the <code>uvicorn</code> module to be found by Python, the <code>systemd</code> service control file specifies the <code>pi</code> user.</p>
-<p>If your current user is something other than <code>pi</code>, edit the control file with:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo nano /lib/systemd/system/restapi.service
-</span></code></pre></div>
-<p>Modify the <code>User</code> line to reflect your current user, if necessary:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">Description</span><span class="o">=</span><span class="n">raspap</span><span class="o">-</span><span class="n">restapi</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="hll"><span class="n">User</span><span class="o">=</span><span class="n">pi</span>
-</span></span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">WorkingDirectory</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">raspap</span><span class="o">/</span><span class="n">api</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">LimitNOFILE</span><span class="o">=</span><span class="mi">4096</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">uvicorn</span> <span class="n">main</span><span class="p">:</span><span class="n">app</span> <span class="o">--</span><span class="n">host</span> <span class="mf">0.0.0.0</span> <span class="o">--</span><span class="n">port</span> <span class="mi">8081</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">ExecStop</span><span class="o">=/</span><span class="nb">bin</span><span class="o">/</span><span class="n">kill</span> <span class="o">-</span><span class="n">HUP</span> <span class="err">$</span><span class="p">{</span><span class="n">MAINPID</span><span class="p">}</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">Restart</span><span class="o">=</span><span class="n">on</span><span class="o">-</span><span class="n">failure</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">RestartSec</span><span class="o">=</span><span class="mi">5</span><span class="n">s</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">[</span><span class="n">Install</span><span class="p">]</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
-</span></code></pre></div>
-<p>Save and exit the file, then reload the daemon with <code>sudo systemctl daemon-reload</code>.</p>
-<h2 id="docker-support">Docker support</h2>
-<p>The RestAPI is installed by default in RaspAP's <a href="../docker/">Docker container</a>. This includes configuration of port <code>8081</code> used by the server to respond to client requests. Note that the API is also exposed on your system's WAN interface.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>The current status of the <code>restapi.service</code> is available on the <strong>RestAPI &gt; Status</strong> tab. This is generally the best starting point when diagnosing common problems, such as authorization errors. Note that the service records the most recent API queries, including the requesting IPv4 client address:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>raspberrypi python3[3033]: INFO: 192.168.0.102:58844 - &quot;GET /clients/wlan0 HTTP/1.1&quot; 200 OK
-</span></code></pre></div>
-<p>If a remote client is using an invalid API key, for example, this will appear as a <code>403 Forbidden</code> server response in the <strong>Status</strong> console. A successful response, like the one above, will return a <code>200 OK</code> code.</p>
-<p>You may also obtain journal entries from the service by executing <code>journalctl -xeu restapi.service</code> from the shell.</p>
+<p>Bear these things in mind if your AP exhibits unexpected behavior and do your best to mitigate them.</p>
+<h2 id="reverting-to-base-settings">Reverting to base settings</h2>
+<p>It is generally advisable to begin with RaspAP's <a href="../defaults/">default configuration</a>, which has been rigorously tested and validated with the project's <a href="../#compatible-operating-systems">supported operating systems</a>. If, after modifying RaspAP's default settings, your AP no longer functions as expected, you may perform a <a href="../defaults/#restoring-settings">system reset</a> to restore these defaults.</p>
+<h2 id="accessing-backups">Accessing backups</h2>
+<p>Each time you revert to RaspAP's base settings, your existing service configuration files are automatically backed up to <code>/etc/raspap/backups</code>. In this way, you can compare differences between your files and the default configuration, if needed.
+There are many ways to do this in Linux, such as using the built-in GNU <code>diff</code> tool. Another option is to install <code>colordiff</code>, a wrapper for diff that produces the same output but with colored syntax highligting.
+Install <code>colordiff</code> with <code>sudo apt-get install colordiff</code>.</p>
+<p>Similarly, the web files located in the default <code>/var/www/html</code> root are backed up to <code>/var/www</code> in a directory named with a timestamp. Therefore, any changes you've made to RaspAP's internals are preserved. </p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using the RestAPI? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about troubleshooting? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
 
 
 
@@ -1671,7 +1478,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 1, 2025</span>
   </span>
 
     
@@ -1774,7 +1581,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../ap-sta/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AP-STA mode">
+          <a href="../docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker support">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1784,20 +1591,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                AP-STA mode
+                Docker support
               </div>
             </div>
           </a>
         
         
           
-          <a href="../providers/" class="md-footer__link md-footer__link--next" aria-label="Next: VPN providers">
+          <a href="../adblock/" class="md-footer__link md-footer__link--next" aria-label="Next: Ad blocking">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                VPN providers
+                Ad blocking
               </div>
             </div>
             <div class="md-footer__button md-icon">
