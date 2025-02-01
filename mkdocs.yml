@@ -7,11 +7,12 @@ edit_uri: /RaspAP/raspap-docs/edit/master/docs
 nav:
   - Overview: index.md
   - Quick Start:
-    - Simple Setup: quick_start.md
+    - Simple setup: quick_start.md
     - Default settings: defaults.md
     - Manual installation: manual.md
     - Quick installer: quick.md
     - Docker support: docker.md
+    - Troubleshooting: troubleshooting.md
   - Core Features: 
     - Ad blocking: adblock.md
     - Access point settings: ap-basics.md
@@ -34,12 +35,12 @@ nav:
     - Wireless LAN routing: wlanrouting.md
   - Experimental Features:
     - AP-STA mode: ap-sta.md
-    - RestAPI: restapi.md
-    - VPN Providers: providers.md
+    - RESTful API: restapi.md
+    - VPN providers: providers.md
     - SSL certificates: ssl.md
   - FAQ: faq.md
   - Reporting Issues: issues.md
-  - Get Involved: get_involved.md
+  - Get involved: get_involved.md
 
 theme:
   name: material
