@@ -1720,15 +1720,12 @@ If you have not set your country code or are unsure, check the "WLAN Country" se
 <p>On Debian, Armbian and Ubuntu, install <code>dhcpcd5</code> with the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo apt-get install dhcpcd5
 </span></code></pre></div>
-<p>On Raspberry Pi OS Lite 32-bit (bookworm), install <code>dhcpcd5</code> with a dependency:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo apt-get install dhcpcd dhcpcd-base
-</span></code></pre></div>
 <p>Armbian distributions do not include the <code>isoquery</code> dependency in their package repositories. Install it manually from the Debian package repository:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>wget https://ftp.debian.org/debian/pool/main/i/isoquery/isoquery_3.3.4-1_s390x.deb
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>dpkg -x isoquery_3.3.4-1_s390x.deb isoquery/
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo cp isoquery/usr/bin/isoquery /usr/local/bin/
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>sudo chmod +x /usr/local/bin/isoquery
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>isoquery -v
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>wget https://ftp.debian.org/debian/pool/main/i/isoquery/isoquery_3.3.4-1_s390x.deb
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>dpkg -x isoquery_3.3.4-1_s390x.deb isoquery/
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sudo cp isoquery/usr/bin/isoquery /usr/local/bin/
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>sudo chmod +x /usr/local/bin/isoquery
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>isoquery -v
 </span></code></pre></div>
 <h2 id="ubuntu-specific-steps">Ubuntu-specific steps</h2>
 <div class="admonition note">
@@ -1750,12 +1747,15 @@ If you have not set your country code or are unsure, check the "WLAN Country" se
 <p>Your RaspAP install on Ubuntu should now function as expected.</p>
 <h2 id="install-packages">Install packages</h2>
 <p>Install git, lighttpd, php8, hostapd, dnsmasq and some extra packages with the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php8.2-cgi jq isoquery
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php8.2-cgi jq isoquery
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For Raspberry Pi OS Lite (bullseye), Debian 11 and Ubuntu Server 22.04, replace <code>php8.2-cgi</code> with <code>php7.4-cgi</code>. For Ubuntu Server 23.04, you may use <code>php8.1-cgi</code>.</p>
 </div>
+<p>On Raspberry Pi OS 32- and 64-bit (Bookworm), install <code>dhcpcd5</code> with a dependency:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo apt-get install dhcpcd dhcpcd-base
+</span></code></pre></div>
 <h2 id="enable-php">Enable PHP</h2>
 <p>Next, enable PHP for <code>lighttpd</code> and restart the service for the settings to take effect:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo lighttpd-enable-mod fastcgi-php    
