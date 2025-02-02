@@ -49,12 +49,6 @@ On Debian, Armbian and Ubuntu, install `dhcpcd5` with the following:
 sudo apt-get install dhcpcd5
 ```
 
-On Raspberry Pi OS Lite 32-bit (bookworm), install `dhcpcd5` with a dependency:
-
-```
-sudo apt-get install dhcpcd dhcpcd-base
-```
-
 Armbian distributions do not include the `isoquery` dependency in their package repositories. Install it manually from the Debian package repository:
 
 ```
@@ -92,6 +86,12 @@ sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qre
 ```
 !!! note "Note"
     For Raspberry Pi OS Lite (bullseye), Debian 11 and Ubuntu Server 22.04, replace `php8.2-cgi` with `php7.4-cgi`. For Ubuntu Server 23.04, you may use `php8.1-cgi`.
+
+On Raspberry Pi OS 32- and 64-bit (Bookworm), install `dhcpcd5` with a dependency:
+
+```
+sudo apt-get install dhcpcd dhcpcd-base
+```
 
 ## Enable PHP
 Next, enable PHP for `lighttpd` and restart the service for the settings to take effect:
