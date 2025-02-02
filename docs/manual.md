@@ -55,6 +55,17 @@ On Raspberry Pi OS Lite 32-bit (bookworm), install `dhcpcd5` with a dependency:
 sudo apt-get install dhcpcd dhcpcd-base
 ```
 
+Armbian distributions do not include the `isoquery` dependency in their package repositories. Install it manually from the Debian package repository:
+
+```
+wget https://ftp.debian.org/debian/pool/main/i/isoquery/isoquery_3.3.4-1_s390x.deb
+dpkg -x isoquery_3.3.4-1_s390x.deb isoquery/
+sudo cp isoquery/usr/bin/isoquery /usr/local/bin/
+sudo chmod +x /usr/local/bin/isoquery
+isoquery -v
+
+```
+
 ## Ubuntu-specific steps
 !!! note "Note"
     This section concerns manual pre- and post-install steps required for the latest Ubuntu 23.04 (Lunar Lobster) and Armbian 23.11 (Jammy) releases. They are not necessary with other distributions.
