@@ -51,10 +51,13 @@ sudo apt-get install dhcpcd5
 
 Armbian distributions do not include the `isoquery` dependency in their package repositories. Install it manually from the Debian package repository:
 
+!!! note "Note"
+    This installs the ARM64 `isoquery` package from the Debian repository. If you're using a different architecture, be sure to modify the URI used in `wget` accordingly.
+
 ```
-wget https://ftp.debian.org/debian/pool/main/i/isoquery/isoquery_3.3.4-1_s390x.deb
-dpkg -x isoquery_3.3.4-1_s390x.deb isoquery/
-sudo cp isoquery/usr/bin/isoquery /usr/local/bin/
+wget https://ftp.debian.org/debian/pool/main/i/isoquery/isoquery_3.3.4-1+b1_arm64.deb -P /tmp
+sudo dpkg -x /tmp/isoquery_3.3.4-1+b1_arm64.deb /tmp/isoquery/
+sudo cp /tmp/isoquery/usr/bin/isoquery /usr/local/bin/
 sudo chmod +x /usr/local/bin/isoquery
 isoquery -v
 
