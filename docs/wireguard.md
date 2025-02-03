@@ -129,7 +129,7 @@ These `iptables` rules are defined in WireGuard's [default settings](defaults.md
 In the event that the WireGuard tunnel accidentally goes down, unencrypted traffic may reveal your real IP address. To prevent this from happening, additional `PostUp` and `PreDown` rules may be
 added to the firewall. Simply choose the **Enable kill switch** option when uploading your WireGuard configuration:
 
-![](https://user-images.githubusercontent.com/229399/218388355-0d489f34-5935-448d-b08c-134c509a0319.png){: style="width:580px"}
+![](https://github.com/user-attachments/assets/cc2c1a3b-9fcf-4ed1-bedd-d50dacc59bf8){: style="width:580px"}
 
 These rules are automatically appended to your configuration. 
 
