@@ -1805,6 +1805,7 @@ all of which we want our app to do. So we will add the <code>www-data</code> use
 </span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>sudo mkdir /etc/raspap/hostapd
 </span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>sudo mkdir /etc/raspap/lighttpd
 </span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>sudo mkdir /etc/raspap/system
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>sudo mkdir /etc/raspap/plugins
 </span></code></pre></div>
 <h2 id="set-permissions">Set permissions</h2>
 <p>Next, set the files ownership to the <code>www-data</code> user for the web files and RaspAP config:</p>
@@ -1817,13 +1818,16 @@ all of which we want our app to do. So we will add the <code>www-data</code> use
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>sudo mv installers/disablelog.sh /etc/raspap/hostapd
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>sudo mv installers/servicestart.sh /etc/raspap/hostapd
 </span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>sudo mv installers/debuglog.sh /etc/raspap/system
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>sudo mv installers/plugin_helper.sh /etc/raspap/plugins
 </span></code></pre></div>
 <p>Set ownership and permissions for the logging and service control scripts:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo chown -c root:root /etc/raspap/hostapd/*.sh
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo chmod 750 /etc/raspap/hostapd/*.sh
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>sudo chown -c root:root /etc/raspap/system/*.sh
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>sudo chmod 750 /etc/raspap/system/*.sh
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo chown -c root:root /etc/raspap/system/*.sh
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>sudo chown -c root:root /etc/raspap/plugins/*.sh
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>sudo chmod 750 /etc/raspap/hostapd/*.sh
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>sudo chmod 750 /etc/raspap/system/*.sh
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>sudo chmod 750 /etc/raspap/plugins/*.sh
 </span></code></pre></div>
 <p>Copy and set ownership of the <code>lighttpd</code> control scripts:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo cp installers/configport.sh /etc/raspap/lighttpd
