@@ -159,6 +159,7 @@ sudo mkdir /etc/raspap/networking
 sudo mkdir /etc/raspap/hostapd
 sudo mkdir /etc/raspap/lighttpd
 sudo mkdir /etc/raspap/system
+sudo mkdir /etc/raspap/plugins
 ```
 
 ## Set permissions
@@ -177,16 +178,20 @@ sudo mv installers/enablelog.sh /etc/raspap/hostapd
 sudo mv installers/disablelog.sh /etc/raspap/hostapd
 sudo mv installers/servicestart.sh /etc/raspap/hostapd
 sudo mv installers/debuglog.sh /etc/raspap/system
+sudo mv installers/plugin_helper.sh /etc/raspap/plugins
+
 ```
 
 Set ownership and permissions for the logging and service control scripts:
 
 ```
 sudo chown -c root:root /etc/raspap/hostapd/*.sh
-sudo chmod 750 /etc/raspap/hostapd/*.sh
-
 sudo chown -c root:root /etc/raspap/system/*.sh
+sudo chown -c root:root /etc/raspap/plugins/*.sh
+
+sudo chmod 750 /etc/raspap/hostapd/*.sh
 sudo chmod 750 /etc/raspap/system/*.sh
+sudo chmod 750 /etc/raspap/plugins/*.sh
 ```
 
 Copy and set ownership of the `lighttpd` control scripts:
