@@ -119,6 +119,9 @@ Installs from the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](inside
 #### -m, --minwrite
 Configures a microSD card for [minimum write operation](minwrite.md).
 
+#### -k, --check `<flag>`
+Sets the connectivity check flag (`0` = don't perform an internet connectivity check).
+
 #### -v, --version
 Queries the Github API, outputs the latest RaspAP release version and exits.
 
