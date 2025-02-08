@@ -108,11 +108,17 @@ sudo systemctl restart lighttpd.service
 In these steps we will prepare the web destination and git clone the files to `/var/www/html`.
 
 !!! warning "Caution"
-    If this is _not_ a clean installation, be sure you do not have existing files or directories in the web root before executing the `rm -rf` command.
+    If this is _not_ a clean installation, be sure to move existing files or directories in the web root before executing the `rm -rf` command.
 
+Begin by preparing the default web root location to host the application:
 ```
 sudo rm -rf /var/www/html
-sudo git clone https://github.com/RaspAP/raspap-webgui /var/www/html
+```
+
+Now, clone the source repository specifying the `--recurse-submodules` option to include code from the submodules:
+
+```
+sudo git clone --recurse-submodules https://github.com/RaspAP/raspap-webgui /var/www/html
 ```
 
 Copy an extra `lighttpd` config file to support application routing. This step requires some text substitutions to support user changes to lighttpd's `server.document-root` setting:
