@@ -1,8 +1,27 @@
 # Quick start
 
-## Quick Install
+RaspAP gives you two different ways to get up and running quickly. The simplest and recommended approach is to use a custom SD card image with RaspAP preinstalled. This option eliminates guesswork and gives you a base upon which to build. Alternatively, you may execute the Quick installer on an existing compatible OS. Both methods are described in the following sections.
 
-Start with a clean install of the [latest release of Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported, as well as the latest 64-bit Desktop distribution. Consult [this FAQ](faq.md#distros) before installing RaspAP in a desktop environment.
+## Pre-built image
+Custom RaspAP images based on Raspberry Pi OS Lite are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.
+
+!!! tip Tip
+    Before downloading a custom OS with RaspAP preinstalled, refer to [this resource](https://www.raspberrypi.com/software/operating-systems/) to ensure compatibility with your hardware.
+
+| Operating system     | Debian version | Kernel version  | RaspAP version | Size  |
+| ---------------------| ---------------|-----------------|----------------|-------|
+| Raspberry Pi OS (64-bit) Lite | 12 (bookworm)  | 6.6             | Latest         | 777 MB|
+| Raspberry Pi OS (32-bit) Lite | 12 (bookworm)  | 6.6             | Latest         | 805 MB|
+
+These images are automatically generated with each release of RaspAP and are made [available here](https://github.com/RaspAP/raspap-webgui/releases/latest). You may choose between an `arm64` or `armhf` (32-bit) based build.
+
+After downloading your desired image from the [latest release page](https://github.com/RaspAP/raspap-webgui/releases/latest), you may use the Raspberry Pi Imager, [balenaEtcher](https://www.balena.io/etcher) or a similar utility to flash the OS image onto an SD card. Insert the SD card into your device and boot it up. The latest RaspAP release version with the most popular optional components will be active and ready for you to configure.
+
+!!! note Note
+    To ensure that wireless operation isn't blocked by `rfkill`, the WiFi country is preset to "US" in these images. If this is _not_ your country, be sure to change this with `sudo raspi-config` and choose **Localisation Options** on first boot.
+
+## Quick Install
+Start with a clean install of the [latest release of Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported, as well as the latest 64-bit Desktop distribution. Consult [this FAQ](faq.md#distros) before installing RaspAP in a desktop environment.
 
 
 !!! tip "Tip"
@@ -24,9 +43,10 @@ Install RaspAP from your device's shell prompt:
 ```sh
 curl -sL https://install.raspap.com | bash
 ```
-The [Quick installer](quick.md) will complete the steps in the [manual installation](manual.md) for you.
+The [Quick installer](quick.md) will complete the steps in the [manual installation](manual.md) for you. At the end of the install process, accept the prompt to reboot your system.
 
-After the reboot at the end of the installation the wireless AP network will be configured as follows:
+## Initial settings
+After completing either of these setup options, the wireless AP network will be configured as follows:
 
   **IP address:** 10.3.141.1  
   **Username:** admin  
