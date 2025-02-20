@@ -152,7 +152,14 @@ WireGuard isn't a chatty protocol. For the most part, it only transmits data whe
 As a result, your wireless adapter has a higher likelihood of being able to idle down, which leads to better battery life.
 
 ## Troubleshooting
-See the [FAQ section](faq.md#wireguard) for WireGuard.
+RaspAP provides a front end to WireGuard only; it makes no attempt to validate `.conf` files uploaded to your device. For this reason, the service may fail to start for a variety of reasons.
+
+!!! tip Tip
+    Drop to the shell and execute `sudo systemctl start wg-quick@wg0`. If WireGuard fails to start, expect no different from RaspAP.
+
+In this event, use RaspAP's WireGuard service logging facility or execute `sudo journalctl --identifier wg-quick`. Scan the log for errors and consult the [WireGuard documentation](https://www.wireguard.com/) to ensure that your configuration is valid.
+
+See also the [FAQ section](faq.md#wireguard) for WireGuard.
 
 ## Discussions
 Questions or comments about using WireGuard? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
