@@ -1,8 +1,7 @@
 # Manual installation
 
 ## Overview
-These steps apply to the [latest release of RaspAP](https://github.com/RaspAP/raspap-webgui/releases/), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit), Debian and Armbian. Notes for previous versions, Ubuntu Server 18.04 TLS and 19.10 are provided, where applicable.
-Please refer to [this](index.md#compatible-operating-systems) regarding operating systems support.
+These steps apply to the [latest release of RaspAP](https://github.com/RaspAP/raspap-webgui/releases/latest), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/), Debian and Armbian. Please refer to [this](index.md#compatible-operating-systems) regarding operating systems support.
 
 ## Alternatives
 If your goal is to use RaspAP as a component of a larger project, or wish to isolate its dependencies from existing software on your system, consider deploying RaspAP in a [Docker container](docker.md) instead. 
@@ -43,7 +42,7 @@ sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 ```
 
-On Debian, Armbian and Ubuntu, install `dhcpcd5` with the following:
+On Debian and Armbian, install `dhcpcd5` with the following:
 
 ```
 sudo apt-get install dhcpcd5
@@ -63,9 +62,9 @@ isoquery -v
 
 ```
 
-## Ubuntu-specific steps
+## Armbian-specific steps
 !!! note "Note"
-    This section concerns manual pre- and post-install steps required for the latest Ubuntu 23.04 (Lunar Lobster) and Armbian 23.11 (Jammy) releases. They are not necessary with other distributions.
+    This section concerns manual pre- and post-install steps required for the Armbian 23.11 (Jammy) release. They are not necessary with other distributions.
 
 RaspAP's installer will prompt you to stop and disable the `systemd-resolved` service listening on port 53 before installing `dnsmasq`. On Ubuntu 23.04 and Armbian 23.11 this results in a name resolution failure and the installation cannot continue. To resolve this, perform the following **pre-install steps**:
 
@@ -79,7 +78,7 @@ RaspAP's installer will prompt you to stop and disable the `systemd-resolved` se
 1. Edit the dnsmasq configuration with `sudo nano /etc/default/dnsmasq` and un-hash `IGNORE_RESOLVCONF=yes`. Save and exit the file.
 1. Restart the dnsmasq service with `sudo systemctl restart dnsmasq.service`. 
 
-Your RaspAP install on Ubuntu should now function as expected.
+Your RaspAP install on Armbian should now function as expected.
 
 ## Install packages
 Install git, lighttpd, php8, hostapd, dnsmasq and some extra packages with the following:
