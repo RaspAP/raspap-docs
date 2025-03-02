@@ -10,9 +10,12 @@ are allowed to be inputted to, and outputted from, the RaspAP router itself.
 
 [Insiders](insiders.md) have access to a UI designed for this purpose. 
 
+## Installation
+The firewall is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the modal dialog. The plugin installer will automatically refresh the UI; the firewall plugin will then appear in the sidebar and be immediately available to configure.
+
 ## Basic rule set
 As with every other aspect of RaspAP's [default settings](defaults.md), the application `iptables` rules are stored in an external JSON file, so they may be modified without touching code. 
-During the install, the file `iptables_rules.json` is copied from `/config` to `/etc/raspap/networking/firewall`. Thereafter, they may be administered from the UI, shown below.
+During the install, the file `iptables_rules.json` is copied from the plugin's `/config` directory to `/etc/raspap/networking/`. Thereafter, these rules may be administered from the UI, as shown below.
 
 ![](https://github.com/user-attachments/assets/a436745a-870a-4fed-bdfc-9da5dc1eed28){: style="width:420px"}
 
