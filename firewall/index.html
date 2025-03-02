@@ -933,6 +933,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#basic-rule-set" class="md-nav__link">
     <span class="md-ellipsis">
       Basic rule set
@@ -1337,6 +1346,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#basic-rule-set" class="md-nav__link">
     <span class="md-ellipsis">
       Basic rule set
@@ -1444,9 +1462,11 @@
 <p>If your device is exposed to the outside world, firewall rules can provide a layer of security against intruders to your network. A firewall also gives us granularity in terms of what is allowed to be forwarded across interfaces. Using the rule sets described below, we can effectively control which packets
 are allowed to be inputted to, and outputted from, the RaspAP router itself. </p>
 <p><a href="../insiders/">Insiders</a> have access to a UI designed for this purpose. </p>
+<h2 id="installation">Installation</h2>
+<p>The firewall is available as an Insiders-only plugin that may be installed from the <strong>System &gt; Plugins</strong> tab. Simply choose <strong>Details</strong> corresponding to the plugin, then <strong>Install now</strong> from the modal dialog. The plugin installer will automatically refresh the UI; the firewall plugin will then appear in the sidebar and be immediately available to configure.</p>
 <h2 id="basic-rule-set">Basic rule set</h2>
 <p>As with every other aspect of RaspAP's <a href="../defaults/">default settings</a>, the application <code>iptables</code> rules are stored in an external JSON file, so they may be modified without touching code. 
-During the install, the file <code>iptables_rules.json</code> is copied from <code>/config</code> to <code>/etc/raspap/networking/firewall</code>. Thereafter, they may be administered from the UI, shown below.</p>
+During the install, the file <code>iptables_rules.json</code> is copied from the plugin's <code>/config</code> directory to <code>/etc/raspap/networking/</code>. Thereafter, these rules may be administered from the UI, as shown below.</p>
 <p><img alt="" src="https://github.com/user-attachments/assets/a436745a-870a-4fed-bdfc-9da5dc1eed28" style="width:420px" /></p>
 <p>By default, the firewall will only allow outgoing and already established traffic. There are no restrictions to the currently configured AP interface (<code>wlan0</code> is the default).
 The remaining firewall rules are grouped into four distinct classes. These are described below.</p>
@@ -1503,7 +1523,7 @@ variable in the actual <code>iptables</code> rule should be replaced. To illustr
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 3, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 2, 2025</span>
   </span>
 
     
