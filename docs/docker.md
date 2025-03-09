@@ -255,7 +255,7 @@ You may change this behavior by removing any or all of the [Quick installer](qui
 ``` py hl_lines="3"
 VOLUME [ "/sys/fs/cgroup" ]
 
-RUN curl -sL https://install.raspap.com | bash -s -- --yes --wireguard 1 --openvpn 1 --adblock 1
+RUN curl -sL https://install.raspap.com | bash -s -- --yes --wireguard 1 --openvpn 1 --adblock 1 --rest 1 --check 0
 COPY firewall-rules.sh /home/firewall-rules.sh
 COPY wpa_supplicant.conf /etc/wpa_supplicant/
 ```
@@ -263,7 +263,7 @@ COPY wpa_supplicant.conf /etc/wpa_supplicant/
 To create a container with the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](insiders.md), add the installer options `--insiders`, `--name` and `--token`, plus any other desired switches:
 
 ```
-RUN curl -sL https://install.raspap.com | bash -s -- --yes --insiders --name <username> --token <accesstoken>
+RUN curl -sL https://install.raspap.com | bash -s -- --yes --insiders --name <username> --token <accesstoken> --check 0
 ```
 
 With this done, you may proceed with building your Docker image as usual. 
