@@ -95,7 +95,7 @@ Specify a GitHub [personal access token](https://docs.github.com/en/authenticati
 Specify a GitHub username to access a private repository. An example combining the `--token` and `--name` options is given below:
 
 ```
-curl -sL https://install.raspap.com | bash -s -- --name billz --token [my-token]
+curl -sL https://install.raspap.com | bash -s -- --name octocat --token my-token
 ```
 
 #### -u, --upgrade
