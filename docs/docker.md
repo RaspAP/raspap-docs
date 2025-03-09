@@ -248,7 +248,7 @@ sudo chmod +x firewall-rules.sh
 ```
 
 ### Installer options
-The goal of the initial Docker rollout for RaspAP is to have a "one shot" command to get a container up quickly with minimal user input. For this reason, the RaspAP application stack is installed with some common options enabled by default. These optional components are [Ad blocking](adblock.md), [OpenVPN](openvpn.md) and [WireGuard](wireguard.md).
+The goal of the initial Docker rollout for RaspAP is to have a "one shot" command to get a container up quickly with minimal user input. For this reason, the RaspAP application stack is installed with some common options enabled by default. These optional components are [Ad blocking](adblock.md), [OpenVPN](openvpn.md), [WireGuard](wireguard.md) and the [RestAPI](restapi.md).
 
 You may change this behavior by removing any or all of the [Quick installer](quick.md) flags from RaspAP's [Dockerfile](https://github.com/RaspAP/raspap-docker/blob/master/Dockerfile). For example, to skip the WireGuard install option, remove the `--wireguard 1` flag on the line below:
 
