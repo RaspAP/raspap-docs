@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
     
     
       
@@ -1502,16 +1502,7 @@
 <p>In this situation, a single internet connected device (the NTP server) will synchronize the time of the robot or sensor (NTP clients). These devices may already receive control instructions and/or exchange data with the server via a wireless network, such as the one provided by RaspAP. In this way, NTP functions as an additional service layer on top of an existing WiFi network.</p>
 <p>Alternatively, a standalone configuration may be needed in which precision timekeeping is required for a network device.</p>
 <h2 id="installation">Installation</h2>
-<p>An NTP server may be optionally installed by the <a href="../quick/">Quick installer</a>. To install NTP server support, respond by pressing <span class="keys"><kbd class="key-enter">Enter</kbd></span> to accept the default <span class="keys"><kbd class="key-y">Y</kbd></span> option at the following prompt:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>RaspAP Install: Configure NTP server support
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Install ntp and enable NTP configuration? [Y/n]:
-</span></code></pre></div>
-<p>With the software requirements installed, the systemd <code>ntpd.service</code> control file will be enabled on your system, as well as the NTP server management UI: </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Enabling ntpd.service
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Enabling NTP server management option
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[ ✓ ok ]
-</span></code></pre></div>
-<p>Proceed with the Quick installer and accept the default <span class="keys"><kbd class="key-y">Y</kbd></span> prompt to reboot your system as a final step.</p>
+<p>The NTP server is available as an Insiders-only plugin that may be installed from the <strong>System &gt; Plugins</strong> tab. Simply choose <strong>Details</strong> corresponding to the plugin, then <strong>Install now</strong> from the modal dialog. The plugin installer will automatically refresh the UI; the NTP server plugin will then appear in the sidebar and be immediately available to configure.</p>
 <h2 id="configuration">Configuration</h2>
 <p>Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's <strong>&nbsp;<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M464 256a208 208 0 1 1-416 0 208 208 0 1 1 416 0M0 256a256 256 0 1 0 512 0 256 256 0 1 0-512 0m232-136v136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24"/></svg></span> NTP Server</strong> administration page. Basic <strong>Settings</strong> as well as <strong>Advanced</strong> controls are available on their respective tabs. The <strong>Status</strong> tab will display the operational state of connected peers by using the <code>ntpq</code> query tool. These status queries are <a href="./#peer-status-queries">examined in detail</a> to assist you with interpreting them.</p>
 <h3 id="standalone-device">Standalone device</h3>
@@ -1537,14 +1528,14 @@
 </div>
 <h2 id="peer-status-queries">Peer status queries</h2>
 <p>The NTP query utility <code>ntpq</code> is used to monitor NTP daemon <code>ntpd</code> operations and give useful performance metrics. The <code>-p</code> or <code>--peers</code> option is used with <code>ntpq</code> to output a list of the peers known to the server as well as a summary of their state. This is available on the <strong>NTP Server &gt; Status</strong> tab. Example output is shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>     remote           refid      st t when poll reach   delay   offset   jitter
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>===============================================================================
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>+time.cloudflare 10.109.8.98      3 u  723 1024  377  27.6182   1.8467   3.5095
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>+185.198.109.227 150.214.94.10    2 u  403 1024  377  37.3427   0.1535   2.6619
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>+time.cloudflare 10.56.8.4        3 u  433 1024  377  21.7662   2.6731   7.5725
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>-ntp01.pingless. 189.97.54.122    2 u  181 1024  377  70.1582  -5.9882   3.3870
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>-185.90.148.209  150.214.94.10    2 u  861 1024  337  63.1452   4.4984   6.3479
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>*ip94-143-139-21 150.214.94.10    2 u  289 1024  377  36.6112   0.3700   2.5709
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>     remote           refid      st t when poll reach   delay   offset   jitter
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>===============================================================================
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+time.cloudflare 10.109.8.98      3 u  723 1024  377  27.6182   1.8467   3.5095
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+185.198.109.227 150.214.94.10    2 u  403 1024  377  37.3427   0.1535   2.6619
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+time.cloudflare 10.56.8.4        3 u  433 1024  377  21.7662   2.6731   7.5725
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>-ntp01.pingless. 189.97.54.122    2 u  181 1024  377  70.1582  -5.9882   3.3870
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>-185.90.148.209  150.214.94.10    2 u  861 1024  337  63.1452   4.4984   6.3479
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>*ip94-143-139-21 150.214.94.10    2 u  289 1024  377  36.6112   0.3700   2.5709
 </span></code></pre></div>
 <p>Looking at the column headers, this status output may be interpreted with the following:</p>
 <table>
@@ -1604,10 +1595,10 @@
 <p>In the above example, our local NTP server is within 0.37ms of the preferred remote server, which itself is closely tied (<code>stratum=2</code>) to a high quality clock source. Our local server is within &plusmn; 6ms of the other remotes.</p>
 <h2 id="firewall-settings">Firewall settings</h2>
 <p>If your system uses a network <a href="../firewall/">firewall</a>, such as the one provided by RaspAP, you will need to be sure that it's configured for the NTP protocol. NTP uses UDP port 123 to communicate with peers. Therefore, you must ensure that the port is open in any firewall. To enable NTP traffic with <code>iptables</code> execute the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>iptables -A INPUT -p udp --dport 123 -j ACCEPT
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>iptables -A INPUT -p udp --dport 123 -j ACCEPT
 </span></code></pre></div>
 <p>Alternatively, you may use <code>ufw</code> to achieve the same result:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ufw allow 123/udp
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ufw allow 123/udp
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1615,18 +1606,18 @@
 </div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Output from the NTP system calls <code>ntp_gettime()</code> and <code>ntp_adjtime()</code> is displayed prominently on the <strong>NTP Server &gt; Settings</strong> page. If present, the current synchronized timekeeping data are displayed with their associated status codes. A <code>code 0 (OK)</code> indicates that these system calls are functioning as expected, as shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ntp_gettime() returns code 0 (OK)
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  time e9b1283b.89c0db28 2024-03-29T11:44:59.538Z, (.538099359),
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  maximum error 997469 us, estimated error 167 us, TAI offset 37
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>ntp_adjtime() returns code 0 (OK)
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  modes 0x0 (),
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  offset 456.591 us, frequency -1.317 ppm, interval 1 s,
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  maximum error 997469 us, estimated error 167 us,
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  status 0x2001 (PLL,NANO),
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  time constant 6, precision 1.000 us, tolerance 500 ppm,
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ntp_gettime() returns code 0 (OK)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  time e9b1283b.89c0db28 2024-03-29T11:44:59.538Z, (.538099359),
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  maximum error 997469 us, estimated error 167 us, TAI offset 37
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ntp_adjtime() returns code 0 (OK)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  modes 0x0 (),
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  offset 456.591 us, frequency -1.317 ppm, interval 1 s,
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  maximum error 997469 us, estimated error 167 us,
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  status 0x2001 (PLL,NANO),
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  time constant 6, precision 1.000 us, tolerance 500 ppm,
 </span></code></pre></div>
 <p>On the other hand, the kernel may occasionally report NTP clock errors like the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>raspberrypi ntpd[1279]: kernel reports TIME_ERROR: 0x2041: Clock Unsynchronized&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>raspberrypi ntpd[1279]: kernel reports TIME_ERROR: 0x2041: Clock Unsynchronized&quot;
 </span></code></pre></div>
 <p>The NTP system calls shown above may also return a <code>code 5 (ERROR)</code> result. In most cases, this will resolve itself in a few minutes while the system clock is synchronized. Persistent errors may indicate a misconfiguration of the NTP protocol or a general networking problem. Refer to the <a href="./#firewall-settings">firewall settings</a>, above.</p>
 <p>Detailed metrics from <a href="./#peer-status-queries">peer status queries</a> are also useful for troubleshooting purposes. </p>
@@ -1653,7 +1644,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 21, 2024 10:48:10">November 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 14, 2025 08:59:00">March 14, 2025</span>
   </span>
 
     
