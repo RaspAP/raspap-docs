@@ -17,22 +17,7 @@ In this situation, a single internet connected device (the NTP server) will sync
 Alternatively, a standalone configuration may be needed in which precision timekeeping is required for a network device.
 
 ## Installation
-An NTP server may be optionally installed by the [Quick installer](quick.md). To install NTP server support, respond by pressing ++enter++ to accept the default ++y++ option at the following prompt:
-
-```
-RaspAP Install: Configure NTP server support
-Install ntp and enable NTP configuration? [Y/n]:
-```
-
-With the software requirements installed, the systemd `ntpd.service` control file will be enabled on your system, as well as the NTP server management UI: 
-
-```
-Enabling ntpd.service
-Enabling NTP server management option
-[ ✓ ok ]
-```
-
-Proceed with the Quick installer and accept the default ++y++ prompt to reboot your system as a final step.
+The NTP server is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the modal dialog. The plugin installer will automatically refresh the UI; the NTP server plugin will then appear in the sidebar and be immediately available to configure.
 
 ## Configuration
 Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational state of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](ntp.md#peer-status-queries) to assist you with interpreting them.
