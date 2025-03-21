@@ -10,8 +10,8 @@ Custom Raspberry Pi OS Lite images with the latest RaspAP are available for dire
 
 | Operating system     | Debian version | Kernel version  | RaspAP version | Size  |
 | ---------------------| ---------------|-----------------|----------------|-------|
-| Raspberry Pi OS (64-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 779 MB|
-| Raspberry Pi OS (32-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 808 MB|
+| Raspberry Pi OS (64-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 869 MB|
+| Raspberry Pi OS (32-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 897 MB|
 
 These images are automatically generated with each release of RaspAP and are made [available here](https://github.com/RaspAP/raspap-webgui/releases/latest). You may choose between an `arm64` or `armhf` (32-bit) based build.
 
