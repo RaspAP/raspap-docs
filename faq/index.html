@@ -1354,6 +1354,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#is-there-a-minimum-recommended-size-for-the-sd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is there a minimum recommended size for the SD card?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#after-a-clean-install-wifi-andor-raspap-behaves-unpredictably" class="md-nav__link">
     <span class="md-ellipsis">
       After a clean install, WiFi and/or RaspAP behaves unpredictably.
@@ -2051,6 +2060,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#is-there-a-minimum-recommended-size-for-the-sd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is there a minimum recommended size for the SD card?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#after-a-clean-install-wifi-andor-raspap-behaves-unpredictably" class="md-nav__link">
     <span class="md-ellipsis">
       After a clean install, WiFi and/or RaspAP behaves unpredictably.
@@ -2542,6 +2560,7 @@ FAQ items are organized into thematic sections, below, for easier reference.</p>
 <li><a href="#nopw">Can I remove the AP password to create an open WiFi network?</a></li>
 <li><a href="#access">How do I prevent WAN access to RaspAP's web administration?</a></li>
 <li><a href="#minwrite">Can I reduce the risk of SD card corruption and extend a card's lifespan?</a></li>
+<li><a href="#cardsize">Is there a minimum recommended size for the SD card?</a></li>
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <ul>
@@ -2699,6 +2718,24 @@ After this is done, the web server will refuse connections to all IP addresses o
 <p>Clients outside of your defined network range will receive a '403' response when accessing the web UI.</p>
 <h2 id="can-i-reduce-the-risk-of-sd-card-corruption-and-extend-a-cards-lifespan"><a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?</h2>
 <p>Yes. RaspAP has developed a <a href="../minwrite/">minimal write mode</a> that substantially reduces disk I/O activity and helps to extend the life of microSD cards.</p>
+<h2 id="is-there-a-minimum-recommended-size-for-the-sd-card"><a name="cardsize"></a>Is there a minimum recommended size for the SD card?</h2>
+<p>4GB is considered the bare minimum for Raspberry Pi OS. 8GB is recommend for RaspAP; more if you're hosting large files or applications.</p>
+<p>A fresh install of Raspberry Pi OS 64-bit Lite (bookworm) with the latest kernel uses about 2.6GB of storage. In the example below, <code>/dev/mmcblk0p2</code> is the main partition mounted as the root filesystem (<code>/</code>):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ df -h
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Filesystem      Size  Used Avail Use% Mounted on
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>udev            318M     0  318M   0% /dev
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>tmpfs            91M  3.9M   87M   5% /run
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>/dev/mmcblk0p2   29G  2.5G   25G  10% /
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>tmpfs           454M     0  454M   0% /dev/shm
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>tmpfs           5.0M   12K  5.0M   1% /run/lock
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>/dev/mmcblk0p1  510M   55M  456M  11% /boot/firmware
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>tmpfs            91M     0   91M   0% /run/user/1000
+</span></code></pre></div>
+<p>A microSD card with 32GB of storage is used here. A typical RaspAP install is very lightweight, using only about 200MB in total.</p>
+<div class="admonition tip tip">
+<p class="admonition-title">Tip</p>
+<p>If you experience problems such as updates that fail to complete with a 4GB SD card, lack of storage is likely the cause. Linux systems write lots of <a href="../minwrite/">cache files and temporary data</a> to disk. These will accumulate in <code>/tmp</code> and elsewhere if you haven't rebooted in awhile. Also bear in mind that desktop distributions require substantially more storage.</p>
+</div>
 <h2 id="after-a-clean-install-wifi-andor-raspap-behaves-unpredictably"><a name="clean"></a>After a clean install, WiFi  and/or RaspAP behaves unpredictably.</h2>
 <p>Issues like this are frequently reported. The vast majority of these problems stem from one (or a combination) of the following:</p>
 <ol>
@@ -2713,8 +2750,8 @@ After this is done, the web server will refuse connections to all IP addresses o
 <h2 id="my-80211ac-5-ghz-hotspot-failed-to-start-what-now"><a name="actroubleshoot"></a> My 802.11ac 5 GHz hotspot failed to start. What now?</h2>
 <p>RaspAP uses <a href="https://wireless.wiki.kernel.org/en/users/documentation/iw"><code>iw</code></a> and the <a href="https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb"><code>wireless-regdb</code></a> to determine which channels are allowed for your configured country. However, not all channels may be supported by your device's wireless adapter or firmware. If your 5 GHz access point fails to start, use the steps below to troubleshoot the problem.</p>
 <p>Begin by enabling <code>hostapd</code> service logging by sliding the <strong>Logfile output</strong> toggle on the <strong>Hotspot &gt; Logging</strong> tab. Choose <strong>Save settings</strong> followed by <strong>Restart hotspot</strong> and check the log output. The logs will often indicate when a selected channel is not supported by the hardware. For example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>wlan0: IEEE 802.11 Hardware does not support configured channel
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Could not select hw_mode and channel. (-3)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wlan0: IEEE 802.11 Hardware does not support configured channel
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Could not select hw_mode and channel. (-3)
 </span></code></pre></div>
 <p>This may occur with the Raspberry Pi or another device's onboard wireless chipset, or an external wireless adapter. To mitigate this, select one of the following 5 GHz channels: <code>36</code>, <code>40</code>, <code>44</code> or <code>48</code>, then choose <strong>Save settings</strong>. Click or tap the <strong>Clear log</strong> button on the <strong>Hotspot &gt; Logging</strong> tab, if needed, and finally choose <strong>Restart hotspot</strong>. Check the logs again and see if the error persists.</p>
 <p>If the 802.11ac AP still fails to start, an <a href="./#adapters">external AC wireless adapter</a> with in-kernel drivers is an option worth considering.</p>
@@ -2732,10 +2769,10 @@ Assuming these services are configured to restart automatically on reboot (the d
 tested and validated to provide connectivity in routed AP mode. If you suspect that RaspAP is misconfigured and not providing IP addresses to clients, you may troubleshoot this yourself.</p>
 <p>Clients connecting to your AP are assigned, or leased, an IP address with <code>dnsmasq</code>. You can see how this process works by enabling the <strong>Log DHCP requests</strong> option in the <strong>DHCP Server &gt; Logging</strong> tab. 
 When a client connects to your AP, a typical <code>dnsmasq-dhcp</code> exchange follows this pattern:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dnsmasq-dhcp[2516]: DHCPDISCOVER(wlan0) [MAC address] 
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>dnsmasq-dhcp[2516]: DHCPOFFER(wlan0) 10.3.141.249 [MAC address] 
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>dnsmasq-dhcp[2516]: DHCPREQUEST(wlan0) 10.3.141.249 [MAC address] 
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>dnsmasq-dhcp[2516]: DHCPACK(wlan0) 10.3.141.249 [MAC address] iPhone
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>dnsmasq-dhcp[2516]: DHCPDISCOVER(wlan0) [MAC address] 
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>dnsmasq-dhcp[2516]: DHCPOFFER(wlan0) 10.3.141.249 [MAC address] 
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>dnsmasq-dhcp[2516]: DHCPREQUEST(wlan0) 10.3.141.249 [MAC address] 
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>dnsmasq-dhcp[2516]: DHCPACK(wlan0) 10.3.141.249 [MAC address] iPhone
 </span></code></pre></div>
 <p>If one or more steps in this exchange are missing, either your device is unable to respond to the server's <code>DHCPOFFER</code> or the AP itself is misconfigured.</p>
 <div class="admonition tip">
@@ -2760,32 +2797,32 @@ Save settings, restart <code>dnsmasq</code> and try connecting your client again
 <p>Login credentials are stored in <code>/etc/raspap/raspap.auth</code>. The password is encrypted and cannot be edited manually. However, deleting this file with <code>sudo rm /etc/raspap/raspap.auth</code> will restore the default admin password.</p>
 <h2 id="raspap-control-panel-works-but-there-is-no-wifi-after-reboot"><a name="nowifi"></a>RaspAP control panel works but there is no WiFi after reboot.</h2>
 <p>This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a <a href="../ap-sta/">managed mode</a> AP. To address this, RaspAP has added a <code>systemd</code> init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo systemctl status raspapd.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo systemctl status raspapd.service
 </span></code></pre></div>
 <p>The <code>raspapd.service</code> is optionally installed and enabled by the Quick Installer. It is also included in the manual setup steps.</p>
 <h2 id="bridged-ap-mode-is-unstable-or-clients-cant-connect"><a name="bridged"></a>Bridged AP mode is unstable or clients can't connect.</h2>
 <p>RaspAP <a href="../bridged/">delegates all DHCP control to your router</a> in bridged AP mode. If you have trouble connecting clients, start with this project's <a href="../issues/#default-settings">default configuration</a> in routed AP mode <em>first</em> and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.</p>
 <p>If clients disconnect intermittently, this often indicates an undervoltage issue with your RPi. Check the kernel log for any <code>Under-voltage detected!</code> errors. Be sure you are using an official 5.1V power supply (each model has <a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md">different power requirements</a>) and detach any USB devices. Executing <code>dmesg | grep br0</code> can also offer clues. Execute <code>sudo dhclient -v</code> to gain insights into DHCP requests between your device and router. A typical DHCP exchange follows this pattern:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>CLIENT -&gt; DHCPDISCOVER
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>SERVER -&gt; DHCPOFFER
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>CLIENT -&gt; DHCPREQUEST
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>SERVER -&gt; DHCPACK
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>CLIENT -&gt; DHCPDISCOVER
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>SERVER -&gt; DHCPOFFER
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>CLIENT -&gt; DHCPREQUEST
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>SERVER -&gt; DHCPACK
 </span></code></pre></div>
 <p>If your device (the client) broadcasts <code>DHCPDISCOVER</code>, but there is no <code>DHCPOFFER</code> response from your router, you have a misconfiguration or other issue with your network. Troubleshooting client connectivity in bridged AP mode is not supported. No hard feelings.</p>
 <h2 id="managed-mode-ap-doesnt-work-on-the-pi-zero-w"><a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W.</h2>
 <p>See <a href="../ap-sta/">this walkthrough</a> where the installation is described in detail.</p>
 <h2 id="wifi-scanning-doesnt-work-or-i-get-the-error-cannot-execute-wpa_cli-reconfigure"><a name="scanning"></a>WiFi scanning doesn't work or I get the error <code>cannot execute "wpa_cli reconfigure"</code>.</h2>
 <p>On some configurations, the <strong>Configure WiFi client</strong> panel may appear empty. This project uses the <code>wpa_supplicant</code> command line client <code>wpa_cli</code> to populate a list of available wireless networks. If you can't execute this from the shell, neither can the web UI. For example, the results of this command:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo wpa_cli -i wlan0 scan_results
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Failed to connect to non-global ctrl_ifname: wlan0  error: No such file or directory
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo wpa_cli -i wlan0 scan_results
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Failed to connect to non-global ctrl_ifname: wlan0  error: No such file or directory
 </span></code></pre></div>
 ...indicate a problem with the socket used to communicate with <code>wpa_supplicant</code>. You may also encounter errors such as "Could not connect to wpa_supplicant: wlan0 - re-trying".</p>
 <p>If this happens, first check the contents of <code>wpa_supplicant</code> with <code>sudo cat /etc/wpa_supplicant/wpa_supplicant.conf</code>. You should see, at minimum, the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>update_config=1
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>update_config=1
 </span></code></pre></div>
 <p>The above is present on clean installs of Raspbian. If you've made changes to this file, ensure that these lines appear first. Next, reinitialize the socket with:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo wpa_supplicant -B -Dnl80211,wext -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo wpa_supplicant -B -Dnl80211,wext -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
 </span></code></pre></div>
 <p>substituting <code>wlan0</code> with your wireless interface, if necessary. You should then be able to perform scans as expected.</p>
 <div class="admonition tip">
@@ -2826,33 +2863,33 @@ are likely experiencing co-channel interference. Select a different channel or b
 <h2 id="my-wlan1-keeps-being-disabled-andor-clients-are-repeatedly-disconnected"><a name="disassociated"></a>My wlan1 keeps being disabled and/or clients are repeatedly disconnected.</h2>
 <p>Issues <a href="https://github.com/RaspAP/raspap-webgui/issues/666">such as this</a> can be tricky to diagnose. In this case, an AP is started with an external USB wireless adapter, but client devices are continuously authenticated and disconnected
 (or "disassociated"). This may appear in <code>hostapd</code> service logs like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: authenticated
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: associated (aid 1)
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>wlan1: AP-STA-CONNECTED 24:62:ab:fd:24:34
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>wlan1: STA 24:62:ab:fd:24:34 RADIUS: starting accounting session 1D0030DD3176A315
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>wlan1: STA 24:62:ab:fd:24:34 WPA: pairwise key handshake completed (RSN)
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>wlan1: AP-STA-DISCONNECTED 24:62:ab:fd:24:34
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: disassociated
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: deauthenticated due to inactivity (timer DEAUTH/REMOVE)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: authenticated
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: associated (aid 1)
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>wlan1: AP-STA-CONNECTED 24:62:ab:fd:24:34
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>wlan1: STA 24:62:ab:fd:24:34 RADIUS: starting accounting session 1D0030DD3176A315
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>wlan1: STA 24:62:ab:fd:24:34 WPA: pairwise key handshake completed (RSN)
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>wlan1: AP-STA-DISCONNECTED 24:62:ab:fd:24:34
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: disassociated
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>wlan1: STA 24:62:ab:fd:24:34 IEEE 802.11: deauthenticated due to inactivity (timer DEAUTH/REMOVE)
 </span></code></pre></div>
 <p>The AP itself may also fail repeatedly with errors like the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>wlan1: INTERFACE-ENABLED 
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Failed to set beacon parameters
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>wlan1: INTERFACE-DISABLED 
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>wlan1: INTERFACE-ENABLED 
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Failed to set beacon parameters
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>wlan1: interface state ENABLED-&gt;DISABLED
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>wlan1: AP-DISABLED 
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>wlan1: CTRL-EVENT-TERMINATING 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>wlan1: INTERFACE-ENABLED 
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Failed to set beacon parameters
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>wlan1: INTERFACE-DISABLED 
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>wlan1: INTERFACE-ENABLED 
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Failed to set beacon parameters
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>wlan1: interface state ENABLED-&gt;DISABLED
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>wlan1: AP-DISABLED 
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>wlan1: CTRL-EVENT-TERMINATING 
 </span></code></pre></div>
 <p>If you see messages indicating "deauthenticated due to inactivity", you can try the "Disable <code>disassoc_low_ack</code>" setting on the <strong>Hotspot &gt; Advanced</strong> tab. Choose <strong>Save settings</strong> then restart your AP. Monitor the hostapd service logs and see if your clients are able to remain connected.</p>
 <p>In this specific case, the user determined that the external <a href="https://unix.stackexchange.com/questions/610338/raspberry-pi-4-model-b-external-rt3070-wifi-adapter-hostapd-crashing">RT3070 WiFi adapter</a> was at fault.</p>
 <h2 id="raspap-web-ui-fails-to-start-or-unable-to-save-settings"><a name="webfail"></a>RaspAP web UI fails to start or unable to save settings.</h2>
 <p>After performing a clean install of RaspAP or upgrading an existing installation, the web UI may fail to start or the admin panel may behave in unexpected ways. For example, pages may load but any
 attempt to save settings will fail. In other cases, the lighttpd web server may fail to respond completely. Errors such as these in <code>/var/log/lighttpd/error.log</code> are common:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>(gw_backend.c.503) bind failed for: unix:/run/lighttpd/php.socket-0: No such file or directory
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>(gw_backend.c.601) gw-backend failed to start: /usr/bin/php-cgi
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>(gw_backend.c.1655) [ERROR]: spawning gw failed
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>(gw_backend.c.503) bind failed for: unix:/run/lighttpd/php.socket-0: No such file or directory
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>(gw_backend.c.601) gw-backend failed to start: /usr/bin/php-cgi
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>(gw_backend.c.1655) [ERROR]: spawning gw failed
 </span></code></pre></div>
 <p>These signs point to a corrupted filesystem on the SD card. If during a power disconnection the memory card is in a write operation, there is a high chance that one or more sectors will be
 damaged. In these cases, a fresh install on a new SD card can save you time and frustration. RaspAP's <a href="../minwrite/">minimal SD card write</a> mode can help in this case.</p>
@@ -2891,11 +2928,11 @@ form data or fails to match with the token on the server, the form will reject t
 <p>Yes. The <a href="https://github.com/nodogsplash/nodogsplash">nodogsplash project</a> works just fine with RaspAP and is recommended over other methods. A detailed setup guide is <a href="../captive/">available here</a>. </p>
 <h2 id="how-do-i-create-an-ap-activation-schedule"><a name="schedule"></a>How do I create an AP activation schedule?</h2>
 <p>This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with <code>cron</code> to stop/start RaspAP's service control script at certain times. Run <code>sudo crontab -e</code> and add entries like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a># Stop RaspAP services at 02:00 on Monday through Friday
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>0 2 * * 1-5 sudo /etc/raspap/hostapd/servicestart.sh --action stop
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a># Start RaspAP services at 08:00 on Monday through Friday
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>0 8 * * 1-5 sudo /etc/raspap/hostapd/servicestart.sh --seconds 3
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a># Stop RaspAP services at 02:00 on Monday through Friday
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>0 2 * * 1-5 sudo /etc/raspap/hostapd/servicestart.sh --action stop
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a># Start RaspAP services at 08:00 on Monday through Friday
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>0 8 * * 1-5 sudo /etc/raspap/hostapd/servicestart.sh --seconds 3
 </span></code></pre></div>
 <p>For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.</p>
 <h2 id="can-i-schedule-the-wifi-password-to-change-automatically"><a name="genpassword"></a> Can I schedule the WiFi password to change automatically?</h2>
@@ -2904,25 +2941,25 @@ bit with <code>sudo chmod +x genpassphrase.sh</code>. When executed, the script 
 the <code>raspapd.service</code>. The new passphrase and QR code will be visible on the <strong>Hotspot &gt; Security</strong> tab.</p>
 <p>This can be useful if you're using RaspAP to serve WiFi to clients in a public place, and need to update the passphrase regularly. Similar to creating an <a href="#schedule">AP activation schedule</a>,
 you can have this execute at specific intervals by using <code>cron</code>. Run <code>sudo crontab -e</code> and add an entry like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a># Generate a new passphrase and restart RaspAP everyday at midnight
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>@midnight /home/pi/genpassphrase.sh
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a># Generate a new passphrase and restart RaspAP everyday at midnight
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>@midnight /home/pi/genpassphrase.sh
 </span></code></pre></div>
 <p>For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.</p>
 <h2 id="can-i-configure-a-managed-mode-ap-without-using-the-ui"><a name="managed"></a> Can I configure a managed mode AP without using the UI?</h2>
 <p>Yes. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have <a href="./#headless"><code>wpa_supplicant.conf</code> fully populated</a> and a valid <a href="../ap-sta/#how-does-ap-sta-work"><code>hostapd.conf</code></a>, set the following values in <code>/etc/raspap/hostapd.ini</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>LogEnable = 0
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>WifiAPEnable = 1
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>BridgedEnable = 0
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>WifiManaged = wlan0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>LogEnable = 0
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>WifiAPEnable = 1
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>BridgedEnable = 0
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>WifiManaged = wlan0
 </span></code></pre></div>
 <p>substituting <code>wlan0</code> for your AP interface, if necessary. You may then restart the raspap daemon with <code>sudo systemctl restart raspapd.service</code>.</p>
 <h2 id="can-i-configure-an-alternate-port-for-raspaps-web-service"><a name="webport"></a>Can I configure an alternate port for RaspAP's web service?</h2>
 <p>Yes. You can now do this from the <strong>Advanced</strong> tab in System. Manual steps for changing <code>lighttpd</code>'s default port are included below.</p>
 <p>Edit <code>/etc/lighttpd/lighttpd.conf</code> and change the following line:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>server.port                 = 8080
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>server.port                 = 8080
 </span></code></pre></div>
 then give the service a kick...
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo systemctl restart lighttpd.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo systemctl restart lighttpd.service
 </span></code></pre></div>
 You can then access RaspAP as before with the new port number in the URI, for example, <code>http://raspberrypi.local:8080</code>. This will allow you run another web server alongside lighttpd, if that is your goal. </p>
 <h2 id="what-breaks-raspap-when-docker-is-installed-on-the-same-system-and-how-i-can-fix-it"><a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?</h2>
@@ -2930,23 +2967,23 @@ You can then access RaspAP as before with the new port number in the URI, for ex
 <p>When RaspAP is started in its default router mode, this will result in the AP not forwarding traffic anymore. If you want RaspAP to continue functioning as a router, you can add explicit <code>ACCEPT</code> rules to the <code>DOCKER-USER</code> chain to allow it:</p>
 <p><code>sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT</code></p>
 <p>When Docker is correctly installed <em>after</em> RaspAP, the following <code>iptables</code> chain should be present:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Chain INPUT (policy ACCEPT) target prot opt source destination
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Chain FORWARD (policy ACCEPT)
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>target prot opt source destination DOCKER-USER all -- anywhere anywhere
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>DOCKER-ISOLATION-STAGE-1 all -- anywhere anywhere
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>ACCEPT all -- anywhere anywhere ctstate RELATED,ESTABLISHED DOCKER all -- anywhere anywhere
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>ACCEPT all -- anywhere anywhere ACCEPT all -- anywhere anywhere
-</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>Chain OUTPUT (policy ACCEPT) target prot opt source destination
-</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>Chain DOCKER (1 references) target prot opt source destination
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Chain INPUT (policy ACCEPT) target prot opt source destination
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Chain FORWARD (policy ACCEPT)
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>target prot opt source destination DOCKER-USER all -- anywhere anywhere
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>DOCKER-ISOLATION-STAGE-1 all -- anywhere anywhere
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>ACCEPT all -- anywhere anywhere ctstate RELATED,ESTABLISHED DOCKER all -- anywhere anywhere
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>ACCEPT all -- anywhere anywhere ACCEPT all -- anywhere anywhere
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>Chain OUTPUT (policy ACCEPT) target prot opt source destination
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>Chain DOCKER (1 references) target prot opt source destination
 </span></code></pre></div>
 <p>Additional info <a href="https://github.com/RaspAP/raspap-webgui/issues/458#issuecomment-643425658">here</a> and <a href="https://docs.docker.com/network/iptables/">here</a>. </p>
 <p><strong>tl;dr:</strong> Install RaspAP <em>first</em>, followed by Docker, adding the explicit <code>iptables</code> rule <code>sudo iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT</code>.</p>
 <h2 id="can-i-integrate-raspap-with-openmediavault"><a name="omv"></a>Can I integrate RaspAP with OpenMediaVault?</h2>
 <p>Yes, you can run RaspAP alongside <a href="https://www.openmediavault.org/">OpenMediaVault</a> for a complete media center and wireless hotspot on a single device. In this way, you are able to share the media storage
 in your local network via a wireless hotspot while connected to a router via ethernet. This is illustrated in the schematic below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>[Router] &lt;---- eth ----&gt; [Pi] (RaspAP + OMV5)
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>   |                      |
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a> WiFi 1              WiFi 2 (subnet)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>[Router] &lt;---- eth ----&gt; [Pi] (RaspAP + OMV5)
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>   |                      |
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a> WiFi 1              WiFi 2 (subnet)
 </span></code></pre></div>
 <p>Follow these steps to create this configuration:</p>
 <ol>
@@ -2955,8 +2992,8 @@ in your local network via a wireless hotspot while connected to a router via eth
 <li>Install OMV5 skipping network configuration.</li>
 <li>Configure your OMV5 install without changing the network settings.</li>
 <li>To make your OMV5 drives accessible from the subnet (WiFi 2), add the following settings at the end of <strong>OMV Control panel &gt; Menu &gt; SMB/CIFS &gt; Settings Tab &gt; Extra Options</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>bind interfaces only = yes
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>interfaces = lo eth0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>bind interfaces only = yes
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>interfaces = lo eth0
 </span></code></pre></div></li>
 </ol>
 <p>Source: <a href="https://forum.openmediavault.org/index.php?thread/39060-raspap-and-omv5-media-center-wifihotspot-with-ethernet/">openmediavault forums</a>.</p>
@@ -2964,15 +3001,15 @@ in your local network via a wireless hotspot while connected to a router via eth
 <p>Yes, RaspAP is compatible with Speedify's connection bonding. In this scenario, you may want to combine several internet connections (for example, a DSL connection, 4G cellphone and an LTE router) and share these via RaspAP.</p>
 <p>Begin by running Speedify's <a href="https://support.speedify.com/article/562-install-speedify-linux">one step install</a>, login with your credentials and connect Speedify. Next, <a href="https://support.speedify.com/article/566-speedify-linux-wifi">configure Speedify for WiFi sharing</a>
 by editing the following file:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo nano /etc/speedify/speedify.conf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sudo nano /etc/speedify/speedify.conf
 </span></code></pre></div>
 <p>Make sure to uncomment the following lines (remove the "<code>#</code>" symbol). To share over the Wi-Fi interface <code>wlan0</code>, set:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>ENABLE_SHARE=1 
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>SHARE_INTERFACE=&quot;wlan0&quot;
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>WIFI_INTERFACE=&quot;wlan0&quot; 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>ENABLE_SHARE=1 
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>SHARE_INTERFACE=&quot;wlan0&quot;
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>WIFI_INTERFACE=&quot;wlan0&quot; 
 </span></code></pre></div>
 <p>Once you have configured the sharing settings, save the file (if you are using nano, use <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to save). Exit the text editor and then execute:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sudo service speedify-sharing restart
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sudo service speedify-sharing restart
 </span></code></pre></div>
 <p>Refer to <a href="https://support.speedify.com/article/566-speedify-linux-wifi">Speedify's support article</a> for additional tips and troubleshooting.</p>
 <h2 id="how-do-i-serve-custom-pages-from-raspap"><a name="custompages"></a>How do I serve custom pages from RaspAP?</h2>
@@ -2980,7 +3017,7 @@ by editing the following file:</p>
 In the examples below, we will add support for a custom directory called "admin".</p>
 <p><strong>Option 1.</strong> Create a subdirectory of RaspAP's default install location (<code>/var/www/html</code>) called "admin": <code>/var/www/html/admin</code>. Now, modify RaspAP's <a href="https://docs.raspap.com/manual/#create-the-web-application">application routing rules</a>
  by adding this directory to the exclusion list. You may do this with <code>sudo nano /etc/lighttpd/conf-available/50-raspap-router.conf</code>. Next, modify the following line like so: </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$HTTP[&quot;url&quot;] =~ &quot;^/(?!(dist|app|ajax|config|admin)).*&quot; {
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$HTTP[&quot;url&quot;] =~ &quot;^/(?!(dist|app|ajax|config|admin)).*&quot; {
 </span></code></pre></div>
 <p>Note that "admin" is appended above "config", above. This instructs lighttpd not to rewrite URLs that match this pattern. Reload the lighttpd service with <code>sudo systemctl reload lighttpd.service</code>.</p>
 <p>You may now create your own <code>index.php</code> file in this folder and request it from the browser as <code>http://10.3.141.1/admin/</code> or <code>http://raspberrypi.local/admin</code>.</p>
@@ -2989,57 +3026,57 @@ In the examples below, we will add support for a custom directory called "admin"
 <p>RaspAP's <a href="../adblock/">adblock feature</a> uses several <a href="../adblock/#blocklist-source">blocklists</a> that are aggregated and updated daily. In a typical setup, you may use the <strong>Ad blocking</strong> management
 page to manually update these lists. Alternatively, this <a href="https://github.com/RaspAP/raspap-webgui/discussions/1216">user-contributed script</a> will automatically fetch the latest blocklists on
 the schedule of your choosing (for example, daily, weekly, etc.) and reload <code>dnsmasq</code>.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>#!/bin/sh
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>#
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>sleep $(shuf -i 0-3600 -n1)
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>curl -L https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts &gt; /etc/raspap/adblock/hostnames.tmp
-</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>curl -L https://big.oisd.nl/dnsmasq &gt; /etc/raspap/adblock/domains.tmp
-</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
-</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>mv /etc/raspap/adblock/hostnames.tmp /etc/raspap/adblock/hostnames.txt
-</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>mv /etc/raspap/adblock/domains.tmp /etc/raspap/adblock/domains.txt
-</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>chown root:www-data /etc/raspap/adblock/hostnames.txt
-</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>chown root:www-data /etc/raspap/adblock/domains.txt
-</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>
-</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>sudo systemctl reload dnsmasq.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>#!/bin/sh
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>#
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>sleep $(shuf -i 0-3600 -n1)
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>curl -L https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts &gt; /etc/raspap/adblock/hostnames.tmp
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>curl -L https://big.oisd.nl/dnsmasq &gt; /etc/raspap/adblock/domains.tmp
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>mv /etc/raspap/adblock/hostnames.tmp /etc/raspap/adblock/hostnames.txt
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>mv /etc/raspap/adblock/domains.tmp /etc/raspap/adblock/domains.txt
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>chown root:www-data /etc/raspap/adblock/hostnames.txt
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>chown root:www-data /etc/raspap/adblock/domains.txt
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>sudo systemctl reload dnsmasq.service
 </span></code></pre></div>
 Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.</p>
 <h2 id="openvpn-fails-to-start-andor-i-have-no-internet"><a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.</h2>
 <p>RaspAP supports OpenVPN clients by uploading a valid <code>.ovpn</code> file to <code>/etc/openvpn/client</code> and, optionally, creating a <code>login.conf</code> file with your client auth credentials. Additionally, in line with the project's <a href="../defaults/">default configuration</a>, the following iptables rules are added to forward traffic from OpenVPN's <code>tun0</code> interface to your configured wireless interface (<code>wlan0</code> is the default):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>-A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>-A FORWARD -i wlan0 -o tun0 -j ACCEPT
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>-A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>-A FORWARD -i wlan0 -o tun0 -j ACCEPT
 </span></code></pre></div>
 <p>After starting the OpenVPN service, you may check and validate these rules like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>$ sudo iptables -L FORWARD -v -n
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a> pkts bytes target     prot opt in     out     source               destination         
-</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a> 1955 1493K ACCEPT     all  --  tun0   wlan0   0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
-</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a> 1715  194K ACCEPT     all  --  wlan0  tun0    0.0.0.0/0            0.0.0.0/0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>$ sudo iptables -L FORWARD -v -n
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a> pkts bytes target     prot opt in     out     source               destination         
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a> 1955 1493K ACCEPT     all  --  tun0   wlan0   0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a> 1715  194K ACCEPT     all  --  wlan0  tun0    0.0.0.0/0            0.0.0.0/0
 </span></code></pre></div>
 <p>It is your responsibility to provide a valid <code>.ovpn</code> file. RaspAP does not attempt to validate the settings or RSA keys contained in this file. If OpenVPN fails to start, check for errors with <code>sudo systemctl status openvpn-client@client</code> and <code>journalctl --identifier openvpn</code>.</p>
 <h2 id="openvpn-works-but-i-have-partial-or-no-internet-access"><a name="partial"></a>OpenVPN works but I have partial or no internet access.</h2>
 <p>Issues <a href="https://github.com/RaspAP/raspap-webgui/issues/612">like this</a> are frequently reported. Begin by confirming the status of your connection:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>$ sudo systemctl status openvpn-client@client
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>● openvpn-client@client.service - OpenVPN tunnel for client
-</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>   Loaded: loaded (/lib/systemd/system/openvpn-client@.service; enabled; vendor preset: enabled)
-</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>   Active: active (running) since Fri 2020-06-12 15:45:41 CDT; 1min 39s ago
-</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>     Docs: man:openvpn(8)
-</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>           https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
-</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>           https://community.openvpn.net/openvpn/wiki/HOWTO
-</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a> Main PID: 2689 (openvpn)
-</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>   Status: &quot;Initialization Sequence Completed&quot;
-</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>    Tasks: 1 (limit: 2200)
-</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>   Memory: 1.1M
-</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>   CGroup: /system.slice/system-openvpn\x2dclient.slice/openvpn-client@client.service
-</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>           └─2689 /usr/sbin/openvpn --suppress-timestamps --nobind --config client.conf
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>$ sudo systemctl status openvpn-client@client
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>● openvpn-client@client.service - OpenVPN tunnel for client
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>   Loaded: loaded (/lib/systemd/system/openvpn-client@.service; enabled; vendor preset: enabled)
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>   Active: active (running) since Fri 2020-06-12 15:45:41 CDT; 1min 39s ago
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>     Docs: man:openvpn(8)
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>           https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>           https://community.openvpn.net/openvpn/wiki/HOWTO
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a> Main PID: 2689 (openvpn)
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>   Status: &quot;Initialization Sequence Completed&quot;
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>    Tasks: 1 (limit: 2200)
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>   Memory: 1.1M
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>   CGroup: /system.slice/system-openvpn\x2dclient.slice/openvpn-client@client.service
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>           └─2689 /usr/sbin/openvpn --suppress-timestamps --nobind --config client.conf
 </span></code></pre></div>
 You can also use <code>journalctl --identifier openvpn</code> to identify any errors. If your internet access is intermittent or otherwise degraded with the <code>openvpn-client</code> active, the next step is to test your connection for packet loss and latency. There are many Linux tools you can use to diagnose your network. <code>mtr</code> is a good choice as it combines functionality of the traceroute and ping programs. Install and use it to perform your own evaluation:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo apt install mtr -y
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sudo mtr -rwc 50 -i 0.2 -rw duckduckgo.com
-</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
-</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>Start: 2021-06-13T11:42:26+0100
-</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>HOST: raspberrypi                                Loss%   Snt   Last   Avg  Best  Wrst StDev
-</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>  1.|-- 192.168.1.254                              0.0%    50   26.8  27.1  26.5  31.4   0.8
-</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>  2.|-- somerouter.net                            88.0%    50   392.0 390.4 362.1 596.7  1.2
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sudo apt install mtr -y
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>sudo mtr -rwc 50 -i 0.2 -rw duckduckgo.com
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>Start: 2021-06-13T11:42:26+0100
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>HOST: raspberrypi                                Loss%   Snt   Last   Avg  Best  Wrst StDev
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>  1.|-- 192.168.1.254                              0.0%    50   26.8  27.1  26.5  31.4   0.8
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>  2.|-- somerouter.net                            88.0%    50   392.0 390.4 362.1 596.7  1.2
 </span></code></pre></div>
 <p>The results are reported as round-trip response times in milliseconds and the percentage of packet loss. If you see loss and/or latency like the above example, report it to your VPN provider or find another one. Read <a href="https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr/">this</a> for more on interpreting mtr results.</p>
 <p>Protip: free VPNs are frequently oversubscribed and usually not worth the trouble.</p>
@@ -3047,8 +3084,8 @@ You can also use <code>journalctl --identifier openvpn</code> to identify any er
 <p>Remote hosts use a variety of methods to defeat VPNs, some more aggressively than others. Many VPN providers will advise you to configure custom DNS servers to mitigate <a href="https://dnsleaktest.com/">DNS leaks</a>, which you can do from RaspAP's <strong>DHCP &gt; Advanced</strong> tab. Others have specific VPN nodes to use with popular streaming services. </p>
 <p>Several users have reported that Firefox's <a href="https://support.mozilla.org/en-US/kb/firefox-dns-over-https">DNS-over-HTTPS (DoH)</a> has created problems with their VPN, in effect creating a DNS leak from the browser that circumvents RaspAP's DNS settings. Be sure to disable this "feature" when using a VPN service. </p>
 <p>If you suspect network traffic is not being routed through tun0 (or any other interface) for some reason, you can monitor this directly from your RPi with <code>iftop</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sudo apt install iftop
-</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>sudo iftop -i [interface]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>sudo apt install iftop
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>sudo iftop -i [interface]
 </span></code></pre></div>
 <h2 id="uploading-my-wireguard-config-results-in-mime-type-not-allowed"><a name="mimetype"></a>Uploading my WireGuard config results in "MIME type not allowed".</h2>
 <p>For security reasons, your OpenVPN or WireGuard <code>.conf</code> files must have a Linux MIME type of <code>text/plain</code>. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a <code>text/plain</code> 
@@ -3059,20 +3096,20 @@ for use with Linux with <code>dos2unix</code> or one of several online tools mad
 <p>There are several things you can do to troubleshoot this. First, with the WireGuard service active, verify your public IPv4 address and check the external link, as shown below:</p>
 <p><img alt="" src="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" style="width:276px" /></p>
 <p>Next, you may check the WireGuard service status by executing <code>sudo systemctl status wg-quick@wg0.service</code> from the shell, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>$ sudo systemctl status wg-quick@wg0.service
-</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>● wg-quick@wg0.service - WireGuard via wg-quick(8) for wg0
-</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>     Loaded: loaded (/lib/systemd/system/wg-quick@.service; enabled; vendor preset: enabled)
-</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>     Active: active (exited) since Wed 2021-12-29 15:31:03 GMT; 1 day 18h ago
-</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>       Docs: man:wg-quick(8)
-</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>             man:wg(8)
-</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>             https://www.wireguard.com/
-</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>             https://www.wireguard.com/quickstart/
-</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8
-</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
-</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>   Main PID: 1450 (code=exited, status=0/SUCCESS)
-</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>      Tasks: 0 (limit: 1438)
-</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>        CPU: 0
-</span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>     CGroup: /system.slice/system-wg\x2dquick.slice/wg-quick@wg0.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>$ sudo systemctl status wg-quick@wg0.service
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>● wg-quick@wg0.service - WireGuard via wg-quick(8) for wg0
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>     Loaded: loaded (/lib/systemd/system/wg-quick@.service; enabled; vendor preset: enabled)
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>     Active: active (exited) since Wed 2021-12-29 15:31:03 GMT; 1 day 18h ago
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>       Docs: man:wg-quick(8)
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>             man:wg(8)
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>             https://www.wireguard.com/
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>             https://www.wireguard.com/quickstart/
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>   Main PID: 1450 (code=exited, status=0/SUCCESS)
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>      Tasks: 0 (limit: 1438)
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>        CPU: 0
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>     CGroup: /system.slice/system-wg\x2dquick.slice/wg-quick@wg0.service
 </span></code></pre></div>
 <p>You may also use RaspAP's built-in WireGuard logging facility. On the <strong>WireGuard &gt; Logging</strong> tab, enable the "Display WireGuard debug log" option and choose <strong>Save settings</strong>. Check the log
 output in the tab and look for any errors.</p>
@@ -3087,41 +3124,41 @@ different device behaves normally. </p>
 won't be considered. </p>
 <h2 id="how-can-i-clear-raspaps-wireguard-log"><a name="wglog"></a>How can I clear RaspAP's WireGuard log?</h2>
 <p>WireGuard doesn't do any logging by default. The quasi-logging done by RaspAP executes <code>sudo journalctl --identifier wg-quick</code>. The Linux journal is not something you usually clear by yourself, however you can use journalctl's self maintenance to retain only the past two days:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sudo journalctl --vacuum-time=2d
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>sudo journalctl --vacuum-time=2d
 </span></code></pre></div>
 <p>See <code>man journalctl</code> for more information.</p>
 <h2 id="why-cant-i-access-wireless-mode-n-80211n"><a name="wireless-mode"></a>Why can't I access wireless mode 'N' (802.11n)?</h2>
 <p>On the <strong>Configure hotspot</strong> &gt; <strong>Security</strong> tab, be sure to select CCMP for the Encryption Type. Save the settings and restart the hotspot. The wireless mode should be reported on clients as 802.11b/g/n.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>RaspAP:
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>  PHY Mode:     802.11n
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>  Channel:      1
-</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>  Network Type:     Infrastructure
-</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>  Security:     WPA2 Personal
-</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>  Signal / Noise:   -49 dBm / -86 dBm
-</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>  Transmit Rate:    73
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>RaspAP:
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>  PHY Mode:     802.11n
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>  Channel:      1
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>  Network Type:     Infrastructure
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>  Security:     WPA2 Personal
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>  Signal / Noise:   -49 dBm / -86 dBm
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>  Transmit Rate:    73
 </span></code></pre></div>
 <p>If using TKIP for encryption with WPA, you will be restricted to 54 Mb/s. This is because the IEEE 802.11n draft prohibits using high throughput with WEP or TKIP ciphers.</p>
 <h2 id="how-do-i-exclude-nat-rules-from-ip-traffic-on-localhost"><a name="iptables"></a> How do I exclude NAT rules from IP traffic on localhost?</h2>
 <p>RaspAP's <a href="../quick/">Quick Installer</a> configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.</p>
 <p>In some cases, NAT rules applied to <code>localhost</code> can interfere with other services running on an RPi. An example is the Plex Media Server, which has an API that listens on localhost. As of this writing, the Plex API has been built to not authenticate communication between service processes of the server. This can cause a failure to communicate with the Plex API or similar add-on services on your RPi.</p>
 <p>The solution is to add a NAT rule ahead of the rule RaspAP installs to not apply NAT to connections destined to 127.0.0.0/8:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>$ sudo iptables -t nat -I POSTROUTING -d 127.0.0.0/8 -j ACCEPT
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>$ sudo iptables -t nat -I POSTROUTING -d 127.0.0.0/8 -j ACCEPT
 </span></code></pre></div>
 The resulting iptables chain should look something like this:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>$ sudo iptables -t nat -L -n -v
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>Chain PREROUTING (policy ACCEPT 31 packets, 4810 bytes)
-</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a> pkts bytes target prot opt in out source destination
-</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>
-</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>Chain INPUT (policy ACCEPT 31 packets, 4810 bytes)
-</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a> pkts bytes target prot opt in out source destination
-</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>
-</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>Chain OUTPUT (policy ACCEPT 23 packets, 1338 bytes)
-</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a> pkts bytes target prot opt in out source destination
-</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>
-</span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
-</span><span id="__span-38-12"><a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a> pkts bytes target prot opt in out source destination
-</span><span id="__span-38-13"><a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>   17 999 ACCEPT all -- * * 0.0.0.0/0 127.0.0.0/8
-</span><span id="__span-38-14"><a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>   2422 158K MASQUERADE all -- * * 0.0.0.0/0 0.0.0.0/0
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>$ sudo iptables -t nat -L -n -v
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>Chain PREROUTING (policy ACCEPT 31 packets, 4810 bytes)
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>Chain INPUT (policy ACCEPT 31 packets, 4810 bytes)
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>Chain OUTPUT (policy ACCEPT 23 packets, 1338 bytes)
+</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>
+</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a>Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
+</span><span id="__span-39-12"><a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-39-13"><a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a>   17 999 ACCEPT all -- * * 0.0.0.0/0 127.0.0.0/8
+</span><span id="__span-39-14"><a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a>   2422 158K MASQUERADE all -- * * 0.0.0.0/0 0.0.0.0/0
 </span></code></pre></div>
 Refer to <a href="https://github.com/RaspAP/raspap-webgui/issues/333#issue-454352554">this issue</a>.</p>
 <h2 id="why-is-the-channel-dropdown-disabled-on-the-hotspot-page"><a name="channels"></a> Why is the channel dropdown disabled on the Hotspot page?</h2>
@@ -3134,7 +3171,7 @@ Refer to <a href="https://github.com/RaspAP/raspap-webgui/issues/333#issue-45435
 <h2 id="why-is-the-maximum-throughput-of-my-80211n-ap-reduced-by-half"><a name="wirelessn"></a>Why is the maximum throughput of my 802.11n AP reduced by half?</h2>
 <p>In order to achieve optimal throughput with 802.11n, the wireless stream must operate at a 40 MHz wide channel on the 2.4 GHz band. A 20 MHz channel will restrict you to 72 Mbps. Your <code>hostapd.conf</code> might have  the required settings, but this is no guarantee of a 40 MHz channel.</p>
 <p>In practice, this can be quite difficult due to interference on the 2.4 GHz band. There are many things that will cause an AP to fallback to 20 MHz. The most common reason is if an AP detects another wireless network within 40 MHz, i.e. two channels, of its own channel. For example, if an AP is set to channel 6, another network operating anywhere from channel 4 to 8 will trigger a fallback. hostapd will usually report a fallback like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>20/40 MHz operation not permitted on channel pri=3 sec=7 based on overlapping BSSes
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>20/40 MHz operation not permitted on channel pri=3 sec=7 based on overlapping BSSes
 </span></code></pre></div>
 <p>For more information on optimizing 802.11n, refer to this <a href="https://www.lmi.net/wp-content/uploads/Optimizing_802.11n.pdf">resource</a>.</p>
 <p>Generally speaking, the 5 GHz band has substantially greater capacity due to more non-overlapping radio channels and less radio interference as compared to the 2.4 GHz band. </p>
@@ -3145,9 +3182,9 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <p>If you're not able to connect with a hex passphrase, you can also try this alternate <a href="https://wiki.netbsd.org/tutorials/how_to_use_wpa_supplicant/#index3h2">manual configuration method</a>.</p>
 <h2 id="can-i-turn-the-hotspot-onoff-over-ssh"><a name="hotspotssh"></a>Can I turn the hotspot on/off over SSH?</h2>
 <p>Yes, RaspAP provides a front-end to several Linux <code>systemd</code> services, including <code>hostapd</code>. From the terminal, check the status of the <code>hostapd.service</code> like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>$ sudo systemctl status hostapd.service 
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>● hostapd.service - Access point and authentication server for Wi-Fi and Ethernet
-</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>     Loaded: loaded (/lib/systemd/system/hostapd.service; enabled; vendor preset: enabled)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>$ sudo systemctl status hostapd.service 
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>● hostapd.service - Access point and authentication server for Wi-Fi and Ethernet
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>     Loaded: loaded (/lib/systemd/system/hostapd.service; enabled; vendor preset: enabled)
 </span></code></pre></div>
 <p>Stop the service with <code>sudo systemctl stop hostapd.service</code> and start it with <code>sudo systemctl start hostapd.service</code>.</p>
 <p>If you're curious about which other services and Linux tools RaspAP controls for you, take a look at <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers"><code>raspap.sudoers</code></a>.  </p>
@@ -3156,11 +3193,11 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <h2 id="can-raspap-automatically-connect-to-a-known-wifi-network-at-boot"><a name="autoconnect"></a>Can RaspAP automatically connect to a known WiFi network at boot?</h2>
 <p>When rebooting, users must manually re-establish a connection to a known WiFi network by using the <strong>WiFi client</strong> UI. This is the default behavior of <code>wpa_supplicant</code>. That is, on startup the <code>wpa_supplicant</code> service is executed by <code>systemd</code> (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.</p>
 <p>However, you can change this behavior and have <code>wpa_supplicant</code> establish a connection on startup by editing the root user's <code>crontab</code>, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>$ sudo crontab -e
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>$ sudo crontab -e
 </span></code></pre></div>
 <p>Using your editor, append a line like the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a># m h  dom mon dow   command
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>@reboot /sbin/wpa_supplicant -B -Dnl80211 -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a># m h  dom mon dow   command
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>@reboot /sbin/wpa_supplicant -B -Dnl80211 -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
 </span></code></pre></div>
 <p>Save the file and exit from your editor. On the next system boot, your RaspAP router will automatically connect to your preferred wireless network, if it's available.</p>
 <h2 id="can-i-isolate-raspap-from-other-software-on-my-system"><a name="isolate"></a>Can I isolate RaspAP from other software on my system?</h2>
@@ -3170,45 +3207,45 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <p>The <a href="https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2">version 3.0.2</a> release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the <strong>About</strong> page and click or tap on the <strong>Check for update</strong> button. This queries the GitHub API for the latest release version, compares it with your current install and prompts you to upgrade if a newer release is available.</p>
 <p><img alt="Update" src="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" style="width:520px" /></p>
 <p>No other actions are required on your behalf. Alternatively, you may also use the <a href="../quick/">Quick installer</a> to upgrade to the <a href="https://github.com/RaspAP/raspap-webgui/releases/latest">latest release</a> version. This is done with the <code>--upgrade</code> option, as shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
 </span></code></pre></div>
 <p>The installer upgrade is <a href="https://en.wikipedia.org/wiki/Idempotence"><em>idempotent</em></a>, meaning it can be repeated an arbitrary number of times and the result will be as if it had been done only once. If you choose this method, you're done! Confirm the upgrade by checking the release version on the <strong>About</strong> page.</p>
 <p>If you want to install a specific version, you may do so by referencing a tag using <code>git</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>sudo git fetch -v --tags
-</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>sudo git checkout 3.0.8
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>sudo git fetch -v --tags
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>sudo git checkout 3.0.8
 </span></code></pre></div>
 <p>A tag is a pointer that isn't connected to the main development tree that git knows about. As a result, git will reply that you're in a "detached HEAD" state. This isn't a big deal, it just means that you have a specific version of the code that isn't connected to the git tree.</p>
 <p>Alternatively, if you want the latest <em>bleeding edge</em> commits from the master branch, use the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>sudo git checkout -b master
-</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>sudo git pull origin master
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>sudo git checkout -b master
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>sudo git pull origin master
 </span></code></pre></div>
 <p>If you've customized your installation by editing <code>config.php</code>, update the release version in this file:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>sudo nano /var/www/html/includes/config.php
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>sudo nano /var/www/html/includes/config.php
 </span></code></pre></div>
 Change the value in this line to the release version, save the file and exit.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>define(&#39;RASPI_VERSION&#39;, &#39;3.0.8&#39;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>define(&#39;RASPI_VERSION&#39;, &#39;3.0.8&#39;);
 </span></code></pre></div>
 <p>Whichever method you choose (about page button, installer upgrade, specific release or latest updates), your RaspAP configuration won't be changed.</p>
 <h2 id="do-i-need-the-raspap-service-to-run-at-boot"><a name="raspap-service"></a>Do I need the RaspAP service to run at boot?</h2>
 <p>If you are using your RPi as a client on a WiFi network (also known as managed mode) and hosting an access point simultaneously, the <code>raspapd.service</code> will ensure that your hotspot is active after a reboot. It does this by detecting WiFi client AP mode, adding the <code>uap0</code> interface and starting up networking services in a specific order.</p>
 <p>If your RPi is configured with wired ethernet (<code>eth0</code>) or you haven't experienced problems with the AP starting on boot, you can disable the RaspAP daemon like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>sudo systemctl disable raspapd.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>sudo systemctl disable raspapd.service
 </span></code></pre></div>
 <h2 id="can-the-quick-installer-accept-the-default-options-without-prompting-me"><a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?</h2>
 <p>Yes, the <a href="../quick/">Quick Installer</a> has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the <code>--yes</code> command line option, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes
 </span></code></pre></div>
 <p>The options <code>-y</code> or <code>--assume-yes</code> are also accepted and have the same result. </p>
 <h2 id="can-i-restore-raspaps-default-settings"><a name="restore"></a>Can I restore RaspAP's default settings?</h2>
 <p>Yes, two methods are <a href="../defaults/#restoring-settings">described here</a>.</p>
 <h2 id="how-do-i-uninstall-raspap"><a name="uninstall"></a>How do I uninstall RaspAP?</h2>
 <p>An uninstaller is provided to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. Start the uninstaller with the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>curl -sL https://install.raspap.com | bash -s -- --uninstall
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>curl -sL https://install.raspap.com | bash -s -- --uninstall
 </span></code></pre></div>
 <p>Alternatively, you may execute the uninstaller directly from the project folder (default location is <code>/var/www/html</code>):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>cd /var/www/html
-</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>source installers/uninstall.sh
-</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>_remove_raspap
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>cd /var/www/html
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>source installers/uninstall.sh
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>_remove_raspap
 </span></code></pre></div>
 <p>Whichever method you choose, the result is the same. Check your network configuration before rebooting to ensure you can still access your device.</p>
 
@@ -3231,7 +3268,7 @@ Change the value in this line to the release version, save the file and exit.</p
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 18, 2025 18:13:50">January 18, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 22, 2025 11:40:45">March 22, 2025</span>
   </span>
 
     
