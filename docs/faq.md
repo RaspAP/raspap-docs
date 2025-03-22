@@ -19,6 +19,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I remove the AP password to create an open WiFi network?](#nopw)
 * [How do I prevent WAN access to RaspAP's web administration?](#access)
 * [Can I reduce the risk of SD card corruption and extend a card's lifespan?](#minwrite)
+* [Is there a minimum recommended size for the SD card?](#cardsize)
 
 ## Troubleshooting
 * [After a clean install, WiFi  and/or RaspAP behaves unpredictably.](#clean)
@@ -212,6 +213,29 @@ Clients outside of your defined network range will receive a '403' response when
 
 ## <a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?
 Yes. RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
+
+## <a name="cardsize"></a>Is there a minimum recommended size for the SD card?
+4GB is considered the bare minimum for Raspberry Pi OS. 8GB is recommend for RaspAP; more if you're hosting large files or applications.
+
+A fresh install of Raspberry Pi OS 64-bit Lite (bookworm) with the latest kernel uses about 2.6GB of storage. In the example below, `/dev/mmcblk0p2` is the main partition mounted as the root filesystem (`/`):
+
+```
+$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            318M     0  318M   0% /dev
+tmpfs            91M  3.9M   87M   5% /run
+/dev/mmcblk0p2   29G  2.5G   25G  10% /
+tmpfs           454M     0  454M   0% /dev/shm
+tmpfs           5.0M   12K  5.0M   1% /run/lock
+/dev/mmcblk0p1  510M   55M  456M  11% /boot/firmware
+tmpfs            91M     0   91M   0% /run/user/1000
+```
+
+A microSD card with 32GB of storage is used here. A typical RaspAP install is very lightweight, using only about 200MB in total.
+
+!!! tip Tip
+    If you experience problems such as updates that fail to complete with a 4GB SD card, lack of storage is likely the cause. Linux systems write lots of [cache files and temporary data](minwrite.md) to disk. These will accumulate in `/tmp` and elsewhere if you haven't rebooted in awhile. Also bear in mind that desktop distributions require substantially more storage.
+
 
 ## <a name="clean"></a>After a clean install, WiFi  and/or RaspAP behaves unpredictably.
 Issues like this are frequently reported. The vast majority of these problems stem from one (or a combination) of the following:
