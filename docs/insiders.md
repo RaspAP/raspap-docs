@@ -38,9 +38,10 @@ The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immedi
 :octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user role](authentication.md#limited-privilege-user-role)  
 
-A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository.
+Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new and follow [@RaspAP on :fontawesome-brands-square-x-twitter:](https://x.com/rasp_ap/) for the latest announcements.
 
-Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new, or follow [@RaspAP on :fontawesome-brands-square-x-twitter:](https://x.com/rasp_ap/) to stay updated.
+### Additional benefits
+A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository. Insiders also have access a private channel on RaspAP's [Discord server](https://discord.gg/KVAsaAR) where they can chat one-on-one with the project's developers.
 
 ## How to become a sponsor
 Thanks for your interest in sponsoring! You can become a sponsor using your individual or organization's GitHub account. Just [pick any tier from $10/month](https://github.com/sponsors/RaspAP) and complete the checkout. You will be automatically granted access to the private GitHub repository containing the Insiders edition, which has all exclusive features.
@@ -77,7 +78,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](repeater.md#alternate-routing-method)  
 :octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](authentication.md#limited-privilege-user)  
-
+:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Tailscale exit node  
 ### Completed goals
 #### **$500** - 1st Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](openvpn.md#multiple-client-configs)  
