@@ -120,8 +120,8 @@ At this stage, you may connect clients to the AP as you would normally. Two diff
 If you would like to switch the wlan interfaces, select a different interface for the AP on the **Hotspot > Basic** tab, then choose **Save settings**. Reverse the DHCP settings in the previous step, then restart the AP or reboot your device. In order to still be able to access the web UI, connect your device via an ethernet cable.
 
 ### Troubleshooting
-If your clients do not have internet connectivity, start by following these [troubleshooting steps](ap-basics.md#troubleshooting). In most cases, problems may be diagosed and fixed by checking the service 
-logs and RaspAP's **Networking** interface. Help is available from the sources [mentioned here](ap-basics.md#diagnosing-problems).
+If your clients do not have internet connectivity, start by following these [troubleshooting steps](troubleshooting.md). In most cases, problems may be diagosed and fixed by checking the service 
+logs and RaspAP's **Networking** interface. Help is available from the sources [mentioned here](troubleshooting.md#diagnosing-problems).
 
 ## Speed testing
 RaspAP hosts a fast, open source and privacy-focused [public speed test server](speedtest.md) that you can use to evaluate your WiFi repeater's performance. The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
