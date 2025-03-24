@@ -6,7 +6,7 @@ After running the [Quick installer](quick.md), [Docker setup](docker.md) or foll
 As part of this initial setup, the `hostapd` service broadcasts an AP with the following settings:
 
 **Interface:** `wlan0`  
-**SSID:** `raspi-webgui`  
+**SSID:** `RaspAP`  
 **Wireless Mode:** `802.11n - 2.4GHz`  
 **Channel:** `1`  
 **Security Type:** `WPA2`  

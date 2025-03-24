@@ -52,7 +52,7 @@ After completing either of these setup options, the wireless AP network will be 
   **Username:** admin  
   **Password:** secret  
   **DHCP range:** 10.3.141.50 to 10.3.141.254  
-  **SSID:** `raspi-webgui`  
+  **SSID:** `RaspAP`  
   **Password:** ChangeMe  
 
 It's _strongly recommended_ that your first post-install action is to change the default admin [authentication](authentication.md) settings. Thereafter, your AP's [basic settings](ap-basics.md) and many [advanced options](ap-basics.md#advanced-options) are now ready to be modified by RaspAP.

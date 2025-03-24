@@ -276,7 +276,7 @@ Several [environment variables](https://docs.docker.com/compose/environment-vari
 
 | Environment Variable | Description             | Default       |
 |----------------------|-------------------------|---------------|
-| RASPAP_SSID          | SSID name               | raspap-webgui |
+| RASPAP_SSID          | SSID name               | RaspAP        |
 | RASPAP_SSID_PASS     | SSID password           | ChangeMe      |
 | RASPAP_COUNTRY       | SSID country code       | GB            |
 | RASPAP_WEBGUI_USER   | Admin username          | admin         |
