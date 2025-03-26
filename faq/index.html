@@ -2954,14 +2954,14 @@ you can have this execute at specific intervals by using <code>cron</code>. Run 
 </span></code></pre></div>
 <p>substituting <code>wlan0</code> for your AP interface, if necessary. You may then restart the raspap daemon with <code>sudo systemctl restart raspapd.service</code>.</p>
 <h2 id="can-i-configure-an-alternate-port-for-raspaps-web-service"><a name="webport"></a>Can I configure an alternate port for RaspAP's web service?</h2>
-<p>Yes. You can now do this from the <strong>Advanced</strong> tab in System. Manual steps for changing <code>lighttpd</code>'s default port are included below.</p>
-<p>Edit <code>/etc/lighttpd/lighttpd.conf</code> and change the following line:</p>
+<p>Yes, you can change the default port for RaspAP's web service on the <strong>System &gt; Advanced</strong> tab. This will allow you operate another web server alongside <code>lighttpd</code>.</p>
+<p>Enter a new port value in the "Web server bind address" field, then choose <strong>Save settings</strong> followed by <strong>Restart lighttpd</strong>. You may then access RaspAP with the new port number in your browser's address bar, for example, <code>http://10.3.141.1:8080</code>. </p>
+<p>Alternatively, you may manually edit the default port in <code>lighttpd</code>'s configuration. Edit <code>/etc/lighttpd/lighttpd.conf</code> and change the following line:</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>server.port                 = 8080
 </span></code></pre></div>
-then give the service a kick...
+Save the file, then restart the web server with the following:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo systemctl restart lighttpd.service
-</span></code></pre></div>
-You can then access RaspAP as before with the new port number in the URI, for example, <code>http://raspberrypi.local:8080</code>. This will allow you run another web server alongside lighttpd, if that is your goal. </p>
+</span></code></pre></div></p>
 <h2 id="what-breaks-raspap-when-docker-is-installed-on-the-same-system-and-how-i-can-fix-it"><a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?</h2>
 <p>Installing RaspAP after installing Docker often results in connected clients not having internet access from the AP. The reason for this is Docker manipulates <code>iptables</code> rules to provide network isolation. Docker installs two custom iptables chains named <code>DOCKER-USER</code> and <code>DOCKER</code>, and it ensures that incoming packets are always checked by these two chains first. Docker also sets the policy for the <code>FORWARD</code> chain to <code>DROP</code>.</p>
 <p>When RaspAP is started in its default router mode, this will result in the AP not forwarding traffic anymore. If you want RaspAP to continue functioning as a router, you can add explicit <code>ACCEPT</code> rules to the <code>DOCKER-USER</code> chain to allow it:</p>
@@ -3268,7 +3268,7 @@ Change the value in this line to the release version, save the file and exit.</p
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 22, 2025 11:40:45">March 22, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 26, 2025 16:23:12">March 26, 2025</span>
   </span>
 
     
