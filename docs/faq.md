@@ -519,18 +519,19 @@ WifiManaged = wlan0
 substituting `wlan0` for your AP interface, if necessary. You may then restart the raspap daemon with `sudo systemctl restart raspapd.service`.
 
 ## <a name="webport"></a>Can I configure an alternate port for RaspAP's web service?
-Yes. You can now do this from the **Advanced** tab in System. Manual steps for changing `lighttpd`'s default port are included below.
+Yes, you can change the default port for RaspAP's web service on the **System > Advanced** tab. This will allow you operate another web server alongside `lighttpd`.
 
-Edit `/etc/lighttpd/lighttpd.conf` and change the following line:
+Enter a new port value in the "Web server bind address" field, then choose **Save settings** followed by **Restart lighttpd**. You may then access RaspAP with the new port number in your browser's address bar, for example, `http://10.3.141.1:8080`. 
+
+Alternatively, you may manually edit the default port in `lighttpd`'s configuration. Edit `/etc/lighttpd/lighttpd.conf` and change the following line:
 
 ```
 server.port                 = 8080
 ```
-then give the service a kick...
+Save the file, then restart the web server with the following:
 ```
 sudo systemctl restart lighttpd.service
 ```
-You can then access RaspAP as before with the new port number in the URI, for example, `http://raspberrypi.local:8080`. This will allow you run another web server alongside lighttpd, if that is your goal. 
 
 ## <a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?
 Installing RaspAP after installing Docker often results in connected clients not having internet access from the AP. The reason for this is Docker manipulates `iptables` rules to provide network isolation. Docker installs two custom iptables chains named `DOCKER-USER` and `DOCKER`, and it ensures that incoming packets are always checked by these two chains first. Docker also sets the policy for the `FORWARD` chain to `DROP`.
