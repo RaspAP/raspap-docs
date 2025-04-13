@@ -35,7 +35,7 @@ sudo rfkill unblock wlan
 ```
 
 ## Non-RPi OS dependencies
-Operating systems other than RPi OS have some additional dependencies. If you are using RPi OS Lite, skip this section. On Ubuntu Server, add a dependency and the `ppa:ondrej/php` apt package:
+Operating systems other than Raspberry Pi OS have some additional dependencies. If you are using RPi OS, skip this section. If needed, add a dependency and add the `ppa:ondrej/php` apt package:
 
 ```
 sudo apt-get install software-properties-common 
@@ -66,7 +66,7 @@ isoquery -v
 !!! note "Note"
     This section concerns manual pre- and post-install steps required for the Armbian 23.11 (Jammy) release. They are not necessary with other distributions.
 
-RaspAP's installer will prompt you to stop and disable the `systemd-resolved` service listening on port 53 before installing `dnsmasq`. On Ubuntu 23.04 and Armbian 23.11 this results in a name resolution failure and the installation cannot continue. To resolve this, perform the following **pre-install steps**:
+RaspAP's installer will prompt you to stop and disable the `systemd-resolved` service listening on port 53 before installing `dnsmasq`. On Armbian 23.11 this results in a name resolution failure and the installation cannot continue. To resolve this, perform the following **pre-install steps**:
 
 1. Stop systemd-resolved with `sudo systemctl stop systemd-resolved.service`.
 1. Edit the systemd-resolved config file: `sudo nano /etc/systemd/resolved.conf`, un-hash and specify `DNS=9.9.9.9` (for example) and set `DNSStubListener=no`. Save and exit the file.
@@ -87,7 +87,7 @@ Install git, lighttpd, php8, hostapd, dnsmasq and some extra packages with the f
 sudo apt-get install lighttpd git hostapd dnsmasq iptables-persistent vnstat qrencode php8.2-cgi jq isoquery
 ```
 !!! note "Note"
-    For Raspberry Pi OS Lite (bullseye), Debian 11 and Ubuntu Server 22.04, replace `php8.2-cgi` with `php7.4-cgi`. For Ubuntu Server 23.04, you may use `php8.1-cgi`.
+    For Raspberry Pi OS Lite (bullseye) and Debian 11, replace `php8.2-cgi` with `php7.4-cgi`.
 
 On Raspberry Pi OS 32- and 64-bit (Bookworm), install `dhcpcd5` with a dependency:
 
@@ -114,10 +114,11 @@ Begin by preparing the default web root location to host the application:
 sudo rm -rf /var/www/html
 ```
 
-Now, clone the source repository specifying the `--recurse-submodules` option to include code from the submodules:
+Now, clone the source repository specifying the `--recurse-submodules` option to include `git` submodules, then update the plugins submodule by pulling the latest changes from its upstream repository: 
 
 ```
 sudo git clone --recurse-submodules https://github.com/RaspAP/raspap-webgui /var/www/html
+sudo git -C /var/www/html submodule update --remote plugins
 ```
 
 Copy an extra `lighttpd` config file to support application routing. This step requires some text substitutions to support user changes to lighttpd's `server.document-root` setting:
