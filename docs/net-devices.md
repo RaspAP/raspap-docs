@@ -73,10 +73,6 @@ These values may be entered under the **Networking > Mobile Data** tab.
 Values entered here are stored in the file `/etc/wvdial.conf`. This configuration file contains the basic configuration needed to unlock the SIM card and connect
 to the network. This has been tested with a Huawei E1550. If your device requires different AT-commands, you will need to manually change this configuration. 
 
-When a connected modem is attached, the connection mode, signal quality and network provider will be displayed on the dashboard.
-
-![image](https://user-images.githubusercontent.com/33725910/115954368-ec63c580-a4f0-11eb-8f4b-3a8830ee1d35.png){: style="width:450px"}
-
 !!! note "Note"
     The names of modems cannot be changed. The reason is that the device name `ppp0` is directly coupled with the required system services.
 

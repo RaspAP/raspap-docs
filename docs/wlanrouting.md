@@ -52,8 +52,9 @@ In addition to these settings, Network Address Translation (NAT) rules must be a
 To create this configuration, begin by configuring your device as a wireless client, or station, with RaspAP's **WiFi client** page or by preconfiguring your OS for wireless LAN operation. Optionally, connect an external wireless adapter to an available USB port.
 
 ### Check wireless connectivity
-Ensure that you have a stable wireless connection to your router. The **Wireless Client** widget on RaspAP's dashboard will indicate its status and link quality. 
-![wifi-client](https://github.com/RaspAP/raspap-webgui/assets/229399/9b60a72e-1199-4b26-a080-4e10ec3d0cca){: style="width:460px; padding-left:10px; padding-top:10px"}
+Ensure that you have a stable wireless connection to your router. RaspAP's dashboard will indicate that your device is configured in "Repeater" mode. 
+
+![repeater](https://github.com/user-attachments/assets/f6865073-ee23-46b0-afcd-e2ccfd6a22e9){: style="width:460px; padding-top:10px"}
 
 ### Attach Ethernet or USB-Ethernet adapter
 Next, attach an Ethernet cable or a USB-Ethernet adapter to an available port, and connect a device you wish to provide internet connectivity to. This could be a laptop, hub or other Ethernet-capable network device. This device will typically be assigned a network interface name by the operating system, such as `eth0` or `eth1`. If your system is configured to use [predictable interface names](https://wiki.debian.org/NetworkInterfaceNames), it may incorporate the interfaces's MAC address (for example, `enx78e7d1ea46da`).
