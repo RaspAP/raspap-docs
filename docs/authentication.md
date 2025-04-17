@@ -24,7 +24,7 @@ The overall security of your RaspAP install can be greatly enhanced by applying 
 RaspAP's administrator login can be made secure if transmitted over HTTPS, which encrypts the entire communication channel. For this reason, RaspAP has simplified the process of creating [locally-trusted SSL certificates](ssl.md) with the [Quick installer](ssl.md#quick-installer). When HTTPS/TLS is enabled with a RaspAP install, this authentication process is significantly more secure. 
 
 ### Using a strong passphrase
-In most scenarios, a potential attacker can only access RaspAP's login prompt if they are already associated with your wireless access point. To mitigate this, change the default `raspap-webgui` SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:
+In most scenarios, a potential attacker can only access RaspAP's login prompt if they are already associated with your wireless access point. To mitigate this, change the default `RaspAP` SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:
 
 ![](https://github.com/user-attachments/assets/416d32fc-0163-40d9-9e7f-c4d256d3f715){: style="width:420px"}
 
