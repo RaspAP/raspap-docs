@@ -1,6 +1,6 @@
 # Overview
 
-![RaspAP-banner](https://user-images.githubusercontent.com/229399/164047475-6d8cf1fd-ec50-4fcc-9d36-f0385f819979.png)
+![RaspAP-banner](images/RaspAP-banner-2025.png){: style="width:480px"}
 
 Simple AP setup & WiFi management for Debian-based devices
 
