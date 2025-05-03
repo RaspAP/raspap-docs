@@ -3,17 +3,18 @@
 RaspAP gives you two different ways to get up and running quickly. The simplest and recommended approach is to use a custom Raspberry Pi OS image with RaspAP preinstalled. This option eliminates guesswork and gives you a base upon which to build. Alternatively, you may execute the Quick installer on an existing [compatible OS](index.md#compatible-operating-systems). Each method is described in the following sections.
 
 ## Pre-built image
-Custom Raspberry Pi OS Lite images with the latest RaspAP are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.
+Custom Raspberry Pi OS Lite images with the latest RaspAP are available for direct download. This includes both 32- and 64-bit builds for ARM architectures. Before downloading a custom OS with RaspAP preinstalled, refer to [this resource](https://www.raspberrypi.com/software/operating-systems/) to ensure compatibility with your hardware.
 
-!!! tip Tip
-    Before downloading a custom OS with RaspAP preinstalled, refer to [this resource](https://www.raspberrypi.com/software/operating-systems/) to ensure compatibility with your hardware.
 
 | Operating system     | Debian version | Kernel version  | RaspAP version | Size  |
 | ---------------------| ---------------|-----------------|----------------|-------|
-| Raspberry Pi OS (64-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 869 MB|
-| Raspberry Pi OS (32-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 897 MB|
+| Raspberry Pi OS (64-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 871 MB|
+| Raspberry Pi OS (32-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 903 MB|
 
 These images are automatically generated with each release of RaspAP and are made [available here](https://github.com/RaspAP/raspap-webgui/releases/latest). You may choose between an `arm64` or `armhf` (32-bit) based build.
+
+!!! warning "Important"
+    Newer distributions of Raspberry Pi OS require a user to be created on first boot. For security reasons, RaspAP's custom OS images _do not_ preconfigure a user. For this reason, you must use the **custom settings** in Raspberry Pi Imager or Etcher to define a user when writing to the SD card. Failure to do so will cause a headless setup to stall with an interactive prompt to create a new user. 
 
 After downloading your desired image from the [latest release page](https://github.com/RaspAP/raspap-webgui/releases/latest), use a utility such as the Raspberry Pi Imager or [balenaEtcher](https://www.balena.io/etcher) to flash the OS image onto a microSD card. Insert the card into your device and boot it up. The latest RaspAP release version with the most popular optional components will be active and ready for you to configure.
 
