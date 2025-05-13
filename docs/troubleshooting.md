@@ -4,7 +4,7 @@
 RaspAP gives you advanced control over several Linux networking-related services. Likewise, devices such as the Raspberry Pi let you attach peripherals and adapters to extend the hardware in countless ways. As a result, your AP may fail to start for a variety of reasons. You may also observe your AP "disappearing," encounter errors connecting clients to the AP, have no internet connectivity on AP clients, or observe clients being disconnected for no apparent reason.
 
 ## Do's and don'ts
-Before proceeding any further, proceed through this common sense checklist:
+Before proceeding any further, this common sense checklist will help you avoid common problems:
 
 1. _Do_ use a [custom OS with RaspAP preinstalled](quick_start.md#pre-built-image); this eliminates 90% of the guesswork.
 2. _Don't_ use a metallic case with your device, which can impede radio performance.
