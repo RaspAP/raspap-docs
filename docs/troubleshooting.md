@@ -1,15 +1,31 @@
 # Troubleshooting
 
 ## Overview
-RaspAP gives you advanced control over several Linux networking-related services. As a result, your AP may fail to start for a variety of reasons. You may also encounter errors connecting clients to 
-the AP, have no internet connectivity on AP clients, or observe clients being disconnected for no apparent reason. 
+RaspAP gives you advanced control over several Linux networking-related services. Likewise, devices such as the Raspberry Pi let you attach peripherals and adapters to extend the hardware in countless ways. As a result, your AP may fail to start for a variety of reasons. You may also observe your AP "disappearing," encounter errors connecting clients to the AP, have no internet connectivity on AP clients, or observe clients being disconnected for no apparent reason.
 
-If any of the above happens, one of the best diagnostic tools at your disposal is RaspAP's built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**. Finally, choose
+## Do's and don'ts
+Before proceeding any further, proceed through this common sense checklist:
+
+1. _Do_ use a [custom OS with RaspAP preinstalled](quick_start.md#pre-built-image); this eliminates 90% of the guesswork.
+2. _Don't_ use a metallic case with your device, which can impede radio performance.
+3. _Do_ start with your device's onboard wireless and validate operation with it ^^first^^.
+4. _Don't_ attach an external wireless adapter (or "dongle") and assume it will work.
+5. _Do_ use an official power supply for your device to avoid undervoltage errors.
+6. _Don't_ attach USB peripherals without a powered hub (see #5).
+7. _Do_ perform a survey of your wireless neighborhood to avoid channel interference.
+8. _Do_ use a microSD card from a reputable manufacturer; consider enabling [minwrite mode](minwrite.md).
+9. If you've modified the default settings and things don't work, do a [system reset](defaults.md#restoring-settings).
+10. Still not working? Generate a debug log and perform a _self-diagnosis_ (do _NOT_ post the log output unless asked).
+
+Follow this checklist and read the docs before starting another "doesn't work" discussion. New threads that ignore these common sense points will be moderated. No hard feelings.
+
+## Service logging
+If your RaspAP router behaves unexpectedly, one of the best diagnostic tools at your disposal is the built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**. Finally, choose
 **Restart hotspot** and check the log output.
 
 ![](https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png){: style="width:580px"}
 
-Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab.
+Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the **DHCP server > Logging** tab. Many of RaspAP's optional components have a **Logging** or **Status** tab that provide useful diagnostic information.
 
 ## Debug log
 In some situations, you may need more comprehensive information to diagnose a problem. RaspAP lets you generate a debug log with a detailed summary of your system including the installed OS, Linux kernel version, attached USB devices, RaspAP settings, network configuration and current state of several AP-related services.
