@@ -4,7 +4,7 @@
 RaspAP gives you advanced control over several Linux networking-related services. Likewise, devices such as the Raspberry Pi let you attach peripherals and adapters to extend the hardware in countless ways. As a result, your AP may fail to start for a variety of reasons. You may also observe your AP "disappearing," encounter errors connecting clients to the AP, have no internet connectivity on AP clients, or observe clients being disconnected for no apparent reason.
 
 ## Do's and don'ts
-Before proceeding any further, this common sense checklist will help you avoid common problems:
+Is your RaspAP router behaving unexpectedly? Before proceeding any further, this common sense checklist will help you avoid the most common pitfalls:
 
 1. _Do_ use a [custom OS with RaspAP preinstalled](quick_start.md#pre-built-image); this eliminates 90% of the guesswork.
 2. _Don't_ use a metallic case with your device, which can impede radio performance.
@@ -17,7 +17,7 @@ Before proceeding any further, this common sense checklist will help you avoid c
 9. If you've modified the default settings and things don't work, do a [system reset](defaults.md#restoring-settings).
 10. Still not working? Generate a debug log and perform a _self-diagnosis_ (do _NOT_ post the log output unless asked).
 
-Follow this checklist and read the docs before starting another "doesn't work" discussion. New threads that ignore these common sense points will be moderated. No hard feelings.
+Follow this checklist and read the docs before starting another "doesn't work" discussion. New threads and issues that ignore these common sense points will be moderated. No hard feelings.
 
 ## Service logging
 If your RaspAP router behaves unexpectedly, one of the best diagnostic tools at your disposal is the built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**. Finally, choose
