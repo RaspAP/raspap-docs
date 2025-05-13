@@ -9,15 +9,15 @@ Is your RaspAP router behaving unexpectedly? Before proceeding any further, this
 1. _Do_ use a [custom OS with RaspAP preinstalled](quick_start.md#pre-built-image); this eliminates 90% of the guesswork.
 2. _Don't_ use a metallic case with your device, which can impede radio performance.
 3. _Do_ start with your device's onboard wireless and validate operation with it ^^first^^.
-4. _Don't_ attach an [external wireless adapter](faq.md#adapters) (or "dongle") and assume it will work.
+4. _Don't_ assume an [external wireless adapter](faq.md#adapters) (or "dongle") will work out of the box.
 5. _Do_ use an official power supply for your device to avoid undervoltage errors.
 6. _Don't_ attach USB peripherals without a powered hub (see #5).
 7. _Do_ perform a survey of your wireless neighborhood to avoid [co-channel interference](faq.md#ping).
-8. _Do_ use a microSD card from a reputable brand; consider enabling [minwrite mode](minwrite.md).
+8. _Do_ use a microSD card from a reputable brand; consider enabling [minimal write mode](minwrite.md).
 9. If you've modified the default settings and things don't work, do a [system reset](defaults.md#restoring-settings).
-10. Still not working? Generate a debug log and perform a _self-diagnosis_ (do _NOT_ post the log output unless asked).
+10. Still not working? Generate a debug log and perform a _self-diagnosis_ (_don't_ post the log output unless asked).
 
-Follow this checklist and read the docs before starting another "doesn't work" discussion. New threads and issues that ignore these common sense points will be moderated. No hard feelings.
+Follow this checklist and read the docs before starting a "doesn't work" issue or discussion. New threads and issues that ignore these common sense points will be moderated. No hard feelings.
 
 ## Service logging
 If your RaspAP router behaves unexpectedly, one of the best diagnostic tools at your disposal is the built-in service logging facility. You may enable the `hostapd` service log by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab and choosing **Save settings**. Finally, choose
