@@ -11,7 +11,7 @@ Is your RaspAP router behaving unexpectedly? Before proceeding any further, this
 3. _Do_ start with your device's onboard wireless and validate operation with it ^^first^^.
 4. _Don't_ assume an [external wireless adapter](faq.md#adapters) (or "dongle") will work out of the box.
 5. _Do_ use an official power supply for your device to avoid undervoltage errors.
-6. _Don't_ attach USB peripherals without a powered hub (see #5).
+6. _Don't_ use an unshielded or poor quality HDMI cable; these interfere with the wi-fi radio.
 7. _Do_ perform a survey of your wireless neighborhood to avoid [co-channel interference](faq.md#ping).
 8. _Do_ use a microSD card from a reputable brand; consider enabling [minimal write mode](minwrite.md).
 9. If you've modified the default settings and things don't work, do a [system reset](defaults.md#restoring-settings).
