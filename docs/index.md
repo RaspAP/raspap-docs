@@ -15,7 +15,7 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 |---|:---:|:---:|:---:|
 | Raspberry Pi OS | (64-bit) Lite Bookworm | ARM | Official |
 | Raspberry Pi OS | (32-bit) Lite Bookworm | ARM | Official |
-| Raspberry Pi OS | (64-bit) Desktop Bookworm | ARM | Official |
+| Raspberry Pi OS | (32-bit) Desktop Bookworm | ARM | Official |
 | Raspberry Pi OS | (64-bit) Lite Bullseye | ARM | Official |
 | Raspberry Pi OS | (32-bit) Lite Bullseye | ARM | Official |
 | Armbian | 23.11  (Jammy) | [ARM](https://www.armbian.com/rpi4b/) | Beta |

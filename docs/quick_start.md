@@ -22,7 +22,7 @@ After downloading your desired image from the [latest release page](https://gith
     To ensure that wireless operation isn't blocked by `rfkill`, the WiFi country is preset to "US" in these images. If this is _not_ your country, be sure to change this with `sudo raspi-config` and choose **Localisation Options** on first boot.
 
 ## Quick Install
-Alternatively, start with a clean install of the [latest release of Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported, as well as the latest 64-bit Desktop distribution. Consult [this FAQ](faq.md#distros) before installing RaspAP in a desktop environment.
+Alternatively, start with a clean install of the [latest release of Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems/). Both the 32- and 64-bit release versions are supported, as well as the latest 32-bit Desktop distribution. Consult [this FAQ](faq.md#distros) before installing RaspAP in a desktop environment.
 
 
 !!! tip "Tip"
