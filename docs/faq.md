@@ -92,7 +92,7 @@ RaspAP is popularly used to provide a variety of networking and wireless routing
 ## <a name="distros"></a>What is the scope of support for Desktop distributions?
 A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. While this project generally recommends non-desktop distros, such as Raspberry Pi OS Lite, it's understood that many users prefer using a desktop environment.
 
-For this reason, Raspberry Pi OS (32-bit) Desktop has undergone extensive testing and is subsequently [validated for use with this project](index.md#compatible-operating-systems) with _clean installs_ of the OS.
+For this reason, Raspberry Pi OS (64- and 32-bit) Desktop has undergone extensive testing and is subsequently [validated for use with this project](index.md#compatible-operating-systems) with _clean installs_ of the OS.
 
 Please be aware that "supported" [is not a guarantee](issues.md#supported-devices). That is, if you experience issues with RaspAP in your desktop environment, it's _your_ responsibility (not the maintainers of this project) to eliminate potential conflicts with other software that you've installed _after_ booting a fresh desktop OS. Before reporting a bug, you may use one of several [community support channels](issues.md#issue-policy) to help you determine the cause of your issue or find a potential workaround.
 
