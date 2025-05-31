@@ -1763,7 +1763,7 @@
 <li>While traveling abroad and need to access sensitive services (such as banking).</li>
 <li>When access to region-restricted content is needed.</li>
 </ol>
-<p>You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an <em>exit node</em>. Alternatively, you might opt to configure your Pi to use an existing exit node on your network. In this way you may share connectivity with AP clients, effectively create a Tailscale VPN router.</p>
+<p>You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an <em>exit node</em>. Alternatively, you can also configure your Pi to use an existing exit node on your network. In this setup you may share connectivity with AP clients, effectively creating a Tailscale VPN router.</p>
 <h3 id="exit-node-benefits">Exit node benefits</h3>
 <p>An exit node secures all your traffic, including traffic to internet sites and applications. When you route all traffic through an exit node, you're effectively using default routes (<code>0.0.0.0/0</code>, <code>::/0</code>), similar to how you would if you were using a typical VPN. </p>
 <div class="admonition tip tip">
@@ -1779,7 +1779,7 @@
 <p><img alt="tailscale-configuration" src="../images/ts-config.png" style="width:400px" /></p>
 <p>After you've logged in and connected your device to Tailscale, it will receive an IPv4 address within your tailnet (your private Tailscale network). At this stage, you may choose to create a new exit node or configure your device to use an existing one, as indicated above.</p>
 <h3 id="selecting-an-existing-exit-node">Selecting an existing exit node</h3>
-<p>Any device capable of running Tailscale's client software is able to host an exit node on your tailnet. This includes mobile handsets, laptops and PCs, meaning you can configure an exit node on any of these devices in a remote location and allow RaspAP to use it.</p>
+<p>Any device capable of running Tailscale's client software is able to host an exit node on your tailnet. This includes mobile handsets, laptops and PCs; meaning you can configure an exit node on any of these devices in a location of your choosing and allow RaspAP to use it.</p>
 <div class="admonition note note">
 <p class="admonition-title">Note</p>
 <p>For this option, you must have at least one active device in your tailnet that offers an exit node. If you're unsure how to do this, refer to "<a href="https://tailscale.com/kb/1103/exit-nodes#configure-an-exit-node">configuring an exit node</a>" in Tailscale's documentation.</p>
@@ -1890,7 +1890,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 31, 2025 12:20:29 UTC">May 31, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 31, 2025 15:46:13 UTC">May 31, 2025</span>
   </span>
 
     
