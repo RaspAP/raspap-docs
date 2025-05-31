@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../issues/">
+        <link rel="prev" href="../insiders/">
       
+      
+        <link rel="next" href="../dynamicdns/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Get involved - RaspAP Documentation</title>
+        <title>Tailscale VPN - RaspAP Documentation</title>
       
     
     
@@ -123,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#get-involved" class="md-skip">
+        <a href="#tailscale-vpn" class="md-skip">
           Skip to content
         </a>
       
@@ -158,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Get involved
+              Tailscale VPN
             
           </span>
         </div>
@@ -814,20 +816,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -843,7 +845,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Insiders
@@ -877,10 +879,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tailscale/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tailscale VPN
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -891,6 +915,227 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exit-node-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exit node benefits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-an-existing-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecting an existing exit node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Selecting an existing exit node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approving-subnet-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approving subnet routes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-an-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using an exit node
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-new-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring a new exit node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring a new exit node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advertising-an-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advertising an exit node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowing-an-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allowing an exit node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit-node-activated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exit node activated
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting clients
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining-a-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining a status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-internet-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      No internet connectivity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-exit-node-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifying exit node traffic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administering-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administering machines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1228,32 +1473,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Get involved
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../get_involved/" class="md-nav__link">
         
   
   
@@ -1264,44 +1487,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-insiders" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get Insiders
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discussions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Discussions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1333,11 +1518,194 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get-insiders" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Get Insiders
+      Overview
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exit-node-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exit node benefits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-an-existing-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecting an existing exit node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Selecting an existing exit node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approving-subnet-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approving subnet routes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-an-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using an exit node
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-new-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring a new exit node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring a new exit node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advertising-an-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advertising an exit node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowing-an-exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allowing an exit node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit-node-activated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exit node activated
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting clients
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining-a-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining a status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-internet-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      No internet connectivity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-exit-node-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifying exit node traffic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administering-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administering machines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1366,7 +1734,7 @@
 
 
   
-    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/get_involved.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/tailscale.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1375,28 +1743,133 @@
     
       
     
-    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/get_involved.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/tailscale.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="get-involved">Get involved</h1>
-<p>We welcome all users of RaspAP to contribute to the project. This can take the form of <a href="https://github.com/RaspAP/raspap-webgui/issues">issue reports</a>, <a href="https://github.com/RaspAP/raspap-webgui/discussions">discussions</a>, or <a href="https://github.com/RaspAP/raspap-webgui/pulls">pull requests</a>.
-Developers can get started by following these steps:</p>
+<h1 id="tailscale-vpn">Tailscale VPN</h1>
+<p><img alt="tailscale-vpn" src="../images/tailscale.png" style="width:640px" /></p>
+<h2 id="overview">Overview</h2>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
+<p>Tailscale is a zero-configuration VPN that makes devices and services feel like they're on the same secure network, known as a <em>tailnet</em>, regardless of physical location. It builds on the secure and open source <a href="../wireguard/">WireGuard protocol</a> to create encrypted peer-to-peer connections between devices. Tailscale bypasses the need for traditional VPNs while offering simplified access controls and management through user-friendly interfaces.</p>
+<h2 id="solution">Solution</h2>
+<p>Tailscale's default behavior is to act as an overlay network. That is, it routes traffic between devices running Tailscale, but doesn't act on your public internet traffic. The overlay network works well for secure communication between devices, but without the need for extra layers of encryption for a public internet connection.</p>
+<p>However, there are times when you may want Tailscale to route your public internet traffic, such as in these scenarios:</p>
 <ol>
-<li>Fork the project in your account and create a new branch: <code>your-great-feature</code>.</li>
-<li>Open an issue in the repository describing the feature contribution you'd like to make.</li>
-<li>Commit changes in your feature branch.</li>
-<li>Open a pull request and reference the initial issue in the pull request message.</li>
+<li>When using an untrusted public Wi-Fi connection. </li>
+<li>While traveling abroad and need to access sensitive services (such as banking).</li>
+<li>When access to region-restricted content is needed.</li>
 </ol>
-<p>Find out more about our <a href="https://github.com/RaspAP/raspap-webgui/blob/master/CONTRIBUTING.md">coding style guidelines and recommended tools</a>.</p>
-<h2 id="get-insiders">Get Insiders</h2>
-<p>RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, <a href="../insiders/#how-to-become-a-sponsor">become a sponsor</a>
-and get access to <a href="../insiders/#whats-in-it-for-me">exclusive features</a> in the <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders Edition</a>.</p>
+<p>You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an <em>exit node</em>. Alternatively, you might opt to configure your Pi to use an existing exit node on your network. In this way you may share connectivity with AP clients, effectively create a Tailscale VPN router.</p>
+<h3 id="exit-node-benefits">Exit node benefits</h3>
+<p>An exit node secures all your traffic, including traffic to internet sites and applications. When you route all traffic through an exit node, you're effectively using default routes (<code>0.0.0.0/0</code>, <code>::/0</code>), similar to how you would if you were using a typical VPN. </p>
+<div class="admonition tip tip">
+<p class="admonition-title">Tip</p>
+<p>The Raspberry Pi 5, with its Broadcom BCM54210 network controller, is capable of ethernet speeds of up to 2.5 Gigabits/s (2500 Mbps). This is a 2.5x improvement in wired networking performance over the Raspberry Pi 4. Both devices are suitable for hosting an exit node, but if you need maximum throughput, best results are obtained with a Raspberry Pi 5 or similar Debian-capable device.</p>
+</div>
+<p>This insures that internet traffic is secured for all the devices connected in your tailnet, regardless of the physical network they're using (ethernet, wireless, cellular, and so on).</p>
+<h2 id="installation">Installation</h2>
+<p>RaspAP's Tailscale VPN integration is available as an Insiders-only plugin that may be installed from the <strong>System &gt; Plugins</strong> tab. Simply choose <strong>Details</strong> corresponding to the plugin, then <strong>Install now</strong> from the pop-up dialog. </p>
+<p>The plugin installer automates adding GPG signing keys for the official Tailscale packages, updating your system <code>apt</code> cache and installing the dependencies. When these steps are done, the installer will automatically refresh the UI. The Tailscale plugin will then appear in the sidebar and is immediately available to configure.</p>
+<h2 id="basic-settings">Basic settings</h2>
+<p>When configuring the plugin for the first time, you will be prompted to login to Tailscale. Choosing the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> <strong>Open Tailscale Login</strong> button will open a new window for you. Complete the login with Tailscale and follow the prompts to connect your device. After authorizing your device to connect to Tailscale, choose <strong>Next</strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06"/></svg></span> in RaspAP's Tailscale plugin.</p>
+<p><img alt="tailscale-configuration" src="../images/ts-config.png" style="width:400px" /></p>
+<p>After you've logged in and connected your device to Tailscale, it will receive an IPv4 address within your tailnet (your private Tailscale network). At this stage, you may choose to create a new exit node or configure your device to use an existing one, as indicated above.</p>
+<h3 id="selecting-an-existing-exit-node">Selecting an existing exit node</h3>
+<p>Any device capable of running Tailscale's client software is able to host an exit node on your tailnet. This includes mobile handsets, laptops and PCs, meaning you can configure an exit node on any of these devices in a remote location and allow RaspAP to use it.</p>
+<div class="admonition note note">
+<p class="admonition-title">Note</p>
+<p>For this option, you must have at least one active device in your tailnet that offers an exit node. If you're unsure how to do this, refer to "<a href="https://tailscale.com/kb/1103/exit-nodes#configure-an-exit-node">configuring an exit node</a>" in Tailscale's documentation.</p>
+</div>
+<p>If you have multiple active exit nodes on your tailnet, Tailscale will recommend one based on its network response time. This is indicated with a star <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span> in the option list, as shown below: </p>
+<p><img alt="tailscale-select-exit-node" src="../images/ts-select-exit-node-lan.png" style="width:400px" /></p>
+<p><em>Subnet routes</em> let you extend your Tailscale network to devices that don't run the Tailscale client. If you're hosting an AP on this device, selecting the <strong>Advertise a subnet route</strong> option will create a gateway between your tailnet and a physical subnet. The subnet associated with the active AP interface is preconfigured for you.</p>
+<p>To <strong>route LAN traffic through the exit node</strong>, select the corresponding option, as shown above. This permits internet traffic originating on <code>eth0</code>, as well as any other LAN traffic to be routed through the exit node.</p>
+<p>Both of these options above are recommended if you're using this device as a Tailscale VPN router. After selecting your options, choose <strong>Next</strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06"/></svg></span> to proceed.</p>
+<h4 id="approving-subnet-routes">Approving subnet routes</h4>
+<p>For security reasons, you must opt in to enable Tailscale subnet route functionality. To do so, use the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> <strong>Open Tailscale Machines</strong> button and follow the steps to approve the subnet route for this device, as indicated below:</p>
+<p><img alt="tailscale-approve-subnet" src="../images/ts-subnet-approve.png" style="width:400px" /></p>
+<p>After completing these steps in the Tailscale console, choose <strong>Next</strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06"/></svg></span> to proceed.</p>
+<h4 id="using-an-exit-node">Using an exit node</h4>
+<p>At the final step, the plugin will confirm that your device is using the exit node indicated by its Tailscale IPv4 address, as shown below: </p>
+<p><img alt="tailscale-using-exit-node" src="../images/ts-using-node.png" style="width:400px" /></p>
+<p>Additionally, your device's Tailscale <a href="https://tailscale.com/kb/1081/magicdns">MagicDNS</a> name is also indicated. </p>
+<div class="admonition tip tip">
+<p class="admonition-title">Tip</p>
+<p>With your device connected to a Tailscale exit node, it's recommended to access it via its MagicDNS name. Attempting to access it via your local network's IPv4 address or hostname (for example, <code>raspap.local</code>) may not work while connected to your tailnet. Accessing RaspAP from it's MagicDNS name will require you to authenticate again. </p>
+</div>
+<p>To stop using the exit node with your device, choose <strong>Stop Using Exit Node</strong>.</p>
+<h3 id="configuring-a-new-exit-node">Configuring a new exit node</h3>
+<p>RaspAP's Tailscale integration also lets you configure your device as a new exit node. This is a good option if, for example, you wish to host a dedicated exit node in a specific location and allow devices with Tailscale's client software to connect to it. RaspAP streamlines the exit node configuration process for you, as described in the next sections.</p>
+<h4 id="advertising-an-exit-node">Advertising an exit node</h4>
+<p>The first step is to advertise your device as an exit node on your tailnet. By doing so, clients that connect to it will have a secure tunnel through your tailnet and appear to have the Tailscale IPv4 address of your device. </p>
+<p><img alt="tailscale-create-node" src="../images/ts-create-node.png" style="width:400px" /></p>
+<p>To advertise your device as an exit node, accept the default setting as shown above. Optionally, you may also optimize your device for UDP throughput (recommended). Choose <strong>Next</strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06"/></svg></span> to continue. </p>
+<div class="admonition tip tip">
+<p class="admonition-title">Tip</p>
+<p>Being based on WireGuard, Tailscale exclusively uses UDP as its transport protocol. For exit nodes, UDP throughput can be optimized by enabling generic receive offload (GRO) forwarding to reduce CPU overhead. This is recommended for Tailscale exit nodes with Linux 6.2 or later kernels. By enabling this option, RaspAP executes <code>ethtool</code> with <code>rx-udp-gro-forwarding</code>. To make this setting persistent after subsequent reboots, the plugin will also enable a <code>systemd</code> service to manage this automatically.</p>
+</div>
+<h4 id="allowing-an-exit-node">Allowing an exit node</h4>
+<p>At this stage, your device is pending approval as an exit node. For security reasons, you must opt in to enable exit node functionality. This includes the following actions:</p>
+<ol>
+<li>A device must advertise itself as an exit node.</li>
+<li>A Tailscale owner or admin must allow a device to be an exit node for the tailnet.</li>
+<li>Every device must explicitly opt in to using an exit node.</li>
+</ol>
+<p>Choose <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> <strong>Open Tailscale Machines</strong> to manage the devices connected to your tailnet:</p>
+<p><img alt="tailscale-advertise-node" src="../images/ts-exit-node.png" style="width:400px" /></p>
+<p>Follow the steps indicated above in the Tailscale console. Choose <strong>Next</strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06"/></svg></span> when you've completed them.</p>
+<h4 id="exit-node-activated">Exit node activated</h4>
+<p>At the final step, your device will indicate that it offers an exit node. For security reasons, each of your devices must enable the exit node separately.</p>
+<p><img alt="tailscale-node-active" src="../images/ts-active.png" style="width:400px" /></p>
+<p>Follow the <strong>Tailscale documentation</strong> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> link for instructions on how to use this exit node with the devices in your tailnet.</p>
+<h4 id="connecting-clients">Connecting clients</h4>
+<p>Tailscale has support for Android, iOS, Linux, macOS, tvOS and Windows devices. You may opt to configure all of your devices, or a subset of them, to <a href="https://tailscale.com/kb/1103/exit-nodes#use-the-exit-node">use your exit node</a> by installing Tailscale's client software. </p>
+<p><img alt="tailscale-client" src="../images/ts-client.png" style="width:460px" /></p>
+<p>In the example above, a macOS client is connected to Tailscale and is using the exit node <code>rpitest</code> configured in the preceding steps.</p>
+<h2 id="obtaining-a-status">Obtaining a status</h2>
+<p>The Tailscale plugin <strong>Status</strong> tab displays the current operational status of your tailnet. This includes a summary of authorized devices, their IPv4 addresses, operating system, exit node status and so on:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>100.89.244.75   rpitest     billz@     linux   idle; offers exit node
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>100.115.18.49   mbp14       billz@     macOS   active; direct 192.168.1.254:41641, tx 13724 rx 25444
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>100.117.241.50  samsung     billz@     android offline
+</span></code></pre></div>
+<p>In the example status output above, <code>rpitest</code> offers an exit node and a macOS device has an active connection.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Basic troubleshooting steps are included here to help you diagnose common problems. Before proceeding, start by confirming that the Tailscale plugin <strong>Status</strong> tab shows that your device is connected to your tailnet. If your device doesn't appear in the status output, choose <strong>Logout</strong> and try connecting to your tailnet again. </p>
+<h3 id="no-internet-connectivity">No internet connectivity</h3>
+<p>One of the most common issues is clients being unable to access the internet through your exit node. This is often due to a missing IP forwarding or NAT configuration on the exit node:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Check if IP forwarding is enabled
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cat /proc/sys/net/ipv4/ip_forward
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a># Should return 1, if not, enable it:
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo sysctl -w net.ipv4.ip_forward=1
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo sysctl -w net.ipv6.conf.all.forwarding=1
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a># Add NAT rule
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>NETDEV=$(ip -o route get 8.8.8.8 | cut -f 5 -d &quot; &quot;)
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>sudo iptables -t nat -A POSTROUTING -o $NETDEV -j MASQUERADE
+</span></code></pre></div>
+<p>RaspAP configures both IP forwarding and NAT by default, as shown above, so this should only be neccesary in rare cases.</p>
+<h3 id="verifying-exit-node-traffic">Verifying exit node traffic</h3>
+<p>You may wish to verify that public internet traffic is being routed from devices in your tailnet through your exit node. To do so, update your system's <code>apt</code> cache and install the <code>tcpdump</code> package, like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo apt update
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo apt install tcpdump -y
+</span></code></pre></div>
+<p>The <code>tcpdump</code> utility is packet analyzer that allows capture, display, and analysis of network traffic passing through a given interface. Execute the tool as shown below, specifying the <code>tailscale0</code> interface with the <code>-i</code> option: </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo tcpdump -i tailscale0
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>listening on tailscale0, link-type RAW (Raw IP), snapshot length 262144 bytes
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>...
+</span></code></pre></div>
+<p>With one or more active devices connected to your exit node, you should see a continuous stream of UDP traffic. Interrupt the output with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span>.</p>
+<p>If no traffic appears on the <code>tailscale0</code> interface, review the machines in the <a href="https://login.tailscale.com/admin/machines">Tailscale console</a> and confirm that the <strong>Exit Node</strong> badge appears next to your device.</p>
+<h3 id="administering-machines">Administering machines</h3>
+<p>RaspAP's Tailscale integration provides a convenient frontend to Tailscale via its Linux <a href="https://tailscale.com/kb/1080/cli">command-line interface (CLI)</a>. If you're unsure of the current status of your device in the tailnet, or have difficult accessing it, authenticate with Tailscale and <a href="https://login.tailscale.com/admin/machines">manage the machines in your tailnet</a>. You may revoke or modify exit node and/or subnet settings from the console, edit a machine's IPv4 address or remove it from your tailnet.</p>
+<p>Check the Tailscale console before creating an issue or starting a discussion related to RaspAP's Tailscale plugin.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about the Quick start? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about using Tailscale? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
 
 
 
@@ -1417,7 +1890,7 @@ and get access to <a href="../insiders/#whats-in-it-for-me">exclusive features</
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2025 19:30:32 UTC">January 23, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 31, 2025 12:20:29 UTC">May 31, 2025</span>
   </span>
 
     
@@ -1436,9 +1909,9 @@ and get access to <a href="../insiders/#whats-in-it-for-me">exclusive features</
     
     <nav>
       
-        <a href="https://github.com/billfitzgerald" class="md-author" title="@billfitzgerald">
+        <a href="https://github.com/billz" class="md-author" title="@billz">
           
-          <img src="https://avatars.githubusercontent.com/u/1602849?v=4&size=72" alt="billfitzgerald">
+          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
         </a>
       
       
@@ -1530,7 +2003,7 @@ and get access to <a href="../insiders/#whats-in-it-for-me">exclusive features</
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../issues/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reporting Issues">
+          <a href="../insiders/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Features">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1540,11 +2013,27 @@ and get access to <a href="../insiders/#whats-in-it-for-me">exclusive features</
                 Previous
               </span>
               <div class="md-ellipsis">
-                Reporting Issues
+                Features
               </div>
             </div>
           </a>
         
+        
+          
+          <a href="../dynamicdns/" class="md-footer__link md-footer__link--next" aria-label="Next: Dynamic DNS">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Dynamic DNS
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
