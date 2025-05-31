@@ -37,6 +37,7 @@ The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immedi
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](ap-basics.md#wifi-repeater-mode)  
 :octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user role](authentication.md#limited-privilege-user-role)  
+:octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new and follow [@RaspAP on :fontawesome-brands-square-x-twitter:](https://x.com/rasp_ap/) for the latest announcements.
 
@@ -78,7 +79,8 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](repeater.md#alternate-routing-method)  
 :octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](authentication.md#limited-privilege-user)  
-:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Tailscale exit node  
+:octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
+
 ### Completed goals
 #### **$500** - 1st Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](openvpn.md#multiple-client-configs)  

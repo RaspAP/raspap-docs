@@ -27,6 +27,7 @@ nav:
     - WireGuard: wireguard.md
   - Insiders:
     - Features: insiders.md
+    - Tailscale VPN: tailscale.md
     - Dynamic DNS: dynamicdns.md
     - Firewall: firewall.md
     - Network devices: net-devices.md
