@@ -16,7 +16,7 @@ However, there are times when you may want Tailscale to route your public intern
 2. While traveling abroad and need to access sensitive services (such as banking).
 3. When access to region-restricted content is needed.
 
-You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an _exit node_. Alternatively, you might opt to configure your Pi to use an existing exit node on your network. In this way you may share connectivity with AP clients, effectively create a Tailscale VPN router.
+You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an _exit node_. Alternatively, you can also configure your Pi to use an existing exit node on your network. In this setup you may share connectivity with AP clients, effectively creating a Tailscale VPN router.
 
 ### Exit node benefits
 An exit node secures all your traffic, including traffic to internet sites and applications. When you route all traffic through an exit node, you're effectively using default routes (`0.0.0.0/0`, `::/0`), similar to how you would if you were using a typical VPN. 
@@ -39,7 +39,7 @@ When configuring the plugin for the first time, you will be prompted to login to
 After you've logged in and connected your device to Tailscale, it will receive an IPv4 address within your tailnet (your private Tailscale network). At this stage, you may choose to create a new exit node or configure your device to use an existing one, as indicated above.
 
 ### Selecting an existing exit node
-Any device capable of running Tailscale's client software is able to host an exit node on your tailnet. This includes mobile handsets, laptops and PCs, meaning you can configure an exit node on any of these devices in a remote location and allow RaspAP to use it.
+Any device capable of running Tailscale's client software is able to host an exit node on your tailnet. This includes mobile handsets, laptops and PCs; meaning you can configure an exit node on any of these devices in a location of your choosing and allow RaspAP to use it.
 
 !!! note Note
     For this option, you must have at least one active device in your tailnet that offers an exit node. If you're unsure how to do this, refer to "[configuring an exit node](https://tailscale.com/kb/1103/exit-nodes#configure-an-exit-node)" in Tailscale's documentation.
