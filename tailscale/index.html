@@ -1763,14 +1763,14 @@
 <li>While traveling abroad and need to access sensitive services (such as banking).</li>
 <li>When access to region-restricted content is needed.</li>
 </ol>
-<p>You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an <em>exit node</em>. Alternatively, you can also configure your Pi to use an existing exit node on your network. In this setup you may share connectivity with AP clients, effectively creating a Tailscale VPN router.</p>
+<p>You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an <em>exit node</em>. Alternatively, you can configure your Pi to use an existing exit node on your network. In this setup you may also share connectivity with AP clients, effectively creating a Tailscale VPN router.</p>
 <h3 id="exit-node-benefits">Exit node benefits</h3>
 <p>An exit node secures all your traffic, including traffic to internet sites and applications. When you route all traffic through an exit node, you're effectively using default routes (<code>0.0.0.0/0</code>, <code>::/0</code>), similar to how you would if you were using a typical VPN. </p>
 <div class="admonition tip tip">
 <p class="admonition-title">Tip</p>
 <p>The Raspberry Pi 5, with its Broadcom BCM54210 network controller, is capable of ethernet speeds of up to 2.5 Gigabits/s (2500 Mbps). This is a 2.5x improvement in wired networking performance over the Raspberry Pi 4. Both devices are suitable for hosting an exit node, but if you need maximum throughput, best results are obtained with a Raspberry Pi 5 or similar Debian-capable device.</p>
 </div>
-<p>This insures that internet traffic is secured for all the devices connected in your tailnet, regardless of the physical network they're using (ethernet, wireless, cellular, and so on).</p>
+<p>This ensures that internet traffic is secured for all the devices connected in your tailnet, regardless of the physical network they're using (ethernet, wireless, cellular, and so on).</p>
 <h2 id="installation">Installation</h2>
 <p>RaspAP's Tailscale VPN integration is available as an Insiders-only plugin that may be installed from the <strong>System &gt; Plugins</strong> tab. Simply choose <strong>Details</strong> corresponding to the plugin, then <strong>Install now</strong> from the pop-up dialog. </p>
 <p>The plugin installer automates adding GPG signing keys for the official Tailscale packages, updating your system <code>apt</code> cache and installing the dependencies. When these steps are done, the installer will automatically refresh the UI. The Tailscale plugin will then appear in the sidebar and is immediately available to configure.</p>
@@ -1782,7 +1782,7 @@
 <p>Any device capable of running Tailscale's client software is able to host an exit node on your tailnet. This includes mobile handsets, laptops and PCs; meaning you can configure an exit node on any of these devices in a location of your choosing and allow RaspAP to use it.</p>
 <div class="admonition note note">
 <p class="admonition-title">Note</p>
-<p>For this option, you must have at least one active device in your tailnet that offers an exit node. If you're unsure how to do this, refer to "<a href="https://tailscale.com/kb/1103/exit-nodes#configure-an-exit-node">configuring an exit node</a>" in Tailscale's documentation.</p>
+<p>For this option, you must have at least one active device in your tailnet that offers an exit node. If you're unsure how to do this, refer to <a href="https://tailscale.com/kb/1103/exit-nodes#configure-an-exit-node">configuring an exit node</a> in Tailscale's documentation.</p>
 </div>
 <p>If you have multiple active exit nodes on your tailnet, Tailscale will recommend one based on its network response time. This is indicated with a star <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span> in the option list, as shown below: </p>
 <p><img alt="tailscale-select-exit-node" src="../images/ts-select-exit-node-lan.png" style="width:400px" /></p>
@@ -1866,7 +1866,7 @@
 <p>With one or more active devices connected to your exit node, you should see a continuous stream of UDP traffic. Interrupt the output with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span>.</p>
 <p>If no traffic appears on the <code>tailscale0</code> interface, review the machines in the <a href="https://login.tailscale.com/admin/machines">Tailscale console</a> and confirm that the <strong>Exit Node</strong> badge appears next to your device.</p>
 <h3 id="administering-machines">Administering machines</h3>
-<p>RaspAP's Tailscale integration provides a convenient frontend to Tailscale via its Linux <a href="https://tailscale.com/kb/1080/cli">command-line interface (CLI)</a>. If you're unsure of the current status of your device in the tailnet, or have difficult accessing it, authenticate with Tailscale and <a href="https://login.tailscale.com/admin/machines">manage the machines in your tailnet</a>. You may revoke or modify exit node and/or subnet settings from the console, edit a machine's IPv4 address or remove it from your tailnet.</p>
+<p>RaspAP's Tailscale integration provides a convenient frontend to Tailscale via its Linux <a href="https://tailscale.com/kb/1080/cli">command-line interface (CLI)</a>. If you're unsure of the current status of your device in the tailnet, or have difficult accessing it, login to Tailscale and <a href="https://login.tailscale.com/admin/machines">manage the machines in your tailnet</a>. You may modify exit node and/or subnet settings from the console, edit a machine's IPv4 address or remove a machine from your tailnet.</p>
 <p>Check the Tailscale console before creating an issue or starting a discussion related to RaspAP's Tailscale plugin.</p>
 <h2 id="discussions">Discussions</h2>
 <p>Questions or comments about using Tailscale? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
@@ -1890,7 +1890,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 31, 2025 15:46:13 UTC">May 31, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 1, 2025 05:37:16 UTC">June 1, 2025</span>
   </span>
 
     
