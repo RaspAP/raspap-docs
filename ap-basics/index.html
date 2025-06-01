@@ -1680,7 +1680,7 @@
 
 <h1 id="access-point-settings">Access point settings</h1>
 <h2 id="basics">Basics</h2>
-<p>After running the <a href="../quick/">Quick installer</a>, <a href="../docker/">Docker setup</a> or following the <a href="../manual/">manual installation</a> steps, RaspAP will start up a routed wireless access point (AP) with a <a href="../defaults/">default configuration</a>.
+<p>After booting a <a href="../quick_start/#pre-built-image">custom OS</a>, running the <a href="../quick/">Quick installer</a>, <a href="../docker/">Docker setup</a> or following the <a href="../manual/">manual installation</a> steps, RaspAP will start up a routed wireless access point (AP) with a <a href="../defaults/">default configuration</a>.
 As part of this initial setup, the <code>hostapd</code> service broadcasts an AP with the following settings:</p>
 <p><strong>Interface:</strong> <code>wlan0</code><br />
 <strong>SSID:</strong> <code>RaspAP</code><br />
@@ -1746,13 +1746,12 @@ you will no longer be able to access the web interface from the default <code>10
 <p><img alt="WiFi repeater mode" src="https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a" style="width:420px" /></p>
 <p>Save settings and choose <strong>Restart hotspot</strong> to active the wireless repeater. As with AP-STA mode, described below, this option is disabled or "greyed out" until a wireless client is configured. </p>
 <h3 id="wifi-client-ap-mode">WiFi client AP mode</h3>
-<p>RaspAP has support for this special mode, also known as a <strong>micro-AP</strong> or simply <strong>AP-STA</strong>. Typically this can be difficult to configure manually, but RaspAP performs most of the config work behind the scenes for you.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This option is disabled or "greyed out" until a wireless client is configured. This can be done via the <strong>WiFi client</strong> UI, or by manually <a href="../faq/#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode">configuring a valid <code>wpa_supplicant.conf</code></a>.</p>
+<p>RaspAP lets you enable this special mode, also known as a <strong>micro-AP</strong> or simply <strong>AP-STA</strong>. Before using this mode, it's essential that users familiarize themselves with <a href="../ap-sta/">how AP-STA works</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>This mode is experimental and <em>completely unsupported</em>. Issues or discussions related to AP-STA in RaspAP's GitHub repository will be moderated. </p>
 </div>
-<p>Before using this mode, it is recommended that users familiarize themselves with <a href="../ap-sta/">how AP-STA works</a>. Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface.
-For the latter, refer to <a href="../faq/#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap">this FAQ</a>. </p>
+<p>Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface. For the latter, refer to <a href="../faq/#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap">this FAQ</a>. </p>
 <h3 id="beacon-interval">Beacon interval</h3>
 <p>Wireless APs continuously send beacon frames to indicate their presence, traffic load, and capabilities. The default <code>hostapd</code> beacon interval is 100ms. If desired, you may change this to any value between 15 and 65535.</p>
 <h3 id="disable-disassoc_low_ack">Disable disassoc_low_ack</h3>
@@ -1809,7 +1808,7 @@ It is not necessary to restart the AP for this to take effect. </p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 24, 2025 18:41:57 UTC">March 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 1, 2025 06:07:26 UTC">June 1, 2025</span>
   </span>
 
     
