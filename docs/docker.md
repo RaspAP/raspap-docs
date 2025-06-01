@@ -3,9 +3,9 @@
 ![docker](images/docker.png){: style="width:640px"}
 
 ## Overview
-As an alternative to the [Quick installer](quick.md) or [manual installation](manual.md) steps, you may also deploy RaspAP in an isolated and portable **Docker** container.
+As an alternative to the [Quick installer](quick.md) or [manual installation](manual.md) steps, you may also deploy RaspAP in an isolated and portable Docker container.
 
-A **container** is an isolated environment for code. This means that a container has no knowledge of the host operating system, dependencies, or its files. It runs on the environment provided to you by either Docker Desktop or the Docker Engine. Containers have everything needed to run an application, down to a base operating system.
+A _container_ is an isolated environment for code. This means that a container has no knowledge of the host operating system, dependencies, or its files. It runs on the environment provided to you by either Docker Desktop or the Docker Engine. Containers have everything needed to run an application, down to a base operating system.
 
 Here, we'll focus on using [Docker Engine](https://docs.docker.com/engine/) to deploy and manage a [containerized RaspAP](https://github.com/RaspAP/raspap-docker) application stack.
 
