@@ -2,7 +2,7 @@
 
 ## Basics
 
-After running the [Quick installer](quick.md), [Docker setup](docker.md) or following the [manual installation](manual.md) steps, RaspAP will start up a routed wireless access point (AP) with a [default configuration](defaults.md).
+After booting a [custom OS](quick_start.md#pre-built-image), running the [Quick installer](quick.md), [Docker setup](docker.md) or following the [manual installation](manual.md) steps, RaspAP will start up a routed wireless access point (AP) with a [default configuration](defaults.md).
 As part of this initial setup, the `hostapd` service broadcasts an AP with the following settings:
 
 **Interface:** `wlan0`  
@@ -94,13 +94,12 @@ RaspAP is capable of acting as a [wireless repeater](repeater.md) to connect to 
 Save settings and choose **Restart hotspot** to active the wireless repeater. As with AP-STA mode, described below, this option is disabled or "greyed out" until a wireless client is configured. 
 
 ### WiFi client AP mode
-RaspAP has support for this special mode, also known as a **micro-AP** or simply **AP-STA**. Typically this can be difficult to configure manually, but RaspAP performs most of the config work behind the scenes for you.
+RaspAP lets you enable this special mode, also known as a **micro-AP** or simply **AP-STA**. Before using this mode, it's essential that users familiarize themselves with [how AP-STA works](ap-sta.md).
 
-!!! note "Note"
-    This option is disabled or "greyed out" until a wireless client is configured. This can be done via the **WiFi client** UI, or by manually [configuring a valid `wpa_supplicant.conf`](faq.md#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode).
+!!! warning "Important"
+    This mode is experimental and _completely unsupported_. Issues or discussions related to AP-STA in RaspAP's GitHub repository will be moderated. 
 
-Before using this mode, it is recommended that users familiarize themselves with [how AP-STA works](ap-sta.md). Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface.
-For the latter, refer to [this FAQ](faq.md#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap). 
+Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface. For the latter, refer to [this FAQ](faq.md#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap). 
 
 ### Beacon interval
 Wireless APs continuously send beacon frames to indicate their presence, traffic load, and capabilities. The default `hostapd` beacon interval is 100ms. If desired, you may change this to any value between 15 and 65535.
