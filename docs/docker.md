@@ -1,6 +1,6 @@
 # Docker support
 
-![](https://github.com/RaspAP/raspap-docker/assets/229399/e2adcee8-2f7d-490c-8d37-7a705bb5a320){: style="width:420px"}
+![docker](images/docker.png){: style="width:640px"}
 
 ## Overview
 As an alternative to the [Quick installer](quick.md) or [manual installation](manual.md) steps, you may also deploy RaspAP in an isolated and portable **Docker** container.
