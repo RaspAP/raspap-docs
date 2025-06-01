@@ -16,7 +16,7 @@ However, there are times when you may want Tailscale to route your public intern
 2. While traveling abroad and need to access sensitive services (such as banking).
 3. When access to region-restricted content is needed.
 
-You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an _exit node_. Alternatively, you can also configure your Pi to use an existing exit node on your network. In this setup you may share connectivity with AP clients, effectively creating a Tailscale VPN router.
+You're able to route all your public internet traffic by configuring a device on your network, such as a Raspberry Pi, as an _exit node_. Alternatively, you can configure your Pi to use an existing exit node on your network. In this setup you may also share connectivity with AP clients, effectively creating a Tailscale VPN router.
 
 ### Exit node benefits
 An exit node secures all your traffic, including traffic to internet sites and applications. When you route all traffic through an exit node, you're effectively using default routes (`0.0.0.0/0`, `::/0`), similar to how you would if you were using a typical VPN. 
@@ -24,7 +24,7 @@ An exit node secures all your traffic, including traffic to internet sites and a
 !!! tip Tip
     The Raspberry Pi 5, with its Broadcom BCM54210 network controller, is capable of ethernet speeds of up to 2.5 Gigabits/s (2500 Mbps). This is a 2.5x improvement in wired networking performance over the Raspberry Pi 4. Both devices are suitable for hosting an exit node, but if you need maximum throughput, best results are obtained with a Raspberry Pi 5 or similar Debian-capable device.
 
-This insures that internet traffic is secured for all the devices connected in your tailnet, regardless of the physical network they're using (ethernet, wireless, cellular, and so on).
+This ensures that internet traffic is secured for all the devices connected in your tailnet, regardless of the physical network they're using (ethernet, wireless, cellular, and so on).
 
 ## Installation
 RaspAP's Tailscale VPN integration is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the pop-up dialog. 
@@ -42,7 +42,7 @@ After you've logged in and connected your device to Tailscale, it will receive a
 Any device capable of running Tailscale's client software is able to host an exit node on your tailnet. This includes mobile handsets, laptops and PCs; meaning you can configure an exit node on any of these devices in a location of your choosing and allow RaspAP to use it.
 
 !!! note Note
-    For this option, you must have at least one active device in your tailnet that offers an exit node. If you're unsure how to do this, refer to "[configuring an exit node](https://tailscale.com/kb/1103/exit-nodes#configure-an-exit-node)" in Tailscale's documentation.
+    For this option, you must have at least one active device in your tailnet that offers an exit node. If you're unsure how to do this, refer to [configuring an exit node](https://tailscale.com/kb/1103/exit-nodes#configure-an-exit-node) in Tailscale's documentation.
 
 If you have multiple active exit nodes on your tailnet, Tailscale will recommend one based on its network response time. This is indicated with a star :material-star: in the option list, as shown below: 
 
@@ -167,7 +167,7 @@ With one or more active devices connected to your exit node, you should see a co
 If no traffic appears on the `tailscale0` interface, review the machines in the [Tailscale console](https://login.tailscale.com/admin/machines) and confirm that the **Exit Node** badge appears next to your device.
 
 ### Administering machines
-RaspAP's Tailscale integration provides a convenient frontend to Tailscale via its Linux [command-line interface (CLI)](https://tailscale.com/kb/1080/cli). If you're unsure of the current status of your device in the tailnet, or have difficult accessing it, authenticate with Tailscale and [manage the machines in your tailnet](https://login.tailscale.com/admin/machines). You may revoke or modify exit node and/or subnet settings from the console, edit a machine's IPv4 address or remove it from your tailnet.
+RaspAP's Tailscale integration provides a convenient frontend to Tailscale via its Linux [command-line interface (CLI)](https://tailscale.com/kb/1080/cli). If you're unsure of the current status of your device in the tailnet, or have difficult accessing it, login to Tailscale and [manage the machines in your tailnet](https://login.tailscale.com/admin/machines). You may modify exit node and/or subnet settings from the console, edit a machine's IPv4 address or remove a machine from your tailnet.
 
 Check the Tailscale console before creating an issue or starting a discussion related to RaspAP's Tailscale plugin.
 
