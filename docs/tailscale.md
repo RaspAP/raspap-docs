@@ -169,13 +169,13 @@ If no traffic appears on the `tailscale0` interface, review the machines in the 
 ### Administering machines
 RaspAP's Tailscale integration provides a convenient frontend to Tailscale via its Linux [command-line interface (CLI)](https://tailscale.com/kb/1080/cli). If you're unsure of the current status of your device in the tailnet, or have difficult accessing it, login to Tailscale and [manage the machines in your tailnet](https://login.tailscale.com/admin/machines). You may modify exit node and/or subnet settings from the console, edit a machine's IPv4 address or remove a machine from your tailnet.
 
-To obtain a highly detailed summary of your Tailscale node, exit node status and its peers, execute the following:
+To obtain a highly detailed summary of your Tailscale device, exit node status and its peers, execute the following:
 
 ```
 sudo tailscale status --json
 ```
 
-Check the Tailscale console and CLI output before creating an issue or starting a discussion related to RaspAP's Tailscale plugin. In most cases these sources will help you identify and resolve problems as they happen.
+Check the Tailscale console and CLI output before creating an issue or starting a discussion related to RaspAP's Tailscale plugin. In most cases these sources will help you identify and resolve problems as they arise.
 
 ## Discussions
 Questions or comments about using Tailscale? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
