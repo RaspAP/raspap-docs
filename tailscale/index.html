@@ -1867,7 +1867,10 @@
 <p>If no traffic appears on the <code>tailscale0</code> interface, review the machines in the <a href="https://login.tailscale.com/admin/machines">Tailscale console</a> and confirm that the <strong>Exit Node</strong> badge appears next to your device.</p>
 <h3 id="administering-machines">Administering machines</h3>
 <p>RaspAP's Tailscale integration provides a convenient frontend to Tailscale via its Linux <a href="https://tailscale.com/kb/1080/cli">command-line interface (CLI)</a>. If you're unsure of the current status of your device in the tailnet, or have difficult accessing it, login to Tailscale and <a href="https://login.tailscale.com/admin/machines">manage the machines in your tailnet</a>. You may modify exit node and/or subnet settings from the console, edit a machine's IPv4 address or remove a machine from your tailnet.</p>
-<p>Check the Tailscale console before creating an issue or starting a discussion related to RaspAP's Tailscale plugin.</p>
+<p>To obtain a highly detailed summary of your Tailscale node, exit node status and its peers, execute the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo tailscale status --json
+</span></code></pre></div>
+<p>Check the Tailscale console and CLI output before creating an issue or starting a discussion related to RaspAP's Tailscale plugin. In most cases these sources will help you identify and resolve problems as they happen.</p>
 <h2 id="discussions">Discussions</h2>
 <p>Questions or comments about using Tailscale? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
 
@@ -1890,7 +1893,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 1, 2025 05:37:16 UTC">June 1, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 2, 2025 20:07:40 UTC">June 2, 2025</span>
   </span>
 
     
