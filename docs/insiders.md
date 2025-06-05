@@ -170,6 +170,14 @@ As of August 2021 GitHub [removed support for password authentication](https://g
 !!! tip "Tip"
     Be sure to create a "classic" personal access token, rather than a fine-grained one. The latter has resulted in errors when cloning the private GitHub repository. Before invoking the Quick installer to perform an upgrade or new Insiders install, it's recommended to verify your token using the method described below.
 
+#### Token scopes
+When creating a personal access token, be sure to select the **repo** "Full control of private repositories" option under **Select scopes**, as shown below: 
+
+![token-scopes](images/token-scopes.png){: style="width:460px"}
+
+Failure to select this option will result in errors when cloning the private Insiders repository.
+
+#### Verifying a token
 If this is your first time using a GitHub personal access token, you can verify it by using `curl` and the [GitHub API](https://docs.github.com/rest). Substitute your token value for `MY_TOKEN` below:
 
 ```
