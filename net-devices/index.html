@@ -1722,14 +1722,10 @@ Check the log file (<code>journalctl</code>) for problems with the device. </p>
 to work without a PIN for the SIM card and without login data. Typically, this can be done via a browser based administration interface on any computer.</p>
 <h3 id="huawei-hilink-device">Huawei Hilink Device</h3>
 <p>A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can communicate directly with these devices. Be sure that the administration interface is <em>not</em> locked with a user/password.
-The PIN number entered on the <strong>Networking &gt; Mobile Data</strong> tab will be used to unlock the SIM card. In addition, connection information (mode, signal quality and network provider) are
-extracted from the device and displayed on the dashboard. The dashboard button to stop/start the device is active and will disconnect/connect the mobile network.</p>
-<p><img alt="image" src="https://user-images.githubusercontent.com/33725910/115952612-3a73cb80-a4e7-11eb-8998-cbb66fb108c4.png" style="width:450px" /></p>
-<p>The model E3372h-320 will be detected as a <strong>Hilink</strong> device and appears with the name <code>hilink0</code>. Other Hilink devices require a corresponding assignment on the <strong>Networking &gt; Devices</strong> tab.</p>
+The PIN number entered on the <strong>Networking &gt; Mobile Data</strong> tab will be used to unlock the SIM card. The model E3372h-320 will be detected as a <strong>Hilink</strong> device and appears with the name <code>hilink0</code>. Other Hilink devices require a corresponding assignment on the <strong>Networking &gt; Devices</strong> tab.</p>
 <h2 id="usb-tethered-phones">USB tethered phones</h2>
 <p>A phone connected via USB and with USB tethering enabled will appear as either an ethernet device (e.g. <code>eth1</code>), or as a USB network device (e.g. <code>usb0</code>).
 Changing the device type to <strong>phone</strong> will result in a corresponding display on the dashboard. In this case the default name is <code>phone0</code>.</p>
-<p><img alt="image" src="https://user-images.githubusercontent.com/33725910/115953764-96415300-a4ed-11eb-9d5c-de4f27550874.png" style="width:450px" /></p>
 <h2 id="configuration-files">Configuration files</h2>
 <ul>
 <li>All device specific settings are stored as UDEV rules in the file <code>/etc/udev/rules.d/80-raspap-net-devices.rules</code>.</li>
@@ -1764,7 +1760,7 @@ Changing the device type to <strong>phone</strong> will result in a correspondin
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 17, 2025 08:51:02 UTC">April 17, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 5, 2025 05:41:01 UTC">June 5, 2025</span>
   </span>
 
     
