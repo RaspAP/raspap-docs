@@ -86,18 +86,11 @@ to work without a PIN for the SIM card and without login data. Typically, this c
 
 ### Huawei Hilink Device
 A special case are Huawei Hilink devices (e.g. Huawei E3372h-320). RaspAP can communicate directly with these devices. Be sure that the administration interface is _not_ locked with a user/password.
-The PIN number entered on the **Networking > Mobile Data** tab will be used to unlock the SIM card. In addition, connection information (mode, signal quality and network provider) are
-extracted from the device and displayed on the dashboard. The dashboard button to stop/start the device is active and will disconnect/connect the mobile network.
-
-![image](https://user-images.githubusercontent.com/33725910/115952612-3a73cb80-a4e7-11eb-8998-cbb66fb108c4.png){: style="width:450px"}
-
-The model E3372h-320 will be detected as a **Hilink** device and appears with the name `hilink0`. Other Hilink devices require a corresponding assignment on the **Networking > Devices** tab.
+The PIN number entered on the **Networking > Mobile Data** tab will be used to unlock the SIM card. The model E3372h-320 will be detected as a **Hilink** device and appears with the name `hilink0`. Other Hilink devices require a corresponding assignment on the **Networking > Devices** tab.
 
 ## USB tethered phones
 A phone connected via USB and with USB tethering enabled will appear as either an ethernet device (e.g. `eth1`), or as a USB network device (e.g. `usb0`).
 Changing the device type to **phone** will result in a corresponding display on the dashboard. In this case the default name is `phone0`.
-
-![image](https://user-images.githubusercontent.com/33725910/115953764-96415300-a4ed-11eb-9d5c-de4f27550874.png){: style="width:450px"}
 
 ## Configuration files
 - All device specific settings are stored as UDEV rules in the file `/etc/udev/rules.d/80-raspap-net-devices.rules`.
