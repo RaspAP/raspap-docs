@@ -105,7 +105,7 @@ The Foundation supports initiatives like [Coder Dojo](https://coderdojo.com/), [
 When you become an Insider, not only do you support development of RaspAP but you also help inspire young people by harnessing the power of computing to solve problems and express themselves creatively.
 
 ## Support for educators
-We are big believers in the role that computing and digital technologies can play in shaping a better world. Many engineers, including members of the RaspAP team, got their first introduction to computing
+We're big believers in the role that computing and digital technologies can play in shaping a better world. Many engineers, including members of the RaspAP team, got their first introduction to computing
 at an early age. This can take the form of a structured curriculum in a school setting, or less-formally through clubs, competitions and partnerships with youth organizations. Equally important is university, vocational and research training in digital technologies at all levels.
 
 To this end, we have pledged to make Insiders freely available to all educators, their students, club participants and staff.
@@ -126,7 +126,7 @@ You must accept this invite before performing an upgrade or new install, as desc
 RaspAP gives you two different ways to install the **Insiders Edition**. The simplest and recommended approach is to use a pre-built Insiders image. Alternatively, you can upgrade an existing installation or create a custom install by executing the Quick installer. Each method is described in the following sections.
 
 ### Pre-built image
-Custom Raspberry Pi OS Lite images with RaspAP's Insiders Edition are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.
+Custom Raspberry Pi OS Lite images with RaspAP's Insiders Edition preinstalled are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.
 
 Begin by downloading your desired image from the latest release page in the private Insiders repository. Next, use a utility such as the Raspberry Pi Imager or balenaEtcher to flash the OS image onto a microSD card. Insert the card into your device and boot it up. The RaspAP Insiders Edition with the most popular optional components will be active and ready for you to configure.
 
