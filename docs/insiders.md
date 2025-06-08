@@ -133,20 +133,22 @@ Begin by downloading your desired image from the latest release page in the priv
 ### Quick install
 The [Quick installer](quick.md) gives you several options, or switches, to upgrade an existing installation to the Insiders Edition, or create a fresh Insiders install.
 
+When using this method to install or upgrade to Insiders, GitHub will prompt you for your username and password to clone the private repository. You must enter a GitHub **Personal access token** at the password prompt. Details are provided in the [Authentication](insiders.md#authentication) section.
+
+You can streamline GitHub authentication by passing your GitHub credentials to the installer with the `--name` and `--token` parameters: 
+
+```
+curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name [username] --token [my-token]
+```
+
+Your credentials are [passed securely](insiders.md#security-and-2fa) to GitHub. Whichever method you choose, it's recommended to [verify access](insiders.md#verifying-a-token) to the Insiders repo with your token beforehand. 
+
+
 #### Upgrading
 To upgrade an existing RaspAP installation, invoke the [Quick installer](quick.md) with the `--upgrade` switch, specifying the private Insiders option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
-```
-
-!!! tip "Tip"
-    When upgrading to Insiders, GitHub will prompt you for your username and password in order to clone the private repository. You must enter a GitHub **Personal access token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below.
-
-You can skip the GitHub authentication step by specifying your GitHub credentials with the `--name` and `--token` parameters: 
-
-```
-curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name [username] --token [my-token]
 ```
 
 #### New installation
@@ -155,17 +157,6 @@ To create a fresh installation of Insiders, invoke the [Quick installer](quick.m
 ```
 curl -sL https://install.raspap.com | bash -s -- --insiders
 ```
-
-!!! tip "Tip"
-    During the Insiders install, GitHub will ask you for your username and password in order to clone the private repository. You must enter a GitHub **Personal access token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below. 
-
-Alternatively, you can skip the GitHub authentication step by specifying your GitHub credentials with the `--name` and `--token` parameters: 
-
-```
-curl -sL https://install.raspap.com | bash -s -- --insiders --name [username] --token [my-token]
-```
-
-With either method, it's recommended to [verify access](insiders.md#verifying-a-token) to the Insiders repo with your token beforehand. 
 
 ### Authentication
 GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal access token (classic)** and use this in place of your password. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
@@ -190,7 +181,10 @@ curl -sS -f -I -H "Authorization: token MY_TOKEN" https://api.github.com
 If successful, GitHub should reply with `HTTP/2 200` and a `x-oauth-scopes: repo` value in the response. If you receive a `HTTP 401` or other error from `curl`, check your token and try again.  
 
 #### Security and 2FA
-If you're not using the `--token` option with the installer, you will be prompted to authenticate with GitHub before cloning the private Insiders repo. Your token is sent securely via SSH to GitHub. The installer has no knowledge of your token and does _not_ store or cache it in any way.
+Your token is sent securely via HTTPS authentication (encrypted) to GitHub. The installer has no knowledge of your token and does _not_ store or cache it in any way.
+
+!!! tip "Tip"
+    When invoking the installer with the `--token` option, your token appears in your shell history. If someone gains access to your machine, they could potentially see the token. You can mitigate this by clearing the last command from your history with `history -d $(history | tail -1 | awk '{print $1}')`.  
 
 If you're using GitHub with 2FA enabled the same process as above applies.
 
