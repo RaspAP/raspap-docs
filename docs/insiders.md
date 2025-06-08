@@ -122,7 +122,7 @@ To access Insiders, you will be invited to become a member of the RaspAP organiz
 
 You must accept this invite before performing an upgrade or new install, as described in the next sections.
 
-## Installation
+## Installing Insiders
 RaspAP gives you two different ways to install the **Insiders Edition**. The simplest and recommended approach is to use a pre-built Insiders image. Alternatively, you can upgrade an existing installation or create a custom install by executing the Quick installer. Each method is described in the following sections.
 
 ### Pre-built image
@@ -149,7 +149,7 @@ You can skip the GitHub authentication step by specifying your GitHub credential
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name [username] --token [my-token]
 ```
 
-#### Custom installation
+#### New installation
 To create a fresh installation of Insiders, invoke the [Quick installer](quick.md) with the `--insiders` switch, like so:
 
 ```
