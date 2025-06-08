@@ -45,7 +45,7 @@ Look for the list above to grow as we add more exclusive features. Be sure to vi
 A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository. Insiders also have access a private channel on RaspAP's [Discord server](https://discord.gg/KVAsaAR) where they can chat one-on-one with the project's developers.
 
 ## How to become a sponsor
-Thanks for your interest in sponsoring! You can become a sponsor using your individual or organization's GitHub account. Just [pick any tier from $10/month](https://github.com/sponsors/RaspAP) and complete the checkout. You will be automatically granted access to the private GitHub repository containing the Insiders edition, which has all exclusive features.
+Thanks for your interest in sponsoring! You can become a sponsor using your individual or organization's GitHub account. Just [pick any tier from $10/month](https://github.com/sponsors/RaspAP) and complete the checkout. You will be automatically granted access to the [private GitHub repository](insiders.md#repository-access) containing the Insiders edition, which has all exclusive features.
 In addition, you will be added as a team member with access to Insiders-only team discussions and content.
 
 [Join our awesome sponsors :octicons-heart-fill-24:](https://github.com/sponsors/RaspAP){ .md-button .md-button--primary }
@@ -114,64 +114,67 @@ To this end, we have pledged to make Insiders freely available to all educators,
 Educators, teacher trainers, researchers and club organizers engaged in digital and computing technologies for students of all ages are eligible. The only requirement is a [GitHub](https://github.com/) account and a domain email address associated with an educational institution or organization with a focus on digital learning. Send a mail to [sponsors@raspap.com](mailto:sponsors@raspap.com) with your GitHub 
 account details and we'll get you started with Insiders.
 
-## Frequently asked questions
-
 ### Repository access
-When you become a sponsor, GitHub will send you an invitation to the private Insiders repo. You must accept this invite _before_ performing an upgrade or new install, as described below. Until you accept this invitation, running the Quick installer with the `--insiders` switch will result in the following:
+To access Insiders, you will be invited to become a member of the RaspAP organization. GitHub will send an email with an invitation link to the address associated with your GitHub account. To join the organization, simply click the invitation link in the email. 
 
-```
-RaspAP Install: Cloning latest files from GitHub
-Cloning into '/tmp/raspap-webgui'...
-remote: Repository not found.
-fatal: repository 'https://github.com/RaspAP/raspap-insiders' not found
-```
+!!! warning "Important"
+    GitHub invitations automatically [expire seven days](https://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization#about-organization-invitations) after they are created. For this reason, be sure to accept the invite during this time frame.
 
-In this event, check your mail folders for an invitation from GitHub and accept it. You may also [verify access](insiders.md#authentication) to the Insiders repo with your token beforehand. 
+You must accept this invite before performing an upgrade or new install, as described in the next sections.
 
-### Installing
-*How do I install Insiders?*
+## Installation
+RaspAP gives you two different ways to install the **Insiders Edition**. The simplest and recommended approach is to use a pre-built Insiders image. Alternatively, you can upgrade an existing installation or create a custom install by executing the Quick installer. Each method is described in the following sections.
 
-Invoke the [Quick Installer](quick.md) with the `--insiders` switch, like so:
+### Pre-built image
+Custom Raspberry Pi OS Lite images with RaspAP's Insiders Edition are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.
 
-```
-curl -sL https://install.raspap.com | bash -s -- --insiders
-```
+Begin by downloading your desired image from the latest release page in the private Insiders repository. Next, use a utility such as the Raspberry Pi Imager or balenaEtcher to flash the OS image onto a microSD card. Insert the card into your device and boot it up. The RaspAP Insiders Edition with the most popular optional components will be active and ready for you to configure.
 
-!!! tip "Tip"
-    During the Insiders install, GitHub will ask you for your username and password in order to clone the private repository. You must enter a GitHub **Personal Access Token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below. 
+### Quick install
+The [Quick installer](quick.md) gives you several options, or switches, to upgrade an existing installation to the Insiders Edition, or create a fresh Insiders install.
 
-Alternatively, you may skip the GitHub authentication step by specifying your GitHub credentials with the `--name` and `--token` parameters: 
-
-```
-curl -sL https://install.raspap.com | bash -s -- --insiders --name [username] --token [my-token]
-```
-
-### Upgrading
-*I have an existing RaspAP installation. How do I upgrade to Insiders?*
-
-Upgrading is easy. Simply invoke the [Quick Installer](quick.md) with the `--upgrade` switch, specifying the private Insiders option, like so:
+#### Upgrading
+To upgrade an existing RaspAP installation, invoke the [Quick installer](quick.md) with the `--upgrade` switch, specifying the private Insiders option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
 ```
 
 !!! tip "Tip"
-    When upgrading to Insiders, GitHub will ask you for your username and password in order to clone the private repository. You must enter a GitHub **Personal Access Token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below. 
+    When upgrading to Insiders, GitHub will prompt you for your username and password in order to clone the private repository. You must enter a GitHub **Personal access token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below.
 
-As with a fresh Insiders install, you may also skip the GitHub authentication step by specifying your GitHub credentials with the `--name` and `--token` parameters: 
+You can skip the GitHub authentication step by specifying your GitHub credentials with the `--name` and `--token` parameters: 
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name [username] --token [my-token]
 ```
 
-### Authentication
-As of August 2021 GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal Access Token** and use this in place of your password. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
+#### Custom installation
+To create a fresh installation of Insiders, invoke the [Quick installer](quick.md) with the `--insiders` switch, like so:
+
+```
+curl -sL https://install.raspap.com | bash -s -- --insiders
+```
 
 !!! tip "Tip"
-    Be sure to create a "classic" personal access token, rather than a fine-grained one. The latter has resulted in errors when cloning the private GitHub repository. Before invoking the Quick installer to perform an upgrade or new Insiders install, it's recommended to verify your token using the method described below.
+    During the Insiders install, GitHub will ask you for your username and password in order to clone the private repository. You must enter a GitHub **Personal access token** at the password prompt. This is explained in the [Authentication](insiders.md#authentication) section below. 
+
+Alternatively, you can skip the GitHub authentication step by specifying your GitHub credentials with the `--name` and `--token` parameters: 
+
+```
+curl -sL https://install.raspap.com | bash -s -- --insiders --name [username] --token [my-token]
+```
+
+With either method, it's recommended to [verify access](insiders.md#verifying-a-token) to the Insiders repo with your token beforehand. 
+
+### Authentication
+GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal access token (classic)** and use this in place of your password. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
+
+!!! warning "Important"
+    Be sure to create a **"classic"** personal access token (_not_ a fine-grained one) with the correct token scope. Failure to create the correct token type and scope will result in errors when cloning the private repository. Before invoking the Quick installer, it's recommended to [verify your token](insiders.md#verifying-a-token) first.
 
 #### Token scopes
-When creating a personal access token, be sure to select the **repo** "Full control of private repositories" option under **Select scopes**, as shown below: 
+When creating a personal access token (classic), be sure to select the **repo** "Full control of private repositories" option under **Select scopes**, as shown below: 
 
 ![token-scopes](images/token-scopes.png){: style="width:460px"}
 
@@ -184,14 +187,15 @@ If this is your first time using a GitHub personal access token, you can verify 
 curl -sS -f -I -H "Authorization: token MY_TOKEN" https://api.github.com
 ```
 
-If successful, GitHub should reply with `HTTP/2 200` and a `x-oauth-scopes: repo` value in the response. If you receive a `HTTP 401` or other error from curl, check your token and try again.  
+If successful, GitHub should reply with `HTTP/2 200` and a `x-oauth-scopes: repo` value in the response. If you receive a `HTTP 401` or other error from `curl`, check your token and try again.  
 
-You will be asked to authenticate with GitHub when the installer clones the private Insiders repo. In this case, simply enter your GitHub username and token when prompted.
+#### Security and 2FA
+If you're not using the `--token` option with the installer, you will be prompted to authenticate with GitHub before cloning the private Insiders repo. Your token is sent securely via SSH to GitHub. The installer has no knowledge of your token and does _not_ store or cache it in any way.
 
-!!! note "Note"
-    Your token is sent securely via SSH to GitHub. The installer does _not_ have access to or store your token.
+If you're using GitHub with 2FA enabled the same process as above applies.
 
-If you're using GitHub with 2FA enabled the same process above applies.
+### Exclusive plugins
+Many Insiders features are available as [plugins](custom-plugins.md) that you can install on-demand. To do so, select a desired plugin from the **System > Plugins** tab by choosing **Details** followed by **Install now**. 
 
 ### Scope of support
 Individual sponsors may use the [main RaspAP repository](https://github.com/RaspAP/raspap-webgui) for non-bug related discussions, including troubleshooting. If you've found a bug with an Insiders feature, please review our [issue policy](issues.md) and create a report in the [Insiders repository](https://github.com/RaspAP/raspap-insiders).
