@@ -7,7 +7,7 @@ By default RaspAP configures a routed AP as its hotspot, where your device creat
 ## Enabling bridged AP mode
 From RaspAP's **Hotspot** > **Advanced** tab, select the **Bridged AP mode** option.  Choose **Save settings** and then **Restart hotspot**.
 
-![](https://user-images.githubusercontent.com/229399/224494216-af49936e-feb3-4932-b987-34505f0f54a7.png){: style="width:420px"}
+![](images/bridged.png){: style="width:420px"}
 
 At this stage, you will no longer be able to access RaspAP's web interface from the default `10.3.141.1` address. See [accessing the web interface](bridged.md#accessing-the-web-interface), below.
 ## Limitations
