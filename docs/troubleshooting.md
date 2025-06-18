@@ -32,7 +32,12 @@ In some situations, you may need more comprehensive information to diagnose a pr
 
 ![](https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad){: style="width:480px"}
 
-To create this log, simply click or tap on the **Generate debug log** button from the **System > Tools** tab. You will be prompted to choose a location to store the generated `raspap_debug.log` file on your local computer or mobile device. An example portion of RaspAP's debug log is shown below:
+To create this log, simply click or tap on the **Generate debug log** button from the **System > Tools** tab. You will be prompted to choose a location to store the generated `raspap_debug.log` file on your local computer or mobile device.
+
+!!! tip "Tip"
+    You can also generate a debug log directly from the Linux terminal. From the root of the RaspAP web application (`/var/www/html` is the default) execute `./installers/debuglog.sh`.
+
+An example portion of RaspAP's debug log is shown below:
 
 ```
 System Info
