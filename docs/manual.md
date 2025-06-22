@@ -320,6 +320,29 @@ sudo sed -i '/dhcp-option=6/d' /etc/dnsmasq.d/090_raspap.conf
 sudo sed -i "s/\('RASPI_ADBLOCK_ENABLED', \)false/\1true/g" includes/config.php
 ```
 
+### Network activity monitor
+RaspAP's real-time network activity monitor may be optionally installed. This requires compiling C code, so ensure `gcc` is present on your system, then compile the code from its source:
+
+```
+sudo apt-get update
+sudo apt-get install -y build-essential
+sudo gcc -O2 -o /usr/local/bin/raspap-network-monitor /var/www/html/installers/raspap-network-monitor.c
+```
+
+Next, symbolically link the monitor file to the web application and set permissions:
+```
+sudo ln -sf /dev/shm/net_activity /var/www/html/app/net_activity
+sudo chown www-data:www-data /var/www/html/app/net_activity 
+```
+
+Finally, install, enable and start the `systemd` service:
+```
+sudo cp /var/www/html/installers/raspap-network-activity@.service /lib/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable raspap-network-activity@wlan0.service
+sudo systemctl start raspap-network-activity@wlan0.service
+```
+
 ## Restart
 Finally, restart your device and verify that the wireless access point is available:
 
