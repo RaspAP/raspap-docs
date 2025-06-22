@@ -650,6 +650,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#network-activity-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network activity monitor
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1701,6 +1710,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#network-activity-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network activity monitor
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1987,9 +2005,25 @@ Create these rules and persist them with the following:</p>
 </span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>sudo sed -i &#39;/dhcp-option=6/d&#39; /etc/dnsmasq.d/090_raspap.conf
 </span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>sudo sed -i &quot;s/\(&#39;RASPI_ADBLOCK_ENABLED&#39;, \)false/\1true/g&quot; includes/config.php
 </span></code></pre></div>
+<h3 id="network-activity-monitor">Network activity monitor</h3>
+<p>RaspAP's real-time network activity monitor may be optionally installed. This requires compiling C code, so ensure <code>gcc</code> is present on your system, then compile the code from its source:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>sudo apt-get update
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>sudo apt-get install -y build-essential
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>sudo gcc -O2 -o /usr/local/bin/raspap-network-monitor /var/www/html/installers/raspap-network-monitor.c
+</span></code></pre></div>
+<p>Next, symbolically link the monitor file to the web application and set permissions:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo ln -sf /dev/shm/net_activity /var/www/html/app/net_activity
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>sudo chown www-data:www-data /var/www/html/app/net_activity 
+</span></code></pre></div></p>
+<p>Finally, install, enable and start the <code>systemd</code> service:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo cp /var/www/html/installers/raspap-network-activity@.service /lib/systemd/system/
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sudo systemctl daemon-reload
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>sudo systemctl enable raspap-network-activity@wlan0.service
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>sudo systemctl start raspap-network-activity@wlan0.service
+</span></code></pre></div></p>
 <h2 id="restart">Restart</h2>
 <p>Finally, restart your device and verify that the wireless access point is available:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>sudo systemctl reboot
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sudo systemctl reboot
 </span></code></pre></div>
 <p>After your device has restarted, search for wireless networks with your wireless client. The default SSID is <code>raspi-webgui</code>. 
 The default username is "admin" and the default password is "secret".</p>
@@ -2019,7 +2053,7 @@ The default username is "admin" and the default password is "secret".</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 13, 2025 11:08:24 UTC">April 13, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 22, 2025 06:05:46 UTC">June 22, 2025</span>
   </span>
 
     
