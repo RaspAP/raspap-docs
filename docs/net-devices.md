@@ -15,24 +15,21 @@ The following network devices are supported:
 - Mobile data adapter with built-in router
 - USB connected smartphone (USB tethering)  
 
-All devices require a driver in order to be available for use with RaspAP. 
+!!! note "Note"
+    All devices require a compatible Linux driver in order to be available for use with RaspAP. 
 
 ## Listing detected devices
-The **Networking > Devices** tab displays a list of available devices with their attributes and assumed adapter type. The adapter type as well as the device name may be changed.
-Incorrect device types might appear for some devices, which advertise themselves to the system as an ethernet (e.g. `eth0`) or usb (e.g. `usb0`) device. This often happens for USB connected phones and external routers.  
+The **Networking > Devices** tab displays a list of available devices with their attributes and assumed adapter type. Incorrect device types might appear for some devices, which advertise themselves to the system as an ethernet (for example, `eth0`) or usb (`usb0`) device. This often happens for USB connected phones and external routers.  
 
-![Networking: Network devices](https://user-images.githubusercontent.com/229399/116096642-bf0e4780-a6a9-11eb-9794-6935b0858b9b.png)
+![Networking: Network devices](images/net-devices-list.png)
 
-### Changing the device name
-Changing the name helps to distinguish different devices. This is especially important if, for example, the **Access Point** device is connected via USB and the automatically assigned name is changed.
-This can sometimes occur when devices are connected in varying order.
+### Changing the device type
+The type may be changed for devices with an associated Vendor ID (vid) and Product ID (pid). To modify a device's type, select an option from the **Device type** drop-down and choose **Update**.
 
-To modify a device's name, enter a value in the **Fixed name** field and choose **Change**.
-
-The only restriction for the device name is that it must only contain lowercase letters and numbers. The maximal length is limited to 20 characters. Devices names are automatically filtered accordingly. 
+This will read from RaspAP's canonical UDEV [prototype definitions](net-devices.md#configuration-files) and assign the desired type to the device. These values are persisted in RaspAP's custom UDEV rules located in `/etc/udev/rules.d/80-raspap-net-devices.rules`. 
 
 ### Changing the MAC address
-Sometimes you might need to set the MAC address of the WLAN interface to be the same as your PC or some other device on your network. This is known as MAC address cloning.
+Sometimes you might need to set the MAC address of the WLAN interface to be the same as your PC or some other device on your network. This is known as _MAC address cloning_.
 
 For example, some ISPs register your computer's MAC address when the service is first installed. When you place a router behind the cable or ADSL modem, the MAC address from the device WLAN port will not be recognized by the ISP.
 
@@ -42,10 +39,10 @@ You can clone the MAC address of the WLAN interface (or any other valid interfac
 
 1. Open the **Networking > Devices** tab.
 2. Choose a MAC address for the interface you wish to clone.
-3. Enter a valid address in the **MAC** field and click or tap **Change**.
+3. Enter a valid address in the **MAC** field and choose **Update**.
 4. The new MAC address will be configured immediately.
 
-![image](https://user-images.githubusercontent.com/229399/193248142-8838f585-aeef-4ef0-8aef-109ff9dd338e.png){: style="width:575px"}
+![MAC address cloning](images/net-devices-clone.png)
 
 !!! note "Note"
     Virtual interfaces such as OpenVPN's `tun0` or WireGuard's `wg0` do not have this capability. To avoid potential conflicts, change the MAC address and reconnect the device before modifying any other settings. 
@@ -61,14 +58,14 @@ These devices are usually listed with the automatically assigned device name pre
 name to the device.
  
 Wireless devices will only appear if a supported driver exists in the currently installed OS. If your device does not appear in the list, this usually indicates that a required device driver is missing.
-The helper script [install_wlan_driver_modules.sh](https://github.com/RaspAP/raspap-tools/blob/main/install_raspap_ram_wlan.sh) available in [RaspAP/raspap-tools](https://github.com/RaspAP/raspap-tools)
-can be used to search for and install existing driver modules. 
 
 ## Mobile data modems
-Modems or Point-to-Point Protocol (ppp) devices require login data. This includes a PIN number to unlock the SIM card, the Access Point Name (APN) and login data of your mobile network provider. 
+Modems or Point-to-Point Protocol (`ppp`) devices require login data. This includes a PIN number to unlock the SIM card, the Access Point Name (APN) and login data of your mobile network provider. 
 These values may be entered under the **Networking > Mobile Data** tab.
 
-![image](https://user-images.githubusercontent.com/229399/116100321-182baa80-a6ad-11eb-9fd5-4a3bc22b9388.png){: style="width:375px"}
+![Mobile data settings](images/net-devices-mobile.png){: style="width:375px"}
+
+Enter the SIM card PIN number, specify the your provider's APN and login credentials, then choose **Save settings**.
 
 Values entered here are stored in the file `/etc/wvdial.conf`. This configuration file contains the basic configuration needed to unlock the SIM card and connect
 to the network. This has been tested with a Huawei E1550. If your device requires different AT-commands, you will need to manually change this configuration. 
