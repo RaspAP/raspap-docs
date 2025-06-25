@@ -16,7 +16,19 @@ Install ad blocking and enable list management? [Y/n]
 
 The installer will download the blocklists, configure RaspAP to use them and enable the **Ad blocking** management page.
 
-![Ad block install option](https://user-images.githubusercontent.com/229399/127268555-5e397b12-a123-4a15-a58f-e339b517ac0a.png){: style="width:540px"}
+```
+RaspAP Install: Creating ad blocking base configuration (Beta)
+Creating /etc/raspap/adblock
+Fetching latest hostnames list
+/tmp/hostnames.txt  100%[===================>]   7.83M 1.17MB/s   in 8.0s
+Fetching latest domains list
+/tmp/domains.txt    100%[===================>]  10.93M 1.12MB/s   in 11.0s
+Adding blocklists to /etc/raspap/adblock
+Moving and setting permissions for blocklist update script
+Adding 090_addblock.conf to /etc/dnsmasq.d
+Enabling local DNS name resolution for DHCP clients
+Enabling ad blocking management option
+```
 
 Ad blocking is enabled and active for clients connected to your AP. You may update the blocklists or disable ad blocking with the management page. These actions are described below. 
  
@@ -28,14 +40,14 @@ Blocklists are sourced from multiple, continuously updated open source projects.
 
 ![StevenBlack's hosts file aggregator](https://raw.githubusercontent.com/StevenBlack/hosts/master/aggregator.png){: style="width:640px"}
 
-Alternatively, users may choose from a number of host blocklist sources maintained by the [badmojr/1Hosts](https://github.com/badmojr/1Hosts) GitHub project. These lists are compiled daily into Mini, Lite, Pro and Xtra versions depending on specific user needs. Refer to the [GitHub project](https://github.com/badmojr/1Hosts) for an explanation of these different blocklists.
+Alternatively, users may choose from a number of host blocklist sources maintained by the [hagezi/hosts](https://github.com/hagezi/dns-blocklists) GitHub project. These lists are compiled daily into Light, Normal, Pro, Pro++ and Ultimate versions depending on your specific needs. Refer to the [GitHub project](https://github.com/hagezi/dns-blocklists) for an explanation of these different blocklists.
 
 In addition to blocking hosts, domain blocking gives us the ability to use wildcards with `dnsmasq` to block an entire domain (for example, `baddomain.org`) with a single rule. This includes all known and unknown subdomains, such as `*.baddomain.org`. Domain blocklists are provided by the [OISD](https://oisd.nl/) project. Similar to hosts lists, these are continuously updated and curated into several lists: Small, Big and NSFW. Refer to the [OISD](https://oisd.nl/) project for an explanation of these lists. 
 
 ## Updating lists 
 Each of the hosts and domains blocklists are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
 
-![Manage blocklists](https://user-images.githubusercontent.com/229399/224507022-f71e9a8f-ad73-437b-81cd-c59b27ad3dc3.png){: style="width:420px"}
+![Manage blocklists](images/adblock.png){: style="width:420px"}
 
 Next to the update button, a gear icon :fontawesome-solid-gear:{ style="color: var(--md-default-fg-color--light)" } will appear to indicate that the selected list is being downloaded. Thereafter, a timestamp after each list will indicate when it was last updated.
 
@@ -45,6 +57,17 @@ Next to the update button, a gear icon :fontawesome-solid-gear:{ style="color: v
 ### Automatic updates
 Alternatively, you may wish to automate the process of keeping the ad block source lists up-to-date. A method to achieve this is described in [this FAQ](faq.md#adblockauto). 
 
+## User-defined blocklists
+The blocklists used by RaspAP are conveniently defined in a [`blocklists.json`](https://github.com/RaspAP/raspap-webgui/blob/master/config/blocklists.json) file. As discussed in [blocklist sources](adblock.md#blocklist-sources), these lists are divided into two categories: hosts and domains. If you prefer to replace the default blocklist sources with your own, backup the original and edit `blocklists.json` in RaspAP's adblock configuration folder:
+
+```
+cp /var/www/html/config/blocklists.json ~/
+sudo nano /var/www/html/config/blocklists.json
+```
+
+!!! tip "Tip"
+    The `blocklists.json` file is portable, meaning it can be "dropped in" to an existing RaspAP installation. This also means you can share your custom blocklist definitions with others, via sites such as [GitHub Gist](https://gist.github.com/) or [Pastebin](https://pastebin.com/). 
+
 ## Custom blocklist
 In addition to the notracking blocklists, you may create your own host blocklist by adding entries on the **Custom blocklist** tab. 
 Define custom hosts to be blocked by entering an IPv4 or IPv6 address followed by any whitespace (spaces or tabs) and the host name. An IPv4 example would take the form `0.0.0.0 badhost.com`.
@@ -52,7 +75,6 @@ Choose **Save settings** and **Restart Ad Blocking**.
 
 !!! note "Note"
     As the name suggests, this is effective at blocking individual hosts, but not entire domains (or subdomains). 
-
 
 ## Enabling logging
 By default, DNS logging is disabled. If you'd like to see which hosts are being blocked, enable it on the **DHCP Server > Logging** tab by selecting the **Log DNS queries** toggle. **Save settings** and **Restart Ad Blocking**. The **Logging** tab on the **Ad Blocking** page will display blacklisted DNS queries with host addresses of `0.0.0.0`. A sample of blocked ad/tracker requests is below.
