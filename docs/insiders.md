@@ -66,18 +66,18 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](ap-basics.md#wpa3-personal)  
 :octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](ap-basics.md#80211w)  
 :octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](ap-basics.md#printable-signs)  
-:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
 :octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics)  
 :octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](wireguard.md#kill-switch)  
+:octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
 
 #### **$1,500** - 3rd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
 :octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](wireguard.md#multiple-configs)  
+:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](authentication.md#custom-user-avatars)  
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](repeater.md#alternate-routing-method)  
-:octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](authentication.md#limited-privilege-user)  
 :octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
 
