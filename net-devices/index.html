@@ -1029,9 +1029,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changing-the-device-name" class="md-nav__link">
+  <a href="#changing-the-device-type" class="md-nav__link">
     <span class="md-ellipsis">
-      Changing the device name
+      Changing the device type
     </span>
   </a>
   
@@ -1498,9 +1498,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changing-the-device-name" class="md-nav__link">
+  <a href="#changing-the-device-type" class="md-nav__link">
     <span class="md-ellipsis">
-      Changing the device name
+      Changing the device type
     </span>
   </a>
   
@@ -1668,28 +1668,28 @@ Broadly, this includes devices such as tethered phones, USB modems/routers, WLAN
 <li>Mobile data adapter with built-in router</li>
 <li>USB connected smartphone (USB tethering)  </li>
 </ul>
-<p>All devices require a driver in order to be available for use with RaspAP. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All devices require a compatible Linux driver in order to be available for use with RaspAP. </p>
+</div>
 <h2 id="listing-detected-devices">Listing detected devices</h2>
-<p>The <strong>Networking &gt; Devices</strong> tab displays a list of available devices with their attributes and assumed adapter type. The adapter type as well as the device name may be changed.
-Incorrect device types might appear for some devices, which advertise themselves to the system as an ethernet (e.g. <code>eth0</code>) or usb (e.g. <code>usb0</code>) device. This often happens for USB connected phones and external routers.  </p>
-<p><img alt="Networking: Network devices" src="https://user-images.githubusercontent.com/229399/116096642-bf0e4780-a6a9-11eb-9794-6935b0858b9b.png" /></p>
-<h3 id="changing-the-device-name">Changing the device name</h3>
-<p>Changing the name helps to distinguish different devices. This is especially important if, for example, the <strong>Access Point</strong> device is connected via USB and the automatically assigned name is changed.
-This can sometimes occur when devices are connected in varying order.</p>
-<p>To modify a device's name, enter a value in the <strong>Fixed name</strong> field and choose <strong>Change</strong>.</p>
-<p>The only restriction for the device name is that it must only contain lowercase letters and numbers. The maximal length is limited to 20 characters. Devices names are automatically filtered accordingly. </p>
+<p>The <strong>Networking &gt; Devices</strong> tab displays a list of available devices with their attributes and assumed adapter type. Incorrect device types might appear for some devices, which advertise themselves to the system as an ethernet (for example, <code>eth0</code>) or usb (<code>usb0</code>) device. This often happens for USB connected phones and external routers.  </p>
+<p><img alt="Networking: Network devices" src="../images/net-devices-list.png" /></p>
+<h3 id="changing-the-device-type">Changing the device type</h3>
+<p>The type may be changed for devices with an associated Vendor ID (vid) and Product ID (pid). To modify a device's type, select an option from the <strong>Device type</strong> drop-down and choose <strong>Update</strong>.</p>
+<p>This will read from RaspAP's canonical UDEV <a href="./#configuration-files">prototype definitions</a> and assign the desired type to the device. These values are persisted in RaspAP's custom UDEV rules located in <code>/etc/udev/rules.d/80-raspap-net-devices.rules</code>. </p>
 <h3 id="changing-the-mac-address">Changing the MAC address</h3>
-<p>Sometimes you might need to set the MAC address of the WLAN interface to be the same as your PC or some other device on your network. This is known as MAC address cloning.</p>
+<p>Sometimes you might need to set the MAC address of the WLAN interface to be the same as your PC or some other device on your network. This is known as <em>MAC address cloning</em>.</p>
 <p>For example, some ISPs register your computer's MAC address when the service is first installed. When you place a router behind the cable or ADSL modem, the MAC address from the device WLAN port will not be recognized by the ISP.</p>
 <p>External networking devices, like a Raspberry Pi, also have their own MAC addresses which can create authentication problems. This often occurs on guest Wi-Fi networks.</p>
 <p>You can clone the MAC address of the WLAN interface (or any other valid interface) to be the same as your computer's MAC address. To create this configuration, follow the steps below:</p>
 <ol>
 <li>Open the <strong>Networking &gt; Devices</strong> tab.</li>
 <li>Choose a MAC address for the interface you wish to clone.</li>
-<li>Enter a valid address in the <strong>MAC</strong> field and click or tap <strong>Change</strong>.</li>
+<li>Enter a valid address in the <strong>MAC</strong> field and choose <strong>Update</strong>.</li>
 <li>The new MAC address will be configured immediately.</li>
 </ol>
-<p><img alt="image" src="https://user-images.githubusercontent.com/229399/193248142-8838f585-aeef-4ef0-8aef-109ff9dd338e.png" style="width:575px" /></p>
+<p><img alt="MAC address cloning" src="../images/net-devices-clone.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Virtual interfaces such as OpenVPN's <code>tun0</code> or WireGuard's <code>wg0</code> do not have this capability. To avoid potential conflicts, change the MAC address and reconnect the device before modifying any other settings. </p>
@@ -1701,13 +1701,12 @@ Devices such as USB tethered phones might appear as an ethernet device as well. 
 <h2 id="wireless-network-devices">Wireless network devices</h2>
 <p>These devices are usually listed with the automatically assigned device name prefix <strong>wlan</strong>, for example <code>wlan0</code>. If multiple wlan interfaces are used, it can be advantageous to assign a unique
 name to the device.</p>
-<p>Wireless devices will only appear if a supported driver exists in the currently installed OS. If your device does not appear in the list, this usually indicates that a required device driver is missing.
-The helper script <a href="https://github.com/RaspAP/raspap-tools/blob/main/install_raspap_ram_wlan.sh">install_wlan_driver_modules.sh</a> available in <a href="https://github.com/RaspAP/raspap-tools">RaspAP/raspap-tools</a>
-can be used to search for and install existing driver modules. </p>
+<p>Wireless devices will only appear if a supported driver exists in the currently installed OS. If your device does not appear in the list, this usually indicates that a required device driver is missing.</p>
 <h2 id="mobile-data-modems">Mobile data modems</h2>
-<p>Modems or Point-to-Point Protocol (ppp) devices require login data. This includes a PIN number to unlock the SIM card, the Access Point Name (APN) and login data of your mobile network provider. 
+<p>Modems or Point-to-Point Protocol (<code>ppp</code>) devices require login data. This includes a PIN number to unlock the SIM card, the Access Point Name (APN) and login data of your mobile network provider. 
 These values may be entered under the <strong>Networking &gt; Mobile Data</strong> tab.</p>
-<p><img alt="image" src="https://user-images.githubusercontent.com/229399/116100321-182baa80-a6ad-11eb-9fd5-4a3bc22b9388.png" style="width:375px" /></p>
+<p><img alt="Mobile data settings" src="../images/net-devices-mobile.png" style="width:375px" /></p>
+<p>Enter the SIM card PIN number, specify the your provider's APN and login credentials, then choose <strong>Save settings</strong>.</p>
 <p>Values entered here are stored in the file <code>/etc/wvdial.conf</code>. This configuration file contains the basic configuration needed to unlock the SIM card and connect
 to the network. This has been tested with a Huawei E1550. If your device requires different AT-commands, you will need to manually change this configuration. </p>
 <div class="admonition note">
@@ -1760,7 +1759,7 @@ Changing the device type to <strong>phone</strong> will result in a correspondin
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 5, 2025 05:41:01 UTC">June 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 25, 2025 15:06:00 UTC">June 25, 2025</span>
   </span>
 
     
