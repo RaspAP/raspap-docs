@@ -12,7 +12,10 @@ While this project handles every facet of this process for you, it's still recom
 To every extent possible, RaspAP's default settings are contained within the project's `/config` folder. The networking defaults, DNS servers, wireless regulatory data and so on are found here.
 In this way, the user may modify RaspAP's baseline application settings without touching code.
 
-The exception to this is `hostapd.conf` which is managed by `includes/hostapd.php` and effectively rewritten depending on user input. This is due to the [complexity of this configuration](https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf) relative to other services managed by the project. For this reason, manual edits to this file will not be preserved.
+The exception to this is `hostapd.conf` which is effectively rewritten depending on user input. This is due to the [complexity of this configuration](https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf) relative to other services managed by the project.
+
+!!! tip Tip
+    RaspAP has a mechanism that lets advanced users create their own [custom `hostapd` configuration](ap-basics.md#custom-user-settings). These custom user settings are managed outside of RaspAP and are unmodified by the application. 
 
 Baseline configurations for `dhcpcd`, `dnsmasq` (described below) and bridged AP configurations are contained here.
  
