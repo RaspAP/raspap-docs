@@ -36,6 +36,15 @@ On the **Hotspot > Security** tab, click or tap the magic icon :fontawesome-soli
 ### Access point settings
 RaspAP enables Wi-Fi Protected Access 2 (WPA2) as the default security type for the access point. This includes support for AES-based encryption and a multi-step 4-way handshake. For greater security, the newer [WPA3 standard](ap-basics.md#wpa3-personal) increases the key length to 192 bits (compared with the 128-bit key used by WPA2), further improving the password defense strength.
 
+## Custom user avatars
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+
+The default administrator user icon may be replaced with a custom one of your choosing. From the **Avatar** tab, click or tap on the existing avatar to upload a new one. The new custom avatar will be displayed in RaspAP's header.
+
+![type:video](./images/avatar.mp4){: style="width: 397px; height: 478px;"}
+
+Image files of type `.jpg`, `.gif` or `.png` up to a maximum of 2 MB are supported. To restore the avatar to the default, choose **Reset avatar**.
+
 ## Limited privilege user role
 :octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
 
@@ -46,15 +55,6 @@ This is useful in a multi-user environment where the admin user may want to init
 ![](https://github.com/user-attachments/assets/afe63740-5e1b-4b64-a325-b282fdfbecd2){: style="width:420px"}
 
 To enable the limited privilege user, slide the corresponding toggle on the **Basic** tab, enter the limited privilege user's login and password and choose **Save settings**. The current admin user will be prompted to logout. Thereafter, the limited privilege user role will be active. The limited user may then login with the credentials you've defined. To disable the limited privilege user role, simply login with the administrator account again.
-
-## Custom user avatars
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
-
-The default administrator user icon may be replaced with a custom one of your choosing. From the **Avatar** tab, click or tap on the existing avatar to upload a new one. The new custom avatar will be displayed in RaspAP's header.
-
-![type:video](./images/avatar.mp4){: style="width: 397px; height: 478px;"}
-
-Image files of type `.jpg`, `.gif` or `.png` up to a maximum of 2 MB are supported. To restore the avatar to the default, choose **Reset avatar**.
 
 ## Session management
 The default PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.
