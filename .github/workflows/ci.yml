@@ -31,5 +31,5 @@ jobs:
       - run: pip install mkdocs-git-revision-date-localized-plugin
       - run: pip install mkdocs-git-committers-plugin-2
       - run: pip install pillow cairosvg
-      - run: pip install mkdocs-video
+      - run: pip install video
       - run: mkdocs gh-deploy --force
