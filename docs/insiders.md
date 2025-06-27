@@ -80,6 +80,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](repeater.md#alternate-routing-method)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](authentication.md#limited-privilege-user)  
 :octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
+:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Wireshark plugin  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
