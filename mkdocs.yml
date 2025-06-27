@@ -111,6 +111,7 @@ plugins:
   - git-revision-date-localized
   - git-committers:
       repository: RaspAP/raspap-docs
+  - mkdocs-video
 extra_css:
   - stylesheets/extra.css
 extra:

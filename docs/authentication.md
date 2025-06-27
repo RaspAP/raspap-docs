@@ -52,7 +52,7 @@ To enable the limited privilege user, slide the corresponding toggle on the **Ba
 
 The default administrator user icon may be replaced with a custom one of your choosing. From the **Avatar** tab, click or tap on the existing avatar to upload a new one. The new custom avatar will be displayed in RaspAP's header.
 
-![](https://github.com/user-attachments/assets/ff7f1974-4411-4113-8130-f7ad4d9d9411){: style="width:480px"}
+![type:video](./images/avatar.mp4){: style="width: 397px; height: 478px;"}
 
 Image files of type `.jpg`, `.gif` or `.png` up to a maximum of 2 MB are supported. To restore the avatar to the default, choose **Reset avatar**.
 
