@@ -1420,7 +1420,7 @@
   
 
 
-<h1 id="quick-start">Quick start</h1>
+<div><h1 id="quick-start">Quick start</h1>
 <p>RaspAP gives you two different ways to get up and running quickly. The simplest and recommended approach is to use a custom Raspberry Pi OS image with RaspAP preinstalled. This option eliminates guesswork and gives you a base upon which to build. Alternatively, you may execute the Quick installer on an existing <a href="../#compatible-operating-systems">compatible OS</a>. Each method is described in the following sections.</p>
 <h2 id="pre-built-image">Pre-built image</h2>
 <p>Custom Raspberry Pi OS Lite images with the latest RaspAP are available for direct download. This includes both 32- and 64-bit builds for ARM architectures. Before downloading a custom OS with RaspAP preinstalled, refer to <a href="https://www.raspberrypi.com/software/operating-systems/">this resource</a> to ensure compatibility with your hardware.</p>
@@ -1468,26 +1468,26 @@
 <p>Be sure to use an official power supply with your device. Power supply requirements <a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply">differ by Raspberry Pi model</a>. Inadequate voltage is the source of many WiFi issues.</p>
 </div>
 <p>Update RPi OS to its latest version, including the kernel and firmware, followed by a reboot:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt-get update
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt-get update
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo apt-get full-upgrade
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo reboot
 </span></code></pre></div>
-Set the WiFi country in raspi-config's <strong>Localisation Options</strong>: <code>sudo raspi-config</code>.</p>
+Set the WiFi country in raspi-config's <strong>Localisation Options</strong>: <code>sudo raspi-config</code>.
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
 <p>Failure to perform this step will prevent the RPi from enabling wireless operation. When this happens, you will see the warning <code>Wi-Fi is currently blocked by rfkill</code> in the console.</p>
 </div>
 <p>Install RaspAP from your device's shell prompt:
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-sL<span class="w"> </span>https://install.raspap.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</p><div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-sL<span class="w"> </span>https://install.raspap.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </span></code></pre></div>
-The <a href="../quick/">Quick installer</a> will complete the steps in the <a href="../manual/">manual installation</a> for you. At the end of the install process, accept the prompt to reboot your system.</p>
+The <a href="../quick/">Quick installer</a> will complete the steps in the <a href="../manual/">manual installation</a> for you. At the end of the install process, accept the prompt to reboot your system.
 <h2 id="initial-settings">Initial settings</h2>
 <p>After completing either of these setup options, the wireless AP network will be configured as follows:</p>
-<p><strong>IP address:</strong> 10.3.141.1<br />
-<strong>Username:</strong> admin<br />
-<strong>Password:</strong> secret<br />
-<strong>DHCP range:</strong> 10.3.141.50 to 10.3.141.254<br />
-<strong>SSID:</strong> <code>RaspAP</code><br />
+<p><strong>IP address:</strong> 10.3.141.1<br>
+<strong>Username:</strong> admin<br>
+<strong>Password:</strong> secret<br>
+<strong>DHCP range:</strong> 10.3.141.50 to 10.3.141.254<br>
+<strong>SSID:</strong> <code>RaspAP</code><br>
 <strong>Password:</strong> ChangeMe  </p>
 <p>It's <em>strongly recommended</em> that your first post-install action is to change the default admin <a href="../authentication/">authentication</a> settings. Thereafter, your AP's <a href="../ap-basics/">basic settings</a> and many <a href="../ap-basics/#advanced-options">advanced options</a> are now ready to be modified by RaspAP.</p>
 <div class="admonition tip">
@@ -1495,7 +1495,7 @@ The <a href="../quick/">Quick installer</a> will complete the steps in the <a hr
 <p>If this is <em>not</em> a clean install or you are configuring a device with a non-standard <a href="../faq/#integrations">integration</a> try following the <a href="../manual/">manual installation</a> instructions or deploy RaspAP in a <a href="../docker/">Docker container</a>.</p>
 </div>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about the Quick start? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about the Quick start? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

@@ -1624,18 +1624,18 @@
   
 
 
-<h1 id="minimal-sd-card-write">Minimal SD card write</h1>
-<p><img alt="minwrite" src="https://github.com/user-attachments/assets/c17886a9-5aa6-49f4-a0e9-8b14a333a749" style="width:640px" /></p>
+<div><h1 id="minimal-sd-card-write">Minimal SD card write</h1>
+<p><img alt="minwrite" src="https://github.com/user-attachments/assets/c17886a9-5aa6-49f4-a0e9-8b14a333a749" style="width:640px"></p>
 <h2 id="overview">Overview</h2>
 <p>Linux, and indeed most substantial operating systems, is frequently writing logs files, cache files and temporary data to disk (or the microSD card with the Raspberry Pi). Performing a shutdown puts these files away into a known valid state. If power is unexpectedly cut to a Raspberry Pi, these unwritten system files can become corrupted and render a card unbootable.</p>
 <p>What is more, most microSD cards were not designed with 24/7 operation in mind. Continuous writing to the card's flash memory shortens its lifespan. They often accumulate bad sectors rather quickly after a period of extended use. This is particularly true of so-called "budget" microSD cards.</p>
-<p>Using a Raspberry Pi as wireless router requires reliable operation over a long period of time. While <em>read-only mode</em> operation for the SD card is one approach to prolong its use, this prevents user settings from being persisted to storage &#151; meaning that any changes will be lost if the device is disconnected from power. This makes it less than ideal for RaspAP, or indeed any application that depends on persistent storage.</p>
+<p>Using a Raspberry Pi as wireless router requires reliable operation over a long period of time. While <em>read-only mode</em> operation for the SD card is one approach to prolong its use, this prevents user settings from being persisted to storage — meaning that any changes will be lost if the device is disconnected from power. This makes it less than ideal for RaspAP, or indeed any application that depends on persistent storage.</p>
 <h2 id="solution">Solution</h2>
 <p>Rather than force the system into a read-only mode, RaspAP has an alternative <em>minimal write mode</em> that substantially reduces the risk of SD card corruption and also helps to extend the card's lifespan.</p>
 <p>This solution involves moving logging, cache and temporary data to a RAM-based file system. The default system log processor <code>rsyslog</code> is replaced with an in-memory logger and several log-related services are disabled. The <code>tmpfs</code> filesystem is used for most processes that require write access, such as sessions used by <code>php-cgi</code>, as well as paths for transient and cache data including <code>/var/cache</code> and <code>/var/tmp</code>.</p>
-<p>In addition, the system's boot options are modified to disable swap and file system checks. A tangible side benefit of retaining a read/write boot partition is that your system will behave otherwise normally &#151; you may install packages, add services and perform most operations as before.</p>
+<p>In addition, the system's boot options are modified to disable swap and file system checks. A tangible side benefit of retaining a read/write boot partition is that your system will behave otherwise normally — you may install packages, add services and perform most operations as before.</p>
 <h2 id="enabling-minimal-write">Enabling minimal write</h2>
-<p>The minimal microSD card write utility, <strong>minwrite</strong>, may be invoked by using RaspAP's <a href="../quick/">Quick installer</a>. This does <em>not</em> (re)install RaspAP &#151; only the <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh">minwrite</a> shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, <a href="#manual-steps">manual configuration</a> steps are also provided. Notes specific to Armbian are given where applicable.</p>
+<p>The minimal microSD card write utility, <strong>minwrite</strong>, may be invoked by using RaspAP's <a href="../quick/">Quick installer</a>. This does <em>not</em> (re)install RaspAP — only the <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh">minwrite</a> shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, <a href="#manual-steps">manual configuration</a> steps are also provided. Notes specific to Armbian are given where applicable.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. Best advice is to either create a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed.</p>
@@ -1655,7 +1655,7 @@
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> 888888ba                              .d888888   888888ba
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a> 88     8b                            d8     88   88     8b
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>a88aaaa8P&#39; .d8888b. .d8888b. 88d888b. 88aaaaa88a a88aaaa8P
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>a88aaaa8P' .d8888b. .d8888b. 88d888b. 88aaaaa88a a88aaaa8P
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a> 88    8b. 88    88 Y8ooooo. 88    88 88     88   88
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a> 88     88 88.  .88       88 88.  .88 88     88   88
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a> dP     dP  88888P8  88888P  88Y888P  88     88   dP
@@ -1726,7 +1726,7 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 <p>By default Armbian does not use any SD card-based swap, so unless you’ve customized your installation there’s nothing to disable.</p>
 </div>
 <h4 id="move-directories-to-ram">Move directories to RAM</h4>
-<p>As a final step, several directories will be moved to the <code>tmpfs</code> filesystem. Storing these directories on a ramdisk instead of the SD card will substantially reduce the volume of I/O operations on the card's flash memory. Writing to <code>tmpfs</code> also provides fast sequential read/write speeds. The tradeoff is that <code>tmpfs</code> is <em>volatile storage</em> &#151; meaning that you will lose all data stored on the filesystem if your device loses power.</p>
+<p>As a final step, several directories will be moved to the <code>tmpfs</code> filesystem. Storing these directories on a ramdisk instead of the SD card will substantially reduce the volume of I/O operations on the card's flash memory. Writing to <code>tmpfs</code> also provides fast sequential read/write speeds. The tradeoff is that <code>tmpfs</code> is <em>volatile storage</em> — meaning that you will lose all data stored on the filesystem if your device loses power.</p>
 <p>Paths are selected here to migrate to <code>tmpfs</code> for transient and cache data, as well as those required for RaspAP's operation that are associated with disk I/O activity. Moving these directories to <code>tmpfs</code> is done by editing <code>fstab</code> with <code>sudo nano /etc/fstab</code>. Append the following lines to the end:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>tmpfs /tmp tmpfs  nosuid,nodev 0 0
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>tmpfs /var/log tmpfs  nosuid,nodev 0 0
@@ -1747,7 +1747,7 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 <h2 id="memory-considerations">Memory considerations</h2>
 <p>The <strong>minwrite</strong> configuration migrates as much as possible from SD card storage to the <code>tmpfs</code> ramdisk. As a result, a concomitant increase in memory utilization is expected. To benchmark this, the change in memory usage on a Pi 3 Model B+ with 1GB of RAM and a typical RaspAP installation will be compared.</p>
 <p>Execute the following to return the amount of free system memory expressed as a percentage of the total available:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>free -m | awk &#39;/Mem:/ { total=$2 ; used=$3 } END { print used/total*100}&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>free -m | awk '/Mem:/ { total=$2 ; used=$3 } END { print used/total*100}'
 </span></code></pre></div>
 <table>
 <thead>
@@ -1759,7 +1759,7 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 <tbody>
 <tr>
 <td>11.88%</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span>  29.70%</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"></path></svg></span>  29.70%</td>
 </tr>
 </tbody>
 </table>
@@ -1777,7 +1777,7 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 </span></code></pre></div>
 <p>After a period of time, you will see disk I/O activity reported for a number of processes. Returning to the example Pi 3 Model B+ test bench, the before and after results may be compared: </p>
 <p><strong>Pre-minwrite I/O</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Total DISK READ:         0.00 B/s | Total DISK WRITE:       191.31 B/s
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Total DISK READ:         0.00 B/s | Total DISK WRITE:       191.31 B/s
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Current DISK READ:       0.00 B/s | Current DISK WRITE:      22.52 K/s
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    PID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO&gt;    COMMAND
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>     95 ?sys root          0.00 B    860.00 K                 [jbd2/mmcblk0p2-]
@@ -1790,9 +1790,9 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 </span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>   1188 ?sys www-data     52.00 K      0.00 B                 php-cgi
 </span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>   4752 ?sys root          0.00 B      4.00 K                 dhcpcd -w -q
 </span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>   5402 ?sys dnsmasq       0.00 B    140.00 K                 dnsmasq -x /run/dnsmasq/dnsmasq.pid
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p><strong>Post-minwrite I/O</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    PID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO&gt;    COMMAND
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    101 ?sys root          0.00 B      8.00 K                 [jbd2/mmcblk0p2-8]
@@ -1801,11 +1801,11 @@ Additionally, <code>dphys-swapfile</code>, which manages a swapfile in the root 
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    891 ?sys www-data      4.00 K      0.00 B                 php-cgi
 </span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    892 ?sys www-data      4.00 K      0.00 B                 php-cgi
 </span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    893 ?sys www-data     80.00 K      0.00 B                 php-cgi
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>Notice that in the latter <code>iotop</code> output, logging to disk is nearly absent and <code>vnstatd</code> now writes data to RAM. The remaining disk write activity originates mainly from the ext4 journal update process <code>jbd2</code>.</p>
 <p>At the same time, RaspAP settings may be modified and persisted to the microSD card and the system otherwise operated normally.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using <strong>minwrite</strong> mode? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about using <strong>minwrite</strong> mode? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

@@ -1576,13 +1576,13 @@
   
 
 
-<h1 id="custom-user-plugins">Custom user plugins</h1>
-<p><img alt="user-plugins" src="https://github.com/user-attachments/assets/4319b667-f73f-4803-8407-f1b825a9e10c" style="width:640px" /></p>
+<div><h1 id="custom-user-plugins">Custom user plugins</h1>
+<p><img alt="user-plugins" src="https://github.com/user-attachments/assets/4319b667-f73f-4803-8407-f1b825a9e10c" style="width:640px"></p>
 <h2 id="overview">Overview</h2>
 <p>The <code>PluginManager</code> provides a framework for developers to create custom plugins to extend RaspAP's functionality. To facilitate this, the <code>SamplePlugin</code> <a href="https://github.com/RaspAP/SamplePlugin">repository</a> was created to make it easy for developers to get started creating their own plugins. Using the <code>SamplePlugin</code> is described in the following sections.</p>
 <h2 id="the-sampleplugin">The SamplePlugin</h2>
 <p>The <code>SamplePlugin</code> implements a <code>PluginInterface</code> and is automatically loaded by RaspAP's <code>PluginManager</code>. </p>
-<p><img alt="sample-plugin" src="https://github.com/user-attachments/assets/5a6ecf40-2b14-4502-8b63-5e85f9ade6f6" style="width:420px" /></p>
+<p><img alt="sample-plugin" src="https://github.com/user-attachments/assets/5a6ecf40-2b14-4502-8b63-5e85f9ade6f6" style="width:420px"></p>
 <p>Several common plugin functions are demonstrated in <code>SamplePlugin</code>, as well as a method for persisting session data in plugin instances. Each plugin has its own namespace, meaning that classes and functions are organized to avoid naming conflicts. Plugins are self-contained and render templates from inside their own <code>/templates</code> directory.</p>
 <h2 id="getting-started">Getting started</h2>
 <p>The <code>SamplePlugin</code> requires an installation of RaspAP, either via the <a href="../quick/">Quick install</a> method or with a <a href="../docker/">Docker container</a>. The default application path <code>/var/www/html</code> is used here. If you've chosen a different install location, substitute this in the steps below.</p>
@@ -1596,7 +1596,7 @@
    <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd plugins
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo git clone https://github.com/[your-username]/SamplePlugin
 </span></code></pre></div></li>
-<li>The <code>PluginManager</code> will detect and autoload the plugin; a new <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32m192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32M32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2C297 398 352 333.4 352 256v-32c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/></svg></span> Sample Plugin</strong> item will appear in the sidebar.</li>
+<li>The <code>PluginManager</code> will detect and autoload the plugin; a new <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32m192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32M32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2C297 398 352 333.4 352 256v-32c17.7 0 32-14.3 32-32s-14.3-32-32-32z"></path></svg></span> Sample Plugin</strong> item will appear in the sidebar.</li>
 </ol>
 <p>You may now proceed with customizing your plugin by using the tips in the next sections.</p>
 <h2 id="scope-of-functionality">Scope of functionality</h2>
@@ -1657,9 +1657,9 @@
 <p>You may wish to omit, modify or create new tabs. This is done by editing <code>main.php</code> and modifying the contents of the <code>/tabs</code> directory.</p>
 <h3 id="sidebar-item">Sidebar item</h3>
 <p>The <code>PluginInterface</code> exposes an <code>initalize()</code> method that is used to create a unique sidebar item. The properties below can be customized for your plugin:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$label = _(&#39;Sample Plugin&#39;);
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$icon = &#39;fas fa-plug&#39;;
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>$action = &#39;plugin__&#39;.$this-&gt;getName();
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$label = _('Sample Plugin');
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$icon = 'fas fa-plug';
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>$action = 'plugin__'.$this-&gt;getName();
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>$priority = 65;
 </span></code></pre></div>
 <p>You may specify any icon in the <a href="https://fontawesome.com/icons">Font Awesome 6.6 free library</a> for the sidebar item. The priority value sets the position of the item in the sidebar (lower values = a higher priority).</p>
@@ -1676,7 +1676,7 @@
 <p>Wildcards ('<code>*</code>') and regular expressions are supported by <code>sudoers</code> but <a href="https://www.sudo.ws/posts/2022/03/sudo-1.9.10-using-regular-expressions-in-the-sudoers-file/">care should be taken when using them</a>.</p>
 <h2 id="multiple-instances">Multiple instances</h2>
 <p>The <code>PluginManager</code> is a managerial class responsible for locating, instantiating and coordinating plugins. Through the use of namespaces and object data persistence in <code>SamplePlugin</code>, any number of user plugins may be installed to <code>/plugins</code> and run concurrently.</p>
-<p><img alt="multiple-plugins" src="https://github.com/user-attachments/assets/2d156efe-8cfc-49e7-b682-219d2db4eeee" style="width:640px" /></p>
+<p><img alt="multiple-plugins" src="https://github.com/user-attachments/assets/2d156efe-8cfc-49e7-b682-219d2db4eeee" style="width:640px"></p>
 <p>As previously noted, developers should avoid using PHP's <code>$_SESSION</code> object in their plugins to prevent conflicts with other plugin instances. An alternative method for session data storage is provided in the <code>SamplePlugin</code> <code>persistData()</code> function. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1685,7 +1685,7 @@
 <h2 id="publishing-your-plugin">Publishing your plugin</h2>
 <p>The <code>SamplePlugin</code> contains an "About" tab where you may provide author information, a description and link to your project. If you've authored a plugin you feel would be useful to the RaspAP community, you're encouraged to share it in the <code>SamplePlugin</code> repository's <a href="https://github.com/RaspAP/SamplePlugin/discussions">discussions</a>. </p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about creating user plugins? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about creating user plugins? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

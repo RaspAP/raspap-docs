@@ -1774,7 +1774,7 @@
   
 
 
-<h1 id="manual-installation">Manual installation</h1>
+<div><h1 id="manual-installation">Manual installation</h1>
 <h2 id="overview">Overview</h2>
 <p>These steps apply to the <a href="https://github.com/RaspAP/raspap-webgui/releases/latest">latest release of RaspAP</a>, <a href="https://www.raspberrypi.org/software/operating-systems/">Raspberry Pi OS Lite</a>, Debian and Armbian. Please refer to <a href="../#compatible-operating-systems">this</a> regarding operating systems support.</p>
 <h2 id="alternatives">Alternatives</h2>
@@ -1846,10 +1846,10 @@ If you have not set your country code or are unsure, check the "WLAN Country" se
 </span></code></pre></div>
 <h2 id="enable-php">Enable PHP</h2>
 <p>Next, enable PHP for <code>lighttpd</code> and restart the service for the settings to take effect:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo lighttpd-enable-mod fastcgi-php    
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo lighttpd-enable-mod fastcgi-php    
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo service lighttpd force-reload
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sudo systemctl restart lighttpd.service
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h2 id="create-the-web-application">Create the web application</h2>
 <p>In these steps we will prepare the web destination and git clone the files to <code>/var/www/html</code>.</p>
 <div class="admonition warning">
@@ -1857,20 +1857,20 @@ If you have not set your country code or are unsure, check the "WLAN Country" se
 <p>If this is <em>not</em> a clean installation, be sure to move existing files or directories in the web root before executing the <code>rm -rf</code> command.</p>
 </div>
 <p>Begin by preparing the default web root location to host the application:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo rm -rf /var/www/html
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo rm -rf /var/www/html
+</span></code></pre></div>
 <p>Now, clone the source repository specifying the <code>--recurse-submodules</code> option to include <code>git</code> submodules, then update the plugins submodule by pulling the latest changes from its upstream repository: </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo git clone --recurse-submodules https://github.com/RaspAP/raspap-webgui /var/www/html
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sudo git -C /var/www/html submodule update --remote plugins
 </span></code></pre></div>
 <p>Copy an extra <code>lighttpd</code> config file to support application routing. This step requires some text substitutions to support user changes to lighttpd's <code>server.document-root</code> setting:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>WEBROOT=&quot;/var/www/html&quot;
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>CONFSRC=&quot;$WEBROOT/config/50-raspap-router.conf&quot;
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>LTROOT=$(grep &quot;server.document-root&quot; /etc/lighttpd/lighttpd.conf | awk -F &#39;=&#39; &#39;{print $2}&#39; | tr -d &quot; \&quot;&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>WEBROOT="/var/www/html"
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>CONFSRC="$WEBROOT/config/50-raspap-router.conf"
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>LTROOT=$(grep "server.document-root" /etc/lighttpd/lighttpd.conf | awk -F '=' '{print $2}' | tr -d " \"")
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>HTROOT=${WEBROOT/$LTROOT}
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>HTROOT=$(echo &quot;$HTROOT&quot; | sed -e &#39;s/\/$//&#39;)
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>awk &quot;{gsub(\&quot;/REPLACE_ME\&quot;,\&quot;$HTROOT\&quot;)}1&quot; $CONFSRC &gt; /tmp/50-raspap-router.conf
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>HTROOT=$(echo "$HTROOT" | sed -e 's/\/$//')
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>awk "{gsub(\"/REPLACE_ME\",\"$HTROOT\")}1" $CONFSRC &gt; /tmp/50-raspap-router.conf
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>sudo cp /tmp/50-raspap-router.conf /etc/lighttpd/conf-available/
 </span></code></pre></div>
 <p>Link it into <code>conf-enabled</code> and restart the web service:</p>
@@ -1915,9 +1915,9 @@ all of which we want our app to do. So we will add the <code>www-data</code> use
 </span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>sudo chmod 750 /etc/raspap/plugins/*.sh
 </span></code></pre></div>
 <p>Copy and set ownership of the <code>lighttpd</code> control scripts:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo cp installers/configport.sh /etc/raspap/lighttpd
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo cp installers/configport.sh /etc/raspap/lighttpd
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sudo chown -c root:root /etc/raspap/lighttpd/*.sh
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>Next, move the <code>raspapd</code> service file to the correct location and enable it:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo mv installers/raspapd.service /lib/systemd/system
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>sudo systemctl daemon-reload
@@ -1947,14 +1947,14 @@ Copy the configuration files for <code>dhcpcd</code>, <code>dnsmasq</code>, <cod
 </span></code></pre></div>
 <h2 id="optimize-php">Optimize PHP</h2>
 <p>Optionally, you may optimize PHP with the following, replacing <code>php8.2-cgi</code> with your installed version:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo sed -i -E &#39;s/^session\.cookie_httponly\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/session.cookie_httponly = 1/&#39; /etc/php/8.2/cgi/php.ini
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>sudo sed -i -E &#39;s/^;?opcache\.enable\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/opcache.enable = 1/&#39; /etc/php/8.2/cgi/php.ini
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo sed -i -E 's/^session\.cookie_httponly\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/session.cookie_httponly = 1/' /etc/php/8.2/cgi/php.ini
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>sudo sed -i -E 's/^;?opcache\.enable\s*=\s*(0|([O|o]ff)|([F|f]alse)|([N|n]o))\s*$/opcache.enable = 1/' /etc/php/8.2/cgi/php.ini
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>sudo phpenmod opcache
 </span></code></pre></div>
 <h2 id="routing-and-ip-masquerading">Routing and IP masquerading</h2>
 <p>These steps allow WLAN clients to access computers on the main wired <code>eth0</code> network, and from there the internet. 
 Begin by enabling IP forwarding with the following commands:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>echo &quot;net.ipv4.ip_forward=1&quot; | sudo tee /etc/sysctl.d/90_raspap.conf &gt; /dev/null
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>echo "net.ipv4.ip_forward=1" | sudo tee /etc/sysctl.d/90_raspap.conf &gt; /dev/null
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sudo sysctl -p /etc/sysctl.d/90_raspap.conf
 </span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>sudo /etc/init.d/procps restart
 </span></code></pre></div>
@@ -1974,7 +1974,7 @@ Create these rules and persist them with the following:</p>
 <h3 id="openvpn">OpenVPN</h3>
 <p>Install <a href="../openvpn/">OpenVPN</a>, enabling the option in RaspAP's config and the <code>openvpn-client</code> service, like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sudo apt-get install openvpn
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>sudo sed -i &quot;s/\(&#39;RASPI_OPENVPN_ENABLED&#39;, \)false/\1true/g&quot; /var/www/html/includes/config.php
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>sudo sed -i "s/\('RASPI_OPENVPN_ENABLED', \)false/\1true/g" /var/www/html/includes/config.php
 </span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>sudo systemctl enable openvpn-client@client
 </span></code></pre></div>
 <p>Copy the OpenVPN auth control script to its destination, setting ownership and permissions with the following:</p>
@@ -1986,7 +1986,7 @@ Create these rules and persist them with the following:</p>
 <h3 id="wireguard">WireGuard</h3>
 <p>Adding support for <a href="../wireguard/">WireGuard</a> is straightforward. The application files are already present in RaspAP, so you may simply install and enable the service, then activate the management option:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>sudo apt-get install wireguard
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>sudo sed -i &quot;s/\(&#39;RASPI_WIREGUARD_ENABLED&#39;, \)false/\1true/g&quot; /var/www/html/includes/config.php
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>sudo sed -i "s/\('RASPI_WIREGUARD_ENABLED', \)false/\1true/g" /var/www/html/includes/config.php
 </span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>sudo systemctl enable wg-quick@wg
 </span></code></pre></div>
 <h3 id="ad-blocking">Ad blocking</h3>
@@ -2000,10 +2000,10 @@ Create these rules and persist them with the following:</p>
 </span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>sudo chown -c root:www-data /etc/raspap/adblock/*.*
 </span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>sudo chmod 750 /etc/raspap/adblock/*.sh
 </span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>sudo touch /etc/dnsmasq.d/090_adblock.conf
-</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>echo &quot;conf-file=/etc/raspap/adblock/domains.txt&quot; | sudo tee -a /etc/dnsmasq.d/090_adblock.conf &gt; /dev/null 
-</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>echo &quot;addn-hosts=/etc/raspap/adblock/hostnames.txt&quot; | sudo tee -a /etc/dnsmasq.d/090_adblock.conf &gt; /dev/null
-</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>sudo sed -i &#39;/dhcp-option=6/d&#39; /etc/dnsmasq.d/090_raspap.conf
-</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>sudo sed -i &quot;s/\(&#39;RASPI_ADBLOCK_ENABLED&#39;, \)false/\1true/g&quot; includes/config.php
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>echo "conf-file=/etc/raspap/adblock/domains.txt" | sudo tee -a /etc/dnsmasq.d/090_adblock.conf &gt; /dev/null 
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>echo "addn-hosts=/etc/raspap/adblock/hostnames.txt" | sudo tee -a /etc/dnsmasq.d/090_adblock.conf &gt; /dev/null
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>sudo sed -i '/dhcp-option=6/d' /etc/dnsmasq.d/090_raspap.conf
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>sudo sed -i "s/\('RASPI_ADBLOCK_ENABLED', \)false/\1true/g" includes/config.php
 </span></code></pre></div>
 <h3 id="network-activity-monitor">Network activity monitor</h3>
 <p>RaspAP's real-time network activity monitor may be optionally installed. This requires compiling C code, so ensure <code>gcc</code> is present on your system, then compile the code from its source:</p>
@@ -2012,15 +2012,15 @@ Create these rules and persist them with the following:</p>
 </span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>sudo gcc -O2 -o /usr/local/bin/raspap-network-monitor /var/www/html/installers/raspap-network-monitor.c
 </span></code></pre></div>
 <p>Next, symbolically link the monitor file to the web application and set permissions:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo ln -sf /dev/shm/net_activity /var/www/html/app/net_activity
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo ln -sf /dev/shm/net_activity /var/www/html/app/net_activity
 </span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>sudo chown www-data:www-data /var/www/html/app/net_activity 
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>Finally, install, enable and start the <code>systemd</code> service:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo cp /var/www/html/installers/raspap-network-activity@.service /lib/systemd/system/
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo cp /var/www/html/installers/raspap-network-activity@.service /lib/systemd/system/
 </span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sudo systemctl daemon-reload
 </span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>sudo systemctl enable raspap-network-activity@wlan0.service
 </span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>sudo systemctl start raspap-network-activity@wlan0.service
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h2 id="restart">Restart</h2>
 <p>Finally, restart your device and verify that the wireless access point is available:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sudo systemctl reboot
@@ -2032,7 +2032,7 @@ The default username is "admin" and the default password is "secret".</p>
 <p>It is strongly recommended that you change these default login credentials in RaspAP's <strong>Authentication</strong> panel. APs managed by RaspAP in the wild have been administered by third parties with the default login.</p>
 </div>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about RaspAP's manual install? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussions here</a>.</p>
+<p>Questions or comments about RaspAP's manual install? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussions here</a>.</p></div>
 
 
 

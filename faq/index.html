@@ -2608,7 +2608,7 @@
   
 
 
-<h1 id="faq">FAQ</h1>
+<div><h1 id="faq">FAQ</h1>
 <p>This guide was written to address some frequently asked questions among users of RaspAP.
 FAQ items are organized into thematic sections, below, for easier reference.</p>
 <p>If you would like to see a new FAQ that you feel would assist other users, <a href="https://github.com/RaspAP/raspap-webgui/discussions">start a discussion</a> or <a href="https://github.com/RaspAP/raspap-webgui-docs/issues">open an issue</a>.</p>
@@ -2707,7 +2707,7 @@ FAQ items are organized into thematic sections, below, for easier reference.</p>
 <p>Please be aware that "supported" <a href="../issues/#supported-devices">is not a guarantee</a>. That is, if you experience issues with RaspAP in your desktop environment, it's <em>your</em> responsibility (not the maintainers of this project) to eliminate potential conflicts with other software that you've installed <em>after</em> booting a fresh desktop OS. Before reporting a bug, you may use one of several <a href="../issues/#issue-policy">community support channels</a> to help you determine the cause of your issue or find a potential workaround.</p>
 <h2 id="what-do-all-these-settings-in-the-ui-do-changing-them-seems-to-have-no-effect"><a name="settings"></a>What do all these settings in the UI do? Changing them seems to have no effect.</h2>
 <p>RaspAP manipulates several daemons, services and helper programs behind the scenes for you. In the footer of each management panel is a helpful "Information provided by..." label. These indicate which Linux daemon and/or program is being modified by the UI. Learning what these services are and how they work will go a long way toward demystifying things.</p>
-<p><img alt="" src="https://i.imgur.com/q1RflMy.png" style="width:350px" /></p>
+<p><img alt="" src="https://i.imgur.com/q1RflMy.png" style="width:350px"></p>
 <p>For example, two of the best starting points for understanding <code>hostapd</code> (the service that implements 802.11 AP management) include the <a href="https://wireless.wiki.kernel.org/en/users/Documentation/hostapd">hostapd Linux documentation page</a> and <a href="https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf">hostapd Wifi homepage</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2721,8 +2721,8 @@ FAQ items are organized into thematic sections, below, for easier reference.</p>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>country=your_ISO-3166_two-letter_country_code
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>network={
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ssid=&quot;my_SSID&quot;
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    psk=&quot;my_PSK&quot;
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ssid="my_SSID"
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    psk="my_PSK"
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    key_mgmt=WPA-PSK
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>}
 </span></code></pre></div>
@@ -2762,7 +2762,7 @@ up to <a href="https://github.com/RaspAP/raspap-webgui/issues/462#issuecomment-5
 Furthermore, each character in the passphrase must have a decimal encoding in the range of 32 to 126 (IEEE Std. 802.11i-2004, Annex H.4.1). These are often known as <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">printable characters</a>
 that represent letters, digits, punctuation marks and a few miscellaneous symbols.</p>
 <p>This means that so-called special characters, or extended ASCII codes, are not permitted in a passphrase. For example, the Euro sign "€", German "ä" and British pound symbol "£" fall outside this range. </p>
-<p>RaspAP will automatically generate a secure passphrase, or PSK, for you. On the <strong>Hotspot &gt; Security</strong> tab, click or tap the magic icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg></span> next to the PSK input. Choose <strong>Save settings</strong>
+<p>RaspAP will automatically generate a secure passphrase, or PSK, for you. On the <strong>Hotspot &gt; Security</strong> tab, click or tap the magic icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"></path></svg></span> next to the PSK input. Choose <strong>Save settings</strong>
 and <strong>Restart hotspot</strong> for the changes to take effect. </p>
 <h2 id="can-i-remove-the-ap-password-to-create-an-open-wifi-network"><a name="nopw"></a>Can I remove the AP password to create an open WiFi network?</h2>
 <p>Yes. On the <strong>Hotspot &gt; Security</strong> tab, select 'None' for Security type. Choose <strong>Save settings</strong> and <strong>Restart hotspot</strong> for the changes to take effect.</p>
@@ -2775,8 +2775,8 @@ After this is done, the web server will refuse connections to all IP addresses o
 <p>Add the following to the end, substituting the <code>192.168.0.0/16</code> private IPv4 address range (192.168.0.0 – 192.168.255.255) for your own network:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># deny access to RaspAP admin for users that
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a># are not in the 192.168.0.0/16 network
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>$HTTP[&quot;remoteip&quot;] != &quot;192.168.0.0/16&quot; {
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    url.access-deny = ( &quot;&quot; )
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>$HTTP["remoteip"] != "192.168.0.0/16" {
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    url.access-deny = ( "" )
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>}
 </span></code></pre></div>
 <p>Save and exit the file, then restart the lighttpd service:</p>
@@ -2829,7 +2829,7 @@ After this is done, the web server will refuse connections to all IP addresses o
 3. The access point is misconfigured.</p>
 <p>The first and simplest fix is to reconnect the client to your WiFi network. When you do this, the AP forgets the previous attempt and initiates a new process to assign an IP address to your device.
 Exact methods vary between devices, however most will have a 'Forget this network' option or similar in the WiFi settings. This is shown in iOS, below:</p>
-<p><img alt="" src="https://i.imgur.com/7xvx5JT.png" style="width:350px" /></p>
+<p><img alt="" src="https://i.imgur.com/7xvx5JT.png" style="width:350px"></p>
 <p>If clients still fail to connect, restart the AP. You may do this by choosing <strong>Restart hotspot</strong> from RaspAP. This reinitializes several related services in a predictable order and timing.
 Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.</p>
 <p>RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its <a href="../defaults/">default settings</a>, RaspAP has been rigorously
@@ -2880,10 +2880,10 @@ Save settings, restart <code>dnsmasq</code> and try connecting your client again
 <p>See <a href="../ap-sta/">this walkthrough</a> where the installation is described in detail.</p>
 <h2 id="wifi-scanning-doesnt-work-or-i-get-the-error-cannot-execute-wpa_cli-reconfigure"><a name="scanning"></a>WiFi scanning doesn't work or I get the error <code>cannot execute "wpa_cli reconfigure"</code>.</h2>
 <p>On some configurations, the <strong>Configure WiFi client</strong> panel may appear empty. This project uses the <code>wpa_supplicant</code> command line client <code>wpa_cli</code> to populate a list of available wireless networks. If you can't execute this from the shell, neither can the web UI. For example, the results of this command:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo wpa_cli -i wlan0 scan_results
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo wpa_cli -i wlan0 scan_results
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Failed to connect to non-global ctrl_ifname: wlan0  error: No such file or directory
 </span></code></pre></div>
-...indicate a problem with the socket used to communicate with <code>wpa_supplicant</code>. You may also encounter errors such as "Could not connect to wpa_supplicant: wlan0 - re-trying".</p>
+...indicate a problem with the socket used to communicate with <code>wpa_supplicant</code>. You may also encounter errors such as "Could not connect to wpa_supplicant: wlan0 - re-trying".
 <p>If this happens, first check the contents of <code>wpa_supplicant</code> with <code>sudo cat /etc/wpa_supplicant/wpa_supplicant.conf</code>. You should see, at minimum, the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>update_config=1
@@ -3024,11 +3024,11 @@ you can have this execute at specific intervals by using <code>cron</code>. Run 
 <p>Yes, you can change the default port for RaspAP's web service on the <strong>System &gt; Advanced</strong> tab. This will allow you operate another web server alongside <code>lighttpd</code>.</p>
 <p>Enter a new port value in the "Web server bind address" field, then choose <strong>Save settings</strong> followed by <strong>Restart lighttpd</strong>. You may then access RaspAP with the new port number in your browser's address bar, for example, <code>http://10.3.141.1:8080</code>. </p>
 <p>Alternatively, you may manually edit the default port in <code>lighttpd</code>'s configuration. Edit <code>/etc/lighttpd/lighttpd.conf</code> and change the following line:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>server.port                 = 8080
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>server.port                 = 8080
 </span></code></pre></div>
 Save the file, then restart the web server with the following:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo systemctl restart lighttpd.service
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h2 id="what-breaks-raspap-when-docker-is-installed-on-the-same-system-and-how-i-can-fix-it"><a name="docker"></a>What breaks RaspAP when Docker is installed on the same system and how I can fix it?</h2>
 <p>Installing RaspAP after installing Docker often results in connected clients not having internet access from the AP. The reason for this is Docker manipulates <code>iptables</code> rules to provide network isolation. Docker installs two custom iptables chains named <code>DOCKER-USER</code> and <code>DOCKER</code>, and it ensures that incoming packets are always checked by these two chains first. Docker also sets the policy for the <code>FORWARD</code> chain to <code>DROP</code>.</p>
 <p>When RaspAP is started in its default router mode, this will result in the AP not forwarding traffic anymore. If you want RaspAP to continue functioning as a router, you can add explicit <code>ACCEPT</code> rules to the <code>DOCKER-USER</code> chain to allow it:</p>
@@ -3072,8 +3072,8 @@ by editing the following file:</p>
 </span></code></pre></div>
 <p>Make sure to uncomment the following lines (remove the "<code>#</code>" symbol). To share over the Wi-Fi interface <code>wlan0</code>, set:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>ENABLE_SHARE=1 
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>SHARE_INTERFACE=&quot;wlan0&quot;
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>WIFI_INTERFACE=&quot;wlan0&quot; 
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>SHARE_INTERFACE="wlan0"
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>WIFI_INTERFACE="wlan0" 
 </span></code></pre></div>
 <p>Once you have configured the sharing settings, save the file (if you are using nano, use <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to save). Exit the text editor and then execute:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sudo service speedify-sharing restart
@@ -3084,7 +3084,7 @@ by editing the following file:</p>
 In the examples below, we will add support for a custom directory called "admin".</p>
 <p><strong>Option 1.</strong> Create a subdirectory of RaspAP's default install location (<code>/var/www/html</code>) called "admin": <code>/var/www/html/admin</code>. Now, modify RaspAP's <a href="https://docs.raspap.com/manual/#create-the-web-application">application routing rules</a>
  by adding this directory to the exclusion list. You may do this with <code>sudo nano /etc/lighttpd/conf-available/50-raspap-router.conf</code>. Next, modify the following line like so: </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$HTTP[&quot;url&quot;] =~ &quot;^/(?!(dist|app|ajax|config|admin)).*&quot; {
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$HTTP["url"] =~ "^/(?!(dist|app|ajax|config|admin)).*" {
 </span></code></pre></div>
 <p>Note that "admin" is appended above "config", above. This instructs lighttpd not to rewrite URLs that match this pattern. Reload the lighttpd service with <code>sudo systemctl reload lighttpd.service</code>.</p>
 <p>You may now create your own <code>index.php</code> file in this folder and request it from the browser as <code>http://10.3.141.1/admin/</code> or <code>http://raspberrypi.local/admin</code>.</p>
@@ -3093,7 +3093,7 @@ In the examples below, we will add support for a custom directory called "admin"
 <p>RaspAP's <a href="../adblock/">adblock feature</a> uses several <a href="../adblock/#blocklist-source">blocklists</a> that are aggregated and updated daily. In a typical setup, you may use the <strong>Ad blocking</strong> management
 page to manually update these lists. Alternatively, this <a href="https://github.com/RaspAP/raspap-webgui/discussions/1216">user-contributed script</a> will automatically fetch the latest blocklists on
 the schedule of your choosing (for example, daily, weekly, etc.) and reload <code>dnsmasq</code>.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>#!/bin/sh
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>#!/bin/sh
 </span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>#
 </span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>sleep $(shuf -i 0-3600 -n1)
 </span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>curl -L https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts &gt; /etc/raspap/adblock/hostnames.tmp
@@ -3106,7 +3106,7 @@ the schedule of your choosing (for example, daily, weekly, etc.) and reload <cod
 </span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>
 </span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>sudo systemctl reload dnsmasq.service
 </span></code></pre></div>
-Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.</p>
+Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.
 <h2 id="openvpn-fails-to-start-andor-i-have-no-internet"><a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.</h2>
 <p>RaspAP supports OpenVPN clients by uploading a valid <code>.ovpn</code> file to <code>/etc/openvpn/client</code> and, optionally, creating a <code>login.conf</code> file with your client auth credentials. Additionally, in line with the project's <a href="../defaults/">default configuration</a>, the following iptables rules are added to forward traffic from OpenVPN's <code>tun0</code> interface to your configured wireless interface (<code>wlan0</code> is the default):</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>-A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
@@ -3122,7 +3122,7 @@ Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.</p>
 <p>It is your responsibility to provide a valid <code>.ovpn</code> file. RaspAP does not attempt to validate the settings or RSA keys contained in this file. If OpenVPN fails to start, check for errors with <code>sudo systemctl status openvpn-client@client</code> and <code>journalctl --identifier openvpn</code>.</p>
 <h2 id="openvpn-works-but-i-have-partial-or-no-internet-access"><a name="partial"></a>OpenVPN works but I have partial or no internet access.</h2>
 <p>Issues <a href="https://github.com/RaspAP/raspap-webgui/issues/612">like this</a> are frequently reported. Begin by confirming the status of your connection:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>$ sudo systemctl status openvpn-client@client
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>$ sudo systemctl status openvpn-client@client
 </span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>● openvpn-client@client.service - OpenVPN tunnel for client
 </span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>   Loaded: loaded (/lib/systemd/system/openvpn-client@.service; enabled; vendor preset: enabled)
 </span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>   Active: active (running) since Fri 2020-06-12 15:45:41 CDT; 1min 39s ago
@@ -3130,13 +3130,13 @@ Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.</p>
 </span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>           https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
 </span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>           https://community.openvpn.net/openvpn/wiki/HOWTO
 </span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a> Main PID: 2689 (openvpn)
-</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>   Status: &quot;Initialization Sequence Completed&quot;
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>   Status: "Initialization Sequence Completed"
 </span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>    Tasks: 1 (limit: 2200)
 </span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>   Memory: 1.1M
 </span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>   CGroup: /system.slice/system-openvpn\x2dclient.slice/openvpn-client@client.service
 </span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>           └─2689 /usr/sbin/openvpn --suppress-timestamps --nobind --config client.conf
 </span></code></pre></div>
-You can also use <code>journalctl --identifier openvpn</code> to identify any errors. If your internet access is intermittent or otherwise degraded with the <code>openvpn-client</code> active, the next step is to test your connection for packet loss and latency. There are many Linux tools you can use to diagnose your network. <code>mtr</code> is a good choice as it combines functionality of the traceroute and ping programs. Install and use it to perform your own evaluation:</p>
+You can also use <code>journalctl --identifier openvpn</code> to identify any errors. If your internet access is intermittent or otherwise degraded with the <code>openvpn-client</code> active, the next step is to test your connection for packet loss and latency. There are many Linux tools you can use to diagnose your network. <code>mtr</code> is a good choice as it combines functionality of the traceroute and ping programs. Install and use it to perform your own evaluation:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sudo apt install mtr -y
 </span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>sudo mtr -rwc 50 -i 0.2 -rw duckduckgo.com
 </span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
@@ -3161,7 +3161,7 @@ MIME type embedded in it before uploading.</p>
 for use with Linux with <code>dos2unix</code> or one of several online tools made for this purpose. </p>
 <h2 id="i-think-my-traffic-isnt-being-routed-through-the-wireguard-vpn-can-i-debug-this"><a name="wgtraffic"></a>I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?</h2>
 <p>There are several things you can do to troubleshoot this. First, with the WireGuard service active, verify your public IPv4 address and check the external link, as shown below:</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" style="width:276px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" style="width:276px"></p>
 <p>Next, you may check the WireGuard service status by executing <code>sudo systemctl status wg-quick@wg0.service</code> from the shell, like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>$ sudo systemctl status wg-quick@wg0.service
 </span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>● wg-quick@wg0.service - WireGuard via wg-quick(8) for wg0
@@ -3209,10 +3209,10 @@ won't be considered. </p>
 <p>RaspAP's <a href="../quick/">Quick Installer</a> configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.</p>
 <p>In some cases, NAT rules applied to <code>localhost</code> can interfere with other services running on an RPi. An example is the Plex Media Server, which has an API that listens on localhost. As of this writing, the Plex API has been built to not authenticate communication between service processes of the server. This can cause a failure to communicate with the Plex API or similar add-on services on your RPi.</p>
 <p>The solution is to add a NAT rule ahead of the rule RaspAP installs to not apply NAT to connections destined to 127.0.0.0/8:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>$ sudo iptables -t nat -I POSTROUTING -d 127.0.0.0/8 -j ACCEPT
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>$ sudo iptables -t nat -I POSTROUTING -d 127.0.0.0/8 -j ACCEPT
 </span></code></pre></div>
-The resulting iptables chain should look something like this:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>$ sudo iptables -t nat -L -n -v
+The resulting iptables chain should look something like this:
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>$ sudo iptables -t nat -L -n -v
 </span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>Chain PREROUTING (policy ACCEPT 31 packets, 4810 bytes)
 </span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a> pkts bytes target prot opt in out source destination
 </span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
@@ -3227,10 +3227,10 @@ The resulting iptables chain should look something like this:</p>
 </span><span id="__span-39-13"><a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a>   17 999 ACCEPT all -- * * 0.0.0.0/0 127.0.0.0/8
 </span><span id="__span-39-14"><a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a>   2422 158K MASQUERADE all -- * * 0.0.0.0/0 0.0.0.0/0
 </span></code></pre></div>
-Refer to <a href="https://github.com/RaspAP/raspap-webgui/issues/333#issue-454352554">this issue</a>.</p>
+Refer to <a href="https://github.com/RaspAP/raspap-webgui/issues/333#issue-454352554">this issue</a>.
 <h2 id="why-is-the-channel-dropdown-disabled-on-the-hotspot-page"><a name="channels"></a> Why is the channel dropdown disabled on the Hotspot page?</h2>
-<p>RaspAP is capable of detecting the frequencies (channels) supported by each of your device's wireless interfaces. If an interface is selected that is not capable of broadcasting on the 5 GHz band, the associated channels and the <strong>Save settings</strong> button are disabled. Next to the <strong>Wireless Mode</strong> selector, a tooltip <span class="twemoji" style="&quot;color:" var_--md-default-fg-color--light_="var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m-86.2-346.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1 0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6-13.3 0-24-10.7-24-24v-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1 0-8.4-6.8-15.1-15.1-15.1h-58.3c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1-64 0"/></svg></span> will provide a brief explanation. </p>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb" style="width:320px" /></p>
+<p>RaspAP is capable of detecting the frequencies (channels) supported by each of your device's wireless interfaces. If an interface is selected that is not capable of broadcasting on the 5 GHz band, the associated channels and the <strong>Save settings</strong> button are disabled. Next to the <strong>Wireless Mode</strong> selector, a tooltip <span class="twemoji" style='"color:' var_--md-default-fg-color--light_="var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m-86.2-346.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1 0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6-13.3 0-24-10.7-24-24v-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1 0-8.4-6.8-15.1-15.1-15.1h-58.3c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1-64 0"></path></svg></span> will provide a brief explanation. </p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb" style="width:320px"></p>
 <p>In this case, selecting a compatible 2.4 GHz wireless mode will populate the list of available channels for that interface. Alternatively, select another interface or connect a 5 GHz capable external wireless adapter. RaspAP will automatically detect the adapter and add it to the list of available interfaces.</p>
 <h2 id="80211ac-is-supposed-to-operate-at-433-mbps-why-is-my-aps-throughput-so-much-less"><a name="433ac"></a> 802.11ac is supposed to operate at 433 Mbps. Why is my AP's throughput so much less?</h2>
 <p>The 802.11ac wireless standard uses 433 Mbps per spatial stream in the 5GHz band. Therefore, the theoretical maximum speed for a single-stream device is 433 Mbps when using an 80 MHz wide channel. However, real-world speeds are often significantly less due to a number of factors.</p>
@@ -3272,7 +3272,7 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <h2 id="how-do-i-upgrade-raspap"><a name="upgrade"></a>How do I upgrade RaspAP?</h2>
 <p>Upgrading an existing install without changing your configuration is very straightforward. Several different methods are described below.</p>
 <p>The <a href="https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2">version 3.0.2</a> release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the <strong>About</strong> page and click or tap on the <strong>Check for update</strong> button. This queries the GitHub API for the latest release version, compares it with your current install and prompts you to upgrade if a newer release is available.</p>
-<p><img alt="Update" src="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" style="width:520px" /></p>
+<p><img alt="Update" src="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" style="width:520px"></p>
 <p>No other actions are required on your behalf. Alternatively, you may also use the <a href="../quick/">Quick installer</a> to upgrade to the <a href="https://github.com/RaspAP/raspap-webgui/releases/latest">latest release</a> version. This is done with the <code>--upgrade</code> option, as shown below:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
 </span></code></pre></div>
@@ -3287,10 +3287,10 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 </span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>sudo git pull origin master
 </span></code></pre></div>
 <p>If you've customized your installation by editing <code>config.php</code>, update the release version in this file:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>sudo nano /var/www/html/includes/config.php
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>sudo nano /var/www/html/includes/config.php
 </span></code></pre></div>
-Change the value in this line to the release version, save the file and exit.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>define(&#39;RASPI_VERSION&#39;, &#39;3.0.8&#39;);
+Change the value in this line to the release version, save the file and exit.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>define('RASPI_VERSION', '3.0.8');
 </span></code></pre></div>
 <p>Whichever method you choose (about page button, installer upgrade, specific release or latest updates), your RaspAP configuration won't be changed.</p>
 <h2 id="do-i-need-the-raspap-service-to-run-at-boot"><a name="raspap-service"></a>Do I need the RaspAP service to run at boot?</h2>
@@ -3314,7 +3314,7 @@ Change the value in this line to the release version, save the file and exit.</p
 </span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>source installers/uninstall.sh
 </span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>_remove_raspap
 </span></code></pre></div>
-<p>Whichever method you choose, the result is the same. Check your network configuration before rebooting to ensure you can still access your device.</p>
+<p>Whichever method you choose, the result is the same. Check your network configuration before rebooting to ensure you can still access your device.</p></div>
 
 
 

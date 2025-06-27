@@ -1636,8 +1636,8 @@
   
 
 
-<h1 id="wireguard">WireGuard</h1>
-<p><img alt="wireguard" src="https://github.com/user-attachments/assets/fcfe81ec-0097-4ce6-ba27-55df954bec37" style="width:640px" /></p>
+<div><h1 id="wireguard">WireGuard</h1>
+<p><img alt="wireguard" src="https://github.com/user-attachments/assets/fcfe81ec-0097-4ce6-ba27-55df954bec37" style="width:640px"></p>
 <h2 id="overview">Overview</h2>
 <p>WireGuard<sup>®</sup> is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be considerably more performant than OpenVPN,
 and is generally regarded as the most secure, easiest to use, and simplest VPN solution for modern Linux distributions.</p>
@@ -1665,17 +1665,17 @@ configuration file.</p>
 Members of RaspAP's <a href="../insiders/">Insiders community</a> have requested support for this VPN provider.</p>
 <h4 id="starting-wireguard">Starting WireGuard</h4>
 <p>RaspAP will handle uploading your <code>.conf</code> file and, optionally, applying any <code>iptables</code> rules. To enable the tunnel, choose <strong>Start WireGuard</strong>. The WireGuard protocol is extremely fast, so in most cases
-your new public IPv4 address will be indicated almost immediately. Click or tap the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> icon to open a new window with details about your public IP.</p>
+your new public IPv4 address will be indicated almost immediately. Click or tap the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> icon to open a new window with details about your public IP.</p>
 <h4 id="verifying-client-connections">Verifying client connections</h4>
 <p>If you have chosen to route traffic from the <code>wg0</code> interface to the AP interface, you may verify that your clients are secured by the WireGuard VPN. Start by connecting a client to your AP while
 WireGuard is enabled. Again, using Mullvad as an example, visit their <a href="https://mullvad.net/en/check/">connection check</a> page on your client device. If the tunnel is working correctly, you should see
 a result like the following: </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/125700202-5cace3a0-3c54-48ff-8bd4-113a2eef5f1b.png" style="width:300px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/125700202-5cace3a0-3c54-48ff-8bd4-113a2eef5f1b.png" style="width:300px"></p>
 <p>If any of the above checks fail, enable WireGuard service logging in RaspAP and check the output. You may also consult your VPN provider's support. </p>
 <h4 id="ipv6-considerations">IPv6 considerations</h4>
 <p>RaspAP currently handles routing of IPv4 traffic only. For this reason, WireGuard server connections and traffic tunneled on IPv6 are incompatible. The solution is to specify IPv4 in your
 WireGuard VPN provider's advanced options (Mullvad is shown below): </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/125697709-d61720a5-fdc6-4d36-8085-563e54d259e1.png" style="width:375px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/125697709-d61720a5-fdc6-4d36-8085-563e54d259e1.png" style="width:375px"></p>
 <p>Alternatively, open your <code>.conf</code> file in a text editor and ensure that the <code>Address</code> and <code>AllowedIPs</code> settings use IPv4 addresses only, like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[Interface]
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>PrivateKey = ░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -1689,30 +1689,30 @@ WireGuard VPN provider's advanced options (Mullvad is shown below): </p>
 </span></code></pre></div>
 <p>When this is done, you are ready to upload your configuration to RaspAP. </p>
 <h3 id="manual-configuration">Manual configuration</h3>
-<p>Alternatively, RaspAP gives you full control over creating a manual WireGuard configuration. This method is useful if you wish to secure your local wireless network&#151;that is, between your
+<p>Alternatively, RaspAP gives you full control over creating a manual WireGuard configuration. This method is useful if you wish to secure your local wireless network—that is, between your
 device running RaspAP and the clients connected to it.</p>
 <p>WireGuard requires a public and private keypair for each device you wish to have access to the VPN tunnel. RaspAP simplifies this process with a
-magic button <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg></span> associated with each public key input field. Simply click or tap this button to securely generate a cryptographic keypair for both the server and peer.</p>
+magic button <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"></path></svg></span> associated with each public key input field. Simply click or tap this button to securely generate a cryptographic keypair for both the server and peer.</p>
 <p>Several <a href="../defaults/">default values</a> are provided for you as a starting point. These are intended to get a VPN tunnel up and running quickly. They may be modified to suit your needs.</p>
 <p>After the keypairs are generated, simply choose <strong>Save settings</strong> followed by <strong>Start WireGuard</strong>.</p>
 <p>The video walkthrough below illustrates the steps of configuring a WireGuard tunnel from start to finish.</p>
 <video width="640" height="480" controls>
   <source src="https://user-images.githubusercontent.com/229399/110525356-c89d1980-8114-11eb-81f5-8cb5558cb664.mov" type="video/mp4">
   Your browser does not support the video tag.
-</video>
+</source></video>
 
 <p>Due to WireGuard’s design, both computers on either end of the VPN tunnel will need to have each other's public key. This is discussed below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For security reasons, the local (server) private key is not displayed in the UI. The peer private key is encoded in the QR code and available to download in the <code>client.conf</code> file.</p>
 </div>
-<p>If you wish to regenerate local or peer keypairs (or both), simply tap or click the magic button <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg></span> and choose <strong>Save settings</strong>. Alternatively, to 
+<p>If you wish to regenerate local or peer keypairs (or both), simply tap or click the magic button <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"></path></svg></span> and choose <strong>Save settings</strong>. Alternatively, to 
 remove a server or peer configuration entirely, disable the desired toggle and <strong>Save settings</strong>. This will delete the public/private keypair and the associated configuration.</p>
 <h4 id="peer-configuration">Peer configuration</h4>
 <p>RaspAP processes the values in the WireGuard <strong>Settings</strong> and <strong>Peer</strong> tabs and creates two configurations for you: <code>wg0.conf</code> and <code>client.conf</code>.
 The former is used to configure the local (server) side of the VPN tunnel. The latter peer configuration is generated as a QR code on the <strong>Peer</strong> tab. Clients such as mobile devices
 may scan the QR code to transfer <code>client.conf</code> and import it into an associated WireGuard client application.</p>
-<p><img alt="" src="https://github.com/user-attachments/assets/112a72f5-9d89-41e9-bcc4-c6c2fdb337a1" /></p>
+<p><img alt="" src="https://github.com/user-attachments/assets/112a72f5-9d89-41e9-bcc4-c6c2fdb337a1"></p>
 <p>The peer endpoint address may take the form of an IP address, hostname, or Dynamic DNS (DDNS) URL with the remote UDP port (<code>31820</code> is typical).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1732,19 +1732,19 @@ In the example below, the default AP interface <code>wlan0</code> is used: </p>
 <p>If your VPN server is behind a NAT, you will need to open a UDP port of your choosing (51820 is the default). </p>
 </div>
 <h2 id="kill-switch">Kill switch</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span> <a href="../insiders/">Insiders only</a></p>
 <p>In the event that the WireGuard tunnel accidentally goes down, unencrypted traffic may reveal your real IP address. To prevent this from happening, additional <code>PostUp</code> and <code>PreDown</code> rules may be
 added to the firewall. Simply choose the <strong>Enable kill switch</strong> option when uploading your WireGuard configuration:</p>
-<p><img alt="" src="../images/wg-killswitch.png" style="width:480px" /></p>
+<p><img alt="" src="../images/wg-killswitch.png" style="width:480px"></p>
 <p>These rules are automatically appended to your configuration. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Some VPN providers give you the option of adding these rules to their Linux configurations. Skip this option as RaspAP needs to add an exclusion rule for your AP interface.</p>
 </div>
 <h2 id="multiple-configs">Multiple configs</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span> <a href="../insiders/">Insiders only</a></p>
 <p>RaspAP lets you manage multiple WireGuard configurations. This includes the ability to upload, activate and delete any number of valid wg .conf files. Select the <strong>Apply iptables rules for AP interface</strong> option when uploading your .conf file to automatically route traffic to connected peers on the AP interface.</p>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/b38f9fec-a604-4dcf-996a-024bc1b93b1a" style="width:450px" /></p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/b38f9fec-a604-4dcf-996a-024bc1b93b1a" style="width:450px"></p>
 <p>Thereafter, switching between your saved configurations is done by simply activating the desired profile. Activating a profile will restart the <code>wg-quick</code> service automatically. Additionally, WireGuard service activity may be tracked on the <strong>Logging</strong> tab.</p>
 <h2 id="low-overhead">Low overhead</h2>
 <p>Due to its low overhead compared with OpenVPN, WireGuard is well-suited for applications where battery longevity is a concern. As <a href="https://www.wireguard.com/quickstart/#nat-and-firewall-traversal-persistence">described by its developer</a>,
@@ -1759,7 +1759,7 @@ WireGuard isn't a chatty protocol. For the most part, it only transmits data whe
 <p>In this event, use RaspAP's WireGuard service logging facility or execute <code>sudo journalctl --identifier wg-quick</code>. Scan the log for errors and consult the <a href="https://www.wireguard.com/">WireGuard documentation</a> to ensure that your configuration is valid.</p>
 <p>See also the <a href="../faq/#wireguard">FAQ section</a> for WireGuard.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using WireGuard? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about using WireGuard? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

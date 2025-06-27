@@ -1594,23 +1594,23 @@
   
 
 
-<h1 id="wifi-repeater">WiFi repeater</h1>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/224082441-d9db2204-2ea5-434a-b96a-c23aef581a80.jpg" style="width:640px" /></p>
+<div><h1 id="wifi-repeater">WiFi repeater</h1>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/224082441-d9db2204-2ea5-434a-b96a-c23aef581a80.jpg" style="width:640px"></p>
 <h2 id="overview">Overview</h2>
 <p>A popular use case for RaspAP is to connect to your wireless network and rebroadcast an existing wireless signal. Often known as a <em>wireless repeater</em> or <em>extender</em>, this setup is particularly useful if you are 
 experiencing problems with "dead spots" in your WiFi network. This step-by-step walkthrough will assist you in creating this configuration. </p>
 <h2 id="how-a-wifi-repeater-works">How a WiFi repeater works</h2>
-<p>A WiFi repeater receives an existing WiFi signal, amplifies it and then transmits the boosted signal. With this arrangment you can effectively double the coverage area of your WiFi network &#151; reaching far corners of your home or office, different floors, or even extend coverage outside to a yard or garage. A repeater effectively contains two wireless routers and a minimum of two antennas. One of these wireless routers picks up the existing WiFi network. It then transfers the signal to the other wireless router, which retransmits the boosted signal.</p>
+<p>A WiFi repeater receives an existing WiFi signal, amplifies it and then transmits the boosted signal. With this arrangment you can effectively double the coverage area of your WiFi network — reaching far corners of your home or office, different floors, or even extend coverage outside to a yard or garage. A repeater effectively contains two wireless routers and a minimum of two antennas. One of these wireless routers picks up the existing WiFi network. It then transfers the signal to the other wireless router, which retransmits the boosted signal.</p>
 <details class="note" open="open">
 <summary>Note</summary>
 <p>A wireless repeater will restrict your maximum throughput. This is because WiFi is a half-duplex system, meaning only one device may transmit data at any given time. The repeater must accept incoming and outgoing packets from clients and forward those packets on to the next WiFi router and accept replies. In practice, you can expect half the bandwidth as a non-boosted signal, as each packet must go over the air twice.</p>
 </details>
 <p>We will create this setup with a WiFi-capable Raspberry Pi (or similar device) and an external USB wireless adapter, or dongle.</p>
 <h2 id="steps-to-create-a-repeater">Steps to create a repeater</h2>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/223980087-08c788b7-5f26-434e-8b1d-753956e37195.png" style="width:640px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/223980087-08c788b7-5f26-434e-8b1d-753956e37195.png" style="width:640px"></p>
 <p>Refer to the diagram above as we walk through the steps of creating this configuration.</p>
 <h3 id="connect-a-usb-wifi-dongle">Connect a USB WiFi dongle</h3>
-<p>Begin by connecting an external wireless adapter to a USB port on your device. Your choice of adapter is important &#151; external WiFi adapters (ie, "dongles") vary greatly in terms of hardware capabilities and driver support. Many do not have support for AP mode, require a powered USB hub, manual driver and/or firmware installation or are otherwise not well suited for this application.</p>
+<p>Begin by connecting an external wireless adapter to a USB port on your device. Your choice of adapter is important — external WiFi adapters (ie, "dongles") vary greatly in terms of hardware capabilities and driver support. Many do not have support for AP mode, require a powered USB hub, manual driver and/or firmware installation or are otherwise not well suited for this application.</p>
 <p>To determine if your USB WiFi adapter is capable of hosting an AP, execute the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ iw list
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>...
@@ -1635,22 +1635,22 @@ is desired.</p>
 </div>
 <h3 id="connect-device-to-wifi">Connect device to WiFi</h3>
 <p>With your USB dongle connected and AP active, use RaspAP's <strong>WiFi client</strong> interface to select and authenticate with your existing wireless router. </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/229068398-25525131-7262-4aed-a5ac-4cd8e9b7782f.png" style="width:520px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/229068398-25525131-7262-4aed-a5ac-4cd8e9b7782f.png" style="width:520px"></p>
 <p>Alternatively, if you've used software such as the <a href="https://www.raspberrypi.com/software/">Raspberry Pi imager</a> to install an OS on your microSD card, you may choose the "Configure wireless LAN" option
 before booting your device for the first time. This will configure your <code>wpa_supplicant.conf</code> and your device should already be connected to your WLAN. In this case, you may skip this step.</p>
 <h3 id="configure-routing">Configure routing</h3>
 <p>Your current network configuration will display two default routes. This may be confirmed by checking the <strong>Routing table</strong> output on RaspAP's <strong>Networking</strong> interface. In the example below, <code>wlan0</code> is the
 AP interface and has a default route (identified by the <code>default</code> label) and a metric value of <code>303</code>:</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/224091327-2481764c-3b39-48f7-b7a2-26b3587db8e2.png" style="width:520px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/224091327-2481764c-3b39-48f7-b7a2-26b3587db8e2.png" style="width:520px"></p>
 <p>Note that our USB adapter is on the <code>wlan1</code> interface and has a higher metric value of <code>304</code>. It also has a default route. Until we configure these metrics, our WiFi repeater does not know how to route
 packets from <code>wlan1</code> (the client interface) to <code>wlan0</code> (the AP interface) and vice versa. Clients connected to the AP will <em>not</em> have internet connectivity. Fortunately, this is easily fixed.</p>
 <p>Metrics and default routes are used by <code>dhcpcd</code>, the <a href="https://man.archlinux.org/man/core/dhcpcd/dhcpcd.8.en">DHCP daemon</a>. Contrary to <a href="https://www.reddit.com/r/RaspAP/comments/10601do/issues_with_raspap_and_routing_traffic_from_wlan0/">popular belief</a>, RaspAP does not manipulate the IP routing table or set interface priorities without user input. The Linux kernel sets default metric values when 
 the interface is brought up and will usually choose the network routes it decides is best. The DHCP daemon uses these metrics to prioritize interfaces, where lower values are given a higher priority.</p>
 <p>To configure routing for our repeater, select <code>wlan0</code> (the AP interface, in this example) from the <strong>DHCP Server settings</strong> interface. Be sure that the "Install a default route for this interface" option is disabled. </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/147859041-5abaab36-b474-43a4-98f6-5aebfca5c9bf.png" style="width:520px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/147859041-5abaab36-b474-43a4-98f6-5aebfca5c9bf.png" style="width:520px"></p>
 <p>Scroll to the bottom and set a metric value of <code>305</code> for this interface, then choose <strong>Save settings</strong>:</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/224007041-f1f11f60-0545-4673-a87d-7c6297d2b129.png" style="width:520px" /></p>
-<p>This instructs the DHCP daemon to treat the <code>wlan0</code> interface with a lower priority than the <code>wlan1</code> interface. There's nothing magic about the value "305" in this example &#151; the important thing is that the AP interface has a higher value, and thus a lower priorty, than the <code>wlan1</code> interface. </p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/224007041-f1f11f60-0545-4673-a87d-7c6297d2b129.png" style="width:520px"></p>
+<p>This instructs the DHCP daemon to treat the <code>wlan0</code> interface with a lower priority than the <code>wlan1</code> interface. There's nothing magic about the value "305" in this example — the important thing is that the AP interface has a higher value, and thus a lower priorty, than the <code>wlan1</code> interface. </p>
 <p>For your changes to take effect, choose <strong>Restart hotspot</strong> from the <strong>Hotspot</strong> interface.</p>
 <p>Behind the scenes, RaspAP has configured the <code>wlan0</code> interface in <code>/etc/dhcpcd.conf</code> like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># RaspAP wlan0 configuration
@@ -1662,12 +1662,12 @@ the interface is brought up and will usually choose the network routes it decide
 </span></code></pre></div>
 <p>This is reflected in the updated routing table, visible on the <strong>Networking</strong> interface. In the example below, the <code>wlan0</code> interface hosting the AP no longer has a default route and shows a higher metric
 value (lower priority) than the <code>wlan1</code> interface:</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/224091951-2ec46f45-c552-4cf4-87f4-384fa6f52ada.png" style="width:520px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/224091951-2ec46f45-c552-4cf4-87f4-384fa6f52ada.png" style="width:520px"></p>
 <p>If you don't see these changes in the routing table, be sure to restart the hotspot. </p>
 <h3 id="alternate-routing-method">Alternate routing method</h3>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span> <a href="../insiders/">Insiders only</a></p>
 <p>As a convenience, <a href="../insiders/">Insiders</a> are able to configure routing automatically by enabling the <strong>WiFi repeater mode</strong> toggle on the <strong>Hotspot &gt; Advanced</strong> tab.</p>
-<p><img alt="WiFi repeater mode" src="https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a" style="width:420px" /></p>
+<p><img alt="WiFi repeater mode" src="https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a" style="width:420px"></p>
 <p>Save settings and choose <strong>Start hotspot</strong> or <strong>Restart hotspot</strong> to activate the wireless repeater.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1683,7 +1683,7 @@ logs and RaspAP's <strong>Networking</strong> interface. Help is available from 
 <h2 id="speed-testing">Speed testing</h2>
 <p>RaspAP hosts a fast, open source and privacy-focused <a href="../speedtest/">public speed test server</a> that you can use to evaluate your WiFi repeater's performance. The remote host is RaspAP's public <a href="https://speedtest.raspap.com/">speedtest server</a> located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about configuring a WiFi repeater? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about configuring a WiFi repeater? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

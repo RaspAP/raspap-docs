@@ -1540,10 +1540,10 @@
   
 
 
-<h1 id="vpn-providers">VPN Providers</h1>
-<p><img alt="vpn-providers" src="https://github.com/user-attachments/assets/ab600145-e2af-46da-85c9-d35d5b1df018" style="width:640px" /></p>
+<div><h1 id="vpn-providers">VPN Providers</h1>
+<p><img alt="vpn-providers" src="https://github.com/user-attachments/assets/ab600145-e2af-46da-85c9-d35d5b1df018" style="width:640px"></p>
 <h2 id="overview">Overview</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental </p>
 <p>Several popular VPN providers include a Linux Command Line Interface (CLI) for interacting with their services. As a new beta feature, you may optionally control these VPN services from within RaspAP. In this way, after your preferred CLI is installed on your system you may administer it thereafter by using RaspAP's UI.</p>
 <h2 id="installation">Installation</h2>
 <p>To configure VPN provider support, respond by pressing <span class="keys"><kbd class="key-enter">Enter</kbd></span> to accept the default <span class="keys"><kbd class="key-y">Y</kbd></span> option when prompted by the Quick installer:</p>
@@ -1572,39 +1572,39 @@
 <p>The RaspAP project has no affiliation whatsoever with the supported VPN providers. Each provider was selected solely based on availability of their Debian compatible CLIs.</p>
 </div>
 <p>NordVPN is demonstrated in the following example. Begin by executing the install script:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sh &lt;(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sh &lt;(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+</span></code></pre></div>
 <p>After the installer completes, verify the CLI by checking its version:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>nordvpn --version
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>NordVPN Version 3.19.1
 </span></code></pre></div>
 <p>Next, activate your account.  The <code>--callback</code> and <code>--token</code> methods are useful for headless setups. The latter is shown below:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>nordvpn login --token [myToken]
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Welcome to NordVPN! You can now connect to VPN by using &#39;nordvpn connect&#39;.
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Welcome to NordVPN! You can now connect to VPN by using 'nordvpn connect'.
 </span></code></pre></div>
 <p>Before establishing a VPN connection with the CLI, add a rule to whitelist port 22. This will prevent the VPN from disrupting access to the shell via SSH:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nordvpn whitelist add port 22
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nordvpn whitelist add port 22
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Port 22 (UDP|TCP) is allowlisted successfully.
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>Now, execute the following to connect to a recommended VPN server:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nordvpn connect
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nordvpn connect
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Connecting to France #817 (fr817.nordvpn.com)
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>You are connected to France #817 (fr817.nordvpn.com)!
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>With these setps completed, you are now ready to begin administering your VPN provider with RaspAP.</p>
 <h2 id="administer-your-provider">Administer your provider</h2>
 <p>Continuing from the above example, access your VPN provider's UI page from RaspAP. From the <strong>Settings</strong> page, you can view your account status, connect to a recommended VPN server or choose a specific country from the select list.</p>
 <p>Below, RaspAP displays the CLI output when a country is selected from the list followed by <strong>Save settings</strong>:</p>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/ad9f111d-a75b-4f3f-8e6c-f5aaa6ef053e" style="width:400px" /></p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/ad9f111d-a75b-4f3f-8e6c-f5aaa6ef053e" style="width:400px"></p>
 <p>On the <strong>Status</strong> tab, information about your installed provider CLI and current connection status are displyed:</p>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/974d89e4-aaf7-464e-b6fd-38d780c1f565" style="width:400px" /></p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/974d89e4-aaf7-464e-b6fd-38d780c1f565" style="width:400px"></p>
 <p>You may perform the same operations with any of the supported VPN providers.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Many VPN providers have firewalls enabled by default that can disrupt access to your system via SSH. For this reason, it's recommended to perform these basic CLI functions from your terminal before using them with RaspAP. If your SSH session is disrupted, a reboot will usually restore the connection. Consult your VPN provider's documentation for more advice. </p>
 </div>
 <p>If a configured provider's CLI is not found, RaspAP will detect this and give you a helpful pointer to the CLI's installation instructions:</p>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/6ef30536-0255-4f0d-a234-445dc02953c2" style="width:400px" /></p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/6ef30536-0255-4f0d-a234-445dc02953c2" style="width:400px"></p>
 <p>Likewise, if the CLI binary exists but RaspAP is unable to execute it, a diagnostic message will be displayed.</p>
 <h2 id="control-scope">Control scope</h2>
 <p>Each VPN provider's CLI offers different command sets to control various aspects of their service. For this beta release, RaspAP may be used to administer basic functions including connect, disconnect, status, account information and country (or city) selection for the remote VPN server. </p>
@@ -1631,23 +1631,23 @@
 <p>Support for provider CLIs is intended for typical setups with RaspAP's <a href="../defaults/">default configuration</a>, where the AP interface is <code>wlan0</code> and internet connectivity is provided by <code>eth0</code>. If you need to control settings beyond these defaults with your provider, it's recommended to install either <a href="../openvpn/">OpenVPN</a> or <a href="../wireguard/">WireGuard</a> and administer these services directly. </p>
 </div>
 <h2 id="public-ip">Public IP</h2>
-<p>After a VPN connection is established, your public IPv4 address will be displayed next to a globe icon <span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="m57.7 193 9.4 16.4c8.3 14.5 21.9 25.2 38 29.8l57.9 16.5c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6 16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5 4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5.3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3-92.8 0-171.5 60.9-198.2 145M464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0 256 256 0 1 1-512 0"/></svg></span> below your provider name on the <strong>Settings</strong> tab. Click or tap on the external link icon <span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> to see details about your IP location.</p>
+<p>After a VPN connection is established, your public IPv4 address will be displayed next to a globe icon <span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="m57.7 193 9.4 16.4c8.3 14.5 21.9 25.2 38 29.8l57.9 16.5c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6 16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5 4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5.3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3-92.8 0-171.5 60.9-198.2 145M464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0 256 256 0 1 1-512 0"></path></svg></span> below your provider name on the <strong>Settings</strong> tab. Click or tap on the external link icon <span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> to see details about your IP location.</p>
 <h3 id="ap-clients">AP clients</h3>
 <p>If your device is connected to the internet via Ethernet (<code>eth0</code>), clients connected on the AP interface (<code>wlan0</code> for example) will have their traffic automatically routed through the VPN connection. </p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>RaspAP uses each CLI to fetch the most detailed available connection information and display this on the <strong>Status</strong> tab. The level of detail varies from one provider to the next. If you suspect a problem with your VPN service, it's recommended to check this output and use it for troubleshooting purposes with your VPN provider.</p>
 <h2 id="whitelisting-services">Whitelisting services</h2>
 <p>Additionally, you might want to consider whitelisting other ports that are commonly used for essential network services. For instance, with NordVPN's CLI you may whitelist TCP port 53 and UDP port 67 with the following commands:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nordvpn whitelist add port 53
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nordvpn whitelist add port 53
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>nordvpn whitelist add port 67
 </span></code></pre></div>
-This will allow devices connecting to your AP to obtain an IP address.</p>
+This will allow devices connecting to your AP to obtain an IP address.
 <p>Next, it's recommended to whitelist your network subnet. For example:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nordvpn whitelist add subnet 192.168.x.x/24
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nordvpn whitelist add subnet 192.168.x.x/24
 </span></code></pre></div>
-Substitute the placeholder value for your network. This will permit you to connect to the VPN while also preserving your access to SSH and RaspAP's web UI. Refer to your provider's CLI documentation for more information.</p>
+Substitute the placeholder value for your network. This will permit you to connect to the VPN while also preserving your access to SSH and RaspAP's web UI. Refer to your provider's CLI documentation for more information.
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using VPN providers? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about using VPN providers? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

@@ -1624,10 +1624,10 @@
   
 
 
-<h1 id="dynamic-dns">Dynamic DNS</h1>
-<p><img alt="dynamic-dns" src="https://github.com/user-attachments/assets/ac4fa7b4-a485-4696-9a25-238cd896cdc8" style="width:640px" /></p>
+<div><h1 id="dynamic-dns">Dynamic DNS</h1>
+<p><img alt="dynamic-dns" src="https://github.com/user-attachments/assets/ac4fa7b4-a485-4696-9a25-238cd896cdc8" style="width:640px"></p>
 <h2 id="overview">Overview</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span> <a href="../insiders/">Insiders only</a></p>
 <p>Accessing your device from anywhere in your local network is great, but there are times when you might want it to be reachable from remote locations. This is particularly true for projects such as media servers, network attached storage (NAS) and VPNs such as those provided by RaspAP. However, due to the <a href="https://en.wikipedia.org/wiki/IPv4_address_exhaustion">shortage of IPv4 addresses</a>, it's likely that you will receive a new and different external IP address from your ISP each time your router is rebooted.</p>
 <p>Some ISPs offer a static external IP address, although often at an additional cost above a basic subscription. This is where using a <strong>Dynamic DNS</strong> (or <strong>DDNS</strong>) service on your home network can be extremely useful. </p>
 <h2 id="solution">Solution</h2>
@@ -1640,7 +1640,7 @@
 <h3 id="service-provider">Service provider</h3>
 <p>RaspAP makes use of the proven <strong><a href="https://github.com/ddclient/ddclient">ddclient</a></strong> open source software for Linux to update dynamic DNS entries. The <code>ddclient</code> software is highly configurable and provides a daemon that updates your external IP at scheduled intervals. Many popular <a href="https://github.com/ddclient/ddclient#supported-services">Dynamic DNS services</a> are supported by <code>ddclient</code> and RaspAP. </p>
 <p>Instructions on how to setup your domain for DDNS vary by provider, but the process is generally similar. Begin by selecting a <strong>Service provider</strong> from the dropdown. RaspAP will assist you by automatically populating the <strong>Protocol</strong> and <strong>Server</strong> fields. You may also manually configure the details for your service if so desired.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234258065-cc75df63-5e39-4cfd-ba1b-ed533b3982d6.png" style="width:420px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/234258065-cc75df63-5e39-4cfd-ba1b-ed533b3982d6.png" style="width:420px"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Some DDNS providers, such as NoIP, distribute their own Linux client to use with their service. It isn't necessary to install this software because the <code>ddclient</code> daemon already includes this functionality.</p>
@@ -1661,7 +1661,7 @@
 <p>Check with your DDNS service provider to determine which entry is best for your configuration. To complete your setup, choose <strong>Save settings</strong> now or proceed with advanced options.</p>
 <h2 id="advanced-settings">Advanced settings</h2>
 <p>A subset of advanced options are provided for your configuration. These are not required for the DDNS service to be functional, but may be adjusted to suit your needs.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png" style="width:420px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png" style="width:420px"></p>
 <h3 id="enable-ssl">Enable SSL</h3>
 <p>You may wish to <strong>Enable SSL</strong> to ensure that your credentials are not sent over the internet unencrypted. Not all providers support this, however, so this option is disabled by default. Enabling this option for a non-SSL supported provider may result in a connection timeout. Errors such as these <a href="https://github.com/ddclient/ddclient/issues/309">have been reported</a>: </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>WARNING:  cannot connect to checkip.dyndns.org:443 socket: Connection timed out SSL connect attempt failed
@@ -1677,7 +1677,7 @@
 <p>Behind the scenes, the <code>ddclient</code> daemon will determine your external IP using the method you've defined and send this to your DDNS provider. Your provider will then update the IP address corresponding to the DNS "A" (or "address") record for your domain.</p>
 <p>If your DDNS provider fails to report your current IP address, or you suspect there might be a problem with the <code>ddclient</code> configuration on your device, you may generate a detailed debug log.</p>
 <p>From the <strong>Logging</strong> tab, use the <strong>Generate log</strong> button to invoke the <code>ddclient</code> daemon and output a troubleshooting log: </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234276204-5d3e2640-7166-47ec-ac3c-6a4034be8060.png" style="width:420px" /></p>
+<p><img alt="" src="https://user-images.githubusercontent.com/229399/234276204-5d3e2640-7166-47ec-ac3c-6a4034be8060.png" style="width:420px"></p>
 <p>This will provide a verbose output of everything <code>ddclient</code> is doing. If it ends with a <code>SUCCESS</code> message this indicates that the daemon successfully checked and updated the DNS "A" record with your provider, if neccessary. An example of this is shown below: </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>RECEIVE:  140.82.121.3
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>DEBUG:    get_ip: using web
@@ -1693,7 +1693,7 @@
 <p>This setup is often desirable when a host is running multiple public-facing services that need to be accessed over the internet. In this context, a DMZ provides greater isolation and granular control than is possible with port forwarding. It's also possible to configure different security policies for various DMZ segments. For these reasons, a properly configured DMZ can be a <em>more secure</em> way to expose services to the internet than port forwarding. </p>
 <p>The specifics of creating a DMZ are beyond the scope of this document, although at minimum a <a href="../firewall/">firewall</a> is strongly advised. </p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using Dynamic DNS? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about using Dynamic DNS? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

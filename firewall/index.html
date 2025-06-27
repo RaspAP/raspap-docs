@@ -1522,10 +1522,10 @@
   
 
 
-<h1 id="firewall">Firewall</h1>
-<p><img alt="firewall" src="https://github.com/user-attachments/assets/f821bd3e-9380-4515-ac2c-0950201e6139" style="width:640px" /></p>
+<div><h1 id="firewall">Firewall</h1>
+<p><img alt="firewall" src="https://github.com/user-attachments/assets/f821bd3e-9380-4515-ac2c-0950201e6139" style="width:640px"></p>
 <h2 id="overview">Overview</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span> <a href="../insiders/">Insiders only</a></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span> <a href="../insiders/">Insiders only</a></p>
 <p>If your device is exposed to the outside world, firewall rules can provide a layer of security against intruders to your network. A firewall also gives us granularity in terms of what is allowed to be forwarded across interfaces. Using the rule sets described below, we can effectively control which packets
 are allowed to be inputted to, and outputted from, the RaspAP router itself. </p>
 <p><a href="../insiders/">Insiders</a> have access to a UI designed for this purpose. </p>
@@ -1534,7 +1534,7 @@ are allowed to be inputted to, and outputted from, the RaspAP router itself. </p
 <h2 id="basic-rule-set">Basic rule set</h2>
 <p>As with every other aspect of RaspAP's <a href="../defaults/">default settings</a>, the application <code>iptables</code> rules are stored in an external JSON file, so they may be modified without touching code. 
 During the install, the file <code>iptables_rules.json</code> is copied from the plugin's <code>/config</code> directory to <code>/etc/raspap/networking/</code>. Thereafter, these rules may be administered from the UI, as shown below.</p>
-<p><img alt="" src="https://github.com/user-attachments/assets/a436745a-870a-4fed-bdfc-9da5dc1eed28" style="width:420px" /></p>
+<p><img alt="" src="https://github.com/user-attachments/assets/a436745a-870a-4fed-bdfc-9da5dc1eed28" style="width:420px"></p>
 <p>By default, the firewall will only allow outgoing and already established traffic. There are no restrictions to the currently configured AP interface (<code>wlan0</code> is the default).
 The remaining firewall rules are grouped into four distinct classes. These are described below.</p>
 <h3 id="pre-rules">Pre-rules</h3>
@@ -1553,23 +1553,23 @@ to allow incoming or outgoing traffic from specific IP addresses or interfaces. 
 names and whether a service is active.</p>
 <p>Each dependency refers to an entry in the firewall config file. For example, <code>ap-device</code> or <code>openvpn-enabled</code>, followed by a type definition (bool, string or list). The <code>replace</code> tag defines which
 variable in the actual <code>iptables</code> rule should be replaced. To illustrate this, the <code>wireguard</code> rule set is shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&quot;name&quot;: &quot;wireguard&quot;,
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    &quot;comment&quot;: &quot;Rules for wireguard device (wg)&quot;,
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    &quot;ip-version&quot;: 4,
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    &quot;dependson&quot;: [
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        { &quot;var&quot;: &quot;wireguard-enable&quot;, &quot;type&quot;: &quot;bool&quot; },
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        { &quot;var&quot;: &quot;wireguard-serverip&quot;, &quot;type&quot;: &quot;string&quot;, &quot;replace&quot;: &quot;$IPADDRESS$&quot; },
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        { &quot;var&quot;: &quot;client-device&quot;, &quot;type&quot;: &quot;string&quot;, &quot;replace&quot;: &quot;$INTERFACE$&quot; }
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>"name": "wireguard",
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    "comment": "Rules for wireguard device (wg)",
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    "ip-version": 4,
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    "dependson": [
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        { "var": "wireguard-enable", "type": "bool" },
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        { "var": "wireguard-serverip", "type": "string", "replace": "$IPADDRESS$" },
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        { "var": "client-device", "type": "string", "replace": "$INTERFACE$" }
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    ],
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    &quot;rules&quot;: [
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        &quot;-A INPUT -p udp -s $IPADDRESS$ -j ACCEPT&quot;,
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        &quot;-A FORWARD -i wg+ -j ACCEPT&quot;,
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        &quot;-t nat -A POSTROUTING -o $INTERFACE$ -j MASQUERADE&quot;
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    "rules": [
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        "-A INPUT -p udp -s $IPADDRESS$ -j ACCEPT",
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        "-A FORWARD -i wg+ -j ACCEPT",
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        "-t nat -A POSTROUTING -o $INTERFACE$ -j MASQUERADE"
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    ]
 </span></code></pre></div>
 <p>In this way, interdependent firewall rules may be defined and administered by RaspAP.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using RaspAP's firewall? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about using RaspAP's firewall? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

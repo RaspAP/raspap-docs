@@ -1846,7 +1846,7 @@
   
 
 
-<h1 id="quick-installer">Quick installer</h1>
+<div><h1 id="quick-installer">Quick installer</h1>
 <h2 id="overview">Overview</h2>
 <p>The Quick installer has been designed to assist users with creating an instance of RaspAP both quickly and with a great deal of flexibility.
 The <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspbian.sh">install loader</a> will respond to several command line arguments, or <a href="#switches">switches</a>, to customize your installation in a variety of ways, or install one of RaspAP's optional <a href="../minwrite/">helper</a> <a href="../ssl/">tools</a>.</p>
@@ -1860,20 +1860,20 @@ The <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/rasp
 <h2 id="examples">Examples</h2>
 <p>The installer may be invoked locally or remotely via <code>curl</code>. Examples with both cases and various options are given below.</p>
 <p>Invoke installer remotely, run non-interactively with option flags:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes --wireguard 1 --adblock 0
-</span></code></pre></div></p>
-<p>Invoke remotely, uprgrade an existing install to the <a href="../insiders/"><span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span>  Insiders Edition</a>. The <code>--name</code> and <code>--token</code> arguments are optional; if they are not specified the user will be prompted to authenticate with GitHub:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name &lt;name&gt; --token &lt;token&gt;
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes --wireguard 1 --adblock 0
+</span></code></pre></div>
+<p>Invoke remotely, uprgrade an existing install to the <a href="../insiders/"><span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span>  Insiders Edition</a>. The <code>--name</code> and <code>--token</code> arguments are optional; if they are not specified the user will be prompted to authenticate with GitHub:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name &lt;name&gt; --token &lt;token&gt;
+</span></code></pre></div>
 <p>Invoke remotely, perform an unattended update to the latest release version:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes --update --path /var/www/html
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes --update --path /var/www/html
+</span></code></pre></div>
 <p>Run locally specifying a GitHub repo and branch:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>raspbian.sh --repo foo/bar --branch my/branch
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>raspbian.sh --repo foo/bar --branch my/branch
+</span></code></pre></div>
 <p>Run locally requesting release info:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>raspbian.sh --version
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>raspbian.sh --version
+</span></code></pre></div>
 <h2 id="switches">Switches</h2>
 <h4 id="-y-yes-assume-yes">-y, --yes, --assume-yes</h4>
 <p>This option enables unattended installations, such that the installer assumes "yes" as an answer to all user prompts. This behavior is identical to how the same option with the <code>apt-get</code> package handler works. </p>
@@ -1891,19 +1891,19 @@ The <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/rasp
 <p>Used with the <code>-y</code>, <code>--yes</code> option above, this enables kernel support for <a href="https://cloud.google.com/blog/products/networking/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster">TCP BBR congestion control</a> (<code>0</code> = don't configure TCP BBR). Given that TCB BBR support is optional, this enables an unattended setup without enabling it.</p>
 <h4 id="-e-provider-value">-e, --provider <code>&lt;value&gt;</code></h4>
 <p>Used with the <code>-y</code>, <code>--yes</code> option above, this sets the VPN provider install option. Valid numeric option values are:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>  1 = ExpressVPN
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>  1 = ExpressVPN
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  2 = Mullvad VPN
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  3 = NordVPN
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  4 = AdGuard VPN
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  0 = None
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h4 id="-r-repo-repository-name">-r, --repo, --repository <code>&lt;name&gt;</code></h4>
 <p>If you have forked this project to your own GitHub repo, this option lets you override the default GitHub repo (<code>RaspAP/raspap-webgui</code>) used to install RaspAP. An alternate repository name is a required parameter.</p>
 <h4 id="-b-branch-name">-b, --branch <code>&lt;name&gt;</code></h4>
 <p>Similarly, this option overrides the default git branch. This is useful if you have created a feature branch (<code>my-feature</code>) and wish to perform an installation using the Quick Installer. An alternate branch name is a required parameter.</p>
 <p>An example combining the <code>-r</code>, <code>--repo</code> and <code>-b</code>, <code>--branch</code> options is given below:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl -sL https://install.raspap.com | bash -s -- --repo foo/bar --branch my-feature
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl -sL https://install.raspap.com | bash -s -- --repo foo/bar --branch my-feature
+</span></code></pre></div>
 <h4 id="-t-token-accesstoken">-t, --token <code>&lt;accesstoken&gt;</code></h4>
 <p>Specify a GitHub <a href="https://docs.github.com/en/authentication/">personal access token</a> to authenticate with a private repository. Used together with the <code>-n</code>, <code>--name</code> option (below).</p>
 <h4 id="-n-name-username">-n, --name <code>&lt;username&gt;</code></h4>
@@ -1920,7 +1920,7 @@ The <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/rasp
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl -sL https://install.raspap.com | bash -s -- --update --path /var/www/html --yes
 </span></code></pre></div>
 <h4 id="-i-insiders">-i, --insiders</h4>
-<p>Installs from the <a href="../insiders/"><span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg></span>  Insiders Edition</a> (<code>RaspAP/raspap-insiders</code>).</p>
+<p>Installs from the <a href="../insiders/"><span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span>  Insiders Edition</a> (<code>RaspAP/raspap-insiders</code>).</p>
 <h4 id="-m-minwrite">-m, --minwrite</h4>
 <p>Configures a microSD card for <a href="../minwrite/">minimum write operation</a>.</p>
 <h4 id="-k-check-flag">-k, --check <code>&lt;flag&gt;</code></h4>
@@ -1932,7 +1932,7 @@ The <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/rasp
 <h4 id="-h-help">-h, --help</h4>
 <p>Outputs these usage notes and exits.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using RaspAP's Quick installer? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussions here</a>.</p>
+<p>Questions or comments about using RaspAP's Quick installer? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussions here</a>.</p></div>
 
 
 

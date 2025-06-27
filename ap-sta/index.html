@@ -1492,20 +1492,20 @@
   
 
 
-<h1 id="ap-sta-mode">AP-STA mode</h1>
+<div><h1 id="ap-sta-mode">AP-STA mode</h1>
 <h2 id="overview">Overview</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span> Experimental (Unsupported)</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental (Unsupported)</p>
 <p>This describes an installation of RaspAP on the <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a> or <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/">Zero 2 W</a> models. However, the same steps apply to any device with a chipset capable of supporting this mode.</p>
 <p>A managed mode AP, variously known as <strong>WiFi client AP mode</strong>, a <strong>micro-AP</strong> or simply <strong>AP-STA</strong>, <em>usually</em> works with the Quick Installer if the steps below are followed carefully. This feature was added to RaspAP specifically to support Internet of Things (IoT) and embedded applications for the Pi Zero W, however it is equally useful for a broad range of projects.</p>
 <div class="admonition warning">
 <p class="admonition-title">Disclaimer</p>
 <p>This mode is <em>completely unsupported</em> and should be used for educational purposes only. If you need a reliable solution with an access point (AP) and wireless client (STA) on the same device, obtain a second Wi-Fi adapter and follow <a href="../repeater/">this walkthrough</a> instead. Issues related to this will be labeled as invalid and closed. No hard feelings. </p>
 </div>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/d9adadde-9e96-4281-9978-4150f03026f2" /></p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/d9adadde-9e96-4281-9978-4150f03026f2"></p>
 <p>Before proceeding with the installation, it's important to have a basic understanding of how AP-STA works.</p>
 <h2 id="what-is-ap-sta-mode">What is AP-STA mode?</h2>
 <p>Many wireless devices support <em>simultaneous</em> operation as both an access point (AP) and as a wireless client/station (STA). This is sometimes called Wi-Fi AP/STA concurrency. In this configuration, it is possible to create a software AP acting as a <a href="../repeater/">wireless repeater</a> for an existing network, using a single wireless device. This capability is listed in the following section in the output of <code>iw list</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ iw list | grep -A 4 &#39;valid interface&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ iw list | grep -A 4 'valid interface'
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    valid interface combinations:
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    * #{ managed } &lt;= 1, #{ P2P-device } &lt;= 1, #{ P2P-client, P2P-GO } &lt;= 1,
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>      total &lt;= 3, #channels &lt;= 2
@@ -1528,22 +1528,22 @@
 <h2 id="how-does-ap-sta-work">How does AP-STA work?</h2>
 <p>In this configuration, we create a virtual network interface (here <code>uap0</code>) and add it as the AP to the physical <code>wlan0</code> device. This virtual interface is used by several of the services needed to operate a software access point. RaspAP manages these configurations in the background for you. Relevant sections are displayed below as examples.</p>
 <p><code>dhcpcd.conf</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># RaspAP uap0 configuration
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># RaspAP uap0 configuration
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>interface uap0
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>static ip_address=192.168.50.1/24
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>nohook wpa_supplicant
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p><code>hostapd.conf</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># RaspAP wireless client AP mode
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># RaspAP wireless client AP mode
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>interface=uap0
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p><code>dnsmasq.conf</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># RaspAP uap0 configuration
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># RaspAP uap0 configuration
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>interface=lo,uap0               # Use interfaces lo and uap0
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>bind-interfaces                 # Bind to the interfaces
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>domain-needed                   # Don&#39;t forward short names
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>domain-needed                   # Don't forward short names
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>bogus-priv                      # Never forward addresses in the non-routed address spaces
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>On AP-STA startup and system reboots, RaspAP's service control script adds the virtual <code>uap0</code> interface and brings it up, like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>iw dev wlan0 interface add uap0 type __ap
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ifconfig uap0 up
@@ -1568,7 +1568,7 @@
 <li>Choose <strong>Save settings</strong> and <strong>Start hotspot</strong>.</li>
 <li>Wait a few moments and confirm that your AP has started. </li>
 </ol>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/3775ccfa-9c1a-4cec-b4f2-eb55c169a99f" style="width:420px" /></p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/3775ccfa-9c1a-4cec-b4f2-eb55c169a99f" style="width:420px"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <strong>WiFi client AP mode</strong> option will be disabled, or "greyed out", until a wireless client is configured.</p>
@@ -1576,17 +1576,17 @@
 <h2 id="when-to-reboot">When to reboot?</h2>
 <p>Rebooting <em>before</em> configuring AP-STA mode is likely the main cause of problems for users with the Pi Zero W. The reason is the <a href="../defaults/">default configuration</a> is designed for a wired (ethernet) AP. </p>
 <p>Once the Pi Zero W is configured in AP-STA mode, RaspAP will store several values in <code>/etc/raspap/hostapd.ini</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>LogEnable = 1
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>LogEnable = 1
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>WifiAPEnable = 1
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>BridgedEnable = 0
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>WifiManaged = wlan0
 </span></code></pre></div>
-These are used by RaspAP's <a href="../faq/#raspap-service">systemd control service</a> <code>raspapd</code> to determine that a managed mode AP is enabled for the Pi and restore the connection after subsequent reboots.</p>
+These are used by RaspAP's <a href="../faq/#raspap-service">systemd control service</a> <code>raspapd</code> to determine that a managed mode AP is enabled for the Pi and restore the connection after subsequent reboots.
 <h2 id="changing-hostapd-settings">Changing hostapd settings</h2>
 <p>Changes to the hotspot configuration should be applied to the <code>wlan0</code> physical device, not <code>uap0</code> (a virtual interface). In other words, if you wish to change <code>hostapd</code> settings, stop the hotspot,
 disable AP-STA, make your config changes on <code>wlan0</code>, re-enable AP-STA and finally restart hostapd. An explanation is available <a href="https://github.com/RaspAP/raspap-webgui/issues/752#issuecomment-757448664">here</a>.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using AP-STA mode? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about using AP-STA mode? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

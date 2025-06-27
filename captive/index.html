@@ -1474,7 +1474,7 @@
   
 
 
-<h1 id="captive-portal-setup">Captive portal setup</h1>
+<div><h1 id="captive-portal-setup">Captive portal setup</h1>
 <h2 id="overview">Overview</h2>
 <p>The <a href="https://github.com/nodogsplash/nodogsplash">nodogsplash project</a> is a lightweight, highly configurable captive portal solution. It integrates nicely with RaspAP and is recommended over other methods. No configuration changes are needed with RaspAP, however you will need to modify some default settings in the nodogsplash config. This step-by-step guide assumes you have already installed RaspAP, either with the <a href="../quick/">Quick Installer</a> or <a href="../manual/">manual setup instructions</a>. </p>
 <div class="admonition note">
@@ -1483,20 +1483,20 @@
 </div>
 <h2 id="installing-the-software">Installing the software</h2>
 <p>Begin by updating your RPi with the latest package information:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt-get update
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt-get update
+</span></code></pre></div>
 <p>With our package manager up to date, install a dependency required by nodogsplash:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt-get install libmicrohttpd-dev
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt-get install libmicrohttpd-dev
+</span></code></pre></div>
 <p>Next, clone the nodogsplash GitHub repository to your home directory:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd ~/
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd ~/
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git clone https://github.com/nodogsplash/nodogsplash.git
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>We can now compile nodogsplash from the source:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cd nodogsplash
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cd nodogsplash
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>make
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sudo make install
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h2 id="configuration-changes">Configuration changes</h2>
 <p>With nodogsplash installed in the Pi's system, we will make two small changes to its configuration. The nodogsplash <code>GatewayInterface</code> should be set to the interface RaspAP runs on (<code>wlan0</code> is the default).
 You will also need to change the <code>GateWayAddress</code> to <code>10.3.141.1</code>.</p>
@@ -1506,7 +1506,7 @@ You will also need to change the <code>GateWayAddress</code> to <code>10.3.141.1
 </div>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo nano /etc/nodogsplash/nodogsplash.conf
 </span></code></pre></div>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># GatewayInterface is not autodetected, has no default, and must be set here.
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># GatewayInterface is not autodetected, has no default, and must be set here.
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a># Set GatewayInterface to the interface on your router
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a># that is to be managed by Nodogsplash.
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a># Typically br-lan for the wired and wireless lan.
@@ -1522,18 +1522,18 @@ You will also need to change the <code>GateWayAddress</code> to <code>10.3.141.1
 </span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a># server listens on.
 </span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>GatewayAddress 10.3.141.1
 </span></code></pre></div>
-Save and quit out of the editor by pressing <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span> and then pressing <span class="keys"><kbd class="key-y">Y</kbd></span> and finally <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
+Save and quit out of the editor by pressing <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span> and then pressing <span class="keys"><kbd class="key-y">Y</kbd></span> and finally <span class="keys"><kbd class="key-enter">Enter</kbd></span>.
 <h2 id="starting-the-captive-portal">Starting the captive portal</h2>
 <p>We are now ready to start up the software. This can be done by simply executing the binary with <code>sudo nodogsplash</code>. However, we'll make things a bit easier by adding a <code>systemd</code> service provided by the project. Copy the service control file and enable it:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo cp ~/nodogsplash/debian/nodogsplash.service /lib/systemd/system/
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo cp ~/nodogsplash/debian/nodogsplash.service /lib/systemd/system/
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo systemctl enable nodogsplash.service 
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>Next, start the service and check its status:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo systemctl start nodogsplash.service 
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo systemctl start nodogsplash.service 
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo systemctl status nodogsplash.service
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>You should see output similar to the following:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>● nodogsplash.service - NoDogSplash Captive Portal
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>● nodogsplash.service - NoDogSplash Captive Portal
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>   Loaded: loaded (/lib/systemd/system/nodogsplash.service; enabled; vendor preset: enabled)
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   Active: active (running) since Tue 2020-02-11 09:19:44 GMT; 34min ago
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a> Main PID: 10539 (nodogsplash)
@@ -1550,19 +1550,19 @@ Save and quit out of the editor by pressing <span class="keys"><kbd class="key-c
 </span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>Feb 11 09:19:44 raspberrypi nodogsplash[10538]: [5][Tue Feb 11 09:19:44 2020][10539](src/main.c:319) Using config options for FAS or Templated Splash.
 </span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>Feb 11 09:19:44 raspberrypi systemd[1]: Started NoDogSplash Captive Portal.
 </span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>Feb 11 09:19:46 raspberrypi nodogsplash[10538]: [5][Tue Feb 11 09:19:46 2020][10539](src/fw_iptables.c:382) Initializing firewall rules
-</span></code></pre></div></p>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The captive portal may be stopped with <code>sudo systemctl stop nodogsplash.service</code> or disabled completely with <code>sudo systemctl disable nodogsplash.service</code>.</p>
 </div>
 <h2 id="connecting-clients">Connecting clients</h2>
 <p>Connect a client to RaspAP's hotspot. You should now see nodogsplash's captive portal screen:</p>
-<p><img alt="captive portal screen" src="https://i.imgur.com/qS9mgTr.png" /></p>
+<p><img alt="captive portal screen" src="https://i.imgur.com/qS9mgTr.png"></p>
 <p>Optional: you can customize the captive portal screen by modifying the files located in <code>/etc/nodogsplash/htdocs/</code>. </p>
 <h2 id="more-information">More information</h2>
 <p>Full documentation of nodogsplash is available <a href="https://nodogsplashdocs.readthedocs.io/en/stable/">here</a>.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about using nodogsplash with RaspAP? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<p>Questions or comments about using nodogsplash with RaspAP? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 

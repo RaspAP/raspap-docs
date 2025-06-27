@@ -1492,7 +1492,7 @@
   
 
 
-<h1 id="default-settings">Default settings</h1>
+<div><h1 id="default-settings">Default settings</h1>
 <h2 id="overview">Overview</h2>
 <p>Creating a software routed access point (AP) requires the installation and setup of several related Linux services.
 RaspAP uses a known-good default configuration as a starting point. This facilitates a faster setup by not prompting the user for various network 
@@ -1515,30 +1515,30 @@ In this way, the user may modify RaspAP's baseline application settings without 
 <p>The file <code>config/config.php</code> is copied during the installation to <code>includes/config.php</code> and ignored by Git. This way, users can modify <code>includes/config.php</code> without <code>git pull</code> or upgrades complaining about local changes. The file <code>includes/defaults.php</code> loads corresponding default values if they are not set.</p>
 </div>
 <p>For example, you can change the brand text that appears in the interface header simply by modifying the value of this constant:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>define(&#39;RASPI_BRAND_TEXT&#39;, &#39;RaspAP&#39;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>define('RASPI_BRAND_TEXT', 'RaspAP');
 </span></code></pre></div>
 <p>RaspAP's interface may be further customized by changing the following values:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// Optional services, set to true to enable.
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>define(&#39;RASPI_WIFICLIENT_ENABLED&#39;, true);
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>define(&#39;RASPI_HOTSPOT_ENABLED&#39;, true);
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>define(&#39;RASPI_NETWORK_ENABLED&#39;, true);
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>define(&#39;RASPI_DHCP_ENABLED&#39;, true);
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>define(&#39;RASPI_ADBLOCK_ENABLED&#39;, false);
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>define(&#39;RASPI_OPENVPN_ENABLED&#39;, false);
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>define(&#39;RASPI_VPN_PROVIDER_ENABLED&#39;, false);
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>define(&#39;RASPI_WIREGUARD_ENABLED&#39;, false);
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>define(&#39;RASPI_TORPROXY_ENABLED&#39;, false);
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>define(&#39;RASPI_CONFAUTH_ENABLED&#39;, true);
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>define(&#39;RASPI_CHANGETHEME_ENABLED&#39;, true);
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>define(&#39;RASPI_VNSTAT_ENABLED&#39;, true);
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>define(&#39;RASPI_SYSTEM_ENABLED&#39;, true);
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>define(&#39;RASPI_MONITOR_ENABLED&#39;, false);
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>define('RASPI_WIFICLIENT_ENABLED', true);
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>define('RASPI_HOTSPOT_ENABLED', true);
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>define('RASPI_NETWORK_ENABLED', true);
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>define('RASPI_DHCP_ENABLED', true);
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>define('RASPI_ADBLOCK_ENABLED', false);
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>define('RASPI_OPENVPN_ENABLED', false);
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>define('RASPI_VPN_PROVIDER_ENABLED', false);
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>define('RASPI_WIREGUARD_ENABLED', false);
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>define('RASPI_TORPROXY_ENABLED', false);
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>define('RASPI_CONFAUTH_ENABLED', true);
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>define('RASPI_CHANGETHEME_ENABLED', true);
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>define('RASPI_VNSTAT_ENABLED', true);
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>define('RASPI_SYSTEM_ENABLED', true);
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>define('RASPI_MONITOR_ENABLED', false);
 </span></code></pre></div>
 <p>The constants defined for Linux configuration file paths are typical and needn't be changed, in most cases. However, you could easily do so simply by modifying this file.</p>
 <h2 id="networking-defaults">Networking defaults</h2>
 <p>The default AP interface used by RaspAP is <code>wlan0</code>. This is a typical setting if you are using the RPi's onboard wireless adapter. You can change this to a different interface by modifying
 the following value in <code>config.php</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>define(&#39;RASPI_WIFI_AP_INTERFACE&#39;, &#39;wlan0&#39;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>define('RASPI_WIFI_AP_INTERFACE', 'wlan0');
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1546,60 +1546,60 @@ the following value in <code>config.php</code>:</p>
 </div>
 <p>Default values for the <code>dnsmasq</code> and <code>dhcpcd</code> services can be modified as well. The file <code>config/defaults.json</code> was introduced with the <a href="https://github.com/RaspAP/raspap-webgui/releases/tag/2.6">version 2.6 release</a>. This file is copied during the installation to <code>/etc/raspap/networking/</code>, so any changes to it must be made at this location.</p>
 <p>The <code>defaults.json</code> file uses the standard JSON data-interchange format. For example, the default <code>dhcp</code> settings for <code>wlan0</code> are displayed below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&quot;dhcp&quot;: {
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    &quot;wlan0&quot;: { 
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>      &quot;static ip_address&quot;: [ &quot;10.3.141.1/24&quot; ],
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      &quot;static routers&quot;: [ &quot;10.3.141.1&quot; ],
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      &quot;static domain_name_server&quot;: [ &quot;1.1.1.1 8.8.8.8&quot; ],
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      &quot;subnetmask&quot;: [ &quot;255.255.255.0&quot; ]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>"dhcp": {
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    "wlan0": { 
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>      "static ip_address": [ "10.3.141.1/24" ],
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      "static routers": [ "10.3.141.1" ],
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      "static domain_name_server": [ "1.1.1.1 8.8.8.8" ],
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      "subnetmask": [ "255.255.255.0" ]
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    }
 </span></code></pre></div>
 <p>Likewise, the DHCP ranges for both <code>wlan0</code> and the virtual <code>uap0</code> interface are shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&quot;dnsmasq&quot;: {
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    &quot;wlan0&quot;: {
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>      &quot;dhcp-range&quot;: [ &quot;10.3.141.50,10.3.141.254,255.255.255.0,12h&quot; ]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>"dnsmasq": {
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    "wlan0": {
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>      "dhcp-range": [ "10.3.141.50,10.3.141.254,255.255.255.0,12h" ]
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    },
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    &quot;uap0&quot;: {
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>      &quot;dhcp-range&quot;: [ &quot;192.168.50.50,192.168.50.150,12h&quot; ]
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    "uap0": {
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>      "dhcp-range": [ "192.168.50.50,192.168.50.150,12h" ]
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    }
 </span></code></pre></div>
 <p>These default settings are defined as fallback values. That is, if a user-defined value is missing these will be used in their place.</p>
 <h2 id="dns-servers">DNS servers</h2>
 <p>The list of hosted DNS servers available in the <strong>Upstream DNS servers</strong> panel in <strong>DHCP &gt; Advanced</strong> may be modified to suit your needs. The file <code>config/dns-servers.json</code> contains
 a JSON formatted collection of hostnames and IPv4 addresses, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&quot;Google&quot;: [
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    &quot;8.8.4.4&quot;,
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    &quot;8.8.8.8&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>"Google": [
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    "8.8.4.4",
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    "8.8.8.8"
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  ],
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  &quot;OpenDNS&quot;: [
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    &quot;208.67.220.220&quot;,
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    &quot;208.67.222.222&quot;
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  "OpenDNS": [
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    "208.67.220.220",
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    "208.67.222.222"
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  ],
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  &quot;Quad9&quot;: [
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    &quot;9.9.9.9&quot;
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  "Quad9": [
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    "9.9.9.9"
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>  ],
 </span></code></pre></div>
 <p>Edits to this file in place will immediately be reflected in the user interface.</p>
 <h2 id="vpn-providers">VPN providers</h2>
 <p>RaspAP <a href="https://github.com/RaspAP/raspap-webgui/releases/tag/3.0">version 3.0</a> introduced beta support for a select number of <a href="../providers/">VPN providers</a>. These services are largely defined in the <code>config/vpn-providers.json</code> file. An example provider definiton is shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>&quot;id&quot;: 1,
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&quot;name&quot;: &quot;ExpressVPN&quot;,
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>&quot;bin_path&quot;: &quot;/usr/bin/expressvpn&quot;,
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>&quot;install_page&quot;: &quot;https://www.expressvpn.com/support/vpn-setup/app-for-linux/&quot;,
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>&quot;account_page&quot;: &quot;https://www.expressvpn.com/subscriptions&quot;,
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>&quot;cmd_overrides&quot;: {
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>   &quot;countries&quot;: &quot;list all&quot;,
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   &quot;log&quot;: &quot;diagnostics&quot;,
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>   &quot;version&quot;: &quot;-v&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>"id": 1,
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>"name": "ExpressVPN",
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>"bin_path": "/usr/bin/expressvpn",
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>"install_page": "https://www.expressvpn.com/support/vpn-setup/app-for-linux/",
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>"account_page": "https://www.expressvpn.com/subscriptions",
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>"cmd_overrides": {
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>   "countries": "list all",
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   "log": "diagnostics",
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>   "version": "-v"
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>}
 </span></code></pre></div>
 <p>It is not necessary to modify these definitions, unless you would like to experiment by adding a provider not currently supported by RaspAP.</p>
 <h2 id="restoring-settings">Restoring settings</h2>
 <p>If you've modified RaspAP's default configuration and the AP no longer works as expected, the defaults may be restored by performing a system reset. From the <strong>System &gt; Tools</strong> tab, click or tap the <strong>Perform reset</strong> button. A dialog will appear to confirm this action.</p>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad" style="width:480px" /></p>
+<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad" style="width:480px"></p>
 <p>Alternatively, you may follow the steps described in the <a href="../manual/#default-configuration">manual installation</a>.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about RaspAP's defaults? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussions here</a>.</p>
+<p>Questions or comments about RaspAP's defaults? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussions here</a>.</p></div>
 
 
 
