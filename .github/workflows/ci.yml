@@ -27,9 +27,17 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: pip install mkdocs-git-revision-date-localized-plugin
-      - run: pip install mkdocs-git-committers-plugin-2
-      - run: pip install pillow cairosvg
-      - run: pip install video
-      - run: mkdocs gh-deploy --force
+      - name: Install MkDocs and plugins
+        run: |
+          pip install mkdocs-material \
+                      mkdocs-git-revision-date-localized-plugin \
+                      mkdocs-git-committers-plugin-2 \
+                      pillow \
+                      cairosvg \
+                      mkdocs-video
+      - name: Verify installed packages
+        run: |
+          pip list
+          mkdocs --version
+      - name: Deploy site
+        run: mkdocs gh-deploy --force
