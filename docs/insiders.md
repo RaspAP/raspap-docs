@@ -91,7 +91,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 We've chosen [OpenCollective](https://opencollective.com/raspap) as the fiscal host for our [GitHub sponsors organization](https://github.com/sponsors/RaspAP). This means that our budget is completely transparent &#151; financial contributions, expenses and payouts to project team members are automatically reported. Everyone can see where money comes from and what it's spent on. This committent to full transparency was central in our decision to implement Insiders.
 
 ## Quarterly giving
-Beginning in 2022, each quarter 15% of all proceeds from Insiders will be donated directly to the [Raspberry Pi Foundation](https://www.raspberrypi.org/). The Raspberry Pi Foundation is a
+Each quarter, 15% of the total proceeds from Insiders are donated directly to the [Raspberry Pi Foundation](https://www.raspberrypi.org/). The Raspberry Pi Foundation is a
 UK-based charity that works to put the power of computing and digital making into the hands of people all over the world.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dEzg92g1LHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
