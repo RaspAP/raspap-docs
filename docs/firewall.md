@@ -3,8 +3,6 @@
 ![firewall](https://github.com/user-attachments/assets/f821bd3e-9380-4515-ac2c-0950201e6139){: style="width:640px"}
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
-
 If your device is exposed to the outside world, firewall rules can provide a layer of security against intruders to your network. A firewall also gives us granularity in terms of what is allowed to be forwarded across interfaces. Using the rule sets described below, we can effectively control which packets
 are allowed to be inputted to, and outputted from, the RaspAP router itself. 
 

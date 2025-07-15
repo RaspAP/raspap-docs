@@ -44,7 +44,7 @@ WPA2 is currently the most secure standard utilizing AES (Advanced Encryption St
 By default, RaspAP's access point is configured with WPA2 and CCMP encryption. You may of course change this to allow legacy clients (older mobile devices, for example) by selecting `TKIP+CCMP` as the encryption type. Choose **Save settings** and **Restart hotspot** for your changes to take effect. 
 
 ### WPA3-Personal
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental 
 
 WPA3 is an improved encryption standard, thanks to Simultaneous Authentication of Equals (SAE) which replaces the Pre-Shared Key (PSK) authentication method used in prior WPA
 versions. WPA3-Personal allows for better password-based authentication even when using simple passphrases. In general, WPA3-Personal networks with simple passphrases are more difficult to crack
@@ -59,7 +59,7 @@ security mode is also available.
     The Raspberry Pi's onboard wireless chipsets do not currently support the WPA3 standard. For this reason, in order to use this setting you will need to configure your AP with an external wireless adapter that supports WPA3.  
 
 ### 802.11w
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental
 
 The 802.11w amendment was introduced as a way to secure Wi-Fi management frames against attacks by ensuring that these frames are legitimately exchanged between an AP and its clients, rather than
 a malicious third-party. These 802.11w Protected Management Frames (PMFs) can mitigate common types of "deauthentication" and "disassociation" attacks.
@@ -68,8 +68,6 @@ Similar to WPA3-Personal, 802.11w may be configured in one of two modes: enabled
 while also allowing devices that support 802.11w to use the PMF features. _Required_ will prevent clients that do not support 802.11w from associating with the SSID.
 
 ## Printable signs
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
-
 Beneath the QR code on the **Hotspot > Security** tab, you will find a link to open a "Wi-Fi connect" sign suitable for printing. Click or tap the link after the :fontawesome-solid-print: printer icon to open a new window with your hotspot's QR code, SSID and password neatly formatted.
 
 ![](https://user-images.githubusercontent.com/229399/148738058-dfe7ea04-d59b-460a-a8b8-f0fca15ef715.png){: style="width:580px"}

@@ -124,7 +124,7 @@ These `iptables` rules are defined in WireGuard's [default settings](defaults.md
     If your VPN server is behind a NAT, you will need to open a UDP port of your choosing (51820 is the default). 
 
 ## Kill switch
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental
 
 In the event that the WireGuard tunnel accidentally goes down, unencrypted traffic may reveal your real IP address. To prevent this from happening, additional `PostUp` and `PreDown` rules may be
 added to the firewall. Simply choose the **Enable kill switch** option when uploading your WireGuard configuration:
