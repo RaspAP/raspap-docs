@@ -72,6 +72,20 @@ WifiInterface = wlan0
 
 RaspAP's debug log contains information about your system and local network configuration. However, no passwords or other senstive data are included.
 
+## Inspect network adapters
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+
+If you've installed an external WLAN or other adapter on your device, RaspAP can assist you with troubleshooting common issues. The **System > Tools > Inspect adapters** button will open a dialog that lets you perform a comprehensive inspection of your network adapters. 
+
+![adapter health check](images/health-check.png){: style="width:580px"}
+
+The inspection tool returns details about available network hardware including drivers, firmware versions, supported modes and so on. RaspAP also has an innovative one-click **Adapter health check** option. This performs a multi-step check of your selected adapter to identify common problems that may prevent it from working with RaspAP.
+
+!!! tip "Tip"
+    Many WLAN interfaces will report a failed state for the "Can reach internet" check. This is expected if you're using an interface to host an access point, for example, or if it's in an unconfigured state. For comparison, choose an interface that's a source of internet connectivity on your device, such as `eth0` or `usb0`.
+
+The **Inspect adapters** and **Adapter health check** are the best available diagnostic tools for your device's network hardware. 
+
 ## Diagnosing problems
 Look for any reported errors logged by the `hostapd`, `dhcpcd` or `dnsmasq` services. In most cases, errors thrown by one or more of these services have been discussed in various online forums.
 Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/). Chances are the problems with your AP have been discussed and answered before.
