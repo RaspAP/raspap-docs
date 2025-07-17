@@ -30,6 +30,7 @@ The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immedi
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](repeater.md#alternate-routing-method)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](authentication.md#limited-privilege-user)  
 :octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
+:octicons-check-circle-fill-24:{: .check } [Inspect network adapters](troubleshooting.md#inspect-network-adapters)  
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new and follow [@RaspAP on :fontawesome-brands-square-x-twitter:](https://x.com/rasp_ap/) for the latest announcements.
 
@@ -64,8 +65,8 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
 
 #### **$2,000** - 4th Insiders Edition
+:octicons-check-circle-fill-24:{: .check } [Inspect network adapters](troubleshooting.md#inspect-network-adapters)  
 :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Dual band AP mode  
-:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Inspect network adapters  
 :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Wireshark plugin  
 
 ### Completed goals
