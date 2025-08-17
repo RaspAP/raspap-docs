@@ -15,7 +15,7 @@ Is your RaspAP router behaving unexpectedly? Before proceeding any further, this
 7. _Do_ perform a survey of your wireless neighborhood to avoid [co-channel interference](faq.md#ping).
 8. _Do_ use a microSD card from a reputable brand; consider enabling [minimal write mode](minwrite.md).
 9. If you've modified the default settings and things don't work, do a [system reset](defaults.md#restoring-settings).
-10. Still not working? Generate a debug log and perform a _self-diagnosis_ (_don't_ post the log output unless asked).
+10. Still not working? Generate a [debug log](troubleshooting.md#debug-log) and perform a _self-diagnosis_ (_don't_ post the log output unless asked).
 
 Follow this checklist and read the docs before starting a "doesn't work" issue or discussion. New threads and issues that ignore these common sense points will be moderated. No hard feelings.
 
