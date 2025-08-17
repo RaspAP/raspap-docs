@@ -26,140 +26,142 @@ Both methods are reasonably straightforward. Bear in mind that RAM usage on your
 
 After you've enabled **minwrite** we'll look at a technique to evaluate its effectiveness.
 
-### Quick install
-The [minwrite utility](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) may be invoked remotely from the [Quick installer](quick.md) like so:
+=== "Quick install"
+    The [minwrite utility](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) may be invoked remotely from the [Quick installer](quick.md) like so:
 
-```
-curl -sL https://install.raspap.com | bash -s -- --minwrite
-```
+    ```
+    curl -sL https://install.raspap.com | bash -s -- --minwrite
+    ```
 
-Alternatively, if you have a local install of RaspAP you may execute it from the `/installers` directory like so:
+    Alternatively, if you have a local install of RaspAP you may execute it from the `/installers` directory like so:
 
-```
-./raspbian.sh --minwrite.sh
-```
+    ```
+    ./raspbian.sh --minwrite.sh
+    ```
 
-You will be prompted at each step during the minwrite script's execution. As a final step, be sure to reboot your system.
+    You will be prompted at each step during the minwrite script's execution. As a final step, be sure to reboot your system.
 
-```
-$ curl -sL https://install.raspap.com | bash -s -- --minwrite
-
-
- 888888ba                              .d888888   888888ba
- 88     8b                            d8     88   88     8b
-a88aaaa8P' .d8888b. .d8888b. 88d888b. 88aaaaa88a a88aaaa8P
- 88    8b. 88    88 Y8ooooo. 88    88 88     88   88
- 88     88 88.  .88       88 88.  .88 88     88   88
- dP     dP  88888P8  88888P  88Y888P  88     88   dP
-                             88
-                             dP      version 3.2.1
-
-The Quick Installer will guide you through a few easy steps
+    ```
+    $ curl -sL https://install.raspap.com | bash -s -- --minwrite
 
 
-RaspAP Minwrite: Modify the OS to minimize microSD card write operation
-Detected OS: Debian GNU/Linux 11 (bullseye)
-RaspAP Minwrite: Removing packages
-The following packages will be removed: dphys-swapfile logrotate
-Proceed? [Y/n]:
-The following packages will be REMOVED:
-  dphys-swapfile* logrotate*
-0 upgraded, 0 newly installed, 3 to remove and 65 not upgraded.
-After this operation, 351 kB disk space will be freed.
-(Reading database ... 65355 files and directories currently installed.)
-Removing dphys-swapfile (20100506-7+rpt1) ...
-Removing logrotate (3.18.0-2+deb11u1) ...
-Processing triggers for man-db (2.9.4-2) ...
-(Reading database ... 65313 files and directories currently installed.)
-Purging configuration files for logrotate (3.18.0-2+deb11u1) ...
-Purging configuration files for dphys-swapfile (20100506-7+rpt1) ...
-[ ✓ ok ]
-RaspAP Minwrite: Disabling services
-The following services will be disabled: bootlogd.service bootlogs console-setup apt-daily
-Proceed? [Y/n]:
-```
+    888888ba                              .d888888   888888ba
+    88     8b                            d8     88   88     8b
+    a88aaaa8P' .d8888b. .d8888b. 88d888b. 88aaaaa88a a88aaaa8P
+    88    8b. 88    88 Y8ooooo. 88    88 88     88   88
+    88     88 88.  .88       88 88.  .88 88     88   88
+    dP     dP  88888P8  88888P  88Y888P  88     88   dP
+                                88
+                                dP      version 3.2.1
 
-### Manual steps 
-These steps perform the same actions as the Quick install method. Details are provided so that you may choose to customize or skip some steps, if desired.
+    The Quick Installer will guide you through a few easy steps
 
-#### Remove packages
-The goal here is to only remove packages that actively write to the filesystem, and that will be replaced or disabled entirely. In a subsequent step, `logrotate` will be replaced with `busybox-syslogd`.
-Additionally, `dphys-swapfile`, which manages a swapfile in the root filesystem on the SD card, is removed as it won’t be able to work.
 
-Remove these packages with the following:
+    RaspAP Minwrite: Modify the OS to minimize microSD card write operation
+    Detected OS: Debian GNU/Linux 11 (bullseye)
+    RaspAP Minwrite: Removing packages
+    The following packages will be removed: dphys-swapfile logrotate
+    Proceed? [Y/n]:
+    The following packages will be REMOVED:
+    dphys-swapfile* logrotate*
+    0 upgraded, 0 newly installed, 3 to remove and 65 not upgraded.
+    After this operation, 351 kB disk space will be freed.
+    (Reading database ... 65355 files and directories currently installed.)
+    Removing dphys-swapfile (20100506-7+rpt1) ...
+    Removing logrotate (3.18.0-2+deb11u1) ...
+    Processing triggers for man-db (2.9.4-2) ...
+    (Reading database ... 65313 files and directories currently installed.)
+    Purging configuration files for logrotate (3.18.0-2+deb11u1) ...
+    Purging configuration files for dphys-swapfile (20100506-7+rpt1) ...
+    [ ✓ ok ]
+    RaspAP Minwrite: Disabling services
+    The following services will be disabled: bootlogd.service bootlogs console-setup apt-daily
+    Proceed? [Y/n]:
+    ```
 
-```
-sudo apt-get remove --purge dphys-swapfile logrotate
-sudo apt-get autoremove --purge
-```
+=== "Manual steps" 
+    These steps perform the same actions as the Quick install method. Details are provided so that you may choose to customize or skip some steps, if desired.
 
-#### Disable services
-Linux is able to update packages autonomously without an external command. This task is scheduled by the `apt-daily.service`, which triggers the system to start `apt` tasks and scan installed packages for available updates. If updates are found, the `apt-daily-upgrade.service` downloads and installs them without user intervention. While useful for keeping your system updated, these are intensive processes in terms of disk I/O that may be safely disabled and handled manually.
+    **Remove packages**  
+    The goal here is to only remove packages that actively write to the filesystem, and that will be replaced or disabled entirely. In a subsequent step, `logrotate` will be replaced with `busybox-syslogd`.
+    Additionally, `dphys-swapfile`, which manages a swapfile in the root filesystem on the SD card, is removed as it won’t be able to work.
 
-Disable the `bootlogd.service`, `apt-daily` and related services like so:
+    Remove these packages with the following:
 
-```
-sudo systemctl unmask bootlogd.service
-sudo systemctl disable bootlogs
-sudo systemctl disable apt-daily.service apt-daily.timer apt-daily-upgrade.timer apt-daily-upgrade.service
-```
-!!! note "Note"
-    By disabling these services, you will need to manually check for package updates periodically with `sudo apt-get update && sudo apt-get upgrade`.
+    ```
+    sudo apt-get remove --purge dphys-swapfile logrotate
+    sudo apt-get autoremove --purge
+    ```
 
-#### Replace logger
-In this step you'll replace the default system logger `rsyslog` with an in-memory logger, `busybox-syslogd`. [BusyBox](https://manpages.debian.org/jessie/busybox-syslogd/syslogd.8.en.html) combines tiny versions of many common Linux utilities into a single small executable. It provides a fairly complete POSIX environment for any small or embedded system, including a minimal write Raspberry Pi.
+    **Disable services**  
+    Linux is able to update packages autonomously without an external command. This task is scheduled by the `apt-daily.service`, which triggers the system to start `apt` tasks and scan installed packages for available updates. If updates are found, the `apt-daily-upgrade.service` downloads and installs them without user intervention. While useful for keeping your system updated, these are intensive processes in terms of disk I/O that may be safely disabled and handled manually.
 
-Install it like so and remove `rsyslog`:
+    Disable the `bootlogd.service`, `apt-daily` and related services like so:
 
-```
-sudo apt-get install busybox-syslogd
-sudo dpkg --purge rsyslog
-```
+    ```
+    sudo systemctl unmask bootlogd.service
+    sudo systemctl disable bootlogs
+    sudo systemctl disable apt-daily.service apt-daily.timer apt-daily-upgrade.timer apt-daily-upgrade.service
+    ```
+    !!! note "Note"
+        By disabling these services, you will need to manually check for package updates periodically with `sudo apt-get update && sudo apt-get upgrade`.
 
-Be aware that because `busybox-syslogd` writes system logs to RAM, these logs will be lost if your device is disconnected from power.
+    **Replace logger**  
+    In this step you'll replace the default system logger `rsyslog` with an in-memory logger, `busybox-syslogd`. [BusyBox](https://manpages.debian.org/jessie/busybox-syslogd/syslogd.8.en.html) combines tiny versions of many common Linux utilities into a single small executable. It provides a fairly complete POSIX environment for any small or embedded system, including a minimal write Raspberry Pi.
 
-#### Disable swap
-Next you'll modify system boot options to disable [swap](https://wiki.debian.org/Swap) and filesystem checks, as these are both intensive disk I/O processes. Edit this file with `sudo nano /boot/cmdline.txt` and append the following to the end:
+    Install it like so and remove `rsyslog`:
 
-```
-fsck.mode=skip noswap
-```
+    ```
+    sudo apt-get install busybox-syslogd
+    sudo dpkg --purge rsyslog
+    ```
 
-The resulting file will look something like this (copied from a Pi 3 Model B+):
+    Be aware that because `busybox-syslogd` writes system logs to RAM, these logs will be lost if your device is disconnected from power.
 
-```
-console=serial0,115200 console=tty1 root=PARTUUID=bddffae9-02 rootfstype=ext4 fsck.repair=yes rootwait fsck.mode=skip noswap
-```
+    **Disable swap**  
+    Next you'll modify system boot options to disable [swap](https://wiki.debian.org/Swap) and filesystem checks, as these are both intensive disk I/O processes. Edit this file with `sudo nano /boot/cmdline.txt` and append the following to the end:
 
-Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
+    ```
+    fsck.mode=skip noswap
+    ```
 
-!!! note "Note"
-    By default Armbian does not use any SD card-based swap, so unless you’ve customized your installation there’s nothing to disable.
+    The resulting file will look something like this (copied from a Pi 3 Model B+):
 
-#### Move directories to RAM
-As a final step, several directories will be moved to the `tmpfs` filesystem. Storing these directories on a ramdisk instead of the SD card will substantially reduce the volume of I/O operations on the card's flash memory. Writing to `tmpfs` also provides fast sequential read/write speeds. The tradeoff is that `tmpfs` is _volatile storage_ &#151; meaning that you will lose all data stored on the filesystem if your device loses power.
+    ```
+    console=serial0,115200 console=tty1 root=PARTUUID=bddffae9-02 rootfstype=ext4 fsck.repair=yes rootwait fsck.mode=skip noswap
+    ```
 
-Paths are selected here to migrate to `tmpfs` for transient and cache data, as well as those required for RaspAP's operation that are associated with disk I/O activity. Moving these directories to `tmpfs` is done by editing `fstab` with `sudo nano /etc/fstab`. Append the following lines to the end:
+    Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
 
-```
-tmpfs /tmp tmpfs  nosuid,nodev 0 0
-tmpfs /var/log tmpfs  nosuid,nodev 0 0
-tmpfs /var/tmp tmpfs  nosuid,nodev 0 0
-tmpfs /var/lib/misc tmpfs  nosuid,nodev 0 0
-tmpfs /var/cache tmpfs  nosuid,nodev 0 0
-tmpfs /var/lib/vnstat tmpfs  nosuid,nodev 0 0
-tmpfs /var/php/sessions tmpfs  nosuid,nodev 0 0
-```
+    !!! note "Note"
+        By default Armbian does not use any SD card-based swap, so unless you’ve customized your installation there’s nothing to disable.
 
-Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
+    **Move directories to RAM**  
+    As a final step, several directories will be moved to the `tmpfs` filesystem. Storing these directories on a ramdisk instead of the SD card will substantially reduce the volume of I/O operations on the card's flash memory. Writing to `tmpfs` also provides fast sequential read/write speeds. The tradeoff is that `tmpfs` is _volatile storage_ &#151; meaning that you will lose all data stored on the filesystem if your device loses power.
 
-!!! note "Note"
-    Armbian puts `/tmp` in RAM by default, while Raspberry Pi OS does not. On both Armbian and Raspberry Pi OS, `/run` is stored in RAM already and `/var/run` symlinks to it. 
+    Paths are selected here to migrate to `tmpfs` for transient and cache data, as well as those required for RaspAP's operation that are associated with disk I/O activity. Moving these directories to `tmpfs` is done by editing `fstab` with `sudo nano /etc/fstab`. Append the following lines to the end:
 
-The `/var/tmp` directory is made available for programs that require temporary files or directories that are preserved between system reboots. Therefore, data stored in `/var/tmp` is more persistent than data in `/tmp`. In practice, however, few programs in common use with Raspberry Pi OS write to this directory so we can safely move it to RAM. 
+    ```
+    tmpfs /tmp tmpfs  nosuid,nodev 0 0
+    tmpfs /var/log tmpfs  nosuid,nodev 0 0
+    tmpfs /var/tmp tmpfs  nosuid,nodev 0 0
+    tmpfs /var/lib/misc tmpfs  nosuid,nodev 0 0
+    tmpfs /var/cache tmpfs  nosuid,nodev 0 0
+    tmpfs /var/lib/vnstat tmpfs  nosuid,nodev 0 0
+    tmpfs /var/php/sessions tmpfs  nosuid,nodev 0 0
+    ```
 
-#### Reboot
-A reboot is required for the above steps to take effect: `sudo reboot`.
+    Save your changes and quit out of the editor with ++ctrl+x++ followed by ++y++ and finally ++enter++.
+
+    !!! note "Note"
+        Armbian puts `/tmp` in RAM by default, while Raspberry Pi OS does not. On both Armbian and Raspberry Pi OS, `/run` is stored in RAM already and `/var/run` symlinks to it. 
+
+    The `/var/tmp` directory is made available for programs that require temporary files or directories that are preserved between system reboots. Therefore, data stored in `/var/tmp` is more persistent than data in `/tmp`. In practice, however, few programs in common use with Raspberry Pi OS write to this directory so we can safely move it to RAM. 
+
+    **Reboot**  
+    A reboot is required for the above steps to take effect: `sudo reboot`.
+
+---
 
 ## Memory considerations
 The **minwrite** configuration migrates as much as possible from SD card storage to the `tmpfs` ramdisk. As a result, a concomitant increase in memory utilization is expected. To benchmark this, the change in memory usage on a Pi 3 Model B+ with 1GB of RAM and a typical RaspAP installation will be compared.

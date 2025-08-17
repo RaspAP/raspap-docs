@@ -20,7 +20,7 @@ The exception to this is `hostapd.conf` which is effectively rewritten depending
 Baseline configurations for `dhcpcd`, `dnsmasq` (described below) and bridged AP configurations are contained here.
  
 ## Managing config values
-The interface itself, default Linux file paths and so on may be changed by modifying the project's configuration file `config.php`. 
+The interface itself, default Linux file paths, and so on may be changed by modifying the project's configuration file `config.php`. 
 
 !!! note "Note"
     The file `config/config.php` is copied during the installation to `includes/config.php` and ignored by Git. This way, users can modify `includes/config.php` without `git pull` or upgrades complaining about local changes. The file `includes/defaults.php` loads corresponding default values if they are not set.

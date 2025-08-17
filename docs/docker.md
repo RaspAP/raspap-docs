@@ -111,117 +111,119 @@ sudo usermod -aG docker $USER
 With these steps completed, you have successfully installed and started Docker Engine. We're now ready to deploy RaspAP.
 
 ## Deploying RaspAP
-With Docker Engine installed, you have two ways of deploying RaspAP in a Docker container. Each of these methods is described in the sections below.
+With Docker Engine installed, you have two ways of deploying RaspAP in a Docker container. Each of these methods is described in their resepective tabs below.
 
-### Using Docker compose
-This method lets us deploy the entire RaspAP application stack with a single command (`docker compose up`) as well as configure things like environment variables, network settings and so on in a centralized manner. Advanced users may also use this option to define a multi-container environment of which RaspAP is one component. This may be done with the `docker-compose.yml` file.
+=== "Using Docker compose"
+    This method lets us deploy the entire RaspAP application stack with a single command (`docker compose up`) as well as configure things like environment variables, network settings and so on in a centralized manner. Advanced users may also use this option to define a multi-container environment of which RaspAP is one component. This may be done with the `docker-compose.yml` file.
 
-Begin by cloning the `raspap-docker` [GitHub repository](https://github.com/RaspAP/raspap-docker) into your home directory, then change into it:
+    Begin by cloning the `raspap-docker` [GitHub repository](https://github.com/RaspAP/raspap-docker) into your home directory, then change into it:
 
-```
-cd ~/
-git clone https://github.com/RaspAP/raspap-docker.git
-cd raspap-docker
-```
+    ```
+    cd ~/
+    git clone https://github.com/RaspAP/raspap-docker.git
+    cd raspap-docker
+    ```
 
-For ARM devices, such as the Raspberry Pi, we must uncomment the `cgroup: host` line in the `docker-compose.yaml` file:
+    For ARM devices, such as the Raspberry Pi, we must uncomment the `cgroup: host` line in the `docker-compose.yaml` file:
 
-``` py hl_lines="9"
-version: "3.8"
-services:
-  raspap:
-    container_name: raspap
-    image: ghcr.io/raspap/raspap-docker:latest
-    #build: .
-    privileged: true
-    network_mode: host
-    cgroup: host # uncomment when using an ARM device 
-    cap_add:
-      - SYS_ADMIN
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    restart: unless-stopped
-```
+    ``` py hl_lines="9"
+    version: "3.8"
+    services:
+    raspap:
+        container_name: raspap
+        image: ghcr.io/raspap/raspap-docker:latest
+        #build: .
+        privileged: true
+        network_mode: host
+        cgroup: host # uncomment when using an ARM device 
+        cap_add:
+        - SYS_ADMIN
+        volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup:rw
+        restart: unless-stopped
+    ```
 
-Edit this file with `nano docker-compose.yaml`, change the line to appear as above, then use ++ctrl+o++ and press ++enter++ to save and exit the file.
+    Edit this file with `nano docker-compose.yaml`, change the line to appear as above, then use ++ctrl+o++ and press ++enter++ to save and exit the file.
 
-!!! warning "Important"
-    Do not use `docker-compose` but rather `docker compose`. If the latter isn't present on your system, refer to Docker's [installation steps](https://docs.docker.com/compose/install/).
+    !!! warning "Important"
+        Do not use `docker-compose` but rather `docker compose`. If the latter isn't present on your system, refer to Docker's [installation steps](https://docs.docker.com/compose/install/).
 
-With this configuration done, execute Docker compose like so:
+    With this configuration done, execute Docker compose like so:
 
-```
-docker compose up -d
-```
+    ```
+    docker compose up -d
+    ```
 
-You should see output similar to below to indicate the progress of RaspAP's Docker image being built: 
+    You should see output similar to below to indicate the progress of RaspAP's Docker image being built: 
 
-```
-docker compose up -d
-[+] Running 2/8
- ⠇ raspap 7 layers [⠀⡀⣿⣿⠀⠀⠀] 12.83MB/337.8MB Pulling
-   ⠋ 5665c1f9a9e1 Downloading [===>                        ]  3.547MB/49.59MB
-   ⠋ 4311202aff18 Downloading [=========>                  ]   4.98MB/24.95MB
-   ✔ ac4d205394f0 Download complete
-   ✔ baf57b850085 Download complete
-   ⠋ 18a1ed9b4ba8 Downloading [=>                          ]  4.307MB/263.3MB
-   ⠋ 5bed08c889b9 Waiting
-   ⠋ 09ed3fdeed88 Waiting
-```
+    ```
+    docker compose up -d
+    [+] Running 2/8
+    ⠇ raspap 7 layers [⠀⡀⣿⣿⠀⠀⠀] 12.83MB/337.8MB Pulling
+    ⠋ 5665c1f9a9e1 Downloading [===>                        ]  3.547MB/49.59MB
+    ⠋ 4311202aff18 Downloading [=========>                  ]   4.98MB/24.95MB
+    ✔ ac4d205394f0 Download complete
+    ✔ baf57b850085 Download complete
+    ⠋ 18a1ed9b4ba8 Downloading [=>                          ]  4.307MB/263.3MB
+    ⠋ 5bed08c889b9 Waiting
+    ⠋ 09ed3fdeed88 Waiting
+    ```
 
-During this process, a Docker image containing RaspAP's application stack will be created on your system. This build always pulls the [latest RaspAP release](https://github.com/RaspAP/raspap-webgui/releases/latest) from the main [GitHub repository](https://github.com/RaspAP/raspap-webgui/). 
+    During this process, a Docker image containing RaspAP's application stack will be created on your system. This build always pulls the [latest RaspAP release](https://github.com/RaspAP/raspap-webgui/releases/latest) from the main [GitHub repository](https://github.com/RaspAP/raspap-webgui/). 
 
-Behind the scenes, Docker has used the image it created to start a containerized RaspAP application stack. You may confirm this by executing the following:
+    Behind the scenes, Docker has used the image it created to start a containerized RaspAP application stack. You may confirm this by executing the following:
 
-```
-docker container ls
-CONTAINER ID   IMAGE           COMMAND                  CREATED        STATUS        PORTS     NAMES
-8d7b32b8373a   raspap:latest   "/bin/bash -c '/home…"   2 hours ago    Up 2 hours             raspap
-```
+    ```
+    docker container ls
+    CONTAINER ID   IMAGE           COMMAND                  CREATED        STATUS        PORTS     NAMES
+    8d7b32b8373a   raspap:latest   "/bin/bash -c '/home…"   2 hours ago    Up 2 hours             raspap
+    ```
 
-At this stage, the RaspAP application is running and you may access the web interface as you would normally. This will depend on the method you use to access your device, but is usually one of the following:
+    At this stage, the RaspAP application is running and you may access the web interface as you would normally. This will depend on the method you use to access your device, but is usually one of the following:
 
-- `http://raspberrypi.local`
-- `http://10.3.141.1`
-- `http://localhost`
+    - `http://raspberrypi.local`
+    - `http://10.3.141.1`
+    - `http://localhost`
 
-Take note that RaspAP and all its dependencies are wholly contained within the running Docker container. That is, the host system does not have any of the `apt` packages or application files used by RaspAP, unless you've explicitly installed them.
+    Take note that RaspAP and all its dependencies are wholly contained within the running Docker container. That is, the host system does not have any of the `apt` packages or application files used by RaspAP, unless you've explicitly installed them.
 
-### Using the container registry
-As an alternative to `docker compose`, described above, you may also deploy RaspAP using its hosted Docker container image. This is available as a `raspap-docker` package hosted on the [GitHub Container registry](https://ghcr.io/). With this method, a single container is defined from its base image, the environment is setup and the application is configured within the container.
+=== "Using the container registry"
+    As an alternative to `docker compose`, described above, you may also deploy RaspAP using its hosted Docker container image. This is available as a `raspap-docker` package hosted on the [GitHub Container registry](https://ghcr.io/). With this method, a single container is defined from its base image, the environment is setup and the application is configured within the container.
 
-Given that everything needed to deploy RaspAP is stored within this package, it isn't necessary to clone the `raspap-docker` respository. Instead, you may simply execute one of the following `docker run` commands:
+    Given that everything needed to deploy RaspAP is stored within this package, it isn't necessary to clone the `raspap-docker` respository. Instead, you may simply execute one of the following `docker run` commands:
 
-1. For ARM devices, the `cgroups` must be made writable.
-```
-docker run --name raspap -it -d --privileged --network=host --cgroupns=host -v /sys/fs/cgroup:/sys/fs/cgroup:rw --cap-add SYS_ADMIN ghcr.io/raspap/raspap-docker:latest
-```
-2. For non-ARM devices, execute the following.
-```
-docker run --name raspap -it -d --privileged --network=host -v /sys/fs/cgroup:/sys/fs/cgroup:ro --cap-add SYS_ADMIN ghcr.io/raspap/raspap-docker:latest
-```
+    1. For ARM devices, the `cgroups` must be made writable.
+    ```
+    docker run --name raspap -it -d --privileged --network=host --cgroupns=host -v /sys/fs/cgroup:/sys/fs/cgroup:rw --cap-add SYS_ADMIN ghcr.io/raspap/raspap-docker:latest
+    ```
+    2. For non-ARM devices, execute the following.
+    ```
+    docker run --name raspap -it -d --privileged --network=host -v /sys/fs/cgroup:/sys/fs/cgroup:ro --cap-add SYS_ADMIN ghcr.io/raspap/raspap-docker:latest
+    ```
 
-With either of the above commands, you should see output as below followed by progress indicating the state of the various package components as they are downloaded to your system:
+    With either of the above commands, you should see output as below followed by progress indicating the state of the various package components as they are downloaded to your system:
 
-```
-Unable to find image 'ghcr.io/raspap/raspap-docker:latest' locally
-latest: Pulling from raspap/raspap-docker
-```
+    ```
+    Unable to find image 'ghcr.io/raspap/raspap-docker:latest' locally
+    latest: Pulling from raspap/raspap-docker
+    ```
 
-When the container image download is completed, you may verify its operational state like so:
-```
-docker container ls
-CONTAINER ID   IMAGE                                 COMMAND                  CREATED          STATUS          PORTS     NAMES
-4257b8aa3c7e   ghcr.io/raspap/raspap-docker:latest   "/bin/bash -c '/home…"   32 minutes ago   Up 32 minutes             raspap
-```
+    When the container image download is completed, you may verify its operational state like so:
+    ```
+    docker container ls
+    CONTAINER ID   IMAGE                                 COMMAND                  CREATED          STATUS          PORTS     NAMES
+    4257b8aa3c7e   ghcr.io/raspap/raspap-docker:latest   "/bin/bash -c '/home…"   32 minutes ago   Up 32 minutes             raspap
+    ```
 
-At this stage, the RaspAP application stack is running and you may access the web interface as you would normally. This will depend on the method you use to access your device, but is usually one of the following:
+    At this stage, the RaspAP application stack is running and you may access the web interface as you would normally. This will depend on the method you use to access your device, but is usually one of the following:
 
-- `http://raspberrypi.local`
-- `http://10.3.141.1`
-- `http://localhost`
+    - `http://raspberrypi.local`
+    - `http://10.3.141.1`
+    - `http://localhost`
 
-Take note that RaspAP and all its dependencies are wholly contained within the running Docker container. That is, the host system does not have any of the `apt` packages or application files used by RaspAP, unless you've explicitly installed them.
+    Take note that RaspAP and all its dependencies are wholly contained within the running Docker container. That is, the host system does not have any of the `apt` packages or application files used by RaspAP, unless you've explicitly installed them.
+
+---
 
 ## Tips and tricks
 The following section has some general advice that users of RaspAP's Docker container have found useful. If you have a tip or trick to contribute, feel free to join our [discussions](docker.md#discussions). 

@@ -38,6 +38,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [RaspAP web UI fails to start or unable to save settings.](#webfail)
 * [Why do I receive an 'Invalid CSRF token' message and a blank screen?](#token)
 * [My hotspot's SSID appears intermittently or clients are unable to connect.](#intermittent)
+* [Why do I not see any data in 'Data Usage' for one of my interfaces?](#data-usage)
 
 ## Integrations
 * [How do I integrate RaspAP with Pi-hole?](#pihole)
@@ -461,6 +462,14 @@ In the vast majority of reports like this, the ultimate cause is interference of
 
 Other common forms of interference include nearby wireless networks. Survey your wireless neighborhood and take note of the channels (frequencies) being used to broadcast around you. Select an unused or less contested channel on RaspAP's **Hotspot > Basic** tab, and choose **Restart hotspot**. Enable logging on the **Logging** tab and monitor client connect activity.
 
+## <a name="data-usage"></a>Why do I not see any data in 'Data Usage' for one of my interfaces?
+This is likely due to the the `vnstat` service not having enough data for the interface(s). Try running the command `vnstat`, and look for the interface that is missing data. If you do not see the interface, run the command `sudo vnstat -i wlan1 --live` (replace `wlan1` with the desired interface). If you see data, then add the interface with the following command: `sudo vnstat -i wlan1 --add`. You should see the following output:
+```
+Adding interface "wlan1" to database for monitoring.
+vnStat daemon will automatically start monitoring "wlan1" within 5 minutes if the daemon process is currently running.
+```
+You can leave the service running as is, or restart it using the command `sudo service vnstat restart`. Eventually, you should see data for the desired interface when running the `vnstat` command, and will eventually see data in the graph(s).
+
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
 
@@ -746,7 +755,7 @@ You may also use RaspAP's built-in WireGuard logging facility. On the **WireGuar
 output in the tab and look for any errors.
 
 !!! tip "Tip"
-    The debug log facility queries the `systemd` journal with a one-time execution of `journalctl --identifier wg-quick`. If you want to update this log output, simply enable the option again. You may also execute this command directly from the shell, if you wish.
+    The [debug log](troubleshooting.md#debug-log) facility queries the `systemd` journal with a one-time execution of `journalctl --identifier wg-quick`. If you want to update this log output, simply enable the option again. You may also execute this command directly from the shell, if you wish.
 
 Finally, you may check and verify the WireGuard config itself, including PostUp / PostDown rules, by executing `sudo cat /etc/wireguard/wg0.conf`.
 
