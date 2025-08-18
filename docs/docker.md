@@ -188,7 +188,7 @@ With Docker Engine installed, you have two ways of deploying RaspAP in a Docker 
     Take note that RaspAP and all its dependencies are wholly contained within the running Docker container. That is, the host system does not have any of the `apt` packages or application files used by RaspAP, unless you've explicitly installed them.
 
 === "Using the container registry"
-    As an alternative to `docker compose`, described above, you may also deploy RaspAP using its hosted Docker container image. This is available as a `raspap-docker` package hosted on the [GitHub Container registry](https://ghcr.io/). With this method, a single container is defined from its base image, the environment is setup and the application is configured within the container.
+    RaspAP may also be deployed by using its Docker container image. This is available as a package hosted on the [GitHub Container registry](https://ghcr.io/). With this method, a single container is defined from its base image, the environment is setup and the application is configured within the container.
 
     Given that everything needed to deploy RaspAP is stored within this package, it isn't necessary to clone the `raspap-docker` respository. Instead, you may simply execute one of the following `docker run` commands:
 
