@@ -117,6 +117,7 @@ plugins:
   - git-committers:
       repository: RaspAP/raspap-docs
   - mkdocs-video
+  - glightbox
 extra_css:
   - stylesheets/extra.css
 extra:
