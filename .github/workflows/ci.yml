@@ -27,14 +27,8 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - name: Install MkDocs and plugins
-        run: |
-          pip install mkdocs-material \
-                      mkdocs-git-revision-date-localized-plugin \
-                      mkdocs-git-committers-plugin-2 \
-                      pillow \
-                      cairosvg \
-                      mkdocs-video
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       - name: Verify installed packages
         run: |
           pip list
