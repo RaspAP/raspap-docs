@@ -115,7 +115,7 @@ plugins:
   - search
   - git-revision-date-localized
   - git-committers:
-      repository: RaspAP/raspap-docs
+      repository: ./ #RaspAP/raspap-docs
   - mkdocs-video
   - glightbox
 extra_css:
