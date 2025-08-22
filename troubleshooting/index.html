@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -33,39 +33,63 @@
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
@@ -106,7 +130,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1531,11 +1564,11 @@
 <h2 id="service-logging">Service logging</h2>
 <p>If your RaspAP router behaves unexpectedly, one of the best diagnostic tools at your disposal is the built-in service logging facility. You may enable the <code>hostapd</code> service log by sliding the <strong>Logfile output</strong> toggle on the <strong>Hotspot &gt; Logging</strong> tab and choosing <strong>Save settings</strong>. Finally, choose
 <strong>Restart hotspot</strong> and check the log output.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png" style="width:580px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/116439036-5c56b080-a84f-11eb-87ee-318932347daf.png" style="width:580px"></a></p>
 <p>Similarly, you may also enable DHCP server activity by sliding either of the two logging options on the <strong>DHCP server &gt; Logging</strong> tab. Many of RaspAP's optional components have a <strong>Logging</strong> or <strong>Status</strong> tab that provide useful diagnostic information.</p>
 <h2 id="debug-log">Debug log</h2>
 <p>In some situations, you may need more comprehensive information to diagnose a problem. RaspAP lets you generate a debug log with a detailed summary of your system including the installed OS, Linux kernel version, attached USB devices, RaspAP settings, network configuration and current state of several AP-related services.</p>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad" style="width:480px"></p>
+<p><a class="glightbox" href="https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/66bf5cb5-3d77-44aa-92b8-5ebca6f003ad" style="width:480px"></a></p>
 <p>To create this log, simply click or tap on the <strong>Generate debug log</strong> button from the <strong>System &gt; Tools</strong> tab. You will be prompted to choose a location to store the generated <code>raspap_debug.log</code> file on your local computer or mobile device.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1577,7 +1610,7 @@
 <h2 id="inspect-network-adapters">Inspect network adapters</h2>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span> <a href="../insiders/">Insiders only</a></p>
 <p>If you've installed an external WLAN or other adapter on your device, RaspAP can assist you with troubleshooting common issues. The <strong>System &gt; Tools &gt; Inspect adapters</strong> button will open a dialog that lets you perform a comprehensive inspection of your network adapters. </p>
-<p><img alt="adapter health check" src="../images/health-check.png" style="width:580px"></p>
+<p><a class="glightbox" href="../images/health-check.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="adapter health check" src="../images/health-check.png" style="width:580px"></a></p>
 <p>The inspection tool returns details about available network hardware including drivers, firmware versions, supported modes and so on. RaspAP also has an innovative one-click <strong>Adapter health check</strong> option. This performs a multi-step check of your selected adapter to identify common problems that may prevent it from working with RaspAP.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1635,34 +1668,6 @@ Install <code>colordiff</code> with <code>sudo apt-get install colordiff</code>.
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/ruralmeltdown" class="md-author" title="@ruralmeltdown">
-          
-          <img src="https://avatars.githubusercontent.com/u/219453765?v=4&size=72" alt="ruralmeltdown">
-        </a>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -1798,7 +1803,8 @@ Install <code>colordiff</code> with <code>sudo apt-get install colordiff</code>.
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -1855,5 +1861,7 @@ Install <code>colordiff</code> with <code>sudo apt-get install colordiff</code>.
       <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

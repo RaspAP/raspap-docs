@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -33,39 +33,63 @@
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
@@ -106,7 +130,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -2726,7 +2759,7 @@ FAQ items are organized into thematic sections, below, for easier reference.</p>
 <p>Please be aware that "supported" <a href="../issues/#supported-devices">is not a guarantee</a>. That is, if you experience issues with RaspAP in your desktop environment, it's <em>your</em> responsibility (not the maintainers of this project) to eliminate potential conflicts with other software that you've installed <em>after</em> booting a fresh desktop OS. Before reporting a bug, you may use one of several <a href="../issues/#issue-policy">community support channels</a> to help you determine the cause of your issue or find a potential workaround.</p>
 <h2 id="what-do-all-these-settings-in-the-ui-do-changing-them-seems-to-have-no-effect"><a name="settings"></a>What do all these settings in the UI do? Changing them seems to have no effect.</h2>
 <p>RaspAP manipulates several daemons, services and helper programs behind the scenes for you. In the footer of each management panel is a helpful "Information provided by..." label. These indicate which Linux daemon and/or program is being modified by the UI. Learning what these services are and how they work will go a long way toward demystifying things.</p>
-<p><img alt="" src="https://i.imgur.com/q1RflMy.png" style="width:350px"></p>
+<p><a class="glightbox" href="https://i.imgur.com/q1RflMy.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://i.imgur.com/q1RflMy.png" style="width:350px"></a></p>
 <p>For example, two of the best starting points for understanding <code>hostapd</code> (the service that implements 802.11 AP management) include the <a href="https://wireless.wiki.kernel.org/en/users/Documentation/hostapd">hostapd Linux documentation page</a> and <a href="https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf">hostapd Wifi homepage</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2848,7 +2881,7 @@ After this is done, the web server will refuse connections to all IP addresses o
 3. The access point is misconfigured.</p>
 <p>The first and simplest fix is to reconnect the client to your WiFi network. When you do this, the AP forgets the previous attempt and initiates a new process to assign an IP address to your device.
 Exact methods vary between devices, however most will have a 'Forget this network' option or similar in the WiFi settings. This is shown in iOS, below:</p>
-<p><img alt="" src="https://i.imgur.com/7xvx5JT.png" style="width:350px"></p>
+<p><a class="glightbox" href="https://i.imgur.com/7xvx5JT.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://i.imgur.com/7xvx5JT.png" style="width:350px"></a></p>
 <p>If clients still fail to connect, restart the AP. You may do this by choosing <strong>Restart hotspot</strong> from RaspAP. This reinitializes several related services in a predictable order and timing.
 Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.</p>
 <p>RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its <a href="../defaults/">default settings</a>, RaspAP has been rigorously
@@ -3186,7 +3219,7 @@ MIME type embedded in it before uploading.</p>
 for use with Linux with <code>dos2unix</code> or one of several online tools made for this purpose. </p>
 <h2 id="i-think-my-traffic-isnt-being-routed-through-the-wireguard-vpn-can-i-debug-this"><a name="wgtraffic"></a>I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?</h2>
 <p>There are several things you can do to troubleshoot this. First, with the WireGuard service active, verify your public IPv4 address and check the external link, as shown below:</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" style="width:276px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" style="width:276px"></a></p>
 <p>Next, you may check the WireGuard service status by executing <code>sudo systemctl status wg-quick@wg0.service</code> from the shell, like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>$ sudo systemctl status wg-quick@wg0.service
 </span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>● wg-quick@wg0.service - WireGuard via wg-quick(8) for wg0
@@ -3255,7 +3288,7 @@ The resulting iptables chain should look something like this:
 Refer to <a href="https://github.com/RaspAP/raspap-webgui/issues/333#issue-454352554">this issue</a>.
 <h2 id="why-is-the-channel-dropdown-disabled-on-the-hotspot-page"><a name="channels"></a> Why is the channel dropdown disabled on the Hotspot page?</h2>
 <p>RaspAP is capable of detecting the frequencies (channels) supported by each of your device's wireless interfaces. If an interface is selected that is not capable of broadcasting on the 5 GHz band, the associated channels and the <strong>Save settings</strong> button are disabled. Next to the <strong>Wireless Mode</strong> selector, a tooltip <span class="twemoji" style='"color:' var_--md-default-fg-color--light_="var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m0-336c-17.7 0-32 14.3-32 32 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-44.2 35.8-80 80-80s80 35.8 80 80c0 47.2-36 67.2-56 74.5v3.8c0 13.3-10.7 24-24 24s-24-10.7-24-24v-8.1c0-20.5 14.8-35.2 30.1-40.2 6.4-2.1 13.2-5.5 18.2-10.3 4.3-4.2 7.7-10 7.7-19.6 0-17.7-14.3-32-32-32zm-32 192a32 32 0 1 1 64 0 32 32 0 1 1-64 0"></path></svg></span> will provide a brief explanation. </p>
-<p><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb" style="width:320px"></p>
+<p><a class="glightbox" href="https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://github.com/RaspAP/raspap-webgui/assets/229399/576531cd-fcf1-4377-9d51-3824ee498efb" style="width:320px"></a></p>
 <p>In this case, selecting a compatible 2.4 GHz wireless mode will populate the list of available channels for that interface. Alternatively, select another interface or connect a 5 GHz capable external wireless adapter. RaspAP will automatically detect the adapter and add it to the list of available interfaces.</p>
 <h2 id="80211ac-is-supposed-to-operate-at-433-mbps-why-is-my-aps-throughput-so-much-less"><a name="433ac"></a> 802.11ac is supposed to operate at 433 Mbps. Why is my AP's throughput so much less?</h2>
 <p>The 802.11ac wireless standard uses 433 Mbps per spatial stream in the 5GHz band. Therefore, the theoretical maximum speed for a single-stream device is 433 Mbps when using an 80 MHz wide channel. However, real-world speeds are often significantly less due to a number of factors.</p>
@@ -3297,7 +3330,7 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <h2 id="how-do-i-upgrade-raspap"><a name="upgrade"></a>How do I upgrade RaspAP?</h2>
 <p>Upgrading an existing install without changing your configuration is very straightforward. Several different methods are described below.</p>
 <p>The <a href="https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2">version 3.0.2</a> release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the <strong>About</strong> page and click or tap on the <strong>Check for update</strong> button. This queries the GitHub API for the latest release version, compares it with your current install and prompts you to upgrade if a newer release is available.</p>
-<p><img alt="Update" src="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" style="width:520px"></p>
+<p><a class="glightbox" href="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Update" src="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" style="width:520px"></a></p>
 <p>No other actions are required on your behalf. Alternatively, you may also use the <a href="../quick/">Quick installer</a> to upgrade to the <a href="https://github.com/RaspAP/raspap-webgui/releases/latest">latest release</a> version. This is done with the <code>--upgrade</code> option, as shown below:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
 </span></code></pre></div>
@@ -3366,39 +3399,6 @@ Change the value in this line to the release version, save the file and exit.
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/ruralmeltdown" class="md-author" title="@ruralmeltdown">
-          
-          <img src="https://avatars.githubusercontent.com/u/219453765?v=4&size=72" alt="ruralmeltdown">
-        </a>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
-        </a>
-      
-        <a href="https://github.com/moaipool" class="md-author" title="@moaipool">
-          
-          <img src="https://avatars.githubusercontent.com/u/84546123?v=4&size=72" alt="moaipool">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -3534,7 +3534,8 @@ Change the value in this line to the release version, save the file and exit.
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -3591,5 +3592,7 @@ Change the value in this line to the release version, save the file and exit.
       <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

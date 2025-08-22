@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -33,39 +33,63 @@
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
@@ -106,7 +130,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1529,7 +1562,7 @@
 
 
 <div><h1 id="openvpn">OpenVPN</h1>
-<p><img alt="openvpn" src="https://github.com/user-attachments/assets/23e6eb70-5fab-4d71-b6d6-1f08238dfb22" style="width:640px"></p>
+<p><a class="glightbox" href="https://github.com/user-attachments/assets/23e6eb70-5fab-4d71-b6d6-1f08238dfb22" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="openvpn" src="https://github.com/user-attachments/assets/23e6eb70-5fab-4d71-b6d6-1f08238dfb22" style="width:640px"></a></p>
 <h2 id="overview">Overview</h2>
 <p>OpenVPN may be optionally installed by the <a href="../quick/">Quick Installer</a>. Once this is done, you can create a client configuration and manage the <code>openvpn-client</code> service with RaspAP.</p>
 <h2 id="enabling-openvpn">Enabling OpenVPN</h2>
@@ -1559,12 +1592,12 @@ public IP.</p>
 <h2 id="multiple-client-configs">Multiple client configs</h2>
 <p>RaspAP lets you manage multiple OpenVPN client configurations. This includes the ability to upload, activate and delete any number of valid <code>.ovpn</code> files and
 associated login credentials. Thereafter, switching between them is done by simply activating the desired profile. Traffic is automatically routed to clients connected on the AP interface. </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/147851803-ba8747f0-9c73-43ae-97ea-99be23b98861.png" style="width:450px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/147851803-ba8747f0-9c73-43ae-97ea-99be23b98861.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/147851803-ba8747f0-9c73-43ae-97ea-99be23b98861.png" style="width:450px"></a></p>
 <p>Activating a profile will restart the <code>openvpn-client</code> service automatically. Additionally, <code>openvpn-service</code> activity may be tracked in the <strong>Logging</strong> tab. </p>
 <h2 id="certificate-authentication">Certificate authentication</h2>
 <p>Alternatively, you may also authenticate with a signing <strong>certification authority (CA) certificate</strong>. This is an alternative to the default username and password authentication, and is
 often used with a private or self-hosted OpenVPN server.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/113760359-68e75d80-9716-11eb-82ea-5ed1307e8496.png" style="width:450px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/113760359-68e75d80-9716-11eb-82ea-5ed1307e8496.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/113760359-68e75d80-9716-11eb-82ea-5ed1307e8496.png" style="width:450px"></a></p>
 <p>To use this method, upload an OpenVPN configuration file (.ovpn) with the certificate authority (CA) certficate, client certificate and client private key enclosed in tags as described above.</p>
 <h2 id="mitigating-dns-leaks">Mitigating DNS leaks</h2>
 <p>Remote hosts use a variety of methods to defeat VPNs, some more aggressively than others. Many VPN providers will advise you to configure custom DNS servers to mitigate DNS leaks,
@@ -1608,29 +1641,6 @@ A consequence of DoH is that DNS requests will be resolved by Mozilla's DNS serv
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -1766,7 +1776,8 @@ A consequence of DoH is that DNS requests will be resolved by Mozilla's DNS serv
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -1823,5 +1834,7 @@ A consequence of DoH is that DNS requests will be resolved by Mozilla's DNS serv
       <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -33,39 +33,63 @@
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
@@ -106,7 +130,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1607,7 +1640,7 @@
 
 
 <div><h1 id="restapi">RestAPI</h1>
-<p><img alt="restful-api" src="https://github.com/user-attachments/assets/51b6ae1b-5cbf-4552-ad30-210cc68f854b" style="width:640px"></p>
+<p><a class="glightbox" href="https://github.com/user-attachments/assets/51b6ae1b-5cbf-4552-ad30-210cc68f854b" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="restful-api" src="https://github.com/user-attachments/assets/51b6ae1b-5cbf-4552-ad30-210cc68f854b" style="width:640px"></a></p>
 <h2 id="overview">Overview</h2>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental </p>
 <p>RaspAP includes support for stateless client-server data exchange via a high performance RESTful API. This allows clients to communicate with the API over HTTP with standard methods such as GET and POST and receive responses in JSON. RaspAP's API is powered by <a href="https://fastapi.tiangolo.com/">FastAPI</a>, one of the <a href="https://fastapi.tiangolo.com/#performance">fastest Python frameworks available</a>.</p>
@@ -1650,13 +1683,13 @@
 <li>Choose <strong>Save settings</strong>. Your API key is stored in <code>/etc/raspap/api/.env</code>.</li>
 <li>Copy your API key to the clipboard for use in the Authorization section.</li>
 </ol>
-<p><img alt="restapi-settings" src="https://github.com/RaspAP/raspap-webgui/assets/229399/07fd0203-0fec-4600-84f3-88dc013abcae" style="width:520px"></p>
+<p><a class="glightbox" href="https://github.com/RaspAP/raspap-webgui/assets/229399/07fd0203-0fec-4600-84f3-88dc013abcae" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="restapi-settings" src="https://github.com/RaspAP/raspap-webgui/assets/229399/07fd0203-0fec-4600-84f3-88dc013abcae" style="width:520px"></a></p>
 <p>The <code>restapi.service</code> will be automatically restarted when updating your API key. At this stage, you have a valid API key that may be used to authenticate with the RestAPI. This is described in the next section.</p>
 <h3 id="authorization">Authorization</h3>
 <p>Now, click or tap the RestAPI docs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> link to open the documentation in a new window. The API docs are fully interactive, meaning you may test any of the available endpoints and receive a valid server response. Begin by choosing the green <strong>Authorize  <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M128 96v64h128V96c0-35.3-28.7-64-64-64s-64 28.7-64 64m-64 64V96c0-70.7 57.3-128 128-128S320 25.3 320 96v64c35.3 0 64 28.7 64 64v224c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64"></path></svg></span></strong> button, shown below:</p>
-<p><img alt="restapi-docs" src="https://github.com/RaspAP/raspap-webgui/assets/229399/f5a1bd5d-8dda-4b94-96e5-94f159a2b85c" style="width:520px"></p>
+<p><a class="glightbox" href="https://github.com/RaspAP/raspap-webgui/assets/229399/f5a1bd5d-8dda-4b94-96e5-94f159a2b85c" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="restapi-docs" src="https://github.com/RaspAP/raspap-webgui/assets/229399/f5a1bd5d-8dda-4b94-96e5-94f159a2b85c" style="width:520px"></a></p>
 <p>This will open a dialog where you may enter your API key, which will be passed as an <code>access_token</code> in the HTTP request header. Paste the key you created in the previous step into the "Value" text field and choose the <strong>Authorize</strong> button: </p>
-<p><img alt="restapi-dialog" src="https://github.com/RaspAP/raspap-webgui/assets/229399/28023ea4-428a-49db-ad3e-3575ff109582" style="width:520px"></p>
+<p><a class="glightbox" href="https://github.com/RaspAP/raspap-webgui/assets/229399/28023ea4-428a-49db-ad3e-3575ff109582" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="restapi-dialog" src="https://github.com/RaspAP/raspap-webgui/assets/229399/28023ea4-428a-49db-ad3e-3575ff109582" style="width:520px"></a></p>
 <p>At this stage, the dialog should indicated "Authorized". Dismiss the dialog by choosing <strong>Close</strong>. You may now proceed with testing the API interactively.</p>
 <h2 id="testing-endpoints">Testing endpoints</h2>
 <p>With authorization done, you may test any of RaspAP's available RestAPI endpoints. Start with the first available <code>/system</code> (Get System) endpoint. Click or tap anywhere in this endpoint's header area and choose the <strong>Try it out</strong> button. This endpoint takes no parameters, so you may simply use the <strong>Execute</strong> button to query the API. An example client request and corresponding server response are shown below.</p>
@@ -1744,29 +1777,6 @@
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -1902,7 +1912,8 @@
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -1959,5 +1970,7 @@
       <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

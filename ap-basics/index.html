@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -33,39 +33,63 @@
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
@@ -106,7 +130,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1691,7 +1724,7 @@ As part of this initial setup, the <code>hostapd</code> service broadcasts an AP
 <strong>Passphrase:</strong> <code>ChangeMe</code>  </p>
 <p>Each of these settings may be changed on the <strong>Hotspot &gt; Basic</strong> and <strong>Security</strong> tabs to any values you wish. Your changes will be applied and made visible on the broadcasted AP by choosing
 <strong>Save settings</strong> followed by <strong>Restart hotspot</strong>.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/115685883-efc44900-a358-11eb-8b9b-95c1029a2cad.png"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/115685883-efc44900-a358-11eb-8b9b-95c1029a2cad.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/115685883-efc44900-a358-11eb-8b9b-95c1029a2cad.png"></a></p>
 <p>At this point, a dialog will appear to indicate the progress of the RaspAP service. This is a Linux <code>systemd</code> process that is responsible for starting up several network services in a specific order and timing.</p>
 <h2 id="connecting-clients">Connecting clients</h2>
 <p>When the AP is operational, you may connect clients to it by using one of two methods:</p>
@@ -1716,7 +1749,7 @@ As part of this initial setup, the <code>hostapd</code> service broadcasts an AP
 <p>WPA3 is an improved encryption standard, thanks to Simultaneous Authentication of Equals (SAE) which replaces the Pre-Shared Key (PSK) authentication method used in prior WPA
 versions. WPA3-Personal allows for better password-based authentication even when using simple passphrases. In general, WPA3-Personal networks with simple passphrases are more difficult to crack
 by using brute-force, dictionary-based methods, as with WPA/WPA2.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/148420827-51b176de-182e-48eb-962d-2943a47c8549.png" style="width:400px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/148420827-51b176de-182e-48eb-962d-2943a47c8549.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/148420827-51b176de-182e-48eb-962d-2943a47c8549.png" style="width:400px"></a></p>
 <p>WPA3 also requires the use of Protected Management Frames (PMFs) to increase network security. If you wish to connect AP clients that may not have support for WPA3-Personal or PMFs, a transitional 
 security mode is also available.</p>
 <div class="admonition note">
@@ -1731,7 +1764,7 @@ a malicious third-party. These 802.11w Protected Management Frames (PMFs) can mi
 while also allowing devices that support 802.11w to use the PMF features. <em>Required</em> will prevent clients that do not support 802.11w from associating with the SSID.</p>
 <h2 id="printable-signs">Printable signs</h2>
 <p>Beneath the QR code on the <strong>Hotspot &gt; Security</strong> tab, you will find a link to open a "Wi-Fi connect" sign suitable for printing. Click or tap the link after the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 64c0-35.3 28.7-64 64-64h213.5c17 0 33.3 6.7 45.3 18.7l42.5 42.5c12 12 18.7 28.3 18.7 45.3V144H64zM0 256c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v96c0 17.7-14.3 32-32 32h-32v64c0 35.3-28.7 64-64 64H128c-35.3 0-64-28.7-64-64v-64H32c-17.7 0-32-14.3-32-32zm128 160v32h256v-96H128zm328-144a24 24 0 1 0-48 0 24 24 0 1 0 48 0"></path></svg></span> printer icon to open a new window with your hotspot's QR code, SSID and password neatly formatted.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/148738058-dfe7ea04-d59b-460a-a8b8-f0fca15ef715.png" style="width:580px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/148738058-dfe7ea04-d59b-460a-a8b8-f0fca15ef715.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/148738058-dfe7ea04-d59b-460a-a8b8-f0fca15ef715.png" style="width:580px"></a></p>
 <p>To print, select <strong>File &gt; Print</strong> from your browser's toolbar and adjust print preferences as needed. This feature can be especially useful if you operate a public wireless access point. You may also
 opt to integrate a <a href="../captive/">captive portal</a> for your visitors.</p>
 <h2 id="advanced-options">Advanced options</h2>
@@ -1742,7 +1775,7 @@ you will no longer be able to access the web interface from the default <code>10
 <h3 id="wifi-repeater-mode">WiFi repeater mode</h3>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span> <a href="../insiders/">Insiders only</a></p>
 <p>RaspAP is capable of acting as a <a href="../repeater/">wireless repeater</a> to connect to your wireless network and rebroadcast an existing signal. This requires configuring interface metrics and default routes with DHCP. Alternatively, enabling the <strong>WiFi repeater mode</strong> toggle will create these settings for you automatically.</p>
-<p><img alt="WiFi repeater mode" src="https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a" style="width:420px"></p>
+<p><a class="glightbox" href="https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="WiFi repeater mode" src="https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a" style="width:420px"></a></p>
 <p>Save settings and choose <strong>Restart hotspot</strong> to active the wireless repeater. As with AP-STA mode, described below, this option is disabled or "greyed out" until a wireless client is configured. </p>
 <h3 id="wifi-client-ap-mode">WiFi client AP mode</h3>
 <p>RaspAP lets you enable this special mode, also known as a <strong>micro-AP</strong> or simply <strong>AP-STA</strong>. Before using this mode, it's essential that users familiarize themselves with <a href="../ap-sta/">how AP-STA works</a>.</p>
@@ -1763,7 +1796,7 @@ you will no longer be able to access the web interface from the default <code>10
 <h3 id="transmit-power">Transmit power</h3>
 <p>RaspAP allows you to control the transmit power of the configured AP interface. The default "auto" setting will suffice for the vast majority of APs. A lower <code>txpower</code> value
 can be useful to mitigate WiFi radio interference, for example if you are hosting multiple APs in a given area. It can also be advantageous to set <code>txpower</code> to a lower value in IoT or similar applications where reduced power consumption is needed.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/115698577-0f616e80-a365-11eb-80e5-404527ca7bdb.png" style="width:375px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/115698577-0f616e80-a365-11eb-80e5-404527ca7bdb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/115698577-0f616e80-a365-11eb-80e5-404527ca7bdb.png" style="width:375px"></a></p>
 <p>Set the transmit power by selecting a value from the dropdown and choosing <strong>Save settings</strong>. The transmit power setting is expressed as dBm, or decibels (dB) with reference to one milliwatt (mW). 
 It is not necessary to restart the AP for this to take effect. </p>
 <h3 id="maximum-number-of-clients">Maximum number of clients</h3>
@@ -1813,29 +1846,6 @@ It is not necessary to restart the AP for this to take effect. </p>
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -1971,7 +1981,8 @@ It is not necessary to restart the AP for this to take effect. </p>
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -2028,5 +2039,7 @@ It is not necessary to restart the AP for this to take effect. </p>
       <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

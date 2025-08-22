@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -33,39 +33,63 @@
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
@@ -106,7 +130,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1233,45 +1266,12 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating a certificate">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#manual-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Manual steps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quick-installer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick installer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#client-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Client configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mobile-devices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mobile devices
     </span>
   </a>
   
@@ -1419,45 +1419,12 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating a certificate">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#manual-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Manual steps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quick-installer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick installer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#client-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Client configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mobile-devices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mobile devices
     </span>
   </a>
   
@@ -1505,17 +1472,19 @@
 
 
 <div><h1 id="ssl-certificates">SSL certificates</h1>
-<p><img alt="ssl-certificates" src="https://github.com/user-attachments/assets/b7dd2965-8b2e-408a-ac97-f205b913fbe2" style="width:640px"></p>
+<p><a class="glightbox" href="https://github.com/user-attachments/assets/b7dd2965-8b2e-408a-ac97-f205b913fbe2" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-certificates" src="https://github.com/user-attachments/assets/b7dd2965-8b2e-408a-ac97-f205b913fbe2" style="width:640px"></a></p>
 <h2 id="overview">Overview</h2>
 <p>HTTPS prevents network attackers from observing or injecting page contents. This is desirable for server applications like RaspAP — or indeed any locally hosted web application. But HTTPS requires <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">TLS certificates</a>, and while deploying public websites is largely a solved issue thanks to the ACME protocol and Let's Encrypt, local web servers still mostly use HTTP because no one can get a universally valid certificate for localhost.</p>
 <h2 id="locally-trusted-certificates">Locally trusted certificates</h2>
 <p>Managing your own Certificate Authority (CA) is the best solution, but this usually requires an involved manual setup routine. An excellent solution for local websites is <a href="https://github.com/FiloSottile/mkcert">mkcert</a>. This is a zero-config tool for making locally-trusted certificates with any name you like. <code>mkcert</code> automatically creates and installs a local CA in the system root store and generates locally-trusted certificates. It also works perfectly well with RaspAP. This allows you to generate a trusted certificate for a hostname (for example, <code>raspap.local</code>) or IP address because it only works for you. </p>
-<p><img alt="raspap.local" src="https://user-images.githubusercontent.com/229399/228976581-34beed42-9f08-4ece-9c1b-e5a865415dab.png" style="width:450px"></p>
-<p>Here's the twist: it doesn't generate self-signed certificates, but certificates signed by your own private CA. This tool does not automatically configure servers or mobile clients to use the certificates, though — that's up to you. These steps are covered in detail below.</p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/228976581-34beed42-9f08-4ece-9c1b-e5a865415dab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="raspap.local" src="https://user-images.githubusercontent.com/229399/228976581-34beed42-9f08-4ece-9c1b-e5a865415dab.png" style="width:450px"></a></p>
+<p>Here's the twist: it doesn't generate self-signed certificates, but certificates signed by your own private CA. This tool does not automatically configure servers or mobile clients to use the certificates though. There are some steps for macOS and Windows are covered in the <a href="#client-configuration">Client Configuration</a> section below.</p>
 <p>Read more about mkcert <a href="https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/">here</a> and <a href="https://github.com/FiloSottile/mkcert">follow the project on GitHub</a>.</p>
 <h2 id="creating-a-certificate">Creating a certificate</h2>
-<p>There are two options to go about creating a self-signed certificate with mkcert: 1) <a href="#manual-steps">manually</a>, or 2) with the <a href="#quick-installer">Quick installer</a>. Both methods are described below.</p>
-<h3 id="manual-steps">Manual steps</h3>
+<p>There are two options to go about creating a self-signed certificate with mkcert: 1) manually, or 2) with the 'Quick Installer'. Both methods are described below.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="manual-steps" name="__tabbed_1" type="radio"><input id="quick-installer" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="manual-steps">Manual steps</label><label for="quick-installer">Quick installer</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Follow the steps below to generate and install a locally-trusted certificate for RaspAP. The local domain <code>raspap.local</code> is used in the examples below. You may substitute this with the default <code>raspberrypi.local</code> or your own hostname. </p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1538,9 +1507,9 @@ You should see output like the following:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Using the local CA at "/home/pi/.local/share/mkcert" ✨
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Created a new certificate valid for the following names 📜
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> - "raspap.local"
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a> - "*.raspap.local"
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a> - "raspap.local"
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>- "raspap.local"
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- "*.raspap.local"
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>- "raspap.local"
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Reminder: X.509 wildcards only go one level deep, so this won't match a.b.raspap.local ℹ️
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>The certificate is at "./raspap.local+2.pem" and the key at "./raspap.local+2-key.pem" ✅
@@ -1581,18 +1550,18 @@ Verify that lighttpd has restarted without errors:
 </span></code></pre></div>
 You should see a response like the following:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>● lighttpd.service - Lighttpd Daemon
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>     Loaded: loaded (/lib/systemd/system/lighttpd.service; enabled; vendor preset: enabled)
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>     Active: active (running) since Sun 2023-03-26 10:09:46 CEST; 5 days ago
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>   Main PID: 1080 (lighttpd)
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    Loaded: loaded (/lib/systemd/system/lighttpd.service; enabled; vendor preset: enabled)
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    Active: active (running) since Sun 2023-03-26 10:09:46 CEST; 5 days ago
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  Main PID: 1080 (lighttpd)
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>      Tasks: 6 (limit: 779)
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        CPU: 5min 17.332s
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>     CGroup: /system.slice/lighttpd.service
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>             ├─1080 /usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>             ├─1168 /usr/bin/php-cgi
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>             ├─1185 /usr/bin/php-cgi
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>             ├─1186 /usr/bin/php-cgi
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>             ├─1187 /usr/bin/php-cgi
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>             └─1188 /usr/bin/php-cgi
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    CGroup: /system.slice/lighttpd.service
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>            ├─1080 /usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>            ├─1168 /usr/bin/php-cgi
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>            ├─1185 /usr/bin/php-cgi
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>            ├─1186 /usr/bin/php-cgi
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>            ├─1187 /usr/bin/php-cgi
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>            └─1188 /usr/bin/php-cgi
 </span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
 </span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>Mar 30 18:23:38 raspap lighttpd[1433]: Syntax OK
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>Mar 30 18:23:38 raspap systemd[1]: Started Lighttpd Daemon.
@@ -1602,10 +1571,11 @@ Now, copy <code>rootCA.pem</code> to your lighttpd web root:
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>Do <em>not</em> share the <code>rootCA-key.pem</code> file.</p>
+<p><strong>Do not</strong> share the private key file (default name is <code>rootCA-key.pem</code>).</p>
 </div>
 <p>Finish by following the <a href="#client-configuration">client configuration</a> steps below.</p>
-<h3 id="quick-installer">Quick installer</h3>
+</div>
+<div class="tabbed-block">
 <p>The <a href="../quick/">Quick Installer</a> may also be used to generate SSL certs with <code>mkcert</code>. The installer automates the manual steps described above, including configuring lighttpd with SSL support. It's recommended to review these steps to have an idea of what is happening behind the scenes. </p>
 <p>Invoke the Quick installer and specify the <code>-c</code> or <code>--cert</code> option, like so:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl -sL https://install.raspap.com | bash -s -- --cert
@@ -1617,14 +1587,14 @@ Now, copy <code>rootCA.pem</code> to your lighttpd web root:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ curl -sL https://install.raspap.com | bash -s -- --cert
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a> 888888ba                              .d888888   888888ba
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a> 88     8b                            d8     88   88     8b
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>888888ba                              .d888888   888888ba
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>88     8b                            d8     88   88     8b
 </span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>a88aaaa8P' .d8888b. .d8888b. 88d888b. 88aaaaa88a a88aaaa8P
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a> 88    8b. 88    88 Y8ooooo. 88    88 88     88   88
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a> 88     88 88.  .88       88 88.  .88 88     88   88
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a> dP     dP  88888P8  88888P  88Y888P  88     88   dP
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>                             88
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>                             dP      version 3.2.1
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>88    8b. 88    88 Y8ooooo. 88    88 88     88   88
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>88     88 88.  .88       88 88.  .88 88     88   88
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>dP     dP  88888P8  88888P  88Y888P  88     88   dP
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>                            88
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>                            dP      version 3.2.1
 </span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
 </span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>The Quick Installer will guide you through a few easy steps
 </span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
@@ -1650,24 +1620,229 @@ Now, copy <code>rootCA.pem</code> to your lighttpd web root:
 </span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>Warning: the local CA is not installed in the Firefox and/or Chrome/Chromium trust store! ⚠️
 </span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>Run "mkcert -install" to avoid verification errors ‼️
 </span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>Created a new certificate valid for the following names 📜
-</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a> - "raspap.local"
-</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a> - "*.raspap.local.local"
-</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a> - "raspap.local"
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>- "raspap.local"
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>- "*.raspap.local.local"
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>- "raspap.local"
 </span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>
 </span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>Reminder: X.509 wildcards only go one level deep, so this won't match a.b.raspap.local.local ℹ️
 </span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>
 </span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>The certificate is at "./raspap.local+2.pem" and the key at "./raspap.local+2-key.pem" ✅
 </span></code></pre></div>
 <p>The installer will guide you through the steps of creating a certificate, as shown above. Complete the installation by following the <a href="#client-configuration">client configuration</a> steps below.</p>
+</div>
+</div>
+</div>
+<hr>
 <h2 id="client-configuration">Client configuration</h2>
-<p>Open a browser and enter the following address, substituting the domain name you chose in the steps above: <code>http://raspap.local/rootCA.pem</code>. Download the root certificate to your client and add it to your system keychain. Examples below illustrate this process on macOS:</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/228977507-45efefa9-c2e1-4ed5-a298-a8aca5e3c7b7.png" style="width:450px"></p>
-<p>Be sure to set this certificate to "Always trust" to avoid browser warnings. </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/228977568-08db7696-677a-47b3-bca1-33c7a4d34792.png" style="width:450px"></p>
-<p>Finally, enter the address <code>https://raspap.local</code> in your browser. Enjoy an encrypted SSL connection to RaspAP.</p>
-<h2 id="mobile-devices">Mobile devices</h2>
-<p>For the certificates to be trusted on mobile devices and remote clients, you will have to install the root CA using the method described above. Alternatively, on iOS, you can either use AirDrop or email the CA to yourself. After installing it, be sure to enable full trust. </p>
-<p>More advanced topics are <a href="https://github.com/FiloSottile/mkcert#advanced-topics">covered at mkcert</a>.</p>
+<p>Download the root certificate to your client and add it to your system keychain. This can be achieved via one of the follwing methods:  </p>
+<ol>
+<li>Copying the file <code>/home/&lt;user&gt;/.local/share/mkcert/rootCA.pem</code> (replacing <code>&lt;user&gt;</code> with the user you logged into via SSH) to your client via SSH or SFTP from the router
+  a. This can also be achieved by just running <code>cat /home/&lt;user&gt;/.local/share/mkcert/rootCA.pem</code> and copying the file contents into a new file on your client system; or</li>
+<li>Simply open a browser and enter the following address, (substituting the domain name you chose in the steps above if different): <code>http://raspap.local/rootCA.pem</code>.</li>
+</ol>
+<details class="note">
+<summary>Note for Method #2 (click to expand/collapse)</summary>
+<p>In versions 3.4.0 and prior, you will need to modify the <code>/etc/lighttpd/conf-available/50-raspap-router.conf</code> file to allow it to be downloaded by a browser:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pi@pirouter:~<span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/lighttpd/conf-available/50-raspap-router.conf
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>server.modules<span class="w"> </span>+<span class="o">=</span><span class="w"> </span><span class="o">(</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">        </span><span class="s2">"mod_rewrite"</span>,
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="o">)</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nv">$HTTP</span><span class="o">[</span><span class="s2">"url"</span><span class="o">]</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">"^/(?!(dist|app|ajax|config)).*"</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span>url.rewrite-once<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s2">"^/(.*?)(\?.+)?</span>$<span class="s2">"</span><span class="o">=</span>&gt;<span class="s2">"/index.php/</span><span class="nv">$1$2</span><span class="s2">"</span><span class="w"> </span><span class="o">)</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span>server.error-handler-404<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/index.php"</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="o">}</span>
+</span></code></pre></div>
+<p>After (note the changed line with the addition of <code>|rootCA\.pem</code>: <code>$HTTP["url"] =~ "^/(?!(dist|app|ajax|config|rootCA\.pem)).*" {</code>)
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pi@pirouter:~<span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/lighttpd/conf-available/50-raspap-router.conf
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>server.modules<span class="w"> </span>+<span class="o">=</span><span class="w"> </span><span class="o">(</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">        </span><span class="s2">"mod_rewrite"</span>,
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="o">)</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nv">$HTTP</span><span class="o">[</span><span class="s2">"url"</span><span class="o">]</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">"^/(?!(dist|app|ajax|config|rootCA\.pem)).*"</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span>url.rewrite-once<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s2">"^/(.*?)(\?.+)?</span>$<span class="s2">"</span><span class="o">=</span>&gt;<span class="s2">"/index.php/</span><span class="nv">$1$2</span><span class="s2">"</span><span class="w"> </span><span class="o">)</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span>server.error-handler-404<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/index.php"</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="o">}</span><span class="w"> </span>
+</span></code></pre></div>
+Restart the lighttpd service:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo systemctl restart lighttpd
+</span></code></pre></div>
+Verify that lighttpd has restarted without errors:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo systemctl status lighttpd
+</span></code></pre></div>
+You should see a response like the following:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>● lighttpd.service - Lighttpd Daemon
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    Loaded: loaded (/lib/systemd/system/lighttpd.service; enabled; vendor preset: enabled)
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    Active: active (running) since Sun 2023-03-26 10:09:46 CEST; 5 days ago
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  Main PID: 1080 (lighttpd)
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>      Tasks: 6 (limit: 779)
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>        CPU: 5min 17.332s
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    CGroup: /system.slice/lighttpd.service
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>            ├─1080 /usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>            ├─1168 /usr/bin/php-cgi
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>            ├─1185 /usr/bin/php-cgi
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>            ├─1186 /usr/bin/php-cgi
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>            ├─1187 /usr/bin/php-cgi
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>            └─1188 /usr/bin/php-cgi
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>Mar 30 18:23:38 raspap lighttpd[1433]: Syntax OK
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>Mar 30 18:23:38 raspap systemd[1]: Started Lighttpd Daemon.
+</span></code></pre></div>
+</details>
+<p>Examples below illustrate this process:  </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked id="macos" name="__tabbed_2" type="radio"><input id="windows" name="__tabbed_2" type="radio"><input id="linux-ubuntu" name="__tabbed_2" type="radio"><input id="iosipados" name="__tabbed_2" type="radio"><input id="android" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="macos">macOS</label><label for="windows">Windows</label><label for="linux-ubuntu">Linux (Ubuntu)</label><label for="iosipados">iOS/iPadOS</label><label for="android">Android</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These instructions are based from macOS Sequoia, so your instructions may differ.  </p>
+</div>
+<ol>
+<li>Open the certificate file, and select 'Add' to the 'System' Keychain:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-macos-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-macos-1" src="../images/ssl-macos-1.png" style="width:400px"></a>  </li>
+<li>Open 'Keychain' app:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-macos-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-macos-1" src="../images/ssl-macos-2.png" style="width:400px"></a>  </li>
+<li>Set this certificate to "Always trust" to avoid browser warnings.<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-macos-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-macos-1" src="../images/ssl-macos-3.png" style="width:400px"></a>  </li>
+<li>Finally, enter the address <code>https://raspap.local</code> in your browser and enjoy an encrypted SSL connection to RaspAP.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These instructions are based from Windows 11 Home, so your instructions may differ.</p>
+</div>
+<ol>
+<li>Rename the downloaded <code>rootCA.pem</code> file to <code>rootCA.crt</code> (note the extension changed to <code>.crt</code>)  </li>
+<li>Double-click the <code>rootCA.crt</code> file to open it  </li>
+<li>On the window that opens, click the 'Install Certificate' (1) button:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-cert-install-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-cert-install-1" src="../images/ssl-windows11-cert-install-1.png" style="width:200px"></a>  </li>
+<li>Change the 'Store Location' option to 'Local Computer' (1), then click 'Next' (2) on this 'Welcome to the Certificate Import Wizard' window (<strong>Note:</strong> you will likely be presented with a 'User Access Control' window, you will want to choose 'Yes' on this):<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-cert-install-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-cert-install-2" src="../images/ssl-windows11-cert-install-2.png" style="width:200px"></a>  </li>
+<li>Select 'Place all certificaes in the following store' (1) then click the 'Browse...' button (2) on this window:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-cert-install-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-cert-install-3" src="../images/ssl-windows11-cert-install-3.png" style="width:200px"></a>  </li>
+<li>Choose the 'Trusted Root Certificate Authority' (1) certificate store then click 'OK' (2) on the 'Select Certifcate Store' pop-up box:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-cert-install-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-cert-install-4" src="../images/ssl-windows11-cert-install-4.png" style="width:200px"></a>  </li>
+<li>Ensure that the 'Trusted Root Certificate Authority' Certificate store is in the box (1) - if not correct it by browsing to the correct one - then click the 'Next' button (2) to continue:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-cert-install-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-cert-install-5" src="../images/ssl-windows11-cert-install-5.png" style="width:200px"></a>  </li>
+<li>Ensure all information is correct on this final 'Completing the Certificate Import Wizard' window - if not, repeat steps above to correct any abnormalities - then click 'Finish' (1) to complete the certificate import:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-cert-install-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-cert-install-6" src="../images/ssl-windows11-cert-install-6.png" style="width:200px"></a>  </li>
+<li>You should see this window pop-up - if you do not, something went wrong, and try again from the beginning of this document:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-cert-install-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-cert-install-7" src="../images/ssl-windows11-cert-install-7.png" style="width:200px"></a>  </li>
+</ol>
+<p>At this point, your computer should now trust the certificate chain, and you should be able to enter the address <code>https://raspap.local</code> in your browser and enjoy an encrypted SSL connection to RaspAP. However, if you want to confirm the certificate is loaded correctly, you can follow the steps in this note:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>If you want to ensure that the new certifcate was installed correctly, navigate to the 'Manage computer certificates' control panel tool by opening the 'Start Menu' (1) and typing in <code>cert</code> (2) and selecting 'Manage computer certifcates' match (3):<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-start-menu-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-start-menu-1" src="../images/ssl-windows11-start-menu-1.png" style="width:640px"></a>  </li>
+<li>In this 'Certificates' window, navigate to and expand the 'Trusted Root Certificate Authority' (1) folder, then click on the 'Certificates' (2) store, and locate the newly installed certifcate that matches the one you chose to install (3):<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-windows11-certmgr-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-windows11-cert-mgr-1" src="../images/ssl-windows11-certmgr-1.png" style="width:640px"></a>  </li>
+</ol>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These instructions are based from Ubuntu 22.04 LTS, so your instructions may differ.</p>
+</div>
+<ol>
+<li>Run the following commands:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo<span class="w"> </span>cp<span class="w"> </span>rootCA.pem<span class="w"> </span>/usr/local/share/ca-certificates/
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>sudo<span class="w"> </span>update-ca-certificates
+</span></code></pre></div>
+  a. If you get an error when trying to run the second command, then you likely need to install the CA Certificates package:
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ca-certificates<span class="w"> </span>-y
+</span></code></pre></div>
+  b. Now you should be able to re-run the <code>sudo update-ca-certificates</code> command</li>
+<li>Enter the address <code>https://raspap.local</code> in your browser and enjoy an encrypted SSL connection to RaspAP.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These instructions are based from iOS v18.5, so your instructions may differ. If you experience issues, please check out <a href="https://github.com/FiloSottile/mkcert/issues/233#issuecomment-690110809">this mkcert post</a> for some more information.</p>
+</div>
+<ol>
+<li>Transfer the certificate to the device using AirDrop, email, or download using the router's link mentioned above.</li>
+<li>Open (1) the certificate file using the <code>Files</code> app:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-iphone-0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-iphone-0" src="../images/ssl-iphone-0.png" style="width:200px"></a>  </li>
+<li>Go to 'Settings', then 'Profile Downloaded' (1):<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-iphone-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-iphone-1" src="../images/ssl-iphone-1.png" style="width:200px"></a>  </li>
+<li>Then tap 'Install' (1) on the 'Install Profile' screen:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-iphone-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-iphone-2" src="../images/ssl-iphone-2.png" style="width:200px"></a><br>
+  a. Enter your device passcode if prompted  </li>
+<li>Confirm by tapping 'Install' (1) again on the warning screen:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-iphone-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-iphone-3" src="../images/ssl-iphone-3.png" style="width:200px"></a>  </li>
+<li>Enable Full Trust for Root Certificates<br>
+  a. Go to 'Settings' → 'General' → 'About' → 'Certificate Trust Settings'<br>
+  b. Toggle the switch ON (1) next to your certificate under 'Enable Full Trust for Root Certificates'<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-iphone-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-iphone-4" src="../images/ssl-iphone-4.png" style="width:200px"></a>  </li>
+<li>Finally, enter the address <code>https://raspap.local</code> in your browser and enjoy an encrypted SSL connection to RaspAP.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These instructions are based from Android v14, so your instructions may differ.</p>
+</div>
+<ol>
+<li>Navigate to 'Settings'  </li>
+<li>Search for <code>CA cert</code>:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-android-0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-android-0" src="../images/ssl-android-0.png" style="width:200px"></a>  </li>
+<li>Select the 'CA certificate' result (1). This should load the 'Install a Certifcate' page; if so, select 'CA certificate': <br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-android-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-android-1" src="../images/ssl-android-1.png" style="width:200px"></a>  </li>
+<li>You will be presented with a warning screen. Please read it carefully, and select 'Install anyway' (1) if you agree with it:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-android-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-android-4" src="../images/ssl-android-3.png" style="width:200px"></a><br>
+  Note: If you have a lock (PIN or biometric) on your device, you will likely be prompted to authenticate after selecting this </li>
+<li>Navigate to the certifcate file and select it:<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-android-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-android-5" src="../images/ssl-android-4.png" style="width:200px"></a>  </li>
+<li>You should be sent back to the 'Install a certifcate' screen, but see a message popup at the bottom saying "CA certificate installed":<br>
+<em><small>Click image to expand</small></em><br>
+<a class="glightbox" href="../images/ssl-android-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-android-6" src="../images/ssl-android-5.png" style="width:200px"></a>  </li>
+</ol>
+<p>At this point, your computer should now trust the certificate chain, and you should be able to enter the address <code>https://raspap.local</code> in your browser and enjoy an encrypted SSL connection to RaspAP. However, if you want to confirm the certificate is loaded correctly, you can follow the steps in this note:</p>
+<details class="note">
+<summary>Note (click to expand/collapse)</summary>
+<ol>
+<li>In settings, under the search for <code>CA cert</code>, select the 'Trusted credentials' option (1):<br>
+<a class="glightbox" href="../images/ssl-android-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-android-6" src="../images/ssl-android-6.png" style="width:200px"></a><br>
+<em><small>Click image to expand</small></em>  </li>
+<li>This should direct you to the 'Encryption &amp; Credentials' settings page; select the 'Trusted credentials' option (1):<br>
+<a class="glightbox" href="../images/ssl-android-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-android-7" src="../images/ssl-android-7.png" style="width:200px"></a><br>
+<em><small>Click image to expand</small></em>  </li>
+<li>On this 'Trusted credentials' page, select the 'User' button (1). You should see your installed certificate:<br>
+<a class="glightbox" href="../images/ssl-android-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ssl-android-8" src="../images/ssl-android-8.png" style="width:200px"></a><br>
+<em><small>Click image to expand</small></em>  </li>
+</ol>
+</details>
+</div>
+</div>
+</div>
+<hr>
+<p>More <code>mkcert</code> advanced topics are <a href="https://github.com/FiloSottile/mkcert#advanced-topics">covered at mkcert</a>.</p>
 <h2 id="discussions">Discussions</h2>
 <p>Questions or comments about using SSL certificates? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
@@ -1690,35 +1865,12 @@ Now, copy <code>rootCA.pem</code> to your lighttpd web root:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 21, 2024 10:13:42 UTC">November 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 22, 2025 14:17:17 UTC">August 22, 2025</span>
   </span>
 
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -1854,7 +2006,8 @@ Now, copy <code>rootCA.pem</code> to your lighttpd web root:
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -1911,5 +2064,7 @@ Now, copy <code>rootCA.pem</code> to your lighttpd web root:
       <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

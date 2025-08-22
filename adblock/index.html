@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -33,39 +33,63 @@
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
@@ -106,7 +130,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1559,7 +1592,7 @@
 
 
 <div><h1 id="ad-blocking">Ad blocking</h1>
-<p><img alt="ad-blocking" src="https://github.com/user-attachments/assets/34e7a67c-2ce4-4e0f-9afd-7403a0f895df" style="width:640px"></p>
+<p><a class="glightbox" href="https://github.com/user-attachments/assets/34e7a67c-2ce4-4e0f-9afd-7403a0f895df" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ad-blocking" src="https://github.com/user-attachments/assets/34e7a67c-2ce4-4e0f-9afd-7403a0f895df" style="width:640px"></a></p>
 <p>RaspAP has introduced a new DNS based filter to stop ads, trackers, malware and other undesirable hosts in their tracks. </p>
 <p>In the best of times, ads are usually just annoying. When access to online services served by our AP is hampered by ads, malware and trackers, the best tool in our arsenal is DNS blacklisting.
 RaspAP already uses <code>dnsmasq</code> to manage both DHCP and DNS, so we have the foundation for a highly effective ad blocking facility.</p>
@@ -1585,12 +1618,12 @@ RaspAP already uses <code>dnsmasq</code> to manage both DHCP and DNS, so we have
 <p>Ad blocking may also be installed manually. Refer to the detailed <a href="../manual/#ad-blocking">installation steps</a>.</p>
 <h2 id="blocklist-sources">Blocklist sources</h2>
 <p>Blocklists are sourced from multiple, continuously updated open source projects. These are divided into two groups: <strong>hosts</strong> and <strong>domain</strong> blocklists. By default, RaspAP's ad block facility uses <a href="https://github.com/StevenBlack/hosts">StevenBlack's hosts</a> as the primary hosts blocklist. This repository is a hosts file aggregator that consolidates several reputable hosts files and merges them into a unified, optimized hosts file with duplicates removed.</p>
-<p><img alt="StevenBlack's hosts file aggregator" src="https://raw.githubusercontent.com/StevenBlack/hosts/master/aggregator.png" style="width:640px"></p>
+<p><a class="glightbox" href="https://raw.githubusercontent.com/StevenBlack/hosts/master/aggregator.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="StevenBlack's hosts file aggregator" src="https://raw.githubusercontent.com/StevenBlack/hosts/master/aggregator.png" style="width:640px"></a></p>
 <p>Alternatively, users may choose from a number of host blocklist sources maintained by the <a href="https://github.com/hagezi/dns-blocklists">hagezi/hosts</a> GitHub project. These lists are compiled daily into Light, Normal, Pro, Pro++ and Ultimate versions depending on your specific needs. Refer to the <a href="https://github.com/hagezi/dns-blocklists">GitHub project</a> for an explanation of these different blocklists.</p>
 <p>In addition to blocking hosts, domain blocking gives us the ability to use wildcards with <code>dnsmasq</code> to block an entire domain (for example, <code>baddomain.org</code>) with a single rule. This includes all known and unknown subdomains, such as <code>*.baddomain.org</code>. Domain blocklists are provided by the <a href="https://oisd.nl/">OISD</a> project. Similar to hosts lists, these are continuously updated and curated into several lists: Small, Big and NSFW. Refer to the <a href="https://oisd.nl/">OISD</a> project for an explanation of these lists. </p>
 <h2 id="updating-lists">Updating lists</h2>
 <p>Each of the hosts and domains blocklists are updated daily, so it's a good practice to refresh them periodically. You can do this from the <strong>Ad Blocking</strong> management page in RaspAP. Simply select the list from the dropdown and choose <strong>Update now</strong>. </p>
-<p><img alt="Manage blocklists" src="../images/adblock.png" style="width:420px"></p>
+<p><a class="glightbox" href="../images/adblock.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Manage blocklists" src="../images/adblock.png" style="width:420px"></a></p>
 <p>Next to the update button, a gear icon <span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M195.1 9.5c3-14.8 16.1-25.5 31.3-25.5h59.8c15.2 0 28.3 10.7 31.3 25.5l14.5 70c14.1 6 27.3 13.7 39.3 22.8l67.8-22.5c14.4-4.8 30.2 1.2 37.8 14.4l29.9 51.8c7.6 13.2 4.9 29.8-6.5 39.9L447 233.3c.9 7.4 1.3 15 1.3 22.7s-.5 15.3-1.3 22.7l53.4 47.5c11.4 10.1 14 26.8 6.5 39.9L477 417.9c-7.6 13.1-23.4 19.2-37.8 14.4l-67.8-22.5c-12.1 9.1-25.3 16.7-39.3 22.8l-14.4 69.9c-3.1 14.9-16.2 25.5-31.3 25.5h-59.8c-15.2 0-28.3-10.7-31.3-25.5l-14.4-69.9c-14.1-6-27.2-13.7-39.3-22.8l-68.1 22.5c-14.4 4.8-30.2-1.2-37.8-14.4L5.8 366.1c-7.6-13.2-4.9-29.8 6.5-39.9l53.4-47.5c-.9-7.4-1.3-15-1.3-22.7s.5-15.3 1.3-22.7l-53.4-47.5C.9 175.7-1.7 159 5.8 145.9l29.9-51.8c7.6-13.2 23.4-19.2 37.8-14.4l67.8 22.5c12.1-9.1 25.3-16.7 39.3-22.8zM256.3 336a80 80 0 1 0-.6-160 80 80 0 1 0 .6 160"></path></svg></span> will appear to indicate that the selected list is being downloaded. Thereafter, a timestamp after each list will indicate when it was last updated.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1675,29 +1708,6 @@ Choose <strong>Save settings</strong> and <strong>Restart Ad Blocking</strong>.<
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -1833,7 +1843,8 @@ Choose <strong>Save settings</strong> and <strong>Restart Ad Blocking</strong>.<
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -1890,5 +1901,7 @@ Choose <strong>Save settings</strong> and <strong>Restart Ad Blocking</strong>.<
       <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -33,39 +33,63 @@
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
@@ -106,7 +130,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1625,7 +1658,7 @@
 
 
 <div><h1 id="dynamic-dns">Dynamic DNS</h1>
-<p><img alt="dynamic-dns" src="https://github.com/user-attachments/assets/ac4fa7b4-a485-4696-9a25-238cd896cdc8" style="width:640px"></p>
+<p><a class="glightbox" href="https://github.com/user-attachments/assets/ac4fa7b4-a485-4696-9a25-238cd896cdc8" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="dynamic-dns" src="https://github.com/user-attachments/assets/ac4fa7b4-a485-4696-9a25-238cd896cdc8" style="width:640px"></a></p>
 <h2 id="overview">Overview</h2>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental</p>
 <p>Accessing your device from anywhere in your local network is great, but there are times when you might want it to be reachable from remote locations. This is particularly true for projects such as media servers, network attached storage (NAS) and VPNs such as those provided by RaspAP. However, due to the <a href="https://en.wikipedia.org/wiki/IPv4_address_exhaustion">shortage of IPv4 addresses</a>, it's likely that you will receive a new and different external IP address from your ISP each time your router is rebooted.</p>
@@ -1640,7 +1673,7 @@
 <h3 id="service-provider">Service provider</h3>
 <p>RaspAP makes use of the proven <strong><a href="https://github.com/ddclient/ddclient">ddclient</a></strong> open source software for Linux to update dynamic DNS entries. The <code>ddclient</code> software is highly configurable and provides a daemon that updates your external IP at scheduled intervals. Many popular <a href="https://github.com/ddclient/ddclient#supported-services">Dynamic DNS services</a> are supported by <code>ddclient</code> and RaspAP. </p>
 <p>Instructions on how to setup your domain for DDNS vary by provider, but the process is generally similar. Begin by selecting a <strong>Service provider</strong> from the dropdown. RaspAP will assist you by automatically populating the <strong>Protocol</strong> and <strong>Server</strong> fields. You may also manually configure the details for your service if so desired.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234258065-cc75df63-5e39-4cfd-ba1b-ed533b3982d6.png" style="width:420px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/234258065-cc75df63-5e39-4cfd-ba1b-ed533b3982d6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/234258065-cc75df63-5e39-4cfd-ba1b-ed533b3982d6.png" style="width:420px"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Some DDNS providers, such as NoIP, distribute their own Linux client to use with their service. It isn't necessary to install this software because the <code>ddclient</code> daemon already includes this functionality.</p>
@@ -1661,7 +1694,7 @@
 <p>Check with your DDNS service provider to determine which entry is best for your configuration. To complete your setup, choose <strong>Save settings</strong> now or proceed with advanced options.</p>
 <h2 id="advanced-settings">Advanced settings</h2>
 <p>A subset of advanced options are provided for your configuration. These are not required for the DDNS service to be functional, but may be adjusted to suit your needs.</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png" style="width:420px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/234574539-da424b27-4489-40bf-88e7-0e42988bce8a.png" style="width:420px"></a></p>
 <h3 id="enable-ssl">Enable SSL</h3>
 <p>You may wish to <strong>Enable SSL</strong> to ensure that your credentials are not sent over the internet unencrypted. Not all providers support this, however, so this option is disabled by default. Enabling this option for a non-SSL supported provider may result in a connection timeout. Errors such as these <a href="https://github.com/ddclient/ddclient/issues/309">have been reported</a>: </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>WARNING:  cannot connect to checkip.dyndns.org:443 socket: Connection timed out SSL connect attempt failed
@@ -1677,7 +1710,7 @@
 <p>Behind the scenes, the <code>ddclient</code> daemon will determine your external IP using the method you've defined and send this to your DDNS provider. Your provider will then update the IP address corresponding to the DNS "A" (or "address") record for your domain.</p>
 <p>If your DDNS provider fails to report your current IP address, or you suspect there might be a problem with the <code>ddclient</code> configuration on your device, you may generate a detailed <a href="../troubleshooting/#debug-log">debug log</a>.</p>
 <p>From the <strong>Logging</strong> tab, use the <strong>Generate log</strong> button to invoke the <code>ddclient</code> daemon and output a troubleshooting log: </p>
-<p><img alt="" src="https://user-images.githubusercontent.com/229399/234276204-5d3e2640-7166-47ec-ac3c-6a4034be8060.png" style="width:420px"></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/229399/234276204-5d3e2640-7166-47ec-ac3c-6a4034be8060.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/234276204-5d3e2640-7166-47ec-ac3c-6a4034be8060.png" style="width:420px"></a></p>
 <p>This will provide a verbose output of everything <code>ddclient</code> is doing. If it ends with a <code>SUCCESS</code> message this indicates that the daemon successfully checked and updated the DNS "A" record with your provider, if neccessary. An example of this is shown below: </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>RECEIVE:  140.82.121.3
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>DEBUG:    get_ip: using web
@@ -1720,34 +1753,6 @@
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/ruralmeltdown" class="md-author" title="@ruralmeltdown">
-          
-          <img src="https://avatars.githubusercontent.com/u/219453765?v=4&size=72" alt="ruralmeltdown">
-        </a>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&size=72" alt="billz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -1883,7 +1888,8 @@
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -1940,5 +1946,7 @@
       <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
