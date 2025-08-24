@@ -7,7 +7,7 @@ By default RaspAP configures a routed AP as its hotspot, where your device creat
 ## Enabling bridged AP mode
 From RaspAP's **Hotspot** > **Advanced** tab, select the **Bridged AP mode** option.  Choose **Save settings** and then **Restart hotspot**.
 
-![](images/bridged.png){: style="width:420px"}
+![](../images/bridged.png){: style="width:420px"}
 
 At this stage, you will no longer be able to access RaspAP's web interface from the default `10.3.141.1` address. See [accessing the web interface](bridged.md#accessing-the-web-interface), below.
 ## Limitations
@@ -56,7 +56,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 6.08 seconds
 More information on finding your device's IP address can be found [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 ## Troubleshooting
-If you are unable to connect clients to your bridged AP, start by following the recommendations in [this FAQ](faq.md#bridged). Client connectivity issues in bridged AP mode are most often the result of your upstream router, not RaspAP. For this reason, please check your router's web interface and DHCP settings before reporting a bug.
+If you are unable to connect clients to your bridged AP, start by following the recommendations in [this FAQ](../faq.md#bridged). Client connectivity issues in bridged AP mode are most often the result of your upstream router, not RaspAP. For this reason, please check your router's web interface and DHCP settings before reporting a bug.
 
 ## Discussions
 Questions or comments about RaspAP's bridged AP mode? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

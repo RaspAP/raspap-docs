@@ -46,10 +46,10 @@ installing third-party drivers. You may also wish to skip directly to this [shor
 is desired.
 
 ### Create the access point
-After [installing RaspAP](index.md#quick-start) your device will broadcast an 802.11g 2.4 GHz access point with the SSID `RaspAP`. By default, this uses your device's onboard wireless adapter and the `wlan0` interface. Your AP configuration may be changed at any time, however it's recommended to change the default password at minimum before proceeding. You may also wish to change the SSID and wireless mode.
+After [installing RaspAP](../get-started/index.md) your device will broadcast an 802.11g 2.4 GHz access point with the SSID `RaspAP`. By default, this uses your device's onboard wireless adapter and the `wlan0` interface. Your AP configuration may be changed at any time, however it's recommended to change the default password at minimum before proceeding. You may also wish to change the SSID and wireless mode.
 
 !!! note "Note"
-    The 802.11ac 5 GHz option is disabled until you configure your device's wireless regulatory domain. See [this FAQ](faq.md#80211ac) for more information.  
+    The 802.11ac 5 GHz option is disabled until you configure your device's wireless regulatory domain. See [this FAQ](../faq.md#80211ac) for more information.  
 
 ### Connect device to WiFi
 With your USB dongle connected and AP active, use RaspAP's **WiFi client** interface to select and authenticate with your existing wireless router. 
@@ -102,16 +102,16 @@ value (lower priority) than the `wlan1` interface:
 If you don't see these changes in the routing table, be sure to restart the hotspot. 
 
 ### Alternate routing method
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
 
-As a convenience, [Insiders](insiders.md) are able to configure routing automatically by enabling the **WiFi repeater mode** toggle on the **Hotspot > Advanced** tab.
+As a convenience, [Insiders](../features-insiders/index.md) are able to configure routing automatically by enabling the **WiFi repeater mode** toggle on the **Hotspot > Advanced** tab.
 
 ![WiFi repeater mode](https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a){: style="width:420px"}
 
 Save settings and choose **Start hotspot** or **Restart hotspot** to activate the wireless repeater.
 
 !!! info "Info"
-    As with [WiFi client AP mode](ap-sta.md), the **WiFi repeater mode** option is disabled or "greyed out" until a wireless client is configured. 
+    As with [WiFi client AP mode](../features-experimental/ap-sta.md), the **WiFi repeater mode** option is disabled or "greyed out" until a wireless client is configured. 
 
 ### Connecting clients
 At this stage, you may connect clients to the AP as you would normally. Two different methods are [described here](ap-basics.md#connecting-clients).
@@ -120,11 +120,11 @@ At this stage, you may connect clients to the AP as you would normally. Two diff
 If you would like to switch the wlan interfaces, select a different interface for the AP on the **Hotspot > Basic** tab, then choose **Save settings**. Reverse the DHCP settings in the previous step, then restart the AP or reboot your device. In order to still be able to access the web UI, connect your device via an ethernet cable.
 
 ### Troubleshooting
-If your clients do not have internet connectivity, start by following these [troubleshooting steps](troubleshooting.md). In most cases, problems may be diagosed and fixed by checking the service 
-logs and RaspAP's **Networking** interface. Help is available from the sources [mentioned here](troubleshooting.md#diagnosing-problems).
+If your clients do not have internet connectivity, start by following these [troubleshooting steps](../get-started/troubleshooting.md). In most cases, problems may be diagosed and fixed by checking the service 
+logs and RaspAP's **Networking** interface. Help is available from the sources [mentioned here](../get-started/troubleshooting.md#diagnosing-problems).
 
 ## Speed testing
-RaspAP hosts a fast, open source and privacy-focused [public speed test server](speedtest.md) that you can use to evaluate your WiFi repeater's performance. The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
+RaspAP hosts a fast, open source and privacy-focused [public speed test server](../features-insiders/speedtest.md) that you can use to evaluate your WiFi repeater's performance. The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
 
 ## Discussions
 Questions or comments about configuring a WiFi repeater? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

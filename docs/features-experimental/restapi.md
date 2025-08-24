@@ -15,7 +15,7 @@ A RESTful API operates asynchronously, making it suited for building microservic
 Using the API's POST methods (to be announced soon), RaspAP's functions may even be remotely controlled outside of its regular web interface. 
 
 ## Installation
-The RestAPI may be optionally installed by the [Quick installer](quick.md). To install RestAPI support, respond by pressing ++enter++ to accept the default ++y++ option at the following prompt:
+The RestAPI may be optionally installed by the [Quick installer](../get-started/quick-installer.md). To install RestAPI support, respond by pressing ++enter++ to accept the default ++y++ option at the following prompt:
 
 ```
 RaspAP Install: Configure RestAPI
@@ -23,7 +23,7 @@ Install and enable RestAPI? [Y/n]:
 ```
 
 !!! tip "Tip"
-    The RestAPI is enabled by default in RaspAP's [Docker container](restapi.md#docker-support), so if you choose this option there is nothing more for you to do.
+    The RestAPI is enabled by default in RaspAP's [Docker container](../features-experimental/restapi.md#docker-support), so if you choose this option there is nothing more for you to do.
 
 The Python language is a requirement for the RestAPI. The Quick installer will detect if Python is not installed on your system and install it for you (Python 3 is installed by default on Raspberry Pi OS). In addition, Python's package manager `pip` will also be installed. The following Python packages are requirements for the RestAPI:
 
@@ -110,7 +110,7 @@ The `/system` API endpoint responds to the above request with several key pieces
 The `hostapdStatus` indicates the current state of the Linux `hostapd` service, which provides the AP or hotspot. You may copy this data to the clipboard or download it from the test console, if you wish.
 
 ## Systemd service
-During the RestAPI [installation](restapi.md#installation), the Python modules installed by `pip` are stored in the current user's home directory. For the default `pi` user in Raspberry Pi OS, this path is `/home/pi/.local/bin`. In order for the `uvicorn` module to be found by Python, the `systemd` service control file specifies the `pi` user.
+During the RestAPI [installation](../features-experimental/restapi.md#installation), the Python modules installed by `pip` are stored in the current user's home directory. For the default `pi` user in Raspberry Pi OS, this path is `/home/pi/.local/bin`. In order for the `uvicorn` module to be found by Python, the `systemd` service control file specifies the `pi` user.
 
 If your current user is something other than `pi`, edit the control file with:
 
@@ -141,7 +141,7 @@ WantedBy=multi-user.target
 Save and exit the file, then reload the daemon with `sudo systemctl daemon-reload`.
 
 ## Docker support
-The RestAPI is installed by default in RaspAP's [Docker container](docker.md). This includes configuration of port `8081` used by the server to respond to client requests. Note that the API is also exposed on your system's WAN interface.
+The RestAPI is installed by default in RaspAP's [Docker container](../get-started/docker.md). This includes configuration of port `8081` used by the server to respond to client requests. Note that the API is also exposed on your system's WAN interface.
 
 ## Troubleshooting
 The current status of the `restapi.service` is available on the **RestAPI > Status** tab. This is generally the best starting point when diagnosing common problems, such as authorization errors. Note that the service records the most recent API queries, including the requesting IPv4 client address:

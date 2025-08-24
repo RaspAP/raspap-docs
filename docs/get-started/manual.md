@@ -20,7 +20,7 @@ The kernel and firmware are installed as a Debian package, and so will also get 
 These packages are updated infrequently and after extensive testing.
 
 ## Enable wireless operation
-Telecommunications radio bands are subject to [regulatory restrictions](faq.md#80211ac) to ensure interference-free operation. The Linux OS complies with these rules by requiring users
+Telecommunications radio bands are subject to [regulatory restrictions](../faq.md#80211ac) to ensure interference-free operation. The Linux OS complies with these rules by requiring users
 to configure a two-letter "WiFi country code". In RPi OS, 5 GHz wireless networking is disabled until this country code has been set, usually as part of the initial installation process.
 If you have not set your country code or are unsure, check the "WLAN Country" setting in raspi-config's **Localisation Options**: 
 
@@ -274,7 +274,7 @@ sudo systemctl enable hostapd.service
 The following components are not required to operate RaspAP, but extend its usefulness in several ways. Each is independent of the others, so you may choose to add whichever one you need.
 
 ### OpenVPN
-Install [OpenVPN](openvpn.md), enabling the option in RaspAP's config and the `openvpn-client` service, like so:
+Install [OpenVPN](../features-core/openvpn.md), enabling the option in RaspAP's config and the `openvpn-client` service, like so:
 
 ```
 sudo apt-get install openvpn
@@ -293,7 +293,7 @@ sudo chmod 750 /etc/raspap/openvpn/*.sh
 ```
 
 ### WireGuard
-Adding support for [WireGuard](wireguard.md) is straightforward. The application files are already present in RaspAP, so you may simply install and enable the service, then activate the management option:
+Adding support for [WireGuard](../features-core/wireguard.md) is straightforward. The application files are already present in RaspAP, so you may simply install and enable the service, then activate the management option:
 
 ```
 sudo apt-get install wireguard
@@ -302,7 +302,7 @@ sudo systemctl enable wg-quick@wg
 ```
 
 ### Ad blocking
-There are several steps to enable [Ad blocking](adblock.md), including downloading the blocklists, setting permissions and adding a `dnsmasq` configuration: 
+There are several steps to enable [Ad blocking](../features-core/adblock.md), including downloading the blocklists, setting permissions and adding a `dnsmasq` configuration: 
 
 ```
 sudo mkdir /etc/raspap/adblock

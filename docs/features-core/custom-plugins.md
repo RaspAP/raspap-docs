@@ -14,7 +14,7 @@ The `SamplePlugin` implements a `PluginInterface` and is automatically loaded by
 Several common plugin functions are demonstrated in `SamplePlugin`, as well as a method for persisting session data in plugin instances. Each plugin has its own namespace, meaning that classes and functions are organized to avoid naming conflicts. Plugins are self-contained and render templates from inside their own `/templates` directory.
 
 ## Getting started
-The `SamplePlugin` requires an installation of RaspAP, either via the [Quick install](quick.md) method or with a [Docker container](docker.md). The default application path `/var/www/html` is used here. If you've chosen a different install location, substitute this in the steps below.
+The `SamplePlugin` requires an installation of RaspAP, either via the [Quick install](../get-started/quick-installer.md) method or with a [Docker container](../get-started/docker.md). The default application path `/var/www/html` is used here. If you've chosen a different install location, substitute this in the steps below.
 
 1. Begin by creating a fork of the [SamplePlugin repository](https://github.com/RaspAP/SamplePlugin).
 2. Change to your RaspAP install location and create a `/plugins` directory.

@@ -121,7 +121,7 @@ Allowlisted ports:
 More advanced CLI settings such as whitelists, kill switches, firewalls, protocols and so on (shown above) should be administered with your CLI directly.
 
 !!! tip "Tip"
-    Support for provider CLIs is intended for typical setups with RaspAP's [default configuration](defaults.md), where the AP interface is `wlan0` and internet connectivity is provided by `eth0`. If you need to control settings beyond these defaults with your provider, it's recommended to install either [OpenVPN](openvpn.md) or [WireGuard](wireguard.md) and administer these services directly. 
+    Support for provider CLIs is intended for typical setups with RaspAP's [default configuration](../get-started/defaults.md), where the AP interface is `wlan0` and internet connectivity is provided by `eth0`. If you need to control settings beyond these defaults with your provider, it's recommended to install either [OpenVPN](../features-core/openvpn.md) or [WireGuard](../features-core/wireguard.md) and administer these services directly. 
 
 ## Public IP
 After a VPN connection is established, your public IPv4 address will be displayed next to a globe icon :fontawesome-solid-earth-americas:{ style="color: var(--md-default-fg-color--light)" } below your provider name on the **Settings** tab. Click or tap on the external link icon :octicons-link-external-16:{ style="color: var(--md-default-fg-color--light)" } to see details about your IP location.

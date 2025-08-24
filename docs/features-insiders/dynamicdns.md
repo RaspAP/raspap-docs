@@ -74,7 +74,7 @@ When you've completed your configuration, choose **Save settings** and **Start D
 ## Troubleshooting
 Behind the scenes, the `ddclient` daemon will determine your external IP using the method you've defined and send this to your DDNS provider. Your provider will then update the IP address corresponding to the DNS "A" (or "address") record for your domain.
 
-If your DDNS provider fails to report your current IP address, or you suspect there might be a problem with the `ddclient` configuration on your device, you may generate a detailed [debug log](troubleshooting.md#debug-log).
+If your DDNS provider fails to report your current IP address, or you suspect there might be a problem with the `ddclient` configuration on your device, you may generate a detailed [debug log](../get-started/troubleshooting.md#debug-log).
 
 From the **Logging** tab, use the **Generate log** button to invoke the `ddclient` daemon and output a troubleshooting log: 
 

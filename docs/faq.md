@@ -88,7 +88,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 ## <a name="fork"></a>Is RaspAP a fork of OpenWrt or another router project?
 RaspAP is an independent wireless router project designed for embedded systems and created by a [community of developers](https://github.com/RaspAP/raspap-webgui/graphs/contributors). By contrast, [OpenWrt](https://openwrt.org/) is an operating system built around the Linux kernel. While powerful, it's rather more difficult to tailor custom applications around OpenWrt. That is, users are generally limited to what is available in OpenWrt's package repository, unless they fork the project code and modify the OS.
 
-RaspAP is popularly used to provide a variety of networking and wireless routing services to other Linux projects and applications. Moreover, with [Docker support](docker.md) users are able to run RaspAP in an isolated container. This gives you much greater flexibility if you're hosting other Linux services and/or applications on your device.
+RaspAP is popularly used to provide a variety of networking and wireless routing services to other Linux projects and applications. Moreover, with [Docker support](get-started/docker.md) users are able to run RaspAP in an isolated container. This gives you much greater flexibility if you're hosting other Linux services and/or applications on your device.
 
 ## <a name="distros"></a>What is the scope of support for Desktop distributions?
 A desktop distribution (or "distro") usually has a very different set of programs that handles various underlying OS functions and wraps it with a pretty GUI. While this project generally recommends non-desktop distros, such as Raspberry Pi OS Lite, it's understood that many users prefer using a desktop environment.
@@ -125,11 +125,11 @@ network={
 ```
 
 ## <a name="interfaces"></a>Can I use wlan0 and wlan1 rather than eth0 for my AP?
-Yes, this is supported by RaspAP. In this scenario, you may wish to use the `wlan0` interface as the AP interface with `wlan1` as the wireless client interface. Refer to the dedicated [WiFi repeater](repeater.md)
+Yes, this is supported by RaspAP. In this scenario, you may wish to use the `wlan0` interface as the AP interface with `wlan1` as the wireless client interface. Refer to the dedicated [WiFi repeater](features-core/repeater.md)
 walkthrough for steps to enable this configuration.
 
 ## <a name="monitor"></a>Can I use RaspAP as a monitor only, without changing my configuration?
-Yes, RaspAP has support for a so-called "monitor mode". In `config.php` change the setting `RASPI_MONITOR_ENABLED` to `true`. This disables the ability to modify settings, start/stop daemons, shutdown or reboot the RPi. RaspAP will continue to report interface statistics, service settings and data usage as normal. See [this](defaults.md#managing-config-values) for more information. 
+Yes, RaspAP has support for a so-called "monitor mode". In `config.php` change the setting `RASPI_MONITOR_ENABLED` to `true`. This disables the ability to modify settings, start/stop daemons, shutdown or reboot the RPi. RaspAP will continue to report interface statistics, service settings and data usage as normal. See [this](get-started/defaults.md#managing-config-values) for more information. 
 
 ## <a name="dnsmasq"></a> Can I use RaspAP with my custom dnsmasq configuration?
 Yes, RaspAP supports this through the use of `dnsmasq.d`. The primary `/etc/dnsmasq.d/090_raspap.conf` managed by the UI includes the following directive to enable your custom .conf files:
@@ -213,7 +213,7 @@ sudo systemctl restart lighttpd.service
 Clients outside of your defined network range will receive a '403' response when accessing the web UI.
 
 ## <a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?
-Yes. RaspAP has developed a [minimal write mode](minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
+Yes. RaspAP has developed a [minimal write mode](features-core/minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
 
 ## <a name="cardsize"></a>Is there a minimum recommended size for the SD card?
 4GB is considered the bare minimum for Raspberry Pi OS. 8GB is recommend for RaspAP; more if you're hosting large files or applications.
@@ -235,7 +235,7 @@ tmpfs            91M     0   91M   0% /run/user/1000
 A microSD card with 32GB of storage is used here. A typical RaspAP install is very lightweight, using only about 200MB in total.
 
 !!! tip Tip
-    If you experience problems such as updates that fail to complete with a 4GB SD card, lack of storage is likely the cause. Linux systems write lots of [cache files and temporary data](minwrite.md) to disk. These will accumulate in `/tmp` and elsewhere if you haven't rebooted in awhile. Also bear in mind that desktop distributions require substantially more storage.
+    If you experience problems such as updates that fail to complete with a 4GB SD card, lack of storage is likely the cause. Linux systems write lots of [cache files and temporary data](features-core/minwrite.md) to disk. These will accumulate in `/tmp` and elsewhere if you haven't rebooted in awhile. Also bear in mind that desktop distributions require substantially more storage.
 
 
 ## <a name="clean"></a>After a clean install, WiFi  and/or RaspAP behaves unpredictably.
@@ -250,7 +250,7 @@ If you observe RaspAP or your wireless AP behaving strangely, be sure to follow 
 
 Problems such as [this](https://www.reddit.com/r/RaspAP/comments/1bo7vdf/need_help_with_ver_310_badly_no_idea_what_im/) can be difficult to diagnose. In this case, the Raspberry Pi Imager was adding the user's old WiFi settings to an otherwise clean OS image. Be sure to check the "OS customization" options when using this software. When in doubt, use an alternative SD card imaging tool.
 
-RaspAP has been successfully integrated with many popular open source projects. One of the best ways to use RaspAP in an existing project is to deploy it in an isolated [Docker container](docker.md).
+RaspAP has been successfully integrated with many popular open source projects. One of the best ways to use RaspAP in an existing project is to deploy it in an isolated [Docker container](get-started/docker.md).
 
 ## <a name="actroubleshoot"></a> My 802.11ac 5 GHz hotspot failed to start. What now?
 RaspAP uses [`iw`](https://wireless.wiki.kernel.org/en/users/documentation/iw) and the [`wireless-regdb`](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) to determine which channels are allowed for your configured country. However, not all channels may be supported by your device's wireless adapter or firmware. If your 5 GHz access point fails to start, use the steps below to troubleshoot the problem.
@@ -280,7 +280,7 @@ Exact methods vary between devices, however most will have a 'Forget this networ
 If clients still fail to connect, restart the AP. You may do this by choosing **Restart hotspot** from RaspAP. This reinitializes several related services in a predictable order and timing.
 Assuming these services are configured to restart automatically on reboot (the default behavior when RaspAP's installer is used) you may also simply reboot your Pi.
 
-RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its [default settings](defaults.md), RaspAP has been rigorously
+RaspAP gives you control over many aspects of your WiFi network, including DHCP. With its [default settings](get-started/defaults.md), RaspAP has been rigorously
 tested and validated to provide connectivity in routed AP mode. If you suspect that RaspAP is misconfigured and not providing IP addresses to clients, you may troubleshoot this yourself.
 
 Clients connecting to your AP are assigned, or leased, an IP address with `dnsmasq`. You can see how this process works by enabling the **Log DHCP requests** option in the **DHCP Server > Logging** tab. 
@@ -304,14 +304,14 @@ Save settings, restart `dnsmasq` and try connecting your client again.
 ## <a name="webui"></a>My WiFi network disappeared and I can't access the web UI.
 If you are running your Pi headless and are unable to access RaspAP's web interface from the default `http://10.3.141.1/` address, do the following:
 
-1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](ssl.md).
-2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. [Check the logs for hostapd errors](ap-basics.md#troubleshooting) and reconfigure the service, or run the installer again to restore the [default configuration](defaults.md).
+1. Be sure your browser isn't forcing SSL by appending `https://` to the address, which can result in misleading errors. This may sound obvious but it's reported frequently. (Related: add [SSL support for RaspAP](features-experimental/ssl.md).
+2. Connect your device to wired ethernet and access it via the browser or SSH on the `eth0` interface using one of the methods described below. [Check the logs for hostapd errors](features-core/ap-basics.md) and reconfigure the service, or run the installer again to restore the [default configuration](get-started/defaults.md).
 3. There are [several methods](https://www.raspberrypi.com/documentation/computers/remote-access.html) you can use to determine your Pi's IP address. RaspAP's installer only configures a static IP address for the AP interface on `wlan0`. If the AP has entered a failed state, you may still be able to connect on an alternate interface.
 4. Recent versions of the RPi OS kernel include the `avahi-daemon` which facilitates local network discovery via multicast DNS (mDNS). On client computers with the Bonjour service installed (all macOS machines and Windows PCs with Apple iTunes), try accessing your Pi by entering [http://raspberrypi.local/](http://raspberrypi.local/) in the browser or via SSH with `ssh pi@raspberrypi.local`.
 5. If you don't have access to wired ethernet or the above methods fail, configure your Pi for USB-OTG, also known as "on-the-go" or gadget mode. Instructions for enabling USB-OTG vary between various models and not all Pi hardware has support for this.
 
 ## <a name="custom"></a>My custom `hostapd.conf` / `php.ini` is gone.
-The [installer](quick.md) applies a "known good" [default configuration](defaults.md) to some services, including `hostapd`. It will also, optionally, optimize PHP by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
+The [installer](get-started/quick-installer.md) applies a "known good" [default configuration](get-started/defaults.md) to some services, including `hostapd`. It will also, optionally, optimize PHP by changing a very limited number of settings. Your custom configurations haven't been lost however; they've been moved to the backups directory in `/etc/raspap/backups`.
 
 You are free to SSH in to restore those files to their rightful position. However, you may need to ensure that the RaspAP modifications are applied to your own custom configurations.
 
@@ -319,7 +319,7 @@ You are free to SSH in to restore those files to their rightful position. Howeve
 Login credentials are stored in `/etc/raspap/raspap.auth`. The password is encrypted and cannot be edited manually. However, deleting this file with `sudo rm /etc/raspap/raspap.auth` will restore the default admin password.
 
 ## <a name="nowifi"></a>RaspAP control panel works but there is no WiFi after reboot.
-This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a [managed mode](ap-sta.md) AP. To address this, RaspAP has added a `systemd` init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:
+This problem often occurs when another program tries to reconfigure hostapd at startup. It can also happen when your RPi is configured as both a WiFi client and access point, also known as a [managed mode](features-experimental/ap-sta.md) AP. To address this, RaspAP has added a `systemd` init service to bring up networking services in a predictable order and timing after the Linux kernel is booted. You can check the status of this service with:
 
 ```
 sudo systemctl status raspapd.service
@@ -328,7 +328,7 @@ sudo systemctl status raspapd.service
 The `raspapd.service` is optionally installed and enabled by the Quick Installer. It is also included in the manual setup steps.
 
 ## <a name="bridged"></a>Bridged AP mode is unstable or clients can't connect.
-RaspAP [delegates all DHCP control to your router](bridged.md) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](issues.md#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
+RaspAP [delegates all DHCP control to your router](features-core/bridged.md) in bridged AP mode. If you have trouble connecting clients, start with this project's [default configuration](issues.md#default-settings) in routed AP mode _first_ and try connecting a client. Enable logging for DHCP and hostapd to help you identify any problems. If you have no issues with client connectivity with the default routed AP, but cannot connect clients in bridged AP mode, in most cases the problem lies with your router—not RaspAP. Check your router's web interface and DHCP settings.
 
 If clients disconnect intermittently, this often indicates an undervoltage issue with your RPi. Check the kernel log for any `Under-voltage detected!` errors. Be sure you are using an official 5.1V power supply (each model has [different power requirements](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md)) and detach any USB devices. Executing `dmesg | grep br0` can also offer clues. Execute `sudo dhclient -v` to gain insights into DHCP requests between your device and router. A typical DHCP exchange follows this pattern:
 
@@ -342,7 +342,7 @@ SERVER -> DHCPACK
 If your device (the client) broadcasts `DHCPDISCOVER`, but there is no `DHCPOFFER` response from your router, you have a misconfiguration or other issue with your network. Troubleshooting client connectivity in bridged AP mode is not supported. No hard feelings.
 
 ## <a name="pizero-w"></a>Managed mode AP doesn't work on the Pi Zero W.
-See [this walkthrough](ap-sta.md) where the installation is described in detail.
+See [this walkthrough](features-experimental/ap-sta.md) where the installation is described in detail.
 
 ## <a name="scanning"></a>WiFi scanning doesn't work or I get the error `cannot execute "wpa_cli reconfigure"`.
 On some configurations, the **Configure WiFi client** panel may appear empty. This project uses the `wpa_supplicant` command line client `wpa_cli` to populate a list of available wireless networks. If you can't execute this from the shell, neither can the web UI. For example, the results of this command:
@@ -369,7 +369,7 @@ sudo wpa_supplicant -B -Dnl80211,wext -c/etc/wpa_supplicant/wpa_supplicant.conf 
 substituting `wlan0` with your wireless interface, if necessary. You should then be able to perform scans as expected.
 
 !!! tip "Tip"
-    If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information on this topic is [available here](ap-sta.md#when-to-reboot).
+    If you are using `wpa_suplicant.conf` to connect to your device with SSH on a wireless interface, do _not_ reboot after running the Quick Installer. More information on this topic is [available here](features-experimental/ap-sta.md#when-to-reboot).
 
 ## <a name="hostapd-down"></a>I started the hotspot but it shows "hostapd down". What's happening?
 Hostapd, the Linux service that creates the access point, can fail to start for a variety of reasons. The following are common causes, with troubleshooting advice:
@@ -382,7 +382,7 @@ with incompatible hardware, RaspAP will create the configuration for you but `ho
 In each of these cases, the `hostapd` service will report errors that can be useful for troubleshooting. Enable logging by selecting **Logfile output** on the **Hostapd > Logging** tab, choose 
 **Save settings** then **Restart hotspot**.
 
-Refer to [this FAQ](faq.md#actroubleshooting) and [this FAQ](#disassociated) for more info.
+Refer to [this FAQ](faq.md#actroubleshoot) and [this FAQ](#disassociated) for more info.
 
 ## <a name="ping"></a>Pinging the AP from a connected client computer (or vice versa) results in an intermittent failure. Can I troubleshoot this?
 An intermittent ping failure on the wireless interface could indicate any number of things; a poor wireless signal, co-channel interference and disassociated client being among the most common.
@@ -442,7 +442,7 @@ attempt to save settings will fail. In other cases, the lighttpd web server may 
 ```
 
 These signs point to a corrupted filesystem on the SD card. If during a power disconnection the memory card is in a write operation, there is a high chance that one or more sectors will be
-damaged. In these cases, a fresh install on a new SD card can save you time and frustration. RaspAP's [minimal SD card write](minwrite.md) mode can help in this case.
+damaged. In these cases, a fresh install on a new SD card can save you time and frustration. RaspAP's [minimal SD card write](features-core/minwrite.md) mode can help in this case.
 
 !!! tip "Tip"
     Be sure to use genuine MicroSD cards from a reputable manufacturer. Card clones are common and hard to distinguish from legitimately made ones, but certainly not subject to the same quality standards. Neither fake nor cheap cards are typically suitable for an entire OS to run from.
@@ -475,17 +475,17 @@ There have been several discussions around integrating RaspAP with Pi-hole, with
 
 1. The first option is to configure RaspAP to use a Pi-Hole installation on a separate device. Go to RaspAP's **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server" option, add your Pi-Hole's DNS, save settings and restart dnsmasq.
 
-2. Install RaspAP in an isolated [Docker container](docker.md) together with Pi-Hole. You will need to configure Pi-Hole's `dnsmasq` service to listen on a port other than `53`.
+2. Install RaspAP in an isolated [Docker container](get-started/docker.md) together with Pi-Hole. You will need to configure Pi-Hole's `dnsmasq` service to listen on a port other than `53`.
 
 3. Install Pi-Hole in a Docker container and proceed with a normal installation of RaspAP on the same device.
 
-4. Alternatively, you may use RaspAP's own [ad blocking facility](adblock.md) with support for custom blocklists. 
+4. Alternatively, you may use RaspAP's own [ad blocking facility](features-core/adblock.md) with support for custom blocklists. 
 
 ## <a name="adguard"></a>Can I integrate RaspAP with Adguard Home?
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400)
 
 ## <a name="captive"></a>Can I configure RaspAP to work with a captive portal?
-Yes. The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](captive.md). 
+Yes. The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. A detailed setup guide is [available here](features-core/captive.md). 
 
 ## <a name="schedule"></a>How do I create an AP activation schedule?
 This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with `cron` to stop/start RaspAP's service control script at certain times. Run `sudo crontab -e` and add entries like so:
@@ -516,7 +516,7 @@ you can have this execute at specific intervals by using `cron`. Run `sudo cront
 For help with crontab, head over to <a href="https://crontab.guru/">crontab.guru</a>.
 
 ## <a name="managed"></a> Can I configure a managed mode AP without using the UI?
-Yes. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](faq.md#headless) and a valid [`hostapd.conf`](ap-sta.md#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
+Yes. Let's assume you are creating an RPi OS image (or other supported OS) with scripts that setup RaspAP at first startup. In this scenario, to configure a managed mode AP you must manually connect via a browser, make some changes via the UI and then save your settings. This can be also be done programmatically. Assuming you have [`wpa_supplicant.conf` fully populated](faq.md#headless) and a valid [`hostapd.conf`](features-experimental/ap-sta.md#how-does-ap-sta-work), set the following values in `/etc/raspap/hostapd.ini`:
 
 ```
 LogEnable = 0
@@ -578,7 +578,7 @@ in your local network via a wireless hotspot while connected to a router via eth
 
 Follow these steps to create this configuration:
 
-1. Follow RaspAP's [Quick start](quick.md) guide and set up your network as you wish.
+1. Follow RaspAP's [Quick start](get-started/quick-installer.md) guide and set up your network as you wish.
 2. Change the default Web server port to `8080` (so that it doesn't conflict with OMV5), from RaspAP's **System > Advanced** panel.
 3. Install OMV5 skipping network configuration.
 4. Configure your OMV5 install without changing the network settings.
@@ -635,7 +635,7 @@ You may now create your own `index.php` file in this folder and request it from 
 **Option 2.**  Reinstall RaspAP and specify a custom install destination, for example `/var/www/html/raspap`. This will leave the default web root free for you to create any files you wish, without attempting to rewrite the URLs (the installer will only apply routing rules to your custom RaspAP root). 
 
 ## <a name="adblockauto"></a>Can I automatically update RaspAP's adblock lists?
-RaspAP's [adblock feature](adblock.md) uses several [blocklists](adblock.md#blocklist-source) that are aggregated and updated daily. In a typical setup, you may use the **Ad blocking** management
+RaspAP's [adblock feature](features-core/adblock.md) uses several [blocklists](features-core/adblock.md#blocklist-sources) that are aggregated and updated daily. In a typical setup, you may use the **Ad blocking** management
 page to manually update these lists. Alternatively, this <a href="https://github.com/RaspAP/raspap-webgui/discussions/1216">user-contributed script</a> will automatically fetch the latest blocklists on
 the schedule of your choosing (for example, daily, weekly, etc.) and reload `dnsmasq`.
 ```
@@ -655,7 +655,7 @@ sudo systemctl reload dnsmasq.service
 Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.
 
 ## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.
-RaspAP supports OpenVPN clients by uploading a valid `.ovpn` file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
+RaspAP supports OpenVPN clients by uploading a valid `.ovpn` file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](get-started/defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
 
 ```
 -A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
@@ -755,7 +755,7 @@ You may also use RaspAP's built-in WireGuard logging facility. On the **WireGuar
 output in the tab and look for any errors.
 
 !!! tip "Tip"
-    The [debug log](troubleshooting.md#debug-log) facility queries the `systemd` journal with a one-time execution of `journalctl --identifier wg-quick`. If you want to update this log output, simply enable the option again. You may also execute this command directly from the shell, if you wish.
+    The [debug log](get-started/troubleshooting.md#debug-log) facility queries the `systemd` journal with a one-time execution of `journalctl --identifier wg-quick`. If you want to update this log output, simply enable the option again. You may also execute this command directly from the shell, if you wish.
 
 Finally, you may check and verify the WireGuard config itself, including PostUp / PostDown rules, by executing `sudo cat /etc/wireguard/wg0.conf`.
 
@@ -790,7 +790,7 @@ RaspAP:
 If using TKIP for encryption with WPA, you will be restricted to 54 Mb/s. This is because the IEEE 802.11n draft prohibits using high throughput with WEP or TKIP ciphers.
 
 ## <a name="iptables"></a> How do I exclude NAT rules from IP traffic on localhost?
-RaspAP's [Quick Installer](quick.md) configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.
+RaspAP's [Quick Installer](get-started/quick-installer.md) configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.
 
 In some cases, NAT rules applied to `localhost` can interfere with other services running on an RPi. An example is the Plex Media Server, which has an API that listens on localhost. As of this writing, the Plex API has been built to not authenticate communication between service processes of the server. This can cause a failure to communicate with the Plex API or similar add-on services on your RPi.
 
@@ -866,7 +866,7 @@ Stop the service with `sudo systemctl stop hostapd.service` and start it with `s
 If you're curious about which other services and Linux tools RaspAP controls for you, take a look at [`raspap.sudoers`](https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers).  
 
 ## <a name="wlanether"></a>Can I share internet from a wireless LAN with Ethernet clients?
-Yes, RaspAP simplifies this with an intuitive and easy-to-use [WLAN routing](wlanrouting.md) solution.
+Yes, RaspAP simplifies this with an intuitive and easy-to-use [WLAN routing](features-insiders/wlanrouting.md) solution.
 
 ## <a name="autoconnect"></a>Can RaspAP automatically connect to a known WiFi network at boot?
 When rebooting, users must manually re-establish a connection to a known WiFi network by using the **WiFi client** UI. This is the default behavior of `wpa_supplicant`. That is, on startup the `wpa_supplicant` service is executed by `systemd` (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.
@@ -888,7 +888,7 @@ Save the file and exit from your editor. On the next system boot, your RaspAP ro
 
 
 ## <a name="isolate"></a>Can I isolate RaspAP from other software on my system?
-Yes, you have the option of installing RaspAP in an isolated and portable [Docker container](docker.md). 
+Yes, you have the option of installing RaspAP in an isolated and portable [Docker container](get-started/docker.md). 
 
 
 ## <a name="upgrade"></a>How do I upgrade RaspAP?
@@ -898,7 +898,7 @@ The [version 3.0.2](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2) 
 
 ![Update](https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae){: style="width:520px"}
 
-No other actions are required on your behalf. Alternatively, you may also use the [Quick installer](quick.md) to upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version. This is done with the `--upgrade` option, as shown below:
+No other actions are required on your behalf. Alternatively, you may also use the [Quick installer](get-started/quick-installer.md) to upgrade to the [latest release](https://github.com/RaspAP/raspap-webgui/releases/latest) version. This is done with the `--upgrade` option, as shown below:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade
@@ -944,7 +944,7 @@ sudo systemctl disable raspapd.service
 ```
 
 ## <a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?
-Yes, the [Quick Installer](quick.md) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command line option, like so:
+Yes, the [Quick Installer](get-started/quick-installer.md) has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the `--yes` command line option, like so:
 
 ```
 curl -sL https://install.raspap.com | bash -s -- --yes
@@ -953,7 +953,7 @@ curl -sL https://install.raspap.com | bash -s -- --yes
 The options `-y` or `--assume-yes` are also accepted and have the same result. 
 
 ## <a name="restore"></a>Can I restore RaspAP's default settings?
-Yes, two methods are [described here](defaults.md#restoring-settings).
+Yes, two methods are [described here](get-started/defaults.md#restoring-settings).
 
 ## <a name="uninstall"></a>How do I uninstall RaspAP?
 An uninstaller is provided to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. Start the uninstaller with the following:

@@ -33,7 +33,7 @@ Enabling ad blocking management option
 Ad blocking is enabled and active for clients connected to your AP. You may update the blocklists or disable ad blocking with the management page. These actions are described below. 
  
 ## Manual installation
-Ad blocking may also be installed manually. Refer to the detailed [installation steps](manual.md#ad-blocking).
+Ad blocking may also be installed manually. Refer to the detailed [installation steps](../get-started/manual.md#ad-blocking).
 
 ## Blocklist sources
 Blocklists are sourced from multiple, continuously updated open source projects. These are divided into two groups: **hosts** and **domain** blocklists. By default, RaspAP's ad block facility uses [StevenBlack's hosts](https://github.com/StevenBlack/hosts) as the primary hosts blocklist. This repository is a hosts file aggregator that consolidates several reputable hosts files and merges them into a unified, optimized hosts file with duplicates removed.
@@ -47,7 +47,7 @@ In addition to blocking hosts, domain blocking gives us the ability to use wildc
 ## Updating lists 
 Each of the hosts and domains blocklists are updated daily, so it's a good practice to refresh them periodically. You can do this from the **Ad Blocking** management page in RaspAP. Simply select the list from the dropdown and choose **Update now**. 
 
-![Manage blocklists](images/adblock.png){: style="width:420px"}
+![Manage blocklists](../images/adblock.png){: style="width:420px"}
 
 Next to the update button, a gear icon :fontawesome-solid-gear:{ style="color: var(--md-default-fg-color--light)" } will appear to indicate that the selected list is being downloaded. Thereafter, a timestamp after each list will indicate when it was last updated.
 
@@ -55,10 +55,10 @@ Next to the update button, a gear icon :fontawesome-solid-gear:{ style="color: v
     To apply the latest blocklists, be sure to **Restart Ad Blocking**.
 
 ### Automatic updates
-Alternatively, you may wish to automate the process of keeping the ad block source lists up-to-date. A method to achieve this is described in [this FAQ](faq.md#adblockauto). 
+Alternatively, you may wish to automate the process of keeping the ad block source lists up-to-date. A method to achieve this is described in [this FAQ](../faq.md#adblockauto). 
 
 ## User-defined blocklists
-The blocklists used by RaspAP are conveniently defined in a [`blocklists.json`](https://github.com/RaspAP/raspap-webgui/blob/master/config/blocklists.json) file. As discussed in [blocklist sources](adblock.md#blocklist-sources), these lists are divided into two categories: hosts and domains. If you prefer to replace the default blocklist sources with your own, backup the original and edit `blocklists.json` in RaspAP's adblock configuration folder:
+The blocklists used by RaspAP are conveniently defined in a [`blocklists.json`](https://github.com/RaspAP/raspap-webgui/blob/master/config/blocklists.json) file. As discussed in [blocklist sources](#blocklist-sources), these lists are divided into two categories: hosts and domains. If you prefer to replace the default blocklist sources with your own, backup the original and edit `blocklists.json` in RaspAP's adblock configuration folder:
 
 ```
 cp /var/www/html/config/blocklists.json ~/

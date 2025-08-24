@@ -2,7 +2,7 @@
 
 ## Overview
 The Quick installer has been designed to assist users with creating an instance of RaspAP both quickly and with a great deal of flexibility.
-The [install loader](https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspbian.sh) will respond to several command line arguments, or [switches](#switches), to customize your installation in a variety of ways, or install one of RaspAP's optional [helper](minwrite.md) [tools](ssl.md).
+The [install loader](https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspbian.sh) will respond to several command line arguments, or [switches](#switches), to customize your installation in a variety of ways, or install one of RaspAP's optional [helper](../features-core/minwrite.md) [tools](../features-experimental/ssl.md).
 
 ## Alternatives
 The installer gives you the greatest level of flexibility for creating an instance of RaspAP. However, if your goal is to use RaspAP as a component of a larger project, or wish to isolate its dependencies from existing software on your system, consider deploying RaspAP in a [Docker container](docker.md) instead.
@@ -24,7 +24,7 @@ Invoke installer remotely, run non-interactively with option flags:
 curl -sL https://install.raspap.com | bash -s -- --yes --wireguard 1 --adblock 0
 ```
 
-Invoke remotely, uprgrade an existing install to the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](insiders.md). The `--name` and `--token` arguments are optional; if they are not specified the user will be prompted to authenticate with GitHub:
+Invoke remotely, uprgrade an existing install to the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](../features-insiders/index.md). The `--name` and `--token` arguments are optional; if they are not specified the user will be prompted to authenticate with GitHub:
 ```
 curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name <name> --token <token>
 ```
@@ -50,7 +50,7 @@ raspbian.sh --version
 This option enables unattended installations, such that the installer assumes "yes" as an answer to all user prompts. This behavior is identical to how the same option with the `apt-get` package handler works. 
 
 #### -c, --cert, --certificate
-This option installs an SSL certificate with `mkcert` and configures lighttpd for HTTPS support. It does _not_ (re)install RaspAP. Details are [provided here](ssl.md).
+This option installs an SSL certificate with `mkcert` and configures lighttpd for HTTPS support. It does _not_ (re)install RaspAP. Details are [provided here](../features-experimental/ssl.md).
 
 #### -o, --openvpn `<flag>`
 Used with the `-y`, `--yes` option above, this sets the OpenVPN install option (`0` = don't install OpenVPN). Given that OpenVPN support is an optional extra, this enables an unattended setup without installing it.
@@ -114,10 +114,10 @@ curl -sL https://install.raspap.com | bash -s -- --update --path /var/www/html -
 ```
 
 #### -i, --insiders
-Installs from the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](insiders.md) (`RaspAP/raspap-insiders`).
+Installs from the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](../features-insiders/index.md) (`RaspAP/raspap-insiders`).
 
 #### -m, --minwrite
-Configures a microSD card for [minimum write operation](minwrite.md).
+Configures a microSD card for [minimum write operation](../features-core/minwrite.md).
 
 #### -k, --check `<flag>`
 Sets the connectivity check flag (`0` = don't perform an internet connectivity check).

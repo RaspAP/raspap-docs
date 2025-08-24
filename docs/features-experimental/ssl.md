@@ -127,7 +127,7 @@ There are two options to go about creating a self-signed certificate with mkcert
 
 === "Quick installer"
 
-    The [Quick Installer](quick.md) may also be used to generate SSL certs with `mkcert`. The installer automates the manual steps described above, including configuring lighttpd with SSL support. It's recommended to review these steps to have an idea of what is happening behind the scenes. 
+    The [Quick Installer](../get-started/quick-installer.md) may also be used to generate SSL certs with `mkcert`. The installer automates the manual steps described above, including configuring lighttpd with SSL support. It's recommended to review these steps to have an idea of what is happening behind the scenes. 
 
     Invoke the Quick installer and specify the `-c` or `--cert` option, like so:
 
@@ -256,13 +256,13 @@ Examples below illustrate this process:
         These instructions are based from macOS Sequoia, so your instructions may differ.  
     1. Open the certificate file, and select 'Add' to the 'System' Keychain:  
     _<small>Click image to expand</small>_  
-    ![ssl-macos-1](images/ssl-macos-1.png){: style="width:400px"}  
+    ![ssl-macos-1](../images/ssl-macos-1.png){: style="width:400px"}  
     2. Open 'Keychain' app:  
     _<small>Click image to expand</small>_  
-    ![ssl-macos-1](images/ssl-macos-2.png){: style="width:400px"}  
+    ![ssl-macos-1](../images/ssl-macos-2.png){: style="width:400px"}  
     3. Set this certificate to "Always trust" to avoid browser warnings.  
     _<small>Click image to expand</small>_  
-    ![ssl-macos-1](images/ssl-macos-3.png){: style="width:400px"}  
+    ![ssl-macos-1](../images/ssl-macos-3.png){: style="width:400px"}  
     4. Finally, enter the address `https://raspap.local` in your browser and enjoy an encrypted SSL connection to RaspAP.
 
 === "Windows"
@@ -272,35 +272,35 @@ Examples below illustrate this process:
     2. Double-click the `rootCA.crt` file to open it  
     3. On the window that opens, click the 'Install Certificate' (1) button:  
     _<small>Click image to expand</small>_  
-    ![ssl-windows11-cert-install-1](images/ssl-windows11-cert-install-1.png){: style="width:200px"}  
+    ![ssl-windows11-cert-install-1](../images/ssl-windows11-cert-install-1.png){: style="width:200px"}  
     4. Change the 'Store Location' option to 'Local Computer' (1), then click 'Next' (2) on this 'Welcome to the Certificate Import Wizard' window (**Note:** you will likely be presented with a 'User Access Control' window, you will want to choose 'Yes' on this):  
     _<small>Click image to expand</small>_  
-    ![ssl-windows11-cert-install-2](images/ssl-windows11-cert-install-2.png){: style="width:200px"}  
+    ![ssl-windows11-cert-install-2](../images/ssl-windows11-cert-install-2.png){: style="width:200px"}  
     5. Select 'Place all certificaes in the following store' (1) then click the 'Browse...' button (2) on this window:  
     _<small>Click image to expand</small>_  
-    ![ssl-windows11-cert-install-3](images/ssl-windows11-cert-install-3.png){: style="width:200px"}  
+    ![ssl-windows11-cert-install-3](../images/ssl-windows11-cert-install-3.png){: style="width:200px"}  
     6. Choose the 'Trusted Root Certificate Authority' (1) certificate store then click 'OK' (2) on the 'Select Certifcate Store' pop-up box:  
     _<small>Click image to expand</small>_  
-    ![ssl-windows11-cert-install-4](images/ssl-windows11-cert-install-4.png){: style="width:200px"}  
+    ![ssl-windows11-cert-install-4](../images/ssl-windows11-cert-install-4.png){: style="width:200px"}  
     7. Ensure that the 'Trusted Root Certificate Authority' Certificate store is in the box (1) - if not correct it by browsing to the correct one - then click the 'Next' button (2) to continue:  
     _<small>Click image to expand</small>_  
-    ![ssl-windows11-cert-install-5](images/ssl-windows11-cert-install-5.png){: style="width:200px"}  
+    ![ssl-windows11-cert-install-5](../images/ssl-windows11-cert-install-5.png){: style="width:200px"}  
     8. Ensure all information is correct on this final 'Completing the Certificate Import Wizard' window - if not, repeat steps above to correct any abnormalities - then click 'Finish' (1) to complete the certificate import:  
     _<small>Click image to expand</small>_  
-    ![ssl-windows11-cert-install-6](images/ssl-windows11-cert-install-6.png){: style="width:200px"}  
+    ![ssl-windows11-cert-install-6](../images/ssl-windows11-cert-install-6.png){: style="width:200px"}  
     8. You should see this window pop-up - if you do not, something went wrong, and try again from the beginning of this document:  
     _<small>Click image to expand</small>_  
-    ![ssl-windows11-cert-install-7](images/ssl-windows11-cert-install-7.png){: style="width:200px"}  
+    ![ssl-windows11-cert-install-7](../images/ssl-windows11-cert-install-7.png){: style="width:200px"}  
     
     At this point, your computer should now trust the certificate chain, and you should be able to enter the address `https://raspap.local` in your browser and enjoy an encrypted SSL connection to RaspAP. However, if you want to confirm the certificate is loaded correctly, you can follow the steps in this note:
     
     !!! note "Note"   
         1. If you want to ensure that the new certifcate was installed correctly, navigate to the 'Manage computer certificates' control panel tool by opening the 'Start Menu' (1) and typing in `cert` (2) and selecting 'Manage computer certifcates' match (3):  
         _<small>Click image to expand</small>_  
-        ![ssl-windows11-start-menu-1](images/ssl-windows11-start-menu-1.png){: style="width:640px"}  
+        ![ssl-windows11-start-menu-1](../images/ssl-windows11-start-menu-1.png){: style="width:640px"}  
         2. In this 'Certificates' window, navigate to and expand the 'Trusted Root Certificate Authority' (1) folder, then click on the 'Certificates' (2) store, and locate the newly installed certifcate that matches the one you chose to install (3):  
         _<small>Click image to expand</small>_  
-        ![ssl-windows11-cert-mgr-1](images/ssl-windows11-certmgr-1.png){: style="width:640px"}  
+        ![ssl-windows11-cert-mgr-1](../images/ssl-windows11-certmgr-1.png){: style="width:640px"}  
 
 === "Linux (Ubuntu)"
     !!! Note
@@ -324,22 +324,22 @@ Examples below illustrate this process:
     1. Transfer the certificate to the device using AirDrop, email, or download using the router's link mentioned above.
     2. Open (1) the certificate file using the `Files` app:  
     _<small>Click image to expand</small>_  
-    ![ssl-iphone-0](images/ssl-iphone-0.png){: style="width:200px"}  
+    ![ssl-iphone-0](../images/ssl-iphone-0.png){: style="width:200px"}  
     3. Go to 'Settings', then 'Profile Downloaded' (1):  
     _<small>Click image to expand</small>_  
-    ![ssl-iphone-1](images/ssl-iphone-1.png){: style="width:200px"}  
+    ![ssl-iphone-1](../images/ssl-iphone-1.png){: style="width:200px"}  
     4. Then tap 'Install' (1) on the 'Install Profile' screen:  
     _<small>Click image to expand</small>_  
-    ![ssl-iphone-2](images/ssl-iphone-2.png){: style="width:200px"}  
+    ![ssl-iphone-2](../images/ssl-iphone-2.png){: style="width:200px"}  
       a. Enter your device passcode if prompted  
     5. Confirm by tapping 'Install' (1) again on the warning screen:  
     _<small>Click image to expand</small>_  
-    ![ssl-iphone-3](images/ssl-iphone-3.png){: style="width:200px"}  
+    ![ssl-iphone-3](../images/ssl-iphone-3.png){: style="width:200px"}  
     6. Enable Full Trust for Root Certificates  
       a. Go to 'Settings' → 'General' → 'About' → 'Certificate Trust Settings'  
       b. Toggle the switch ON (1) next to your certificate under 'Enable Full Trust for Root Certificates'  
       _<small>Click image to expand</small>_  
-      ![ssl-iphone-4](images/ssl-iphone-4.png){: style="width:200px"}  
+      ![ssl-iphone-4](../images/ssl-iphone-4.png){: style="width:200px"}  
     7. Finally, enter the address `https://raspap.local` in your browser and enjoy an encrypted SSL connection to RaspAP.
     
 === "Android"
@@ -348,32 +348,32 @@ Examples below illustrate this process:
     1. Navigate to 'Settings'  
     2. Search for `CA cert`:  
     _<small>Click image to expand</small>_  
-    ![ssl-android-0](images/ssl-android-0.png){: style="width:200px"}  
+    ![ssl-android-0](../images/ssl-android-0.png){: style="width:200px"}  
     3. Select the 'CA certificate' result (1). This should load the 'Install a Certifcate' page; if so, select 'CA certificate':   
     _<small>Click image to expand</small>_  
-    ![ssl-android-1](images/ssl-android-1.png){: style="width:200px"}  
+    ![ssl-android-1](../images/ssl-android-1.png){: style="width:200px"}  
     4. You will be presented with a warning screen. Please read it carefully, and select 'Install anyway' (1) if you agree with it:  
     _<small>Click image to expand</small>_  
-    ![ssl-android-4](images/ssl-android-3.png){: style="width:200px"}  
+    ![ssl-android-4](../images/ssl-android-3.png){: style="width:200px"}  
       Note: If you have a lock (PIN or biometric) on your device, you will likely be prompted to authenticate after selecting this 
     5. Navigate to the certifcate file and select it:  
     _<small>Click image to expand</small>_  
-    ![ssl-android-5](images/ssl-android-4.png){: style="width:200px"}  
+    ![ssl-android-5](../images/ssl-android-4.png){: style="width:200px"}  
     6. You should be sent back to the 'Install a certifcate' screen, but see a message popup at the bottom saying "CA certificate installed":  
     _<small>Click image to expand</small>_  
-    ![ssl-android-6](images/ssl-android-5.png){: style="width:200px"}  
+    ![ssl-android-6](../images/ssl-android-5.png){: style="width:200px"}  
     
     At this point, your computer should now trust the certificate chain, and you should be able to enter the address `https://raspap.local` in your browser and enjoy an encrypted SSL connection to RaspAP. However, if you want to confirm the certificate is loaded correctly, you can follow the steps in this note:
 
     ??? note "Note (click to expand/collapse)"
         1. In settings, under the search for `CA cert`, select the 'Trusted credentials' option (1):  
-        ![ssl-android-6](images/ssl-android-6.png){: style="width:200px"}  
+        ![ssl-android-6](../images/ssl-android-6.png){: style="width:200px"}  
         _<small>Click image to expand</small>_  
         2. This should direct you to the 'Encryption & Credentials' settings page; select the 'Trusted credentials' option (1):  
-        ![ssl-android-7](images/ssl-android-7.png){: style="width:200px"}  
+        ![ssl-android-7](../images/ssl-android-7.png){: style="width:200px"}  
         _<small>Click image to expand</small>_  
         2. On this 'Trusted credentials' page, select the 'User' button (1). You should see your installed certificate:  
-        ![ssl-android-8](images/ssl-android-8.png){: style="width:200px"}  
+        ![ssl-android-8](../images/ssl-android-8.png){: style="width:200px"}  
         _<small>Click image to expand</small>_  
 
 ---
