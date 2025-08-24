@@ -21,7 +21,7 @@ This may not be a concern if your network is isolated behind a router or firewal
 The overall security of your RaspAP install can be greatly enhanced by applying some rudimentary changes to it. Taken together, these have the effect of hardening your router against potential external threats.
 
 ### Using HTTPS/TLS
-RaspAP's administrator login can be made secure if transmitted over HTTPS, which encrypts the entire communication channel. For this reason, RaspAP has simplified the process of creating [locally-trusted SSL certificates](ssl.md) with the [Quick installer](ssl.md#quick-installer). When HTTPS/TLS is enabled with a RaspAP install, this authentication process is significantly more secure. 
+RaspAP's administrator login can be made secure if transmitted over HTTPS, which encrypts the entire communication channel. For this reason, RaspAP has simplified the process of creating [locally-trusted SSL certificates](../features-experimental/ssl.md) with the [Quick installer](../features-experimental/ssl.md#quick-installer). When HTTPS/TLS is enabled with a RaspAP install, this authentication process is significantly more secure. 
 
 ### Using a strong passphrase
 In most scenarios, a potential attacker can only access RaspAP's login prompt if they are already associated with your wireless access point. To mitigate this, change the default `RaspAP` SSID and choose a strong pre-shared key (PSK) or passphrase. RaspAP will automatically generate a secure passphrase for you, as illustrated below:
@@ -37,16 +37,16 @@ On the **Hotspot > Security** tab, click or tap the magic icon :fontawesome-soli
 RaspAP enables Wi-Fi Protected Access 2 (WPA2) as the default security type for the access point. This includes support for AES-based encryption and a multi-step 4-way handshake. For greater security, the newer [WPA3 standard](ap-basics.md#wpa3-personal) increases the key length to 192 bits (compared with the 128-bit key used by WPA2), further improving the password defense strength.
 
 ## Custom user avatars
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
 
 The default administrator user icon may be replaced with a custom one of your choosing. From the **Avatar** tab, click or tap on the existing avatar to upload a new one. The new custom avatar will be displayed in RaspAP's header.
 
-![type:video](./images/avatar.mp4){: style="width: 397px; height: 478px;"}
+![type:video](../images/avatar.mp4){: style="width: 397px; height: 478px;"}
 
 Image files of type `.jpg`, `.gif` or `.png` up to a maximum of 2 MB are supported. To restore the avatar to the default, choose **Reset avatar**.
 
 ## Limited privilege user role
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
 
 The administrator may enable a user who is able to access RaspAP's management interface, but is restricted in their ability to modify the existing configuration. In this case, the limited privilege user may configure a wireless client connection on the **WiFi client** page, but is unable to change any other settings. 
 
@@ -59,7 +59,7 @@ To enable the limited privilege user, slide the corresponding toggle on the **Ba
 ## Session management
 The default PHP session timeout is defined as 24 minutes (1440 seconds). When this timeout is reached stored data will be seen as "garbage" and cleaned up by the garbage collection process.
 
-Previously, if a page was submitted after the session had expired, RaspAP would return a [CSRF token error](faq.md#token). Usually the page could simply be refreshed to generate a new session token. Now, when the logged-in user's session expires, the login dialog will appear prompting them to reauthenticate.
+Previously, if a page was submitted after the session had expired, RaspAP would return a [CSRF token error](../faq.md#token). Usually the page could simply be refreshed to generate a new session token. Now, when the logged-in user's session expires, the login dialog will appear prompting them to reauthenticate.
 
 This behavior is in line with many modern router implementations, which redirect an administrative user to a login page after a period of inactivity. This has the effect of enhancing security in the event the router is left unattended.
 

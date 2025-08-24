@@ -3,7 +3,7 @@
 ## Overview
 Creating a software routed access point (AP) requires the installation and setup of several related Linux services.
 RaspAP uses a known-good default configuration as a starting point. This facilitates a faster setup by not prompting the user for various network 
-settings during the installation. More importantly, it eliminates guesswork that can lead to conflicts down the road. When the [manual](manual.md) or [quick installation](quick.md) is completed,
+settings during the installation. More importantly, it eliminates guesswork that can lead to conflicts down the road. When the [manual](manual.md) or [quick installation](quick-installer.md) is completed,
 you will have a functional AP that you may then administer with RaspAP's web interface.
 
 While this project handles every facet of this process for you, it's still recommended that users familiarize themselves with the [steps involved](manual.md) in building a software AP from start to finish.
@@ -15,7 +15,7 @@ In this way, the user may modify RaspAP's baseline application settings without 
 The exception to this is `hostapd.conf` which is effectively rewritten depending on user input. This is due to the [complexity of this configuration](https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf) relative to other services managed by the project.
 
 !!! tip Tip
-    RaspAP has a mechanism that lets advanced users create their own [custom `hostapd` configuration](ap-basics.md#custom-user-settings). These custom user settings are managed outside of RaspAP and are unmodified by the application. 
+    RaspAP has a mechanism that lets advanced users create their own [custom `hostapd` configuration](../features-core/ap-basics.md#custom-user-settings). These custom user settings are managed outside of RaspAP and are unmodified by the application. 
 
 Baseline configurations for `dhcpcd`, `dnsmasq` (described below) and bridged AP configurations are contained here.
  
@@ -113,7 +113,7 @@ a JSON formatted collection of hostnames and IPv4 addresses, like so:
 Edits to this file in place will immediately be reflected in the user interface.
 
 ## VPN providers
-RaspAP [version 3.0](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0) introduced beta support for a select number of [VPN providers](providers.md). These services are largely defined in the `config/vpn-providers.json` file. An example provider definiton is shown below:
+RaspAP [version 3.0](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0) introduced beta support for a select number of [VPN providers](../features-experimental/providers.md). These services are largely defined in the `config/vpn-providers.json` file. An example provider definiton is shown below:
 
 ```
 "id": 1,

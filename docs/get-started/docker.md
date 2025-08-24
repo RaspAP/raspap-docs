@@ -1,9 +1,9 @@
 # Docker support
 
-![docker](images/docker.png){: style="width:640px"}
+![docker](../images/docker.png){: style="width:640px"}
 
 ## Overview
-As an alternative to the [Quick installer](quick.md) or [manual installation](manual.md) steps, you may also deploy RaspAP in an isolated and portable Docker container.
+As an alternative to the [Quick installer](quick-installer.md) or [manual installation](manual.md) steps, you may also deploy RaspAP in an isolated and portable Docker container.
 
 A _container_ is an isolated environment for code. This means that a container has no knowledge of the host operating system, dependencies, or its files. It runs on the environment provided to you by either Docker Desktop or the Docker Engine. Containers have everything needed to run an application, down to a base operating system.
 
@@ -250,9 +250,9 @@ sudo chmod +x firewall-rules.sh
 ```
 
 ### Installer options
-The goal of the initial Docker rollout for RaspAP is to have a "one shot" command to get a container up quickly with minimal user input. For this reason, the RaspAP application stack is installed with some common options enabled by default. These optional components are [Ad blocking](adblock.md), [OpenVPN](openvpn.md), [WireGuard](wireguard.md) and the [RestAPI](restapi.md).
+The goal of the initial Docker rollout for RaspAP is to have a "one shot" command to get a container up quickly with minimal user input. For this reason, the RaspAP application stack is installed with some common options enabled by default. These optional components are [Ad blocking](../features-core/adblock.md), [OpenVPN](../features-core/openvpn.md), [WireGuard](../features-core/wireguard.md) and the [RestAPI](../features-experimental/restapi.md).
 
-You may change this behavior by removing any or all of the [Quick installer](quick.md) flags from RaspAP's [Dockerfile](https://github.com/RaspAP/raspap-docker/blob/master/Dockerfile). For example, to skip the WireGuard install option, remove the `--wireguard 1` flag on the line below:
+You may change this behavior by removing any or all of the [Quick installer](quick-installer.md) flags from RaspAP's [Dockerfile](https://github.com/RaspAP/raspap-docker/blob/master/Dockerfile). For example, to skip the WireGuard install option, remove the `--wireguard 1` flag on the line below:
 
 ``` py hl_lines="3"
 VOLUME [ "/sys/fs/cgroup" ]
@@ -262,7 +262,7 @@ COPY firewall-rules.sh /home/firewall-rules.sh
 COPY wpa_supplicant.conf /etc/wpa_supplicant/
 ```
 
-To create a container with the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](insiders.md), add the installer options `--insiders`, `--name` and `--token`, plus any other desired switches:
+To create a container with the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](../features-insiders/index.md), add the installer options `--insiders`, `--name` and `--token`, plus any other desired switches:
 
 ```
 RUN curl -sL https://install.raspap.com | bash -s -- --yes --insiders --name octocat --token my-token --check 0

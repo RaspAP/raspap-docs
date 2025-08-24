@@ -1,11 +1,11 @@
 # Tailscale VPN
 
-![tailscale-vpn](images/tailscale.png){: style="width:640px"}
+![tailscale-vpn](../images/tailscale.png){: style="width:640px"}
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
 
-Tailscale is a zero-configuration VPN that makes devices and services feel like they're on the same secure network, known as a _tailnet_, regardless of physical location. It builds on the secure and open source [WireGuard protocol](wireguard.md) to create encrypted peer-to-peer connections between devices. Tailscale bypasses the need for traditional VPNs while offering simplified access controls and management through user-friendly interfaces.
+Tailscale is a zero-configuration VPN that makes devices and services feel like they're on the same secure network, known as a _tailnet_, regardless of physical location. It builds on the secure and open source [WireGuard protocol](../features-core/wireguard.md) to create encrypted peer-to-peer connections between devices. Tailscale bypasses the need for traditional VPNs while offering simplified access controls and management through user-friendly interfaces.
 
 ## Solution
 Tailscale's default behavior is to act as an overlay network. That is, it routes traffic between devices running Tailscale, but doesn't act on your public internet traffic. The overlay network works well for secure communication between devices, but without the need for extra layers of encryption for a public internet connection.
@@ -34,7 +34,7 @@ The plugin installer automates adding GPG signing keys for the official Tailscal
 ## Basic settings
 When configuring the plugin for the first time, you will be prompted to login to Tailscale. Choosing the :octicons-link-external-16: **Open Tailscale Login** button will open a new window for you. Complete the login with Tailscale and follow the prompts to connect your device. After authorizing your device to connect to Tailscale, choose **Next**:octicons-chevron-right-16: in RaspAP's Tailscale plugin.
 
-![tailscale-configuration](images/ts-config.png){: style="width:400px"}
+![tailscale-configuration](../images/ts-config.png){: style="width:400px"}
 
 After you've logged in and connected your device to Tailscale, it will receive an IPv4 address within your tailnet (your private Tailscale network). At this stage, you may choose to create a new exit node or configure your device to use an existing one, as indicated above.
 
@@ -46,7 +46,7 @@ Any device capable of running Tailscale's client software is able to host an exi
 
 If you have multiple active exit nodes on your tailnet, Tailscale will recommend one based on its network response time. This is indicated with a star :material-star: in the option list, as shown below: 
 
-![tailscale-select-exit-node](images/ts-select-exit-node-lan.png){: style="width:400px"}
+![tailscale-select-exit-node](../images/ts-select-exit-node-lan.png){: style="width:400px"}
 
 _Subnet routes_ let you extend your Tailscale network to devices that don't run the Tailscale client. If you're hosting an AP on this device, selecting the **Advertise a subnet route** option will create a gateway between your tailnet and a physical subnet. The subnet associated with the active AP interface is preconfigured for you.
 
@@ -57,14 +57,14 @@ Both of these options above are recommended if you're using this device as a Tai
 #### Approving subnet routes
 For security reasons, you must opt in to enable Tailscale subnet route functionality. To do so, use the :octicons-link-external-16: **Open Tailscale Machines** button and follow the steps to approve the subnet route for this device, as indicated below:
 
-![tailscale-approve-subnet](images/ts-subnet-approve.png){: style="width:400px"}
+![tailscale-approve-subnet](../images/ts-subnet-approve.png){: style="width:400px"}
 
 After completing these steps in the Tailscale console, choose **Next**:octicons-chevron-right-16: to proceed.
 
 #### Using an exit node 
 At the final step, the plugin will confirm that your device is using the exit node indicated by its Tailscale IPv4 address, as shown below: 
 
-![tailscale-using-exit-node](images/ts-using-node.png){: style="width:400px"}
+![tailscale-using-exit-node](../images/ts-using-node.png){: style="width:400px"}
 
 Additionally, your device's Tailscale [MagicDNS](https://tailscale.com/kb/1081/magicdns) name is also indicated. 
 
@@ -79,7 +79,7 @@ RaspAP's Tailscale integration also lets you configure your device as a new exit
 #### Advertising an exit node
 The first step is to advertise your device as an exit node on your tailnet. By doing so, clients that connect to it will have a secure tunnel through your tailnet and appear to have the Tailscale IPv4 address of your device. 
 
-![tailscale-create-node](images/ts-create-node.png){: style="width:400px"}
+![tailscale-create-node](../images/ts-create-node.png){: style="width:400px"}
 
 To advertise your device as an exit node, accept the default setting as shown above. Optionally, you may also optimize your device for UDP throughput (recommended). Choose **Next**:octicons-chevron-right-16: to continue. 
 
@@ -95,21 +95,21 @@ At this stage, your device is pending approval as an exit node. For security rea
 
 Choose :octicons-link-external-16: **Open Tailscale Machines** to manage the devices connected to your tailnet:
 
-![tailscale-advertise-node](images/ts-exit-node.png){: style="width:400px"}
+![tailscale-advertise-node](../images/ts-exit-node.png){: style="width:400px"}
 
 Follow the steps indicated above in the Tailscale console. Choose **Next**:octicons-chevron-right-16: when you've completed them.
 
 #### Exit node activated
 At the final step, your device will indicate that it offers an exit node. For security reasons, each of your devices must enable the exit node separately.
 
-![tailscale-node-active](images/ts-active.png){: style="width:400px"}
+![tailscale-node-active](../images/ts-active.png){: style="width:400px"}
 
 Follow the **Tailscale documentation** :octicons-link-external-16: link for instructions on how to use this exit node with the devices in your tailnet.
 
 #### Connecting clients
 Tailscale has support for Android, iOS, Linux, macOS, tvOS and Windows devices. You may opt to configure all of your devices, or a subset of them, to [use your exit node](https://tailscale.com/kb/1103/exit-nodes#use-the-exit-node) by installing Tailscale's client software. 
 
-![tailscale-client](images/ts-client.png){: style="width:460px"}
+![tailscale-client](../images/ts-client.png){: style="width:460px"}
 
 In the example above, a macOS client is connected to Tailscale and is using the exit node `rpitest` configured in the preceding steps.
 

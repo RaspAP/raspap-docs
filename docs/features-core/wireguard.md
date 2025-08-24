@@ -6,7 +6,7 @@
 WireGuard<sup>®</sup> is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be considerably more performant than OpenVPN,
 and is generally regarded as the most secure, easiest to use, and simplest VPN solution for modern Linux distributions.
 
-WireGuard may be optionally installed by the [Quick Installer](quick.md). Once this is done, you can manage both local and remote server settings, create a peer configuration and control the `wg-quick` service with RaspAP.
+WireGuard may be optionally installed by the [Quick Installer](../get-started/quick-installer.md). Once this is done, you can manage both local and remote server settings, create a peer configuration and control the `wg-quick` service with RaspAP.
 
 ## Securing your wireless network
 RaspAP gives you two ways to create a secure WireGuard tunnel: **1)** by uploading a `.conf` file from your VPN provider, or **2)** by creating a manual configuration. Each method is described and demonstrated with a short video below.
@@ -30,7 +30,7 @@ The complete process of creating a WireGuard configuration with [Mullvad](https:
 <video src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" data-canonical-src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" controls="controls" muted="muted"></video>
 
 It should be noted that RaspAP has no affiliation whatsoever with Mullvad. In fact, Mullvad [does not use affiliates](https://mullvad.net/en/help/policy-reviews-advertising-and-affiliates/) or pay for reviews. 
-Members of RaspAP's [Insiders community](insiders.md) have requested support for this VPN provider.
+Members of RaspAP's [Insiders community](../features-insiders/index.md) have requested support for this VPN provider.
 
 #### Starting WireGuard
 RaspAP will handle uploading your `.conf` file and, optionally, applying any `iptables` rules. To enable the tunnel, choose **Start WireGuard**. The WireGuard protocol is extremely fast, so in most cases
@@ -75,7 +75,7 @@ device running RaspAP and the clients connected to it.
 WireGuard requires a public and private keypair for each device you wish to have access to the VPN tunnel. RaspAP simplifies this process with a
 magic button :fontawesome-solid-wand-magic-sparkles: associated with each public key input field. Simply click or tap this button to securely generate a cryptographic keypair for both the server and peer.
 
-Several [default values](defaults.md) are provided for you as a starting point. These are intended to get a VPN tunnel up and running quickly. They may be modified to suit your needs.
+Several [default values](../get-started/defaults.md) are provided for you as a starting point. These are intended to get a VPN tunnel up and running quickly. They may be modified to suit your needs.
 
 After the keypairs are generated, simply choose **Save settings** followed by **Start WireGuard**.
 
@@ -118,7 +118,7 @@ iptables -A FORWARD -i wg0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCE
 iptables -t nat -A  POSTROUTING -o wg0 -j MASQUERADE
 ```
 
-These `iptables` rules are defined in WireGuard's [default settings](defaults.md) and may be modified if you wish.
+These `iptables` rules are defined in WireGuard's [default settings](../get-started/defaults.md) and may be modified if you wish.
 
 !!! note "Note"
     If your VPN server is behind a NAT, you will need to open a UDP port of your choosing (51820 is the default). 
@@ -129,7 +129,7 @@ These `iptables` rules are defined in WireGuard's [default settings](defaults.md
 In the event that the WireGuard tunnel accidentally goes down, unencrypted traffic may reveal your real IP address. To prevent this from happening, additional `PostUp` and `PreDown` rules may be
 added to the firewall. Simply choose the **Enable kill switch** option when uploading your WireGuard configuration:
 
-![](images/wg-killswitch.png){: style="width:480px"}
+![](../images/wg-killswitch.png){: style="width:480px"}
 
 These rules are automatically appended to your configuration. 
 
@@ -137,7 +137,7 @@ These rules are automatically appended to your configuration.
     Some VPN providers give you the option of adding these rules to their Linux configurations. Skip this option as RaspAP needs to add an exclusion rule for your AP interface.
 
 ## Multiple configs
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
 
 RaspAP lets you manage multiple WireGuard configurations. This includes the ability to upload, activate and delete any number of valid wg .conf files. Select the **Apply iptables rules for AP interface** option when uploading your .conf file to automatically route traffic to connected peers on the AP interface.
 
@@ -159,7 +159,7 @@ RaspAP provides a front end to WireGuard only; it makes no attempt to validate `
 
 In this event, use RaspAP's WireGuard service logging facility or execute `sudo journalctl --identifier wg-quick`. Scan the log for errors and consult the [WireGuard documentation](https://www.wireguard.com/) to ensure that your configuration is valid.
 
-See also the [FAQ section](faq.md#wireguard) for WireGuard.
+See also the [FAQ section](../faq.md#wireguard) for WireGuard.
 
 ## Discussions
 Questions or comments about using WireGuard? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

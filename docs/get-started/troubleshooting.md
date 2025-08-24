@@ -6,14 +6,14 @@ RaspAP gives you advanced control over several Linux networking-related services
 ## Do's and don'ts
 Is your RaspAP router behaving unexpectedly? Before proceeding any further, this common sense checklist will help you avoid the most common pitfalls:
 
-1. _Do_ use a [custom OS with RaspAP preinstalled](quick_start.md#pre-built-image); this eliminates 90% of the guesswork.
+1. _Do_ use a [custom OS with RaspAP preinstalled](simple-setup.md#pre-built-image); this eliminates 90% of the guesswork.
 2. _Don't_ use a metallic case with your device, which can impede radio performance.
 3. _Do_ start with your device's onboard wireless and validate operation with it ^^first^^.
-4. _Don't_ assume an [external wireless adapter](faq.md#adapters) (or "dongle") will work out of the box.
+4. _Don't_ assume an [external wireless adapter](../faq.md#adapters) (or "dongle") will work out of the box.
 5. _Do_ use an official power supply for your device to avoid undervoltage errors.
 6. _Don't_ use an unshielded or poor quality HDMI cable; these interfere with the wi-fi radio.
-7. _Do_ perform a survey of your wireless neighborhood to avoid [co-channel interference](faq.md#ping).
-8. _Do_ use a microSD card from a reputable brand; consider enabling [minimal write mode](minwrite.md).
+7. _Do_ perform a survey of your wireless neighborhood to avoid [co-channel interference](../faq.md#ping).
+8. _Do_ use a microSD card from a reputable brand; consider enabling [minimal write mode](../features-core/minwrite.md).
 9. If you've modified the default settings and things don't work, do a [system reset](defaults.md#restoring-settings).
 10. Still not working? Generate a [debug log](troubleshooting.md#debug-log) and perform a _self-diagnosis_ (_don't_ post the log output unless asked).
 
@@ -65,7 +65,7 @@ WifiInterface = wlan0
 ```
 
 !!! warning "Important"
-    RaspAP's service logs and debug log are intended to assist you with performing a _self-diagnosis_. Please do _not_ post your logs, in whole or in part, to RaspAP's discussions, issues or other channels. The maintainers of RaspAP [cannot parse your log or offer troubleshooting advice](issues.md#issue-policy). Members of the RaspAP community may be able to offer advice, but bear in mind that you're asking someone else to give up their time and help you figure out why something isn't working.
+    RaspAP's service logs and debug log are intended to assist you with performing a _self-diagnosis_. Please do _not_ post your logs, in whole or in part, to RaspAP's discussions, issues or other channels. The maintainers of RaspAP [cannot parse your log or offer troubleshooting advice](../issues.md#issue-policy). Members of the RaspAP community may be able to offer advice, but bear in mind that you're asking someone else to give up their time and help you figure out why something isn't working.
 
 !!! tip "Tip"
     If you're unable to diagnose a problem, you can share your debug log with another party by uploading it to <a href="https://pastebin.com/" target="_blank">Pastebin</a>.
@@ -73,11 +73,11 @@ WifiInterface = wlan0
 RaspAP's debug log contains information about your system and local network configuration. However, no passwords or other senstive data are included.
 
 ## Inspect network adapters
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
 
 If you've installed an external WLAN or other adapter on your device, RaspAP can assist you with troubleshooting common issues. The **System > Tools > Inspect adapters** button will open a dialog that lets you perform a comprehensive inspection of your network adapters. 
 
-![adapter health check](images/health-check.png){: style="width:580px"}
+![adapter health check](../images/health-check.png){: style="width:580px"}
 
 The inspection tool returns details about available network hardware including drivers, firmware versions, supported modes and so on. RaspAP also has an innovative one-click **Adapter health check** option. This performs a multi-step check of your selected adapter to identify common problems that may prevent it from working with RaspAP.
 
@@ -90,7 +90,7 @@ The **Inspect adapters** and **Adapter health check** are the best available dia
 Look for any reported errors logged by the `hostapd`, `dhcpcd` or `dnsmasq` services. In most cases, errors thrown by one or more of these services have been discussed in various online forums.
 Start by searching the official [Raspberry Pi forums](https://www.raspberrypi.org/forums/) or [Raspberry Pi on Stack Exchange](https://raspberrypi.stackexchange.com/). Chances are the problems with your AP have been discussed and answered before.
 
-For additional help and advice, the [FAQ](faq.md) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions. For issues not covered in
+For additional help and advice, the [FAQ](../faq.md) is a rich source of troubleshooting info that is continuously updated with answers to the most commonly asked questions. For issues not covered in
 the FAQ, you may find many topics in [RaspAP discussions](https://github.com/RaspAP/raspap-webgui/discussions) and the [RaspAP subreddit](https://reddit.com/r/RaspAP).
 
 !!! tip "Tip"
@@ -105,7 +105,7 @@ The performance of WiFi radios may be impacted by many factors, including, but n
 Bear these things in mind if your AP exhibits unexpected behavior and do your best to mitigate them.
  
 ## Reverting to base settings
-It is generally advisable to begin with RaspAP's [default configuration](defaults.md), which has been rigorously tested and validated with the project's [supported operating systems](index.md#compatible-operating-systems). If, after modifying RaspAP's default settings, your AP no longer functions as expected, you may perform a [system reset](defaults.md#restoring-settings) to restore these defaults.
+It is generally advisable to begin with RaspAP's [default configuration](../get-started/defaults.md), which has been rigorously tested and validated with the project's [supported operating systems](../index.md#compatible-operating-systems). If, after modifying RaspAP's default settings, your AP no longer functions as expected, you may perform a [system reset](../get-started/defaults.md#restoring-settings) to restore these defaults.
 
 ## Accessing backups
 Each time you revert to RaspAP's base settings, your existing service configuration files are automatically backed up to `/etc/raspap/backups`. In this way, you can compare differences between your files and the default configuration, if needed.
