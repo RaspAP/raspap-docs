@@ -68,6 +68,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Inspect network adapters](troubleshooting.md#inspect-network-adapters)  
 :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Dual band AP mode  
 :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Wireshark plugin  
+:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } AP isolation mode  
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
