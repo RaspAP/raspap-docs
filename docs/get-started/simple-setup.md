@@ -16,7 +16,7 @@ RaspAP gives you two different ways to get up and running quickly. The simplest 
     These images are automatically generated with each release of RaspAP and are made [available here](https://github.com/RaspAP/raspap-webgui/releases/latest). You may choose between an `arm64` or `armhf` (32-bit) based build.
 
     ??? note "Have slow download speeds?"
-        As a courtesy, starting with v3.4.0, we've made available Torrent files for the image. The downloads will still come from Github, but it will be able to completely finish without falling victim to Github's token timeout issues. Please connect with us if you still have issues downloading.
+        As a courtesy, starting with v3.4.1, we've made available Torrent files for the image. The downloads will still come from Github, but it will be able to completely finish without falling victim to Github's token timeout issues. Please connect with us if you still have issues downloading. If you prefer to not utilize the Torrent method, there are a few other methods suggested in [this GitHub thread](https://github.com/orgs/community/discussions/169381).
 
     !!! warning "Important"
         Newer distributions of Raspberry Pi OS require a user to be created on first boot. For security reasons, RaspAP's custom OS images _do not_ preconfigure a user. For this reason, you must use the **custom settings** in Raspberry Pi Imager or Etcher to define a user when writing to the SD card. Failure to do so will cause a headless setup to stall with an interactive prompt to create a new user. 
