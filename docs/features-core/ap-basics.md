@@ -2,7 +2,7 @@
 
 ## Basics
 
-After booting a [custom OS](quick_start.md#pre-built-image), running the [Quick installer](quick.md), [Docker setup](docker.md) or following the [manual installation](manual.md) steps, RaspAP will start up a routed wireless access point (AP) with a [default configuration](defaults.md).
+After booting a [custom OS](../get-started/simple-setup.md#pre-built-image), running the [Quick installer](../get-started/quick-installer.md), [Docker setup](../get-started/docker.md) or following the [manual installation](../get-started/manual.md) steps, RaspAP will start up a routed wireless access point (AP) with a [default configuration](../get-started/defaults.md).
 As part of this initial setup, the `hostapd` service broadcasts an AP with the following settings:
 
 **Interface:** `wlan0`  
@@ -26,7 +26,7 @@ When the AP is operational, you may connect clients to it by using one of two me
 1. Select the SSID from the list of available networks on your device and enter the passphrase.
 2. Scan the QR code displayed on the **Hotspot > Security** tab and join the AP.
 
-By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.254`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](faq.md#noip).
+By default, clients are assigned IP addresses from the DHCP range `10.3.141.50 — 10.3.141.254`. These values may be changed in the **DHCP options** section of the **DHCP server** settings UI. If for some reason a client is unable to obtain an IP address from your AP, consult [this FAQ](../faq.md#noip).
 
 ## 802.11ac 5 GHz
 For devices with compatible wireless hardware, RaspAP [version 3.0](https://github.com/RaspAP/raspap-webgui/releases/tag/3.0) largely removes the guesswork in creating a 5 GHz access point. It achieves this by being tightly integrated with the [wireless regulatory database](https://wireless.wiki.kernel.org/en/developers/Regulatory/wireless-regdb) used by the Linux kernel. Behind the scenes, RaspAP queries `iw` and intelligently matches its output with the 5 GHz channels allowed by `hostapd`, the user space daemon access point software.
@@ -34,9 +34,9 @@ For devices with compatible wireless hardware, RaspAP [version 3.0](https://gith
 From the **Hotspot > Advanced** tab, select your country from the dropdown then choose **Save settings**. This sets the wireless regulatory domain for your device. Now, on the **Hotspot > Basic** tab choose an interface and select the `802.11ac - 5 GHz` wireless mode option. RaspAP will automatically populate the available 5 GHz channels for your country. Select a channel followed by **Save settings**, then **Start** or **Restart hotspot**.
 
 !!! tip "Tip"
-    Not all AC channels may be compatible with your hardware. If your hotspot fails to start, enable `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab, followed by **Save settings**, then **Restart hotspot**. See [this FAQ](faq.md#actroubleshoot) for more assistance. 
+    Not all AC channels may be compatible with your hardware. If your hotspot fails to start, enable `hostapd` service logging by sliding the **Logfile output** toggle on the **Hotspot > Logging** tab, followed by **Save settings**, then **Restart hotspot**. See [this FAQ](../faq.md#actroubleshoot) for more assistance. 
 
-If the **Channel** dropdown and **Save settings** button are disabled, refer to [this FAQ](faq.md#channels).
+If the **Channel** dropdown and **Save settings** button are disabled, refer to [this FAQ](../faq.md#channels).
 
 ## Security settings
 WPA2 is currently the most secure standard utilizing AES (Advanced Encryption Standard) and a pre-shared key for authentication. WPA2 is also backwards compatible with TKIP to allow interoperability with legacy devices. AES uses the CCMP encryption protocol which is a stronger algorithm for message integrity and confidentiality.
@@ -83,7 +83,7 @@ If you wish to configure RaspAP as a [bridged AP](bridged.md), this may be done 
 you will no longer be able to access the web interface from the default `10.3.141.1` address. Refer to this [explanation and tips](bridged.md#accessing-the-web-interface) for administering your bridged AP. 
 
 ### WiFi repeater mode
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
 
 RaspAP is capable of acting as a [wireless repeater](repeater.md) to connect to your wireless network and rebroadcast an existing signal. This requires configuring interface metrics and default routes with DHCP. Alternatively, enabling the **WiFi repeater mode** toggle will create these settings for you automatically.
 
@@ -92,12 +92,12 @@ RaspAP is capable of acting as a [wireless repeater](repeater.md) to connect to 
 Save settings and choose **Restart hotspot** to active the wireless repeater. As with AP-STA mode, described below, this option is disabled or "greyed out" until a wireless client is configured. 
 
 ### WiFi client AP mode
-RaspAP lets you enable this special mode, also known as a **micro-AP** or simply **AP-STA**. Before using this mode, it's essential that users familiarize themselves with [how AP-STA works](ap-sta.md).
+RaspAP lets you enable this special mode, also known as a **micro-AP** or simply **AP-STA**. Before using this mode, it's essential that users familiarize themselves with [how AP-STA works](../features-experimental/ap-sta.md).
 
 !!! warning "Important"
     This mode is experimental and _completely unsupported_. Issues or discussions related to AP-STA in RaspAP's GitHub repository will be moderated. 
 
-Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface. For the latter, refer to [this FAQ](faq.md#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap). 
+Users of AP-STA mode should also be aware of its limitations, and understand that performance and stability of this AP mode will not be equal to using a second wireless adapter bound to a separate interface. For the latter, refer to [this FAQ](../faq.md#can-i-use-wlan0-and-wlan1-rather-than-eth0-for-my-ap). 
 
 ### Beacon interval
 Wireless APs continuously send beacon frames to indicate their presence, traffic load, and capabilities. The default `hostapd` beacon interval is 100ms. If desired, you may change this to any value between 15 and 65535.
@@ -127,7 +127,7 @@ It is not necessary to restart the AP for this to take effect.
 This option sets the `max_num_sta` value for `hostapd`, and is effective for placing a limit on the number of clients (stations) that can connect to your AP. When the limit is reached, new client connections will be rejected.
 
 !!! note "Note"
-    The default setting is 2007, but this is merely the value set by `hostapd` from the IEEE 802.11 specification. It should _not_ be interpreted as a guarantee that RaspAP can support this many simultaneous clients. In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](faq.md#maxclients).  
+    The default setting is 2007, but this is merely the value set by `hostapd` from the IEEE 802.11 specification. It should _not_ be interpreted as a guarantee that RaspAP can support this many simultaneous clients. In practice, this number depends on several factors and is a much lower value, as discussed in [this FAQ](../faq.md#maxclients).  
 
 ### Custom user settings
 RaspAP gives you control over many common AP settings via the **Hotspot > Basic**, **Security** and **Advanced** tabs. However, `hostapd` has lots of [other options](https://w1.fi/cgit/hostap/tree/hostapd/hostapd.conf) that aren't exposed in the management UI. For this reason, RaspAP lets advanced users define any number of valid `hostapd` settings by adding them to a custom configuration file.

@@ -3,7 +3,7 @@
 ![openvpn](https://github.com/user-attachments/assets/23e6eb70-5fab-4d71-b6d6-1f08238dfb22){: style="width:640px"}
 
 ## Overview
-OpenVPN may be optionally installed by the [Quick Installer](quick.md). Once this is done, you can create a client configuration and manage the `openvpn-client` service with RaspAP.
+OpenVPN may be optionally installed by the [Quick Installer](../get-started/quick-installer.md). Once this is done, you can create a client configuration and manage the `openvpn-client` service with RaspAP.
 
 ## Enabling OpenVPN
 
@@ -76,7 +76,7 @@ The Mozilla Foundation recently added a **DNS over HTTPS (DoH)** proprietary ser
 A consequence of DoH is that DNS requests will be resolved by Mozilla's DNS servers, instead of your VPN provider's. Instructions for disabling this DoH may be found [here](https://support.mozilla.org/en-US/kb/firefox-dns-over-https#w_manually-enabling-and-disabling-dns-over-https).
 
 ## Troubleshooting
-See the [FAQ section](faq.md#openvpn) for OpenVPN.
+See the [FAQ section](../faq.md#openvpn) for OpenVPN.
 
 ## Discussions
 Questions or comments about using OpenVPN? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

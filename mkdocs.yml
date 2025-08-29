@@ -6,39 +6,42 @@ edit_uri: /RaspAP/raspap-docs/edit/master/docs
 
 nav:
   - Overview: index.md
-  - Quick Start:
-    - Simple setup: quick_start.md
-    - Default settings: defaults.md
-    - Manual installation: manual.md
-    - Quick installer: quick.md
-    - Docker support: docker.md
-    - Troubleshooting: troubleshooting.md
+  - Get Started:
+    - Get Started: get-started/index.md
+    - Simple setup: get-started/simple-setup.md
+    - Default settings: get-started/defaults.md
+    - Manual installation: get-started/manual.md
+    - Quick installer: get-started/quick-installer.md
+    - Docker support: get-started/docker.md
+    - Troubleshooting: get-started/troubleshooting.md
   - Core Features: 
-    - Ad blocking: adblock.md
-    - Access point settings: ap-basics.md
-    - Authentication: authentication.md
-    - Bridged AP mode: bridged.md
-    - Captive portal setup: captive.md
-    - Custom user plugins: custom-plugins.md
-    - Minimal SD card write: minwrite.md
-    - OpenVPN: openvpn.md
-    - Translations: translations.md
-    - WiFi repeater: repeater.md
-    - WireGuard: wireguard.md
-  - Insiders:
-    - Features: insiders.md
-    - Tailscale VPN: tailscale.md
-    - Dynamic DNS: dynamicdns.md
-    - Firewall: firewall.md
-    - Network devices: net-devices.md
-    - NTP Service: ntp.md
-    - Speed testing: speedtest.md
-    - Wireless LAN routing: wlanrouting.md
+    - Core Features: features-core/index.md
+    - Ad blocking: features-core/adblock.md
+    - Access point settings: features-core/ap-basics.md
+    - Authentication: features-core/authentication.md
+    - Bridged AP mode: features-core/bridged.md
+    - Captive portal setup: features-core/captive.md
+    - Custom user plugins: features-core/custom-plugins.md
+    - Minimal SD card write: features-core/minwrite.md
+    - OpenVPN: features-core/openvpn.md
+    - Translations: features-core/translations.md
+    - WiFi repeater: features-core/repeater.md
+    - WireGuard: features-core/wireguard.md
   - Experimental Features:
-    - AP-STA mode: ap-sta.md
-    - RESTful API: restapi.md
-    - VPN providers: providers.md
-    - SSL certificates: ssl.md
+    - Experimental Features: features-experimental/index.md
+    - AP-STA mode: features-experimental/ap-sta.md
+    - RESTful API: features-experimental/restapi.md
+    - VPN providers: features-experimental/providers.md
+    - SSL certificates: features-experimental/ssl.md
+  - Insiders:
+    - Insiders: features-insiders/index.md
+    - Tailscale VPN: features-insiders/tailscale.md
+    - Dynamic DNS: features-insiders/dynamicdns.md
+    - Firewall: features-insiders/firewall.md
+    - Network devices: features-insiders/net-devices.md
+    - NTP Service: features-insiders/ntp.md
+    - Speed testing: features-insiders/speedtest.md
+    - Wireless LAN routing: features-insiders/wlanrouting.md
   - FAQ: faq.md
   - Reporting Issues: issues.md
   - Get involved: get_involved.md
@@ -71,18 +74,18 @@ theme:
         name: Switch to light mode
   features:
     - header.autohide
-    - navigation.instant
-    - navigation.tracking
+    # - navigation.expand
     - navigation.footer
-    - navigation.expand
+    - navigation.indexes
     - navigation.instant
     - navigation.instant.progress
+    - navigation.top
+    - navigation.tracking
     - content.action.edit
     - content.action.view
     - search.suggest
     - search.highlight
     - search.share
-    - navigation.top
     - content.code.copy
     - content.tabs.link
 markdown_extensions:

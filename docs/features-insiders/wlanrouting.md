@@ -3,12 +3,12 @@
 ![wlan-routing](https://github.com/user-attachments/assets/2ddf3971-f230-425f-9391-b5e7ebc0a1ca)
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
 
-RaspAP is often used to share internet from an Ethernet connection or other [network device](net-devices.md) through a wireless access point (AP), or act as a [wireless repeater](repeater.md). However, in certain scenarios, it can be extremely useful to share internet from a wireless LAN (WLAN) with clients connected via an Ethernet or USB-Ethernet connection. Many RaspAP users have requested this functionality, so an easy-to-use solution was developed to fulfill this need.
+RaspAP is often used to share internet from an Ethernet connection or other [network device](net-devices.md) through a wireless access point (AP), or act as a [wireless repeater](../features-core/repeater.md). However, in certain scenarios, it can be extremely useful to share internet from a wireless LAN (WLAN) with clients connected via an Ethernet or USB-Ethernet connection. Many RaspAP users have requested this functionality, so an easy-to-use solution was developed to fulfill this need.
 
 ## Solution
-To create this setup, the target interface must be configured with a static IP address and have DHCP enabled. This is similar to how RaspAP's [default wireless access point](defaults.md#networking-defaults) is configured. To simplify this process, RaspAP uses predefined subnets for the `eth0` and predictable `enx` interfaces. The relevant portions of this configuration are shown below:
+To create this setup, the target interface must be configured with a static IP address and have DHCP enabled. This is similar to how RaspAP's [default wireless access point](../get-started/defaults.md#networking-defaults) is configured. To simplify this process, RaspAP uses predefined subnets for the `eth0` and predictable `enx` interfaces. The relevant portions of this configuration are shown below:
 
 ```
 "dhcp": {
@@ -41,7 +41,7 @@ To create this setup, the target interface must be configured with a static IP a
 
 These default settings are applied automatically, however you may modify them as you wish from the **DHCP Server** administration page.
 
-In addition to these settings, Network Address Translation (NAT) rules must be applied to enable packet routing between the desired interfaces. These `iptables` rules also need to be added when the connection is active, and removed when the connection is deactivated. This is roughly analogous to how WireGuard's [PostUp and PostDown rules](wireguard.md#tunneling-traffic) function. 
+In addition to these settings, Network Address Translation (NAT) rules must be applied to enable packet routing between the desired interfaces. These `iptables` rules also need to be added when the connection is active, and removed when the connection is deactivated. This is roughly analogous to how WireGuard's [PostUp and PostDown rules](../features-core/wireguard.md#tunneling-traffic) function. 
 
 ## Steps to enable WLAN routing
 

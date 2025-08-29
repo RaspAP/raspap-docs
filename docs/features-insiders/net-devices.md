@@ -1,9 +1,9 @@
 # Network devices
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
 
-[Insiders](insiders.md) are able to manage a variety of physical network devices as a source of data connectivity for RaspAP.
+[Insiders](index.md) are able to manage a variety of physical network devices as a source of data connectivity for RaspAP.
 Broadly, this includes devices such as tethered phones, USB modems/routers, WLAN adapters and so on. This expands the practicality of RaspAP as a truly mobile AP for travel and/or field applications. 
 
 ## Supported device types
@@ -21,7 +21,7 @@ The following network devices are supported:
 ## Listing detected devices
 The **Networking > Devices** tab displays a list of available devices with their attributes and assumed adapter type. Incorrect device types might appear for some devices, which advertise themselves to the system as an ethernet (for example, `eth0`) or usb (`usb0`) device. This often happens for USB connected phones and external routers.  
 
-![Networking: Network devices](images/net-devices-list.png)
+![Networking: Network devices](../images/net-devices-list.png)
 
 ### Changing the device type
 The type may be changed for devices with an associated Vendor ID (vid) and Product ID (pid). To modify a device's type, select an option from the **Device type** drop-down and choose **Update**.
@@ -42,7 +42,7 @@ You can clone the MAC address of the WLAN interface (or any other valid interfac
 3. Enter a valid address in the **MAC** field and choose **Update**.
 4. The new MAC address will be configured immediately.
 
-![MAC address cloning](images/net-devices-clone.png)
+![MAC address cloning](../images/net-devices-clone.png)
 
 !!! note "Note"
     Virtual interfaces such as OpenVPN's `tun0` or WireGuard's `wg0` do not have this capability. To avoid potential conflicts, change the MAC address and reconnect the device before modifying any other settings. 
@@ -63,7 +63,7 @@ Wireless devices will only appear if a supported driver exists in the currently 
 Modems or Point-to-Point Protocol (`ppp`) devices require login data. This includes a PIN number to unlock the SIM card, the Access Point Name (APN) and login data of your mobile network provider. 
 These values may be entered under the **Networking > Mobile Data** tab.
 
-![Mobile data settings](images/net-devices-mobile.png){: style="width:375px"}
+![Mobile data settings](../images/net-devices-mobile.png){: style="width:375px"}
 
 Enter the SIM card PIN number, specify the your provider's APN and login credentials, then choose **Save settings**.
 

@@ -21,13 +21,13 @@ RaspAP provides a simple, fast and mobile-friendly [public speedtest server](htt
 Importantly, and notably different from other services, RaspAP's Speedtest is completely [open source](https://github.com/RaspAP/speedtest) and privacy focused &#151; meaning we do not share your data with third-parties or attempt to monetize results in any way.
 
 ## WiFi speed test 
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](insiders.md)
+:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
 
 A tool to evaluate your local WiFi network's performance is available on the **Networking > Diagnostics** tab. This permits testing of both local WiFi network throughput (that is, data transferred between the device hosting RaspAP and your wireless clients) and internet speed (data transfer between wireless clients and a remote host). A WiFi speed test is a useful diagnostic tool to determine if connectivity issues are due to your ISP, your wireless connection or an issue with the device hosting your AP.
 
 <video src="https://user-images.githubusercontent.com/229399/214792331-4656d482-7c4d-4ca9-853d-2d1718ddf62d.mov" controls="controls" muted="muted"></video>
 
-The WiFi speed test uses a local speedtest instance hosted by your RaspAP installation. The test is performed on a device connected to RaspAP's wireless [access point](ap-basics.md). The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
+The WiFi speed test uses a local speedtest instance hosted by your RaspAP installation. The test is performed on a device connected to RaspAP's wireless [access point](../features-core/ap-basics.md). The remote host is RaspAP's public [speedtest server](https://speedtest.raspap.com/) located in the United States. Additional speedtest hosts distributed in other geographic centers are forthcoming.
 
 ## Discussions
 Questions or comments about RaspAP's speed test? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
