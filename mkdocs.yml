@@ -141,6 +141,7 @@ plugins:
         'providers.md': 'features-experimental/providers.md'
         'restapi.md': 'features-experimental/restapi.md'
         # mappings for features-insiders
+        'insiders.md': 'features-insiders/index.md'
         'dynamicdns.md': 'features-insiders/dynamicdns.md'
         'firewall.md': 'features-insiders/firewall.md'
         'net-devices.md': 'features-insiders/net-devices.md'
