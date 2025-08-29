@@ -150,11 +150,11 @@ plugins:
         'wlanrouting.md': 'features-insiders/wlanrouting.md'
         # mappings for get-started
         'defaults.md': 'get-started/defaults.md'
-        'docker.md': 'get-started/defaults.md'
-        'manual.md': 'get-started/defaults.md'
+        'docker.md': 'get-started/docker.md'
+        'manual.md': 'get-started/manual.md'
         'quick.md': 'get-started/quick-installer.md'
         'quick_start.md': 'get-started/simple-setup.md'
-        'troubleshooting.md': 'get-started/defaults.md'
+        'troubleshooting.md': 'get-started/troubleshooting.md'
 extra_css:
   - stylesheets/extra.css
 extra:
