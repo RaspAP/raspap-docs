@@ -121,7 +121,10 @@ plugins:
   - search
   - git-revision-date-localized
   - git-committers:
-      repository: ./ #RaspAP/raspap-docs
+      repository: RaspAP/raspap-docs
+      branch: master
+      token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
+      enabled: !ENV [CI, false]
   - mkdocs-video
   - glightbox
   - redirects:
@@ -133,9 +136,11 @@ plugins:
         'bridged.md': 'features-core/bridged.md'
         'captive.md': 'features-core/captive.md'
         'custom-plugins.md': 'features-core/custom-plugins.md'
+        'firewall.md': 'features-core/firewall.md'
         'minwrite.md': 'features-core/minwrite.md'
         'openvpn.md': 'features-core/openvpn.md'
         'repeater.md': 'features-core/repeater.md'
+        'speedtest.md': 'features-core/speedtest.md'
         'ssl.md': 'features-core/ssl.md'
         'translations.md': 'features-core/translations.md'
         'wireguard.md': 'features-core/wireguard.md'
@@ -146,10 +151,8 @@ plugins:
         # mappings for features-insiders
         'insiders.md': 'features-insiders/index.md'
         'dynamicdns.md': 'features-insiders/dynamicdns.md'
-        'firewall.md': 'features-insiders/firewall.md'
         'net-devices.md': 'features-insiders/net-devices.md'
         'ntp.md': 'features-insiders/ntp.md'
-        'speedtest.md': 'features-insiders/speedtest.md'
         'tailscale.md': 'features-insiders/tailscale.md'
         'wlanrouting.md': 'features-insiders/wlanrouting.md'
         # mappings for get-started
