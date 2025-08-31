@@ -72,7 +72,7 @@ A system configured with predictable interface names is shown, above.
     If a wireless client connection is not detected on your system, it will be indicated as "not configured" in the interface. The **Start WLAN routing** button will also be disabled until an active wireless client connection is present. 
 
 ### Check ethernet connectivity
-Finally, confirm internet connectivity on your Ethernet-equipped client device. Optionally, you may wish to perform a [speed test](speedtest.md). If you want to stop wireless LAN routing, simply choose **Stop WLAN routing**. The `iptables` NAT rules added by RaspAP will be removed from your system. The associated DHCP and `dnsmasq` configurations will be removed as well.
+Finally, confirm internet connectivity on your Ethernet-equipped client device. Optionally, you may wish to perform a [speed test](../features-core/speedtest.md). If you want to stop wireless LAN routing, simply choose **Stop WLAN routing**. The `iptables` NAT rules added by RaspAP will be removed from your system. The associated DHCP and `dnsmasq` configurations will be removed as well.
 
 !!! tip "Tip"
     RaspAP's default subnets are added for convenience. If you wish to create a custom configuration for your clients, you may do so from the **DHCP Server** page. Be sure to **Save settings** and restart `dsnmasq` to apply your changes. If your interface is named something other than `eth0` or `enx` you must create your own DHCP configuration.

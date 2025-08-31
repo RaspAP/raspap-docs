@@ -95,7 +95,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Set AP transmit power](../features-core/ap-basics.md#transmit-power)  
 
 #### **$1,000** - 2nd Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Firewall settings](firewall.md)  
+:octicons-check-circle-fill-24:{: .check } [Firewall settings](../features-core/firewall.md)  
 :octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](../features-core/ap-basics.md#wpa3-personal)  
 :octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](../features-core/ap-basics.md#80211w)  
 :octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](../features-core/ap-basics.md#printable-signs)  

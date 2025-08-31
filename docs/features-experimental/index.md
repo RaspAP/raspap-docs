@@ -3,6 +3,5 @@
 - __AP-STA__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ap-sta.md)
 - __VPN Providers__ [:octicons-arrow-right-24:{ .lg .middle } Get started](providers.md)
 - __REST API__ [:octicons-arrow-right-24:{ .lg .middle } Get started](restapi.md)
-- __SSL__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ssl.md)
 
 </div>
