@@ -1,0 +1,2162 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../features-experimental/providers/">
+      
+      
+        <link rel="next" href="tailscale/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Insiders - RaspAP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.5%207.75A.75.75%200%200%201%207.25%207h1a.75.75%200%200%201%20.75.75v2.75h.25a.75.75%200%200%201%200%201.5h-2a.75.75%200%200%201%200-1.5h.25v-2h-.25a.75.75%200%200%201-.75-.75M8%206a1%201%200%201%201%200-2%201%201%200%200%201%200%202%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.533.753V.752c.217%202.385%201.463%203.626%202.653%204.81C13.37%206.74%2014.498%207.863%2014.498%2010c0%203.5-3%206-6.5%206S1.5%2013.512%201.5%2010c0-1.298.536-2.56%201.425-3.286.376-.308.862%200%201.035.454C4.46%208.487%205.581%208.419%206%208c.282-.282.341-.811-.003-1.5C4.34%203.187%207.035.75%208.77.146c.39-.137.726.194.763.607M7.998%2014.5c2.832%200%205-1.98%205-4.5%200-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.3-2.29-2.834-4.434-.322.256-.63.579-.864.953-.432.696-.621%201.58-.046%202.73.473.947.67%202.284-.278%203.232-.61.61-1.545.84-2.403.633a2.8%202.8%200%200%201-1.436-.874A3.2%203.2%200%200%200%203%2010c0%202.53%202.164%204.5%204.998%204.5%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-8JKSE6SEPQ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-8JKSE6SEPQ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-8JKSE6SEPQ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#about-insiders" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="RaspAP Documentation" class="md-header__button md-logo" aria-label="RaspAP Documentation" data-md-component="logo">
+      
+  <img src="../images/favicon-32x32.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RaspAP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Insiders
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/RaspAP/raspap-webgui" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RaspAP/raspap-webgui
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RaspAP Documentation" class="md-nav__button md-logo" aria-label="RaspAP Documentation" data-md-component="logo">
+      
+  <img src="../images/favicon-32x32.png" alt="logo">
+
+    </a>
+    RaspAP Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/RaspAP/raspap-webgui" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RaspAP/raspap-webgui
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../get-started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Get Started
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Get Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-started/simple-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-started/defaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Default settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-started/manual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manual installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-started/quick-installer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick installer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-started/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-started/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../features-core/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Core Features
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/adblock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ad blocking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/ap-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Access point settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/bridged/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bridged AP mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/captive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Captive portal setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/custom-plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom user plugins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/minwrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Minimal SD card write
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/openvpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenVPN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/ssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL certificates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/translations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Translations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/repeater/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WiFi repeater
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-core/wireguard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WireGuard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../features-experimental/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Experimental Features
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Experimental Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-experimental/ap-sta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP-STA mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-experimental/restapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RESTful API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-experimental/providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VPN providers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    Insiders
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Insiders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tailscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tailscale VPN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dynamicdns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynamic DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="firewall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="net-devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Network devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ntp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NTP Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="speedtest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Speed testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wlanrouting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wireless LAN routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reporting Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get_involved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get involved
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-insiders" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Insiders?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-sponsorships-achieve" class="md-nav__link">
+    <span class="md-ellipsis">
+      What sponsorships achieve
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-in-it-for-me" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's in it for me?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What&#39;s in it for me?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional benefits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-become-a-sponsor" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to become a sponsor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funding-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funding targets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funding targets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Goals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1500-3rd-insiders-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      $1,500 - 3rd Insiders Edition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2000-4th-insiders-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      $2,000 - 4th Insiders Edition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completed-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Completed goals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Completed goals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#500-1st-insiders-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      $500 - 1st Insiders Edition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1000-2nd-insiders-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      $1,000 - 2nd Insiders Edition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transparency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transparency
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quarterly-giving" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quarterly giving
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-educators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support for educators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support for educators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository access
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-insiders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Insiders
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Insiders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-built-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-built image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick install
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upgrading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      New installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-scopes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token scopes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-a-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifying a token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-and-2fa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and 2FA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusive-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclusive plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope-of-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scope of support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/features-insiders/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/features-insiders/index.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<div><h1 id="about-insiders">About Insiders</h1>
+<p><a class="glightbox" href="https://github.com/user-attachments/assets/832f1f0d-517a-4d73-8b62-068cf1a2041d" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="insiders" src="https://github.com/user-attachments/assets/832f1f0d-517a-4d73-8b62-068cf1a2041d" style="width:640px"></a></p>
+<p>Development of RaspAP is made possible thanks to a <strong>sponsorware</strong> release model. This means that new features are first exclusively released to sponsors as part of <a href="#what-is-insiders">Insiders</a>. Read on to learn <a href="#what-sponsorships-achieve">what sponsorships achieve</a>, <a href="#how-to-become-a-sponsor">how to become a sponsor</a> and <a href="#whats-in-it-for-me">what's in it for you</a>!</p>
+<div class="admonition success">
+<p class="admonition-title">Paying it forward</p>
+<p>We <a href="#quarterly-giving">donate a percentage of all proceeds</a> from Insiders to the Raspberry Pi Foundation each quarter, to help inspire future generations of makers together with <a href="#support-for-educators">their educators</a>.</p>
+</div>
+<h2 id="what-is-insiders">What is Insiders?</h2>
+<p>RaspAP Insiders is a private fork of RaspAP, hosted as a private GitHub repository. Almost all new features are developed as part of this fork, which means that they are immediately available to all eligible sponsors, as they are made collaborators of this repository.</p>
+<p>Every feature is tied to a funding goal in monthly subscriptions. When a funding goal is hit, the features that are tied to it are merged back into the RaspAP public repo and released for general availability, making them available to all users. Bugfixes are always released in tandem.</p>
+<p>Sponsorships start as low as <strong><a href="#how-to-become-a-sponsor">$10 per month</a></strong>.</p>
+<h2 id="available-features">Available Features</h2>
+<div class="grid cards">
+<ul>
+<li><strong>Dynamic DNS</strong> <a href="dynamicdns/"><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Get started</a></li>
+<li><strong>Firewall</strong> <a href="firewall/"><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Get started</a></li>
+<li><strong>Network Devices</strong> <a href="net-devices/"><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Get started</a></li>
+<li><strong>NTP Serrver</strong> <a href="ntp/"><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Get started</a></li>
+<li><strong>Speed Testing</strong> <a href="speedtest/"><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Get started</a></li>
+<li><strong>Tailscale VPN</strong> <a href="tailscale/"><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Get started</a></li>
+<li><strong>WLAN Routing</strong> <a href="wlanrouting/"><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Get started</a></li>
+</ul>
+</div>
+<h2 id="what-sponsorships-achieve">What sponsorships achieve</h2>
+<p>Sponsorships make this project sustainable, as they buy the maintainers of this project time — a very scarce resource – which is spent on the development of new features, bug fixes, stability improvement, issue triage and community support.  </p>
+<p>If you're unsure if you should sponsor this project, check out the list of <a href="#completed-goals">completed funding goals</a> to learn whether you're already using features that were developed with the help of sponsorships. You're most likely using at least a handful of them, <a href="#how-to-become-a-sponsor">thanks to our awesome sponsors</a>!</p>
+<h2 id="whats-in-it-for-me">What's in it for me?</h2>
+<p>The moment you <a href="#how-to-become-a-sponsor">become a sponsor</a>, you'll get <strong>immediate access to the additional features below</strong> that you can start using right away, and which are currently exclusively available to sponsors:</p>
+<p><span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="net-devices/">Network device management</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/wireguard/#multiple-configs">Multiple WireGuard configs</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="net-devices/#changing-the-mac-address">MAC address cloning</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="wlanrouting/">Wireless LAN routing</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/authentication/#custom-user-avatars">Custom user avatars</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/repeater/#alternate-routing-method">WiFi repeater mode</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/authentication/#limited-privilege-user">Limited privilege user mode</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="tailscale/">Tailscale VPN support</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../get-started/troubleshooting/#inspect-network-adapters">Inspect network adapters</a>  </p>
+<p>Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new and follow <a href="https://x.com/rasp_ap/">@RaspAP on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm297.1 84L257.3 234.6 379.4 396h-95.6L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5 78.2-89.5zm-37.8 251.6L153.4 142.9h-28.3l171.8 224.7z"></path></svg></span></a> for the latest announcements.</p>
+<h3 id="additional-benefits">Additional benefits</h3>
+<p>A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository. Insiders also have access a private channel on RaspAP's <a href="https://discord.gg/KVAsaAR">Discord server</a> where they can chat one-on-one with the project's developers.</p>
+<h2 id="how-to-become-a-sponsor">How to become a sponsor</h2>
+<p>Thanks for your interest in sponsoring! You can become a sponsor using your individual or organization's GitHub account. Just <a href="https://github.com/sponsors/RaspAP">pick any tier from $10/month</a> and complete the checkout. You will be automatically granted access to the <a href="./#repository-access">private GitHub repository</a> containing the Insiders edition, which has all exclusive features.
+In addition, you will be added as a team member with access to Insiders-only team discussions and content.</p>
+<p><a class="md-button md-button--primary" href="https://github.com/sponsors/RaspAP">Join our awesome sponsors <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span></a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If you're sponsoring <a href="https://github.com/sponsors/RaspAP">RaspAP</a> through a GitHub organization, please send a short email to <a href="mailto:sponsors@raspap.com">sponsors@raspap.com</a> with the name of your organization and the account that should be added as a collaborator.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> </p>
+</div>
+<p>You can cancel your sponsorship anytime.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+<h2 id="funding-targets">Funding targets</h2>
+<p>Below is a list of funding targets. When a funding target is reached, the features that are tied to it are merged back into RaspAP and released to the public for general availability.</p>
+<h3 id="goals">Goals</h3>
+<p>The following section lists all funding goals. Each goal contains a list of features prefixed with a checkmark symbol, denoting whether a feature is <span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> already available or <span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> planned, but not yet implemented. When the funding goal is hit, the features are released for general availability.</p>
+<h4 id="1500-3rd-insiders-edition"><strong>$1,500</strong> - 3<sup>rd</sup> Insiders Edition</h4>
+<p><span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="net-devices/">Network device management</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/wireguard/#multiple-configs">Multiple WireGuard configs</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="net-devices/#changing-the-mac-address">MAC address cloning</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="wlanrouting/">Wireless LAN routing</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/authentication/#custom-user-avatars">Custom user avatars</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/repeater/#alternate-routing-method">WiFi repeater mode</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/authentication/#limited-privilege-user">Limited privilege user mode</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="tailscale/">Tailscale VPN support</a>  </p>
+<h4 id="2000-4th-insiders-edition"><strong>$2,000</strong> - 4<sup>th</sup> Insiders Edition</h4>
+<p><span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../get-started/troubleshooting/#inspect-network-adapters">Inspect network adapters</a><br>
+<span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> Dual band AP mode<br>
+<span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> Wireshark plugin<br>
+<span class="twemoji" style="color: var(--md-default-fg-color--light)"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> AP isolation mode  </p>
+<h3 id="completed-goals">Completed goals</h3>
+<h4 id="500-1st-insiders-edition"><strong>$500</strong> - 1<sup>st</sup> Insiders Edition</h4>
+<p><span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/openvpn/#multiple-client-configs">Multiple OpenVPN client configs</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/openvpn/#certificate-authentication">OpenVPN certificate authentication</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> OpenVPN service logging<br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> Night mode toggle <br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> Restrict network to static clients<br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/wireguard/">WireGuard support</a> <br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/ap-basics/#transmit-power">Set AP transmit power</a>  </p>
+<h4 id="1000-2nd-insiders-edition"><strong>$1,000</strong> - 2<sup>nd</sup> Insiders Edition</h4>
+<p><span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="firewall/">Firewall settings</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/ap-basics/#wpa3-personal">WPA3-Personal AP security</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/ap-basics/#80211w">802.11w Protected Management Frames</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/ap-basics/#printable-signs">Printable Wi-Fi signs</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="net-devices/#diagnostics">Network diagnostics</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="dynamicdns/">Dynamic DNS</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="../features-core/wireguard/#kill-switch">WireGuard kill switch</a><br>
+<span class="twemoji check"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12m16.28-2.72a.75.75 0 0 0-.018-1.042.75.75 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.042.018.75.75 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path></svg></span> <a href="ntp/">NTP Service</a>  </p>
+<h2 id="transparency">Transparency</h2>
+<p>We've chosen <a href="https://opencollective.com/raspap">OpenCollective</a> as the fiscal host for our <a href="https://github.com/sponsors/RaspAP">GitHub sponsors organization</a>. This means that our budget is completely transparent — financial contributions, expenses and payouts to project team members are automatically reported. Everyone can see where money comes from and what it's spent on. This committent to full transparency was central in our decision to implement Insiders.</p>
+<h2 id="quarterly-giving">Quarterly giving</h2>
+<p>Each quarter, 15% of the total proceeds from Insiders are donated directly to the <a href="https://www.raspberrypi.org/">Raspberry Pi Foundation</a>. The Raspberry Pi Foundation is a
+UK-based charity that works to put the power of computing and digital making into the hands of people all over the world.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dEzg92g1LHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>The Foundation supports initiatives like <a href="https://coderdojo.com/">Coder Dojo</a>, <a href="https://astro-pi.org/">Astro Pi</a>, <a href="https://online.coolestprojects.org/">Coolest Projects</a> and much more.</p>
+<p>When you become an Insider, not only do you support development of RaspAP but you also help inspire young people by harnessing the power of computing to solve problems and express themselves creatively.</p>
+<h2 id="support-for-educators">Support for educators</h2>
+<p>We're big believers in the role that computing and digital technologies can play in shaping a better world. Many engineers, including members of the RaspAP team, got their first introduction to computing
+at an early age. This can take the form of a structured curriculum in a school setting, or less-formally through clubs, competitions and partnerships with youth organizations. Equally important is university, vocational and research training in digital technologies at all levels.</p>
+<p>To this end, we have pledged to make Insiders freely available to all educators, their students, club participants and staff.</p>
+<h3 id="criteria">Criteria</h3>
+<p>Educators, teacher trainers, researchers and club organizers engaged in digital and computing technologies for students of all ages are eligible. The only requirement is a <a href="https://github.com/">GitHub</a> account and a domain email address associated with an educational institution or organization with a focus on digital learning. Send a mail to <a href="mailto:sponsors@raspap.com">sponsors@raspap.com</a> with your GitHub 
+account details and we'll get you started with Insiders.</p>
+<h3 id="repository-access">Repository access</h3>
+<p>To access Insiders, you will be invited to become a member of the RaspAP organization. GitHub will send an email with an invitation link to the address associated with your GitHub account. To join the organization, simply click the invitation link in the email. </p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>GitHub invitations automatically <a href="https://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization#about-organization-invitations">expire seven days</a> after they are created. For this reason, be sure to accept the invite during this time frame.</p>
+</div>
+<p>You must accept this invite before performing an upgrade or new install, as described in the next sections.</p>
+<h2 id="installing-insiders">Installing Insiders</h2>
+<p>RaspAP gives you two different ways to install the <strong>Insiders Edition</strong>. The simplest and recommended approach is to use a pre-built Insiders image. Alternatively, you can upgrade an existing installation or create a custom install by executing the Quick installer. Each method is described in the following sections.</p>
+<h3 id="pre-built-image">Pre-built image</h3>
+<p>Custom Raspberry Pi OS Lite images with RaspAP's Insiders Edition preinstalled are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.</p>
+<p>Begin by downloading your desired image from the latest release page in the private Insiders repository. Next, use a utility such as the Raspberry Pi Imager or balenaEtcher to flash the OS image onto a microSD card. Insert the card into your device and boot it up. The RaspAP Insiders Edition with the most popular optional components will be active and ready for you to configure.</p>
+<h3 id="quick-install">Quick install</h3>
+<p>The <a href="../get-started/quick-installer/">Quick installer</a> gives you several options, or switches, to upgrade an existing installation to the Insiders Edition, or create a fresh Insiders install.</p>
+<p>When using this method to install or upgrade to Insiders, GitHub will prompt you for your username and password to clone the private repository. You must enter a GitHub <strong>Personal access token</strong> at the password prompt. Details are provided in the <a href="./#authentication">Authentication</a> section.</p>
+<p>You can streamline GitHub authentication by passing your GitHub credentials to the installer with the <code>--name</code> and <code>--token</code> parameters: </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name [username] --token [my-token]
+</span></code></pre></div>
+<p>Your credentials are <a href="./#security-and-2fa">passed securely</a> to GitHub. Whichever method you choose, it's recommended to <a href="./#verifying-a-token">verify access</a> to the Insiders repo with your token beforehand. </p>
+<h4 id="upgrading">Upgrading</h4>
+<p>To upgrade an existing RaspAP installation, invoke the <a href="../get-started/quick-installer/">Quick installer</a> with the <code>--upgrade</code> switch, specifying the private Insiders option, like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
+</span></code></pre></div>
+<h4 id="new-installation">New installation</h4>
+<p>To create a fresh installation of Insiders, invoke the <a href="../get-started/quick-installer/">Quick installer</a> with the <code>--insiders</code> switch, like so:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -sL https://install.raspap.com | bash -s -- --insiders
+</span></code></pre></div>
+<h3 id="authentication">Authentication</h3>
+<p>GitHub <a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">removed support for password authentication</a>, so you will need to generate a <strong>Personal access token (classic)</strong> and use this in place of your password. The process of creating a token is straightforward and <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token">described here</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Be sure to create a <strong>"classic"</strong> personal access token (<em>not</em> a fine-grained one) with the correct token scope. Failure to create the correct token type and scope will result in errors when cloning the private repository. Before invoking the Quick installer, it's recommended to <a href="./#verifying-a-token">verify your token</a> first.</p>
+</div>
+<h4 id="token-scopes">Token scopes</h4>
+<p>When creating a personal access token (classic), be sure to select the <strong>repo</strong> "Full control of private repositories" option under <strong>Select scopes</strong>, as shown below: </p>
+<p><a class="glightbox" href="../images/token-scopes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="token-scopes" src="../images/token-scopes.png" style="width:460px"></a></p>
+<p>Failure to select this option will result in errors when cloning the private Insiders repository.</p>
+<h4 id="verifying-a-token">Verifying a token</h4>
+<p>If this is your first time using a GitHub personal access token, you can verify it by using <code>curl</code> and the <a href="https://docs.github.com/rest">GitHub API</a>. Substitute your token value for <code>MY_TOKEN</code> below:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl -sS -f -I -H "Authorization: token MY_TOKEN" https://api.github.com
+</span></code></pre></div>
+<p>If successful, GitHub should reply with <code>HTTP/2 200</code> and a <code>x-oauth-scopes: repo</code> value in the response. If you receive a <code>HTTP 401</code> or other error from <code>curl</code>, check your token and try again.  </p>
+<h4 id="security-and-2fa">Security and 2FA</h4>
+<p>Your token is sent securely via HTTPS authentication (encrypted) to GitHub. The installer has no knowledge of your token and does <em>not</em> store or cache it in any way.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When invoking the installer with the <code>--token</code> option, your token appears in your shell history. If someone gains access to your machine, they could potentially see the token. You can mitigate this by clearing the last command from your history with <code>history -d $(history | tail -1 | awk '{print $1}')</code>.  </p>
+</div>
+<p>If you're using GitHub with 2FA enabled the same process as above applies.</p>
+<h3 id="exclusive-plugins">Exclusive plugins</h3>
+<p>Many Insiders features are available as <a href="../features-core/custom-plugins/">plugins</a> that you can install on-demand. To do so, select a desired plugin from the <strong>System &gt; Plugins</strong> tab by choosing <strong>Details</strong> followed by <strong>Install now</strong>. </p>
+<h3 id="scope-of-support">Scope of support</h3>
+<p>Individual sponsors may use the <a href="https://github.com/RaspAP/raspap-webgui">main RaspAP repository</a> for non-bug related discussions, including troubleshooting. If you've found a bug with an Insiders feature, please review our <a href="../issues/">issue policy</a> and create a report in the <a href="https://github.com/RaspAP/raspap-insiders">Insiders repository</a>.</p>
+<p>The RaspAP team will prioritize issues and feature requests for sponsors at the Business tier. Please create a report in the <a href="https://github.com/RaspAP/raspap-insiders">Insiders repository</a> or contact us via email to discuss your requirements. </p>
+<h3 id="terms">Terms</h3>
+<p><em>We're using RaspAP for a commercial project. Can we use Insiders under the same terms and conditions?</em></p>
+<p>Yes. Whether you're an individual or a company, you may use RaspAP Insiders precisely under the same terms as RaspAP, which are defined by the <a href="https://github.com/RaspAP/raspap-webgui/blob/master/LICENSE">GNU GPL 3.0 license</a>. However, we kindly ask you to respect the following guidelines:</p>
+<ul>
+<li>Please <strong>don't distribute the source code</strong> of Insiders. You may freely use it for public, private or commercial projects, fork it, mirror it, do whatever you want with it, but please don't release the source code, as it would counteract the sponsorware strategy.</li>
+<li>If you cancel your subscription, you're removed as a collaborator and will miss out on future updates of Insiders. However, you may <em>use the latest version</em> that's available to you as long as you like. Just remember that <a href="https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository">GitHub deletes private forks</a>.</li>
+</ul>
+<h2 id="discussions">Discussions</h2>
+<p>Questions or comments about Insiders? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>You may be wondering if the sponsorware model contradicts the ethos of Open Source software. It's true that some features are locked behind a payment, which means they are only accessible after pledging a small amount of money.
+However, these features are only exclusive until specific funding targets are reached. Making an Open Source project sustainable is exceptionally difficult. Maintainers invest significant time and energy
+developing software, testing, responding to issues, writing documentation and so on. Too often, this leads to burnout and abandoned projects.
+The sponsorware model ensures that if you decide to use RaspAP, you can be sure that the project remains healthy, bugs are fixed quickly and new features are added regularly. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>It's currently not possible to grant access to each member of an organization, as GitHub only allows for adding users. Thus, after sponsoring, please send an email to <a href="mailto:sponsors@raspap.com">sponsors@raspap.com</a>,
+stating which account should become a collaborator of the Insiders repository. We're working on a solution which will make access to organizations much simpler. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:3">
+<p>If you cancel your sponsorship, GitHub schedules a cancellation request which will become effective at the end of the billing cycle, which ends at the 22<sup>nd</sup> of the month for monthly sponsorships.
+This means that even though you cancel your sponsorship, you will keep your access to Insiders as long as your cancellation isn't effective. All charges are processed by GitHub through Stripe.
+As we don't receive any information regarding your payment, and GitHub doesn't offer refunds, sponsorships are non-refundable. <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+</ol>
+</div></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 28, 2025 17:53:21 UTC">August 28, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../features-experimental/providers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: VPN providers">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                VPN providers
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="tailscale/" class="md-footer__link md-footer__link--next" aria-label="Next: Tailscale VPN">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Tailscale VPN
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2013 - 2025 <a href="https://github.com/RaspAP">RaspAP</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/rasp_ap" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/RaspAP/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://reddit.com/r/RaspAP" target="_blank" rel="noopener" title="reddit.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M373 138.6c-25.2 0-46.3-17.5-51.9-41-30.6 4.3-54.2 30.7-54.2 62.4v.2c47.4 1.8 90.6 15.1 124.9 36.3 12.6-9.7 28.4-15.5 45.5-15.5 41.3 0 74.7 33.4 74.7 74.7 0 29.8-17.4 55.5-42.7 67.5-2.4 86.8-97 156.6-213.2 156.6S45.5 410.1 43 323.4c-25.4-11.9-43-37.7-43-67.7C0 214.4 33.4 181 74.7 181c17.2 0 33 5.8 45.7 15.6 34-21.1 76.8-34.4 123.7-36.4v-.3c0-44.3 33.7-80.9 76.8-85.5C325.8 50.2 347.2 32 373 32c29.4 0 53.3 23.9 53.3 53.3s-23.9 53.3-53.3 53.3M157.5 255.3c-20.9 0-38.9 20.8-40.2 47.9s17.1 38.1 38 38.1 36.6-9.8 37.8-36.9-14.7-49.1-35.7-49.1zM395 303.1c-1.2-27.1-19.2-47.9-40.2-47.9s-36.9 22-35.7 49.1 16.9 36.9 37.8 36.9 39.3-11 38-38.1zm-60.1 70.8c1.5-3.6-1-7.7-4.9-8.1-23-2.3-47.9-3.6-73.8-3.6s-50.8 1.3-73.8 3.6c-3.9.4-6.4 4.5-4.9 8.1 12.9 30.8 43.3 52.4 78.7 52.4s65.8-21.6 78.7-52.4"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.top", "navigation.tracking", "content.action.edit", "content.action.view", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
