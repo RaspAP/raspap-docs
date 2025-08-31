@@ -15,7 +15,7 @@ Docker containers have several advantages over other methods of deploying code. 
 A RaspAP Docker container is a runnable instance of an image. This container can be started, stopped, moved or deleted using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/). It can be run on a local device, virtual machines or deployed to the cloud. Isolation from other containers also means that it runs its own software, binaries and so on.
 
 ## Installing Docker Engine
-Since RaspAP is built for Debian-based systems, the instructions here will focus on this OS family. To get started with Docker Engine on Debian, make sure you meet the [prerequisites](#prerequisites), and then follow the [installation steps](#install-using-the-apt-repository).
+Since RaspAP is built for Debian-based systems, the instructions here will focus on this OS family. To get started with Docker Engine on Debian, make sure you meet the [prerequisites](#prerequisites), and then follow the installation steps below.
 
 ### Prerequisites
 To install Docker Engine, begin with the 64-bit version of one of these Debian versions:

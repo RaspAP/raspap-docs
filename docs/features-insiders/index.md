@@ -10,17 +10,17 @@ Development of RaspAP is made possible thanks to a **sponsorware** release model
 ## What is Insiders?
 RaspAP Insiders is a private fork of RaspAP, hosted as a private GitHub repository. Almost all new features are developed as part of this fork, which means that they are immediately available to all eligible sponsors, as they are made collaborators of this repository.
 
-Every feature is tied to a funding goal in monthly subscriptions. When a funding goal is hit, the features that are tied to it are merged back into the RaspAP public repo and released for general availability, making them available to all users. Bugfixes are always released in tandem.
+Every feature is tied to a funding goal in monthly subscriptions. When a funding goal is hit, the features that are tied to it are merged back into the RaspAP public repo and released for general availability, making them available to all users. Bugfixes are always released in tandem.[^1]
 
 Sponsorships start as low as **[$10 per month](#how-to-become-a-sponsor)**.
 
 ## Available Features
 <div class="grid cards" markdown>
 
-- __Custom user avatars__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication/#custom-user-avatars)
+- __Custom user avatars__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#custom-user-avatars)
 - __Dynamic DNS__ [:octicons-arrow-right-24:{ .lg .middle } Get started](dynamicdns.md)
-- __Inspect network adapters__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../get-started/troubleshooting/#inspect-network-adapters)
-- __Limited privilege user role__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication/#limited-privilege-user-role)
+- __Inspect network adapters__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../get-started/troubleshooting.md/#inspect-network-adapters)
+- __Limited privilege user role__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#limited-privilege-user-role)
 - __Network devices__ [:octicons-arrow-right-24:{ .lg .middle } Get started](net-devices.md)
 - __NTP Service__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ntp.md)
 - __Tailscale VPN__ [:octicons-arrow-right-24:{ .lg .middle } Get started](tailscale.md)
@@ -42,7 +42,7 @@ The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immedi
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](../features-core/authentication.md#custom-user-avatars)  
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](../features-core/repeater.md#alternate-routing-method)  
-:octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user)  
+:octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
 :octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
 :octicons-check-circle-fill-24:{: .check } [Inspect network adapters](../get-started/troubleshooting.md#inspect-network-adapters)  
 
@@ -75,7 +75,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](../features-core/authentication.md#custom-user-avatars)  
 :octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](../features-core/repeater.md#alternate-routing-method)  
-:octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user)  
+:octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
 :octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
 
 #### **$2,000** - 4th Insiders Edition
