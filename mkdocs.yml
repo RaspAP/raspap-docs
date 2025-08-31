@@ -37,7 +37,7 @@ nav:
     - VPN providers: features-experimental/providers.md
   - Insiders:
     - Insiders: features-insiders/index.md
-    - Custom user avatars: features-core/authentication.md
+    - Custom user avatars: features-core/authentication/#custom-user-avatars
     - Dynamic DNS: features-insiders/dynamicdns.md
     - Inspect network adapters: get-started/troubleshooting.md
     - Limited privilege user: features-core/authentication.md
