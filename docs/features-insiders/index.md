@@ -22,7 +22,7 @@ Sponsorships start as low as **[$10 per month](#how-to-become-a-sponsor)**.
 - __Inspect network adapters__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../get-started/troubleshooting.md/#inspect-network-adapters)
 - __Limited privilege user role__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#limited-privilege-user-role)
 - __Network devices__ [:octicons-arrow-right-24:{ .lg .middle } Get started](net-devices.md)
-- __NTP Service__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ntp.md)
+- __NTP service__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ntp.md)
 - __Tailscale VPN__ [:octicons-arrow-right-24:{ .lg .middle } Get started](tailscale.md)
 - __WLAN routing__ [:octicons-arrow-right-24:{ .lg .middle } Get started](wlanrouting.md)
 

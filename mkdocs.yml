@@ -42,7 +42,7 @@ nav:
     - Inspect network adapters: get-started/troubleshooting.md
     - Limited privilege user: features-core/authentication.md
     - Network devices: features-insiders/net-devices.md
-    - NTP Service: features-insiders/ntp.md
+    - NTP service: features-insiders/ntp.md
     - Tailscale VPN: features-insiders/tailscale.md
     - Wireless LAN routing: features-insiders/wlanrouting.md
   - FAQ: faq.md
