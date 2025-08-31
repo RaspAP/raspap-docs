@@ -1,7 +1,7 @@
 # Manual installation
 
 ## Overview
-These steps apply to the [latest release of RaspAP](https://github.com/RaspAP/raspap-webgui/releases/latest), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/), Debian and Armbian. Please refer to [this](index.md#compatible-operating-systems) regarding operating systems support.
+These steps apply to the [latest release of RaspAP](https://github.com/RaspAP/raspap-webgui/releases/latest), [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/), Debian and Armbian. Please refer to [this](../index.md#compatible-operating-systems) regarding currently supported operating systems.
 
 ## Alternatives
 If your goal is to use RaspAP as a component of a larger project, or wish to isolate its dependencies from existing software on your system, consider deploying RaspAP in a [Docker container](docker.md) instead. 
@@ -20,7 +20,7 @@ The kernel and firmware are installed as a Debian package, and so will also get 
 These packages are updated infrequently and after extensive testing.
 
 ## Enable wireless operation
-Telecommunications radio bands are subject to [regulatory restrictions](../faq.md#80211ac) to ensure interference-free operation. The Linux OS complies with these rules by requiring users
+Telecommunications radio bands are subject to regulatory restrictions to ensure interference-free operation. The Linux OS complies with these rules by requiring users
 to configure a two-letter "WiFi country code". In RPi OS, 5 GHz wireless networking is disabled until this country code has been set, usually as part of the initial installation process.
 If you have not set your country code or are unsure, check the "WLAN Country" setting in raspi-config's **Localisation Options**: 
 

@@ -49,7 +49,7 @@ is desired.
 After [installing RaspAP](../get-started/index.md) your device will broadcast an 802.11g 2.4 GHz access point with the SSID `RaspAP`. By default, this uses your device's onboard wireless adapter and the `wlan0` interface. Your AP configuration may be changed at any time, however it's recommended to change the default password at minimum before proceeding. You may also wish to change the SSID and wireless mode.
 
 !!! note "Note"
-    The 802.11ac 5 GHz option is disabled until you configure your device's wireless regulatory domain. See [this FAQ](../faq.md#80211ac) for more information.  
+    The 802.11ac 5 GHz option is disabled until you configure your device's wireless regulatory domain.
 
 ### Connect device to WiFi
 With your USB dongle connected and AP active, use RaspAP's **WiFi client** interface to select and authenticate with your existing wireless router. 

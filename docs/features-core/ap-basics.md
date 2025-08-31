@@ -2,7 +2,7 @@
 
 ## Basics
 
-After booting a [custom OS](../get-started/simple-setup.md#pre-built-image), running the [Quick installer](../get-started/quick-installer.md), [Docker setup](../get-started/docker.md) or following the [manual installation](../get-started/manual.md) steps, RaspAP will start up a routed wireless access point (AP) with a [default configuration](../get-started/defaults.md).
+After booting a [custom OS](../get-started/simple-setup.md#installation-method), running the [Quick installer](../get-started/quick-installer.md), [Docker setup](../get-started/docker.md) or following the [manual installation](../get-started/manual.md) steps, RaspAP will start up a routed wireless access point (AP) with a [default configuration](../get-started/defaults.md).
 As part of this initial setup, the `hostapd` service broadcasts an AP with the following settings:
 
 **Interface:** `wlan0`  

@@ -1,6 +1,6 @@
 # Simple Setup
 
-RaspAP gives you two different ways to get up and running quickly. The simplest and recommended approach is to use our custom Raspberry Pi OS image with RaspAP preinstalled. This option eliminates guesswork and gives you a base upon which to build. Alternatively, you may execute the Quick installer on an existing [compatible OS](index.md#compatible-operating-systems). Each method is described in the following sections.
+RaspAP gives you two different ways to get up and running quickly. The simplest and recommended approach is to use our custom Raspberry Pi OS image with RaspAP preinstalled. This option eliminates guesswork and gives you a base upon which to build. Alternatively, you may execute the Quick installer on an existing [compatible OS](../index.md#compatible-operating-systems). Each method is described in the following sections.
 
 ## Installation method
 

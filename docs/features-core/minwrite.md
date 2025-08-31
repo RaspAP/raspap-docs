@@ -17,7 +17,7 @@ This solution involves moving logging, cache and temporary data to a RAM-based f
 In addition, the system's boot options are modified to disable swap and file system checks. A tangible side benefit of retaining a read/write boot partition is that your system will behave otherwise normally &#151; you may install packages, add services and perform most operations as before.
 
 ## Enabling minimal write
-The minimal microSD card write utility, **minwrite**, may be invoked by using RaspAP's [Quick installer](../get-started/quick-installer.md). This does _not_ (re)install RaspAP &#151; only the [minwrite](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, [manual configuration](#manual-steps) steps are also provided. Notes specific to Armbian are given where applicable.
+The minimal microSD card write utility, **minwrite**, may be invoked by using RaspAP's [Quick installer](../get-started/quick-installer.md). This does _not_ (re)install RaspAP &#151; only the [minwrite](https://github.com/RaspAP/raspap-webgui/blob/master/installers/minwrite.sh) shell script is loaded and executed. Users of this method are informed of which operations are performed at each step. Alternatively, manual configuration steps are also provided. Notes specific to Armbian are given where applicable.
 
 !!! warning "Warning"
     These methods have been used successfully with many Debian-based systems. However, you still use this at your own risk. Best advice is to either create a backup image of your SD card before proceeding, or begin with a baseline setup that you can easily recreate if needed.

@@ -6,7 +6,7 @@ Simple AP setup & WiFi management for Debian-based devices
 
 ## About
 RaspAP is feature-rich wireless router software that _just works_ on many popular [Debian-based devices](#compatible-operating-systems), including the Raspberry Pi.
-Our popular [pre-built images](get-started/simple-setup.md#pre-built-image), [Quick installer](get-started/quick-installer.md) and [Docker container](get-started/docker.md) create a known-good default configuration in minutes on all current Raspberry Pis with onboard wireless.
+Our popular [pre-built images](get-started/simple-setup.md#installation-method), [Quick installer](get-started/quick-installer.md) and [Docker container](get-started/docker.md) create a known-good default configuration in minutes on all current Raspberry Pis with onboard wireless.
 
 ## Compatible operating systems
 RaspAP was originally made for Raspbian, but now also installs on the following Debian-based distros.

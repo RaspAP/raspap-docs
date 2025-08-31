@@ -6,7 +6,7 @@ RaspAP gives you advanced control over several Linux networking-related services
 ## Do's and don'ts
 Is your RaspAP router behaving unexpectedly? Before proceeding any further, this common sense checklist will help you avoid the most common pitfalls:
 
-1. _Do_ use a [custom OS with RaspAP preinstalled](simple-setup.md#pre-built-image); this eliminates 90% of the guesswork.
+1. _Do_ use a [custom OS with RaspAP preinstalled](simple-setup.md#installation-method); this eliminates 90% of the guesswork.
 2. _Don't_ use a metallic case with your device, which can impede radio performance.
 3. _Do_ start with your device's onboard wireless and validate operation with it ^^first^^.
 4. _Don't_ assume an [external wireless adapter](../faq.md#adapters) (or "dongle") will work out of the box.
