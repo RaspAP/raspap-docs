@@ -34,4 +34,6 @@ jobs:
           pip list
           mkdocs --version
       - name: Deploy site
+        env:
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GITHUB_TOKEN }}
         run: mkdocs gh-deploy --force
