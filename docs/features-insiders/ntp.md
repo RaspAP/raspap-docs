@@ -85,7 +85,7 @@ Looking at the column headers, this status output may be interpreted with the fo
 In the above example, our local NTP server is within 0.37ms of the preferred remote server, which itself is closely tied (`stratum=2`) to a high quality clock source. Our local server is within +/- 6ms of the other remotes.
 
 ## Firewall settings
-If your system uses a network [firewall](firewall.md), such as the one provided by RaspAP, you will need to be sure that it's configured for the NTP protocol. NTP uses UDP port 123 to communicate with peers. Therefore, you must ensure that the port is open in any firewall. To enable NTP traffic with `iptables` execute the following:
+If your system uses a network [firewall](../features-core/firewall.md), such as the one provided by RaspAP, you will need to be sure that it's configured for the NTP protocol. NTP uses UDP port 123 to communicate with peers. Therefore, you must ensure that the port is open in any firewall. To enable NTP traffic with `iptables` execute the following:
 
 ```
 iptables -A INPUT -p udp --dport 123 -j ACCEPT
@@ -98,7 +98,7 @@ ufw allow 123/udp
 ```
 
 !!! note "Note"
-    If you're using RaspAP's [firewall](firewall.md), an exception is already present to allow NTP traffic by default.
+    If you're using RaspAP's [firewall](../features-core/firewall.md), an exception is already present to allow NTP traffic by default.
 
 ## Troubleshooting
 Output from the NTP system calls `ntp_gettime()` and `ntp_adjtime()` is displayed prominently on the **NTP Server > Settings** page. If present, the current synchronized timekeeping data are displayed with their associated status codes. A `code 0 (OK)` indicates that these system calls are functioning as expected, as shown below:

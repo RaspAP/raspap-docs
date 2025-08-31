@@ -101,7 +101,7 @@ An alternative to forwarding specific ports to an internal IP is using a **demil
 
 This setup is often desirable when a host is running multiple public-facing services that need to be accessed over the internet. In this context, a DMZ provides greater isolation and granular control than is possible with port forwarding. It's also possible to configure different security policies for various DMZ segments. For these reasons, a properly configured DMZ can be a _more secure_ way to expose services to the internet than port forwarding. 
 
-The specifics of creating a DMZ are beyond the scope of this document, although at minimum a [firewall](firewall.md) is strongly advised. 
+The specifics of creating a DMZ are beyond the scope of this document, although at minimum a [firewall](../features-core/firewall.md) is strongly advised. 
 
 ## Discussions
 Questions or comments about using Dynamic DNS? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
