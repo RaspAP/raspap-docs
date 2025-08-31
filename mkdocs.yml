@@ -22,8 +22,10 @@ nav:
     - Bridged AP mode: features-core/bridged.md
     - Captive portal setup: features-core/captive.md
     - Custom user plugins: features-core/custom-plugins.md
+    - Firewall: features-core/firewall.md
     - Minimal SD card write: features-core/minwrite.md
     - OpenVPN: features-core/openvpn.md
+    - Speed testing: features-core/speedtest.md
     - SSL certificates: features-core/ssl.md
     - Translations: features-core/translations.md
     - WiFi repeater: features-core/repeater.md
@@ -35,12 +37,13 @@ nav:
     - VPN providers: features-experimental/providers.md
   - Insiders:
     - Insiders: features-insiders/index.md
-    - Tailscale VPN: features-insiders/tailscale.md
+    - Custom user avatars: features-core/authentication/#custom-user-avatars
     - Dynamic DNS: features-insiders/dynamicdns.md
-    - Firewall: features-insiders/firewall.md
+    - Inspect network adapters: get-started/troubleshooting/#inspect-network-adapters
+    - Limited privilege user: features-core/authentication/#limited-privilege-user-role
     - Network devices: features-insiders/net-devices.md
     - NTP Service: features-insiders/ntp.md
-    - Speed testing: features-insiders/speedtest.md
+    - Tailscale VPN: features-insiders/tailscale.md
     - Wireless LAN routing: features-insiders/wlanrouting.md
   - FAQ: faq.md
   - Reporting Issues: issues.md

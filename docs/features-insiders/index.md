@@ -17,13 +17,14 @@ Sponsorships start as low as **[$10 per month](#how-to-become-a-sponsor)**.
 ## Available Features
 <div class="grid cards" markdown>
 
+- __Custom user avatars__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication/#custom-user-avatars)
 - __Dynamic DNS__ [:octicons-arrow-right-24:{ .lg .middle } Get started](dynamicdns.md)
-- __Firewall__ [:octicons-arrow-right-24:{ .lg .middle } Get started](firewall.md)
-- __Network Devices__ [:octicons-arrow-right-24:{ .lg .middle } Get started](net-devices.md)
-- __NTP Serrver__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ntp.md)
-- __Speed Testing__ [:octicons-arrow-right-24:{ .lg .middle } Get started](speedtest.md)
+- __Inspect network adapters__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../get-started/troubleshooting/#inspect-network-adapters)
+- __Limited privilege user role__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication/#limited-privilege-user-role)
+- __Network devices__ [:octicons-arrow-right-24:{ .lg .middle } Get started](net-devices.md)
+- __NTP Service__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ntp.md)
 - __Tailscale VPN__ [:octicons-arrow-right-24:{ .lg .middle } Get started](tailscale.md)
-- __WLAN Routing__ [:octicons-arrow-right-24:{ .lg .middle } Get started](wlanrouting.md)
+- __WLAN routing__ [:octicons-arrow-right-24:{ .lg .middle } Get started](wlanrouting.md)
 
 </div>
 
