@@ -39,8 +39,8 @@ nav:
     - Insiders: features-insiders/index.md
     - Custom user avatars: features-core/authentication/#custom-user-avatars
     - Dynamic DNS: features-insiders/dynamicdns.md
-    - Inspect network adapters: get-started/troubleshooting.md
-    - Limited privilege user: features-core/authentication.md
+    - Inspect network adapters: get-started/troubleshooting/#inspect-network-adapters
+    - Limited privilege user: features-core/authentication/#limited-privilege-user-role
     - Network devices: features-insiders/net-devices.md
     - NTP service: features-insiders/ntp.md
     - Tailscale VPN: features-insiders/tailscale.md
