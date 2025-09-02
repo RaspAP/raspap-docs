@@ -1,5 +1,5 @@
 site_name: RaspAP Documentation
-site_url: ""
+site_url: "https://docs.raspap.com"
 repo_url: https://github.com/RaspAP/raspap-webgui
 repo_name: RaspAP/raspap-webgui
 edit_uri: /RaspAP/raspap-docs/edit/master/docs
@@ -119,6 +119,7 @@ markdown_extensions:
           case: lower
 plugins:
   - search
+  - social
   - git-revision-date-localized
   - git-committers:
       repository: RaspAP/raspap-docs
