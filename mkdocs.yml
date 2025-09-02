@@ -51,9 +51,10 @@ nav:
 
 theme:
   name: material
-  logo: images/favicon-32x32.png
+  favicon: images/favicon-32x32.png
+  logo: images/RaspAP-logo.png
   icon:
-    admonition:
+      admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
       info: octicons/info-16
@@ -119,7 +120,9 @@ markdown_extensions:
           case: lower
 plugins:
   - search
-  - social
+  - social:
+      cards_layout_options:
+        background_color: #2b8080
   - git-revision-date-localized
   - git-committers:
       repository: RaspAP/raspap-docs
