@@ -3,7 +3,6 @@
 ![dynamic-dns](https://github.com/user-attachments/assets/ac4fa7b4-a485-4696-9a25-238cd896cdc8){: style="width:640px"}
 
 ## Overview
-:octicons-beaker-24: Experimental
 
 Accessing your device from anywhere in your local network is great, but there are times when you might want it to be reachable from remote locations. This is particularly true for projects such as media servers, network attached storage (NAS) and VPNs such as those provided by RaspAP. However, due to the [shortage of IPv4 addresses](https://en.wikipedia.org/wiki/IPv4_address_exhaustion), it's likely that you will receive a new and different external IP address from your ISP each time your router is rebooted.
 

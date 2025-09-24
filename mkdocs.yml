@@ -22,8 +22,10 @@ nav:
     - Bridged AP mode: features-core/bridged.md
     - Captive portal setup: features-core/captive.md
     - Custom user plugins: features-core/custom-plugins.md
+    - Dynamic DNS: features-core/dynamicdns.md
     - Firewall: features-core/firewall.md
     - Minimal SD card write: features-core/minwrite.md
+    - NTP service: features-core/ntp.md
     - OpenVPN: features-core/openvpn.md
     - Speed testing: features-core/speedtest.md
     - SSL certificates: features-core/ssl.md
@@ -38,12 +40,13 @@ nav:
   - Insiders:
     - Insiders: features-insiders/index.md
     - Custom user avatars: features-core/authentication/#custom-user-avatars
-    - Dynamic DNS: features-insiders/dynamicdns.md
     - Inspect network adapters: get-started/troubleshooting/#inspect-network-adapters
     - Limited privilege user: features-core/authentication/#limited-privilege-user-role
+    - MAC address cloning: features-insiders/net-devices/#mac-address-cloning
+    - Multiple WireGuard configs: features-core/wireguard/#multiple-configs
     - Network devices: features-insiders/net-devices.md
-    - NTP service: features-insiders/ntp.md
     - Tailscale VPN: features-insiders/tailscale.md
+    - WiFi repeater mode: features-core/repeater/#alternate-routing-method
     - Wireless LAN routing: features-insiders/wlanrouting.md
   - FAQ: faq.md
   - Reporting Issues: issues.md
@@ -139,8 +142,10 @@ plugins:
         'bridged.md': 'features-core/bridged.md'
         'captive.md': 'features-core/captive.md'
         'custom-plugins.md': 'features-core/custom-plugins.md'
+        'dynamicdns.md': 'features-core/dynamicdns.md'
         'firewall.md': 'features-core/firewall.md'
         'minwrite.md': 'features-core/minwrite.md'
+        'ntp.md': 'features-core/ntp.md'
         'openvpn.md': 'features-core/openvpn.md'
         'repeater.md': 'features-core/repeater.md'
         'speedtest.md': 'features-core/speedtest.md'
@@ -153,9 +158,7 @@ plugins:
         'restapi.md': 'features-experimental/restapi.md'
         # mappings for features-insiders
         'insiders.md': 'features-insiders/index.md'
-        'dynamicdns.md': 'features-insiders/dynamicdns.md'
         'net-devices.md': 'features-insiders/net-devices.md'
-        'ntp.md': 'features-insiders/ntp.md'
         'tailscale.md': 'features-insiders/tailscale.md'
         'wlanrouting.md': 'features-insiders/wlanrouting.md'
         # mappings for get-started

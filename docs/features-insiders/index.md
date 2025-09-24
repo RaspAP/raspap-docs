@@ -18,12 +18,13 @@ Sponsorships start as low as **[$10 per month](#how-to-become-a-sponsor)**.
 <div class="grid cards" markdown>
 
 - __Custom user avatars__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#custom-user-avatars)
-- __Dynamic DNS__ [:octicons-arrow-right-24:{ .lg .middle } Get started](dynamicdns.md)
 - __Inspect network adapters__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../get-started/troubleshooting.md/#inspect-network-adapters)
 - __Limited privilege user role__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#limited-privilege-user-role)
+- __MAC address cloning__ [:octicons-arrow-right-24:{ .lg .middle } Get started](net-devices.md#mac-address-cloning) 
+- __Multiple WireGuard configs__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/wireguard.md#multiple-configs)  
 - __Network devices__ [:octicons-arrow-right-24:{ .lg .middle } Get started](net-devices.md)
-- __NTP service__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ntp.md)
 - __Tailscale VPN__ [:octicons-arrow-right-24:{ .lg .middle } Get started](tailscale.md)
+- __WiFi repeater mode__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/repeater.md#alternate-routing-method)
 - __WLAN routing__ [:octicons-arrow-right-24:{ .lg .middle } Get started](wlanrouting.md)
 
 </div>
@@ -36,15 +37,15 @@ If you're unsure if you should sponsor this project, check out the list of [comp
 ## What's in it for me?
 The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immediate access to the additional features below** that you can start using right away, and which are currently exclusively available to sponsors:
 
-:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
-:octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](../features-core/wireguard.md#multiple-configs)  
-:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
-:octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](../features-core/authentication.md#custom-user-avatars)  
-:octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](../features-core/repeater.md#alternate-routing-method)  
-:octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
-:octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
 :octicons-check-circle-fill-24:{: .check } [Inspect network adapters](../get-started/troubleshooting.md#inspect-network-adapters)  
+:octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
+:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#mac-address-cloning)  
+:octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](../features-core/wireguard.md#multiple-configs)  
+:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
+:octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
+:octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](../features-core/repeater.md#alternate-routing-method)  
+:octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)   
 
 Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new and follow [@RaspAP on :fontawesome-brands-square-x-twitter:](https://x.com/rasp_ap/) for the latest announcements.
 
@@ -69,14 +70,14 @@ Below is a list of funding targets. When a funding target is reached, the featur
 The following section lists all funding goals. Each goal contains a list of features prefixed with a checkmark symbol, denoting whether a feature is :octicons-check-circle-fill-24:{: .check } already available or :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } planned, but not yet implemented. When the funding goal is hit, the features are released for general availability.
 
 #### **$1,500** - 3rd Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
-:octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](../features-core/wireguard.md#multiple-configs)  
-:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
-:octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)  
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](../features-core/authentication.md#custom-user-avatars)  
-:octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](../features-core/repeater.md#alternate-routing-method)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
+:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
+:octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](../features-core/wireguard.md#multiple-configs)  
+:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
 :octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
+:octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](../features-core/repeater.md#alternate-routing-method)  
+:octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)   
 
 #### **$2,000** - 4th Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Inspect network adapters](../get-started/troubleshooting.md#inspect-network-adapters)  
@@ -86,23 +87,23 @@ The following section lists all funding goals. Each goal contains a list of feat
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition
+:octicons-check-circle-fill-24:{: .check } Night mode toggle   
 :octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](../features-core/openvpn.md#multiple-client-configs)  
 :octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](../features-core/openvpn.md#certificate-authentication)  
 :octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
-:octicons-check-circle-fill-24:{: .check } Night mode toggle   
 :octicons-check-circle-fill-24:{: .check } Restrict network to static clients  
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](../features-core/wireguard.md)   
 :octicons-check-circle-fill-24:{: .check } [Set AP transmit power](../features-core/ap-basics.md#transmit-power)  
+:octicons-check-circle-fill-24:{: .check } [WireGuard support](../features-core/wireguard.md)   
 
 #### **$1,000** - 2nd Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Firewall settings](../features-core/firewall.md)  
-:octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](../features-core/ap-basics.md#wpa3-personal)  
 :octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](../features-core/ap-basics.md#80211w)  
-:octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](../features-core/ap-basics.md#printable-signs)  
+:octicons-check-circle-fill-24:{: .check } [Dynamic DNS](../features-core/dynamicdns.md)  
+:octicons-check-circle-fill-24:{: .check } [Firewall settings](../features-core/firewall.md)  
 :octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics)  
-:octicons-check-circle-fill-24:{: .check } [Dynamic DNS](dynamicdns.md)  
+:octicons-check-circle-fill-24:{: .check } [NTP Service](../features-core/ntp.md)  
+:octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](../features-core/ap-basics.md#printable-signs)  
 :octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](../features-core/wireguard.md#kill-switch)  
-:octicons-check-circle-fill-24:{: .check } [NTP Service](ntp.md)  
+:octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](../features-core/ap-basics.md#wpa3-personal)  
 
 ## Transparency
 We've chosen [OpenCollective](https://opencollective.com/raspap) as the fiscal host for our [GitHub sponsors organization](https://github.com/sponsors/RaspAP). This means that our budget is completely transparent &#151; financial contributions, expenses and payouts to project team members are automatically reported. Everyone can see where money comes from and what it's spent on. This committent to full transparency was central in our decision to implement Insiders.

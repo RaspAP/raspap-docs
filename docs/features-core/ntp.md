@@ -3,7 +3,6 @@
 ![ntp-service](https://github.com/user-attachments/assets/9bd23465-5fd2-4a58-98e2-ab28ccc22a16){: style="width:640px"}
 
 ## Overview
-:octicons-beaker-24: Experimental
 
 One of the limitations of devices such as the Raspberry Pi is that it lacks an onboard **real-time clock (RTC)** to accurately keep track of the time, including when the device is powered off. To overcome this, two solutions are generally available: 1) install a hardware RTC module, or 2) synchronize time from the network. 
 

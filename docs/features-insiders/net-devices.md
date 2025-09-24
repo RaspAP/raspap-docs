@@ -28,7 +28,7 @@ The type may be changed for devices with an associated Vendor ID (vid) and Produ
 
 This will read from RaspAP's canonical UDEV [prototype definitions](net-devices.md#configuration-files) and assign the desired type to the device. These values are persisted in RaspAP's custom UDEV rules located in `/etc/udev/rules.d/80-raspap-net-devices.rules`. 
 
-### Changing the MAC address
+### MAC address cloning
 Sometimes you might need to set the MAC address of the WLAN interface to be the same as your PC or some other device on your network. This is known as _MAC address cloning_.
 
 For example, some ISPs register your computer's MAC address when the service is first installed. When you place a router behind the cable or ADSL modem, the MAC address from the device WLAN port will not be recognized by the ISP.
