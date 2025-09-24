@@ -39,6 +39,7 @@ nav:
     - VPN providers: features-experimental/providers.md
   - Insiders:
     - Insiders: features-insiders/index.md
+    - AP isolation mode: features-insiders/ap-isolation.md
     - Custom user avatars: features-core/authentication/#custom-user-avatars
     - Inspect network adapters: get-started/troubleshooting/#inspect-network-adapters
     - Limited privilege user: features-core/authentication/#limited-privilege-user-role

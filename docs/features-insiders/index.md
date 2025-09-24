@@ -17,6 +17,7 @@ Sponsorships start as low as **[$10 per month](#how-to-become-a-sponsor)**.
 ## Available Features
 <div class="grid cards" markdown>
 
+- __AP isolation mode__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ap-isolation.md)
 - __Custom user avatars__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#custom-user-avatars)
 - __Inspect network adapters__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../get-started/troubleshooting.md/#inspect-network-adapters)
 - __Limited privilege user role__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#limited-privilege-user-role)
@@ -37,6 +38,7 @@ If you're unsure if you should sponsor this project, check out the list of [comp
 ## What's in it for me?
 The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immediate access to the additional features below** that you can start using right away, and which are currently exclusively available to sponsors:
 
+:octicons-check-circle-fill-24:{: .check } [AP isolation mode](ap-isolation.md)   
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](../features-core/authentication.md#custom-user-avatars)  
 :octicons-check-circle-fill-24:{: .check } [Inspect network adapters](../get-started/troubleshooting.md#inspect-network-adapters)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
@@ -80,10 +82,11 @@ The following section lists all funding goals. Each goal contains a list of feat
 :octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)   
 
 #### **$2,000** - 4th Insiders Edition
+:octicons-check-circle-fill-24:{: .check } [AP isolation mode](ap-isolation.md)  
 :octicons-check-circle-fill-24:{: .check } [Inspect network adapters](../get-started/troubleshooting.md#inspect-network-adapters)  
 :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Dual band AP mode  
 :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Wireshark plugin  
-:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } AP isolation mode  
+
 
 ### Completed goals
 #### **$500** - 1st Insiders Edition

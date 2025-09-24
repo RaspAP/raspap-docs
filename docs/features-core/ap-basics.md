@@ -87,7 +87,7 @@ you will no longer be able to access the web interface from the default `10.3.14
 
 RaspAP is capable of acting as a [wireless repeater](repeater.md) to connect to your wireless network and rebroadcast an existing signal. This requires configuring interface metrics and default routes with DHCP. Alternatively, enabling the **WiFi repeater mode** toggle will create these settings for you automatically.
 
-![WiFi repeater mode](https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a){: style="width:420px"}
+![WiFi repeater mode](../images/wifi-repeater.png){: style="width:580px"}
 
 Save settings and choose **Restart hotspot** to active the wireless repeater. As with AP-STA mode, described below, this option is disabled or "greyed out" until a wireless client is configured. 
 
