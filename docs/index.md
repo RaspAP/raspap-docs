@@ -13,13 +13,15 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 
 | Distribution | Release  | Architecture | Support |
 |---|:---:|:---:|:---:|
-| Raspberry Pi OS | (64-bit) Lite Bookworm | ARM | Official |
-| Raspberry Pi OS | (32-bit) Lite Bookworm | ARM | Official |
-| Raspberry Pi OS | (64-bit) Desktop Bookworm | ARM | Official |
-| Raspberry Pi OS | (64-bit) Lite Bullseye | ARM | Official |
-| Raspberry Pi OS | (32-bit) Lite Bullseye | ARM | Official |
-| Armbian | 23.11  (Jammy) | [ARM](https://www.armbian.com/rpi4b/) | Beta |
-| Debian  |  Bookworm | ARM / x86_64  | Beta |
+| Raspberry Pi OS | 64-bit Debian 13 Lite (trixie) | ARM | Official |
+| Raspberry Pi OS | 32-bit Debian 13 Lite (trixie) | ARM | Official |
+| Raspberry Pi OS | 64-bit Debian 12 Lite (bookworm) | ARM | Official |
+| Raspberry Pi OS | 32-bit Debian 12 Lite (bookworm) | ARM | Official |
+| Raspberry Pi OS | 64-bit Debian 12 Desktop (bookworm) | ARM | Official |
+| Raspberry Pi OS | 64-bit Debian 11 (bullseye) Lite | ARM | Official |
+| Raspberry Pi OS | 32-bit Debian 11 (bullseye) Lite | ARM | Official |
+| Armbian | 23.11  (jammy) | [ARM](https://www.armbian.com/rpi4b/) | Beta |
+| Debian  | 12 (bookworm) | ARM / x86_64  | Beta |
 
 ![](https://i.imgur.com/XiAJNKb.png){: style="width:480px"}
 

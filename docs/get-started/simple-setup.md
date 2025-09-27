@@ -10,8 +10,8 @@ RaspAP gives you two different ways to get up and running quickly. The simplest 
 
     | Operating system     | Debian version | Kernel version  | RaspAP version | Size  |
     | ---------------------| ---------------|-----------------|----------------|-------|
-    | Raspberry Pi OS (64-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 871 MB|
-    | Raspberry Pi OS (32-bit) Lite | 12 (bookworm)  | 6.6    | Latest         | 903 MB|
+    | Raspberry Pi OS (64-bit) Lite | 13 (trixie)  | 6.12    | Latest         | 872 MB|
+    | Raspberry Pi OS (32-bit) Lite | 13 (trixie)  | 6.12    | Latest         | 904 MB|
 
     These images are automatically generated with each release of RaspAP and are made [available here](https://github.com/RaspAP/raspap-webgui/releases/latest). You may choose between an `arm64` or `armhf` (32-bit) based build.
 
