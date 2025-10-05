@@ -7,7 +7,7 @@
 
 Wireshark is the world's most popular network protocol analyzer. While Wireshark provides a full graphical interface for interactive packet analysis, its command-line version **TShark** operates entirely from the shell. This makes it ideal for headless systems, and transforms devices like the Raspberry Pi into a powerful tool for network packet capture.
 
-TShark captures and analyzes network traffic in real-time, supporting hundreds of protocols and offering powerful filtering capabilities without the overhead of a GUI.
+TShark captures and analyzes network traffic in real-time, supporting hundreds of protocols and offers powerful filtering capabilities without the overhead of a GUI.
   
 ## Solution
 Network troubleshooting and security analysis often requires capturing packets to diagnose connectivity issues, identify suspicious traffic, or optimize network performance. However, running a full GUI-based packet analyzer on a headless device or through SSH can be impractical or impossible.
@@ -35,7 +35,7 @@ The TShark plugin is particularly useful in these scenarios:
 ## Installation
 RaspAP's TShark packet capture integration is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the pop-up dialog.
 
-The plugin installer automates the installation of TShark and its dependencies, configures the necessary permissions for packet capture, and sets up the required sudoers entries. When these steps are done, the installer will automatically refresh the UI. The Wireshark plugin will then appear in the sidebar and is immediately available to configure.
+The plugin installer automates the installation of the `tshark` package and its dependencies, configures the necessary permissions for packet capture, and sets up the required sudoers entries. When these steps are done, the installer will automatically refresh the UI. The Wireshark plugin will then appear in the sidebar and is immediately available to configure.
 
 ## Capture settings
 The Wireshark plugin provides comprehensive options for configuring packet captures. All settings are preserved between captures, but are not persisted across system reboots.
@@ -52,7 +52,7 @@ Select the network interface to capture packets from. This can be any active int
 This read-only setting indicates the path where capture files will be saved. Files are saved in a standard `.pcap` format, which is compatible with Wireshark and other packet analysis tools. The default capture file storage location is `/tmp`.
 
 **Capture filter (BPF syntax)**  
-You can use [Berkeley Packet Filter syntax](https://www.ibm.com/docs/en/qsip/7.4?topic=queries-berkeley-packet-filters) to capture only specific traffic. Leave this field empty to capture all traffic. Capture filters are applied during capture to reduce the amount of data saved to disk.
+You can use the [Berkeley Packet Filter syntax](https://www.ibm.com/docs/en/qsip/7.4?topic=queries-berkeley-packet-filters) to capture only specific traffic. Leave this field empty to capture all traffic. Capture filters are applied during capture to reduce the amount of data saved to disk.
 
 Common filter examples:
 
@@ -225,4 +225,4 @@ Capturing on busy networks can be CPU-intensive. To reduce overhead:
 Most browsers will raise a warning when attempting to download a file over an insecure connection. Given that `.pcap` files may contain sensitive information, it's strongly recommended to install an [SSL certificate](../features-core/ssl.md) on your RaspAP host to enable encrypted downloads. Alternatively, use common secure Linux tools like `scp` or `sftp` to transfer files from your device for analysis.
 
 ## Discussions
-Questions or comments about using TShark? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
+Questions or comments about using TShark's packet capture? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
