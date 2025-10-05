@@ -143,9 +143,9 @@ You must accept this invite before performing an upgrade or new install, as desc
 RaspAP gives you two different ways to install the **Insiders Edition**. The simplest and recommended approach is to use a pre-built Insiders image. Alternatively, you can upgrade an existing installation or create a custom install by executing the Quick installer. Each method is described in the following sections.
 
 ### Pre-built image
-Custom Raspberry Pi OS Lite images with RaspAP's Insiders Edition preinstalled are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.
+Custom Raspberry Pi OS Lite images with RaspAP's **Insiders Edition** preinstalled are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.
 
-Begin by downloading your desired image from the latest release page in the private Insiders repository. Next, use a utility such as the Raspberry Pi Imager or balenaEtcher to flash the OS image onto a microSD card. Insert the card into your device and boot it up. The RaspAP Insiders Edition with the most popular optional components will be active and ready for you to configure.
+Begin by downloading your desired image from the latest release page in the private Insiders repository. Next, use a utility such as the Raspberry Pi Imager or balenaEtcher to flash the OS image onto a microSD card. Insert the card into your device and boot it up. The RaspAP **Insiders Edition** with the most popular optional components will be active and ready for you to configure.
 
 ### Quick install
 The [Quick installer](../get-started/quick-installer.md) gives you several options, or switches, to upgrade an existing installation to the Insiders Edition, or create a fresh Insiders install.
