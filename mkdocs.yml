@@ -49,6 +49,7 @@ nav:
     - Tailscale VPN: features-insiders/tailscale.md
     - WiFi repeater mode: features-core/repeater/#alternate-routing-method
     - Wireless LAN routing: features-insiders/wlanrouting.md
+    - Wireshark support: features-insiders/wireshark.md
   - FAQ: faq.md
   - Reporting Issues: issues.md
   - Get involved: get_involved.md
