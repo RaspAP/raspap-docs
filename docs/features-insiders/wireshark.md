@@ -40,6 +40,7 @@ The plugin installer automates the installation of TShark and its dependencies, 
 ## Capture settings
 The Wireshark plugin provides comprehensive options for configuring packet captures. All settings are preserved between captures, but are not persisted across system reboots.
 
+_<small>Click image to expand</small>_ 
 ![tshark-configuration](../images/tshark-settings.png){: style="width:640px"}
 
 ### Basic settings
@@ -118,6 +119,7 @@ The **Capture files** tab displays all `.pcap` and `.pcapng` files in the `/tmp`
 - **Modified** - Timestamp of when the file was last modified
 - **Actions** - Download or delete the file
 
+_<small>Click image to expand</small>_ 
 ![tshark-files](../images/tshark-capture-files.png){: style="width:640px"}
 
 **Downloading captures**  
