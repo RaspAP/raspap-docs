@@ -184,12 +184,12 @@ Set snapshot length to 96 bytes when you don't need payload data. This dramatica
 Regularly delete capture files you no longer need from the **Capture files** tab.
 
 ### Remote capture workflow
-A common workflow for remote packet analysis:
+Here's a common workflow for remote packet analysis:
 
 1. Configure capture settings in RaspAP's web interface
 2. Start the capture and let it run (optionally with time/packet limits)
 3. Stop the capture when complete
-4. Download the capture file to your desktop
+4. Download the capture file to your local machine
 5. Analyze the capture in Wireshark with its full graphical interface
 6. Delete the capture file from RaspAP to free up space
 
@@ -201,7 +201,7 @@ This workflow combines the convenience of remote capture with the power of deskt
 Packet captures may contain passwords, cookies, API keys, and other sensitive information transmitted over the network. Handle capture files with the same care as system logs or database backups.
 
 **Use HTTPS for access**  
-When downloading captures over the network, ensure you're accessing RaspAP [via HTTPS](/features-core/ssl/) to encrypt the download.
+When downloading captures over the network, ensure you're accessing RaspAP [via HTTPS](../features-core/ssl.md) to encrypt the download.
 
 **Limit capture scope**  
 Use capture filters to avoid capturing more traffic than necessary. For example, if troubleshooting a specific application, filter for only that application's traffic.
@@ -220,7 +220,7 @@ Capturing on busy networks can be CPU-intensive. To reduce overhead:
 - Use ring buffers with smaller file sizes
 
 ### Download issues
-Most browsers will raise a warning when attempting to download a file over an insecure connection. Given that `.pcap` files may contain sensitive information, it's strongly recommended to install an [SSL certificate](/features-core/ssl/) on your RaspAP host to enable encrypted downloads. Alternatively, use common secure Linux tools like `scp` or `sftp` to transfer files from your device for analysis.
+Most browsers will raise a warning when attempting to download a file over an insecure connection. Given that `.pcap` files may contain sensitive information, it's strongly recommended to install an [SSL certificate](../features-core/ssl.md) on your RaspAP host to enable encrypted downloads. Alternatively, use common secure Linux tools like `scp` or `sftp` to transfer files from your device for analysis.
 
 ## Discussions
 Questions or comments about using TShark? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
