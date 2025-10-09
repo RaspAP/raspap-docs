@@ -7,7 +7,7 @@
 
 Wireshark is the world's most popular network protocol analyzer. While Wireshark provides a full graphical interface for interactive packet analysis, its command-line version **TShark** operates entirely from the shell. This makes it ideal for headless systems, and transforms devices like the Raspberry Pi into a powerful tool for network packet capture.
 
-TShark captures and analyzes network traffic in real-time, supporting hundreds of protocols and offers powerful filtering capabilities without the overhead of a GUI.
+TShark captures network traffic in real-time, supporting hundreds of protocols and offers powerful filtering capabilities without the overhead of a GUI.
   
 ## Solution
 Network troubleshooting and security analysis often requires capturing packets to diagnose connectivity issues, identify suspicious traffic, or optimize network performance. However, running a full GUI-based packet analyzer on a headless device or through SSH can be impractical or impossible.
