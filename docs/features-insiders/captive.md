@@ -67,11 +67,12 @@ After a user is authenticated, the `status.html` page is displayed which typical
 
 After successful authentication, users are normally redirected to their originally requested page.
 
+### Client management
+The **Clients** tab has settings to control how users connect and how long they stay connected. These options are shown below and explained in the next sections.
+
+
 _<small>Click image to expand</small>_ 
 ![portal-client-settings](../images/portal-clients.png){: style="width:640px"}
-
-### Client management
-The **Client** tab has settings to control how users connect and how long they stay connected.
 
 **Maximum clients**  
 The maximum number of users that can be authenticated simultaneously. This does not include devices on the trusted MAC list. Set this based on your bandwidth capacity and expected usage.
