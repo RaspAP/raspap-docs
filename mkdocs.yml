@@ -163,6 +163,7 @@ plugins:
         'tailscale.md': 'features-insiders/tailscale.md'
         'wlanrouting.md': 'features-insiders/wlanrouting.md'
         'captive.md': 'features-insiders/captive.md'
+        'wireshark.md': 'features-insiders/wireshark.md'
         # mappings for get-started
         'defaults.md': 'get-started/defaults.md'
         'docker.md': 'get-started/docker.md'
