@@ -98,6 +98,9 @@ Specify a GitHub username to access a private repository. An example combining t
 curl -sL https://install.raspap.com | bash -s -- --name octocat --token my-token
 ```
 
+#### -x, --use-ssh
+Use SSH instead of HTTPS when cloning a Git repository.
+
 #### -u, --upgrade
 Upgrades an existing RaspAP installation to the latest release version.
 
@@ -125,7 +128,7 @@ Sets the connectivity check flag (`0` = don't perform an internet connectivity c
 #### -v, --version
 Queries the Github API, outputs the latest RaspAP release version and exits.
 
-#### -n, --uninstall
+#### -z, --uninstall
 Loads and executes the uninstaller.
 
 #### -h, --help
