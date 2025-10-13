@@ -3,7 +3,6 @@
 - __Ad blocking__ [:octicons-arrow-right-24:{ .lg .middle } Get started](adblock.md)
 - __AP basics__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ap-basics.md)
 - __Authentication__ [:octicons-arrow-right-24:{ .lg .middle } Get started](authentication.md)
-- __Captive portals__ [:octicons-arrow-right-24:{ .lg .middle } Get started](captive.md)
 - __Custom plugins__ [:octicons-arrow-right-24:{ .lg .middle } Get started](custom-plugins.md)
 - __Dynamic DNS__ [:octicons-arrow-right-24:{ .lg .middle } Get started](dynamicdns.md)
 - __Firewall__ [:octicons-arrow-right-24:{ .lg .middle } Get started](firewall.md)

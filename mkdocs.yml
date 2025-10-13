@@ -20,7 +20,6 @@ nav:
     - Access point settings: features-core/ap-basics.md
     - Authentication: features-core/authentication.md
     - Bridged AP mode: features-core/bridged.md
-    - Captive portal setup: features-core/captive.md
     - Custom user plugins: features-core/custom-plugins.md
     - Dynamic DNS: features-core/dynamicdns.md
     - Firewall: features-core/firewall.md
@@ -40,6 +39,7 @@ nav:
   - Insiders:
     - Insiders: features-insiders/index.md
     - AP isolation mode: features-insiders/ap-isolation.md
+    - Captive portal: features-insiders/captive.md
     - Custom user avatars: features-core/authentication/#custom-user-avatars
     - Inspect network adapters: get-started/troubleshooting/#inspect-network-adapters
     - Limited privilege user: features-core/authentication/#limited-privilege-user-role
@@ -142,7 +142,6 @@ plugins:
         'ap-basics.md': 'features-core/ap-basics.md'
         'authentication.md': 'features-core/authentication.md'
         'bridged.md': 'features-core/bridged.md'
-        'captive.md': 'features-core/captive.md'
         'custom-plugins.md': 'features-core/custom-plugins.md'
         'dynamicdns.md': 'features-core/dynamicdns.md'
         'firewall.md': 'features-core/firewall.md'
@@ -163,6 +162,7 @@ plugins:
         'net-devices.md': 'features-insiders/net-devices.md'
         'tailscale.md': 'features-insiders/tailscale.md'
         'wlanrouting.md': 'features-insiders/wlanrouting.md'
+        'captive.md': 'features-insiders/captive.md'
         # mappings for get-started
         'defaults.md': 'get-started/defaults.md'
         'docker.md': 'get-started/docker.md'
