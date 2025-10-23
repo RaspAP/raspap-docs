@@ -4,12 +4,41 @@
 
 By default RaspAP configures a routed AP as its hotspot, where your device creates a subnet and assigns IP addresses to connected clients. If you would rather have your upstream router assign IP addresses, RaspAP lets you change the hotspot configuration to an alternative bridged AP. This is also useful if you want your device and its hotspot clients to be visible to other devices in your router's network.
 
+## Use cases
+Bridged AP mode is ideal for several scenarios where you may want to extend your existing network rather than create a separate subnet:
+
+- **Network extension**: Extend WiFi coverage in areas with weak signal by placing your device as a wireless bridge between your router and distant clients
+- **Unified network**: Keep all devices on the same subnet for simplified file sharing, printer access, and network discovery without NAT complications
+- **IoT integration**: Allow IoT devices connected to the AP to communicate directly with other devices on your main network, such as smart home hubs or network storage
+- **Guest access**: Provide wireless access to visitors while maintaining centralized DHCP management and network policies through your main router
+- **Simplified management**: Manage all network settings, port forwarding, and DHCP reservations from a single location (your upstream router) rather than configuring multiple layers of routing
+
+In bridged mode, your device acts as a transparent WiFi access point, with all connected clients appearing as if they were directly connected to your router. This eliminates double-NAT issues and simplifies network architecture at the cost of some advanced routing features available in RaspAP's default routed AP mode.
 ## Enabling bridged AP mode
-From RaspAP's **Hotspot** > **Advanced** tab, select the **Bridged AP mode** option.  Choose **Save settings** and then **Restart hotspot**.
+From RaspAP's **Hotspot** > **Advanced** tab, select the **Bridged AP mode** option. When this option is enabled, fields will appear that will allow you to configure a static IP address for the bridge interface.
 
-![](../images/bridged.png){: style="width:420px"}
+### Configuring a static IP
+When enabling bridged AP mode, it's _strongly recommended_ to configure a static IP address for your device. This prevents connectivity issues that can occur when your device requests a new IP address from the upstream router during the transition to bridged mode.
 
-At this stage, you will no longer be able to access RaspAP's web interface from the default `10.3.141.1` address. See [accessing the web interface](bridged.md#accessing-the-web-interface), below.
+![](../images/bridged.png){: style="width:600px"}
+
+To configure a static IP address:
+
+1. Enable the **Bridged AP mode** checkbox
+2. Fill in the **Bridge interface configuration** fields:
+    - **Static IP Address**: The IP address you want assigned to your device (e.g., `192.168.1.10`)
+    - **Netmask / CIDR**: Network mask in CIDR notation (typically `24` for a `/24` subnet)
+    - **Gateway**: Your router's IP address (e.g., `192.168.1.254`)
+    - **DNS Server**: DNS server address, usually the same as your gateway
+
+3. Choose **Save settings** and then **Restart hotspot**
+
+!!!tip Choosing a static IP address
+    Select an IP address that is outside your router's DHCP range to avoid conflicts with dynamically assigned addresses. For example, if your router assigns DHCP addresses in the range `192.168.1.100-192.168.1.254`, choose an address like `192.168.1.50`. Consult your router's DHCP settings to determine the appropriate range.
+
+!!!note Important
+    After enabling bridged AP mode with a static IP, access RaspAP's web interface at the IP address you configured (in the example above, `http://192.168.1.10`). The default `10.3.141.1` address will no longer work.
+
 ## Limitations
 Bridged AP mode operates under some constraints as compared to RaspAP's default routed AP mode. These are discussed below.
 
@@ -22,42 +51,13 @@ The **DHCP Server** page is disabled and hidden from the adminstration interface
 ### VPN considerations
 Clients connected to a bridged AP with **OpenVPN** enabled will not have their traffic routed through the VPN server. Your device itself will still have its own traffic routed through the VPN server, however.
 
-!!!note Note
-    Bridged AP mode is not currently supported on Ubuntu Server. This is because Ubuntu has [standardized on Netplan](https://ubuntu.com/blog/a-declarative-approach-to-linux-networking-with-netplan), which differs considerably from other Linux distributions supported by RaspAP.
-
-
 ## Accessing the web interface
-In bridged AP mode, you will no longer be able to access RaspAP's web interface using the default `10.3.141.1` address. This is because your device no longer creates its own `10.3.141.0/24` subnet for its access point. Instead, access RaspAP's web interface by entering your device's hostname followed by `.local`. On Raspberry Pi devices running the `avahi` daemon, this will look like `raspberrypi.local`.
 
-Some browsers have trouble resolving `.local` addresses. You may also need to modify the address depending on your browser. For example, try entering `http://raspberrypi.local` or `raspberrypi.local/` in your browser's address field.
-
-If the above methods don't work, the `nmap` command (Network Mapper) can be used to scan your subnet for devices connected to your network. For example, invoke `nmap` with the `-sn` flag (ping scan) 
-on your subnet range:
-
-```
-nmap -sn 192.168.1.0/24
-```
-
-This scan pings all the IP addresses in a subnet to see if they respond. For each device that responds to the ping, the output will show the hostname and IP address like so:
-
-```
-Starting Nmap 7.80 ( https://nmap.org ) at 2021-01-23 10:04 CET
-Nmap scan report for iPhone 192.168.1.31
-Host is up (0.037s latency).
-Nmap scan report for raspberrypi 192.168.1.8
-Host is up (0.031s latency).
-Nmap scan report for Chromecast 192.168.1.45
-Host is up (0.0015s latency).
-Nmap scan report for mbp15 192.168.1.48
-Host is up (0.074s latency).
-Nmap done: 256 IP addresses (4 hosts up) scanned in 6.08 seconds
-```
-
-More information on finding your device's IP address can be found [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
+### With a static IP configuration
+If you configured a static IP address for bridged mode, simply access RaspAP's web interface at that address. For example, if you configured `192.168.1.10`, navigate to `http://192.168.1.10` in your browser.
 
 ## Troubleshooting
 If you are unable to connect clients to your bridged AP, start by following the recommendations in [this FAQ](../faq.md#bridged). Client connectivity issues in bridged AP mode are most often the result of your upstream router, not RaspAP. For this reason, please check your router's web interface and DHCP settings before reporting a bug.
 
 ## Discussions
 Questions or comments about RaspAP's bridged AP mode? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
-
