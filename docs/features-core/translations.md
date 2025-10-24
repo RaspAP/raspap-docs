@@ -4,9 +4,15 @@
 Owing to its utility and low cost, the Raspberry Pi's reach extends to all corners of the globe. As our way of honoring this, we've made an effort to support internationalization (often abbreviated **i18n**) with RaspAP. Given the response from [this issue](https://github.com/RaspAP/raspap-webgui/issues/121) it became obvious that translations are something that the community both wanted and were willing to contribute to.
 
 ## About locales
-On Linux systems, [GNU's Gettext](https://www.gnu.org/software/gettext/) provides a standardized way of managing multi-lingual messages. In order for Gettext to work with different languages, you must configure a language package on your RPi corresponding to one of our supported translations.
+On Linux systems, [GNU's Gettext](https://www.gnu.org/software/gettext/) provides a standardized way of managing multi-lingual messages. RaspAP uses `gettext` to automatically detect your preferred language and serve the UI accordingly.
 
-To list languages currently installed on your system, use `locale -a` at the shell prompt. On a fresh install of Raspbian, this should return a list like the one below:
+## Pre-built images
+If you're using one of RaspAP's [pre-built OS images](/get-started/simple-setup/#installation-method), the required locales are already installed in the system for you (via the `locales-all` package). This means RaspAP will automatically detect your browser's preferred language via the `HTTP_ACCEPT_LANGUAGE` header and display the UI in your language. No additional configuration is needed.
+
+You can verify that all locales are available by running `locale -a` at the shell prompt. This will show an extensive list of available locales in alphabetical order.
+
+## Manual installation
+If you performed an installation of RaspAP using the [Quick installer](/get-started/quick-installer) or [manual steps](/get-started/manual), you may need to generate locales for your desired language. To list languages currently installed on your system, use `locale -a` at the shell prompt. On a fresh install of Raspberry Pi OS, this typically returns a minimal list:
 
 ```
 $ locale -a
@@ -16,32 +22,24 @@ en_GB.utf8
 POSIX
 ```
 
-To generate new locales, run `sudo dpkg-reconfigure locales` and select any other desired locales. Here is a [useful list](http://www.localeplanet.com/icu/iso639.html) of ISO 639 language codes. **Important**: be sure to select UTF-8 as this is the preferred encoding. 
+To generate additional locales, run `sudo dpkg-reconfigure locales` and select your desired locales. Here is a [useful list](http://www.localeplanet.com/icu/iso639.html) of ISO 639 language codes. 
 
-For example, on an RPi with many locales installed, `locale -a` would output something like this:
+!!! note "Important"
+    Be sure to select `UTF-8` as this is the preferred encoding.
 
-```
-$ locale -a
-C			# fall-back, ASCII encoding, same as POSIX
-de_DE.utf8		# German language,     Germany,     UTF-8 encoding
-fr_FR.utf8		# French language,     France,      UTF-8 encoding
-it_IT.utf8		# Italian language,    Italy,       UTF-8 encoding
-ja_JP.utf8		# Japanese language,   Japan,       UTF-8 encoding
-en_GB.utf8		# English language,    GB,          UTF-8 encoding
-en_US.utf8		# English language,    USA,         UTF-8 encoding
-pt_BR.utf8		# Portuguese language, Brazil,      UTF-8 encoding
-POSIX			# fall-back, ASCII encoding, same as C
-```
+!!! warning "Caution"
+    If you configured a new locale after installing RaspAP, you must restart the `php-fpm` service for the changes to take effect:
 
-Once you've configured a locale on your system, RaspAP will read the `HTTP_ACCEPT_LANGUAGE` string and use this to load your desired language in the UI. Alternatively, you can also select a different language from the  **Language** tab in the **System** menu.
+    ```
+    sudo systemctl restart php8.4-fpm.service
+    ```
 
-![](https://i.imgur.com/M3CkHoW.png){: style="width:450px"}
+## Changing languages
+Whichever installation method you use, you can manually select a different language at any time from the **Language** tab in the **System** menu.
 
-**Important**: If you configured a new locale after installing RaspAP, you must restart lighttpd for the changes to take effect:
+![](../images/locales.png){: style="width:450px"}
 
-```
-sudo systemctl restart lighttpd.service
-```
+Simply select a language from the list and choose **Save settings**. The UI will refresh and display the new language.
 
 ## Supported languages 
 
@@ -74,12 +72,10 @@ The following translations are currently maintained by the project:
 We are certainly not limited to the above. If you are willing and able to translate RaspAP in your language, you will be credited as the original translator.
 
 ## Contributing to a translation
-RaspAP now has a translation [project home at Crowdin](https://crowdin.com/project/raspap). This is the place to go for all volunteers who would like to contribute to our ongoing translation efforts. 
+RaspAP has a translation [project home at Crowdin](https://crowdin.com/project/raspap). This is the preferred way to contribute to our ongoing translation efforts.
 
 ### How to become a translator
 The process is very straightforward. Start by signing up for a free account at [Crowdin](https://crowdin.com/). Once you are logged in, head over to our [project home](https://crowdin.com/project/raspap). 
-
-![Crowdin](https://i.imgur.com/pDUIXm6.jpg){: style="width:640px"}
 
 Here you will find our supported translations, recent activity, discussions and so on. You can get started by simply choosing the language you'd like to contribute to. For more info, see Crowdin's [detailed walkthrough](https://support.crowdin.com/crowdin-intro/#translation-process) of the translation process.
 
