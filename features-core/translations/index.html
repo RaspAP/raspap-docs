@@ -967,6 +967,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pre-built-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-built images
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing languages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#supported-languages" class="md-nav__link">
     <span class="md-ellipsis">
       Supported languages
@@ -1676,6 +1703,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pre-built-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-built images
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing languages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#supported-languages" class="md-nav__link">
     <span class="md-ellipsis">
       Supported languages
@@ -1753,32 +1807,33 @@
 <h2 id="overview">Overview</h2>
 <p>Owing to its utility and low cost, the Raspberry Pi's reach extends to all corners of the globe. As our way of honoring this, we've made an effort to support internationalization (often abbreviated <strong>i18n</strong>) with RaspAP. Given the response from <a href="https://github.com/RaspAP/raspap-webgui/issues/121">this issue</a> it became obvious that translations are something that the community both wanted and were willing to contribute to.</p>
 <h2 id="about-locales">About locales</h2>
-<p>On Linux systems, <a href="https://www.gnu.org/software/gettext/">GNU's Gettext</a> provides a standardized way of managing multi-lingual messages. In order for Gettext to work with different languages, you must configure a language package on your RPi corresponding to one of our supported translations.</p>
-<p>To list languages currently installed on your system, use <code>locale -a</code> at the shell prompt. On a fresh install of Raspbian, this should return a list like the one below:</p>
+<p>On Linux systems, <a href="https://www.gnu.org/software/gettext/">GNU's Gettext</a> provides a standardized way of managing multi-lingual messages. RaspAP uses <code>gettext</code> to automatically detect your preferred language and serve the UI accordingly.</p>
+<h2 id="pre-built-images">Pre-built images</h2>
+<p>If you're using one of RaspAP's <a href="/get-started/simple-setup/#installation-method">pre-built OS images</a>, the required locales are already installed in the system for you (via the <code>locales-all</code> package). This means RaspAP will automatically detect your browser's preferred language via the <code>HTTP_ACCEPT_LANGUAGE</code> header and display the UI in your language. No additional configuration is needed.</p>
+<p>You can verify that all locales are available by running <code>locale -a</code> at the shell prompt. This will show an extensive list of available locales in alphabetical order.</p>
+<h2 id="manual-installation">Manual installation</h2>
+<p>If you performed an installation of RaspAP using the <a href="/get-started/quick-installer">Quick installer</a> or <a href="/get-started/manual">manual steps</a>, you may need to generate locales for your desired language. To list languages currently installed on your system, use <code>locale -a</code> at the shell prompt. On a fresh install of Raspberry Pi OS, this typically returns a minimal list:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ locale -a
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>C
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>C.UTF-8
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>en_GB.utf8
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>POSIX
 </span></code></pre></div>
-<p>To generate new locales, run <code>sudo dpkg-reconfigure locales</code> and select any other desired locales. Here is a <a href="http://www.localeplanet.com/icu/iso639.html">useful list</a> of ISO 639 language codes. <strong>Important</strong>: be sure to select UTF-8 as this is the preferred encoding. </p>
-<p>For example, on an RPi with many locales installed, <code>locale -a</code> would output something like this:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ locale -a
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>C           # fall-back, ASCII encoding, same as POSIX
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>de_DE.utf8      # German language,     Germany,     UTF-8 encoding
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>fr_FR.utf8      # French language,     France,      UTF-8 encoding
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>it_IT.utf8      # Italian language,    Italy,       UTF-8 encoding
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ja_JP.utf8      # Japanese language,   Japan,       UTF-8 encoding
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>en_GB.utf8      # English language,    GB,          UTF-8 encoding
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>en_US.utf8      # English language,    USA,         UTF-8 encoding
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>pt_BR.utf8      # Portuguese language, Brazil,      UTF-8 encoding
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>POSIX           # fall-back, ASCII encoding, same as C
+<p>To generate additional locales, run <code>sudo dpkg-reconfigure locales</code> and select your desired locales. Here is a <a href="http://www.localeplanet.com/icu/iso639.html">useful list</a> of ISO 639 language codes. </p>
+<div class="admonition note">
+<p class="admonition-title">Important</p>
+<p>Be sure to select <code>UTF-8</code> as this is the preferred encoding.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If you configured a new locale after installing RaspAP, you must restart the <code>php-fpm</code> service for the changes to take effect:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo systemctl restart php8.4-fpm.service
 </span></code></pre></div>
-<p>Once you've configured a locale on your system, RaspAP will read the <code>HTTP_ACCEPT_LANGUAGE</code> string and use this to load your desired language in the UI. Alternatively, you can also select a different language from the  <strong>Language</strong> tab in the <strong>System</strong> menu.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://i.imgur.com/M3CkHoW.png" data-desc-position="bottom"><img alt="" src="https://i.imgur.com/M3CkHoW.png" style="width:450px"></a></p>
-<p><strong>Important</strong>: If you configured a new locale after installing RaspAP, you must restart lighttpd for the changes to take effect:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo systemctl restart lighttpd.service
-</span></code></pre></div>
+</div>
+<h2 id="changing-languages">Changing languages</h2>
+<p>Whichever installation method you use, you can manually select a different language at any time from the <strong>Language</strong> tab in the <strong>System</strong> menu.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/locales.png" data-desc-position="bottom"><img alt="" src="../../images/locales.png" style="width:450px"></a></p>
+<p>Simply select a language from the list and choose <strong>Save settings</strong>. The UI will refresh and display the new language.</p>
 <h2 id="supported-languages">Supported languages</h2>
 <p>The following translations are currently maintained by the project: </p>
 <table>
@@ -1877,10 +1932,9 @@
 </table>
 <p>We are certainly not limited to the above. If you are willing and able to translate RaspAP in your language, you will be credited as the original translator.</p>
 <h2 id="contributing-to-a-translation">Contributing to a translation</h2>
-<p>RaspAP now has a translation <a href="https://crowdin.com/project/raspap">project home at Crowdin</a>. This is the place to go for all volunteers who would like to contribute to our ongoing translation efforts. </p>
+<p>RaspAP has a translation <a href="https://crowdin.com/project/raspap">project home at Crowdin</a>. This is the preferred way to contribute to our ongoing translation efforts.</p>
 <h3 id="how-to-become-a-translator">How to become a translator</h3>
 <p>The process is very straightforward. Start by signing up for a free account at <a href="https://crowdin.com/">Crowdin</a>. Once you are logged in, head over to our <a href="https://crowdin.com/project/raspap">project home</a>. </p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://i.imgur.com/pDUIXm6.jpg" data-desc-position="bottom"><img alt="Crowdin" src="https://i.imgur.com/pDUIXm6.jpg" style="width:640px"></a></p>
 <p>Here you will find our supported translations, recent activity, discussions and so on. You can get started by simply choosing the language you'd like to contribute to. For more info, see Crowdin's <a href="https://support.crowdin.com/crowdin-intro/#translation-process">detailed walkthrough</a> of the translation process.</p>
 <h2 id="discussions">Discussions</h2>
 <p>Questions or comments about RaspAP's translations? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
@@ -1904,7 +1958,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 24, 2025 23:11:39 UTC">August 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 24, 2025 17:20:27 UTC">October 24, 2025</span>
   </span>
 
     
@@ -1922,6 +1976,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/billz" class="md-author" title="@billz">
+          
+          <img src="https://avatars.githubusercontent.com/u/229399?v=4&amp;size=72" alt="billz">
+        </a>
       
         <a href="https://github.com/ruralmeltdown" class="md-author" title="@ruralmeltdown">
           
