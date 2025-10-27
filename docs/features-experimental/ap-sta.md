@@ -95,7 +95,7 @@ With a basic understanding of AP-STA mode, we can proceed with the installation.
 14. Choose **Save settings** and **Start hotspot**.
 15. Wait a few moments and confirm that your AP has started. 
 
-![](https://github.com/RaspAP/raspap-webgui/assets/229399/3775ccfa-9c1a-4cec-b4f2-eb55c169a99f){: style="width:420px"}
+![](../images/ap-sta.png){: style="width:520px"}
 
 !!! note "Note"
     The **WiFi client AP mode** option will be disabled, or "greyed out", until a wireless client is configured.
