@@ -2,154 +2,154 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.raspap.com/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/faq/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/get_involved/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/issues/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/adblock/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/ap-basics/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/authentication/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/bridged/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/custom-plugins/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/dynamicdns/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/firewall/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/minwrite/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/ntp/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/openvpn/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/repeater/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/speedtest/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/ssl/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/translations/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-core/wireguard/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-experimental/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-experimental/ap-sta/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-experimental/providers/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-experimental/restapi/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-insiders/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-insiders/ap-isolation/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-insiders/captive/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-insiders/net-devices/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-insiders/tailscale/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-insiders/wireshark/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/features-insiders/wlanrouting/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/get-started/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/get-started/defaults/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/get-started/docker/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/get-started/manual/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/get-started/quick-installer/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/get-started/simple-setup/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://docs.raspap.com/get-started/troubleshooting/</loc>
-         <lastmod>2025-10-24</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
 </urlset>
