@@ -3,7 +3,7 @@
 ![minwrite](https://github.com/user-attachments/assets/c17886a9-5aa6-49f4-a0e9-8b14a333a749){: style="width:640px"}
 
 ## Overview
-Linux, and indeed most substantial operating systems, is frequently writing logs files, cache files and temporary data to disk (or the microSD card with the Raspberry Pi). Performing a shutdown puts these files away into a known valid state. If power is unexpectedly cut to a Raspberry Pi, these unwritten system files can become corrupted and render a card unbootable.
+Linux, and indeed most substantial operating systems, frequently writes logs files, cache files and temporary data to disk. Performing a shutdown puts these files away into a known valid state. If power is unexpectedly cut to a system, these unwritten system files can become corrupted and render a microSD card unbootable.
 
 What is more, most microSD cards were not designed with 24/7 operation in mind. Continuous writing to the card's flash memory shortens its lifespan. They often accumulate bad sectors rather quickly after a period of extended use. This is particularly true of so-called "budget" microSD cards.
 
@@ -119,7 +119,7 @@ After you've enabled **minwrite** we'll look at a technique to evaluate its effe
     Be aware that because `busybox-syslogd` writes system logs to RAM, these logs will be lost if your device is disconnected from power.
 
     **Disable swap**  
-    Next you'll modify system boot options to disable [swap](https://wiki.debian.org/Swap) and filesystem checks, as these are both intensive disk I/O processes. Edit this file with `sudo nano /boot/cmdline.txt` and append the following to the end:
+    Next you'll modify system boot options to disable [swap](https://wiki.debian.org/Swap) and filesystem checks, as these are both intensive disk I/O processes. Edit this file with `sudo nano /boot/firmware/cmdline.txt` and append the following to the end:
 
     ```
     fsck.mode=skip noswap
