@@ -10,8 +10,8 @@ RaspAP gives you two different ways to get up and running quickly. The simplest 
 
     | Operating system     | Debian version | Kernel version  | RaspAP version | Size  |
     | ---------------------| ---------------|-----------------|----------------|-------|
-    | Raspberry Pi OS (64-bit) Lite | 13 (trixie)  | 6.12     | Latest         | 826 MB|
-    | Raspberry Pi OS (32-bit) Lite | 13 (trixie)  | 6.12     | Latest         | 799 MB|
+    | Raspberry Pi OS (64-bit) Lite | 13 (trixie)  | 6.12     | Latest         | 885 MB|
+    | Raspberry Pi OS (32-bit) Lite | 13 (trixie)  | 6.12     | Latest         | 858 MB|
 
     These images are automatically generated with each release of RaspAP and are made [available here](https://github.com/RaspAP/raspap-webgui/releases/latest). You may choose between an `arm64` or `armhf` (32-bit) based build.
 
@@ -21,7 +21,7 @@ RaspAP gives you two different ways to get up and running quickly. The simplest 
     !!! warning "Important"
         Newer distributions of Raspberry Pi OS require a user to be created on first boot. For security reasons, RaspAP's custom OS images _do not_ preconfigure a user. For this reason, you must use the **custom settings** in [Raspberry Pi Imager](https://github.com/raspberrypi/rpi-imager/releases/tag/v1.9.6) to define a user when writing to the SD card. Failure to do so will cause a headless setup to stall with an interactive prompt to create a new user. 
 
-    After downloading your desired image from the [latest release page](https://github.com/RaspAP/raspap-webgui/releases/latest), use the [v1.9.6 release of Raspberry Pi Imager](https://github.com/raspberrypi/rpi-imager/releases/tag/v1.9.6) to flash the OS image onto a microSD card. The Pi Imager is recommended because it can modify basic Raspberry Pi configuration settings, such as setting a user/password, initial WiFi connectivity, and enabling SSH server. Once completed, insert the card into your device and boot it up. The latest RaspAP release version with the most popular optional components will be active and ready for you to configure.
+    After downloading your desired image from the [latest release page](https://github.com/RaspAP/raspap-webgui/releases/latest), use the [v1.9.6 release of Raspberry Pi Imager](https://github.com/raspberrypi/rpi-imager/releases/tag/v1.9.6) to flash the OS image onto a microSD card. The Pi Imager is recommended because it lets you modify optional OS configuration settings, such as setting a username and password, and enabling remote access via SSH. Once completed, insert the card into your device and boot it up. The latest RaspAP release version with the most popular optional components will be active and ready for you to configure.
 
     ??? note "SD Card flashing alternative"
         [balenaEtcher](https://etcher.balena.io/) is an alternative to [Raspberry Pi Imager](https://www.raspberrypi.com/software/), but it does not offer the ability to modify the basic Raspberry Pi configuration settings mentioned above. In this event, you can enable remote access and [configure a user manually](https://www.raspberrypi.com/documentation/computers/configuration.html#remote-access).
@@ -52,8 +52,6 @@ RaspAP gives you two different ways to get up and running quickly. The simplest 
     curl -sL https://install.raspap.com | bash
     ```
     The [Quick installer](quick-installer.md) will complete the steps in the [manual installation](manual.md) for you. At the end of the install process, accept the prompt to reboot your system.
-
----
 
 ## Initial settings
 After completing either of these setup options, the wireless AP network will be configured as follows:
