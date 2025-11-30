@@ -20,15 +20,18 @@ RaspAP was originally made for Raspbian, but now also installs on the following 
 | Raspberry Pi OS Desktop| 64-bit Debian 12 (bookworm) | ARM | Official |
 | Raspberry Pi OS Lite | 64-bit  Debian 11 (bullseye) | ARM | Official |
 | Raspberry Pi OS Lite | 32-bit Debian 11  (bullseye) | ARM | Official |
+| Kali Linux |  2025.3 | [ARM 64-bit](https://www.kali.org/get-kali/#kali-arm) | Beta |
+| Kali Linux | 2025.3 | [ARM 32-bit](https://www.kali.org/get-kali/#kali-arm) | Beta |
 | Armbian | 23.11  (jammy) | [ARM](https://www.armbian.com/rpi4b/) | Beta |
-| Debian  |  bookworm | ARM / x86_64  | Beta |
+| Debian 13 |  trixie | [ARM](https://raspi.debian.net/tested-images/) | Beta |
+| Debian 12  |  bookworm | [ARM](https://raspi.debian.net/tested-images/)  | Beta |
 
-![](https://i.imgur.com/XiAJNKb.png){: style="width:480px"}
+![Distros](images/distros.png){: style="width:480px"}
 
 You are also encouraged to use RaspAP's community-led [Docker container](get-started/docker.md).
 
 !!! tip "Tip"
-    If maximizing the number of AP clients is a top priority, you can switch to an alternative RPi OS minimal firmware that has been specifically tuned for this purpose. Details are available in [this FAQ](faq.md#maxclients).
+    On Kali Linux 2505.x, enable and start the following services _after_ installing RaspAP: `sudo systemctl enable lighttpd.service php8.4-fpm.service vnstat.service --now `. 
 
 Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to [actively contribute](#get-involved) to the project.
 
