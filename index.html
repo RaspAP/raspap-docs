@@ -2025,24 +2025,42 @@ Our popular <a href="get-started/simple-setup/#installation-method">pre-built im
 <td style="text-align: center;">Official</td>
 </tr>
 <tr>
+<td>Kali Linux</td>
+<td style="text-align: center;">2025.3</td>
+<td style="text-align: center;"><a href="https://www.kali.org/get-kali/#kali-arm">ARM 64-bit</a></td>
+<td style="text-align: center;">Beta</td>
+</tr>
+<tr>
+<td>Kali Linux</td>
+<td style="text-align: center;">2025.3</td>
+<td style="text-align: center;"><a href="https://www.kali.org/get-kali/#kali-arm">ARM 32-bit</a></td>
+<td style="text-align: center;">Beta</td>
+</tr>
+<tr>
 <td>Armbian</td>
 <td style="text-align: center;">23.11  (jammy)</td>
 <td style="text-align: center;"><a href="https://www.armbian.com/rpi4b/">ARM</a></td>
 <td style="text-align: center;">Beta</td>
 </tr>
 <tr>
-<td>Debian</td>
+<td>Debian 13</td>
+<td style="text-align: center;">trixie</td>
+<td style="text-align: center;"><a href="https://raspi.debian.net/tested-images/">ARM</a></td>
+<td style="text-align: center;">Beta</td>
+</tr>
+<tr>
+<td>Debian 12</td>
 <td style="text-align: center;">bookworm</td>
-<td style="text-align: center;">ARM / x86_64</td>
+<td style="text-align: center;"><a href="https://raspi.debian.net/tested-images/">ARM</a></td>
 <td style="text-align: center;">Beta</td>
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://i.imgur.com/XiAJNKb.png" data-desc-position="bottom"><img alt="" src="https://i.imgur.com/XiAJNKb.png" style="width:480px"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/distros.png" data-desc-position="bottom"><img alt="Distros" src="images/distros.png" style="width:480px"></a></p>
 <p>You are also encouraged to use RaspAP's community-led <a href="get-started/docker/">Docker container</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If maximizing the number of AP clients is a top priority, you can switch to an alternative RPi OS minimal firmware that has been specifically tuned for this purpose. Details are available in <a href="faq/#maxclients">this FAQ</a>.</p>
+<p>On Kali Linux 2505.x, enable and start the following services <em>after</em> installing RaspAP: <code>sudo systemctl enable lighttpd.service php8.4-fpm.service vnstat.service --now</code>. </p>
 </div>
 <p>Please note that "supported" is not a guarantee. If you are able to improve support for your preferred distro, we encourage you to <a href="#get-involved">actively contribute</a> to the project.</p>
 <h2 id="get-involved">Get involved</h2>
@@ -2080,7 +2098,7 @@ and get access to <a href="features-insiders/#whats-in-it-for-me">exclusive feat
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 13, 2025 08:46:36 UTC">October 13, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 30, 2025 14:10:58 UTC">November 30, 2025</span>
   </span>
 
     
