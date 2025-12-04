@@ -153,6 +153,8 @@ plugins:
         'ssl.md': 'features-core/ssl.md'
         'translations.md': 'features-core/translations.md'
         'wireguard.md': 'features-core/wireguard.md'
+        'ssl-quick.md': 'features-core/ssl.md'
+        'ssl-manual.md': 'features-core/ssl.md#creating-a-certificate'
         # mappings for features-experimental
         'ap-sta.md': 'features-experimental/ap-sta.md'
         'providers.md': 'features-experimental/providers.md'
