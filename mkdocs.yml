@@ -6,13 +6,14 @@ edit_uri: /RaspAP/raspap-docs/edit/master/docs
 
 nav:
   - Overview: index.md
+  - Use Cases: use-cases.md
   - Get Started:
     - Get Started: get-started/index.md
     - Simple setup: get-started/simple-setup.md
-    - Default settings: get-started/defaults.md
-    - Manual installation: get-started/manual.md
     - Quick installer: get-started/quick-installer.md
     - Docker support: get-started/docker.md
+    - Manual installation: get-started/manual.md
+    - Default settings: get-started/defaults.md
     - Troubleshooting: get-started/troubleshooting.md
   - Core Features: 
     - Core Features: features-core/index.md
