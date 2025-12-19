@@ -41,7 +41,7 @@ nav:
     - Insiders: features-insiders/index.md
     - AP isolation mode: features-insiders/ap-isolation.md
     - Captive portal: features-insiders/captive.md
-    - Custom user avatars: features-core/authentication/#custom-user-avatars
+    - Custom user avatars: features-core/authentication.md#custom-user-avatars
     - Inspect network adapters: get-started/troubleshooting/#inspect-network-adapters
     - Limited privilege user: features-core/authentication/#limited-privilege-user-role
     - MAC address cloning: features-insiders/net-devices/#mac-address-cloning

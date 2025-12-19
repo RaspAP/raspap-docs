@@ -1,6 +1,6 @@
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Use Cases__ [:octicons-arrow-right-24: Get started](use-cases.md)
+-   :material-clock-fast:{ .lg .middle } __Use Cases__ [:octicons-arrow-right-24: Get started](../use-cases.md)
 
     Provides insight as to what RaspAP is and is not currently capable of, and its supported use cases.
 

@@ -7,12 +7,12 @@ Owing to its utility and low cost, the Raspberry Pi's reach extends to all corne
 On Linux systems, [GNU's Gettext](https://www.gnu.org/software/gettext/) provides a standardized way of managing multi-lingual messages. RaspAP uses `gettext` to automatically detect your preferred language and serve the UI accordingly.
 
 ## Pre-built images
-If you're using one of RaspAP's [pre-built OS images](/get-started/simple-setup/#installation-method), the required locales are already installed in the system for you (via the `locales-all` package). This means RaspAP will automatically detect your browser's preferred language via the `HTTP_ACCEPT_LANGUAGE` header and display the UI in your language. No additional configuration is needed.
+If you're using one of RaspAP's [pre-built OS images](../get-started/simple-setup.md#installation-method), the required locales are already installed in the system for you (via the `locales-all` package). This means RaspAP will automatically detect your browser's preferred language via the `HTTP_ACCEPT_LANGUAGE` header and display the UI in your language. No additional configuration is needed.
 
 You can verify that all locales are available by running `locale -a` at the shell prompt. This will show an extensive list of available locales in alphabetical order.
 
 ## Manual installation
-If you performed an installation of RaspAP using the [Quick installer](/get-started/quick-installer) or [manual steps](/get-started/manual), you may need to generate locales for your desired language. To list languages currently installed on your system, use `locale -a` at the shell prompt. On a fresh install of Raspberry Pi OS, this typically returns a minimal list:
+If you performed an installation of RaspAP using the [Quick installer](../get-started/quick-installer.md) or [manual steps](../get-started/manual.md), you may need to generate locales for your desired language. To list languages currently installed on your system, use `locale -a` at the shell prompt. On a fresh install of Raspberry Pi OS, this typically returns a minimal list:
 
 ```
 $ locale -a

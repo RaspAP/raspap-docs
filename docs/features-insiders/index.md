@@ -78,7 +78,7 @@ The following section lists all funding goals. Each goal contains a list of feat
 #### **$1,500** - 3rd Insiders Edition
 :octicons-check-circle-fill-24:{: .check } [Custom user avatars](../features-core/authentication.md#custom-user-avatars)  
 :octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
-:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
+:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#mac-address-cloning)  
 :octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](../features-core/wireguard.md#multiple-configs)  
 :octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
 :octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
