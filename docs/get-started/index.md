@@ -12,7 +12,7 @@
 
     These steps apply to the latest release of RaspAP, Raspberry Pi OS Lite, Debian and Armbian.
 
--   :material-clock-fast:{ .lg .middle } __Quick Installer__ [:octicons-arrow-right-24: Get started](troubleshooting.md)
+-   :material-clock-fast:{ .lg .middle } __Quick Installer__ [:octicons-arrow-right-24: Get started](quick-installer.md)
     
     The Quick installer has been designed to assist users with creating an instance of RaspAP both quickly and with a great deal of flexibility.
 
