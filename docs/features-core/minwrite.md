@@ -36,7 +36,7 @@ After you've enabled **minwrite** we'll look at a technique to evaluate its effe
     Alternatively, if you have a local install of RaspAP you may execute it from the `/installers` directory like so:
 
     ```
-    ./raspbian.sh --minwrite.sh
+    ./raspbian.sh --minwrite
     ```
 
     You will be prompted at each step during the minwrite script's execution. As a final step, be sure to reboot your system.
