@@ -53,6 +53,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Can I use RaspAP to share Speedify's aggregated connections?](#speedify)
 * [How do I serve custom pages from RaspAP?](#custompages)
 * [Can I automatically update RaspAP's adblock lists?](#adblockauto)
+* [How do I create an external status LED?](#statusled)
 
 <a name="openvpn"></a>
 ## OpenVPN
@@ -653,6 +654,68 @@ chown root:www-data /etc/raspap/adblock/domains.txt
 sudo systemctl reload dnsmasq.service
 ```
 Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.
+
+## <a name="statusled"></a>How do I create an external status LED?
+In some situations it may be useful to have a simple visual status LED to indicate when your device has internet connectivity. To do this, connect an RGB LED to pins 17, 27 and 22 on your device's [GPIO header](https://pinout.xyz/).
+
+Next, create the following script, `status.py`, and execute it with `python3 status.py >/dev/null 2>&1 &`:
+
+```python
+import time
+import socket
+import RPi.GPIO as GPIO
+from typing import Tuple
+
+HOST: str = "www.google.com"
+PORT: int = 443
+TIMEOUT: float = 2.0
+
+PINS: Tuple[int, int, int] = (17, 27, 22)  # R, G, B
+
+GPIO.setmode(GPIO.BCM)
+for pin in PINS:
+    GPIO.setup(pin, GPIO.OUT)
+
+pwm = [GPIO.PWM(pin, 1000) for pin in PINS]
+for p in pwm:
+    p.start(100)  # OFF (common anode)
+
+def set_color(r: int, g: int, b: int) -> None:
+    pwm[0].ChangeDutyCycle(100 - r)
+    pwm[1].ChangeDutyCycle(100 - g)
+    pwm[2].ChangeDutyCycle(100 - b)
+
+def is_up(host: str, port: int) -> bool:
+    try:
+        with socket.create_connection((host, port), timeout=TIMEOUT):
+            return True
+    except OSError:
+        return False
+
+try:
+    while True:
+        set_color(0,0,100)
+        time.sleep(0.3)
+        if is_up(HOST, PORT):
+            set_color(0, 100, 0)   # green
+        else:
+            set_color(100, 0, 0)   # red
+            if count > 60: # 60 = 5 mins
+                subprocess.run(["sudo", "reboot"], check=False)
+
+        time.sleep(5)
+
+finally:
+    for p in pwm:
+        p.stop()
+    GPIO.cleanup()
+```
+
+Original issue [here]( https://github.com/RaspAP/raspap-webgui/issues/2108).
+Credit to <a href="https://github.com/gabrielklein">gabrielklein</a>.
+
+
+
 
 ## <a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.
 RaspAP supports OpenVPN clients by uploading a valid `.ovpn` file to `/etc/openvpn/client` and, optionally, creating a `login.conf` file with your client auth credentials. Additionally, in line with the project's [default configuration](get-started/defaults.md), the following iptables rules are added to forward traffic from OpenVPN's `tun0` interface to your configured wireless interface (`wlan0` is the default):
