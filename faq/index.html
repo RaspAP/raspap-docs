@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2286,6 +2286,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-do-i-create-an-external-status-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I create an external status LED?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#openvpn-fails-to-start-andor-i-have-no-internet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3155,6 +3166,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-do-i-create-an-external-status-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I create an external status LED?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#openvpn-fails-to-start-andor-i-have-no-internet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3473,6 +3495,7 @@ FAQ items are organized into thematic sections, below, for easier reference.</p>
 <li><a href="#speedify">Can I use RaspAP to share Speedify's aggregated connections?</a></li>
 <li><a href="#custompages">How do I serve custom pages from RaspAP?</a></li>
 <li><a href="#adblockauto">Can I automatically update RaspAP's adblock lists?</a></li>
+<li><a href="#statusled">How do I create an external status LED?</a></li>
 </ul>
 <p><a name="openvpn"></a></p>
 <h2 id="openvpn">OpenVPN</h2>
@@ -3924,43 +3947,97 @@ the schedule of your choosing (for example, daily, weekly, etc.) and reload <cod
 </span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>sudo systemctl reload dnsmasq.service
 </span></code></pre></div>
 Credit to <a href="https://github.com/DanielLester83">DanielLester83</a>.
+<h2 id="how-do-i-create-an-external-status-led"><a name="statusled"></a>How do I create an external status LED?</h2>
+<p>In some situations it may be useful to have a simple visual status LED to indicate when your device has internet connectivity. To do this, connect an RGB LED to pins 17, 27 and 22 on your device's <a href="https://pinout.xyz/">GPIO header</a>.</p>
+<p>Next, create the following script, <code>status.py</code>, and execute it with <code>python3 status.py &gt;/dev/null 2&gt;&amp;1 &amp;</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="n">HOST</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"www.google.com"</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="n">PORT</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">443</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="n">TIMEOUT</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="n">PINS</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>  <span class="c1"># R, G, B</span>
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">PINS</span><span class="p">:</span>
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>    <span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a><span class="n">pwm</span> <span class="o">=</span> <span class="p">[</span><span class="n">GPIO</span><span class="o">.</span><span class="n">PWM</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">PINS</span><span class="p">]</span>
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pwm</span><span class="p">:</span>
+</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># OFF (common anode)</span>
+</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>
+</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_color</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>    <span class="n">pwm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ChangeDutyCycle</span><span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span>
+</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a>    <span class="n">pwm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ChangeDutyCycle</span><span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">g</span><span class="p">)</span>
+</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>    <span class="n">pwm</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">ChangeDutyCycle</span><span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+</span><span id="__span-31-24"><a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>
+</span><span id="__span-31-25"><a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_up</span><span class="p">(</span><span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-31-26"><a id="__codelineno-31-26" name="__codelineno-31-26" href="#__codelineno-31-26"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-31-27"><a id="__codelineno-31-27" name="__codelineno-31-27" href="#__codelineno-31-27"></a>        <span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="n">TIMEOUT</span><span class="p">):</span>
+</span><span id="__span-31-28"><a id="__codelineno-31-28" name="__codelineno-31-28" href="#__codelineno-31-28"></a>            <span class="k">return</span> <span class="kc">True</span>
+</span><span id="__span-31-29"><a id="__codelineno-31-29" name="__codelineno-31-29" href="#__codelineno-31-29"></a>    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+</span><span id="__span-31-30"><a id="__codelineno-31-30" name="__codelineno-31-30" href="#__codelineno-31-30"></a>        <span class="k">return</span> <span class="kc">False</span>
+</span><span id="__span-31-31"><a id="__codelineno-31-31" name="__codelineno-31-31" href="#__codelineno-31-31"></a>
+</span><span id="__span-31-32"><a id="__codelineno-31-32" name="__codelineno-31-32" href="#__codelineno-31-32"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-31-33"><a id="__codelineno-31-33" name="__codelineno-31-33" href="#__codelineno-31-33"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-31-34"><a id="__codelineno-31-34" name="__codelineno-31-34" href="#__codelineno-31-34"></a>        <span class="n">set_color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-31-35"><a id="__codelineno-31-35" name="__codelineno-31-35" href="#__codelineno-31-35"></a>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+</span><span id="__span-31-36"><a id="__codelineno-31-36" name="__codelineno-31-36" href="#__codelineno-31-36"></a>        <span class="k">if</span> <span class="n">is_up</span><span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">):</span>
+</span><span id="__span-31-37"><a id="__codelineno-31-37" name="__codelineno-31-37" href="#__codelineno-31-37"></a>            <span class="n">set_color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># green</span>
+</span><span id="__span-31-38"><a id="__codelineno-31-38" name="__codelineno-31-38" href="#__codelineno-31-38"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-31-39"><a id="__codelineno-31-39" name="__codelineno-31-39" href="#__codelineno-31-39"></a>            <span class="n">set_color</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># red</span>
+</span><span id="__span-31-40"><a id="__codelineno-31-40" name="__codelineno-31-40" href="#__codelineno-31-40"></a>            <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span> <span class="c1"># 60 = 5 mins</span>
+</span><span id="__span-31-41"><a id="__codelineno-31-41" name="__codelineno-31-41" href="#__codelineno-31-41"></a>                <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"sudo"</span><span class="p">,</span> <span class="s2">"reboot"</span><span class="p">],</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-31-42"><a id="__codelineno-31-42" name="__codelineno-31-42" href="#__codelineno-31-42"></a>
+</span><span id="__span-31-43"><a id="__codelineno-31-43" name="__codelineno-31-43" href="#__codelineno-31-43"></a>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-31-44"><a id="__codelineno-31-44" name="__codelineno-31-44" href="#__codelineno-31-44"></a>
+</span><span id="__span-31-45"><a id="__codelineno-31-45" name="__codelineno-31-45" href="#__codelineno-31-45"></a><span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-31-46"><a id="__codelineno-31-46" name="__codelineno-31-46" href="#__codelineno-31-46"></a>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pwm</span><span class="p">:</span>
+</span><span id="__span-31-47"><a id="__codelineno-31-47" name="__codelineno-31-47" href="#__codelineno-31-47"></a>        <span class="n">p</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span><span id="__span-31-48"><a id="__codelineno-31-48" name="__codelineno-31-48" href="#__codelineno-31-48"></a>    <span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Original issue <a href="https://github.com/RaspAP/raspap-webgui/issues/2108">here</a>.
+Credit to <a href="https://github.com/gabrielklein">gabrielklein</a>.</p>
 <h2 id="openvpn-fails-to-start-andor-i-have-no-internet"><a name="openvpn-fails"></a>OpenVPN fails to start and/or I have no internet.</h2>
 <p>RaspAP supports OpenVPN clients by uploading a valid <code>.ovpn</code> file to <code>/etc/openvpn/client</code> and, optionally, creating a <code>login.conf</code> file with your client auth credentials. Additionally, in line with the project's <a href="../get-started/defaults/">default configuration</a>, the following iptables rules are added to forward traffic from OpenVPN's <code>tun0</code> interface to your configured wireless interface (<code>wlan0</code> is the default):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>-A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>-A FORWARD -i wlan0 -o tun0 -j ACCEPT
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>-A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>-A FORWARD -i wlan0 -o tun0 -j ACCEPT
 </span></code></pre></div>
 <p>After starting the OpenVPN service, you may check and validate these rules like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>$ sudo iptables -L FORWARD -v -n
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
-</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a> pkts bytes target     prot opt in     out     source               destination         
-</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a> 1955 1493K ACCEPT     all  --  tun0   wlan0   0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
-</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a> 1715  194K ACCEPT     all  --  wlan0  tun0    0.0.0.0/0            0.0.0.0/0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>$ sudo iptables -L FORWARD -v -n
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a> pkts bytes target     prot opt in     out     source               destination         
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a> 1955 1493K ACCEPT     all  --  tun0   wlan0   0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a> 1715  194K ACCEPT     all  --  wlan0  tun0    0.0.0.0/0            0.0.0.0/0
 </span></code></pre></div>
 <p>It is your responsibility to provide a valid <code>.ovpn</code> file. RaspAP does not attempt to validate the settings or RSA keys contained in this file. If OpenVPN fails to start, check for errors with <code>sudo systemctl status openvpn-client@client</code> and <code>journalctl --identifier openvpn</code>.</p>
 <h2 id="openvpn-works-but-i-have-partial-or-no-internet-access"><a name="partial"></a>OpenVPN works but I have partial or no internet access.</h2>
 <p>Issues <a href="https://github.com/RaspAP/raspap-webgui/issues/612">like this</a> are frequently reported. Begin by confirming the status of your connection:</p>
-<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>$ sudo systemctl status openvpn-client@client
-</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>● openvpn-client@client.service - OpenVPN tunnel for client
-</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>   Loaded: loaded (/lib/systemd/system/openvpn-client@.service; enabled; vendor preset: enabled)
-</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>   Active: active (running) since Fri 2020-06-12 15:45:41 CDT; 1min 39s ago
-</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>     Docs: man:openvpn(8)
-</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>           https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
-</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>           https://community.openvpn.net/openvpn/wiki/HOWTO
-</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a> Main PID: 2689 (openvpn)
-</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>   Status: "Initialization Sequence Completed"
-</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>    Tasks: 1 (limit: 2200)
-</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>   Memory: 1.1M
-</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>   CGroup: /system.slice/system-openvpn\x2dclient.slice/openvpn-client@client.service
-</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>           └─2689 /usr/sbin/openvpn --suppress-timestamps --nobind --config client.conf
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>$ sudo systemctl status openvpn-client@client
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>● openvpn-client@client.service - OpenVPN tunnel for client
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>   Loaded: loaded (/lib/systemd/system/openvpn-client@.service; enabled; vendor preset: enabled)
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>   Active: active (running) since Fri 2020-06-12 15:45:41 CDT; 1min 39s ago
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>     Docs: man:openvpn(8)
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>           https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>           https://community.openvpn.net/openvpn/wiki/HOWTO
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a> Main PID: 2689 (openvpn)
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>   Status: "Initialization Sequence Completed"
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>    Tasks: 1 (limit: 2200)
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>   Memory: 1.1M
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>   CGroup: /system.slice/system-openvpn\x2dclient.slice/openvpn-client@client.service
+</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>           └─2689 /usr/sbin/openvpn --suppress-timestamps --nobind --config client.conf
 </span></code></pre></div>
 You can also use <code>journalctl --identifier openvpn</code> to identify any errors. If your internet access is intermittent or otherwise degraded with the <code>openvpn-client</code> active, the next step is to test your connection for packet loss and latency. There are many Linux tools you can use to diagnose your network. <code>mtr</code> is a good choice as it combines functionality of the traceroute and ping programs. Install and use it to perform your own evaluation:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>sudo apt install mtr -y
-</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>sudo mtr -rwc 50 -i 0.2 -rw duckduckgo.com
-</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
-</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>Start: 2021-06-13T11:42:26+0100
-</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>HOST: raspberrypi                                Loss%   Snt   Last   Avg  Best  Wrst StDev
-</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>  1.|-- 192.168.1.254                              0.0%    50   26.8  27.1  26.5  31.4   0.8
-</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>  2.|-- somerouter.net                            88.0%    50   392.0 390.4 362.1 596.7  1.2
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sudo apt install mtr -y
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>sudo mtr -rwc 50 -i 0.2 -rw duckduckgo.com
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>Start: 2021-06-13T11:42:26+0100
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>HOST: raspberrypi                                Loss%   Snt   Last   Avg  Best  Wrst StDev
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>  1.|-- 192.168.1.254                              0.0%    50   26.8  27.1  26.5  31.4   0.8
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>  2.|-- somerouter.net                            88.0%    50   392.0 390.4 362.1 596.7  1.2
 </span></code></pre></div>
 <p>The results are reported as round-trip response times in milliseconds and the percentage of packet loss. If you see loss and/or latency like the above example, report it to your VPN provider or find another one. Read <a href="https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr/">this</a> for more on interpreting mtr results.</p>
 <p>Protip: free VPNs are frequently oversubscribed and usually not worth the trouble.</p>
@@ -3968,8 +4045,8 @@ You can also use <code>journalctl --identifier openvpn</code> to identify any er
 <p>Remote hosts use a variety of methods to defeat VPNs, some more aggressively than others. Many VPN providers will advise you to configure custom DNS servers to mitigate <a href="https://dnsleaktest.com/">DNS leaks</a>, which you can do from RaspAP's <strong>DHCP &gt; Advanced</strong> tab. Others have specific VPN nodes to use with popular streaming services. </p>
 <p>Several users have reported that Firefox's <a href="https://support.mozilla.org/en-US/kb/firefox-dns-over-https">DNS-over-HTTPS (DoH)</a> has created problems with their VPN, in effect creating a DNS leak from the browser that circumvents RaspAP's DNS settings. Be sure to disable this "feature" when using a VPN service. </p>
 <p>If you suspect network traffic is not being routed through tun0 (or any other interface) for some reason, you can monitor this directly from your RPi with <code>iftop</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sudo apt install iftop
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>sudo iftop -i [interface]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>sudo apt install iftop
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>sudo iftop -i [interface]
 </span></code></pre></div>
 <h2 id="uploading-my-wireguard-config-results-in-mime-type-not-allowed"><a name="mimetype"></a>Uploading my WireGuard config results in "MIME type not allowed".</h2>
 <p>For security reasons, your OpenVPN or WireGuard <code>.conf</code> files must have a Linux MIME type of <code>text/plain</code>. Windows ignores MIME types, relying instead on extensions. To avoid errors, be sure your file has a <code>text/plain</code> 
@@ -3980,20 +4057,20 @@ for use with Linux with <code>dos2unix</code> or one of several online tools mad
 <p>There are several things you can do to troubleshoot this. First, with the WireGuard service active, verify your public IPv4 address and check the external link, as shown below:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" data-desc-position="bottom"><img alt="" src="https://user-images.githubusercontent.com/229399/147815548-a16ef105-230b-4e89-a4e6-69abba51b92a.png" style="width:276px"></a></p>
 <p>Next, you may check the WireGuard service status by executing <code>sudo systemctl status wg-quick@wg0.service</code> from the shell, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>$ sudo systemctl status wg-quick@wg0.service
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>● wg-quick@wg0.service - WireGuard via wg-quick(8) for wg0
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>     Loaded: loaded (/lib/systemd/system/wg-quick@.service; enabled; vendor preset: enabled)
-</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>     Active: active (exited) since Wed 2021-12-29 15:31:03 GMT; 1 day 18h ago
-</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>       Docs: man:wg-quick(8)
-</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>             man:wg(8)
-</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>             https://www.wireguard.com/
-</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>             https://www.wireguard.com/quickstart/
-</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8
-</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
-</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>   Main PID: 1450 (code=exited, status=0/SUCCESS)
-</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>      Tasks: 0 (limit: 1438)
-</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>        CPU: 0
-</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>     CGroup: /system.slice/system-wg\x2dquick.slice/wg-quick@wg0.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>$ sudo systemctl status wg-quick@wg0.service
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>● wg-quick@wg0.service - WireGuard via wg-quick(8) for wg0
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>     Loaded: loaded (/lib/systemd/system/wg-quick@.service; enabled; vendor preset: enabled)
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>     Active: active (exited) since Wed 2021-12-29 15:31:03 GMT; 1 day 18h ago
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>       Docs: man:wg-quick(8)
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>             man:wg(8)
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>             https://www.wireguard.com/
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>             https://www.wireguard.com/quickstart/
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>             https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>   Main PID: 1450 (code=exited, status=0/SUCCESS)
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>      Tasks: 0 (limit: 1438)
+</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>        CPU: 0
+</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>     CGroup: /system.slice/system-wg\x2dquick.slice/wg-quick@wg0.service
 </span></code></pre></div>
 <p>You may also use RaspAP's built-in WireGuard logging facility. On the <strong>WireGuard &gt; Logging</strong> tab, enable the "Display WireGuard debug log" option and choose <strong>Save settings</strong>. Check the log
 output in the tab and look for any errors.</p>
@@ -4008,41 +4085,41 @@ different device behaves normally. </p>
 won't be considered. </p>
 <h2 id="how-can-i-clear-raspaps-wireguard-log"><a name="wglog"></a>How can I clear RaspAP's WireGuard log?</h2>
 <p>WireGuard doesn't do any logging by default. The quasi-logging done by RaspAP executes <code>sudo journalctl --identifier wg-quick</code>. The Linux journal is not something you usually clear by yourself, however you can use journalctl's self maintenance to retain only the past two days:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>sudo journalctl --vacuum-time=2d
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>sudo journalctl --vacuum-time=2d
 </span></code></pre></div>
 <p>See <code>man journalctl</code> for more information.</p>
 <h2 id="why-cant-i-access-wireless-mode-n-80211n"><a name="wireless-mode"></a>Why can't I access wireless mode 'N' (802.11n)?</h2>
 <p>On the <strong>Configure hotspot</strong> &gt; <strong>Security</strong> tab, be sure to select CCMP for the Encryption Type. Save the settings and restart the hotspot. The wireless mode should be reported on clients as 802.11b/g/n.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>RaspAP:
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>  PHY Mode:     802.11n
-</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>  Channel:      1
-</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>  Network Type:     Infrastructure
-</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>  Security:     WPA2 Personal
-</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>  Signal / Noise:   -49 dBm / -86 dBm
-</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>  Transmit Rate:    73
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>RaspAP:
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>  PHY Mode:     802.11n
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>  Channel:      1
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>  Network Type:     Infrastructure
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>  Security:     WPA2 Personal
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>  Signal / Noise:   -49 dBm / -86 dBm
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>  Transmit Rate:    73
 </span></code></pre></div>
 <p>If using TKIP for encryption with WPA, you will be restricted to 54 Mb/s. This is because the IEEE 802.11n draft prohibits using high throughput with WEP or TKIP ciphers.</p>
 <h2 id="how-do-i-exclude-nat-rules-from-ip-traffic-on-localhost"><a name="iptables"></a> How do I exclude NAT rules from IP traffic on localhost?</h2>
 <p>RaspAP's <a href="../get-started/quick-installer/">Quick Installer</a> configures network-address-translation (NAT) with iptables rules, so that the RPi can act as an internet gateway to multiple hosts on a local network with a single public IP address. This is done by rewriting the addresses of IP packets as they pass through the NAT system. Many access points, including RaspAP, use a combination of IP forwarding and masquerading to achieve this.</p>
 <p>In some cases, NAT rules applied to <code>localhost</code> can interfere with other services running on an RPi. An example is the Plex Media Server, which has an API that listens on localhost. As of this writing, the Plex API has been built to not authenticate communication between service processes of the server. This can cause a failure to communicate with the Plex API or similar add-on services on your RPi.</p>
 <p>The solution is to add a NAT rule ahead of the rule RaspAP installs to not apply NAT to connections destined to 127.0.0.0/8:</p>
-<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>$ sudo iptables -t nat -I POSTROUTING -d 127.0.0.0/8 -j ACCEPT
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>$ sudo iptables -t nat -I POSTROUTING -d 127.0.0.0/8 -j ACCEPT
 </span></code></pre></div>
 The resulting iptables chain should look something like this:
-<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>$ sudo iptables -t nat -L -n -v
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>Chain PREROUTING (policy ACCEPT 31 packets, 4810 bytes)
-</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a> pkts bytes target prot opt in out source destination
-</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>
-</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>Chain INPUT (policy ACCEPT 31 packets, 4810 bytes)
-</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a> pkts bytes target prot opt in out source destination
-</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>
-</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>Chain OUTPUT (policy ACCEPT 23 packets, 1338 bytes)
-</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a> pkts bytes target prot opt in out source destination
-</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>
-</span><span id="__span-40-11"><a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
-</span><span id="__span-40-12"><a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a> pkts bytes target prot opt in out source destination
-</span><span id="__span-40-13"><a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>   17 999 ACCEPT all -- * * 0.0.0.0/0 127.0.0.0/8
-</span><span id="__span-40-14"><a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>   2422 158K MASQUERADE all -- * * 0.0.0.0/0 0.0.0.0/0
+<p></p><div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>$ sudo iptables -t nat -L -n -v
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>Chain PREROUTING (policy ACCEPT 31 packets, 4810 bytes)
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>Chain INPUT (policy ACCEPT 31 packets, 4810 bytes)
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>Chain OUTPUT (policy ACCEPT 23 packets, 1338 bytes)
+</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a>
+</span><span id="__span-41-11"><a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a>Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
+</span><span id="__span-41-12"><a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a> pkts bytes target prot opt in out source destination
+</span><span id="__span-41-13"><a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a>   17 999 ACCEPT all -- * * 0.0.0.0/0 127.0.0.0/8
+</span><span id="__span-41-14"><a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a>   2422 158K MASQUERADE all -- * * 0.0.0.0/0 0.0.0.0/0
 </span></code></pre></div>
 Refer to <a href="https://github.com/RaspAP/raspap-webgui/issues/333#issue-454352554">this issue</a>.
 <h2 id="why-is-the-channel-dropdown-disabled-on-the-hotspot-page"><a name="channels"></a> Why is the channel dropdown disabled on the Hotspot page?</h2>
@@ -4055,7 +4132,7 @@ Refer to <a href="https://github.com/RaspAP/raspap-webgui/issues/333#issue-45435
 <h2 id="why-is-the-maximum-throughput-of-my-80211n-ap-reduced-by-half"><a name="wirelessn"></a>Why is the maximum throughput of my 802.11n AP reduced by half?</h2>
 <p>In order to achieve optimal throughput with 802.11n, the wireless stream must operate at a 40 MHz wide channel on the 2.4 GHz band. A 20 MHz channel will restrict you to 72 Mbps. Your <code>hostapd.conf</code> might have  the required settings, but this is no guarantee of a 40 MHz channel.</p>
 <p>In practice, this can be quite difficult due to interference on the 2.4 GHz band. There are many things that will cause an AP to fallback to 20 MHz. The most common reason is if an AP detects another wireless network within 40 MHz, i.e. two channels, of its own channel. For example, if an AP is set to channel 6, another network operating anywhere from channel 4 to 8 will trigger a fallback. hostapd will usually report a fallback like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>20/40 MHz operation not permitted on channel pri=3 sec=7 based on overlapping BSSes
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>20/40 MHz operation not permitted on channel pri=3 sec=7 based on overlapping BSSes
 </span></code></pre></div>
 <p>For more information on optimizing 802.11n, refer to this <a href="https://www.lmi.net/wp-content/uploads/Optimizing_802.11n.pdf">resource</a>.</p>
 <p>Generally speaking, the 5 GHz band has substantially greater capacity due to more non-overlapping radio channels and less radio interference as compared to the 2.4 GHz band. </p>
@@ -4066,9 +4143,9 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <p>If you're not able to connect with a hex passphrase, you can also try this alternate <a href="https://wiki.netbsd.org/tutorials/how_to_use_wpa_supplicant/#index3h2">manual configuration method</a>.</p>
 <h2 id="can-i-turn-the-hotspot-onoff-over-ssh"><a name="hotspotssh"></a>Can I turn the hotspot on/off over SSH?</h2>
 <p>Yes, RaspAP provides a front-end to several Linux <code>systemd</code> services, including <code>hostapd</code>. From the terminal, check the status of the <code>hostapd.service</code> like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>$ sudo systemctl status hostapd.service 
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>● hostapd.service - Access point and authentication server for Wi-Fi and Ethernet
-</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>     Loaded: loaded (/lib/systemd/system/hostapd.service; enabled; vendor preset: enabled)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>$ sudo systemctl status hostapd.service 
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>● hostapd.service - Access point and authentication server for Wi-Fi and Ethernet
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>     Loaded: loaded (/lib/systemd/system/hostapd.service; enabled; vendor preset: enabled)
 </span></code></pre></div>
 <p>Stop the service with <code>sudo systemctl stop hostapd.service</code> and start it with <code>sudo systemctl start hostapd.service</code>.</p>
 <p>If you're curious about which other services and Linux tools RaspAP controls for you, take a look at <a href="https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers"><code>raspap.sudoers</code></a>.  </p>
@@ -4077,11 +4154,11 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <h2 id="can-raspap-automatically-connect-to-a-known-wifi-network-at-boot"><a name="autoconnect"></a>Can RaspAP automatically connect to a known WiFi network at boot?</h2>
 <p>When rebooting, users must manually re-establish a connection to a known WiFi network by using the <strong>WiFi client</strong> UI. This is the default behavior of <code>wpa_supplicant</code>. That is, on startup the <code>wpa_supplicant</code> service is executed by <code>systemd</code> (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.</p>
 <p>However, you can change this behavior and have <code>wpa_supplicant</code> establish a connection on startup by editing the root user's <code>crontab</code>, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>$ sudo crontab -e
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>$ sudo crontab -e
 </span></code></pre></div>
 <p>Using your editor, append a line like the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a># m h  dom mon dow   command
-</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>@reboot /sbin/wpa_supplicant -B -Dnl80211 -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a># m h  dom mon dow   command
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>@reboot /sbin/wpa_supplicant -B -Dnl80211 -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
 </span></code></pre></div>
 <p>Save the file and exit from your editor. On the next system boot, your RaspAP router will automatically connect to your preferred wireless network, if it's available.</p>
 <h2 id="can-i-isolate-raspap-from-other-software-on-my-system"><a name="isolate"></a>Can I isolate RaspAP from other software on my system?</h2>
@@ -4091,45 +4168,45 @@ A valid WEP key should be 5 or 13 characters or a 10- or 26-digit hexadecimal va
 <p>The <a href="https://github.com/RaspAP/raspap-webgui/releases/tag/3.0.2">version 3.0.2</a> release introduced a new feature to upgrade your RaspAP installation. To use this, simply navigate to the <strong>About</strong> page and click or tap on the <strong>Check for update</strong> button. This queries the GitHub API for the latest release version, compares it with your current install and prompts you to upgrade if a newer release is available.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" data-desc-position="bottom"><img alt="Update" src="https://github.com/RaspAP/raspap-webgui/assets/229399/9a2ba5af-4a9f-4dfd-8306-048f96292bae" style="width:520px"></a></p>
 <p>No other actions are required on your behalf. Alternatively, you may also use the <a href="../get-started/quick-installer/">Quick installer</a> to upgrade to the <a href="https://github.com/RaspAP/raspap-webgui/releases/latest">latest release</a> version. This is done with the <code>--upgrade</code> option, as shown below:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>curl -sL https://install.raspap.com | bash -s -- --upgrade
 </span></code></pre></div>
 <p>The installer upgrade is <a href="https://en.wikipedia.org/wiki/Idempotence"><em>idempotent</em></a>, meaning it can be repeated an arbitrary number of times and the result will be as if it had been done only once. If you choose this method, you're done! Confirm the upgrade by checking the release version on the <strong>About</strong> page.</p>
 <p>If you want to install a specific version, you may do so by referencing a tag using <code>git</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>sudo git fetch -v --tags
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>sudo git checkout 3.0.8
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>sudo git fetch -v --tags
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>sudo git checkout 3.0.8
 </span></code></pre></div>
 <p>A tag is a pointer that isn't connected to the main development tree that git knows about. As a result, git will reply that you're in a "detached HEAD" state. This isn't a big deal, it just means that you have a specific version of the code that isn't connected to the git tree.</p>
 <p>Alternatively, if you want the latest <em>bleeding edge</em> commits from the master branch, use the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>sudo git checkout -b master
-</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>sudo git pull origin master
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>sudo git checkout -b master
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>sudo git pull origin master
 </span></code></pre></div>
 <p>If you've customized your installation by editing <code>config.php</code>, update the release version in this file:
-</p><div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>sudo nano /var/www/html/includes/config.php
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>sudo nano /var/www/html/includes/config.php
 </span></code></pre></div>
 Change the value in this line to the release version, save the file and exit.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>define('RASPI_VERSION', '3.0.8');
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>define('RASPI_VERSION', '3.0.8');
 </span></code></pre></div>
 <p>Whichever method you choose (about page button, installer upgrade, specific release or latest updates), your RaspAP configuration won't be changed.</p>
 <h2 id="do-i-need-the-raspap-service-to-run-at-boot"><a name="raspap-service"></a>Do I need the RaspAP service to run at boot?</h2>
 <p>If you are using your RPi as a client on a WiFi network (also known as managed mode) and hosting an access point simultaneously, the <code>raspapd.service</code> will ensure that your hotspot is active after a reboot. It does this by detecting WiFi client AP mode, adding the <code>uap0</code> interface and starting up networking services in a specific order.</p>
 <p>If your RPi is configured with wired ethernet (<code>eth0</code>) or you haven't experienced problems with the AP starting on boot, you can disable the RaspAP daemon like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>sudo systemctl disable raspapd.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>sudo systemctl disable raspapd.service
 </span></code></pre></div>
 <h2 id="can-the-quick-installer-accept-the-default-options-without-prompting-me"><a name="unattended"></a> Can the Quick Installer accept the default options without prompting me?</h2>
 <p>Yes, the <a href="../get-started/quick-installer/">Quick Installer</a> has a non-interactive mode that lets you perform unattended setups. This mode assumes "yes" as an answer to all prompts. You can do an unattended install of RaspAP by appending the <code>--yes</code> command line option, like so:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>curl -sL https://install.raspap.com | bash -s -- --yes
 </span></code></pre></div>
 <p>The options <code>-y</code> or <code>--assume-yes</code> are also accepted and have the same result. </p>
 <h2 id="can-i-restore-raspaps-default-settings"><a name="restore"></a>Can I restore RaspAP's default settings?</h2>
 <p>Yes, two methods are <a href="../get-started/defaults/#restoring-settings">described here</a>.</p>
 <h2 id="how-do-i-uninstall-raspap"><a name="uninstall"></a>How do I uninstall RaspAP?</h2>
 <p>An uninstaller is provided to remove RaspAP cleanly, and also restore any backups of your configuration that were created before RaspAP was installed. Start the uninstaller with the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>curl -sL https://install.raspap.com | bash -s -- --uninstall
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>curl -sL https://install.raspap.com | bash -s -- --uninstall
 </span></code></pre></div>
 <p>Alternatively, you may execute the uninstaller directly from the project folder (default location is <code>/var/www/html</code>):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>cd /var/www/html
-</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>source installers/uninstall.sh
-</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>_remove_raspap
+<div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>cd /var/www/html
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>source installers/uninstall.sh
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>_remove_raspap
 </span></code></pre></div>
 <p>Whichever method you choose, the result is the same. Check your network configuration before rebooting to ensure you can still access your device.</p></div>
 
@@ -4152,7 +4229,7 @@ Change the value in this line to the release version, save the file and exit.
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 10, 2025 17:14:35 UTC">October 10, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 23, 2026 14:24:54 UTC">June 23, 2026</span>
   </span>
 
     
