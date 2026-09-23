@@ -3,7 +3,7 @@
 ![captive-portal](../images/portal.png){: style="width:640px"}
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
+:octicons-beaker-24: Experimental
 
 A captive portal is a web page that users must view and interact with before accessing a network. Usually seen in hotels, coffee shops, and public Wi-Fi hotspots, captive portals provide a way to control network access, display terms of service, collect user information, or simply welcome guests to your network.
 
@@ -30,7 +30,7 @@ The captive portal plugin is particularly useful in these scenarios:
 - **Network segmentation**: Isolate guest traffic from internal resources while providing internet access
 
 ## Installation
-The captive portal integration is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the pop-up dialog.
+The captive portal integration is available as a plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the pop-up dialog.
 
 The plugin installer automates the installation of a `nodogsplash` Debian package and its dependencies, creates the necessary configuration directories, sets up default splash pages, and configures the required firewall rules and sudoers entries. When these steps are done, the installer will automatically refresh the UI. The captive portal plugin will then appear in the sidebar and is immediately available to configure.
 

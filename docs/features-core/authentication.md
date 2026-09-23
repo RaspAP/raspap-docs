@@ -37,7 +37,7 @@ On the **Hotspot > Security** tab, click or tap the magic icon :fontawesome-soli
 RaspAP enables Wi-Fi Protected Access 2 (WPA2) as the default security type for the access point. This includes support for AES-based encryption and a multi-step 4-way handshake. For greater security, the newer [WPA3 standard](ap-basics.md#wpa3-personal) increases the key length to 192 bits (compared with the 128-bit key used by WPA2), further improving the password defense strength.
 
 ## Custom user avatars
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
+:octicons-beaker-24: Experimental
 
 The default administrator user icon may be replaced with a custom one of your choosing. From the **Avatar** tab, click or tap on the existing avatar to upload a new one. The new custom avatar will be displayed in RaspAP's header.
 
@@ -46,7 +46,7 @@ The default administrator user icon may be replaced with a custom one of your ch
 Image files of type `.jpg`, `.gif` or `.png` up to a maximum of 2 MB are supported. To restore the avatar to the default, choose **Reset avatar**.
 
 ## Limited privilege user role
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
+:octicons-beaker-24: Experimental
 
 The administrator may enable a user who is able to access RaspAP's management interface, but is restricted in their ability to modify the existing configuration. In this case, the limited privilege user may configure a wireless client connection on the **WiFi client** page, but is unable to change any other settings. 
 

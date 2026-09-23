@@ -14,46 +14,10 @@ Every feature is tied to a funding goal in monthly subscriptions. When a funding
 
 Sponsorships start as low as **[$10 per month](#how-to-become-a-sponsor)**.
 
-## Available Features
-<div class="grid cards" markdown>
-
-- __AP isolation mode__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ap-isolation.md)
-- __Captive portal plugin__ [:octicons-arrow-right-24:{ .lg .middle } Get started](captive.md)
-- __Custom user avatars__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#custom-user-avatars)
-- __Inspect network adapters__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../get-started/troubleshooting.md/#inspect-network-adapters)
-- __Limited privilege user role__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/authentication.md/#limited-privilege-user-role)
-- __MAC address cloning__ [:octicons-arrow-right-24:{ .lg .middle } Get started](net-devices.md#mac-address-cloning) 
-- __Multiple WireGuard configs__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/wireguard.md#multiple-configs)  
-- __Network devices__ [:octicons-arrow-right-24:{ .lg .middle } Get started](net-devices.md)
-- __Tailscale VPN__ [:octicons-arrow-right-24:{ .lg .middle } Get started](tailscale.md)
-- __WiFi repeater mode__ [:octicons-arrow-right-24:{ .lg .middle } Get started](../features-core/repeater.md#alternate-routing-method)
-- __Wireshark support__ [:octicons-arrow-right-24:{ .lg .middle } Get started](wireshark.md)
-- __WLAN routing__ [:octicons-arrow-right-24:{ .lg .middle } Get started](wlanrouting.md)
-
-</div>
-
 ## What sponsorships achieve
 Sponsorships make this project sustainable, as they buy the maintainers of this project time — a very scarce resource – which is spent on the development of new features, bug fixes, stability improvement, issue triage and community support.  
 
 If you're unsure if you should sponsor this project, check out the list of [completed funding goals](#completed-goals) to learn whether you're already using features that were developed with the help of sponsorships. You're most likely using at least a handful of them, [thanks to our awesome sponsors](#how-to-become-a-sponsor)!
-
-## What's in it for me?
-The moment you [become a sponsor](#how-to-become-a-sponsor), you'll get **immediate access to the additional features below** that you can start using right away, and which are currently exclusively available to sponsors:
-
-:octicons-check-circle-fill-24:{: .check } [AP isolation mode](ap-isolation.md)   
-:octicons-check-circle-fill-24:{: .check } [Captive portal plugin](captive.md)   
-:octicons-check-circle-fill-24:{: .check } [Custom user avatars](../features-core/authentication.md#custom-user-avatars)  
-:octicons-check-circle-fill-24:{: .check } [Inspect network adapters](../get-started/troubleshooting.md#inspect-network-adapters)  
-:octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
-:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#mac-address-cloning)  
-:octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](../features-core/wireguard.md#multiple-configs)  
-:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
-:octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
-:octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](../features-core/repeater.md#alternate-routing-method)  
-:octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)   
-:octicons-check-circle-fill-24:{: .check } [Wireshark support](wireshark.md)   
-
-Look for the list above to grow as we add more exclusive features. Be sure to visit this page from time to time to learn about what's new and follow [@RaspAP on :fontawesome-brands-square-x-twitter:](https://x.com/rasp_ap/) for the latest announcements.
 
 ### Additional benefits
 A tangible side benefit of sponsorship is that Insiders are able to help steer future development of RaspAP. This is done through Insiders' access to discussions, feature requests, issues and pull requests in the private GitHub repository. Insiders also have access a private channel on RaspAP's [Discord server](https://discord.gg/KVAsaAR) where they can chat one-on-one with the project's developers.
@@ -69,54 +33,11 @@ In addition, you will be added as a team member with access to Insiders-only tea
 
 You can cancel your sponsorship anytime.[^3]
 
-## Funding targets
-Below is a list of funding targets. When a funding target is reached, the features that are tied to it are merged back into RaspAP and released to the public for general availability.
-
-### Goals
-The following section lists all funding goals. Each goal contains a list of features prefixed with a checkmark symbol, denoting whether a feature is :octicons-check-circle-fill-24:{: .check } already available or :octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } planned, but not yet implemented. When the funding goal is hit, the features are released for general availability.
-
-#### **$1,500** - 3rd Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [Custom user avatars](../features-core/authentication.md#custom-user-avatars)  
-:octicons-check-circle-fill-24:{: .check } [Limited privilege user mode](../features-core/authentication.md#limited-privilege-user-role)  
-:octicons-check-circle-fill-24:{: .check } [MAC address cloning](net-devices.md#changing-the-mac-address)  
-:octicons-check-circle-fill-24:{: .check } [Multiple WireGuard configs](../features-core/wireguard.md#multiple-configs)  
-:octicons-check-circle-fill-24:{: .check } [Network device management](net-devices.md)  
-:octicons-check-circle-fill-24:{: .check } [Tailscale VPN support](tailscale.md)  
-:octicons-check-circle-fill-24:{: .check } [WiFi repeater mode](../features-core/repeater.md#alternate-routing-method)  
-:octicons-check-circle-fill-24:{: .check } [Wireless LAN routing](wlanrouting.md)   
-
-#### **$2,000** - 4th Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [AP isolation mode](ap-isolation.md)  
-:octicons-check-circle-fill-24:{: .check } [Inspect network adapters](../get-started/troubleshooting.md#inspect-network-adapters)  
-:octicons-check-circle-fill-24:{: .check } [Wireshark support](wireshark.md)   
-:octicons-check-circle-fill-24:{: .check } [Captive portal plugin](captive.md)   
-:octicons-check-circle-fill-24:{ style="color: var(--md-default-fg-color--light)" } Dual band AP mode  
-
-### Completed goals
-#### **$500** - 1st Insiders Edition
-:octicons-check-circle-fill-24:{: .check } Night mode toggle   
-:octicons-check-circle-fill-24:{: .check } [Multiple OpenVPN client configs](../features-core/openvpn.md#multiple-client-configs)  
-:octicons-check-circle-fill-24:{: .check } [OpenVPN certificate authentication](../features-core/openvpn.md#certificate-authentication)  
-:octicons-check-circle-fill-24:{: .check } OpenVPN service logging  
-:octicons-check-circle-fill-24:{: .check } Restrict network to static clients  
-:octicons-check-circle-fill-24:{: .check } [Set AP transmit power](../features-core/ap-basics.md#transmit-power)  
-:octicons-check-circle-fill-24:{: .check } [WireGuard support](../features-core/wireguard.md)   
-
-#### **$1,000** - 2nd Insiders Edition
-:octicons-check-circle-fill-24:{: .check } [802.11w Protected Management Frames](../features-core/ap-basics.md#80211w)  
-:octicons-check-circle-fill-24:{: .check } [Dynamic DNS](../features-core/dynamicdns.md)  
-:octicons-check-circle-fill-24:{: .check } [Firewall settings](../features-core/firewall.md)  
-:octicons-check-circle-fill-24:{: .check } [Network diagnostics](net-devices.md#diagnostics)  
-:octicons-check-circle-fill-24:{: .check } [NTP Service](../features-core/ntp.md)  
-:octicons-check-circle-fill-24:{: .check } [Printable Wi-Fi signs](../features-core/ap-basics.md#printable-signs)  
-:octicons-check-circle-fill-24:{: .check } [WireGuard kill switch](../features-core/wireguard.md#kill-switch)  
-:octicons-check-circle-fill-24:{: .check } [WPA3-Personal AP security](../features-core/ap-basics.md#wpa3-personal)  
-
 ## Transparency
 We've chosen [OpenCollective](https://opencollective.com/raspap) as the fiscal host for our [GitHub sponsors organization](https://github.com/sponsors/RaspAP). This means that our budget is completely transparent &#151; financial contributions, expenses and payouts to project team members are automatically reported. Everyone can see where money comes from and what it's spent on. This committent to full transparency was central in our decision to implement Insiders.
 
 ## Quarterly giving
-Each quarter, 15% of the total proceeds from Insiders are donated directly to the [Raspberry Pi Foundation](https://www.raspberrypi.org/). The Raspberry Pi Foundation is a
+Each quarter, 20% of the total proceeds from Insiders are donated directly to the [Raspberry Pi Foundation](https://www.raspberrypi.org/). The Raspberry Pi Foundation is a
 UK-based charity that works to put the power of computing and digital making into the hands of people all over the world.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dEzg92g1LHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -142,75 +63,6 @@ To access Insiders, you will be invited to become a member of the RaspAP organiz
     GitHub invitations automatically [expire seven days](https://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization#about-organization-invitations) after they are created. For this reason, be sure to accept the invite during this time frame.
 
 You must accept this invite before performing an upgrade or new install, as described in the next sections.
-
-## Installing Insiders
-RaspAP gives you two different ways to install the **Insiders Edition**. The simplest and recommended approach is to use a pre-built Insiders image. Alternatively, you can upgrade an existing installation or create a custom install by executing the Quick installer. Each method is described in the following sections.
-
-### Pre-built image
-Custom Raspberry Pi OS Lite images with RaspAP's **Insiders Edition** preinstalled are available for direct download. This includes both 32- and 64-bit builds for ARM architectures.
-
-Begin by downloading your desired image from the latest release page in the private Insiders repository. Next, use a utility such as the Raspberry Pi Imager or balenaEtcher to flash the OS image onto a microSD card. Insert the card into your device and boot it up. The RaspAP **Insiders Edition** with the most popular optional components will be active and ready for you to configure.
-
-### Quick install
-The [Quick installer](../get-started/quick-installer.md) gives you several options, or switches, to upgrade an existing installation to the Insiders Edition, or create a fresh Insiders install.
-
-When using this method to install or upgrade to Insiders, GitHub will prompt you for your username and password to clone the private repository. You must enter a GitHub **Personal access token** at the password prompt. Details are provided in the [Authentication](index.md#authentication) section.
-
-You can streamline GitHub authentication by passing your GitHub credentials to the installer with the `--name` and `--token` parameters: 
-
-```
-curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name [username] --token [my-token]
-```
-
-Your credentials are [passed securely](index.md#security-and-2fa) to GitHub. Whichever method you choose, it's recommended to [verify access](index.md#verifying-a-token) to the Insiders repo with your token beforehand. 
-
-
-#### Upgrading
-To upgrade an existing RaspAP installation, invoke the [Quick installer](../get-started/quick-installer.md) with the `--upgrade` switch, specifying the private Insiders option, like so:
-
-```
-curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders
-```
-
-#### New installation
-To create a fresh installation of Insiders, invoke the [Quick installer](../get-started/quick-installer.md) with the `--insiders` switch, like so:
-
-```
-curl -sL https://install.raspap.com | bash -s -- --insiders
-```
-
-### Authentication
-GitHub [removed support for password authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), so you will need to generate a **Personal access token (classic)** and use this in place of your password. The process of creating a token is straightforward and [described here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
-
-!!! warning "Important"
-    Be sure to create a **"classic"** personal access token (_not_ a fine-grained one) with the correct token scope. Failure to create the correct token type and scope will result in errors when cloning the private repository. Before invoking the Quick installer, it's recommended to [verify your token](index.md#verifying-a-token) first.
-
-#### Token scopes
-When creating a personal access token (classic), be sure to select the **repo** "Full control of private repositories" option under **Select scopes**, as shown below: 
-
-![token-scopes](../images/token-scopes.png){: style="width:460px"}
-
-Failure to select this option will result in errors when cloning the private Insiders repository.
-
-#### Verifying a token
-If this is your first time using a GitHub personal access token, you can verify it by using `curl` and the [GitHub API](https://docs.github.com/rest). Substitute your token value for `MY_TOKEN` below:
-
-```
-curl -sS -f -I -H "Authorization: token MY_TOKEN" https://api.github.com
-```
-
-If successful, GitHub should reply with `HTTP/2 200` and a `x-oauth-scopes: repo` value in the response. If you receive a `HTTP 401` or other error from `curl`, check your token and try again.  
-
-#### Security and 2FA
-Your token is sent securely via HTTPS authentication (encrypted) to GitHub. The installer has no knowledge of your token and does _not_ store or cache it in any way.
-
-!!! tip "Tip"
-    When invoking the installer with the `--token` option, your token appears in your shell history. If someone gains access to your machine, they could potentially see the token. You can mitigate this by clearing the last command from your history with `history -d $(history | tail -1 | awk '{print $1}')`.  
-
-If you're using GitHub with 2FA enabled the same process as above applies.
-
-### Exclusive plugins
-Many Insiders features are available as [plugins](../features-core/custom-plugins.md) that you can install on-demand. To do so, select a desired plugin from the **System > Plugins** tab by choosing **Details** followed by **Install now**. 
 
 ### Scope of support
 Individual sponsors may use the [main RaspAP repository](https://github.com/RaspAP/raspap-webgui) for non-bug related discussions, including troubleshooting. If you've found a bug with an Insiders feature, please review our [issue policy](../issues.md) and create a report in the [Insiders repository](https://github.com/RaspAP/raspap-insiders).

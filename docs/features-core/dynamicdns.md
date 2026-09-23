@@ -14,7 +14,7 @@ Dynamic DNS solves this problem by providing a domain name that always points to
 The daemon running on your device resolves your external IP address using one of several methods, then reports this to your DDNS provider. There are a number of different providers that offer Dynamics DNS free of charge. If you currently own a custom domain name, chances are your registrar provides DDNS or has a partner to support this.
 
 ## Installation
-Dynamic DNS is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the modal dialog. The plugin installer will automatically refresh the UI; the Dynamic DNS plugin will then appear in the sidebar and be immediately available to configure.
+Dynamic DNS is available as a plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the modal dialog. The plugin installer will automatically refresh the UI; the Dynamic DNS plugin will then appear in the sidebar and be immediately available to configure.
 
 ## Basic settings
 All the configuration settings needed to enable Dynamic DNS on your device are available on the **Basic settings** tab. These are described in the next section.

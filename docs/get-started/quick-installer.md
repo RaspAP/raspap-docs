@@ -24,11 +24,6 @@ Invoke installer remotely, run non-interactively with option flags:
 curl -sL https://install.raspap.com | bash -s -- --yes --wireguard 1 --adblock 0
 ```
 
-Invoke remotely, uprgrade an existing install to the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](../features-insiders/index.md). The `--name` and `--token` arguments are optional; if they are not specified the user will be prompted to authenticate with GitHub:
-```
-curl -sL https://install.raspap.com | bash -s -- --upgrade --insiders --name <name> --token <token>
-```
-
 Invoke remotely, perform an unattended update to the latest release version:
 ```
 curl -sL https://install.raspap.com | bash -s -- --yes --update --path /var/www/html
@@ -115,9 +110,6 @@ It may be combined with the `-d`, `--update` and `-y`, `--yes` options to perfor
 ```
 curl -sL https://install.raspap.com | bash -s -- --update --path /var/www/html --yes
 ```
-
-#### -i, --insiders
-Installs from the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](../features-insiders/index.md) (`RaspAP/raspap-insiders`).
 
 #### -m, --minwrite
 Configures a microSD card for [minimum write operation](../features-core/minwrite.md).

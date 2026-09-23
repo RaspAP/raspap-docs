@@ -21,7 +21,7 @@ RaspAP provides a simple, fast and mobile-friendly [public speedtest server](htt
 Importantly, and notably different from other services, RaspAP's Speedtest is completely [open source](https://github.com/RaspAP/speedtest) and privacy focused &#151; meaning we do not share your data with third-parties or attempt to monetize results in any way.
 
 ## WiFi speed test 
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
+:octicons-beaker-24: Experimental
 
 A tool to evaluate your local WiFi network's performance is available on the **Networking > Diagnostics** tab. This permits testing of both local WiFi network throughput (that is, data transferred between the device hosting RaspAP and your wireless clients) and internet speed (data transfer between wireless clients and a remote host). A WiFi speed test is a useful diagnostic tool to determine if connectivity issues are due to your ISP, your wireless connection or an issue with the device hosting your AP.
 

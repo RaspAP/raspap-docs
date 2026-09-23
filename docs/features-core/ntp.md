@@ -16,7 +16,7 @@ In this situation, a single internet connected device (the NTP server) will sync
 Alternatively, a standalone configuration may be needed in which precision timekeeping is required for a network device.
 
 ## Installation
-The NTP server is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the modal dialog. The plugin installer will automatically refresh the UI; the NTP server plugin will then appear in the sidebar and be immediately available to configure.
+The NTP server is available as a plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the modal dialog. The plugin installer will automatically refresh the UI; the NTP server plugin will then appear in the sidebar and be immediately available to configure.
 
 ## Configuration
 Following the installation, the NTP service should be up and running. You may check and control its current state by visiting RaspAP's **&nbsp;:fontawesome-regular-clock: NTP Server** administration page. Basic **Settings** as well as **Advanced** controls are available on their respective tabs. The **Status** tab will display the operational state of connected peers by using the `ntpq` query tool. These status queries are [examined in detail](ntp.md#peer-status-queries) to assist you with interpreting them.

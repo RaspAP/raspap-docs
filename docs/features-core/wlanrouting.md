@@ -3,7 +3,7 @@
 ![wlan-routing](https://github.com/user-attachments/assets/2ddf3971-f230-425f-9391-b5e7ebc0a1ca)
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
+:octicons-beaker-24: Experimental
 
 RaspAP is often used to share internet from an Ethernet connection or other [network device](net-devices.md) through a wireless access point (AP), or act as a [wireless repeater](../features-core/repeater.md). However, in certain scenarios, it can be extremely useful to share internet from a wireless LAN (WLAN) with clients connected via an Ethernet or USB-Ethernet connection. Many RaspAP users have requested this functionality, so an easy-to-use solution was developed to fulfill this need.
 

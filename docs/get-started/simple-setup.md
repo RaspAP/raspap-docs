@@ -73,7 +73,7 @@ After completing either of these setup options, the wireless AP network will be 
     If this is _not_ a clean install or you are configuring a device with a non-standard [integration](../faq.md#integrations) try following the [manual installation](manual.md) instructions or deploy RaspAP in a [Docker container](docker.md).
 
 ## Next Steps
-The most common use-case for RaspAP is to be a [Repeater](../features-core/repeater.md). There are many other use-cases and features to explore in our [Core](../features-core/index.md) or [Experimental](../features-experimental/index.md) Features, or look at joining our [Insiders](../features-insiders/index.md) for even more.
+The most common use-case for RaspAP is to be a [Repeater](../features-core/repeater.md). There are many other use-cases and features to explore in our [Core](../features-core/index.md) or [Experimental](../features-experimental/index.md) Features.
 
 ## Discussions
 Questions or comments about the Quick start? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).

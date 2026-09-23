@@ -18,38 +18,34 @@ nav:
     - Core Features: features-core/index.md
     - Ad blocking: features-core/adblock.md
     - Access point settings: features-core/ap-basics.md
+    - AP isolation mode: features-core/ap-isolation.md
     - Authentication: features-core/authentication.md
     - Bridged AP mode: features-core/bridged.md
+    - Captive portal: features-core/captive.md
+    - Custom user avatars: features-core/authentication/#custom-user-avatars
     - Custom user plugins: features-core/custom-plugins.md
     - Dynamic DNS: features-core/dynamicdns.md
+    - Inspect network adapters: get-started/troubleshooting/#inspect-network-adapters
     - Firewall: features-core/firewall.md
+    - Limited privilege user: features-core/authentication/#limited-privilege-user-role
+    - MAC address cloning: features-core/net-devices/#mac-address-cloning
     - Minimal SD card write: features-core/minwrite.md
+    - Network devices: features-core/net-devices.md
     - NTP service: features-core/ntp.md
     - OpenVPN: features-core/openvpn.md
     - Speed testing: features-core/speedtest.md
     - SSL certificates: features-core/ssl.md
+    - Tailscale VPN: features-core/tailscale.md
     - Translations: features-core/translations.md
     - WiFi repeater: features-core/repeater.md
     - WireGuard: features-core/wireguard.md
+    - Wireless LAN routing: features-core/wlanrouting.md
+    - Wireshark support: features-core/wireshark.md
   - Experimental Features:
     - Experimental Features: features-experimental/index.md
     - AP-STA mode: features-experimental/ap-sta.md
     - RESTful API: features-experimental/restapi.md
     - VPN providers: features-experimental/providers.md
-  - Insiders:
-    - Insiders: features-insiders/index.md
-    - AP isolation mode: features-insiders/ap-isolation.md
-    - Captive portal: features-insiders/captive.md
-    - Custom user avatars: features-core/authentication/#custom-user-avatars
-    - Inspect network adapters: get-started/troubleshooting/#inspect-network-adapters
-    - Limited privilege user: features-core/authentication/#limited-privilege-user-role
-    - MAC address cloning: features-insiders/net-devices/#mac-address-cloning
-    - Multiple WireGuard configs: features-core/wireguard/#multiple-configs
-    - Network devices: features-insiders/net-devices.md
-    - Tailscale VPN: features-insiders/tailscale.md
-    - WiFi repeater mode: features-core/repeater/#alternate-routing-method
-    - Wireless LAN routing: features-insiders/wlanrouting.md
-    - Wireshark support: features-insiders/wireshark.md
   - FAQ: faq.md
   - Reporting Issues: issues.md
   - Get involved: get_involved.md
@@ -159,13 +155,13 @@ plugins:
         'ap-sta.md': 'features-experimental/ap-sta.md'
         'providers.md': 'features-experimental/providers.md'
         'restapi.md': 'features-experimental/restapi.md'
-        # mappings for features-insiders
-        'insiders.md': 'features-insiders/index.md'
-        'net-devices.md': 'features-insiders/net-devices.md'
-        'tailscale.md': 'features-insiders/tailscale.md'
-        'wlanrouting.md': 'features-insiders/wlanrouting.md'
-        'captive.md': 'features-insiders/captive.md'
-        'wireshark.md': 'features-insiders/wireshark.md'
+        # mappings for old insiders features
+        'features-insiders/index.md': 'features-insiders/index.md'
+        'features-insiders/net-devices.md': 'features-core/net-devices.md'
+        'features-insiders/tailscale.md': 'features-core/tailscale.md'
+        'features-insiders/wlanrouting.md': 'features-core/wlanrouting.md'
+        'features-insiders/captive.md': 'features-core/captive.md'
+        'features-insiders/wireshark.md': 'features-core/wireshark.md'
         # mappings for get-started
         'defaults.md': 'get-started/defaults.md'
         'docker.md': 'get-started/docker.md'

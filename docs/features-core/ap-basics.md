@@ -73,7 +73,7 @@ Beneath the QR code on the **Hotspot > Security** tab, you will find a link to o
 ![](https://user-images.githubusercontent.com/229399/148738058-dfe7ea04-d59b-460a-a8b8-f0fca15ef715.png){: style="width:580px"}
 
 To print, select **File > Print** from your browser's toolbar and adjust print preferences as needed. This feature can be especially useful if you operate a public wireless access point. You may also
-opt to integrate a [captive portal](../features-insiders/captive.md) for your visitors.
+opt to integrate a [captive portal](../features-core/captive.md) for your visitors.
 
 ## Advanced options
 The above sections cover everything you will need for a basic routed AP. The **Hotspot > Advanced** tab has several options that allow you to control advanced settings for the Linux `hostapd` service. These are discussed in the following sections.
@@ -83,7 +83,7 @@ If you wish to configure RaspAP as a [bridged AP](bridged.md), this may be done 
 you will no longer be able to access the web interface from the default `10.3.141.1` address. Refer to this [explanation and tips](bridged.md#accessing-the-web-interface) for administering your bridged AP. 
 
 ### WiFi repeater mode
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
+:octicons-beaker-24: Experimental
 
 RaspAP is capable of acting as a [wireless repeater](repeater.md) to connect to your wireless network and rebroadcast an existing signal. This requires configuring interface metrics and default routes with DHCP. Alternatively, enabling the **WiFi repeater mode** toggle will create these settings for you automatically.
 

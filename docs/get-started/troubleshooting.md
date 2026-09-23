@@ -73,7 +73,7 @@ WifiInterface = wlan0
 RaspAP's debug log contains information about your system and local network configuration. However, no passwords or other senstive data are included.
 
 ## Inspect network adapters
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
+:octicons-beaker-24: Experimental
 
 If you've installed an external WLAN or other adapter on your device, RaspAP can assist you with troubleshooting common issues. The **System > Tools > Inspect adapters** button will open a dialog that lets you perform a comprehensive inspection of your network adapters. 
 

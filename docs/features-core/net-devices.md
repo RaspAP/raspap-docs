@@ -1,9 +1,9 @@
 # Network devices
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
+:octicons-beaker-24: Experimental
 
-[Insiders](index.md) are able to manage a variety of physical network devices as a source of data connectivity for RaspAP.
+Users are able to manage a variety of physical network devices as a source of data connectivity for RaspAP.
 Broadly, this includes devices such as tethered phones, USB modems/routers, WLAN adapters and so on. This expands the practicality of RaspAP as a truly mobile AP for travel and/or field applications. 
 
 ## Supported device types
