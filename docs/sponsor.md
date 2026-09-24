@@ -1,4 +1,4 @@
-# About Insiders
+# Sponsorship
 
 ![insiders](https://github.com/user-attachments/assets/832f1f0d-517a-4d73-8b62-068cf1a2041d){: style="width:640px"}
 
