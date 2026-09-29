@@ -29,8 +29,7 @@ The complete process of creating a WireGuard configuration with [Mullvad](https:
 
 <video src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" data-canonical-src="https://user-images.githubusercontent.com/229399/128004140-1b006c5a-d758-4cbd-b051-48182c846fbc.mov" controls="controls" muted="muted"></video>
 
-It should be noted that RaspAP has no affiliation whatsoever with Mullvad. In fact, Mullvad [does not use affiliates](https://mullvad.net/en/help/policy-reviews-advertising-and-affiliates/) or pay for reviews. 
-Members of RaspAP's [Insiders community](../features-insiders/index.md) have requested support for this VPN provider.
+It should be noted that RaspAP has no affiliation whatsoever with Mullvad. In fact, Mullvad [does not use affiliates](https://mullvad.net/en/help/policy-reviews-advertising-and-affiliates/) or pay for reviews.
 
 #### Starting WireGuard
 RaspAP will handle uploading your `.conf` file and, optionally, applying any `iptables` rules. To enable the tunnel, choose **Start WireGuard**. The WireGuard protocol is extremely fast, so in most cases
@@ -137,7 +136,7 @@ These rules are automatically appended to your configuration.
     Some VPN providers give you the option of adding these rules to their Linux configurations. Skip this option as RaspAP needs to add an exclusion rule for your AP interface.
 
 ## Multiple configs
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
+:octicons-beaker-24: Experimental
 
 RaspAP lets you manage multiple WireGuard configurations. This includes the ability to upload, activate and delete any number of valid wg .conf files. Select the **Apply iptables rules for AP interface** option when uploading your .conf file to automatically route traffic to connected peers on the AP interface.
 

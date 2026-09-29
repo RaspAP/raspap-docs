@@ -3,7 +3,7 @@
 ![tailscale-vpn](../images/tailscale.png){: style="width:640px"}
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
+:octicons-beaker-24: Experimental
 
 Tailscale is a zero-configuration VPN that makes devices and services feel like they're on the same secure network, known as a _tailnet_, regardless of physical location. It builds on the secure and open source [WireGuard protocol](../features-core/wireguard.md) to create encrypted peer-to-peer connections between devices. Tailscale bypasses the need for traditional VPNs while offering simplified access controls and management through user-friendly interfaces.
 
@@ -27,7 +27,7 @@ An exit node secures all your traffic, including traffic to internet sites and a
 This ensures that internet traffic is secured for all the devices connected in your tailnet, regardless of the physical network they're using (ethernet, wireless, cellular, and so on).
 
 ## Installation
-RaspAP's Tailscale VPN integration is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the pop-up dialog. 
+RaspAP's Tailscale VPN integration is available as a plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the pop-up dialog. 
 
 The plugin installer automates adding GPG signing keys for the official Tailscale packages, updating your system `apt` cache and installing the dependencies. When these steps are done, the installer will automatically refresh the UI. The Tailscale plugin will then appear in the sidebar and is immediately available to configure.
 

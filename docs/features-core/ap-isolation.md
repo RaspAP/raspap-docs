@@ -1,5 +1,5 @@
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
+:octicons-beaker-24: Experimental
 
 This feature implements hostapd's `ap_isolate` functionality to provide client isolation when operating a wireless access point (AP). This is a security feature that prevents wireless clients connected to the same AP from communicating directly with each other at the layer 2 level, while still allowing them to access the internet and communicate with the AP itself.
 

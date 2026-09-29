@@ -102,9 +102,9 @@ value (lower priority) than the `wlan1` interface:
 If you don't see these changes in the routing table, be sure to restart the hotspot. 
 
 ### Alternate routing method
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](../features-insiders/index.md)
+:octicons-beaker-24: Experimental
 
-As a convenience, [Insiders](../features-insiders/index.md) are able to configure routing automatically by enabling the **WiFi repeater mode** toggle on the **Hotspot > Advanced** tab.
+As a convenience, Users are able to configure routing automatically by enabling the **WiFi repeater mode** toggle on the **Hotspot > Advanced** tab.
 
 ![WiFi repeater mode](https://github.com/RaspAP/raspap-webgui/assets/229399/fce68f76-2770-4d3e-99e1-ee9132408a0a){: style="width:420px"}
 

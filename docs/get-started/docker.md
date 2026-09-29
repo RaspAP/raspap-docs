@@ -262,12 +262,6 @@ COPY firewall-rules.sh /home/firewall-rules.sh
 COPY wpa_supplicant.conf /etc/wpa_supplicant/
 ```
 
-To create a container with the [:octicons-heart-fill-24:{: .heart }  Insiders Edition](../features-insiders/index.md), add the installer options `--insiders`, `--name` and `--token`, plus any other desired switches:
-
-```
-RUN curl -sL https://install.raspap.com | bash -s -- --yes --insiders --name octocat --token my-token --check 0
-```
-
 With this done, you may proceed with building your Docker image as usual. 
 
 !!! tip "Tip"

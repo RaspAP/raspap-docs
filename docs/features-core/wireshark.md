@@ -3,7 +3,7 @@
 ![tshark-capture](../images/wireshark.png){: style="width:640px"}
 
 ## Overview
-:octicons-beaker-24: Experimental · :octicons-heart-fill-24:{: .heart } [Insiders only](index.md)
+:octicons-beaker-24: Experimental
 
 Wireshark is the world's most popular network protocol analyzer. While Wireshark provides a full graphical interface for interactive packet analysis, its command-line version **TShark** operates entirely from the shell. This makes it ideal for headless systems, and transforms devices like the Raspberry Pi into a powerful tool for network packet capture.
 
@@ -33,7 +33,7 @@ The TShark plugin is particularly useful in these scenarios:
     Packet captures can grow large very quickly on busy networks. For this reason, the plugin's default settings define a duration limit of 300 seconds (5 minutes). You may of course modify this setting, or use capture filters to limit what's captured. Ring buffers are also supported to automatically rotate files and manage disk space.
 
 ## Installation
-RaspAP's TShark packet capture integration is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the pop-up dialog.
+RaspAP's TShark packet capture integration is available as a plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the pop-up dialog.
 
 The plugin installer automates the installation of the `tshark` package and its dependencies, configures the necessary permissions for packet capture, and sets up the required sudoers entries. When these steps are done, the installer will automatically refresh the UI. The Wireshark plugin will then appear in the sidebar and is immediately available to configure.
 

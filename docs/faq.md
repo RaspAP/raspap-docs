@@ -486,7 +486,7 @@ There have been several discussions around integrating RaspAP with Pi-hole, with
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400)
 
 ## <a name="captive"></a>Can I configure RaspAP to work with a captive portal?
-Yes. The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. Alternatively, a one-click install captive portal plugin that implements Nodogsplash is [available here](features-insiders/captive.md). 
+Yes. The [nodogsplash project](https://github.com/nodogsplash/nodogsplash) works just fine with RaspAP and is recommended over other methods. Alternatively, a one-click install captive portal plugin that implements Nodogsplash is [available here](features-core/captive.md). 
 
 ## <a name="schedule"></a>How do I create an AP activation schedule?
 This is a common function in consumer wireless routers. For example, let's assume you want to disable your AP on Monday through Friday between 02:00 and 08:00. You can implement this with `cron` to stop/start RaspAP's service control script at certain times. Run `sudo crontab -e` and add entries like so:
@@ -929,7 +929,7 @@ Stop the service with `sudo systemctl stop hostapd.service` and start it with `s
 If you're curious about which other services and Linux tools RaspAP controls for you, take a look at [`raspap.sudoers`](https://github.com/RaspAP/raspap-webgui/blob/master/installers/raspap.sudoers).  
 
 ## <a name="wlanether"></a>Can I share internet from a wireless LAN with Ethernet clients?
-Yes, RaspAP simplifies this with an intuitive and easy-to-use [WLAN routing](features-insiders/wlanrouting.md) solution.
+Yes, RaspAP simplifies this with an intuitive and easy-to-use [WLAN routing](features-core/wlanrouting.md) solution.
 
 ## <a name="autoconnect"></a>Can RaspAP automatically connect to a known WiFi network at boot?
 When rebooting, users must manually re-establish a connection to a known WiFi network by using the **WiFi client** UI. This is the default behavior of `wpa_supplicant`. That is, on startup the `wpa_supplicant` service is executed by `systemd` (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.

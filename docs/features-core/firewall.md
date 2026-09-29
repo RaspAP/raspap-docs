@@ -6,10 +6,8 @@
 If your device is exposed to the outside world, firewall rules can provide a layer of security against intruders to your network. A firewall also gives us granularity in terms of what is allowed to be forwarded across interfaces. Using the rule sets described below, we can effectively control which packets
 are allowed to be inputted to, and outputted from, the RaspAP router itself. 
 
-[Insiders](index.md) have access to a UI designed for this purpose. 
-
 ## Installation
-The firewall is available as an Insiders-only plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the modal dialog. The plugin installer will automatically refresh the UI; the firewall plugin will then appear in the sidebar and be immediately available to configure.
+The firewall is available as a plugin that may be installed from the **System > Plugins** tab. Simply choose **Details** corresponding to the plugin, then **Install now** from the modal dialog. The plugin installer will automatically refresh the UI; the firewall plugin will then appear in the sidebar and be immediately available to configure.
 
 ## Basic rule set
 As with every other aspect of RaspAP's [default settings](../get-started/defaults.md), the application `iptables` rules are stored in an external JSON file, so they may be modified without touching code. 

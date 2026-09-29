@@ -47,8 +47,8 @@ Developers can get started by following these steps:
 Find out more about our [coding style guidelines and recommended tools](https://github.com/RaspAP/raspap-webgui/blob/master/CONTRIBUTING.md).
 
 ## Get Insiders
-RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](features-insiders/index.md#how-to-become-a-sponsor)
-and get access to [exclusive features](features-insiders/index.md#whats-in-it-for-me) in the :octicons-heart-fill-24:{: .heart } [Insiders Edition](features-insiders/index.md).
+RaspAP is free software, but powered by your support. If you find RaspAP useful for your personal or commercial projects, [become a sponsor](sponsor.md)
+and get access to :octicons-heart-fill-24:{: .heart } [Alumni Lounge](sponsor.md#whats-in-it-for-me).
 
 ## Discussions
 Questions or comments about the Quick start? Join the [discussion here](https://github.com/RaspAP/raspap-webgui/discussions/).
