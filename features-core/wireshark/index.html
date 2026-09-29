@@ -5,28 +5,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.raspap.com/features-insiders/ap-isolation/">
+        <link rel="canonical" href="https://docs.raspap.com/features-core/wireshark/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../wlanrouting/">
       
       
-        <link rel="next" href="../captive/">
+        <link rel="next" href="../../features-experimental/">
       
       
         
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>AP isolation mode - RaspAP Documentation</title>
+        <title>Wireshark support - RaspAP Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -68,15 +68,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="AP isolation mode - RaspAP Documentation">
-<meta property="og:image" content="https://docs.raspap.com/assets/images/social/features-insiders/ap-isolation.png">
+<meta property="og:title" content="Wireshark support - RaspAP Documentation">
+<meta property="og:image" content="https://docs.raspap.com/assets/images/social/features-core/wireshark.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://docs.raspap.com/features-insiders/ap-isolation/">
+<meta property="og:url" content="https://docs.raspap.com/features-core/wireshark/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="AP isolation mode - RaspAP Documentation">
-<meta property="twitter:image" content="https://docs.raspap.com/assets/images/social/features-insiders/ap-isolation.png">
+<meta property="twitter:title" content="Wireshark support - RaspAP Documentation">
+<meta property="twitter:image" content="https://docs.raspap.com/assets/images/social/features-core/wireshark.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#wireshark-support" class="md-skip">
           Skip to content
         </a>
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AP isolation mode
+              Wireshark support
             
           </span>
         </div>
@@ -566,6 +566,8 @@
       
   
   
+    
+  
   
   
     
@@ -605,19 +607,39 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../features-core/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -641,7 +663,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -661,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/adblock/" class="md-nav__link">
+      <a href="../adblock/" class="md-nav__link">
         
   
   
@@ -689,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/ap-basics/" class="md-nav__link">
+      <a href="../ap-basics/" class="md-nav__link">
         
   
   
@@ -717,7 +739,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/authentication/" class="md-nav__link">
+      <a href="../ap-isolation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP isolation mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication/" class="md-nav__link">
         
   
   
@@ -745,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/bridged/" class="md-nav__link">
+      <a href="../bridged/" class="md-nav__link">
         
   
   
@@ -773,7 +823,63 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/custom-plugins/" class="md-nav__link">
+      <a href="../captive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Captive portal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication/#custom-user-avatars" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom user avatars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-plugins/" class="md-nav__link">
         
   
   
@@ -801,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/dynamicdns/" class="md-nav__link">
+      <a href="../dynamicdns/" class="md-nav__link">
         
   
   
@@ -829,7 +935,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/firewall/" class="md-nav__link">
+      <a href="../../get-started/troubleshooting/#inspect-network-adapters" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspect network adapters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firewall/" class="md-nav__link">
         
   
   
@@ -857,7 +991,63 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/minwrite/" class="md-nav__link">
+      <a href="../authentication/#limited-privilege-user-role" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limited privilege user
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net-devices/#mac-address-cloning" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAC address cloning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minwrite/" class="md-nav__link">
         
   
   
@@ -885,7 +1075,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/ntp/" class="md-nav__link">
+      <a href="../net-devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntp/" class="md-nav__link">
         
   
   
@@ -913,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/openvpn/" class="md-nav__link">
+      <a href="../openvpn/" class="md-nav__link">
         
   
   
@@ -941,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/speedtest/" class="md-nav__link">
+      <a href="../speedtest/" class="md-nav__link">
         
   
   
@@ -969,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/ssl/" class="md-nav__link">
+      <a href="../ssl/" class="md-nav__link">
         
   
   
@@ -997,7 +1215,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/translations/" class="md-nav__link">
+      <a href="../tailscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tailscale VPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translations/" class="md-nav__link">
         
   
   
@@ -1025,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/repeater/" class="md-nav__link">
+      <a href="../repeater/" class="md-nav__link">
         
   
   
@@ -1053,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features-core/wireguard/" class="md-nav__link">
+      <a href="../wireguard/" class="md-nav__link">
         
   
   
@@ -1069,6 +1315,425 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wlanrouting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireless LAN routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireshark support
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireshark support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capture-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capture settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ring-buffer-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ring buffer settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-filter-presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick filter presets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-captures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing captures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing captures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-a-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starting a capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-a-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stopping a capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-and-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips and tricks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips and tricks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analyzing-captures-with-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyzing captures with Wireshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-termshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Termshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-filter-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture filter strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-disk-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing disk space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-capture-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote capture workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capture-files-not-appearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture files not appearing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-cpu-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High CPU usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1244,613 +1909,6 @@
       
   
   
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Insiders
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Insiders
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AP isolation mode
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AP isolation mode
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How it works
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advantages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advantages
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advantages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#security-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-segmentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Network segmentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#improved-privacy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Improved privacy
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-ap-isolation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enabling AP isolation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware compatibility
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips-and-tricks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tips and tricks
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tips and tricks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#verifying-isolation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verifying isolation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discussions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Discussions
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../captive/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Captive portal
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features-core/authentication/#custom-user-avatars" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Custom user avatars
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../get-started/troubleshooting/#inspect-network-adapters" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Inspect network adapters
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features-core/authentication/#limited-privilege-user-role" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Limited privilege user
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../net-devices/#mac-address-cloning" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MAC address cloning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features-core/wireguard/#multiple-configs" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multiple WireGuard configs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../net-devices/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Network devices
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tailscale/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tailscale VPN
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features-core/repeater/#alternate-routing-method" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    WiFi repeater mode
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../wlanrouting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Wireless LAN routing
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../wireshark/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Wireshark support
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
   
   
     <li class="md-nav__item">
@@ -1862,6 +1920,33 @@
     
   
     FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sponsor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sponsorship
   
 
     
@@ -1945,6 +2030,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1964,55 +2051,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#solution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works
+        Solution
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advantages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advantages
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advantages">
+    <nav class="md-nav" aria-label="Solution">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#security-features" class="md-nav__link">
+  <a href="#use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Security features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-segmentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Network segmentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#improved-privacy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Improved privacy
+        Use cases
       
     </span>
   </a>
@@ -2025,10 +2079,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enabling-ap-isolation" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enabling AP isolation
+        Installation
       
     </span>
   </a>
@@ -2036,13 +2090,124 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware-compatibility" class="md-nav__link">
+  <a href="#capture-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware compatibility
+        Capture settings
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Capture settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ring-buffer-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ring buffer settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-filter-presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick filter presets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-captures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing captures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing captures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-a-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starting a capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-a-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stopping a capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2059,10 +2224,115 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#verifying-isolation" class="md-nav__link">
+  <a href="#analyzing-captures-with-wireshark" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verifying isolation
+        Analyzing captures with Wireshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-termshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Termshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-filter-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture filter strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-disk-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing disk space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-capture-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote capture workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capture-files-not-appearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture files not appearing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-cpu-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High CPU usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download issues
       
     </span>
   </a>
@@ -2102,7 +2372,7 @@
 
 
   
-    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/features-insiders/ap-isolation.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/RaspAP/raspap-docs/edit/master/docs/features-core/wireshark.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -2111,46 +2381,188 @@
     
       
     
-    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/features-insiders/ap-isolation.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/RaspAP/raspap-docs/raw/master/docs/features-core/wireshark.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-  <h1>AP isolation mode</h1>
-
-<div><h2 id="overview">Overview</h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental · <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"></path></svg></span> <a href="../">Insiders only</a></p>
-<p>This feature implements hostapd's <code>ap_isolate</code> functionality to provide client isolation when operating a wireless access point (AP). This is a security feature that prevents wireless clients connected to the same AP from communicating directly with each other at the layer 2 level, while still allowing them to access the internet and communicate with the AP itself.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>When AP isolation is enabled, the wireless AP creates a logical barrier between connected clients via <strong>layer 2 isolation</strong>. This blocks direct frame forwarding between wireless clients on the same SSID. Traffic routing requires all client-to-client communication to traverse through the AP's routing layer. Finally, selective filtering maintains normal internet access and AP communication while isolating peer devices.</p>
-<h2 id="advantages">Advantages</h2>
-<p>AP isolation provides several advantages for the both the AP operator and clients. The primary benefits are described below.</p>
-<h3 id="security-features">Security features</h3>
-<p>Notably, security is enhanced by preventing lateral communication between compromised devices on the same network. It reduces attack surface for malicious clients attempting to exploit other connected devices, and isolates potentially untrusted guest devices from accessing other network clients. This is particularly vital if you operate a public access point.</p>
-<h3 id="network-segmentation">Network segmentation</h3>
-<p>When this mode is enabled, it creates a logical separation without requiring additional hardware or VLANs. This greatly simplifies guest network implementations. Moreover, it has the added benefit of reducing network noise and broadcast traffic between clients.</p>
-<h3 id="improved-privacy">Improved privacy</h3>
-<p>Clients are prevented from discovering and accessing shared resources on other connected devices. AP isolation also blocks direct peer-to-peer connections that could otherwise expose sensitive resources. The net effect is enhanced user privacy in public or shared wireless networks.</p>
-<h2 id="enabling-ap-isolation">Enabling AP isolation</h2>
-<p>To enable this mode, simply slide the <strong>Enable AP isolation</strong> toggle on the <strong>Hotspot &gt; Advanced</strong> tab, then choose <strong>Restart hotspot</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/ap-isolate.png" data-desc-position="bottom"><img alt="AP isolation mode" src="../../images/ap-isolate.png" style="width:450px"></a></p>
-<p>This isolation is implemented at the wireless driver level through the <code>hostapd</code> service, specifically by using the <code>ap_isolate=1</code> parameter in the <code>hostapd</code> configuration file.</p>
-<h2 id="hardware-compatibility">Hardware compatibility</h2>
-<p>For Raspberry Pi users, an external USB WiFi adapter is required to use this feature. WLAN chipsets with drivers that implement the necessary isolation features are required for this mode.</p>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>This feature only works with external USB WiFi adapters and chipsets that support client isolation at the driver level. The <code>BCM43455</code> chipset and Broadcom driver used in Raspberry Pi 3B+ and 4B models are <em>not</em> compatible. Your wireless AP will start and function normally, but clients will <em>not</em> be isolated from one another.</p>
+<div><h1 id="wireshark-support">Wireshark support</h1>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/wireshark.png" data-desc-position="bottom"><img alt="tshark-capture" src="../../images/wireshark.png" style="width:640px"></a></p>
+<h2 id="overview">Overview</h2>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"></path></svg></span> Experimental</p>
+<p>Wireshark is the world's most popular network protocol analyzer. While Wireshark provides a full graphical interface for interactive packet analysis, its command-line version <strong>TShark</strong> operates entirely from the shell. This makes it ideal for headless systems, and transforms devices like the Raspberry Pi into a powerful tool for network packet capture.</p>
+<p>TShark captures network traffic in real-time, supporting hundreds of protocols and offers powerful filtering capabilities without the overhead of a GUI.</p>
+<h2 id="solution">Solution</h2>
+<p>Network troubleshooting and security analysis often requires capturing packets to diagnose connectivity issues, identify suspicious traffic, or optimize network performance. However, running a full GUI-based packet analyzer on a headless device or through SSH can be impractical or impossible.</p>
+<p>RaspAP's TShark integration addresses this challenge by providing:</p>
+<ol>
+<li>A web-based interface for configuring and managing packet captures</li>
+<li>Support for Berkeley Packet Filter (BPF) syntax to capture specific traffic</li>
+<li>Automated capture management with ring buffers and limits</li>
+<li>Secure download of capture files for offline analysis</li>
+<li>All the power of Wireshark's capture engine without GUI requirements</li>
+</ol>
+<h3 id="use-cases">Use cases</h3>
+<p>The TShark plugin is particularly useful in these scenarios:</p>
+<ul>
+<li><strong>Troubleshooting connectivity issues</strong>: Capture DNS queries, DHCP exchanges, or failed connection attempts</li>
+<li><strong>Security monitoring</strong>: Identify unauthorized traffic, port scans, or suspicious patterns</li>
+<li><strong>Performance analysis</strong>: Diagnose latency issues, packet loss, or bandwidth utilization</li>
+<li><strong>Protocol debugging</strong>: Examine application-level protocols like HTTP, MQTT, or custom services</li>
+<li><strong>Network documentation</strong>: Create packet captures for reference or compliance purposes</li>
+</ul>
+<div class="admonition tip tip">
+<p class="admonition-title">Tip</p>
+<p>Packet captures can grow large very quickly on busy networks. For this reason, the plugin's default settings define a duration limit of 300 seconds (5 minutes). You may of course modify this setting, or use capture filters to limit what's captured. Ring buffers are also supported to automatically rotate files and manage disk space.</p>
+</div>
+<h2 id="installation">Installation</h2>
+<p>RaspAP's TShark packet capture integration is available as a plugin that may be installed from the <strong>System &gt; Plugins</strong> tab. Simply choose <strong>Details</strong> corresponding to the plugin, then <strong>Install now</strong> from the pop-up dialog.</p>
+<p>The plugin installer automates the installation of the <code>tshark</code> package and its dependencies, configures the necessary permissions for packet capture, and sets up the required sudoers entries. When these steps are done, the installer will automatically refresh the UI. The Wireshark plugin will then appear in the sidebar and is immediately available to configure.</p>
+<h2 id="capture-settings">Capture settings</h2>
+<p>The Wireshark plugin provides comprehensive options for configuring packet captures. All settings are preserved between captures, but are not persisted across system reboots.</p>
+<p><em><small>Click image to expand</small></em> 
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/tshark-settings.png" data-desc-position="bottom"><img alt="tshark-configuration" src="../../images/tshark-settings.png" style="width:640px"></a></p>
+<h3 id="basic-settings">Basic settings</h3>
+<p><strong>Interface</strong><br>
+Select the network interface to capture packets from. This can be any active interface on your system, including ethernet (<code>eth0</code>), wireless (<code>wlan0</code>), or the special <code>any</code> interface to capture from all interfaces simultaneously.</p>
+<p><strong>Output file</strong><br>
+This read-only setting indicates the path where capture files will be saved. Files are saved in a standard <code>.pcap</code> format, which is compatible with Wireshark and other packet analysis tools. The default capture file storage location is <code>/tmp</code>.</p>
+<p><strong>Capture filter (BPF syntax)</strong><br>
+You can use the <a href="https://www.ibm.com/docs/en/qsip/7.4?topic=queries-berkeley-packet-filters">Berkeley Packet Filter syntax</a> to capture only specific traffic. Leave this field empty to capture all traffic. Capture filters are applied during capture to reduce the amount of data saved to disk.</p>
+<p>Common filter examples:</p>
+<ul>
+<li><code>port 80</code> - Capture HTTP traffic only</li>
+<li><code>host 192.168.1.1</code> - Capture traffic to/from a specific host</li>
+<li><code>tcp and not port 22</code> - Capture all TCP except SSH</li>
+<li><code>port 53</code> - Capture DNS queries and responses</li>
+<li><code>icmp</code> - Capture ping traffic only</li>
+</ul>
+<div class="admonition note note">
+<p class="admonition-title">Note</p>
+<p>TShark capture filters use BPF syntax and are applied at the kernel level during capture. This is different from display filters (used in Wireshark) which are applied after capture. For best performance, use capture filters to limit what's saved to disk.</p>
+</div>
+<h3 id="capture-limits">Capture limits</h3>
+<p><strong>Packet count limit</strong><br>
+Stop the capture automatically after capturing a specified number of packets. Leave empty for unlimited capture. This is useful when you need a sample of network traffic without filling up disk space.</p>
+<p><strong>Duration limit (seconds)</strong><br>
+Stop the capture automatically after a specified number of seconds. This is useful for capturing traffic during a specific time window, such as during application startup or a network event.</p>
+<h3 id="ring-buffer-settings">Ring buffer settings</h3>
+<p>Ring buffers allow you to capture continuously while automatically rotating files and managing disk space. This is essential for long-running captures on systems with limited storage.</p>
+<p><strong>File size (KB)</strong><br>
+Create a new file when the current file reaches this size. For example, setting this to <code>10000</code> (10 MB) will create a new file every 10 megabytes of captured data.</p>
+<p><strong>Number of files</strong><br>
+Maximum number of ring buffer files to keep. When this limit is reached, the oldest file is automatically deleted to make room for new captures. For example, with a 10 MB file size and 5 files, you'll maintain approximately 50 MB of the most recent traffic.</p>
+<h3 id="advanced-options">Advanced options</h3>
+<p><strong>Snapshot length (bytes)</strong><br>
+Limit the amount of data captured per packet. The default captures entire packets, but you can specify a smaller value to capture only packet headers. For example, <code>96</code> bytes is sufficient to capture Ethernet, IP, and TCP/UDP headers without payload data. This significantly reduces file size when you only need header information.</p>
+<p><strong>Promiscuous mode</strong><br>
+When enabled (default), the network interface captures all packets on the network segment, not just those destined for this device. This is required for capturing traffic between other devices on your network. Disable this setting to capture only traffic sent to or from this device.</p>
+<h3 id="quick-filter-presets">Quick filter presets</h3>
+<p>The plugin includes convenient preset buttons for common capture scenarios:</p>
+<ul>
+<li><strong>All Traffic</strong> - Clear filters and capture everything</li>
+<li><strong>HTTP/HTTPS</strong> - Capture web traffic on ports 80 and 443</li>
+<li><strong>DNS</strong> - Capture DNS queries and responses</li>
+<li><strong>ICMP (Ping)</strong> - Capture ping traffic</li>
+<li><strong>SSH</strong> - Capture SSH connections</li>
+<li><strong>Exclude SSH</strong> - Capture everything except SSH (useful when accessing RaspAP via SSH)</li>
+</ul>
+<h2 id="managing-captures">Managing captures</h2>
+<h3 id="starting-a-capture">Starting a capture</h3>
+<p>After configuring your desired settings, choose <strong>Save settings</strong> to preserve your configuration. To begin capturing packets, choose <strong>Start capture</strong>. The capture will run in the background until it reaches any configured limits or until you manually stop it.</p>
+<div class="admonition warning warning">
+<p class="admonition-title">Warning</p>
+<p>Starting a new capture while one is already running will fail. Stop the current capture before starting a new one.</p>
+</div>
+<h3 id="stopping-a-capture">Stopping a capture</h3>
+<p>Choose <strong>Stop capture</strong> to end the current packet capture. TShark will gracefully close the capture file, ensuring all buffered packets are written to disk. The capture file, or files, will then be available for download.</p>
+<h3 id="capture-files">Capture files</h3>
+<p>The <strong>Capture files</strong> tab displays all <code>.pcap</code> and <code>.pcapng</code> files in the <code>/tmp</code> directory. The properties of each file is shown, including:</p>
+<ul>
+<li><strong>Filename</strong> - The name of the capture file</li>
+<li><strong>Size</strong> - Human-readable file size (B, KB, MB, GB)</li>
+<li><strong>Modified</strong> - Timestamp of when the file was last modified</li>
+<li><strong>Actions</strong> - Download or delete the file</li>
+</ul>
+<p><em><small>Click image to expand</small></em> 
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/tshark-capture-files.png" data-desc-position="bottom"><img alt="tshark-files" src="../../images/tshark-capture-files.png" style="width:640px"></a></p>
+<p><strong>Downloading captures</strong><br>
+Click or tap the <strong>Download</strong> button to securely download the capture file to your local machine. The file can then be opened in Wireshark for detailed analysis with its graphical interface.</p>
+<p><strong>Deleting captures</strong><br>
+Click or tap the <strong>Delete</strong> button to remove a capture file. A confirmation dialog will appear before deletion. This is useful for managing disk space after you've finished analyzing a capture.</p>
+<div class="admonition tip tip">
+<p class="admonition-title">Tip</p>
+<p>Capture files stored in <code>/tmp</code> are automatically deleted on system reboot. Download important captures before rebooting your device.</p>
 </div>
 <h2 id="tips-and-tricks">Tips and tricks</h2>
-<p>There’s no "capability bit" in Linux that indicates if a WLAN adapter supports AP isolation — it’s purely a <code>hostapd</code> software feature, provided the adapter can operate as an AP. For example, executing <code>iw list | grep -A 20 "Supported interface modes"</code> will display "AP" for an AP-capable adapter, but it will not expose isolation capabilities. Check the manufacturer's specifications for your adapter and verify that both the chipset <em>and</em> driver have support for this mode.</p>
-<h3 id="verifying-isolation">Verifying isolation</h3>
-<p>After starting your AP in isolation mode, obtain a list of active AP clients from RaspAP's <strong>DHCP Server &gt; Client list</strong>. Alternatively, you can execute <code>iw dev wlan0 station dump</code> to list connected clients, substituting <code>wlan0</code> for your AP interface.</p>
-<p>If AP isolation is enabled, connected clients will not be able to ping each other while they’re on the same SSID.
-The only practical way to verify isolation is by connecting two devices and attempting to send network traffic between them (for example, <code>ping</code> one client from the other).</p>
+<h3 id="analyzing-captures-with-wireshark">Analyzing captures with Wireshark</h3>
+<p>After downloading a capture file, open it in Wireshark on your desktop computer for powerful graphical analysis. Wireshark provides features like protocol dissection, stream reassembly, expert analysis, and graphical statistics that complement TShark's capture capabilities.</p>
+<h3 id="using-termshark">Using Termshark</h3>
+<p><a href="https://termshark.io/">Termshark</a> is a terminal user interface (TUI) for TShark that brings Wireshark-like functionality to the command line. If you prefer working directly on your Raspberry Pi via SSH, install Termshark for an interactive packet analysis experience:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt update
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo apt install termshark
+</span></code></pre></div>
+<p>Open any capture file with:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo termshark -r /tmp/capture.pcap
+</span></code></pre></div>
+<p>Termshark provides a split-pane interface with packet list, packet details, and hex dump views — all navigable with keyboard shortcuts.</p>
+<h3 id="capture-filter-strategies">Capture filter strategies</h3>
+<p><strong>Start broad, filter narrow</strong><br>
+Begin with a broad capture (no filter) to understand overall network traffic, then use increasingly specific filters to isolate the traffic you're interested in.</p>
+<p><strong>Exclude your management traffic</strong><br>
+When accessing RaspAP via SSH or HTTPS, exclude this traffic from captures to reduce noise:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>not port 22 and not port 443
+</span></code></pre></div>
+<p><strong>Combine filters with boolean operators</strong><br>
+Build complex filters using <code>and</code>, <code>or</code>, and <code>not</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(tcp port 80 or tcp port 443) and host 192.168.1.100
+</span></code></pre></div>
+<h3 id="managing-disk-space">Managing disk space</h3>
+<p><strong>Use ring buffers for continuous capture</strong><br>
+Set a file size of 10-50 MB and keep 5-10 files for continuous monitoring without filling up your SD card. These guidelines will necessarily depend on the available free storage on your SD card.</p>
+<div class="admonition tip tip">
+<p class="admonition-title">Tip</p>
+<p>When in doubt, you can find the storage used by your device on RaspAP's <strong>System &gt; Basic</strong> tab.</p>
+</div>
+<p><strong>Capture headers only</strong><br>
+Set snapshot length to 96 bytes when you don't need payload data. This dramatically reduces file size while preserving all header information for most protocols.</p>
+<p><strong>Clean up old captures</strong><br>
+Regularly delete capture files you no longer need from the <strong>Capture files</strong> tab.</p>
+<h3 id="remote-capture-workflow">Remote capture workflow</h3>
+<p>Here's a common workflow for remote packet analysis:</p>
+<ol>
+<li>Configure capture settings in RaspAP's web interface</li>
+<li>Start the capture and let it run (optionally with time/packet limits)</li>
+<li>Stop the capture when complete</li>
+<li>Download the capture file to your local machine</li>
+<li>Analyze the capture in Wireshark with its full graphical interface</li>
+<li>Delete the capture file from RaspAP to free up space</li>
+</ol>
+<p>This workflow combines the convenience of remote capture with the power of desktop analysis tools.</p>
+<h3 id="security-considerations">Security considerations</h3>
+<p><strong>Captures contain sensitive data</strong><br>
+Packet captures may contain passwords, cookies, API keys, and other sensitive information transmitted over the network. Handle capture files with the same care as system logs or database backups.</p>
+<p><strong>Use HTTPS for access</strong><br>
+When downloading captures over the network, ensure you're accessing RaspAP <a href="../ssl/">via HTTPS</a> to encrypt the download.</p>
+<p><strong>Limit capture scope</strong><br>
+Use capture filters to avoid capturing more traffic than necessary. For example, if troubleshooting a specific application, filter for only that application's traffic.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="capture-files-not-appearing">Capture files not appearing</h3>
+<p>Capture files are saved to the volatile <code>/tmp</code> directory by default. Verify the output file path in your capture settings and ensure the directory exists and is writable.</p>
+<h3 id="high-cpu-usage">High CPU usage</h3>
+<p>Capturing on busy networks can be CPU-intensive. To reduce overhead:</p>
+<ul>
+<li>Use specific capture filters to limit captured traffic</li>
+<li>Enable UDP throughput optimization for high-volume captures</li>
+<li>Reduce snapshot length to capture only headers</li>
+<li>Use ring buffers with smaller file sizes</li>
+</ul>
+<h3 id="download-issues">Download issues</h3>
+<p>Most browsers will raise a warning when attempting to download a file over an insecure connection. Given that <code>.pcap</code> files may contain sensitive information, it's strongly recommended to install an <a href="../ssl/">SSL certificate</a> on your RaspAP host to enable encrypted downloads. Alternatively, use common secure Linux tools like <code>scp</code> or <code>sftp</code> to transfer files from your device for analysis.</p>
 <h2 id="discussions">Discussions</h2>
-<p>Questions or comments about AP isolation? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
+<p>Questions or comments about using TShark's packet capture? Join the <a href="https://github.com/RaspAP/raspap-webgui/discussions/">discussion here</a>.</p></div>
 
 
 
@@ -2171,35 +2583,12 @@ The only practical way to verify isolation is by connecting two devices and atte
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 24, 2025 08:23:29 UTC">September 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 9, 2025 06:50:13 UTC">October 9, 2025</span>
   </span>
 
     
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/billz" class="md-author" title="@billz">
-          
-          <img src="https://avatars.githubusercontent.com/u/229399?v=4&amp;size=72" alt="billz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -2284,7 +2673,7 @@ The only practical way to verify isolation is by connecting two devices and atte
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Insiders">
+          <a href="../wlanrouting/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Wireless LAN routing">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2294,20 +2683,20 @@ The only practical way to verify isolation is by connecting two devices and atte
                 Previous
               </span>
               <div class="md-ellipsis">
-                Insiders
+                Wireless LAN routing
               </div>
             </div>
           </a>
         
         
           
-          <a href="../captive/" class="md-footer__link md-footer__link--next" aria-label="Next: Captive portal">
+          <a href="../../features-experimental/" class="md-footer__link md-footer__link--next" aria-label="Next: Experimental Features">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Captive portal
+                Experimental Features
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2391,7 +2780,7 @@ The only practical way to verify isolation is by connecting two devices and atte
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["header.autohide", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.top", "navigation.tracking", "content.action.edit", "content.action.view", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   
