@@ -1,6 +1,6 @@
 # Sponsorship
 
-![insiders](https://github.com/user-attachments/assets/832f1f0d-517a-4d73-8b62-068cf1a2041d){: style="width:640px"}
+![sponsors](https://github.com/user-attachments/assets/7ba6208d-4807-4d0c-8590-da04c8d90047){: style="width:640px"}
 
 For several years, development of RaspAP was funded through a **sponsorware** release model, where new features were first released exclusively to sponsors as part of Insiders, and merged into the public repo once a funding goal was reached. That model has succeeded in its goals. Every feature it funded is now part of RaspAP, available to everyone. Read on to learn [how Insiders worked](#how-insiders-worked), [what sponsorships achieve now](#what-sponsorships-achieve), [how to become a sponsor](#how-to-become-a-sponsor) and [what's in it for you](#whats-in-it-for-me)!
 
