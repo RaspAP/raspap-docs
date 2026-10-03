@@ -20,7 +20,9 @@ Sponsorship is now purely voluntary. Your support simply buys the maintainers of
 If you're curious what past sponsorships built, check out the list of [core features](/features-core/). You're most likely already using several of them, [thanks to our awesome sponsors](#how-to-become-a-sponsor)!
 
 ## What's in it for me?
-Sponsorship no longer unlocks exclusive features, but it does get you into the **Alumni Lounge** — the private Insiders repository, now a space reserved for sponsors past, present and future. There you can:
+![the-lounge](images/lounge.png){: style="width:520px"}
+
+Sponsorship no longer unlocks exclusive features, but it does get you into **The Lounge** — the private sponsor's repository, now a space reserved for sponsors past, present and future. There you can:
 
 * Talk directly with the RaspAP team
 * See roadmap discussions and UI mockups early
