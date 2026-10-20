@@ -39,6 +39,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Why do I receive an 'Invalid CSRF token' message and a blank screen?](#token)
 * [My hotspot's SSID appears intermittently or clients are unable to connect.](#intermittent)
 * [Why do I not see any data in 'Data Usage' for one of my interfaces?](#data-usage)
+* [Why does my Mac not see the AP?](#mac-faq)
 
 ## Integrations
 * [How do I integrate RaspAP with Pi-hole?](#pihole)
@@ -470,6 +471,9 @@ Adding interface "wlan1" to database for monitoring.
 vnStat daemon will automatically start monitoring "wlan1" within 5 minutes if the daemon process is currently running.
 ```
 You can leave the service running as is, or restart it using the command `sudo service vnstat restart`. Eventually, you should see data for the desired interface when running the `vnstat` command, and will eventually see data in the graph(s).
+
+## <a name="mac-faq"></a>Why does my Mac not see the AP?
+Apple has certain preferences about how things should be configured for an AP to be visible and working. Apple provides [detailed technical documentation](https://support.apple.com/en-us/102766), but consult the comments in /etc/hostapd.conf for some configuration suggestions.
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
 There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
