@@ -109,7 +109,14 @@ Your peer will need to have WireGuard installed as well. For installing WireGuar
 
 ## Tunneling traffic
 RaspAP uses WireGuard's `PostUp` and `PostDown` firewall rules to forward traffic from the `wg0` interface to your configured wireless interface.
-In the example below, the default AP interface `wlan0` is used: 
+When you upload a configuration with the **Apply iptables rules for AP interface** option, RaspAP adds these lines: 
+
+```
+PostUp = /etc/raspap/networking/wg-forward.sh up %i ap
+PostDown = /etc/raspap/networking/wg-forward.sh down %i
+```
+
+With `ap`, the script reads the current AP interface from `hostapd.conf` each time the tunnel starts. If you select an interface that is not the AP interface, RaspAP writes that interface name instead of `ap`. The script then adds the `FORWARD` and `MASQUERADE` rules for this interface. In the example below, the default AP interface `wlan0` is used: 
 
 ```
 iptables -A FORWARD -i wlan0 -o wg0 -j ACCEPT
@@ -117,7 +124,12 @@ iptables -A FORWARD -i wg0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCE
 iptables -t nat -A  POSTROUTING -o wg0 -j MASQUERADE
 ```
 
-These `iptables` rules are defined in WireGuard's [default settings](../get-started/defaults.md) and may be modified if you wish.
+Because the configuration does not contain the AP interface, you do not need to upload your configuration again when you change the AP interface or the AP subnet later. Restart WireGuard to apply the change.
+
+These lines are defined in WireGuard's [default settings](../get-started/defaults.md) and may be modified if you wish.
+
+!!! note "Note"
+    An update of RaspAP migrates the inline `iptables` rules of older configurations to these lines and keeps a backup of the original file as `<name>.forward.bak`. A running tunnel keeps its old rules until it stops.
 
 !!! note "Note"
     If your VPN server is behind a NAT, you will need to open a UDP port of your choosing (51820 is the default). 
@@ -130,10 +142,65 @@ added to the firewall. Simply choose the **Enable kill switch** option when uplo
 
 ![](../images/wg-killswitch.png){: style="width:480px"}
 
-These rules are automatically appended to your configuration. 
+These rules are automatically appended to your configuration. They call the kill switch script with the options that you select (see below):
+
+```
+PostUp = /etc/raspap/networking/wg-killswitch.sh up %i --allow-ntp
+PreDown = /etc/raspap/networking/wg-killswitch.sh down %i
+```
+
+The kill switch blocks all internet traffic of the device that does not go through the tunnel, for IPv4 and IPv6. It does not block local traffic: private and link-local networks, broadcast, multicast, DHCP and the AP subnet. Thus you can still open the RaspAP web interface or use SSH from the uplink network while the tunnel is down.
+
+When the tunnel starts, the script reads the current AP interface from `hostapd.conf` and allows the subnet of this interface. If you change the AP interface or the AP subnet later, restart WireGuard; you do not need to upload your configuration again.
 
 !!! note "Note"
     Some VPN providers give you the option of adding these rules to their Linux configurations. Skip this option as RaspAP needs to add an exclusion rule for your AP interface.
+
+### Kill switch options
+When you choose **Enable kill switch**, these options are shown below it:
+
+| Option | Default | Script option | Description |
+|---|---|---|---|
+| **Allow NTP outside the tunnel** | On | `--allow-ntp` | NTP (UDP port 123) goes outside the tunnel, so the device can set its clock while the tunnel is down. A WireGuard handshake fails when the clock is behind. |
+| **Allow DNS to the uplink DNS servers outside the tunnel** | Off | `--allow-dns` | DNS requests of the device to the nameservers in `/etc/resolv.conf` go outside the tunnel, so the device can resolve names (for example an NTP server) while the tunnel is down. The DNS requests of AP clients do not change. |
+| **Allow captive portal login** | Off | `--allow-portal` | AP clients can log in to a captive portal of the uplink network. See [Captive portal login](#captive-portal-login). |
+| **Allow the login automatically** | Off | `--portal-auto` | Shown only when **Allow captive portal login** is on. The login is allowed without a click. |
+
+RaspAP also installs `fake-hwclock`. It saves the time every 5 minutes, and at boot it sets the clock to the last saved time. Together with the NTP option, this lets the tunnel connect after a reboot.
+
+!!! note "Note"
+    An update of RaspAP replaces the kill switch rules of older configurations with calls to `wg-killswitch.sh` and keeps a backup of the original file. A migrated configuration gets `--allow-ntp`. A running tunnel keeps its old rules until it restarts.
+
+### Captive portal login
+Many public networks, for example in hotels, need a login on a captive portal before they give access to the internet. Until the login, the WireGuard tunnel cannot connect, and the kill switch blocks the login page for your AP clients. The **Allow captive portal login** option lets AP clients log in while the tunnel and the kill switch stay on.
+
+When the option is on, a systemd timer (`raspap-captive-portal.timer`) runs a check every minute:
+
+1. The check pings `1.1.1.1` and `9.9.9.9` through the tunnel. When one of them answers, the tunnel works and nothing else happens.
+2. When the pings fail, the check requests `http://detectportal.firefox.com/success.txt` through the uplink. Only the system user `raspap-probe` can send this request; the kill switch allows this user on TCP port 80 only. A redirect, or a login page instead of the expected answer, means that the uplink has a captive portal.
+3. The dashboard and the WireGuard page then show a warning with the button **Allow the login for 5 minutes**.
+
+When you click the button, the login is allowed. During this time, the HTTP (TCP port 80) and DNS requests of AP clients go to the uplink network instead of the tunnel. On a device that is connected to the hotspot, open a website that starts with `http://`. The login page of the network then opens. If the portal sent the address of its login page, the warning also shows the link **Open the login page**. HTTPS and all other traffic of AP clients stay blocked, and the kill switch of the device does not change.
+
+The login ends:
+
+- after 5 minutes (at the next check, so at most 1 minute later),
+- when the tunnel works again,
+- when the uplink is free (after the login), or
+- when you click **End the login now**.
+
+The tunnel then connects again without a restart.
+
+With **Allow the login automatically**, the login is allowed without a click when the check finds a captive portal. It then stays allowed until the tunnel works again or the uplink is free.
+
+!!! warning "Attention"
+    With **Allow the login automatically**, a network that blocks the tunnel and shows a false login page can see the HTTP and DNS requests of your AP clients until the tunnel works again. Use this option only on networks that you trust. Without it, the HTTP and DNS requests of AP clients go outside the tunnel only after you click the button, and for 5 minutes at most.
+
+!!! note "Limitations"
+    * A login page that uses only HTTPS does not work, because TCP port 443 stays blocked.
+    * The DNS server of the uplink network must be in a private network (the kill switch allows the private ranges), or you must enable **Allow DNS to the uplink DNS servers outside the tunnel**. Otherwise the check cannot resolve the name of its test address.
+
+The check writes each change to the system log. To see it, execute `sudo journalctl -t raspap-captive-portal`.
 
 ## Multiple configs
 :octicons-beaker-24: Experimental
