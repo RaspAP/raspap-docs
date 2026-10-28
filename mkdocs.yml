@@ -37,6 +37,7 @@ nav:
     - SSL certificates: features-core/ssl.md
     - Tailscale VPN: features-core/tailscale.md
     - Translations: features-core/translations.md
+    - WiFi client: features-core/wifi-client.md
     - WiFi repeater: features-core/repeater.md
     - WireGuard: features-core/wireguard.md
     - Wireless LAN routing: features-core/wlanrouting.md
