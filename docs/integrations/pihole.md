@@ -1,4 +1,5 @@
 # Pi-hole integration
+![pi-hole](../images/pi-hole.png){: style="width:640px"}
 
 ## Overview
 
@@ -28,8 +29,9 @@ AP client ──DHCP──▶ RaspAP (dnsmasq, DHCP only)
 ## Configure RaspAP
 
 1. Go to **DHCP Server** and select your AP interface, for example `wlan0`.
-2. On the **Server settings** tab, set **DNS Server 1** to the IP address of the AP interface. With the default settings this is `10.3.141.1`. Leave **DNS Server 2** empty, so that clients cannot bypass Pi-hole.
-3. On the **Advanced** tab, enable **Disable DNS server (DHCP only)**.
+2. On the **Advanced** tab, enable **Disable DNS server (DHCP only)**. This will automatically set the DNS Server on the **Server settings** tab to the IP address of the AP interface.
+3. On the **Server settings** tab, be sure to leave **DNS Server 2** empty, so that clients cannot bypass Pi-hole.
+
 4. Choose **Save settings**, then **Restart dnsmasq**.
 
 !!! warning "Important"
