@@ -46,6 +46,9 @@ nav:
     - AP-STA mode: features-experimental/ap-sta.md
     - RESTful API: features-experimental/restapi.md
     - VPN providers: features-experimental/providers.md
+  - Integrations:
+    - Integrations: integrations/index.md
+    - Pi-hole: integrations/pihole.md
   - FAQ: faq.md
   - Sponsorship: sponsor.md
   - Reporting Issues: issues.md

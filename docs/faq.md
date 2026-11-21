@@ -472,15 +472,15 @@ vnStat daemon will automatically start monitoring "wlan1" within 5 minutes if th
 You can leave the service running as is, or restart it using the command `sudo service vnstat restart`. Eventually, you should see data for the desired interface when running the `vnstat` command, and will eventually see data in the graph(s).
 
 ## <a name="pihole"></a>How do I integrate RaspAP with Pi-hole?
-There have been several discussions around integrating RaspAP with Pi-hole, with the end goal of hosting a complete AP and ad-blocker on a single device. Both projects rely on `dnsmasq`, so integration between them is tricky. There are now several options available to users of RaspAP.
+RaspAP and Pi-hole can now run on the same device. RaspAP keeps serving DHCP to AP clients and leaves DNS to Pi-hole. The setup is described on the [Pi-hole integration](integrations/pihole.md) page.
 
-1. The first option is to configure RaspAP to use a Pi-Hole installation on a separate device. Go to RaspAP's **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server" option, add your Pi-Hole's DNS, save settings and restart dnsmasq.
+If you prefer a different setup, these options are also available:
 
-2. Install RaspAP in an isolated [Docker container](get-started/docker.md) together with Pi-Hole. You will need to configure Pi-Hole's `dnsmasq` service to listen on a port other than `53`.
+1. Use a Pi-hole installation on a separate device. Go to RaspAP's **DHCP Server** > **Server settings** tab, set **DNS Server 1** to your Pi-hole's IP address, save settings and restart dnsmasq.
 
-3. Install Pi-Hole in a Docker container and proceed with a normal installation of RaspAP on the same device.
+2. Install Pi-hole in a Docker container and proceed with a normal installation of RaspAP on the same device.
 
-4. Alternatively, you may use RaspAP's own [ad blocking facility](features-core/adblock.md) with support for custom blocklists. 
+3. Use RaspAP's own [ad blocking facility](features-core/adblock.md) with support for custom blocklists.
 
 ## <a name="adguard"></a>Can I integrate RaspAP with Adguard Home?
 Yes, you can run RaspAP and [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) on the same device. Change Adguard Home’s listening port to `5300` and bind to `127.0.0.1`, then go to RaspAP's > **DHCP Server** > **Advanced** page and enable the "Upstream DNS Server".  Add `127.0.0.1#5300` as an upstream DNS Server. Save settings and restart dnsmasq. Tip via [@firestrife23](https://github.com/RaspAP/raspap-webgui/issues/542#issuecomment-609078400)
