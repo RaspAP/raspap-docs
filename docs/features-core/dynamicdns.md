@@ -1,6 +1,10 @@
+---
+image: images/dynamicdns-header.png
+---
+
 # Dynamic DNS
 
-![dynamic-dns](https://github.com/user-attachments/assets/ac4fa7b4-a485-4696-9a25-238cd896cdc8){: style="width:640px"}
+![dynamic-dns](../images/dynamicdns-header.png){: style="width:640px"}
 
 ## Overview
 

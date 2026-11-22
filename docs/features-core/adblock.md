@@ -1,6 +1,10 @@
+---
+image: images/adblock-header.png
+---
+
 # Ad blocking
 
-![ad-blocking](https://github.com/user-attachments/assets/34e7a67c-2ce4-4e0f-9afd-7403a0f895df){: style="width:640px"}
+![ad-blocking](../images/adblock-header.png){: style="width:640px"}
 
 RaspAP has introduced a new DNS based filter to stop ads, trackers, malware and other undesirable hosts in their tracks. 
 

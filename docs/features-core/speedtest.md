@@ -1,6 +1,10 @@
+---
+image: images/speedtest-header.png
+---
+
 # Speed testing 
 
-![speed](https://github.com/user-attachments/assets/36d38005-3793-4407-80f5-22f251d4f5b6){: style="width:640px"}
+![speed](../images/speedtest-header.png){: style="width:640px"}
 
 ## Overview
 An internet **speed test** measures the connection speed and quality of your connected device to a remote host. Many speed test services perform multiple consecutive tests that evaluate different aspects of your internet connection, including **ping** (latency), **download** and **upload speed**. A fourth metric, known as **jitter**, measures variation in the latency of a flow of packets between two systems. Jitter is said to occur when some packets take longer to travel from one system to the other. The most common causes of jitter are network congestion, timing drift and changes in packet routing.

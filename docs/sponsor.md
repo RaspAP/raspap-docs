@@ -1,3 +1,7 @@
+---
+image: images/sponsors.jpg
+---
+
 # Sponsorship
 
 ![sponsors](images/sponsors.jpg){: style="width:640px"}

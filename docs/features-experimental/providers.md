@@ -1,6 +1,10 @@
+---
+image: images/providers-header.png
+---
+
 # VPN Providers
 
-![vpn-providers](https://github.com/user-attachments/assets/ab600145-e2af-46da-85c9-d35d5b1df018){: style="width:640px"}
+![vpn-providers](../images/providers-header.png){: style="width:640px"}
 
 ## Overview
 :octicons-beaker-24: Experimental 

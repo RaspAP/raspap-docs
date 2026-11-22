@@ -1,6 +1,10 @@
+---
+image: images/ntp-header.png
+---
+
 # NTP service
 
-![ntp-service](https://github.com/user-attachments/assets/9bd23465-5fd2-4a58-98e2-ab28ccc22a16){: style="width:640px"}
+![ntp-service](../images/ntp-header.png){: style="width:640px"}
 
 ## Overview
 

@@ -1,3 +1,7 @@
+---
+image: images/docker.png
+---
+
 # Docker support
 
 ![docker](../images/docker.png){: style="width:640px"}

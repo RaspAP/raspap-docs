@@ -1,3 +1,7 @@
+---
+image: images/portal.png
+---
+
 # Captive portal
 
 ![captive-portal](../images/portal.png){: style="width:640px"}
