@@ -1,6 +1,10 @@
+---
+image: images/minwrite-header.png
+---
+
 # Minimal SD card write
 
-![minwrite](https://github.com/user-attachments/assets/c17886a9-5aa6-49f4-a0e9-8b14a333a749){: style="width:640px"}
+![minwrite](../images/minwrite-header.png){: style="width:640px"}
 
 ## Overview
 Linux, and indeed most substantial operating systems, frequently writes logs files, cache files and temporary data to disk. Performing a shutdown puts these files away into a known valid state. If power is unexpectedly cut to a system, these unwritten system files can become corrupted and render a microSD card unbootable.

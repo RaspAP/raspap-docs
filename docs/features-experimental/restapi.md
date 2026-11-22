@@ -1,6 +1,10 @@
+---
+image: images/restapi-header.png
+---
+
 # RestAPI
 
-![restful-api](https://github.com/user-attachments/assets/51b6ae1b-5cbf-4552-ad30-210cc68f854b){: style="width:640px"}
+![restful-api](../images/restapi-header.png){: style="width:640px"}
 
 ## Overview
 :octicons-beaker-24: Experimental 

@@ -1,3 +1,7 @@
+---
+image: images/wireshark.png
+---
+
 # Wireshark support
 
 ![tshark-capture](../images/wireshark.png){: style="width:640px"}

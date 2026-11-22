@@ -1,3 +1,7 @@
+---
+image: images/RaspAP-banner-2025.png
+---
+
 # Overview
 
 ![RaspAP-banner](images/RaspAP-banner-2025.png){: style="width:480px"}

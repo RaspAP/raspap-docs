@@ -1,3 +1,7 @@
+---
+image: images/tailscale.png
+---
+
 # Tailscale VPN
 
 ![tailscale-vpn](../images/tailscale.png){: style="width:640px"}

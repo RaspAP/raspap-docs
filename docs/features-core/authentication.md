@@ -1,9 +1,13 @@
+---
+image: images/authentication-header.png
+---
+
 # Authentication
 
 ## Overview
 RaspAP's login is used to authenticate with an encrypted password stored on the local filesystem. This familiar web-based dialog is compatible with password managers which are often used (and recommended) to autofill strong passwords.
 
-![](https://github.com/user-attachments/assets/b0546f68-3332-4f36-a8f4-ada10454cd16){: style="width:580px"}
+![](../images/authentication-header.png){: style="width:580px"}
 
 The default administrator credentials are:
 

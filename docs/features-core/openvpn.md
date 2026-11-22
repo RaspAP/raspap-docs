@@ -1,6 +1,10 @@
+---
+image: images/openvpn-header.png
+---
+
 # OpenVPN
 
-![openvpn](https://github.com/user-attachments/assets/23e6eb70-5fab-4d71-b6d6-1f08238dfb22){: style="width:640px"}
+![openvpn](../images/openvpn-header.png){: style="width:640px"}
 
 ## Overview
 OpenVPN may be optionally installed by the [Quick Installer](../get-started/quick-installer.md). Once this is done, you can create a client configuration and manage the `openvpn-client` service with RaspAP.

@@ -1,6 +1,10 @@
+---
+image: images/wlanrouting-header.png
+---
+
 # Wireless LAN routing
 
-![wlan-routing](https://github.com/user-attachments/assets/2ddf3971-f230-425f-9391-b5e7ebc0a1ca)
+![wlan-routing](../images/wlanrouting-header.png)
 
 ## Overview
 :octicons-beaker-24: Experimental

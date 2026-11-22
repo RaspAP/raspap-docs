@@ -1,6 +1,10 @@
+---
+image: images/wireguard-header.png
+---
+
 # WireGuard
 
-![wireguard](https://github.com/user-attachments/assets/fcfe81ec-0097-4ce6-ba27-55df954bec37){: style="width:640px"}
+![wireguard](../images/wireguard-header.png){: style="width:640px"}
 
 ## Overview
 WireGuard<sup>®</sup> is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be considerably more performant than OpenVPN,
