@@ -1,3 +1,7 @@
+---
+image: images/pi-hole.png
+---
+
 # Pi-hole integration
 ![pi-hole](../images/pi-hole.png){: style="width:640px"}
 

@@ -54,6 +54,9 @@ nav:
   - Reporting Issues: issues.md
   - Get involved: get_involved.md
 
+hooks:
+  - hooks/social_image.py
+
 theme:
   name: material
   logo: images/favicon-32x32.png
@@ -126,7 +129,7 @@ plugins:
   - search
   - social:
       cards_layout_options:
-        background_color: #2b8080
+        background_color: "#2b8080"
   - git-revision-date-localized
   - git-committers:
       repository: RaspAP/raspap-docs
