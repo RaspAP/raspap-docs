@@ -11,6 +11,7 @@
 - __OpenVPN client__ [:octicons-arrow-right-24:{ .lg .middle } Get started](openvpn.md)
 - __Speed testing__ [:octicons-arrow-right-24:{ .lg .middle } Get started](speedtest.md)
 - __SSL certificates__ [:octicons-arrow-right-24:{ .lg .middle } Get started](ssl.md)
+- __WiFi client__ [:octicons-arrow-right-24:{ .lg .middle } Get started](wifi-client.md)
 - __WiFi repeater__ [:octicons-arrow-right-24:{ .lg .middle } Get started](repeater.md)
 - __Translations__ [:octicons-arrow-right-24:{ .lg .middle } Get started](translations.md)
 - __WireGuard__ [:octicons-arrow-right-24:{ .lg .middle } Get started](wireguard.md)
