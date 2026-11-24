@@ -200,6 +200,23 @@ sudo cp installers/configport.sh /etc/raspap/lighttpd
 sudo chown -c root:root /etc/raspap/lighttpd/*.sh
 ```
 
+Some helper scripts run as root, or the `www-data` user runs them with `sudo`. For this reason, they must be in a directory that only root can change. Install them in `/usr/local/sbin`:
+
+```
+sudo install -o root -g root -m 755 installers/raspap-iptables-save.sh /usr/local/sbin/raspap-iptables-save.sh
+sudo install -o root -g root -m 755 installers/settime.sh /usr/local/sbin/raspap-settime.sh
+sudo install -o root -g root -m 755 installers/nm-wifi.sh /usr/local/sbin/raspap-nm-wifi.sh
+```
+
+Install the uplink watchdog of the **WiFi client** page. The installer does not enable its timer; you turn the watchdog on with the switch on the **WiFi client** page:
+
+```
+sudo install -o root -g root -m 755 installers/uplink-watchdog.sh /usr/local/sbin/raspap-uplink-watchdog.sh
+sudo install -o root -g root -m 644 installers/raspap-uplink-watchdog.service /etc/systemd/system/raspap-uplink-watchdog.service
+sudo install -o root -g root -m 644 installers/raspap-uplink-watchdog.timer /etc/systemd/system/raspap-uplink-watchdog.timer
+sudo systemctl daemon-reload
+```
+
 Next, move the `raspapd` service file to the correct location and enable it:
 
 ```
@@ -298,7 +315,48 @@ Adding support for [WireGuard](../features-core/wireguard.md) is straightforward
 ```
 sudo apt-get install wireguard
 sudo sed -i "s/\('RASPI_WIREGUARD_ENABLED', \)false/\1true/g" /var/www/html/includes/config.php
-sudo systemctl enable wg-quick@wg
+sudo systemctl enable wg-quick@wg0
+```
+
+The `PostUp` and `PostDown` rules in RaspAP's [default settings](defaults.md) call two scripts for the forwarding rules and the [kill switch](../features-core/wireguard.md#kill-switch). Install them in `/etc/raspap/networking`:
+
+```
+cd /var/www/html
+sudo install -o root -g root -m 750 installers/wg-forward.sh /etc/raspap/networking/wg-forward.sh
+sudo install -o root -g root -m 750 installers/wg-killswitch.sh /etc/raspap/networking/wg-killswitch.sh
+```
+
+!!! warning "Attention"
+    Without these scripts, a WireGuard configuration that you upload with **Apply iptables rules for AP interface** or **Enable kill switch** does not start.
+
+The captive portal login option of the kill switch needs a helper script, two systemd units and the system user `raspap-probe`:
+
+```
+sudo useradd --system --no-create-home --home-dir /nonexistent --shell /usr/sbin/nologin raspap-probe
+sudo apt-get install psl
+sudo install -o root -g root -m 755 installers/captive-portal.sh /usr/local/sbin/raspap-captive-portal.sh
+sudo install -o root -g root -m 644 installers/raspap-captive-portal.service /etc/systemd/system/raspap-captive-portal.service
+sudo install -o root -g root -m 644 installers/raspap-captive-portal.timer /etc/systemd/system/raspap-captive-portal.timer
+sudo install -o root -g root -m 644 installers/raspap-captive-portal-cleanup.service /etc/systemd/system/raspap-captive-portal-cleanup.service
+sudo systemctl daemon-reload
+sudo systemctl enable raspap-captive-portal-cleanup.service
+```
+
+Do not enable the timer. The kill switch starts it when the tunnel starts with this option.
+
+A WireGuard handshake fails when the clock of the device is behind. If your device has no real-time clock with a battery, install `fake-hwclock` and save the time every 5 minutes. At boot, `fake-hwclock` sets the clock to the last saved time:
+
+```
+sudo apt-get install fake-hwclock
+echo "*/5 * * * * root /usr/sbin/fake-hwclock save" | sudo tee /etc/cron.d/raspap-fake-hwclock
+```
+
+When DNS goes through a tunnel that is down, the names of the NTP servers do not resolve. The quick installer therefore adds the `time.cloudflare.com` servers by IP address as fallback servers for `systemd-timesyncd`. To do this manually, add the line below. Put the default servers of your distribution first in the `FallbackNTP=` line, if you want to keep them:
+
+```
+sudo mkdir -p /etc/systemd/timesyncd.conf.d
+printf '[Time]\nFallbackNTP=162.159.200.1 162.159.200.123 2606:4700:f1::1 2606:4700:f1::123\n' | sudo tee /etc/systemd/timesyncd.conf.d/90-raspap.conf
+sudo systemctl try-restart systemd-timesyncd.service
 ```
 
 ### Ad blocking

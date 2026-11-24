@@ -66,6 +66,7 @@ If you would like to see a new FAQ that you feel would assist other users, [star
 * [Uploading my WireGuard config results in "MIME type not allowed".](#mimetype)
 * [I think my traffic isn't being routed through the WireGuard VPN. Can I debug this?](#wgtraffic)
 * [How can I clear RaspAP's WireGuard log?](#wglog)
+* [WireGuard does not connect after a reboot, or RaspAP shows a warning about the device clock.](#wgclock)
 
 ## Networking
 * [Why can't I access wireless mode 'N' (802.11n)?](#wireless-mode)
@@ -353,6 +354,9 @@ sudo wpa_cli -i wlan0 scan_results
 Failed to connect to non-global ctrl_ifname: wlan0  error: No such file or directory
 ```
 ...indicate a problem with the socket used to communicate with `wpa_supplicant`. You may also encounter errors such as "Could not connect to wpa_supplicant: wlan0 - re-trying".
+
+!!! note "Note"
+    When NetworkManager manages the WiFi client interface, NetworkManager starts `wpa_supplicant`. The steps below are for systems without NetworkManager. Do not start a second `wpa_supplicant` for an interface that NetworkManager manages. To see which program manages the interface, execute `nmcli device status`.
 
 If this happens, first check the contents of `wpa_supplicant` with `sudo cat /etc/wpa_supplicant/wpa_supplicant.conf`. You should see, at minimum, the following:
 
@@ -837,6 +841,17 @@ sudo journalctl --vacuum-time=2d
 
 See `man journalctl` for more information.
 
+## <a name="wgclock"></a>WireGuard does not connect after a reboot, or RaspAP shows a warning about the device clock.
+A WireGuard handshake fails when the clock of the device is behind. A Raspberry Pi has no real-time clock with a battery, so after a reboot it needs NTP to set its clock. When the [kill switch](features-core/wireguard.md#kill-switch) is on and the tunnel is down, NTP can fail too.
+
+RaspAP has several ways to prevent this:
+
+* The quick installer installs `fake-hwclock`. It saves the time every 5 minutes, and at boot it sets the clock to the last saved time.
+* The kill switch option **Allow NTP outside the tunnel** (on by default) lets NTP go outside the tunnel.
+* The quick installer adds NTP servers by IP address as fallback servers, so the clock can be set when the names of the NTP servers do not resolve.
+
+Each page of RaspAP also compares the device clock with the clock of your browser. When the difference is more than 2 minutes and NTP did not synchronize the device, RaspAP shows a warning with the difference. Click or tap **Set the device clock to the time of this browser** to correct the clock. The tunnel can then connect.
+
 ## <a name="wireless-mode"></a>Why can't I access wireless mode 'N' (802.11n)?
 On the **Configure hotspot** > **Security** tab, be sure to select CCMP for the Encryption Type. Save the settings and restart the hotspot. The wireless mode should be reported on clients as 802.11b/g/n.
 
@@ -932,7 +947,9 @@ If you're curious about which other services and Linux tools RaspAP controls for
 Yes, RaspAP simplifies this with an intuitive and easy-to-use [WLAN routing](features-core/wlanrouting.md) solution.
 
 ## <a name="autoconnect"></a>Can RaspAP automatically connect to a known WiFi network at boot?
-When rebooting, users must manually re-establish a connection to a known WiFi network by using the **WiFi client** UI. This is the default behavior of `wpa_supplicant`. That is, on startup the `wpa_supplicant` service is executed by `systemd` (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.
+Yes, if NetworkManager manages the WiFi client interface. This is the default on recent versions of Raspberry Pi OS. RaspAP then creates a NetworkManager connection for each network that you save on the **WiFi client** page. These connections connect automatically, so the device connects to a known network again after a reboot. To see which program manages the interface, execute `nmcli device status`.
+
+The text below is for systems without NetworkManager. When rebooting, users must manually re-establish a connection to a known WiFi network by using the **WiFi client** UI. This is the default behavior of `wpa_supplicant`. That is, on startup the `wpa_supplicant` service is executed by `systemd` (not RaspAP) and enables logging and the DBus control interface; it does not automatically connect to any known networks.
 
 However, you can change this behavior and have `wpa_supplicant` establish a connection on startup by editing the root user's `crontab`, like so:
 
