@@ -112,6 +112,8 @@ www-data ALL=(ALL) NOPASSWD:/bin/systemctl status sample.service
 
 Wildcards ('`*`') and regular expressions are supported by `sudoers` but [care should be taken when using them](https://www.sudo.ws/posts/2022/03/sudo-1.9.10-using-regular-expressions-in-the-sudoers-file/).
 
+When a plugin is installed from the **System > Plugins** tab, RaspAP adds the rules in the `sudoers` key of its manifest to a separate file for you. See [Installing and uninstalling plugins](#installing-and-uninstalling-plugins).
+
 ## Multiple instances
 The `PluginManager` is a managerial class responsible for locating, instantiating and coordinating plugins. Through the use of namespaces and object data persistence in `SamplePlugin`, any number of user plugins may be installed to `/plugins` and run concurrently.
 
@@ -122,6 +124,40 @@ As previously noted, developers should avoid using PHP's `$_SESSION` object in t
 !!! note "Note"
     The `persistData()` function writes serialized data to the volatile `/tmp` directory which is cleared on each system boot. For this reason, it should not be used as a method of permanent data storage. However, this functionality roughly approximates PHP's `$_SESSION` object; the difference being that each plugin's data is isolated from other plugin instances.
 
+
+## Installing and uninstalling plugins
+Plugins listed in the RaspAP [plugins repository](https://github.com/RaspAP/plugins) may be installed from the **System > Plugins** tab. Choose **Details** for a plugin, then **Install now**. For a plugin with an `install_path` of `plugins`, RaspAP downloads the release tagged with the plugin's `version` from its `plugin_uri`. A plugin bundled in `/plugins-available` is symlinked to `/plugins` instead. The installer then reads the `manifest.json` file in the plugin's root directory, which tells it what the plugin needs on the system:
+
+| Key                  | Description                                                                                                   |
+|----------------------|---------------------------------------------------------------------------------------------------------------|
+| `name`               | Plugin name. With spaces removed, it names the plugin's sudoers file: `/etc/sudoers.d/090_<name>`.             |
+| `sudoers`            | Rules added to the plugin's sudoers file. RaspAP checks them with `visudo` before installing the file.        |
+| `keys`               | Repository keys and apt sources for third-party packages, each with `key_url`, `keyring`, `repo` and `sources`. |
+| `dependencies`       | Packages installed with `apt`, listed by name.                                                                |
+| `dpkgs`              | Debian packages in the plugin's `dpkgs/` directory. The package for the device's architecture is installed.   |
+| `user_nonprivileged` | A non-privileged Linux user with a `name` and `pass`, created for the plugin.                                 |
+| `configuration`      | Files copied from `source` in the plugin to `destination`. A relative destination is inside RaspAP's install directory. |
+| `permissions`        | The `owner`, `group` and `mode` set on a `file`.                                                              |
+| `javascript`         | JavaScript files copied to RaspAP's `app/js/plugins/` directory.                                              |
+| `services`           | Optional. systemd services (`*.service`) that are stopped and disabled when the plugin is uninstalled.        |
+
+To remove a plugin, choose **Details** for an installed plugin, then **Uninstall**. The **Uninstall** button isn't available in monitor mode. RaspAP first stops and disables the plugin's services, then removes what it added to RaspAP itself:
+
+1. The plugin's sudoers file `/etc/sudoers.d/090_<name>`.
+2. The plugin directory in `/plugins`, or the symlink for a plugin installed from `/plugins-available`. The plugin stays in `/plugins-available`.
+3. The plugin's JavaScript files in `app/js/plugins/`.
+
+Packages, repository keys, users and configuration files are kept, because other software on the device may use them. You may remove these manually if they are no longer needed.
+
+The services to stop are those in the `services` key and any `.service` that the plugin's `sudoers` rules allow `www-data` to control with `systemctl`. For example, the rule `/bin/systemctl * sample.service` is enough for `sample.service`. If your plugin starts a service without such a rule, add it to `services` so the service doesn't keep running after the plugin is removed:
+
+```
+"services": [
+    "sample.service"
+],
+```
+
+RaspAP refuses to stop its own services and essential system services, such as `hostapd.service`, `lighttpd.service` or `ssh.service`.
 
 ## Publishing your plugin
 The `SamplePlugin` contains an "About" tab where you may provide author information, a description and link to your project. If you've authored a plugin you feel would be useful to the RaspAP community, you're encouraged to share it in the `SamplePlugin` repository's [discussions](https://github.com/RaspAP/SamplePlugin/discussions). 
