@@ -186,32 +186,16 @@ and **Restart hotspot** for the changes to take effect.
 Yes. On the **Hotspot > Security** tab, select 'None' for Security type. Choose **Save settings** and **Restart hotspot** for the changes to take effect.
 
 ## <a name="access"></a>How do I prevent WAN access to RaspAP's web administration?
-There are two ways to do this. The simplest method is to set the web server's bind address in RaspAP's **System > Advanced** tab to the IPv4 address you wish to grant access to. Choose **Save settings** and **Restart lighttpd**.
-After this is done, the web server will refuse connections to all IP addresses other than the one you've defined. 
+The [version 3.6.0](https://github.com/RaspAP/raspap-webgui/releases/tag/3.6.0) release added an **Allowed networks** setting to RaspAP's **System > Advanced** tab. Enter the IP addresses or networks in CIDR notation that may access the web interface, separated by commas. For example, `10.3.141.0/24` allows only clients of the default AP subnet. Both IPv4 and IPv6 are supported, and you may enter up to 16 addresses or networks. Choose **Save settings** and **Restart lighttpd** for the change to take effect.
 
-A somewhat cleaner method with a "403 Forbidden" response can be done manually with lighttpd. You could modify lighttpd's main config directly, but to keep things neater we can use RaspAP's own configuration in lighttpd's `/conf-available` directory. Edit it like so:
+Clients outside of the allowed networks will receive a "403 Forbidden" response when accessing the web UI. Requests from the device itself (`127.0.0.0/8` and `::1`) are always allowed. To remove the restriction, clear the field and save your settings again.
 
-```
-sudo nano /etc/lighttpd/conf-available/50-raspap-router.conf
-```
+!!! note "Note"
+    RaspAP refuses to save a list that doesn't include the address you are currently connected from, so you can't lock yourself out of the web interface. If you connect to RaspAP over the WAN and want to allow only AP clients, connect to the AP first.
 
-Add the following to the end, substituting the `192.168.0.0/16` private IPv4 address range (192.168.0.0 – 192.168.255.255) for your own network:
+RaspAP writes these rules to `/etc/lighttpd/conf-available/51-raspap-access.conf` and enables it in lighttpd's `/conf-enabled` directory. Changes made on the **System > Advanced** tab replace this file, so manual edits to it will be lost.
 
-```
-# deny access to RaspAP admin for users that
-# are not in the 192.168.0.0/16 network
-$HTTP["remoteip"] != "192.168.0.0/16" {
-    url.access-deny = ( "" )
-}
-```
-
-Save and exit the file, then restart the lighttpd service:
-
-```
-sudo systemctl restart lighttpd.service
-```
-
-Clients outside of your defined network range will receive a '403' response when accessing the web UI.
+Alternatively, you may set the web server's bind address on the same tab to a single IPv4 address of this device, such as the AP interface's `10.3.141.1`. The web server will then refuse connections on all other addresses.
 
 ## <a name="minwrite"></a>Can I reduce the risk of SD card corruption and extend a card's lifespan?
 Yes. RaspAP has developed a [minimal write mode](features-core/minwrite.md) that substantially reduces disk I/O activity and helps to extend the life of microSD cards.
